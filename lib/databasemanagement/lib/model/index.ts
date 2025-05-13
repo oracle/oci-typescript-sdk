@@ -280,8 +280,6 @@ import * as DisableDatabaseManagementFeatureDetails from "./disable-database-man
 export import DisableDatabaseManagementFeatureDetails = DisableDatabaseManagementFeatureDetails.DisableDatabaseManagementFeatureDetails;
 import * as DisableExternalContainerDatabaseManagementFeatureDetails from "./disable-external-container-database-management-feature-details";
 export import DisableExternalContainerDatabaseManagementFeatureDetails = DisableExternalContainerDatabaseManagementFeatureDetails.DisableExternalContainerDatabaseManagementFeatureDetails;
-import * as DisableExternalMysqlAssociatedServiceDetails from "./disable-external-mysql-associated-service-details";
-export import DisableExternalMysqlAssociatedServiceDetails = DisableExternalMysqlAssociatedServiceDetails.DisableExternalMysqlAssociatedServiceDetails;
 import * as DisableExternalNonContainerDatabaseManagementFeatureDetails from "./disable-external-non-container-database-management-feature-details";
 export import DisableExternalNonContainerDatabaseManagementFeatureDetails = DisableExternalNonContainerDatabaseManagementFeatureDetails.DisableExternalNonContainerDatabaseManagementFeatureDetails;
 import * as DisableExternalPluggableDatabaseManagementFeatureDetails from "./disable-external-pluggable-database-management-feature-details";
@@ -324,8 +322,6 @@ import * as EnableExternalDbSystemStackMonitoringDetails from "./enable-external
 export import EnableExternalDbSystemStackMonitoringDetails = EnableExternalDbSystemStackMonitoringDetails.EnableExternalDbSystemStackMonitoringDetails;
 import * as EnableExternalExadataInfrastructureManagementDetails from "./enable-external-exadata-infrastructure-management-details";
 export import EnableExternalExadataInfrastructureManagementDetails = EnableExternalExadataInfrastructureManagementDetails.EnableExternalExadataInfrastructureManagementDetails;
-import * as EnableExternalMysqlAssociatedServiceDetails from "./enable-external-mysql-associated-service-details";
-export import EnableExternalMysqlAssociatedServiceDetails = EnableExternalMysqlAssociatedServiceDetails.EnableExternalMysqlAssociatedServiceDetails;
 import * as EnableExternalNonContainerDatabaseManagementFeatureDetails from "./enable-external-non-container-database-management-feature-details";
 export import EnableExternalNonContainerDatabaseManagementFeatureDetails = EnableExternalNonContainerDatabaseManagementFeatureDetails.EnableExternalNonContainerDatabaseManagementFeatureDetails;
 import * as EnableExternalPluggableDatabaseManagementFeatureDetails from "./enable-external-pluggable-database-management-feature-details";
@@ -468,8 +464,6 @@ import * as ExternalMySqlDatabaseConnector from "./external-my-sql-database-conn
 export import ExternalMySqlDatabaseConnector = ExternalMySqlDatabaseConnector.ExternalMySqlDatabaseConnector;
 import * as ExternalMySqlDatabaseSummary from "./external-my-sql-database-summary";
 export import ExternalMySqlDatabaseSummary = ExternalMySqlDatabaseSummary.ExternalMySqlDatabaseSummary;
-import * as ExternalMysqlAssociatedServiceName from "./external-mysql-associated-service-name";
-export import ExternalMysqlAssociatedServiceName = ExternalMysqlAssociatedServiceName.ExternalMysqlAssociatedServiceName;
 import * as ExternalPluggableDatabaseFeatureDetails from "./external-pluggable-database-feature-details";
 export import ExternalPluggableDatabaseFeatureDetails = ExternalPluggableDatabaseFeatureDetails.ExternalPluggableDatabaseFeatureDetails;
 import * as ExternalServicedAsm from "./external-serviced-asm";

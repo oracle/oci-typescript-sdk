@@ -25,6 +25,10 @@ export interface DisableExternalContainerDatabaseManagementFeatureDetails {
    * The name of the Database Management feature.
    */
   "feature": model.DbManagementFeature;
+  /**
+   * Indicates whether Diagnostics & Management should be disabled for the pluggable databases before disabling it for the container database.
+   */
+  "canDisableAllPdbs"?: boolean;
 }
 
 export namespace DisableExternalContainerDatabaseManagementFeatureDetails {

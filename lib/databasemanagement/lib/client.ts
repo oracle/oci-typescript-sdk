@@ -8981,7 +8981,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   /**
    * Gets the details for the named credential specified by namedCredentialId.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetNamedCredentialRequest
    * @return GetNamedCredentialResponse
    * @throws OciError when an error occurs
@@ -9005,7 +9005,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       "opc-request-id": getNamedCredentialRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getNamedCredentialRequest.retryConfiguration,
@@ -12942,7 +12942,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   /**
    * Gets a single named credential specified by the name or all the named credentials in a specific compartment.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListNamedCredentialsRequest
    * @return ListNamedCredentialsResponse
    * @throws OciError when an error occurs
@@ -12975,7 +12975,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       "opc-request-id": listNamedCredentialsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listNamedCredentialsRequest.retryConfiguration,
@@ -14786,6 +14786,91 @@ When enabled, the optimizer uses SQL plan baselines to select plans
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.ModifyDatabaseManagementFeatureResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Modifies a Database Management feature for the specified external container database.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ModifyExternalContainerDatabaseManagementFeatureRequest
+   * @return ModifyExternalContainerDatabaseManagementFeatureResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ModifyExternalContainerDatabaseManagementFeature.ts.html |here} to see how to use ModifyExternalContainerDatabaseManagementFeature API.
+   */
+  public async modifyExternalContainerDatabaseManagementFeature(
+    modifyExternalContainerDatabaseManagementFeatureRequest: requests.ModifyExternalContainerDatabaseManagementFeatureRequest
+  ): Promise<responses.ModifyExternalContainerDatabaseManagementFeatureResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#modifyExternalContainerDatabaseManagementFeature."
+      );
+    const operationName = "modifyExternalContainerDatabaseManagementFeature";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/ModifyExternalContainerDatabaseManagementFeature";
+    const pathParams = {
+      "{externalContainerDatabaseId}":
+        modifyExternalContainerDatabaseManagementFeatureRequest.externalContainerDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": modifyExternalContainerDatabaseManagementFeatureRequest.opcRequestId,
+      "opc-retry-token": modifyExternalContainerDatabaseManagementFeatureRequest.opcRetryToken,
+      "if-match": modifyExternalContainerDatabaseManagementFeatureRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      modifyExternalContainerDatabaseManagementFeatureRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/externalcontainerdatabases/{externalContainerDatabaseId}/actions/modifyDatabaseManagement",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        modifyExternalContainerDatabaseManagementFeatureRequest.enableExternalContainerDatabaseManagementFeatureDetails,
+        "EnableExternalContainerDatabaseManagementFeatureDetails",
+        model.EnableExternalContainerDatabaseManagementFeatureDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ModifyExternalContainerDatabaseManagementFeatureResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -19809,166 +19894,6 @@ export class ManagedMySqlDatabasesClient {
   public close() {
     this.shutdownCircuitBreaker();
     this.closeProvider();
-  }
-
-  /**
-   * Disable an Associated Service for an external MySQL database resource. An Associated Service example is OPSI.
-   *
-   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-   * @param DisableExternalMysqlAssociatedServiceRequest
-   * @return DisableExternalMysqlAssociatedServiceResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DisableExternalMysqlAssociatedService.ts.html |here} to see how to use DisableExternalMysqlAssociatedService API.
-   */
-  public async disableExternalMysqlAssociatedService(
-    disableExternalMysqlAssociatedServiceRequest: requests.DisableExternalMysqlAssociatedServiceRequest
-  ): Promise<responses.DisableExternalMysqlAssociatedServiceResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation ManagedMySqlDatabasesClient#disableExternalMysqlAssociatedService."
-      );
-    const operationName = "disableExternalMysqlAssociatedService";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalMySqlDatabase/DisableExternalMysqlAssociatedService";
-    const pathParams = {
-      "{externalMySqlDatabaseId}":
-        disableExternalMysqlAssociatedServiceRequest.externalMySqlDatabaseId
-    };
-
-    const queryParams = {};
-
-    let headerParams = {
-      "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-retry-token": disableExternalMysqlAssociatedServiceRequest.opcRetryToken,
-      "if-match": disableExternalMysqlAssociatedServiceRequest.ifMatch,
-      "opc-request-id": disableExternalMysqlAssociatedServiceRequest.opcRequestId
-    };
-
-    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-      disableExternalMysqlAssociatedServiceRequest.retryConfiguration,
-      specRetryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
-    const request = await composeRequest({
-      baseEndpoint: this._endpoint,
-      defaultHeaders: this._defaultHeaders,
-      path:
-        "/internal/externalMySqlDatabases/{externalMySqlDatabaseId}/actions/disableAssociatedService",
-      method: "POST",
-      bodyContent: common.ObjectSerializer.serialize(
-        disableExternalMysqlAssociatedServiceRequest.disableExternalMysqlAssociatedServiceDetails,
-        "DisableExternalMysqlAssociatedServiceDetails",
-        model.DisableExternalMysqlAssociatedServiceDetails.getJsonObj
-      ),
-      pathParams: pathParams,
-      headerParams: headerParams,
-      queryParams: queryParams
-    });
-    try {
-      const response = await retrier.makeServiceCall(
-        this._httpClient,
-        request,
-        this.targetService,
-        operationName,
-        apiReferenceLink
-      );
-      const sdkResponse = composeResponse({
-        responseObject: <responses.DisableExternalMysqlAssociatedServiceResponse>{},
-        responseHeaders: [
-          {
-            value: response.headers.get("opc-request-id"),
-            key: "opcRequestId",
-            dataType: "string"
-          }
-        ]
-      });
-
-      return sdkResponse;
-    } catch (err) {
-      throw err;
-    }
-  }
-
-  /**
-   * Enable an Associated Service for an external MySQL database resource. An Associated Service example is OPSI.
-   *
-   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-   * @param EnableExternalMysqlAssociatedServiceRequest
-   * @return EnableExternalMysqlAssociatedServiceResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/EnableExternalMysqlAssociatedService.ts.html |here} to see how to use EnableExternalMysqlAssociatedService API.
-   */
-  public async enableExternalMysqlAssociatedService(
-    enableExternalMysqlAssociatedServiceRequest: requests.EnableExternalMysqlAssociatedServiceRequest
-  ): Promise<responses.EnableExternalMysqlAssociatedServiceResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation ManagedMySqlDatabasesClient#enableExternalMysqlAssociatedService."
-      );
-    const operationName = "enableExternalMysqlAssociatedService";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalMySqlDatabase/EnableExternalMysqlAssociatedService";
-    const pathParams = {
-      "{externalMySqlDatabaseId}":
-        enableExternalMysqlAssociatedServiceRequest.externalMySqlDatabaseId
-    };
-
-    const queryParams = {};
-
-    let headerParams = {
-      "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-retry-token": enableExternalMysqlAssociatedServiceRequest.opcRetryToken,
-      "if-match": enableExternalMysqlAssociatedServiceRequest.ifMatch,
-      "opc-request-id": enableExternalMysqlAssociatedServiceRequest.opcRequestId
-    };
-
-    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-      enableExternalMysqlAssociatedServiceRequest.retryConfiguration,
-      specRetryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
-    const request = await composeRequest({
-      baseEndpoint: this._endpoint,
-      defaultHeaders: this._defaultHeaders,
-      path:
-        "/internal/externalMySqlDatabases/{externalMySqlDatabaseId}/actions/enableAssociatedService",
-      method: "POST",
-      bodyContent: common.ObjectSerializer.serialize(
-        enableExternalMysqlAssociatedServiceRequest.enableExternalMysqlAssociatedServiceDetails,
-        "EnableExternalMysqlAssociatedServiceDetails",
-        model.EnableExternalMysqlAssociatedServiceDetails.getJsonObj
-      ),
-      pathParams: pathParams,
-      headerParams: headerParams,
-      queryParams: queryParams
-    });
-    try {
-      const response = await retrier.makeServiceCall(
-        this._httpClient,
-        request,
-        this.targetService,
-        operationName,
-        apiReferenceLink
-      );
-      const sdkResponse = composeResponse({
-        responseObject: <responses.EnableExternalMysqlAssociatedServiceResponse>{},
-        responseHeaders: [
-          {
-            value: response.headers.get("opc-request-id"),
-            key: "opcRequestId",
-            dataType: "string"
-          }
-        ]
-      });
-
-      return sdkResponse;
-    } catch (err) {
-      throw err;
-    }
   }
 
   /**

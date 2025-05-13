@@ -27,6 +27,14 @@ export interface ExternalDatabaseDiagnosticsAndManagementFeatureDetails
    *
    */
   "licenseModel": ExternalDatabaseDiagnosticsAndManagementFeatureDetails.LicenseModel;
+  /**
+   * Indicates whether Diagnostics & Management should be enabled for all the current pluggable databases in the container database.
+   */
+  "canEnableAllCurrentPdbs"?: boolean;
+  /**
+   * Indicates whether Diagnostics & Management should be enabled automatically for all the pluggable databases in the container database.
+   */
+  "isAutoEnablePluggableDatabase"?: boolean;
 
   "feature": string;
 }

@@ -43,6 +43,10 @@ export interface CreateOpensearchClusterDetails {
    */
   "masterNodeHostBareMetalShape"?: string;
   /**
+   * The node shape for the cluster's master nodes.
+   */
+  "masterNodeHostShape"?: string;
+  /**
    * The number of OCPUs to configure for the cluser's master nodes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "masterNodeHostOcpuCount": number;
@@ -63,6 +67,10 @@ export interface CreateOpensearchClusterDetails {
    */
   "dataNodeHostBareMetalShape"?: string;
   /**
+   * The node shape for the cluster's data nodes.
+   */
+  "dataNodeHostShape"?: string;
+  /**
    * The number of OCPUs to configure for the cluster's data nodes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "dataNodeHostOcpuCount": number;
@@ -75,6 +83,10 @@ export interface CreateOpensearchClusterDetails {
    */
   "dataNodeStorageGB": number;
   /**
+   * The node shape for the cluster's OpenSearch Dashboard nodes.
+   */
+  "opendashboardNodeHostShape"?: string;
+  /**
    * The number of OpenSearch Dashboard nodes to configure for the cluster. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "opendashboardNodeCount": number;
@@ -86,6 +98,30 @@ export interface CreateOpensearchClusterDetails {
    * The amount of memory in GB, to configure for the cluster's OpenSearch Dashboard nodes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "opendashboardNodeHostMemoryGB": number;
+  /**
+   * The number of search nodes configured for the cluster. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "searchNodeCount"?: number;
+  /**
+   * The instance type for the cluster's search nodes.
+   */
+  "searchNodeHostType"?: model.SearchNodeHostType;
+  /**
+   * The node shape for the cluster's search nodes.
+   */
+  "searchNodeHostShape"?: string;
+  /**
+   * The number of OCPUs configured for the cluster's search nodes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "searchNodeHostOcpuCount"?: number;
+  /**
+   * The amount of memory in GB, for the cluster's search nodes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "searchNodeHostMemoryGB"?: number;
+  /**
+   * The amount of storage in GB, to configure per node for the cluster's search nodes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "searchNodeStorageGB"?: number;
   /**
    * The OCID of the cluster's VCN.
    */

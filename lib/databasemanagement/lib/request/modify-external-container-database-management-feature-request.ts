@@ -15,17 +15,22 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DisableExternalMysqlAssociatedService.ts.html |here} to see how to use DisableExternalMysqlAssociatedServiceRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ModifyExternalContainerDatabaseManagementFeature.ts.html |here} to see how to use ModifyExternalContainerDatabaseManagementFeatureRequest.
  */
-export interface DisableExternalMysqlAssociatedServiceRequest extends common.BaseRequest {
+export interface ModifyExternalContainerDatabaseManagementFeatureRequest
+  extends common.BaseRequest {
   /**
-   * The OCID of the External MySQL Database.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the external container database.
    */
-  "externalMySqlDatabaseId": string;
+  "externalContainerDatabaseId": string;
   /**
-   * The details required to disable an Associated Service for an external MySQL database resource.
+   * The details required to enable a Database Management feature for an external container database.
    */
-  "disableExternalMysqlAssociatedServiceDetails": model.DisableExternalMysqlAssociatedServiceDetails;
+  "enableExternalContainerDatabaseManagementFeatureDetails": model.EnableExternalContainerDatabaseManagementFeatureDetails;
+  /**
+   * The client request ID for tracing.
+   */
+  "opcRequestId"?: string;
   /**
    * A token that uniquely identifies a request so it can be retried in case of a timeout or
    * server error without risk of executing that same action again. Retry tokens expire after 24
@@ -44,8 +49,4 @@ export interface DisableExternalMysqlAssociatedServiceRequest extends common.Bas
    *
    */
   "ifMatch"?: string;
-  /**
-   * The client request ID for tracing.
-   */
-  "opcRequestId"?: string;
 }

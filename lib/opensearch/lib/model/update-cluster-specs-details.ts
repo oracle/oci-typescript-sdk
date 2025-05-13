@@ -31,6 +31,10 @@ export interface UpdateClusterSpecsDetails {
    */
   "masterNodeHostMemoryGB"?: number;
   /**
+   * The node shape for the cluster's master nodes.
+   */
+  "masterNodeHostShape"?: string;
+  /**
    * Updated value of OCPU's configured for data nodes of the cluster. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "dataNodeHostOcpuCount"?: number;
@@ -39,6 +43,22 @@ export interface UpdateClusterSpecsDetails {
    */
   "dataNodeHostMemoryGB"?: number;
   /**
+   * The node shape for the cluster's data nodes.
+   */
+  "dataNodeHostShape"?: string;
+  /**
+   * The node shape for the cluster's search nodes.
+   */
+  "searchNodeHostShape"?: string;
+  /**
+   * The number of OCPUs configured for the cluster's search nodes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "searchNodeHostOcpuCount"?: number;
+  /**
+   * The amount of memory in GB, for the cluster's search nodes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "searchNodeHostMemoryGB"?: number;
+  /**
    * Updated version of the software the cluster is currently running.
    */
   "softwareVersion"?: string;
@@ -46,6 +66,10 @@ export interface UpdateClusterSpecsDetails {
    * Updated version of the dashboard software the cluster is currently running.
    */
   "dashboardSoftwareVersion"?: string;
+  /**
+   * The shape node for the cluster's OpenSearch Dashboard nodes.
+   */
+  "opendashboardNodeHostShape"?: string;
   /**
    * Updated Private endpoint of cluster.
    */

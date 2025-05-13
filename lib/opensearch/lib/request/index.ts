@@ -23,6 +23,8 @@ import * as GetOpensearchClusterRequest from "./get-opensearch-cluster-request";
 export import GetOpensearchClusterRequest = GetOpensearchClusterRequest.GetOpensearchClusterRequest;
 import * as GetWorkRequestRequest from "./get-work-request-request";
 export import GetWorkRequestRequest = GetWorkRequestRequest.GetWorkRequestRequest;
+import * as ListOpensearchClusterShapesRequest from "./list-opensearch-cluster-shapes-request";
+export import ListOpensearchClusterShapesRequest = ListOpensearchClusterShapesRequest.ListOpensearchClusterShapesRequest;
 import * as ListOpensearchClustersRequest from "./list-opensearch-clusters-request";
 export import ListOpensearchClustersRequest = ListOpensearchClustersRequest.ListOpensearchClustersRequest;
 import * as ListOpensearchVersionsRequest from "./list-opensearch-versions-request";
