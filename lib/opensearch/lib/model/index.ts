@@ -111,10 +111,14 @@ import * as RestoreOpensearchClusterDetails from "./restore-opensearch-cluster-d
 export import RestoreOpensearchClusterDetails = RestoreOpensearchClusterDetails.RestoreOpensearchClusterDetails;
 import * as ReverseConnectionEndpoint from "./reverse-connection-endpoint";
 export import ReverseConnectionEndpoint = ReverseConnectionEndpoint.ReverseConnectionEndpoint;
+import * as SearchNodeHostType from "./search-node-host-type";
+export import SearchNodeHostType = SearchNodeHostType.SearchNodeHostType;
 import * as SecurityMode from "./security-mode";
 export import SecurityMode = SecurityMode.SecurityMode;
 import * as SecuritySamlConfig from "./security-saml-config";
 export import SecuritySamlConfig = SecuritySamlConfig.SecuritySamlConfig;
+import * as ShapesDetails from "./shapes-details";
+export import ShapesDetails = ShapesDetails.ShapesDetails;
 import * as SortOrder from "./sort-order";
 export import SortOrder = SortOrder.SortOrder;
 import * as UpdateCheckinDetails from "./update-checkin-details";

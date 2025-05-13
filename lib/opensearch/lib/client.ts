@@ -699,6 +699,79 @@ export class OpensearchClusterClient {
   }
 
   /**
+   * Retrieves available OpenSearch Cluster node shapes.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListOpensearchClusterShapesRequest
+   * @return ListOpensearchClusterShapesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opensearch/ListOpensearchClusterShapes.ts.html |here} to see how to use ListOpensearchClusterShapes API.
+   */
+  public async listOpensearchClusterShapes(
+    listOpensearchClusterShapesRequest: requests.ListOpensearchClusterShapesRequest
+  ): Promise<responses.ListOpensearchClusterShapesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OpensearchClusterClient#listOpensearchClusterShapes.");
+    const operationName = "listOpensearchClusterShapes";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listOpensearchClusterShapesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/shapes",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListOpensearchClusterShapesResponse>{},
+        body: await response.json(),
+        bodyKey: "shapesDetails",
+        bodyModel: model.ShapesDetails,
+        type: "model.ShapesDetails",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Returns a list of OpensearchClusters.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.

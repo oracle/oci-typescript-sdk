@@ -23,6 +23,8 @@ import * as GetOpensearchClusterResponse from "./get-opensearch-cluster-response
 export import GetOpensearchClusterResponse = GetOpensearchClusterResponse.GetOpensearchClusterResponse;
 import * as GetWorkRequestResponse from "./get-work-request-response";
 export import GetWorkRequestResponse = GetWorkRequestResponse.GetWorkRequestResponse;
+import * as ListOpensearchClusterShapesResponse from "./list-opensearch-cluster-shapes-response";
+export import ListOpensearchClusterShapesResponse = ListOpensearchClusterShapesResponse.ListOpensearchClusterShapesResponse;
 import * as ListOpensearchClustersResponse from "./list-opensearch-clusters-response";
 export import ListOpensearchClustersResponse = ListOpensearchClustersResponse.ListOpensearchClustersResponse;
 import * as ListOpensearchVersionsResponse from "./list-opensearch-versions-response";

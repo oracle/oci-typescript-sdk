@@ -27,9 +27,13 @@ export interface DatabaseDiagnosticsAndManagementFeatureDetails
    */
   "managementType": DatabaseDiagnosticsAndManagementFeatureDetails.ManagementType;
   /**
-   * Indicates whether the pluggable database can be enabled automatically.
+   * Indicates whether Diagnostics & Management should be enabled automatically for all the pluggable databases in the container database.
    */
   "isAutoEnablePluggableDatabase"?: boolean;
+  /**
+   * Indicates whether Diagnostics & Management should be enabled for all the current pluggable databases in the container database.
+   */
+  "canEnableAllCurrentPdbs"?: boolean;
 
   "feature": string;
 }

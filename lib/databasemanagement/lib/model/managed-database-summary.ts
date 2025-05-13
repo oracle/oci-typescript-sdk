@@ -66,8 +66,7 @@ export interface ManagedDatabaseSummary {
    */
   "parentContainerId"?: string;
   /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the external
-   * DB system that this Managed Database is part of.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the DB system that this Managed Database is part of.
    *
    */
   "dbSystemId"?: string;

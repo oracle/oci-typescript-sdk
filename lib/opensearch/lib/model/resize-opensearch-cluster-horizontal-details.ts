@@ -31,6 +31,10 @@ export interface ResizeOpensearchClusterHorizontalDetails {
    */
   "opendashboardNodeCount"?: number;
   /**
+   * The number of search nodes configured for the cluster. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "searchNodeCount"?: number;
+  /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
    * Example: {@code {\"bar-key\": \"value\"}}
    *
