@@ -140,6 +140,8 @@ export namespace DedicatedAiCluster {
     SmallGenericV2 = "SMALL_GENERIC_V2",
     LargeGeneric2 = "LARGE_GENERIC_2",
     LargeGenericV2 = "LARGE_GENERIC_V2",
+    LargeCohereV3 = "LARGE_COHERE_V3",
+    RerankCohere = "RERANK_COHERE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

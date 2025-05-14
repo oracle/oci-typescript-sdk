@@ -234,3 +234,4 @@ export import zpr = require("oci-zpr");
 export import dblm = require("oci-dblm");
 export import mngdmac = require("oci-mngdmac");
 export import lustrefilestorage = require("oci-lustrefilestorage");
+export import modeldeployment = require("oci-modeldeployment");

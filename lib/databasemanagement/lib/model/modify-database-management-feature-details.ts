@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The details required to modify a Database Management features for an Oracle cloud database.
+ * The details required to modify a Database Management feature for an Oracle cloud database.
  */
 export interface ModifyDatabaseManagementFeatureDetails {
   "featureDetails":

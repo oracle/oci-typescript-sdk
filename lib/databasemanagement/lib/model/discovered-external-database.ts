@@ -64,6 +64,14 @@ export interface DiscoveredExternalDatabase extends model.DiscoveredExternalDbSy
    */
   "pluggableDatabases"?: Array<model.DiscoveredExternalPluggableDatabase>;
   "connector"?: model.ExternalDbSystemDiscoveryMacsConnector;
+  /**
+   * Indicates whether Diagnostics & Management should be enabled for all the current pluggable databases in the container database.
+   */
+  "canEnableAllCurrentPdbs"?: boolean;
+  /**
+   * Indicates whether Diagnostics & Management should be enabled automatically for all the pluggable databases in the container database.
+   */
+  "isAutoEnablePluggableDatabase"?: boolean;
 
   "componentType": string;
 }

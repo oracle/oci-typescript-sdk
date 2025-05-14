@@ -370,6 +370,8 @@ import * as ModifyAutonomousDatabaseManagementFeatureResponse from "./modify-aut
 export import ModifyAutonomousDatabaseManagementFeatureResponse = ModifyAutonomousDatabaseManagementFeatureResponse.ModifyAutonomousDatabaseManagementFeatureResponse;
 import * as ModifyDatabaseManagementFeatureResponse from "./modify-database-management-feature-response";
 export import ModifyDatabaseManagementFeatureResponse = ModifyDatabaseManagementFeatureResponse.ModifyDatabaseManagementFeatureResponse;
+import * as ModifyExternalContainerDatabaseManagementFeatureResponse from "./modify-external-container-database-management-feature-response";
+export import ModifyExternalContainerDatabaseManagementFeatureResponse = ModifyExternalContainerDatabaseManagementFeatureResponse.ModifyExternalContainerDatabaseManagementFeatureResponse;
 import * as ModifyPluggableDatabaseManagementFeatureResponse from "./modify-pluggable-database-management-feature-response";
 export import ModifyPluggableDatabaseManagementFeatureResponse = ModifyPluggableDatabaseManagementFeatureResponse.ModifyPluggableDatabaseManagementFeatureResponse;
 import * as PatchExternalDbSystemDiscoveryResponse from "./patch-external-db-system-discovery-response";
@@ -478,10 +480,6 @@ import * as SummarizeAlertLogCountsResponse from "./summarize-alert-log-counts-r
 export import SummarizeAlertLogCountsResponse = SummarizeAlertLogCountsResponse.SummarizeAlertLogCountsResponse;
 import * as SummarizeAttentionLogCountsResponse from "./summarize-attention-log-counts-response";
 export import SummarizeAttentionLogCountsResponse = SummarizeAttentionLogCountsResponse.SummarizeAttentionLogCountsResponse;
-import * as DisableExternalMysqlAssociatedServiceResponse from "./disable-external-mysql-associated-service-response";
-export import DisableExternalMysqlAssociatedServiceResponse = DisableExternalMysqlAssociatedServiceResponse.DisableExternalMysqlAssociatedServiceResponse;
-import * as EnableExternalMysqlAssociatedServiceResponse from "./enable-external-mysql-associated-service-response";
-export import EnableExternalMysqlAssociatedServiceResponse = EnableExternalMysqlAssociatedServiceResponse.EnableExternalMysqlAssociatedServiceResponse;
 import * as GetHeatWaveFleetMetricResponse from "./get-heat-wave-fleet-metric-response";
 export import GetHeatWaveFleetMetricResponse = GetHeatWaveFleetMetricResponse.GetHeatWaveFleetMetricResponse;
 import * as GetManagedMySqlDatabaseResponse from "./get-managed-my-sql-database-response";

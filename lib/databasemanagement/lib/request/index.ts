@@ -370,6 +370,8 @@ import * as ModifyAutonomousDatabaseManagementFeatureRequest from "./modify-auto
 export import ModifyAutonomousDatabaseManagementFeatureRequest = ModifyAutonomousDatabaseManagementFeatureRequest.ModifyAutonomousDatabaseManagementFeatureRequest;
 import * as ModifyDatabaseManagementFeatureRequest from "./modify-database-management-feature-request";
 export import ModifyDatabaseManagementFeatureRequest = ModifyDatabaseManagementFeatureRequest.ModifyDatabaseManagementFeatureRequest;
+import * as ModifyExternalContainerDatabaseManagementFeatureRequest from "./modify-external-container-database-management-feature-request";
+export import ModifyExternalContainerDatabaseManagementFeatureRequest = ModifyExternalContainerDatabaseManagementFeatureRequest.ModifyExternalContainerDatabaseManagementFeatureRequest;
 import * as ModifyPluggableDatabaseManagementFeatureRequest from "./modify-pluggable-database-management-feature-request";
 export import ModifyPluggableDatabaseManagementFeatureRequest = ModifyPluggableDatabaseManagementFeatureRequest.ModifyPluggableDatabaseManagementFeatureRequest;
 import * as PatchExternalDbSystemDiscoveryRequest from "./patch-external-db-system-discovery-request";
@@ -478,10 +480,6 @@ import * as SummarizeAlertLogCountsRequest from "./summarize-alert-log-counts-re
 export import SummarizeAlertLogCountsRequest = SummarizeAlertLogCountsRequest.SummarizeAlertLogCountsRequest;
 import * as SummarizeAttentionLogCountsRequest from "./summarize-attention-log-counts-request";
 export import SummarizeAttentionLogCountsRequest = SummarizeAttentionLogCountsRequest.SummarizeAttentionLogCountsRequest;
-import * as DisableExternalMysqlAssociatedServiceRequest from "./disable-external-mysql-associated-service-request";
-export import DisableExternalMysqlAssociatedServiceRequest = DisableExternalMysqlAssociatedServiceRequest.DisableExternalMysqlAssociatedServiceRequest;
-import * as EnableExternalMysqlAssociatedServiceRequest from "./enable-external-mysql-associated-service-request";
-export import EnableExternalMysqlAssociatedServiceRequest = EnableExternalMysqlAssociatedServiceRequest.EnableExternalMysqlAssociatedServiceRequest;
 import * as GetHeatWaveFleetMetricRequest from "./get-heat-wave-fleet-metric-request";
 export import GetHeatWaveFleetMetricRequest = GetHeatWaveFleetMetricRequest.GetHeatWaveFleetMetricRequest;
 import * as GetManagedMySqlDatabaseRequest from "./get-managed-my-sql-database-request";

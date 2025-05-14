@@ -22,20 +22,21 @@ import common = require("oci-common");
  */
 export interface ExadataInfrastructureLifecycleStateValues {
   /**
-   * The current lifecycle state of the database resource.
+   * The current lifecycle state of the Exadata infrastructure resource.
    */
-  "lifecycleState"?: ExadataInfrastructureLifecycleStateValues.LifecycleState;
+  "state"?: ExadataInfrastructureLifecycleStateValues.State;
 }
 
 export namespace ExadataInfrastructureLifecycleStateValues {
-  export enum LifecycleState {
+  export enum State {
     Creating = "CREATING",
     Active = "ACTIVE",
     Inactive = "INACTIVE",
     Updating = "UPDATING",
     Deleting = "DELETING",
     Deleted = "DELETED",
-    Failed = "FAILED"
+    Failed = "FAILED",
+    Unknown = "UNKNOWN"
   }
 
   export function getJsonObj(obj: ExadataInfrastructureLifecycleStateValues): object {
