@@ -438,6 +438,8 @@ import * as DbSystemUpgradeHistoryEntry from "./db-system-upgrade-history-entry"
 export import DbSystemUpgradeHistoryEntry = DbSystemUpgradeHistoryEntry.DbSystemUpgradeHistoryEntry;
 import * as DbSystemUpgradeHistoryEntrySummary from "./db-system-upgrade-history-entry-summary";
 export import DbSystemUpgradeHistoryEntrySummary = DbSystemUpgradeHistoryEntrySummary.DbSystemUpgradeHistoryEntrySummary;
+import * as DbSystemUpgradeSummary from "./db-system-upgrade-summary";
+export import DbSystemUpgradeSummary = DbSystemUpgradeSummary.DbSystemUpgradeSummary;
 import * as DbVersionSummary from "./db-version-summary";
 export import DbVersionSummary = DbVersionSummary.DbVersionSummary;
 import * as DefinedFileSystemConfiguration from "./defined-file-system-configuration";

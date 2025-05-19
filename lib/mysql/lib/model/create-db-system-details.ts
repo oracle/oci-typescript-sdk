@@ -86,6 +86,10 @@ For a standalone DB System, this defines the fault domain in which the DB System
    */
   "subnetId": string;
   /**
+   * Network Security Group OCIDs used for the VNIC attachment.
+   */
+  "nsgIds"?: Array<string>;
+  /**
    * The username for the administrative user.
    */
   "adminUsername"?: string;

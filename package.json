@@ -1,6 +1,6 @@
 {
   "name": "oci-sdk",
-  "version": "2.109.0",
+  "version": "2.109.1",
   "author": {
     "name": "Oracle Cloud Infrastructure",
     "email": ""
@@ -173,7 +173,8 @@
     "oci-dblm": "file:lib/dblm",
     "oci-mngdmac": "file:lib/mngdmac",
     "oci-lustrefilestorage": "file:lib/lustrefilestorage",
-    "oci-modeldeployment": "file:lib/modeldeployment"
+    "oci-modeldeployment": "file:lib/modeldeployment",
+    "oci-distributeddatabase": "file:lib/distributeddatabase"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"

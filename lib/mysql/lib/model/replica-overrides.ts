@@ -37,6 +37,10 @@ export interface ReplicaOverrides {
    * The OCID of the Configuration to be used by the read replica.
    */
   "configurationId"?: string;
+  /**
+   * Network Security Group OCIDs used for the VNIC attachment.
+   */
+  "nsgIds"?: Array<string>;
 }
 
 export namespace ReplicaOverrides {

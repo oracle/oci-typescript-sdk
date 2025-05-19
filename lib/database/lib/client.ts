@@ -809,7 +809,8 @@ export class DatabaseClient {
       "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": autonomousDatabaseManualRefreshRequest.ifMatch,
       "opc-retry-token": autonomousDatabaseManualRefreshRequest.opcRetryToken,
-      "opc-request-id": autonomousDatabaseManualRefreshRequest.opcRequestId
+      "opc-request-id": autonomousDatabaseManualRefreshRequest.opcRequestId,
+      "opc-dry-run": autonomousDatabaseManualRefreshRequest.opcDryRun
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -1232,7 +1233,8 @@ export class DatabaseClient {
       "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": changeAutonomousDatabaseCompartmentRequest.opcRetryToken,
       "opc-request-id": changeAutonomousDatabaseCompartmentRequest.opcRequestId,
-      "if-match": changeAutonomousDatabaseCompartmentRequest.ifMatch
+      "if-match": changeAutonomousDatabaseCompartmentRequest.ifMatch,
+      "opc-dry-run": changeAutonomousDatabaseCompartmentRequest.opcDryRun
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -1408,7 +1410,8 @@ export class DatabaseClient {
       "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": changeAutonomousDatabaseSubscriptionRequest.opcRetryToken,
       "opc-request-id": changeAutonomousDatabaseSubscriptionRequest.opcRequestId,
-      "if-match": changeAutonomousDatabaseSubscriptionRequest.ifMatch
+      "if-match": changeAutonomousDatabaseSubscriptionRequest.ifMatch,
+      "opc-dry-run": changeAutonomousDatabaseSubscriptionRequest.opcDryRun
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -2432,7 +2435,8 @@ export class DatabaseClient {
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": changeDisasterRecoveryConfigurationRequest.ifMatch,
-      "opc-request-id": changeDisasterRecoveryConfigurationRequest.opcRequestId
+      "opc-request-id": changeDisasterRecoveryConfigurationRequest.opcRequestId,
+      "opc-dry-run": changeDisasterRecoveryConfigurationRequest.opcDryRun
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -3956,7 +3960,8 @@ export class DatabaseClient {
       "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": configureAutonomousDatabaseVaultKeyRequest.ifMatch,
       "opc-request-id": configureAutonomousDatabaseVaultKeyRequest.opcRequestId,
-      "opc-retry-token": configureAutonomousDatabaseVaultKeyRequest.opcRetryToken
+      "opc-retry-token": configureAutonomousDatabaseVaultKeyRequest.opcRetryToken,
+      "opc-dry-run": configureAutonomousDatabaseVaultKeyRequest.opcDryRun
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -4126,7 +4131,8 @@ export class DatabaseClient {
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": configureSaasAdminUserRequest.ifMatch,
-      "opc-request-id": configureSaasAdminUserRequest.opcRequestId
+      "opc-request-id": configureSaasAdminUserRequest.opcRequestId,
+      "opc-dry-run": configureSaasAdminUserRequest.opcDryRun
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -4928,7 +4934,8 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createAutonomousDatabaseRequest.opcRetryToken,
-      "opc-request-id": createAutonomousDatabaseRequest.opcRequestId
+      "opc-request-id": createAutonomousDatabaseRequest.opcRequestId,
+      "opc-dry-run": createAutonomousDatabaseRequest.opcDryRun
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -5015,7 +5022,8 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createAutonomousDatabaseBackupRequest.opcRetryToken,
-      "opc-request-id": createAutonomousDatabaseBackupRequest.opcRequestId
+      "opc-request-id": createAutonomousDatabaseBackupRequest.opcRequestId,
+      "opc-dry-run": createAutonomousDatabaseBackupRequest.opcDryRun
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -8131,7 +8139,8 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteAutonomousDatabaseRequest.ifMatch,
-      "opc-request-id": deleteAutonomousDatabaseRequest.opcRequestId
+      "opc-request-id": deleteAutonomousDatabaseRequest.opcRequestId,
+      "opc-dry-run": deleteAutonomousDatabaseRequest.opcDryRun
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -8206,7 +8215,8 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": deleteAutonomousDatabaseBackupRequest.ifMatch,
-      "opc-request-id": deleteAutonomousDatabaseBackupRequest.opcRequestId
+      "opc-request-id": deleteAutonomousDatabaseBackupRequest.opcRequestId,
+      "opc-dry-run": deleteAutonomousDatabaseBackupRequest.opcDryRun
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -10505,7 +10515,8 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": deregisterAutonomousDatabaseDataSafeRequest.opcRequestId
+      "opc-request-id": deregisterAutonomousDatabaseDataSafeRequest.opcRequestId,
+      "opc-dry-run": deregisterAutonomousDatabaseDataSafeRequest.opcDryRun
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -10584,7 +10595,8 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": disableAutonomousDatabaseManagementRequest.opcRequestId
+      "opc-request-id": disableAutonomousDatabaseManagementRequest.opcRequestId,
+      "opc-dry-run": disableAutonomousDatabaseManagementRequest.opcDryRun
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -10661,7 +10673,8 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": disableAutonomousDatabaseOperationsInsightsRequest.opcRequestId
+      "opc-request-id": disableAutonomousDatabaseOperationsInsightsRequest.opcRequestId,
+      "opc-dry-run": disableAutonomousDatabaseOperationsInsightsRequest.opcDryRun
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -12023,7 +12036,8 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": enableAutonomousDatabaseManagementRequest.opcRequestId
+      "opc-request-id": enableAutonomousDatabaseManagementRequest.opcRequestId,
+      "opc-dry-run": enableAutonomousDatabaseManagementRequest.opcDryRun
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -12100,7 +12114,8 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": enableAutonomousDatabaseOperationsInsightsRequest.opcRequestId
+      "opc-request-id": enableAutonomousDatabaseOperationsInsightsRequest.opcRequestId,
+      "opc-dry-run": enableAutonomousDatabaseOperationsInsightsRequest.opcDryRun
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -13072,7 +13087,8 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": failOverAutonomousDatabaseRequest.ifMatch,
       "opc-retry-token": failOverAutonomousDatabaseRequest.opcRetryToken,
-      "opc-request-id": failOverAutonomousDatabaseRequest.opcRequestId
+      "opc-request-id": failOverAutonomousDatabaseRequest.opcRequestId,
+      "opc-dry-run": failOverAutonomousDatabaseRequest.opcDryRun
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -13525,7 +13541,8 @@ A failover might result in data loss depending on the protection mode in effect 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": generateAutonomousDatabaseWalletRequest.opcRequestId,
-      "opc-retry-token": generateAutonomousDatabaseWalletRequest.opcRetryToken
+      "opc-retry-token": generateAutonomousDatabaseWalletRequest.opcRetryToken,
+      "opc-dry-run": generateAutonomousDatabaseWalletRequest.opcDryRun
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -25188,6 +25205,137 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   }
 
   /**
+   * Lists the applicable upgrade components for a DB systems.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListDbSystemUpgradesRequest
+   * @return ListDbSystemUpgradesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListDbSystemUpgrades.ts.html |here} to see how to use ListDbSystemUpgrades API.
+   */
+  public async listDbSystemUpgrades(
+    listDbSystemUpgradesRequest: requests.ListDbSystemUpgradesRequest
+  ): Promise<responses.ListDbSystemUpgradesResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#listDbSystemUpgrades.");
+    const operationName = "listDbSystemUpgrades";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/DbSystemUpgradeSummary/ListDbSystemUpgrades";
+    const pathParams = {
+      "{dbSystemId}": listDbSystemUpgradesRequest.dbSystemId
+    };
+
+    const queryParams = {
+      "limit": listDbSystemUpgradesRequest.limit,
+      "page": listDbSystemUpgradesRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDbSystemUpgradesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dbSystems/{dbSystemId}/dbSystemUpgrades",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListDbSystemUpgradesResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.DbSystemUpgradeSummary,
+        type: "Array<model.DbSystemUpgradeSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listDbSystemUpgradesRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.DbSystemUpgradeSummary objects
+   * contained in responses from the listDbSystemUpgrades operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllDbSystemUpgrades(
+    request: requests.ListDbSystemUpgradesRequest
+  ): AsyncIterableIterator<model.DbSystemUpgradeSummary> {
+    return paginateRecords(request, req => this.listDbSystemUpgrades(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listDbSystemUpgradesResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listDbSystemUpgrades operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllDbSystemUpgradesResponses(
+    request: requests.ListDbSystemUpgradesRequest
+  ): AsyncIterableIterator<responses.ListDbSystemUpgradesResponse> {
+    return paginateResponses(request, req => this.listDbSystemUpgrades(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.DbSystemUpgradeSummary objects
+   * contained in responses from the listDbSystemUpgrades operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listDbSystemUpgradesRecordIterator(
+    request: requests.ListDbSystemUpgradesRequest
+  ): AsyncIterableIterator<model.DbSystemUpgradeSummary> {
+    return paginateRecords(request, req => this.listDbSystemUpgrades(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listDbSystemUpgrades operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listDbSystemUpgradesResponseIterator(
+    request: requests.ListDbSystemUpgradesRequest
+  ): AsyncIterableIterator<responses.ListDbSystemUpgradesResponse> {
+    return paginateResponses(request, req => this.listDbSystemUpgrades(req));
+  }
+
+  /**
      * Lists the DB systems in the specified compartment. You can specify a `backupId` to list only the DB systems that support creating a database using this backup in this compartment.
 * <p>
 **Note:** Deprecated for Exadata Cloud Service systems. Use the [new resource model APIs](https://docs.oracle.com/iaas/Content/Database/Concepts/exaflexsystem.htm#exaflexsystem_topic-resource_model) instead.
@@ -30542,7 +30690,8 @@ This operation should always be performed on primary.
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": registerAutonomousDatabaseDataSafeRequest.opcRequestId
+      "opc-request-id": registerAutonomousDatabaseDataSafeRequest.opcRequestId,
+      "opc-dry-run": registerAutonomousDatabaseDataSafeRequest.opcDryRun
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -31786,7 +31935,8 @@ This operation should be performed on disabled standby database.
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "if-match": restartAutonomousDatabaseRequest.ifMatch
+      "if-match": restartAutonomousDatabaseRequest.ifMatch,
+      "opc-dry-run": restartAutonomousDatabaseRequest.opcDryRun
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -31869,7 +32019,8 @@ This operation should be performed on disabled standby database.
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "if-match": restoreAutonomousDatabaseRequest.ifMatch
+      "if-match": restoreAutonomousDatabaseRequest.ifMatch,
+      "opc-dry-run": restoreAutonomousDatabaseRequest.opcDryRun
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -33199,7 +33350,8 @@ This operation should be performed on disabled standby database.
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "if-match": shrinkAutonomousDatabaseRequest.ifMatch
+      "if-match": shrinkAutonomousDatabaseRequest.ifMatch,
+      "opc-dry-run": shrinkAutonomousDatabaseRequest.opcDryRun
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -33281,7 +33433,8 @@ This operation should be performed on disabled standby database.
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "if-match": startAutonomousDatabaseRequest.ifMatch
+      "if-match": startAutonomousDatabaseRequest.ifMatch,
+      "opc-dry-run": startAutonomousDatabaseRequest.opcDryRun
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -33447,7 +33600,8 @@ This operation should be performed on disabled standby database.
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": stopAutonomousDatabaseRequest.ifMatch,
-      "opc-request-id": stopAutonomousDatabaseRequest.opcRequestId
+      "opc-request-id": stopAutonomousDatabaseRequest.opcRequestId,
+      "opc-dry-run": stopAutonomousDatabaseRequest.opcDryRun
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -33896,7 +34050,8 @@ A switchover incurs no data loss.
       "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": switchoverAutonomousDatabaseRequest.ifMatch,
       "opc-retry-token": switchoverAutonomousDatabaseRequest.opcRetryToken,
-      "opc-request-id": switchoverAutonomousDatabaseRequest.opcRequestId
+      "opc-request-id": switchoverAutonomousDatabaseRequest.opcRequestId,
+      "opc-dry-run": switchoverAutonomousDatabaseRequest.opcDryRun
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -34484,7 +34639,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateAutonomousDatabaseRequest.ifMatch,
-      "opc-request-id": updateAutonomousDatabaseRequest.opcRequestId
+      "opc-request-id": updateAutonomousDatabaseRequest.opcRequestId,
+      "opc-dry-run": updateAutonomousDatabaseRequest.opcDryRun
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -34574,7 +34730,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateAutonomousDatabaseBackupRequest.ifMatch,
-      "opc-request-id": updateAutonomousDatabaseBackupRequest.opcRequestId
+      "opc-request-id": updateAutonomousDatabaseBackupRequest.opcRequestId,
+      "opc-dry-run": updateAutonomousDatabaseBackupRequest.opcDryRun
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -34660,7 +34817,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": updateAutonomousDatabaseRegionalWalletRequest.opcRequestId
+      "opc-request-id": updateAutonomousDatabaseRegionalWalletRequest.opcRequestId,
+      "opc-dry-run": updateAutonomousDatabaseRegionalWalletRequest.opcDryRun
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -34823,7 +34981,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": updateAutonomousDatabaseWalletRequest.opcRequestId
+      "opc-request-id": updateAutonomousDatabaseWalletRequest.opcRequestId,
+      "opc-dry-run": updateAutonomousDatabaseWalletRequest.opcDryRun
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;

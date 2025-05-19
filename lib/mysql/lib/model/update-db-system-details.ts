@@ -33,6 +33,10 @@ export interface UpdateDbSystemDetails {
    */
   "subnetId"?: string;
   /**
+   * Network Security Group OCIDs used for the VNIC attachment.
+   */
+  "nsgIds"?: Array<string>;
+  /**
    * The database mode indicating the types of statements that will be allowed to run in the DB system.
    * This mode will apply only to statements run by user connections. Replicated write statements will continue
    * to be allowed regardless of the DatabaseMode.

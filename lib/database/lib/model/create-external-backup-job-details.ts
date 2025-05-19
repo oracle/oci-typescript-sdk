@@ -61,8 +61,8 @@ export interface CreateExternalBackupJobDetails {
    */
   "databaseMode": CreateExternalBackupJobDetails.DatabaseMode;
   /**
-   * The Oracle Database edition to use for creating a database from this standalone backup.
-   * Note that 2-node RAC DB systems require Enterprise Edition - Extreme Performance.
+   * The Oracle Database Edition that applies to all the databases on the DB system.
+   * Exadata DB systems and 2-node RAC DB systems require ENTERPRISE_EDITION_EXTREME_PERFORMANCE.
    *
    */
   "databaseEdition": CreateExternalBackupJobDetails.DatabaseEdition;

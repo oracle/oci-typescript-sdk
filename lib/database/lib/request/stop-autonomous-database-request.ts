@@ -34,4 +34,10 @@ export interface StopAutonomousDatabaseRequest extends common.BaseRequest {
    *
    */
   "opcRequestId"?: string;
+  /**
+   * Indicates that the request is a dry run, if set to \"true\". A dry run request does not actually
+   * creating or updating a resource and is used only to perform validation on the submitted data.
+   *
+   */
+  "opcDryRun"?: boolean;
 }

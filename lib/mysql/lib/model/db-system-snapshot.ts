@@ -41,6 +41,10 @@ export interface DbSystemSnapshot {
    */
   "subnetId": string;
   /**
+   * Network Security Group OCIDs used for the VNIC attachment.
+   */
+  "nsgIds"?: Array<string>;
+  /**
    * The Availability Domain where the primary DB System should be located.
    *
    */

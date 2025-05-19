@@ -1,6 +1,6 @@
 {
   "name": "oci-modeldeployment",
-  "version": "2.109.0",
+  "version": "2.109.1",
   "description": "OCI NodeJS client for Model Deployment Service",
   "repository": {
     "type": "git",
