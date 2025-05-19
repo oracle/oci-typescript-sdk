@@ -50,6 +50,10 @@ This cannot be updated in parallel with any of the following: licenseModel, dbEd
    */
   "isFreeTierEnabled"?: boolean;
   /**
+   * True if this Oracle Database software version can be used for Autonomous Databases for Developers.
+   */
+  "isDevTierEnabled"?: boolean;
+  /**
    * True if this version of the Oracle Database software has payments enabled.
    */
   "isPaidEnabled"?: boolean;

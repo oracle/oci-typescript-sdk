@@ -235,3 +235,4 @@ export import dblm = require("oci-dblm");
 export import mngdmac = require("oci-mngdmac");
 export import lustrefilestorage = require("oci-lustrefilestorage");
 export import modeldeployment = require("oci-modeldeployment");
+export import distributeddatabase = require("oci-distributeddatabase");

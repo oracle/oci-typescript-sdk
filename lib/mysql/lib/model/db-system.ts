@@ -41,6 +41,10 @@ export interface DbSystem {
    */
   "subnetId": string;
   /**
+   * Network Security Group OCIDs used for the VNIC attachment.
+   */
+  "nsgIds"?: Array<string>;
+  /**
    * Specifies if the DB System is highly available.
    *
    */

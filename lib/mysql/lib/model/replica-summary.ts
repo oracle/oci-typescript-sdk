@@ -69,6 +69,10 @@ export interface ReplicaSummary {
    */
   "faultDomain"?: string;
   /**
+   * Network Security Group OCIDs used for the VNIC attachment.
+   */
+  "nsgIds"?: Array<string>;
+  /**
    * The IP address the read replica is configured to listen on.
    *
    */

@@ -572,6 +572,8 @@ import * as ListDbSystemStoragePerformancesResponse from "./list-db-system-stora
 export import ListDbSystemStoragePerformancesResponse = ListDbSystemStoragePerformancesResponse.ListDbSystemStoragePerformancesResponse;
 import * as ListDbSystemUpgradeHistoryEntriesResponse from "./list-db-system-upgrade-history-entries-response";
 export import ListDbSystemUpgradeHistoryEntriesResponse = ListDbSystemUpgradeHistoryEntriesResponse.ListDbSystemUpgradeHistoryEntriesResponse;
+import * as ListDbSystemUpgradesResponse from "./list-db-system-upgrades-response";
+export import ListDbSystemUpgradesResponse = ListDbSystemUpgradesResponse.ListDbSystemUpgradesResponse;
 import * as ListDbSystemsResponse from "./list-db-systems-response";
 export import ListDbSystemsResponse = ListDbSystemsResponse.ListDbSystemsResponse;
 import * as ListDbVersionsResponse from "./list-db-versions-response";

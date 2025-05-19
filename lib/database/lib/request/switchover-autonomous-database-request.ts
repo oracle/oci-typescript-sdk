@@ -47,4 +47,10 @@ export interface SwitchoverAutonomousDatabaseRequest extends common.BaseRequest 
    * The database OCID(/Content/General/Concepts/identifiers.htm) of the Disaster Recovery peer (source Primary) database, which is located in a different (remote) region from the current peer database.
    */
   "peerDbId"?: string;
+  /**
+   * Indicates that the request is a dry run, if set to \"true\". A dry run request does not actually
+   * creating or updating a resource and is used only to perform validation on the submitted data.
+   *
+   */
+  "opcDryRun"?: boolean;
 }

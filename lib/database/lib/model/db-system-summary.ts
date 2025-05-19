@@ -158,7 +158,8 @@ These subnets are used by the Oracle Clusterware private interconnect on the dat
    */
   "dataStoragePercentage"?: number;
   /**
-   * The Oracle Database edition that applies to all the databases on the DB system.
+   * The Oracle Database Edition that applies to all the databases on the DB system.
+   * Exadata DB systems and 2-node RAC DB systems require ENTERPRISE_EDITION_EXTREME_PERFORMANCE.
    *
    */
   "databaseEdition": DbSystemSummary.DatabaseEdition;
