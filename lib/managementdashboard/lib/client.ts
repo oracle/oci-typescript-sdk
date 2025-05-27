@@ -996,6 +996,165 @@ export class DashxApisClient {
   }
 
   /**
+   * Gets an OOB dashboard and its saved searches by ID.  Deleted or unauthorized saved searches are marked by tile's state property.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetOobManagementDashboardRequest
+   * @return GetOobManagementDashboardResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managementdashboard/GetOobManagementDashboard.ts.html |here} to see how to use GetOobManagementDashboard API.
+   */
+  public async getOobManagementDashboard(
+    getOobManagementDashboardRequest: requests.GetOobManagementDashboardRequest
+  ): Promise<responses.GetOobManagementDashboardResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DashxApisClient#getOobManagementDashboard.");
+    const operationName = "getOobManagementDashboard";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/managementdashboard/20200901/ManagementDashboard/GetOobManagementDashboard";
+    const pathParams = {
+      "{managementDashboardId}": getOobManagementDashboardRequest.managementDashboardId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getOobManagementDashboardRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getOobManagementDashboardRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/oobManagementDashboards/{managementDashboardId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetOobManagementDashboardResponse>{},
+        body: await response.json(),
+        bodyKey: "managementDashboard",
+        bodyModel: model.ManagementDashboard,
+        type: "model.ManagementDashboard",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a saved search by ID.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetOobManagementSavedSearchRequest
+   * @return GetOobManagementSavedSearchResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managementdashboard/GetOobManagementSavedSearch.ts.html |here} to see how to use GetOobManagementSavedSearch API.
+   */
+  public async getOobManagementSavedSearch(
+    getOobManagementSavedSearchRequest: requests.GetOobManagementSavedSearchRequest
+  ): Promise<responses.GetOobManagementSavedSearchResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DashxApisClient#getOobManagementSavedSearch.");
+    const operationName = "getOobManagementSavedSearch";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/managementdashboard/20200901/ManagementSavedSearch/GetOobManagementSavedSearch";
+    const pathParams = {
+      "{managementSavedSearchId}": getOobManagementSavedSearchRequest.managementSavedSearchId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getOobManagementSavedSearchRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getOobManagementSavedSearchRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/oobManagementSavedSearches/{managementSavedSearchId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetOobManagementSavedSearchResponse>{},
+        body: await response.json(),
+        bodyKey: "managementSavedSearch",
+        bodyModel: model.ManagementSavedSearch,
+        type: "model.ManagementSavedSearch",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Imports an array of dashboards and their saved searches.
    * Here's an example of how you can use CLI to import a dashboard. For information on the details that must be passed to IMPORT, you can use the EXPORT API to obtain the Import.json file:
    * `oci management-dashboard dashboard export --query data --export-dashboard-id \"{\\\"dashboardIds\\\":[\\\"ocid1.managementdashboard.oc1..dashboardId1\\\"]}\"  > Import.json`.
@@ -1218,6 +1377,170 @@ export class DashxApisClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListManagementSavedSearchesResponse>{},
+        body: await response.json(),
+        bodyKey: "managementSavedSearchCollection",
+        bodyModel: model.ManagementSavedSearchCollection,
+        type: "model.ManagementSavedSearchCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the list of OOB dashboards with pagination.  Returned properties are the summary.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListOobManagementDashboardsRequest
+   * @return ListOobManagementDashboardsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managementdashboard/ListOobManagementDashboards.ts.html |here} to see how to use ListOobManagementDashboards API.
+   */
+  public async listOobManagementDashboards(
+    listOobManagementDashboardsRequest: requests.ListOobManagementDashboardsRequest
+  ): Promise<responses.ListOobManagementDashboardsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DashxApisClient#listOobManagementDashboards.");
+    const operationName = "listOobManagementDashboards";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/managementdashboard/20200901/ManagementDashboard/ListOobManagementDashboards";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listOobManagementDashboardsRequest.compartmentId,
+      "displayName": listOobManagementDashboardsRequest.displayName,
+      "limit": listOobManagementDashboardsRequest.limit,
+      "page": listOobManagementDashboardsRequest.page,
+      "sortOrder": listOobManagementDashboardsRequest.sortOrder,
+      "sortBy": listOobManagementDashboardsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listOobManagementDashboardsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listOobManagementDashboardsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/oobManagementDashboards",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListOobManagementDashboardsResponse>{},
+        body: await response.json(),
+        bodyKey: "managementDashboardCollection",
+        bodyModel: model.ManagementDashboardCollection,
+        type: "model.ManagementDashboardCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the list of out-of-box saved searches in a compartment with pagination.  Returned properties are the summary.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListOobManagementSavedSearchesRequest
+   * @return ListOobManagementSavedSearchesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managementdashboard/ListOobManagementSavedSearches.ts.html |here} to see how to use ListOobManagementSavedSearches API.
+   */
+  public async listOobManagementSavedSearches(
+    listOobManagementSavedSearchesRequest: requests.ListOobManagementSavedSearchesRequest
+  ): Promise<responses.ListOobManagementSavedSearchesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DashxApisClient#listOobManagementSavedSearches.");
+    const operationName = "listOobManagementSavedSearches";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/managementdashboard/20200901/ManagementSavedSearch/ListOobManagementSavedSearches";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listOobManagementSavedSearchesRequest.compartmentId,
+      "displayName": listOobManagementSavedSearchesRequest.displayName,
+      "limit": listOobManagementSavedSearchesRequest.limit,
+      "page": listOobManagementSavedSearchesRequest.page,
+      "sortOrder": listOobManagementSavedSearchesRequest.sortOrder,
+      "sortBy": listOobManagementSavedSearchesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listOobManagementSavedSearchesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listOobManagementSavedSearchesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/oobManagementSavedSearches",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListOobManagementSavedSearchesResponse>{},
         body: await response.json(),
         bodyKey: "managementSavedSearchCollection",
         bodyModel: model.ManagementSavedSearchCollection,

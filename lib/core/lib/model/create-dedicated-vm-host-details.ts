@@ -78,16 +78,33 @@ Example: {@code {\"Department\": \"Finance\"}}
 * 
     */
   "freeformTags"?: { [key: string]: string };
+  "placementConstraintDetails"?:
+    | model.HostGroupPlacementConstraintDetails
+    | model.ComputeBareMetalHostPlacementConstraintDetails;
 }
 
 export namespace CreateDedicatedVmHostDetails {
   export function getJsonObj(obj: CreateDedicatedVmHostDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "placementConstraintDetails": obj.placementConstraintDetails
+          ? model.PlacementConstraintDetails.getJsonObj(obj.placementConstraintDetails)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: CreateDedicatedVmHostDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "placementConstraintDetails": obj.placementConstraintDetails
+          ? model.PlacementConstraintDetails.getDeserializedJsonObj(obj.placementConstraintDetails)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

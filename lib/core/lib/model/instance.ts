@@ -65,6 +65,9 @@ Example: {@code Uocm:PHX-AD-1}
    * The OCID of the compartment that contains the instance.
    */
   "compartmentId": string;
+  "placementConstraintDetails"?:
+    | model.HostGroupPlacementConstraintDetails
+    | model.ComputeBareMetalHostPlacementConstraintDetails;
   /**
    * The OCID of the cluster placement group of the instance.
    */
@@ -259,6 +262,11 @@ Example: {@code 2016-08-25T21:10:29.600Z}
    * List of licensing configurations associated with the instance.
    */
   "licensingConfigs"?: Array<model.LicensingConfig>;
+  /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) for the Customer-unique host group
+   *
+   */
+  "computeHostGroupId"?: string;
 }
 
 export namespace Instance {
@@ -305,6 +313,10 @@ export namespace Instance {
     const jsonObj = {
       ...obj,
       ...{
+        "placementConstraintDetails": obj.placementConstraintDetails
+          ? model.PlacementConstraintDetails.getJsonObj(obj.placementConstraintDetails)
+          : undefined,
+
         "launchOptions": obj.launchOptions
           ? model.LaunchOptions.getJsonObj(obj.launchOptions)
           : undefined,
@@ -348,6 +360,10 @@ export namespace Instance {
     const jsonObj = {
       ...obj,
       ...{
+        "placementConstraintDetails": obj.placementConstraintDetails
+          ? model.PlacementConstraintDetails.getDeserializedJsonObj(obj.placementConstraintDetails)
+          : undefined,
+
         "launchOptions": obj.launchOptions
           ? model.LaunchOptions.getDeserializedJsonObj(obj.launchOptions)
           : undefined,

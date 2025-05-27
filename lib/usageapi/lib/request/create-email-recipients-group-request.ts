@@ -23,7 +23,7 @@ export interface CreateEmailRecipientsGroupRequest extends common.BaseRequest {
    */
   "createEmailRecipientsGroupDetails": model.CreateEmailRecipientsGroupDetails;
   /**
-   * The UsageStatement Subscription unique OCID.
+   * The usage statement subscription unique OCID.
    */
   "subscriptionId": string;
   /**

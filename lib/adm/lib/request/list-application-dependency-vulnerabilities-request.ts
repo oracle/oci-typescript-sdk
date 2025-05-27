@@ -81,7 +81,7 @@ export interface ListApplicationDependencyVulnerabilitiesRequest extends common.
    */
   "gav"?: string;
   /**
-   * A filter to return only resources that match the entire PURL given (https://github.com/package-url/purl-spec/).
+   * A filter to return only resources that match the entire purl given.
    */
   "purl"?: string;
   /**

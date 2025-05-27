@@ -30,8 +30,22 @@ export interface ListDbSystemStoragePerformancesRequest extends common.BaseReque
    */
   "shapeType"?: string;
   /**
+   * The database edition of quota (STANDARD_EDITION/ENTERPRISE_EDITION/ENTERPRISE_EDITION_HIGH_PERFORMANCE/ENTERPRISE_EDITION_EXTREME/ENTERPRISE_EDITION_DEVELOPER)
+   */
+  "databaseEdition"?: ListDbSystemStoragePerformancesRequest.DatabaseEdition;
+  /**
    * Unique identifier for the request.
    *
    */
   "opcRequestId"?: string;
+}
+
+export namespace ListDbSystemStoragePerformancesRequest {
+  export enum DatabaseEdition {
+    StandardEdition = "STANDARD_EDITION",
+    EnterpriseEdition = "ENTERPRISE_EDITION",
+    EnterpriseEditionHighPerformance = "ENTERPRISE_EDITION_HIGH_PERFORMANCE",
+    EnterpriseEditionExtreme = "ENTERPRISE_EDITION_EXTREME",
+    EnterpriseEditionDeveloper = "ENTERPRISE_EDITION_DEVELOPER"
+  }
 }

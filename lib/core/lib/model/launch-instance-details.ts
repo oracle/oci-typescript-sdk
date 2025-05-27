@@ -117,6 +117,10 @@ Example: {@code {\"Department\": \"Finance\"}}
     */
   "freeformTags"?: { [key: string]: string };
   /**
+   * The OCID of the compute host group attached to the host where the bare metal instance will be launched.
+   */
+  "computeHostGroupId"?: string;
+  /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the
    * [compute cluster](https://docs.oracle.com/iaas/Content/Compute/Tasks/compute-clusters.htm) that the instance will be created in.
    *
@@ -261,6 +265,9 @@ You can enumerate all available shapes by calling {@link #listShapes(ListShapesR
     | model.AmdMilanBmLaunchInstancePlatformConfig
     | model.GenericBmLaunchInstancePlatformConfig
     | model.AmdMilanBmGpuLaunchInstancePlatformConfig;
+  "placementConstraintDetails"?:
+    | model.HostGroupPlacementConstraintDetails
+    | model.ComputeBareMetalHostPlacementConstraintDetails;
   /**
    * The OCID of the Instance Configuration containing instance launch details. Any other fields supplied in this instance launch request will override the details stored in the Instance Configuration for this instance launch.
    */
@@ -312,6 +319,9 @@ export namespace LaunchInstanceDetails {
 
         "platformConfig": obj.platformConfig
           ? model.LaunchInstancePlatformConfig.getJsonObj(obj.platformConfig)
+          : undefined,
+        "placementConstraintDetails": obj.placementConstraintDetails
+          ? model.PlacementConstraintDetails.getJsonObj(obj.placementConstraintDetails)
           : undefined,
 
         "licensingConfigs": obj.licensingConfigs
@@ -368,6 +378,9 @@ export namespace LaunchInstanceDetails {
 
         "platformConfig": obj.platformConfig
           ? model.LaunchInstancePlatformConfig.getDeserializedJsonObj(obj.platformConfig)
+          : undefined,
+        "placementConstraintDetails": obj.placementConstraintDetails
+          ? model.PlacementConstraintDetails.getDeserializedJsonObj(obj.placementConstraintDetails)
           : undefined,
 
         "licensingConfigs": obj.licensingConfigs

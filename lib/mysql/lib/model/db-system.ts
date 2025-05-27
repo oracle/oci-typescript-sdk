@@ -44,6 +44,7 @@ export interface DbSystem {
    * Network Security Group OCIDs used for the VNIC attachment.
    */
   "nsgIds"?: Array<string>;
+  "rest"?: model.RestDetails;
   /**
    * Specifies if the DB System is highly available.
    *
@@ -260,6 +261,8 @@ export namespace DbSystem {
     const jsonObj = {
       ...obj,
       ...{
+        "rest": obj.rest ? model.RestDetails.getJsonObj(obj.rest) : undefined,
+
         "currentPlacement": obj.currentPlacement
           ? model.DbSystemPlacement.getJsonObj(obj.currentPlacement)
           : undefined,
@@ -318,6 +321,8 @@ export namespace DbSystem {
     const jsonObj = {
       ...obj,
       ...{
+        "rest": obj.rest ? model.RestDetails.getDeserializedJsonObj(obj.rest) : undefined,
+
         "currentPlacement": obj.currentPlacement
           ? model.DbSystemPlacement.getDeserializedJsonObj(obj.currentPlacement)
           : undefined,

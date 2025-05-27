@@ -70,6 +70,10 @@ export interface ManagementDashboardTileDetails {
    * Specifies the saved search parameters values
    */
   "parametersMap"?: any;
+  /**
+   * Description of the tile.
+   */
+  "description"?: string;
 }
 
 export namespace ManagementDashboardTileDetails {

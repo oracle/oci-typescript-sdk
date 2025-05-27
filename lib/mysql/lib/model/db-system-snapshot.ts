@@ -108,6 +108,7 @@ export interface DbSystemSnapshot {
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "portX"?: number;
+  "rest"?: model.RestDetails;
   /**
    * Specifies if the DB System is highly available.
    *
@@ -164,6 +165,8 @@ export namespace DbSystemSnapshot {
 
         "dataStorage": obj.dataStorage ? model.DataStorage.getJsonObj(obj.dataStorage) : undefined,
 
+        "rest": obj.rest ? model.RestDetails.getJsonObj(obj.rest) : undefined,
+
         "endpoints": obj.endpoints
           ? obj.endpoints.map(item => {
               return model.DbSystemEndpoint.getJsonObj(item);
@@ -199,6 +202,8 @@ export namespace DbSystemSnapshot {
         "dataStorage": obj.dataStorage
           ? model.DataStorage.getDeserializedJsonObj(obj.dataStorage)
           : undefined,
+
+        "rest": obj.rest ? model.RestDetails.getDeserializedJsonObj(obj.rest) : undefined,
 
         "endpoints": obj.endpoints
           ? obj.endpoints.map(item => {

@@ -25,8 +25,6 @@ export enum LifecycleState {
   Deleted = "DELETED",
   Failed = "FAILED",
   NeedsAttention = "NEEDS_ATTENTION",
-  Attaching = "ATTACHING",
-  Detaching = "DETACHING",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

@@ -31,6 +31,7 @@ export interface CreateDbSystemDetails {
    * The OCID of the compartment.
    */
   "compartmentId": string;
+  "rest"?: model.CreateRestDetails;
   /**
     * Specifies if the DB System is highly available.
 * <p>
@@ -202,6 +203,8 @@ export namespace CreateDbSystemDetails {
     const jsonObj = {
       ...obj,
       ...{
+        "rest": obj.rest ? model.CreateRestDetails.getJsonObj(obj.rest) : undefined,
+
         "dataStorage": obj.dataStorage
           ? model.DataStorageDetails.getJsonObj(obj.dataStorage)
           : undefined,
@@ -239,6 +242,8 @@ export namespace CreateDbSystemDetails {
     const jsonObj = {
       ...obj,
       ...{
+        "rest": obj.rest ? model.CreateRestDetails.getDeserializedJsonObj(obj.rest) : undefined,
+
         "dataStorage": obj.dataStorage
           ? model.DataStorageDetails.getDeserializedJsonObj(obj.dataStorage)
           : undefined,

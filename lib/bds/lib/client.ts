@@ -1448,6 +1448,82 @@ export class BdsClient {
   }
 
   /**
+   * Create a detailed capacity report for BDS service
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateBdsCapacityReportRequest
+   * @return CreateBdsCapacityReportResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/CreateBdsCapacityReport.ts.html |here} to see how to use CreateBdsCapacityReport API.
+   */
+  public async createBdsCapacityReport(
+    createBdsCapacityReportRequest: requests.CreateBdsCapacityReportRequest
+  ): Promise<responses.CreateBdsCapacityReportResponse> {
+    if (this.logger) this.logger.debug("Calling operation BdsClient#createBdsCapacityReport.");
+    const operationName = "createBdsCapacityReport";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsCapacityReport/CreateBdsCapacityReport";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createBdsCapacityReportRequest.opcRequestId,
+      "opc-retry-token": createBdsCapacityReportRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createBdsCapacityReportRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/bdsCapacityReports",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createBdsCapacityReportRequest.createBdsCapacityReportDetails,
+        "CreateBdsCapacityReportDetails",
+        model.CreateBdsCapacityReportDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateBdsCapacityReportResponse>{},
+        body: await response.json(),
+        bodyKey: "bdsCapacityReport",
+        bodyModel: model.BdsCapacityReport,
+        type: "model.BdsCapacityReport",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates a Big Data Service cluster.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -3640,6 +3716,86 @@ export class BdsClient {
   }
 
   /**
+   * Get the details of the software update of the given SoftwareUpdateId
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetSoftwareUpdateRequest
+   * @return GetSoftwareUpdateResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/GetSoftwareUpdate.ts.html |here} to see how to use GetSoftwareUpdate API.
+   */
+  public async getSoftwareUpdate(
+    getSoftwareUpdateRequest: requests.GetSoftwareUpdateRequest
+  ): Promise<responses.GetSoftwareUpdateResponse> {
+    if (this.logger) this.logger.debug("Calling operation BdsClient#getSoftwareUpdate.");
+    const operationName = "getSoftwareUpdate";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/GetSoftwareUpdate";
+    const pathParams = {
+      "{bdsInstanceId}": getSoftwareUpdateRequest.bdsInstanceId,
+      "{softwareUpdateKey}": getSoftwareUpdateRequest.softwareUpdateKey
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getSoftwareUpdateRequest.opcRequestId,
+      "if-match": getSoftwareUpdateRequest.ifMatch,
+      "opc-retry-token": getSoftwareUpdateRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getSoftwareUpdateRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/bdsInstances/{bdsInstanceId}/softwareUpdates/{softwareUpdateKey}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetSoftwareUpdateResponse>{},
+        body: await response.json(),
+        bodyKey: "softwareUpdate",
+        bodyModel: model.SoftwareUpdate,
+        type: "model.SoftwareUpdate",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Returns the status of the work request identified by the given ID.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetWorkRequestRequest
@@ -3855,6 +4011,86 @@ export class BdsClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.InstallPatchResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Install the specified software update to this cluster.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param InstallSoftwareUpdatesRequest
+   * @return InstallSoftwareUpdatesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/InstallSoftwareUpdates.ts.html |here} to see how to use InstallSoftwareUpdates API.
+   */
+  public async installSoftwareUpdates(
+    installSoftwareUpdatesRequest: requests.InstallSoftwareUpdatesRequest
+  ): Promise<responses.InstallSoftwareUpdatesResponse> {
+    if (this.logger) this.logger.debug("Calling operation BdsClient#installSoftwareUpdates.");
+    const operationName = "installSoftwareUpdates";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/InstallSoftwareUpdates";
+    const pathParams = {
+      "{bdsInstanceId}": installSoftwareUpdatesRequest.bdsInstanceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": installSoftwareUpdatesRequest.opcRequestId,
+      "if-match": installSoftwareUpdatesRequest.ifMatch,
+      "opc-retry-token": installSoftwareUpdatesRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      installSoftwareUpdatesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/bdsInstances/{bdsInstanceId}/actions/installSoftwareUpdates",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        installSoftwareUpdatesRequest.installSoftwareUpdatesDetails,
+        "InstallSoftwareUpdatesDetails",
+        model.InstallSoftwareUpdatesDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.InstallSoftwareUpdatesResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -5648,6 +5884,89 @@ export class BdsClient {
     request: requests.ListResourcePrincipalConfigurationsRequest
   ): AsyncIterableIterator<responses.ListResourcePrincipalConfigurationsResponse> {
     return paginateResponses(request, req => this.listResourcePrincipalConfigurations(req));
+  }
+
+  /**
+   * List all the available software updates for current cluster.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListSoftwareUpdatesRequest
+   * @return ListSoftwareUpdatesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/ListSoftwareUpdates.ts.html |here} to see how to use ListSoftwareUpdates API.
+   */
+  public async listSoftwareUpdates(
+    listSoftwareUpdatesRequest: requests.ListSoftwareUpdatesRequest
+  ): Promise<responses.ListSoftwareUpdatesResponse> {
+    if (this.logger) this.logger.debug("Calling operation BdsClient#listSoftwareUpdates.");
+    const operationName = "listSoftwareUpdates";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/ListSoftwareUpdates";
+    const pathParams = {
+      "{bdsInstanceId}": listSoftwareUpdatesRequest.bdsInstanceId
+    };
+
+    const queryParams = {
+      "page": listSoftwareUpdatesRequest.page,
+      "limit": listSoftwareUpdatesRequest.limit,
+      "sortBy": listSoftwareUpdatesRequest.sortBy,
+      "sortOrder": listSoftwareUpdatesRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listSoftwareUpdatesRequest.opcRequestId,
+      "if-match": listSoftwareUpdatesRequest.ifMatch,
+      "opc-retry-token": listSoftwareUpdatesRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSoftwareUpdatesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/bdsInstances/{bdsInstanceId}/softwareUpdates",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListSoftwareUpdatesResponse>{},
+        body: await response.json(),
+        bodyKey: "softwareUpdateCollection",
+        bodyModel: model.SoftwareUpdateCollection,
+        type: "model.SoftwareUpdateCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
   }
 
   /**

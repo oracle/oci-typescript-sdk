@@ -6046,6 +6046,100 @@ export class ComputeClient {
   }
 
   /**
+   * Attaches the Compute BM Host to a Host group
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param AttachComputeHostGroupHostRequest
+   * @return AttachComputeHostGroupHostResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/AttachComputeHostGroupHost.ts.html |here} to see how to use AttachComputeHostGroupHost API.
+   */
+  public async attachComputeHostGroupHost(
+    attachComputeHostGroupHostRequest: requests.AttachComputeHostGroupHostRequest
+  ): Promise<responses.AttachComputeHostGroupHostResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#attachComputeHostGroupHost.");
+    const operationName = "attachComputeHostGroupHost";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeHost/AttachComputeHostGroupHost";
+    const pathParams = {
+      "{computeHostId}": attachComputeHostGroupHostRequest.computeHostId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": attachComputeHostGroupHostRequest.ifMatch,
+      "opc-retry-token": attachComputeHostGroupHostRequest.opcRetryToken,
+      "opc-request-id": attachComputeHostGroupHostRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      attachComputeHostGroupHostRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/computeHosts/{computeHostId}/actions/attachToHostGroup",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        attachComputeHostGroupHostRequest.attachComputeHostGroupHostDetails,
+        "AttachComputeHostGroupHostDetails",
+        model.AttachComputeHostGroupHostDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AttachComputeHostGroupHostResponse>{},
+        body: await response.json(),
+        bodyKey: "computeHost",
+        bodyModel: model.ComputeHost,
+        type: "model.ComputeHost",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates a secondary VNIC and attaches it to the specified instance.
    * For more information about secondary VNICs, see
    * [Virtual Network Interface Cards (VNICs)](https://docs.oracle.com/iaas/Content/Network/Tasks/managingVNICs.htm).
@@ -6774,6 +6868,88 @@ For information about moving resources between compartments, see
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeComputeHostCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Moves a compute host group into a different compartment. For information about moving resources between
+   * compartments, see [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ChangeComputeHostGroupCompartmentRequest
+   * @return ChangeComputeHostGroupCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeComputeHostGroupCompartment.ts.html |here} to see how to use ChangeComputeHostGroupCompartment API.
+   */
+  public async changeComputeHostGroupCompartment(
+    changeComputeHostGroupCompartmentRequest: requests.ChangeComputeHostGroupCompartmentRequest
+  ): Promise<responses.ChangeComputeHostGroupCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#changeComputeHostGroupCompartment.");
+    const operationName = "changeComputeHostGroupCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeHostGroup/ChangeComputeHostGroupCompartment";
+    const pathParams = {
+      "{computeHostGroupId}": changeComputeHostGroupCompartmentRequest.computeHostGroupId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeComputeHostGroupCompartmentRequest.ifMatch,
+      "opc-request-id": changeComputeHostGroupCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeComputeHostGroupCompartmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeComputeHostGroupCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/computeHostGroups/{computeHostGroupId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeComputeHostGroupCompartmentRequest.changeComputeHostGroupCompartmentDetails,
+        "ChangeComputeHostGroupCompartmentDetails",
+        model.ChangeComputeHostGroupCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeComputeHostGroupCompartmentResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -7668,6 +7844,96 @@ If you want predictable capacity for a specific number of identical instances th
   }
 
   /**
+   * Creates a new compute host group in the specified compartment and availability domain.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateComputeHostGroupRequest
+   * @return CreateComputeHostGroupResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateComputeHostGroup.ts.html |here} to see how to use CreateComputeHostGroup API.
+   */
+  public async createComputeHostGroup(
+    createComputeHostGroupRequest: requests.CreateComputeHostGroupRequest
+  ): Promise<responses.CreateComputeHostGroupResponse> {
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#createComputeHostGroup.");
+    const operationName = "createComputeHostGroup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeHostGroup/CreateComputeHostGroup";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createComputeHostGroupRequest.opcRequestId,
+      "opc-retry-token": createComputeHostGroupRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createComputeHostGroupRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/computeHostGroups",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createComputeHostGroupRequest.createComputeHostGroupDetails,
+        "CreateComputeHostGroupDetails",
+        model.CreateComputeHostGroupDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateComputeHostGroupResponse>{},
+        body: await response.json(),
+        bodyKey: "computeHostGroup",
+        bodyModel: model.ComputeHostGroup,
+        type: "model.ComputeHostGroup",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates compute image capability schema.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -8393,6 +8659,74 @@ Before you delete a compute cluster, first delete all instances in the cluster b
   }
 
   /**
+   * Deletes the specified compute host group
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteComputeHostGroupRequest
+   * @return DeleteComputeHostGroupResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteComputeHostGroup.ts.html |here} to see how to use DeleteComputeHostGroup API.
+   */
+  public async deleteComputeHostGroup(
+    deleteComputeHostGroupRequest: requests.DeleteComputeHostGroupRequest
+  ): Promise<responses.DeleteComputeHostGroupResponse> {
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#deleteComputeHostGroup.");
+    const operationName = "deleteComputeHostGroup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeHostGroup/DeleteComputeHostGroup";
+    const pathParams = {
+      "{computeHostGroupId}": deleteComputeHostGroupRequest.computeHostGroupId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": deleteComputeHostGroupRequest.opcRequestId,
+      "if-match": deleteComputeHostGroupRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteComputeHostGroupRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/computeHostGroups/{computeHostGroupId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteComputeHostGroupResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes the specified Compute Image Capability Schema
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -8800,6 +9134,86 @@ This is an asynchronous operation. The attachment's `lifecycleState` will change
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Detaches the specified bare metal host from the compute host group
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DetachComputeHostGroupHostRequest
+   * @return DetachComputeHostGroupHostResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DetachComputeHostGroupHost.ts.html |here} to see how to use DetachComputeHostGroupHost API.
+   */
+  public async detachComputeHostGroupHost(
+    detachComputeHostGroupHostRequest: requests.DetachComputeHostGroupHostRequest
+  ): Promise<responses.DetachComputeHostGroupHostResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#detachComputeHostGroupHost.");
+    const operationName = "detachComputeHostGroupHost";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeHost/DetachComputeHostGroupHost";
+    const pathParams = {
+      "{computeHostId}": detachComputeHostGroupHostRequest.computeHostId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": detachComputeHostGroupHostRequest.ifMatch,
+      "opc-retry-token": detachComputeHostGroupHostRequest.opcRetryToken,
+      "opc-request-id": detachComputeHostGroupHostRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      detachComputeHostGroupHostRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/computeHosts/{computeHostId}/actions/detachFromHostGroup",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        detachComputeHostGroupHostRequest.detachComputeHostGroupHostDetails,
+        "DetachComputeHostGroupHostDetails",
+        model.DetachComputeHostGroupHostDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DetachComputeHostGroupHostResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           }
         ]
@@ -9964,6 +10378,82 @@ See [Object Storage URLs](https://docs.oracle.com/iaas/Content/Compute/Tasks/ima
         bodyKey: "computeHost",
         bodyModel: model.ComputeHost,
         type: "model.ComputeHost",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets information about the specified compute host group
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetComputeHostGroupRequest
+   * @return GetComputeHostGroupResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetComputeHostGroup.ts.html |here} to see how to use GetComputeHostGroup API.
+   */
+  public async getComputeHostGroup(
+    getComputeHostGroupRequest: requests.GetComputeHostGroupRequest
+  ): Promise<responses.GetComputeHostGroupResponse> {
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#getComputeHostGroup.");
+    const operationName = "getComputeHostGroup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeHostGroup/GetComputeHostGroup";
+    const pathParams = {
+      "{computeHostGroupId}": getComputeHostGroupRequest.computeHostGroupId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getComputeHostGroupRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getComputeHostGroupRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/computeHostGroups/{computeHostGroupId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetComputeHostGroupResponse>{},
+        body: await response.json(),
+        bodyKey: "computeHostGroup",
+        bodyModel: model.ComputeHostGroup,
+        type: "model.ComputeHostGroup",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -13250,6 +13740,84 @@ You can limit the list by specifying a compute capacity reservation display name
   }
 
   /**
+   * Lists the compute host groups that match the specified criteria and compartment.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListComputeHostGroupsRequest
+   * @return ListComputeHostGroupsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListComputeHostGroups.ts.html |here} to see how to use ListComputeHostGroups API.
+   */
+  public async listComputeHostGroups(
+    listComputeHostGroupsRequest: requests.ListComputeHostGroupsRequest
+  ): Promise<responses.ListComputeHostGroupsResponse> {
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#listComputeHostGroups.");
+    const operationName = "listComputeHostGroups";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeHostGroup/ListComputeHostGroups";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listComputeHostGroupsRequest.compartmentId,
+      "page": listComputeHostGroupsRequest.page,
+      "limit": listComputeHostGroupsRequest.limit
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listComputeHostGroupsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listComputeHostGroupsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/computeHostGroups",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListComputeHostGroupsResponse>{},
+        body: await response.json(),
+        bodyKey: "computeHostGroupCollection",
+        bodyModel: model.ComputeHostGroupCollection,
+        type: "model.ComputeHostGroupCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Generates a list of summary host details
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -13277,7 +13845,8 @@ You can limit the list by specifying a compute capacity reservation display name
       "sortBy": listComputeHostsRequest.sortBy,
       "sortOrder": listComputeHostsRequest.sortOrder,
       "computeHostLifecycleState": listComputeHostsRequest.computeHostLifecycleState,
-      "computeHostHealth": listComputeHostsRequest.computeHostHealth
+      "computeHostHealth": listComputeHostsRequest.computeHostHealth,
+      "computeHostGroupId": listComputeHostsRequest.computeHostGroupId
     };
 
     let headerParams = {
@@ -14701,7 +15270,7 @@ For more information about instance console connections, see [Troubleshooting In
   }
 
   /**
-   * Gets a list of all the maintenance events for the given instance.
+   * Gets a list of all the maintenance events for the given compartment.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListInstanceMaintenanceEventsRequest
@@ -15989,7 +16558,8 @@ To delete instances from a compute cluster, use the {@link #terminateInstance(Te
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
       "if-match": updateComputeHostRequest.ifMatch,
-      "opc-request-id": updateComputeHostRequest.opcRequestId
+      "opc-request-id": updateComputeHostRequest.opcRequestId,
+      "opc-retry-token": updateComputeHostRequest.opcRetryToken
     };
 
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
@@ -16027,6 +16597,99 @@ To delete instances from a compute cluster, use the {@link #terminateInstance(Te
           {
             value: response.headers.get("etag"),
             key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the specified compute host group details.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateComputeHostGroupRequest
+   * @return UpdateComputeHostGroupResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateComputeHostGroup.ts.html |here} to see how to use UpdateComputeHostGroup API.
+   */
+  public async updateComputeHostGroup(
+    updateComputeHostGroupRequest: requests.UpdateComputeHostGroupRequest
+  ): Promise<responses.UpdateComputeHostGroupResponse> {
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#updateComputeHostGroup.");
+    const operationName = "updateComputeHostGroup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeHostGroup/UpdateComputeHostGroup";
+    const pathParams = {
+      "{computeHostGroupId}": updateComputeHostGroupRequest.computeHostGroupId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateComputeHostGroupRequest.ifMatch,
+      "opc-request-id": updateComputeHostGroupRequest.opcRequestId,
+      "opc-retry-token": updateComputeHostGroupRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateComputeHostGroupRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/computeHostGroups/{computeHostGroupId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateComputeHostGroupRequest.updateComputeHostGroupDetails,
+        "UpdateComputeHostGroupDetails",
+        model.UpdateComputeHostGroupDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateComputeHostGroupResponse>{},
+        body: await response.json(),
+        bodyKey: "computeHostGroup",
+        bodyModel: model.ComputeHostGroup,
+        type: "model.ComputeHostGroup",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("location"),
+            key: "location",
             dataType: "string"
           },
           {
@@ -24597,8 +25260,8 @@ You must specify whether the internet gateway is enabled when you create it. If 
   }
 
   /**
-   * Creates a secondary private IP for the specified VNIC.
-   * For more information about secondary private IPs, see
+   * Creates a private IP.
+   * For more information about private IPs, see
    * [IP Addresses](https://docs.oracle.com/iaas/Content/Network/Tasks/managingIPaddresses.htm).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.

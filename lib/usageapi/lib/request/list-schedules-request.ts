@@ -35,7 +35,7 @@ export interface ListSchedulesRequest extends common.BaseRequest {
    */
   "page"?: string;
   /**
-   * The maximumimum number of items to return.
+   * The maximum number of items to return.
    */
   "limit"?: number;
   /**
@@ -48,7 +48,7 @@ export interface ListSchedulesRequest extends common.BaseRequest {
    */
   "sortOrder"?: ListSchedulesRequest.SortOrder;
   /**
-   * Query parameter for filtering by name
+   * The query parameter for filtering by name.
    *
    */
   "name"?: string;

@@ -35,6 +35,10 @@ export interface OsPatchPackageSummary {
    * Related CVEs of the package update.
    */
   "relatedCVEs": Array<string>;
+  /**
+   * Package type based on package installation manager.
+   */
+  "packageType"?: OsPatchPackageSummary.PackageType;
 }
 
 export namespace OsPatchPackageSummary {
@@ -42,6 +46,18 @@ export namespace OsPatchPackageSummary {
     Install = "INSTALL",
     Remove = "REMOVE",
     Update = "UPDATE",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum PackageType {
+    Rpm = "RPM",
+    Pip = "PIP",
+    Pip3 = "PIP3",
+    Pip38 = "PIP3_8",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

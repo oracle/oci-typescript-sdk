@@ -53,6 +53,11 @@ Example: {@code {\"Oracle-DataSecurity-ZPR\": {\"MaxEgressCount\": {\"value\":\"
 * 
     */
   "securityAttributes"?: { [key: string]: { [key: string]: any } };
+  /**
+   * Indicates whether Zpr Only Mode is enforced.
+   *
+   */
+  "isZprOnly"?: boolean;
 }
 
 export namespace UpdateVcnDetails {

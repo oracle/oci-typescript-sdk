@@ -20,7 +20,7 @@ import common = require("oci-common");
 export interface MonitorResult {
   /**
    * Type of result.
-   * Example: HAR, Screenshot, Log or Network.
+   * Example: har, screenshot, log, network, diagnostics or script.
    *
    */
   "resultType"?: string;

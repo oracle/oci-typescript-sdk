@@ -144,6 +144,8 @@ import * as AddImageShapeCompatibilityEntryResponse from "./add-image-shape-comp
 export import AddImageShapeCompatibilityEntryResponse = AddImageShapeCompatibilityEntryResponse.AddImageShapeCompatibilityEntryResponse;
 import * as AttachBootVolumeResponse from "./attach-boot-volume-response";
 export import AttachBootVolumeResponse = AttachBootVolumeResponse.AttachBootVolumeResponse;
+import * as AttachComputeHostGroupHostResponse from "./attach-compute-host-group-host-response";
+export import AttachComputeHostGroupHostResponse = AttachComputeHostGroupHostResponse.AttachComputeHostGroupHostResponse;
 import * as AttachVnicResponse from "./attach-vnic-response";
 export import AttachVnicResponse = AttachVnicResponse.AttachVnicResponse;
 import * as AttachVolumeResponse from "./attach-volume-response";
@@ -162,6 +164,8 @@ import * as ChangeComputeGpuMemoryFabricCompartmentResponse from "./change-compu
 export import ChangeComputeGpuMemoryFabricCompartmentResponse = ChangeComputeGpuMemoryFabricCompartmentResponse.ChangeComputeGpuMemoryFabricCompartmentResponse;
 import * as ChangeComputeHostCompartmentResponse from "./change-compute-host-compartment-response";
 export import ChangeComputeHostCompartmentResponse = ChangeComputeHostCompartmentResponse.ChangeComputeHostCompartmentResponse;
+import * as ChangeComputeHostGroupCompartmentResponse from "./change-compute-host-group-compartment-response";
+export import ChangeComputeHostGroupCompartmentResponse = ChangeComputeHostGroupCompartmentResponse.ChangeComputeHostGroupCompartmentResponse;
 import * as ChangeComputeImageCapabilitySchemaCompartmentResponse from "./change-compute-image-capability-schema-compartment-response";
 export import ChangeComputeImageCapabilitySchemaCompartmentResponse = ChangeComputeImageCapabilitySchemaCompartmentResponse.ChangeComputeImageCapabilitySchemaCompartmentResponse;
 import * as ChangeDedicatedVmHostCompartmentResponse from "./change-dedicated-vm-host-compartment-response";
@@ -182,6 +186,8 @@ import * as CreateComputeClusterResponse from "./create-compute-cluster-response
 export import CreateComputeClusterResponse = CreateComputeClusterResponse.CreateComputeClusterResponse;
 import * as CreateComputeGpuMemoryClusterResponse from "./create-compute-gpu-memory-cluster-response";
 export import CreateComputeGpuMemoryClusterResponse = CreateComputeGpuMemoryClusterResponse.CreateComputeGpuMemoryClusterResponse;
+import * as CreateComputeHostGroupResponse from "./create-compute-host-group-response";
+export import CreateComputeHostGroupResponse = CreateComputeHostGroupResponse.CreateComputeHostGroupResponse;
 import * as CreateComputeImageCapabilitySchemaResponse from "./create-compute-image-capability-schema-response";
 export import CreateComputeImageCapabilitySchemaResponse = CreateComputeImageCapabilitySchemaResponse.CreateComputeImageCapabilitySchemaResponse;
 import * as CreateDedicatedVmHostResponse from "./create-dedicated-vm-host-response";
@@ -200,6 +206,8 @@ import * as DeleteComputeClusterResponse from "./delete-compute-cluster-response
 export import DeleteComputeClusterResponse = DeleteComputeClusterResponse.DeleteComputeClusterResponse;
 import * as DeleteComputeGpuMemoryClusterResponse from "./delete-compute-gpu-memory-cluster-response";
 export import DeleteComputeGpuMemoryClusterResponse = DeleteComputeGpuMemoryClusterResponse.DeleteComputeGpuMemoryClusterResponse;
+import * as DeleteComputeHostGroupResponse from "./delete-compute-host-group-response";
+export import DeleteComputeHostGroupResponse = DeleteComputeHostGroupResponse.DeleteComputeHostGroupResponse;
 import * as DeleteComputeImageCapabilitySchemaResponse from "./delete-compute-image-capability-schema-response";
 export import DeleteComputeImageCapabilitySchemaResponse = DeleteComputeImageCapabilitySchemaResponse.DeleteComputeImageCapabilitySchemaResponse;
 import * as DeleteConsoleHistoryResponse from "./delete-console-history-response";
@@ -212,6 +220,8 @@ import * as DeleteInstanceConsoleConnectionResponse from "./delete-instance-cons
 export import DeleteInstanceConsoleConnectionResponse = DeleteInstanceConsoleConnectionResponse.DeleteInstanceConsoleConnectionResponse;
 import * as DetachBootVolumeResponse from "./detach-boot-volume-response";
 export import DetachBootVolumeResponse = DetachBootVolumeResponse.DetachBootVolumeResponse;
+import * as DetachComputeHostGroupHostResponse from "./detach-compute-host-group-host-response";
+export import DetachComputeHostGroupHostResponse = DetachComputeHostGroupHostResponse.DetachComputeHostGroupHostResponse;
 import * as DetachVnicResponse from "./detach-vnic-response";
 export import DetachVnicResponse = DetachVnicResponse.DetachVnicResponse;
 import * as DetachVolumeResponse from "./detach-volume-response";
@@ -242,6 +252,8 @@ import * as GetComputeGpuMemoryFabricResponse from "./get-compute-gpu-memory-fab
 export import GetComputeGpuMemoryFabricResponse = GetComputeGpuMemoryFabricResponse.GetComputeGpuMemoryFabricResponse;
 import * as GetComputeHostResponse from "./get-compute-host-response";
 export import GetComputeHostResponse = GetComputeHostResponse.GetComputeHostResponse;
+import * as GetComputeHostGroupResponse from "./get-compute-host-group-response";
+export import GetComputeHostGroupResponse = GetComputeHostGroupResponse.GetComputeHostGroupResponse;
 import * as GetComputeImageCapabilitySchemaResponse from "./get-compute-image-capability-schema-response";
 export import GetComputeImageCapabilitySchemaResponse = GetComputeImageCapabilitySchemaResponse.GetComputeImageCapabilitySchemaResponse;
 import * as GetConsoleHistoryResponse from "./get-console-history-response";
@@ -308,6 +320,8 @@ import * as ListComputeGpuMemoryClustersResponse from "./list-compute-gpu-memory
 export import ListComputeGpuMemoryClustersResponse = ListComputeGpuMemoryClustersResponse.ListComputeGpuMemoryClustersResponse;
 import * as ListComputeGpuMemoryFabricsResponse from "./list-compute-gpu-memory-fabrics-response";
 export import ListComputeGpuMemoryFabricsResponse = ListComputeGpuMemoryFabricsResponse.ListComputeGpuMemoryFabricsResponse;
+import * as ListComputeHostGroupsResponse from "./list-compute-host-groups-response";
+export import ListComputeHostGroupsResponse = ListComputeHostGroupsResponse.ListComputeHostGroupsResponse;
 import * as ListComputeHostsResponse from "./list-compute-hosts-response";
 export import ListComputeHostsResponse = ListComputeHostsResponse.ListComputeHostsResponse;
 import * as ListComputeImageCapabilitySchemasResponse from "./list-compute-image-capability-schemas-response";
@@ -356,6 +370,8 @@ import * as UpdateComputeGpuMemoryFabricResponse from "./update-compute-gpu-memo
 export import UpdateComputeGpuMemoryFabricResponse = UpdateComputeGpuMemoryFabricResponse.UpdateComputeGpuMemoryFabricResponse;
 import * as UpdateComputeHostResponse from "./update-compute-host-response";
 export import UpdateComputeHostResponse = UpdateComputeHostResponse.UpdateComputeHostResponse;
+import * as UpdateComputeHostGroupResponse from "./update-compute-host-group-response";
+export import UpdateComputeHostGroupResponse = UpdateComputeHostGroupResponse.UpdateComputeHostGroupResponse;
 import * as UpdateComputeImageCapabilitySchemaResponse from "./update-compute-image-capability-schema-response";
 export import UpdateComputeImageCapabilitySchemaResponse = UpdateComputeImageCapabilitySchemaResponse.UpdateComputeImageCapabilitySchemaResponse;
 import * as UpdateConsoleHistoryResponse from "./update-console-history-response";

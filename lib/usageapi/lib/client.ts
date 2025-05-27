@@ -1,6 +1,6 @@
 /**
  * Usage API
- * Use the Usage API to view your Oracle Cloud usage and costs. The API allows you to request data that meets the specified filter criteria, and to group that data by the chosen dimension. The Usage API is used by the Cost Analysis and Carbon Emissions Analysis tools in the Console. See [Cost Analysis Overview](https://docs.oracle.com/iaas/Content/Billing/Concepts/costanalysisoverview.htm) and [Using the Usage API](https://docs.oracle.com/iaas/Content/Billing/Concepts/costanalysisoverview.htm#cost_analysis_using_the_api) for more information.
+ * Use the Usage API to view your Oracle Cloud usage and costs. The API allows you to request data that meets the specified filter criteria, and to group that data by the chosen dimension. The Usage API is used by [Cost Analysis](https://docs.oracle.com/iaas/Content/Billing/Concepts/costanalysisoverview.htm), [Scheduled Reports](https://docs.oracle.com/iaas/Content/Billing/Concepts/scheduledreportoverview.htm), and [Carbon Emissions Analysis](https://docs.oracle.com/iaas/Content/General/Concepts/emissions-management.htm) in the Console. Also see [Using the Usage API](https://docs.oracle.com/iaas/Content/Billing/Concepts/costanalysisoverview.htm#cost_analysis_using_the_api) for more information.
  * OpenAPI spec version: 20200107
  *
  *
@@ -318,7 +318,7 @@ export class UsageapiClient {
   }
 
   /**
-   * Add a list of email recipients that can receive usage statements for the subscription.
+   * Creates a list of email recipients that can receive usage statements for the subscription.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateEmailRecipientsGroupRequest
@@ -564,7 +564,7 @@ export class UsageapiClient {
   }
 
   /**
-   * Returns the created usage carbon emissions query.
+   * Returns the created carbon emissions usage query.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateUsageCarbonEmissionsQueryRequest
@@ -715,7 +715,7 @@ export class UsageapiClient {
   }
 
   /**
-   * Delete the email recipients group for the usage statement subscription.
+   * Deletes the email recipients group for the usage statement subscription.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteEmailRecipientsGroupRequest
@@ -926,7 +926,7 @@ export class UsageapiClient {
   }
 
   /**
-   * Delete a usage carbon emissions saved query by the OCID.
+   * Delete a carbon emissions usage saved query by the OCID.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteUsageCarbonEmissionsQueryRequest
@@ -1074,7 +1074,7 @@ export class UsageapiClient {
   }
 
   /**
-   * Return the saved usage statement email recipient group.
+   * Returns the saved usage statement email recipients group.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetEmailRecipientsGroupRequest
@@ -1384,7 +1384,7 @@ export class UsageapiClient {
   }
 
   /**
-   * Returns the usage carbon emissions saved query.
+   * Returns the carbon emissions usage saved query.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetUsageCarbonEmissionsQueryRequest
@@ -1545,7 +1545,7 @@ export class UsageapiClient {
   }
 
   /**
-   * Return the saved usage statement email recipient group.
+   * Returns the saved usage statement email recipients group.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListEmailRecipientsGroupsRequest
@@ -1711,7 +1711,7 @@ export class UsageapiClient {
   }
 
   /**
-   * Returns schedule history list.
+   * Returns the schedule history list.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListScheduledRunsRequest
@@ -1874,7 +1874,7 @@ export class UsageapiClient {
   }
 
   /**
-   * Returns the usage carbon emissions saved query list.
+   * Returns the carbon emissions usage saved query list.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListUsageCarbonEmissionsQueriesRequest
@@ -2269,7 +2269,7 @@ export class UsageapiClient {
   }
 
   /**
-   * Returns the configuration list for the UI drop-down list of carbon emission console.
+   * Returns the configuration list for the Console's carbon emission user interface drop-down list.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param RequestUsageCarbonEmissionConfigRequest
@@ -2342,7 +2342,7 @@ export class UsageapiClient {
   }
 
   /**
-   * Returns usage carbon emission for the given account.
+   * Returns carbon emission usage for the given account.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param RequestUsageCarbonEmissionsRequest
@@ -2426,7 +2426,7 @@ export class UsageapiClient {
   }
 
   /**
-   * Update a saved custom table by table id.
+   * Update a saved custom table by table ID.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateCustomTableRequest
@@ -2509,7 +2509,7 @@ export class UsageapiClient {
   }
 
   /**
-   * Update a saved email recipients group.
+   * Updates a saved email recipients group.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateEmailRecipientsGroupRequest
@@ -2679,7 +2679,7 @@ export class UsageapiClient {
   }
 
   /**
-   * Update a saved schedule
+   * Update a saved schedule.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateScheduleRequest
@@ -2762,7 +2762,7 @@ export class UsageapiClient {
   }
 
   /**
-   * Update a usage carbon emissions saved query by the OCID.
+   * Update a carbon emissions usage saved query by the OCID.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateUsageCarbonEmissionsQueryRequest

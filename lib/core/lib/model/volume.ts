@@ -158,7 +158,8 @@ For performance autotune enabled volumes, It would be the Default(Minimum) VPUs/
    */
   "autotunePolicies"?: Array<model.AutotunePolicy>;
   /**
-   * Reservations-enabled is a boolean field that allows to enable PR (Persistent Reservation) on a volume.
+   * When set to true, enables SCSI Persistent Reservation (SCSI PR) for the volume. For more information, see
+   * [Persistent Reservations](https://docs.oracle.com/iaas/Content/Block/Concepts/persistent-reservations.htm).
    *
    */
   "isReservationsEnabled"?: boolean;
