@@ -34,8 +34,9 @@ export interface PatchHistorySummary {
   /**
    * The type of current patch history.
    * DP - Data Plane patch(This history type is internal available only)
-   * ODH - Oracle Distribution of Hadoop patch
-   * OS - Operating System patch
+   * ODH - Oracle Distribution of Hadoop update
+   * OS - Operating System update
+   * BDS - Big Data Service update
    *
    */
   "patchType": PatchHistorySummary.PatchType;
@@ -56,6 +57,7 @@ export namespace PatchHistorySummary {
   export enum PatchType {
     Odh = "ODH",
     Os = "OS",
+    Bds = "BDS",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

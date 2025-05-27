@@ -16,6 +16,8 @@ import * as requests from "./request";
 import * as model from "./model";
 import * as responses from "./response";
 import { CapacityManagementWaiter } from "./capacitymanagement-waiter";
+import { DemandSignalWaiter } from "./demandsignal-waiter";
+import { InternalDemandSignalWaiter } from "./internaldemandsignal-waiter";
 import {
   composeResponse,
   composeRequest,
@@ -2868,6 +2870,2504 @@ export class CapacityManagementClient {
         bodyKey: "occCustomerGroup",
         bodyModel: model.OccCustomerGroup,
         type: "model.OccCustomerGroup",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("retry-after"),
+            key: "retryAfter",
+            dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+}
+export enum DemandSignalApiKeys {}
+/**
+ * This service client uses {@link common.CircuitBreaker.DefaultConfiguration} for all the operations by default if no circuit breaker configuration is defined by the user.
+ */
+export class DemandSignalClient {
+  protected static serviceEndpointTemplate =
+    "https://control-center-cp.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "control-center-cp";
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
+  protected "_endpoint": string = "";
+  protected "_defaultHeaders": any = {};
+  protected "_waiters": DemandSignalWaiter;
+  protected "_clientConfiguration": common.ClientConfiguration;
+  protected _circuitBreaker: typeof Breaker | null = null;
+  protected _httpOptions: any = undefined;
+  protected _bodyDuplexMode: any = undefined;
+  public targetService = "DemandSignal";
+  protected _regionId: string = "";
+  protected "_region": common.Region;
+  protected _lastSetRegionOrRegionId: string = "";
+
+  protected _httpClient: common.HttpClient;
+  protected _authProvider: common.AuthenticationDetailsProvider | undefined;
+
+  constructor(params: common.AuthParams, clientConfiguration?: common.ClientConfiguration) {
+    const requestSigner = params.authenticationDetailsProvider
+      ? new common.DefaultRequestSigner(params.authenticationDetailsProvider)
+      : null;
+    this._authProvider = params.authenticationDetailsProvider;
+    if (clientConfiguration) {
+      this._clientConfiguration = clientConfiguration;
+      this._circuitBreaker = clientConfiguration.circuitBreaker
+        ? clientConfiguration.circuitBreaker!.circuit
+        : null;
+      this._httpOptions = clientConfiguration.httpOptions
+        ? clientConfiguration.httpOptions
+        : undefined;
+      this._bodyDuplexMode = clientConfiguration.bodyDuplexMode
+        ? clientConfiguration.bodyDuplexMode
+        : undefined;
+    }
+
+    if (!developerToolConfiguration.isServiceEnabled("capacitymanagement")) {
+      let errmsg =
+        "The developerToolConfiguration configuration disabled this service, this behavior is controlled by developerToolConfiguration.ociEnabledServiceSet variable. Please check if your local developer_tool_configuration file has configured the service you're targeting or contact the cloud provider on the availability of this service : ";
+      throw errmsg.concat("capacitymanagement");
+    }
+
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = true;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
+    }
+    this._httpClient =
+      params.httpClient ||
+      new common.FetchHttpClient(
+        requestSigner,
+        this._circuitBreaker,
+        this._httpOptions,
+        this._bodyDuplexMode
+      );
+
+    if (
+      params.authenticationDetailsProvider &&
+      common.isRegionProvider(params.authenticationDetailsProvider)
+    ) {
+      const provider: common.RegionProvider = params.authenticationDetailsProvider;
+      if (provider.getRegion()) {
+        this.region = provider.getRegion();
+      }
+    }
+  }
+
+  /**
+   * Get the endpoint that is being used to call (ex, https://www.example.com).
+   */
+  public get endpoint() {
+    return this._endpoint;
+  }
+
+  /**
+   * Sets the endpoint to call (ex, https://www.example.com).
+   * @param endpoint The endpoint of the service.
+   */
+  public set endpoint(endpoint: string) {
+    this._endpoint = endpoint;
+    this._endpoint = this._endpoint + "/20231107";
+    if (this.logger) this.logger.info(`DemandSignalClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
+  }
+
+  /**
+   * Determines whether realm specific endpoint should be used or not.
+   * Set realmSpecificEndpointTemplateEnabled to "true" if the user wants to enable use of realm specific endpoint template, otherwise set it to "false"
+   * @param realmSpecificEndpointTemplateEnabled flag to enable the use of realm specific endpoint template
+   */
+  public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
+    this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
+    if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
+      this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
+        DemandSignalClient.serviceEndpointTemplate,
+        this._region,
+        DemandSignalClient.endpointServiceName
+      );
+    } else if (this._lastSetRegionOrRegionId === common.Region.REGION_ID_STRING) {
+      this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
+        DemandSignalClient.serviceEndpointTemplate,
+        this._regionId,
+        DemandSignalClient.endpointServiceName
+      );
+    }
+  }
+
+  /**
+   * Sets the region to call (ex, Region.US_PHOENIX_1).
+   * Note, this will call {@link #endpoint(String) endpoint} after resolving the endpoint.
+   * @param region The region of the service.
+   */
+  public set region(region: common.Region) {
+    this._region = region;
+    this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
+      DemandSignalClient.serviceEndpointTemplate,
+      region,
+      DemandSignalClient.endpointServiceName
+    );
+    this._lastSetRegionOrRegionId = common.Region.REGION_STRING;
+  }
+
+  /**
+   * Sets the regionId to call (ex, 'us-phoenix-1').
+   *
+   * Note, this will first try to map the region ID to a known Region and call {@link #region(Region) region}.
+   * If no known Region could be determined, it will create an endpoint assuming its in default Realm OC1
+   * and then call {@link #endpoint(String) endpoint}.
+   * @param regionId The public region ID.
+   */
+  public set regionId(regionId: string) {
+    this._regionId = regionId;
+    this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
+      DemandSignalClient.serviceEndpointTemplate,
+      regionId,
+      DemandSignalClient.endpointServiceName
+    );
+    this._lastSetRegionOrRegionId = common.Region.REGION_ID_STRING;
+  }
+
+  /**
+   * Creates a new DemandSignalWaiter for resources for this service.
+   *
+   * @param config The waiter configuration for termination and delay strategy
+   * @return The service waiters.
+   */
+  public createWaiters(config?: common.WaiterConfiguration): DemandSignalWaiter {
+    this._waiters = new DemandSignalWaiter(this, config);
+    return this._waiters;
+  }
+
+  /**
+   * Gets the waiters available for resources for this service.
+   *
+   * @return The service waiters.
+   */
+  public getWaiters(): DemandSignalWaiter {
+    if (this._waiters) {
+      return this._waiters;
+    }
+    throw Error("Waiters do not exist. Please create waiters.");
+  }
+
+  /**
+   * Shutdown the circuit breaker used by the client when it is no longer needed
+   */
+  public shutdownCircuitBreaker() {
+    if (this._circuitBreaker) {
+      this._circuitBreaker.shutdown();
+    }
+  }
+
+  /**
+   * Close the provider if possible which in turn shuts down any associated circuit breaker
+   */
+  public closeProvider() {
+    if (this._authProvider) {
+      if (this._authProvider instanceof common.AbstractRequestingAuthenticationDetailsProvider)
+        (<common.AbstractRequestingAuthenticationDetailsProvider>(
+          this._authProvider
+        )).closeProvider();
+    }
+  }
+
+  /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+    this.closeProvider();
+  }
+
+  /**
+   * This API will help in bulk creation of demand signal items. This API is atomic i.e either all the demand signal item resources will be created or none will be created.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param BulkCreateOccmDemandSignalItemRequest
+   * @return BulkCreateOccmDemandSignalItemResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/BulkCreateOccmDemandSignalItem.ts.html |here} to see how to use BulkCreateOccmDemandSignalItem API.
+   */
+  public async bulkCreateOccmDemandSignalItem(
+    bulkCreateOccmDemandSignalItemRequest: requests.BulkCreateOccmDemandSignalItemRequest
+  ): Promise<responses.BulkCreateOccmDemandSignalItemResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DemandSignalClient#bulkCreateOccmDemandSignalItem.");
+    const operationName = "bulkCreateOccmDemandSignalItem";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": bulkCreateOccmDemandSignalItemRequest.opcRetryToken,
+      "opc-request-id": bulkCreateOccmDemandSignalItemRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      bulkCreateOccmDemandSignalItemRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/occmDemandSignalItems/actions/bulkCreateDemandSignalItems",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        bulkCreateOccmDemandSignalItemRequest.bulkCreateOccmDemandSignalItemDetails,
+        "BulkCreateOccmDemandSignalItemDetails",
+        model.BulkCreateOccmDemandSignalItemDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.BulkCreateOccmDemandSignalItemResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * This is a post API to create occm demand signal.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateOccmDemandSignalRequest
+   * @return CreateOccmDemandSignalResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/CreateOccmDemandSignal.ts.html |here} to see how to use CreateOccmDemandSignal API.
+   */
+  public async createOccmDemandSignal(
+    createOccmDemandSignalRequest: requests.CreateOccmDemandSignalRequest
+  ): Promise<responses.CreateOccmDemandSignalResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DemandSignalClient#createOccmDemandSignal.");
+    const operationName = "createOccmDemandSignal";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createOccmDemandSignalRequest.opcRetryToken,
+      "opc-request-id": createOccmDemandSignalRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createOccmDemandSignalRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/occmDemandSignals",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createOccmDemandSignalRequest.createOccmDemandSignalDetails,
+        "CreateOccmDemandSignalDetails",
+        model.CreateOccmDemandSignalDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateOccmDemandSignalResponse>{},
+        body: await response.json(),
+        bodyKey: "occmDemandSignal",
+        bodyModel: model.OccmDemandSignal,
+        type: "model.OccmDemandSignal",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("retry-after"),
+            key: "retryAfter",
+            dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * This API will create a demand signal item representing a resource request. This needs to be grouped under a demand signal.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateOccmDemandSignalItemRequest
+   * @return CreateOccmDemandSignalItemResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/CreateOccmDemandSignalItem.ts.html |here} to see how to use CreateOccmDemandSignalItem API.
+   */
+  public async createOccmDemandSignalItem(
+    createOccmDemandSignalItemRequest: requests.CreateOccmDemandSignalItemRequest
+  ): Promise<responses.CreateOccmDemandSignalItemResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DemandSignalClient#createOccmDemandSignalItem.");
+    const operationName = "createOccmDemandSignalItem";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createOccmDemandSignalItemRequest.opcRetryToken,
+      "opc-request-id": createOccmDemandSignalItemRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createOccmDemandSignalItemRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/occmDemandSignalItems",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createOccmDemandSignalItemRequest.createOccmDemandSignalItemDetails,
+        "CreateOccmDemandSignalItemDetails",
+        model.CreateOccmDemandSignalItemDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateOccmDemandSignalItemResponse>{},
+        body: await response.json(),
+        bodyKey: "occmDemandSignalItem",
+        bodyModel: model.OccmDemandSignalItem,
+        type: "model.OccmDemandSignalItem",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("retry-after"),
+            key: "retryAfter",
+            dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * This is a DELETE API which deletes a demand signal with the provided demand signal ocid.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteOccmDemandSignalRequest
+   * @return DeleteOccmDemandSignalResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/DeleteOccmDemandSignal.ts.html |here} to see how to use DeleteOccmDemandSignal API.
+   */
+  public async deleteOccmDemandSignal(
+    deleteOccmDemandSignalRequest: requests.DeleteOccmDemandSignalRequest
+  ): Promise<responses.DeleteOccmDemandSignalResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DemandSignalClient#deleteOccmDemandSignal.");
+    const operationName = "deleteOccmDemandSignal";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{occmDemandSignalId}": deleteOccmDemandSignalRequest.occmDemandSignalId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteOccmDemandSignalRequest.ifMatch,
+      "opc-request-id": deleteOccmDemandSignalRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteOccmDemandSignalRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/occmDemandSignals/{occmDemandSignalId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteOccmDemandSignalResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("retry-after"),
+            key: "retryAfter",
+            dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * This is a DELETE API which deletes a demand signal item with the provided demand signal item ocid.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteOccmDemandSignalItemRequest
+   * @return DeleteOccmDemandSignalItemResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/DeleteOccmDemandSignalItem.ts.html |here} to see how to use DeleteOccmDemandSignalItem API.
+   */
+  public async deleteOccmDemandSignalItem(
+    deleteOccmDemandSignalItemRequest: requests.DeleteOccmDemandSignalItemRequest
+  ): Promise<responses.DeleteOccmDemandSignalItemResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DemandSignalClient#deleteOccmDemandSignalItem.");
+    const operationName = "deleteOccmDemandSignalItem";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{occmDemandSignalItemId}": deleteOccmDemandSignalItemRequest.occmDemandSignalItemId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteOccmDemandSignalItemRequest.ifMatch,
+      "opc-request-id": deleteOccmDemandSignalItemRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteOccmDemandSignalItemRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/occmDemandSignalItems/{occmDemandSignalItemId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteOccmDemandSignalItemResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("retry-after"),
+            key: "retryAfter",
+            dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * This is a GET API which gets the detailed information about a specific demand signal.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetOccmDemandSignalRequest
+   * @return GetOccmDemandSignalResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/GetOccmDemandSignal.ts.html |here} to see how to use GetOccmDemandSignal API.
+   */
+  public async getOccmDemandSignal(
+    getOccmDemandSignalRequest: requests.GetOccmDemandSignalRequest
+  ): Promise<responses.GetOccmDemandSignalResponse> {
+    if (this.logger) this.logger.debug("Calling operation DemandSignalClient#getOccmDemandSignal.");
+    const operationName = "getOccmDemandSignal";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{occmDemandSignalId}": getOccmDemandSignalRequest.occmDemandSignalId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getOccmDemandSignalRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getOccmDemandSignalRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/occmDemandSignals/{occmDemandSignalId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetOccmDemandSignalResponse>{},
+        body: await response.json(),
+        bodyKey: "occmDemandSignal",
+        bodyModel: model.OccmDemandSignal,
+        type: "model.OccmDemandSignal",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * This is a GET API to get the details of a demand signal item resource representing the details of the resource demanded by you.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetOccmDemandSignalItemRequest
+   * @return GetOccmDemandSignalItemResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/GetOccmDemandSignalItem.ts.html |here} to see how to use GetOccmDemandSignalItem API.
+   */
+  public async getOccmDemandSignalItem(
+    getOccmDemandSignalItemRequest: requests.GetOccmDemandSignalItemRequest
+  ): Promise<responses.GetOccmDemandSignalItemResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DemandSignalClient#getOccmDemandSignalItem.");
+    const operationName = "getOccmDemandSignalItem";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{occmDemandSignalItemId}": getOccmDemandSignalItemRequest.occmDemandSignalItemId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getOccmDemandSignalItemRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getOccmDemandSignalItemRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/occmDemandSignalItems/{occmDemandSignalItemId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetOccmDemandSignalItemResponse>{},
+        body: await response.json(),
+        bodyKey: "occmDemandSignalItem",
+        bodyModel: model.OccmDemandSignalItem,
+        type: "model.OccmDemandSignalItem",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * This API will list all the  resources across all demand signal catalogs for a given namespace and customer group containing the caller compartment.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListOccmDemandSignalCatalogResourcesRequest
+   * @return ListOccmDemandSignalCatalogResourcesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/ListOccmDemandSignalCatalogResources.ts.html |here} to see how to use ListOccmDemandSignalCatalogResources API.
+   */
+  public async listOccmDemandSignalCatalogResources(
+    listOccmDemandSignalCatalogResourcesRequest: requests.ListOccmDemandSignalCatalogResourcesRequest
+  ): Promise<responses.ListOccmDemandSignalCatalogResourcesResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DemandSignalClient#listOccmDemandSignalCatalogResources."
+      );
+    const operationName = "listOccmDemandSignalCatalogResources";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listOccmDemandSignalCatalogResourcesRequest.compartmentId,
+      "name": listOccmDemandSignalCatalogResourcesRequest.name,
+      "demandSignalNamespace": listOccmDemandSignalCatalogResourcesRequest.demandSignalNamespace,
+      "limit": listOccmDemandSignalCatalogResourcesRequest.limit,
+      "page": listOccmDemandSignalCatalogResourcesRequest.page,
+      "sortOrder": listOccmDemandSignalCatalogResourcesRequest.sortOrder,
+      "sortBy": listOccmDemandSignalCatalogResourcesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listOccmDemandSignalCatalogResourcesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listOccmDemandSignalCatalogResourcesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/occmDemandSignalCatalogResources",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListOccmDemandSignalCatalogResourcesResponse>{},
+        body: await response.json(),
+        bodyKey: "occmDemandSignalCatalogResourceCollection",
+        bodyModel: model.OccmDemandSignalCatalogResourceCollection,
+        type: "model.OccmDemandSignalCatalogResourceCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * This GET call is used to list all demand signals delivery resources within the compartment passed as a query param.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListOccmDemandSignalDeliveriesRequest
+   * @return ListOccmDemandSignalDeliveriesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/ListOccmDemandSignalDeliveries.ts.html |here} to see how to use ListOccmDemandSignalDeliveries API.
+   */
+  public async listOccmDemandSignalDeliveries(
+    listOccmDemandSignalDeliveriesRequest: requests.ListOccmDemandSignalDeliveriesRequest
+  ): Promise<responses.ListOccmDemandSignalDeliveriesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DemandSignalClient#listOccmDemandSignalDeliveries.");
+    const operationName = "listOccmDemandSignalDeliveries";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listOccmDemandSignalDeliveriesRequest.compartmentId,
+      "id": listOccmDemandSignalDeliveriesRequest.id,
+      "occmDemandSignalItemId": listOccmDemandSignalDeliveriesRequest.occmDemandSignalItemId,
+      "limit": listOccmDemandSignalDeliveriesRequest.limit,
+      "page": listOccmDemandSignalDeliveriesRequest.page,
+      "sortOrder": listOccmDemandSignalDeliveriesRequest.sortOrder,
+      "sortBy": listOccmDemandSignalDeliveriesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listOccmDemandSignalDeliveriesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listOccmDemandSignalDeliveriesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/occmDemandSignalDeliveries",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListOccmDemandSignalDeliveriesResponse>{},
+        body: await response.json(),
+        bodyKey: "occmDemandSignalDeliveryCollection",
+        bodyModel: model.OccmDemandSignalDeliveryCollection,
+        type: "model.OccmDemandSignalDeliveryCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * This API will list the detailed information about the resources demanded as part of the demand signal.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListOccmDemandSignalItemsRequest
+   * @return ListOccmDemandSignalItemsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/ListOccmDemandSignalItems.ts.html |here} to see how to use ListOccmDemandSignalItems API.
+   */
+  public async listOccmDemandSignalItems(
+    listOccmDemandSignalItemsRequest: requests.ListOccmDemandSignalItemsRequest
+  ): Promise<responses.ListOccmDemandSignalItemsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DemandSignalClient#listOccmDemandSignalItems.");
+    const operationName = "listOccmDemandSignalItems";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listOccmDemandSignalItemsRequest.compartmentId,
+      "occmDemandSignalId": listOccmDemandSignalItemsRequest.occmDemandSignalId,
+      "resourceName": listOccmDemandSignalItemsRequest.resourceName,
+      "demandSignalNamespace": listOccmDemandSignalItemsRequest.demandSignalNamespace,
+      "limit": listOccmDemandSignalItemsRequest.limit,
+      "page": listOccmDemandSignalItemsRequest.page,
+      "sortOrder": listOccmDemandSignalItemsRequest.sortOrder,
+      "sortBy": listOccmDemandSignalItemsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listOccmDemandSignalItemsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listOccmDemandSignalItemsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/occmDemandSignalItems",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListOccmDemandSignalItemsResponse>{},
+        body: await response.json(),
+        bodyKey: "occmDemandSignalItemCollection",
+        bodyModel: model.OccmDemandSignalItemCollection,
+        type: "model.OccmDemandSignalItemCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * This GET call is used to list all demand signals within the compartment passed as a query parameter.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListOccmDemandSignalsRequest
+   * @return ListOccmDemandSignalsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/ListOccmDemandSignals.ts.html |here} to see how to use ListOccmDemandSignals API.
+   */
+  public async listOccmDemandSignals(
+    listOccmDemandSignalsRequest: requests.ListOccmDemandSignalsRequest
+  ): Promise<responses.ListOccmDemandSignalsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DemandSignalClient#listOccmDemandSignals.");
+    const operationName = "listOccmDemandSignals";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listOccmDemandSignalsRequest.compartmentId,
+      "id": listOccmDemandSignalsRequest.id,
+      "lifecycleDetails": listOccmDemandSignalsRequest.lifecycleDetails,
+      "displayName": listOccmDemandSignalsRequest.displayName,
+      "limit": listOccmDemandSignalsRequest.limit,
+      "page": listOccmDemandSignalsRequest.page,
+      "sortOrder": listOccmDemandSignalsRequest.sortOrder,
+      "sortBy": listOccmDemandSignalsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listOccmDemandSignalsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listOccmDemandSignalsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/occmDemandSignals",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListOccmDemandSignalsResponse>{},
+        body: await response.json(),
+        bodyKey: "occmDemandSignalCollection",
+        bodyModel: model.OccmDemandSignalCollection,
+        type: "model.OccmDemandSignalCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * This is a PUT API which shall be used to update the metadata of the demand signal.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateOccmDemandSignalRequest
+   * @return UpdateOccmDemandSignalResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/UpdateOccmDemandSignal.ts.html |here} to see how to use UpdateOccmDemandSignal API.
+   */
+  public async updateOccmDemandSignal(
+    updateOccmDemandSignalRequest: requests.UpdateOccmDemandSignalRequest
+  ): Promise<responses.UpdateOccmDemandSignalResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DemandSignalClient#updateOccmDemandSignal.");
+    const operationName = "updateOccmDemandSignal";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{occmDemandSignalId}": updateOccmDemandSignalRequest.occmDemandSignalId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateOccmDemandSignalRequest.ifMatch,
+      "opc-request-id": updateOccmDemandSignalRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateOccmDemandSignalRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/occmDemandSignals/{occmDemandSignalId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateOccmDemandSignalRequest.updateOccmDemandSignalDetails,
+        "UpdateOccmDemandSignalDetails",
+        model.UpdateOccmDemandSignalDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateOccmDemandSignalResponse>{},
+        body: await response.json(),
+        bodyKey: "occmDemandSignal",
+        bodyModel: model.OccmDemandSignal,
+        type: "model.OccmDemandSignal",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("retry-after"),
+            key: "retryAfter",
+            dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * This is a PUT API which can be used to update the demand signal item resource.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateOccmDemandSignalItemRequest
+   * @return UpdateOccmDemandSignalItemResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/UpdateOccmDemandSignalItem.ts.html |here} to see how to use UpdateOccmDemandSignalItem API.
+   */
+  public async updateOccmDemandSignalItem(
+    updateOccmDemandSignalItemRequest: requests.UpdateOccmDemandSignalItemRequest
+  ): Promise<responses.UpdateOccmDemandSignalItemResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DemandSignalClient#updateOccmDemandSignalItem.");
+    const operationName = "updateOccmDemandSignalItem";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{occmDemandSignalItemId}": updateOccmDemandSignalItemRequest.occmDemandSignalItemId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateOccmDemandSignalItemRequest.ifMatch,
+      "opc-request-id": updateOccmDemandSignalItemRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateOccmDemandSignalItemRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/occmDemandSignalItems/{occmDemandSignalItemId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateOccmDemandSignalItemRequest.updateOccmDemandSignalItemDetails,
+        "UpdateOccmDemandSignalItemDetails",
+        model.UpdateOccmDemandSignalItemDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateOccmDemandSignalItemResponse>{},
+        body: await response.json(),
+        bodyKey: "occmDemandSignalItem",
+        bodyModel: model.OccmDemandSignalItem,
+        type: "model.OccmDemandSignalItem",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("retry-after"),
+            key: "retryAfter",
+            dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+}
+export enum InternalDemandSignalApiKeys {}
+/**
+ * This service client uses {@link common.CircuitBreaker.DefaultConfiguration} for all the operations by default if no circuit breaker configuration is defined by the user.
+ */
+export class InternalDemandSignalClient {
+  protected static serviceEndpointTemplate =
+    "https://control-center-cp.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "control-center-cp";
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
+  protected "_endpoint": string = "";
+  protected "_defaultHeaders": any = {};
+  protected "_waiters": InternalDemandSignalWaiter;
+  protected "_clientConfiguration": common.ClientConfiguration;
+  protected _circuitBreaker: typeof Breaker | null = null;
+  protected _httpOptions: any = undefined;
+  protected _bodyDuplexMode: any = undefined;
+  public targetService = "InternalDemandSignal";
+  protected _regionId: string = "";
+  protected "_region": common.Region;
+  protected _lastSetRegionOrRegionId: string = "";
+
+  protected _httpClient: common.HttpClient;
+  protected _authProvider: common.AuthenticationDetailsProvider | undefined;
+
+  constructor(params: common.AuthParams, clientConfiguration?: common.ClientConfiguration) {
+    const requestSigner = params.authenticationDetailsProvider
+      ? new common.DefaultRequestSigner(params.authenticationDetailsProvider)
+      : null;
+    this._authProvider = params.authenticationDetailsProvider;
+    if (clientConfiguration) {
+      this._clientConfiguration = clientConfiguration;
+      this._circuitBreaker = clientConfiguration.circuitBreaker
+        ? clientConfiguration.circuitBreaker!.circuit
+        : null;
+      this._httpOptions = clientConfiguration.httpOptions
+        ? clientConfiguration.httpOptions
+        : undefined;
+      this._bodyDuplexMode = clientConfiguration.bodyDuplexMode
+        ? clientConfiguration.bodyDuplexMode
+        : undefined;
+    }
+
+    if (!developerToolConfiguration.isServiceEnabled("capacitymanagement")) {
+      let errmsg =
+        "The developerToolConfiguration configuration disabled this service, this behavior is controlled by developerToolConfiguration.ociEnabledServiceSet variable. Please check if your local developer_tool_configuration file has configured the service you're targeting or contact the cloud provider on the availability of this service : ";
+      throw errmsg.concat("capacitymanagement");
+    }
+
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = true;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
+    }
+    this._httpClient =
+      params.httpClient ||
+      new common.FetchHttpClient(
+        requestSigner,
+        this._circuitBreaker,
+        this._httpOptions,
+        this._bodyDuplexMode
+      );
+
+    if (
+      params.authenticationDetailsProvider &&
+      common.isRegionProvider(params.authenticationDetailsProvider)
+    ) {
+      const provider: common.RegionProvider = params.authenticationDetailsProvider;
+      if (provider.getRegion()) {
+        this.region = provider.getRegion();
+      }
+    }
+  }
+
+  /**
+   * Get the endpoint that is being used to call (ex, https://www.example.com).
+   */
+  public get endpoint() {
+    return this._endpoint;
+  }
+
+  /**
+   * Sets the endpoint to call (ex, https://www.example.com).
+   * @param endpoint The endpoint of the service.
+   */
+  public set endpoint(endpoint: string) {
+    this._endpoint = endpoint;
+    this._endpoint = this._endpoint + "/20231107";
+    if (this.logger)
+      this.logger.info(`InternalDemandSignalClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
+  }
+
+  /**
+   * Determines whether realm specific endpoint should be used or not.
+   * Set realmSpecificEndpointTemplateEnabled to "true" if the user wants to enable use of realm specific endpoint template, otherwise set it to "false"
+   * @param realmSpecificEndpointTemplateEnabled flag to enable the use of realm specific endpoint template
+   */
+  public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
+    this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
+    if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
+      this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
+        InternalDemandSignalClient.serviceEndpointTemplate,
+        this._region,
+        InternalDemandSignalClient.endpointServiceName
+      );
+    } else if (this._lastSetRegionOrRegionId === common.Region.REGION_ID_STRING) {
+      this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
+        InternalDemandSignalClient.serviceEndpointTemplate,
+        this._regionId,
+        InternalDemandSignalClient.endpointServiceName
+      );
+    }
+  }
+
+  /**
+   * Sets the region to call (ex, Region.US_PHOENIX_1).
+   * Note, this will call {@link #endpoint(String) endpoint} after resolving the endpoint.
+   * @param region The region of the service.
+   */
+  public set region(region: common.Region) {
+    this._region = region;
+    this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
+      InternalDemandSignalClient.serviceEndpointTemplate,
+      region,
+      InternalDemandSignalClient.endpointServiceName
+    );
+    this._lastSetRegionOrRegionId = common.Region.REGION_STRING;
+  }
+
+  /**
+   * Sets the regionId to call (ex, 'us-phoenix-1').
+   *
+   * Note, this will first try to map the region ID to a known Region and call {@link #region(Region) region}.
+   * If no known Region could be determined, it will create an endpoint assuming its in default Realm OC1
+   * and then call {@link #endpoint(String) endpoint}.
+   * @param regionId The public region ID.
+   */
+  public set regionId(regionId: string) {
+    this._regionId = regionId;
+    this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
+      InternalDemandSignalClient.serviceEndpointTemplate,
+      regionId,
+      InternalDemandSignalClient.endpointServiceName
+    );
+    this._lastSetRegionOrRegionId = common.Region.REGION_ID_STRING;
+  }
+
+  /**
+   * Creates a new InternalDemandSignalWaiter for resources for this service.
+   *
+   * @param config The waiter configuration for termination and delay strategy
+   * @return The service waiters.
+   */
+  public createWaiters(config?: common.WaiterConfiguration): InternalDemandSignalWaiter {
+    this._waiters = new InternalDemandSignalWaiter(this, config);
+    return this._waiters;
+  }
+
+  /**
+   * Gets the waiters available for resources for this service.
+   *
+   * @return The service waiters.
+   */
+  public getWaiters(): InternalDemandSignalWaiter {
+    if (this._waiters) {
+      return this._waiters;
+    }
+    throw Error("Waiters do not exist. Please create waiters.");
+  }
+
+  /**
+   * Shutdown the circuit breaker used by the client when it is no longer needed
+   */
+  public shutdownCircuitBreaker() {
+    if (this._circuitBreaker) {
+      this._circuitBreaker.shutdown();
+    }
+  }
+
+  /**
+   * Close the provider if possible which in turn shuts down any associated circuit breaker
+   */
+  public closeProvider() {
+    if (this._authProvider) {
+      if (this._authProvider instanceof common.AbstractRequestingAuthenticationDetailsProvider)
+        (<common.AbstractRequestingAuthenticationDetailsProvider>(
+          this._authProvider
+        )).closeProvider();
+    }
+  }
+
+  /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+    this.closeProvider();
+  }
+
+  /**
+   * This is a post API which is used to create a demand signal delivery resource.
+   * operationId: CreateInternalOccmDemandSignalDelivery
+   * summary: A post call to create a demand signal delivery.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateInternalOccmDemandSignalDeliveryRequest
+   * @return CreateInternalOccmDemandSignalDeliveryResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/CreateInternalOccmDemandSignalDelivery.ts.html |here} to see how to use CreateInternalOccmDemandSignalDelivery API.
+   */
+  public async createInternalOccmDemandSignalDelivery(
+    createInternalOccmDemandSignalDeliveryRequest: requests.CreateInternalOccmDemandSignalDeliveryRequest
+  ): Promise<responses.CreateInternalOccmDemandSignalDeliveryResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation InternalDemandSignalClient#createInternalOccmDemandSignalDelivery."
+      );
+    const operationName = "createInternalOccmDemandSignalDelivery";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createInternalOccmDemandSignalDeliveryRequest.opcRetryToken,
+      "opc-request-id": createInternalOccmDemandSignalDeliveryRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createInternalOccmDemandSignalDeliveryRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/internal/occmDemandSignalDeliveries",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createInternalOccmDemandSignalDeliveryRequest.createInternalOccmDemandSignalDeliveryDetails,
+        "CreateInternalOccmDemandSignalDeliveryDetails",
+        model.CreateInternalOccmDemandSignalDeliveryDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateInternalOccmDemandSignalDeliveryResponse>{},
+        body: await response.json(),
+        bodyKey: "internalOccmDemandSignalDelivery",
+        bodyModel: model.InternalOccmDemandSignalDelivery,
+        type: "model.InternalOccmDemandSignalDelivery",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("retry-after"),
+            key: "retryAfter",
+            dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * This is an internal DELETE API which is used to delete a demand signal delivery resource.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteInternalOccmDemandSignalDeliveryRequest
+   * @return DeleteInternalOccmDemandSignalDeliveryResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/DeleteInternalOccmDemandSignalDelivery.ts.html |here} to see how to use DeleteInternalOccmDemandSignalDelivery API.
+   */
+  public async deleteInternalOccmDemandSignalDelivery(
+    deleteInternalOccmDemandSignalDeliveryRequest: requests.DeleteInternalOccmDemandSignalDeliveryRequest
+  ): Promise<responses.DeleteInternalOccmDemandSignalDeliveryResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation InternalDemandSignalClient#deleteInternalOccmDemandSignalDelivery."
+      );
+    const operationName = "deleteInternalOccmDemandSignalDelivery";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{occmDemandSignalDeliveryId}":
+        deleteInternalOccmDemandSignalDeliveryRequest.occmDemandSignalDeliveryId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": deleteInternalOccmDemandSignalDeliveryRequest.opcRequestId,
+      "if-match": deleteInternalOccmDemandSignalDeliveryRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteInternalOccmDemandSignalDeliveryRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/internal/occmDemandSignalDeliveries/{occmDemandSignalDeliveryId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteInternalOccmDemandSignalDeliveryResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("retry-after"),
+            key: "retryAfter",
+            dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * This is an internal GET API which gets the detailed information about a specific demand signal.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetInternalOccmDemandSignalRequest
+   * @return GetInternalOccmDemandSignalResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/GetInternalOccmDemandSignal.ts.html |here} to see how to use GetInternalOccmDemandSignal API.
+   */
+  public async getInternalOccmDemandSignal(
+    getInternalOccmDemandSignalRequest: requests.GetInternalOccmDemandSignalRequest
+  ): Promise<responses.GetInternalOccmDemandSignalResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation InternalDemandSignalClient#getInternalOccmDemandSignal."
+      );
+    const operationName = "getInternalOccmDemandSignal";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{occmDemandSignalId}": getInternalOccmDemandSignalRequest.occmDemandSignalId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getInternalOccmDemandSignalRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getInternalOccmDemandSignalRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/internal/occmDemandSignals/{occmDemandSignalId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetInternalOccmDemandSignalResponse>{},
+        body: await response.json(),
+        bodyKey: "internalOccmDemandSignal",
+        bodyModel: model.InternalOccmDemandSignal,
+        type: "model.InternalOccmDemandSignal",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * This API helps in getting the details about a specific occm demand signal catalog.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetInternalOccmDemandSignalCatalogRequest
+   * @return GetInternalOccmDemandSignalCatalogResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/GetInternalOccmDemandSignalCatalog.ts.html |here} to see how to use GetInternalOccmDemandSignalCatalog API.
+   */
+  public async getInternalOccmDemandSignalCatalog(
+    getInternalOccmDemandSignalCatalogRequest: requests.GetInternalOccmDemandSignalCatalogRequest
+  ): Promise<responses.GetInternalOccmDemandSignalCatalogResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation InternalDemandSignalClient#getInternalOccmDemandSignalCatalog."
+      );
+    const operationName = "getInternalOccmDemandSignalCatalog";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{occmDemandSignalCatalogId}":
+        getInternalOccmDemandSignalCatalogRequest.occmDemandSignalCatalogId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getInternalOccmDemandSignalCatalogRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getInternalOccmDemandSignalCatalogRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/internal/occmDemandSignalCatalog/{occmDemandSignalCatalogId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetInternalOccmDemandSignalCatalogResponse>{},
+        body: await response.json(),
+        bodyKey: "occmDemandSignalCatalog",
+        bodyModel: model.OccmDemandSignalCatalog,
+        type: "model.OccmDemandSignalCatalog",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * This is an internal GET API to get the details of a demand signal delivery resource corresponding to a demand signal item.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetInternalOccmDemandSignalDeliveryRequest
+   * @return GetInternalOccmDemandSignalDeliveryResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/GetInternalOccmDemandSignalDelivery.ts.html |here} to see how to use GetInternalOccmDemandSignalDelivery API.
+   */
+  public async getInternalOccmDemandSignalDelivery(
+    getInternalOccmDemandSignalDeliveryRequest: requests.GetInternalOccmDemandSignalDeliveryRequest
+  ): Promise<responses.GetInternalOccmDemandSignalDeliveryResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation InternalDemandSignalClient#getInternalOccmDemandSignalDelivery."
+      );
+    const operationName = "getInternalOccmDemandSignalDelivery";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{occmDemandSignalDeliveryId}":
+        getInternalOccmDemandSignalDeliveryRequest.occmDemandSignalDeliveryId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getInternalOccmDemandSignalDeliveryRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getInternalOccmDemandSignalDeliveryRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/internal/occmDemandSignalDeliveries/{occmDemandSignalDeliveryId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetInternalOccmDemandSignalDeliveryResponse>{},
+        body: await response.json(),
+        bodyKey: "internalOccmDemandSignalDelivery",
+        bodyModel: model.InternalOccmDemandSignalDelivery,
+        type: "model.InternalOccmDemandSignalDelivery",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * This API will list all the  resources across all demand signal catalogs for a given namespace and customer group.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListInternalOccmDemandSignalCatalogResourcesRequest
+   * @return ListInternalOccmDemandSignalCatalogResourcesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/ListInternalOccmDemandSignalCatalogResources.ts.html |here} to see how to use ListInternalOccmDemandSignalCatalogResources API.
+   */
+  public async listInternalOccmDemandSignalCatalogResources(
+    listInternalOccmDemandSignalCatalogResourcesRequest: requests.ListInternalOccmDemandSignalCatalogResourcesRequest
+  ): Promise<responses.ListInternalOccmDemandSignalCatalogResourcesResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation InternalDemandSignalClient#listInternalOccmDemandSignalCatalogResources."
+      );
+    const operationName = "listInternalOccmDemandSignalCatalogResources";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listInternalOccmDemandSignalCatalogResourcesRequest.compartmentId,
+      "occCustomerGroupId": listInternalOccmDemandSignalCatalogResourcesRequest.occCustomerGroupId,
+      "occmDemandSignalCatalogId":
+        listInternalOccmDemandSignalCatalogResourcesRequest.occmDemandSignalCatalogId,
+      "name": listInternalOccmDemandSignalCatalogResourcesRequest.name,
+      "demandSignalNamespace":
+        listInternalOccmDemandSignalCatalogResourcesRequest.demandSignalNamespace,
+      "limit": listInternalOccmDemandSignalCatalogResourcesRequest.limit,
+      "page": listInternalOccmDemandSignalCatalogResourcesRequest.page,
+      "sortOrder": listInternalOccmDemandSignalCatalogResourcesRequest.sortOrder,
+      "sortBy": listInternalOccmDemandSignalCatalogResourcesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listInternalOccmDemandSignalCatalogResourcesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listInternalOccmDemandSignalCatalogResourcesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/internal/occmDemandSignalCatalogResources",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListInternalOccmDemandSignalCatalogResourcesResponse>{},
+        body: await response.json(),
+        bodyKey: "internalOccmDemandSignalCatalogResourceCollection",
+        bodyModel: model.InternalOccmDemandSignalCatalogResourceCollection,
+        type: "model.InternalOccmDemandSignalCatalogResourceCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * This API will list demand signal catalogs for a given customer group.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListInternalOccmDemandSignalCatalogsRequest
+   * @return ListInternalOccmDemandSignalCatalogsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/ListInternalOccmDemandSignalCatalogs.ts.html |here} to see how to use ListInternalOccmDemandSignalCatalogs API.
+   */
+  public async listInternalOccmDemandSignalCatalogs(
+    listInternalOccmDemandSignalCatalogsRequest: requests.ListInternalOccmDemandSignalCatalogsRequest
+  ): Promise<responses.ListInternalOccmDemandSignalCatalogsResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation InternalDemandSignalClient#listInternalOccmDemandSignalCatalogs."
+      );
+    const operationName = "listInternalOccmDemandSignalCatalogs";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listInternalOccmDemandSignalCatalogsRequest.compartmentId,
+      "occCustomerGroupId": listInternalOccmDemandSignalCatalogsRequest.occCustomerGroupId,
+      "displayName": listInternalOccmDemandSignalCatalogsRequest.displayName,
+      "limit": listInternalOccmDemandSignalCatalogsRequest.limit,
+      "page": listInternalOccmDemandSignalCatalogsRequest.page,
+      "sortOrder": listInternalOccmDemandSignalCatalogsRequest.sortOrder,
+      "sortBy": listInternalOccmDemandSignalCatalogsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listInternalOccmDemandSignalCatalogsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listInternalOccmDemandSignalCatalogsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/internal/occmDemandSignalCatalog",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListInternalOccmDemandSignalCatalogsResponse>{},
+        body: await response.json(),
+        bodyKey: "occmDemandSignalCatalogCollection",
+        bodyModel: model.OccmDemandSignalCatalogCollection,
+        type: "model.OccmDemandSignalCatalogCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * This GET call is used to list all demand signal delivery resources within the customer group passed as a query parameter.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListInternalOccmDemandSignalDeliveriesRequest
+   * @return ListInternalOccmDemandSignalDeliveriesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/ListInternalOccmDemandSignalDeliveries.ts.html |here} to see how to use ListInternalOccmDemandSignalDeliveries API.
+   */
+  public async listInternalOccmDemandSignalDeliveries(
+    listInternalOccmDemandSignalDeliveriesRequest: requests.ListInternalOccmDemandSignalDeliveriesRequest
+  ): Promise<responses.ListInternalOccmDemandSignalDeliveriesResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation InternalDemandSignalClient#listInternalOccmDemandSignalDeliveries."
+      );
+    const operationName = "listInternalOccmDemandSignalDeliveries";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listInternalOccmDemandSignalDeliveriesRequest.compartmentId,
+      "occCustomerGroupId": listInternalOccmDemandSignalDeliveriesRequest.occCustomerGroupId,
+      "id": listInternalOccmDemandSignalDeliveriesRequest.id,
+      "occmDemandSignalItemId":
+        listInternalOccmDemandSignalDeliveriesRequest.occmDemandSignalItemId,
+      "limit": listInternalOccmDemandSignalDeliveriesRequest.limit,
+      "page": listInternalOccmDemandSignalDeliveriesRequest.page,
+      "sortOrder": listInternalOccmDemandSignalDeliveriesRequest.sortOrder,
+      "sortBy": listInternalOccmDemandSignalDeliveriesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listInternalOccmDemandSignalDeliveriesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listInternalOccmDemandSignalDeliveriesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/internal/occmDemandSignalDeliveries",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListInternalOccmDemandSignalDeliveriesResponse>{},
+        body: await response.json(),
+        bodyKey: "internalOccmDemandSignalDeliveryCollection",
+        bodyModel: model.InternalOccmDemandSignalDeliveryCollection,
+        type: "model.InternalOccmDemandSignalDeliveryCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * This internal API will list the detailed information about the resources demanded as part of the demand signal.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListInternalOccmDemandSignalItemsRequest
+   * @return ListInternalOccmDemandSignalItemsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/ListInternalOccmDemandSignalItems.ts.html |here} to see how to use ListInternalOccmDemandSignalItems API.
+   */
+  public async listInternalOccmDemandSignalItems(
+    listInternalOccmDemandSignalItemsRequest: requests.ListInternalOccmDemandSignalItemsRequest
+  ): Promise<responses.ListInternalOccmDemandSignalItemsResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation InternalDemandSignalClient#listInternalOccmDemandSignalItems."
+      );
+    const operationName = "listInternalOccmDemandSignalItems";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listInternalOccmDemandSignalItemsRequest.compartmentId,
+      "occCustomerGroupId": listInternalOccmDemandSignalItemsRequest.occCustomerGroupId,
+      "occmDemandSignalId": listInternalOccmDemandSignalItemsRequest.occmDemandSignalId,
+      "resourceName": listInternalOccmDemandSignalItemsRequest.resourceName,
+      "demandSignalNamespace": listInternalOccmDemandSignalItemsRequest.demandSignalNamespace,
+      "limit": listInternalOccmDemandSignalItemsRequest.limit,
+      "page": listInternalOccmDemandSignalItemsRequest.page,
+      "sortOrder": listInternalOccmDemandSignalItemsRequest.sortOrder,
+      "sortBy": listInternalOccmDemandSignalItemsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listInternalOccmDemandSignalItemsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listInternalOccmDemandSignalItemsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/internal/occmDemandSignalItems",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListInternalOccmDemandSignalItemsResponse>{},
+        body: await response.json(),
+        bodyKey: "internalOccmDemandSignalItemCollection",
+        bodyModel: model.InternalOccmDemandSignalItemCollection,
+        type: "model.InternalOccmDemandSignalItemCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * This is an internal GET call is used to list all demand signals within the compartment passed as a query parameter.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListInternalOccmDemandSignalsRequest
+   * @return ListInternalOccmDemandSignalsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/ListInternalOccmDemandSignals.ts.html |here} to see how to use ListInternalOccmDemandSignals API.
+   */
+  public async listInternalOccmDemandSignals(
+    listInternalOccmDemandSignalsRequest: requests.ListInternalOccmDemandSignalsRequest
+  ): Promise<responses.ListInternalOccmDemandSignalsResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation InternalDemandSignalClient#listInternalOccmDemandSignals."
+      );
+    const operationName = "listInternalOccmDemandSignals";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listInternalOccmDemandSignalsRequest.compartmentId,
+      "occCustomerGroupId": listInternalOccmDemandSignalsRequest.occCustomerGroupId,
+      "id": listInternalOccmDemandSignalsRequest.id,
+      "lifecycleDetails": listInternalOccmDemandSignalsRequest.lifecycleDetails,
+      "displayName": listInternalOccmDemandSignalsRequest.displayName,
+      "limit": listInternalOccmDemandSignalsRequest.limit,
+      "page": listInternalOccmDemandSignalsRequest.page,
+      "sortOrder": listInternalOccmDemandSignalsRequest.sortOrder,
+      "sortBy": listInternalOccmDemandSignalsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listInternalOccmDemandSignalsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listInternalOccmDemandSignalsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/internal/occmDemandSignals",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListInternalOccmDemandSignalsResponse>{},
+        body: await response.json(),
+        bodyKey: "internalOccmDemandSignalCollection",
+        bodyModel: model.InternalOccmDemandSignalCollection,
+        type: "model.InternalOccmDemandSignalCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * This is a internal PUT API which shall be used to update the metadata of the demand signal.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateInternalOccmDemandSignalRequest
+   * @return UpdateInternalOccmDemandSignalResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/UpdateInternalOccmDemandSignal.ts.html |here} to see how to use UpdateInternalOccmDemandSignal API.
+   */
+  public async updateInternalOccmDemandSignal(
+    updateInternalOccmDemandSignalRequest: requests.UpdateInternalOccmDemandSignalRequest
+  ): Promise<responses.UpdateInternalOccmDemandSignalResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation InternalDemandSignalClient#updateInternalOccmDemandSignal."
+      );
+    const operationName = "updateInternalOccmDemandSignal";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{occmDemandSignalId}": updateInternalOccmDemandSignalRequest.occmDemandSignalId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateInternalOccmDemandSignalRequest.ifMatch,
+      "opc-request-id": updateInternalOccmDemandSignalRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateInternalOccmDemandSignalRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/internal/occmDemandSignals/{occmDemandSignalId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateInternalOccmDemandSignalRequest.updateInternalOccmDemandSignalDetails,
+        "UpdateInternalOccmDemandSignalDetails",
+        model.UpdateInternalOccmDemandSignalDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateInternalOccmDemandSignalResponse>{},
+        body: await response.json(),
+        bodyKey: "internalOccmDemandSignal",
+        bodyModel: model.InternalOccmDemandSignal,
+        type: "model.InternalOccmDemandSignal",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("retry-after"),
+            key: "retryAfter",
+            dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * This is an internal PUT API which is used to update the demand signal delivery resource.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateInternalOccmDemandSignalDeliveryRequest
+   * @return UpdateInternalOccmDemandSignalDeliveryResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/capacitymanagement/UpdateInternalOccmDemandSignalDelivery.ts.html |here} to see how to use UpdateInternalOccmDemandSignalDelivery API.
+   */
+  public async updateInternalOccmDemandSignalDelivery(
+    updateInternalOccmDemandSignalDeliveryRequest: requests.UpdateInternalOccmDemandSignalDeliveryRequest
+  ): Promise<responses.UpdateInternalOccmDemandSignalDeliveryResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation InternalDemandSignalClient#updateInternalOccmDemandSignalDelivery."
+      );
+    const operationName = "updateInternalOccmDemandSignalDelivery";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{occmDemandSignalDeliveryId}":
+        updateInternalOccmDemandSignalDeliveryRequest.occmDemandSignalDeliveryId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateInternalOccmDemandSignalDeliveryRequest.opcRequestId,
+      "if-match": updateInternalOccmDemandSignalDeliveryRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateInternalOccmDemandSignalDeliveryRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/internal/occmDemandSignalDeliveries/{occmDemandSignalDeliveryId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateInternalOccmDemandSignalDeliveryRequest.updateInternalOccmDemandSignalDeliveryDetails,
+        "UpdateInternalOccmDemandSignalDeliveryDetails",
+        model.UpdateInternalOccmDemandSignalDeliveryDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateInternalOccmDemandSignalDeliveryResponse>{},
+        body: await response.json(),
+        bodyKey: "internalOccmDemandSignalDelivery",
+        bodyModel: model.InternalOccmDemandSignalDelivery,
+        type: "model.InternalOccmDemandSignalDelivery",
         responseHeaders: [
           {
             value: response.headers.get("etag"),

@@ -16,9 +16,15 @@ import * as models from "./lib/model";
 import * as responses from "./lib/response";
 import * as client from "./lib/client";
 import * as capacitymanagement_waiter from "./lib/capacitymanagement-waiter";
+import * as demandsignal_waiter from "./lib/demandsignal-waiter";
+import * as internaldemandsignal_waiter from "./lib/internaldemandsignal-waiter";
 
 export { models };
 export { requests };
 export { responses };
 export import CapacityManagementClient = client.CapacityManagementClient;
 export import CapacityManagementWaiter = capacitymanagement_waiter.CapacityManagementWaiter;
+export import DemandSignalClient = client.DemandSignalClient;
+export import DemandSignalWaiter = demandsignal_waiter.DemandSignalWaiter;
+export import InternalDemandSignalClient = client.InternalDemandSignalClient;
+export import InternalDemandSignalWaiter = internaldemandsignal_waiter.InternalDemandSignalWaiter;

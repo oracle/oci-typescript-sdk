@@ -1,6 +1,6 @@
 /**
  * Usage API
- * Use the Usage API to view your Oracle Cloud usage and costs. The API allows you to request data that meets the specified filter criteria, and to group that data by the chosen dimension. The Usage API is used by the Cost Analysis and Carbon Emissions Analysis tools in the Console. See [Cost Analysis Overview](https://docs.oracle.com/iaas/Content/Billing/Concepts/costanalysisoverview.htm) and [Using the Usage API](https://docs.oracle.com/iaas/Content/Billing/Concepts/costanalysisoverview.htm#cost_analysis_using_the_api) for more information.
+ * Use the Usage API to view your Oracle Cloud usage and costs. The API allows you to request data that meets the specified filter criteria, and to group that data by the chosen dimension. The Usage API is used by [Cost Analysis](https://docs.oracle.com/iaas/Content/Billing/Concepts/costanalysisoverview.htm), [Scheduled Reports](https://docs.oracle.com/iaas/Content/Billing/Concepts/scheduledreportoverview.htm), and [Carbon Emissions Analysis](https://docs.oracle.com/iaas/Content/General/Concepts/emissions-management.htm) in the Console. Also see [Using the Usage API](https://docs.oracle.com/iaas/Content/Billing/Concepts/costanalysisoverview.htm#cost_analysis_using_the_api) for more information.
  * OpenAPI spec version: 20200107
  *
  *
@@ -19,15 +19,15 @@ import common = require("oci-common");
  */
 export interface EmailRecipient {
   /**
-   * the first name of the recipient.
+   * The recipient first name.
    */
   "firstName"?: string;
   /**
-   * the last name of the recipient.
+   * The recipient last name.
    */
   "lastName"?: string;
   /**
-   * the email of the recipient.
+   * The recipient email address.
    */
   "emailId": string;
   /**

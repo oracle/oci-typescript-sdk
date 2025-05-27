@@ -784,6 +784,82 @@ export class NetworkFirewallClient {
   }
 
   /**
+   * Creates a new NAT Rule at bulk for the Network Firewall Policy.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param BulkUploadNatRulesRequest
+   * @return BulkUploadNatRulesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/BulkUploadNatRules.ts.html |here} to see how to use BulkUploadNatRules API.
+   */
+  public async bulkUploadNatRules(
+    bulkUploadNatRulesRequest: requests.BulkUploadNatRulesRequest
+  ): Promise<responses.BulkUploadNatRulesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation NetworkFirewallClient#bulkUploadNatRules.");
+    const operationName = "bulkUploadNatRules";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{networkFirewallPolicyId}": bulkUploadNatRulesRequest.networkFirewallPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "opc-retry-token": bulkUploadNatRulesRequest.opcRetryToken,
+      "opc-request-id": bulkUploadNatRulesRequest.opcRequestId,
+      "if-match": bulkUploadNatRulesRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      bulkUploadNatRulesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/networkFirewallPolicies/{networkFirewallPolicyId}/natRules/actions/bulkUpload",
+      method: "POST",
+      bodyContent: bulkUploadNatRulesRequest.bulkUploadNatRulesDetails,
+      pathParams: pathParams,
+      headerParams: headerParams,
+      backupBinaryBody: retrier.backUpBinaryBody,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.BulkUploadNatRulesResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates a new Security Rule at bulk for the Network Firewall Policy.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -1391,7 +1467,7 @@ export class NetworkFirewallClient {
   }
 
   /**
-   * Moves a NetworkFirewallPolicy resource from one compartment identifier to another. When provided, If-Match is checked against ETag values of the resource.
+   * Clones a NetworkFirewallPolicy resource from an existing Network Firewall Policy. When provided, If-Match is checked against ETag values of the resource.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CloneNetworkFirewallPolicyRequest
    * @return CloneNetworkFirewallPolicyResponse
@@ -1956,6 +2032,88 @@ export class NetworkFirewallClient {
         bodyKey: "mappedSecret",
         bodyModel: model.MappedSecret,
         type: "model.MappedSecret",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new NAT Rule for the Network Firewall Policy.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateNatRuleRequest
+   * @return CreateNatRuleResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/CreateNatRule.ts.html |here} to see how to use CreateNatRule API.
+   */
+  public async createNatRule(
+    createNatRuleRequest: requests.CreateNatRuleRequest
+  ): Promise<responses.CreateNatRuleResponse> {
+    if (this.logger) this.logger.debug("Calling operation NetworkFirewallClient#createNatRule.");
+    const operationName = "createNatRule";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{networkFirewallPolicyId}": createNatRuleRequest.networkFirewallPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createNatRuleRequest.opcRetryToken,
+      "opc-request-id": createNatRuleRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createNatRuleRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/networkFirewallPolicies/{networkFirewallPolicyId}/natRules",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createNatRuleRequest.createNatRuleDetails,
+        "CreateNatRuleDetails",
+        model.CreateNatRuleDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateNatRuleResponse>{},
+        body: await response.json(),
+        bodyKey: "natRule",
+        bodyModel: model.NatRule,
+        type: "model.NatRule",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -2979,6 +3137,74 @@ export class NetworkFirewallClient {
   }
 
   /**
+   * Deletes a NAT Rule resource with the given identifier.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteNatRuleRequest
+   * @return DeleteNatRuleResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/DeleteNatRule.ts.html |here} to see how to use DeleteNatRule API.
+   */
+  public async deleteNatRule(
+    deleteNatRuleRequest: requests.DeleteNatRuleRequest
+  ): Promise<responses.DeleteNatRuleResponse> {
+    if (this.logger) this.logger.debug("Calling operation NetworkFirewallClient#deleteNatRule.");
+    const operationName = "deleteNatRule";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{networkFirewallPolicyId}": deleteNatRuleRequest.networkFirewallPolicyId,
+      "{natRuleName}": deleteNatRuleRequest.natRuleName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteNatRuleRequest.ifMatch,
+      "opc-request-id": deleteNatRuleRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteNatRuleRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/networkFirewallPolicies/{networkFirewallPolicyId}/natRules/{natRuleName}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteNatRuleResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes a NetworkFirewall resource by identifier
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteNetworkFirewallRequest
@@ -3919,6 +4145,82 @@ export class NetworkFirewallClient {
         bodyKey: "mappedSecret",
         bodyModel: model.MappedSecret,
         type: "model.MappedSecret",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get NAT Rule by the given name in the context of network firewall policy.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetNatRuleRequest
+   * @return GetNatRuleResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/GetNatRule.ts.html |here} to see how to use GetNatRule API.
+   */
+  public async getNatRule(
+    getNatRuleRequest: requests.GetNatRuleRequest
+  ): Promise<responses.GetNatRuleResponse> {
+    if (this.logger) this.logger.debug("Calling operation NetworkFirewallClient#getNatRule.");
+    const operationName = "getNatRule";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{networkFirewallPolicyId}": getNatRuleRequest.networkFirewallPolicyId,
+      "{natRuleName}": getNatRuleRequest.natRuleName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getNatRuleRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getNatRuleRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/networkFirewallPolicies/{networkFirewallPolicyId}/natRules/{natRuleName}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetNatRuleResponse>{},
+        body: await response.json(),
+        bodyKey: "natRule",
+        bodyModel: model.NatRule,
+        type: "model.NatRule",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -5108,6 +5410,104 @@ export class NetworkFirewallClient {
         bodyKey: "mappedSecretSummaryCollection",
         bodyModel: model.MappedSecretSummaryCollection,
         type: "model.MappedSecretSummaryCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-page-count"),
+            key: "opcPageCount",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-total-items"),
+            key: "opcTotalItems",
+            dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns a list of NAT Rules for the Network Firewall Policy.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListNatRulesRequest
+   * @return ListNatRulesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/ListNatRules.ts.html |here} to see how to use ListNatRules API.
+   */
+  public async listNatRules(
+    listNatRulesRequest: requests.ListNatRulesRequest
+  ): Promise<responses.ListNatRulesResponse> {
+    if (this.logger) this.logger.debug("Calling operation NetworkFirewallClient#listNatRules.");
+    const operationName = "listNatRules";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{networkFirewallPolicyId}": listNatRulesRequest.networkFirewallPolicyId
+    };
+
+    const queryParams = {
+      "limit": listNatRulesRequest.limit,
+      "page": listNatRulesRequest.page,
+      "sortOrder": listNatRulesRequest.sortOrder,
+      "sortBy": listNatRulesRequest.sortBy,
+      "displayName": listNatRulesRequest.displayName,
+      "natRulePriorityOrder": listNatRulesRequest.natRulePriorityOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listNatRulesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listNatRulesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/networkFirewallPolicies/{networkFirewallPolicyId}/natRules",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListNatRulesResponse>{},
+        body: await response.json(),
+        bodyKey: "natRuleCollection",
+        bodyModel: model.NatRuleCollection,
+        type: "model.NatRuleCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -6691,6 +7091,88 @@ export class NetworkFirewallClient {
             key: "opcTotalItems",
             dataType: "number"
           },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the NAT Rule with the given name in the network firewall policy.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateNatRuleRequest
+   * @return UpdateNatRuleResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/UpdateNatRule.ts.html |here} to see how to use UpdateNatRule API.
+   */
+  public async updateNatRule(
+    updateNatRuleRequest: requests.UpdateNatRuleRequest
+  ): Promise<responses.UpdateNatRuleResponse> {
+    if (this.logger) this.logger.debug("Calling operation NetworkFirewallClient#updateNatRule.");
+    const operationName = "updateNatRule";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{networkFirewallPolicyId}": updateNatRuleRequest.networkFirewallPolicyId,
+      "{natRuleName}": updateNatRuleRequest.natRuleName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateNatRuleRequest.ifMatch,
+      "opc-request-id": updateNatRuleRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateNatRuleRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/networkFirewallPolicies/{networkFirewallPolicyId}/natRules/{natRuleName}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateNatRuleRequest.updateNatRuleDetails,
+        "UpdateNatRuleDetails",
+        model.UpdateNatRuleDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateNatRuleResponse>{},
+        body: await response.json(),
+        bodyKey: "natRule",
+        bodyModel: model.NatRule,
+        type: "model.NatRule",
+        responseHeaders: [
           {
             value: response.headers.get("etag"),
             key: "etag",

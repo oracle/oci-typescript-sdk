@@ -49,6 +49,7 @@ export interface NetworkFirewallSummary {
    * IPv6 address for the Network Firewall.
    */
   "ipv6Address"?: string;
+  "natConfiguration"?: model.NatConfigurationResponse;
   /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Network Firewall Policy.
    */
@@ -97,12 +98,26 @@ export interface NetworkFirewallSummary {
 
 export namespace NetworkFirewallSummary {
   export function getJsonObj(obj: NetworkFirewallSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "natConfiguration": obj.natConfiguration
+          ? model.NatConfigurationResponse.getJsonObj(obj.natConfiguration)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: NetworkFirewallSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "natConfiguration": obj.natConfiguration
+          ? model.NatConfigurationResponse.getDeserializedJsonObj(obj.natConfiguration)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

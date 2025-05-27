@@ -243,7 +243,7 @@ Example: {@code {\"Department\": \"Finance\"}}
    */
   "netServicesArchitecture"?: AutonomousContainerDatabase.NetServicesArchitecture;
   /**
-   * Whether it is multiple standby Autonomous Dataguard
+   * Indicates if it is multiple standby Autonomous Dataguard
    *
    */
   "isMultipleStandby"?: boolean;

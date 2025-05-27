@@ -23,11 +23,11 @@ export interface UpdateEmailRecipientsGroupRequest extends common.BaseRequest {
    */
   "updateEmailRecipientsGroupDetails": model.UpdateEmailRecipientsGroupDetails;
   /**
-   * The email recipient group OCID.
+   * The email recipients group OCID.
    */
   "emailRecipientsGroupId": string;
   /**
-   * The UsageStatement Subscription unique OCID.
+   * The usage statement subscription unique OCID.
    */
   "subscriptionId": string;
   /**

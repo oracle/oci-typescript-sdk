@@ -31,6 +31,10 @@ export interface InstallOsPatchDetails {
     | model.BatchingBasedPatchingConfigs
     | model.DowntimeBasedPatchingConfigs
     | model.DomainBasedPatchingConfigs;
+  /**
+   * Perform dry run for the patch and stop.
+   */
+  "isDryRun"?: boolean;
 }
 
 export namespace InstallOsPatchDetails {

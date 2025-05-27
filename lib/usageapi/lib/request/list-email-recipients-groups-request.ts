@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ListEmailRecipientsGroupsRequest extends common.BaseRequest {
   /**
-   * The UsageStatement Subscription unique OCID.
+   * The usage statement subscription unique OCID.
    */
   "subscriptionId": string;
   /**
@@ -33,7 +33,7 @@ export interface ListEmailRecipientsGroupsRequest extends common.BaseRequest {
    */
   "opcRequestId"?: string;
   /**
-   * The maximumimum number of items to return.
+   * The maximum number of items to return.
    */
   "limit"?: number;
   /**

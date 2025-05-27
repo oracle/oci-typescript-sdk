@@ -1,6 +1,6 @@
 /**
  * Usage API
- * Use the Usage API to view your Oracle Cloud usage and costs. The API allows you to request data that meets the specified filter criteria, and to group that data by the chosen dimension. The Usage API is used by the Cost Analysis and Carbon Emissions Analysis tools in the Console. See [Cost Analysis Overview](https://docs.oracle.com/iaas/Content/Billing/Concepts/costanalysisoverview.htm) and [Using the Usage API](https://docs.oracle.com/iaas/Content/Billing/Concepts/costanalysisoverview.htm#cost_analysis_using_the_api) for more information.
+ * Use the Usage API to view your Oracle Cloud usage and costs. The API allows you to request data that meets the specified filter criteria, and to group that data by the chosen dimension. The Usage API is used by [Cost Analysis](https://docs.oracle.com/iaas/Content/Billing/Concepts/costanalysisoverview.htm), [Scheduled Reports](https://docs.oracle.com/iaas/Content/Billing/Concepts/scheduledreportoverview.htm), and [Carbon Emissions Analysis](https://docs.oracle.com/iaas/Content/General/Concepts/emissions-management.htm) in the Console. Also see [Using the Usage API](https://docs.oracle.com/iaas/Content/Billing/Concepts/costanalysisoverview.htm#cost_analysis_using_the_api) for more information.
  * OpenAPI spec version: 20200107
  *
  *
@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The usage carbon emission store result.
+ * The carbon emission usage store result.
  */
 export interface UsageCarbonEmissionSummary {
   /**
@@ -79,13 +79,17 @@ export interface UsageCarbonEmissionSummary {
    */
   "timeUsageEnded": Date;
   /**
-   * The carbon emission in MTCO2 unit. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The carbon emission usage in MTCO2 units. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "computedCarbonEmission": number;
   /**
-   * The method used to calculate carbon emission.
+   * Specifies the approach for calculating carbon emissions, supports both SPEND_BASED (based on expenditure data) and POWER_BASED (based on power consumption, newly introduced in the metering pipeline)
    */
   "emissionCalculationMethod": string;
+  /**
+   * The emission type, such as MARKET_BASED or LOCATION_BASED.
+   */
+  "emissionType"?: string;
   /**
    * The subscription ID.
    */

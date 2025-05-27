@@ -36,7 +36,7 @@ export interface RequestUsageCarbonEmissionsRequest extends common.BaseRequest {
    */
   "page"?: string;
   /**
-   * The maximumimum number of items to return.
+   * The maximum number of items to return.
    */
   "limit"?: number;
 }

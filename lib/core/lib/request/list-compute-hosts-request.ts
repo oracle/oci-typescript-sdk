@@ -92,6 +92,11 @@ Example: {@code 50}
    *
    */
   "computeHostHealth"?: string;
+  /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compute host group.
+   *
+   */
+  "computeHostGroupId"?: string;
 }
 
 export namespace ListComputeHostsRequest {

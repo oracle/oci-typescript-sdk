@@ -1,6 +1,6 @@
 /**
  * Usage API
- * Use the Usage API to view your Oracle Cloud usage and costs. The API allows you to request data that meets the specified filter criteria, and to group that data by the chosen dimension. The Usage API is used by the Cost Analysis and Carbon Emissions Analysis tools in the Console. See [Cost Analysis Overview](https://docs.oracle.com/iaas/Content/Billing/Concepts/costanalysisoverview.htm) and [Using the Usage API](https://docs.oracle.com/iaas/Content/Billing/Concepts/costanalysisoverview.htm#cost_analysis_using_the_api) for more information.
+ * Use the Usage API to view your Oracle Cloud usage and costs. The API allows you to request data that meets the specified filter criteria, and to group that data by the chosen dimension. The Usage API is used by [Cost Analysis](https://docs.oracle.com/iaas/Content/Billing/Concepts/costanalysisoverview.htm), [Scheduled Reports](https://docs.oracle.com/iaas/Content/Billing/Concepts/scheduledreportoverview.htm), and [Carbon Emissions Analysis](https://docs.oracle.com/iaas/Content/General/Concepts/emissions-management.htm) in the Console. Also see [Using the Usage API](https://docs.oracle.com/iaas/Content/Billing/Concepts/costanalysisoverview.htm#cost_analysis_using_the_api) for more information.
  * OpenAPI spec version: 20200107
  *
  *
@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The request of the generated usage carbon emissions report.
+ * The request of the generated carbon emissions usage report.
  */
 export interface UsageCarbonEmissionsReportQuery {
   /**
@@ -31,7 +31,19 @@ export interface UsageCarbonEmissionsReportQuery {
    */
   "timeUsageEnded"?: Date;
   /**
-   * Specifies whether aggregated by time. If isAggregateByTime is true, all usage or cost over the query time period will be added up.
+   * Specifies the method used for emission calculation, such as POWER_BASED or SPEND_BASED
+   */
+  "emissionCalculationMethod"?: string;
+  /**
+   * Specifies the type of emission, such as MARKET_BASED or LOCATION_BASED.
+   */
+  "emissionType"?: string;
+  /**
+   * The carbon emission granularity. DAILY - Daily data aggregation. MONTHLY - Monthly data aggregation.
+   */
+  "granularity"?: string;
+  /**
+   * Specifies whether aggregated by time. If isAggregateByTime is true, all usage or costs over the query time period are summed.
    */
   "isAggregateByTime"?: boolean;
   /**
@@ -56,7 +68,7 @@ export interface UsageCarbonEmissionsReportQuery {
   "compartmentDepth"?: number;
   "filter"?: model.Filter;
   /**
-   * The UI date range, for example, LAST_THREE_MONTHS. It will override timeUsageStarted and timeUsageEnded properties.
+   * The user interface date range, for example, LAST_THREE_MONTHS. Overrides the timeUsageStarted and timeUsageEnded properties.
    */
   "dateRangeName"?: UsageCarbonEmissionsReportQuery.DateRangeName;
 }

@@ -30,6 +30,7 @@ export interface UpdateNetworkFirewallDetails {
    * An array of network security groups [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) associated with the Network Firewall.
    */
   "networkSecurityGroupIds"?: Array<string>;
+  "natConfiguration"?: model.NatConfigurationRequest;
   /**
    * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
    * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
@@ -48,12 +49,26 @@ export interface UpdateNetworkFirewallDetails {
 
 export namespace UpdateNetworkFirewallDetails {
   export function getJsonObj(obj: UpdateNetworkFirewallDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "natConfiguration": obj.natConfiguration
+          ? model.NatConfigurationRequest.getJsonObj(obj.natConfiguration)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: UpdateNetworkFirewallDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "natConfiguration": obj.natConfiguration
+          ? model.NatConfigurationRequest.getDeserializedJsonObj(obj.natConfiguration)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
