@@ -49,6 +49,10 @@ export interface Monitor {
    */
   "scriptName": string;
   /**
+   * Content type of the script.
+   */
+  "contentType"?: model.ContentTypes;
+  /**
    * Enables or disables the monitor.
    */
   "status": model.MonitorStatus;

@@ -29,7 +29,7 @@ export interface ListQueriesRequest extends common.BaseRequest {
    */
   "opcRequestId"?: string;
   /**
-   * The maximumimum number of items to return.
+   * The maximum number of items to return.
    */
   "limit"?: number;
   /**

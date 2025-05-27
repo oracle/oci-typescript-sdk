@@ -35,6 +35,7 @@ export interface DbSystemSummary {
    * The OCID of the compartment the DB System belongs in.
    */
   "compartmentId"?: string;
+  "rest"?: model.RestDetails;
   /**
    * Specifies if the DB System is highly available.
    *
@@ -157,6 +158,8 @@ export namespace DbSystemSummary {
     const jsonObj = {
       ...obj,
       ...{
+        "rest": obj.rest ? model.RestDetails.getJsonObj(obj.rest) : undefined,
+
         "currentPlacement": obj.currentPlacement
           ? model.DbSystemPlacement.getJsonObj(obj.currentPlacement)
           : undefined,
@@ -191,6 +194,8 @@ export namespace DbSystemSummary {
     const jsonObj = {
       ...obj,
       ...{
+        "rest": obj.rest ? model.RestDetails.getDeserializedJsonObj(obj.rest) : undefined,
+
         "currentPlacement": obj.currentPlacement
           ? model.DbSystemPlacement.getDeserializedJsonObj(obj.currentPlacement)
           : undefined,

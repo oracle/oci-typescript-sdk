@@ -61,6 +61,25 @@ This field is the Fault domain of the host
    */
   "hpcIslandId"?: string;
   /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) for the Customer-unique host group associated with the Compute Bare Metal Host.
+   *
+   */
+  "computeHostGroupId"?: string;
+  /**
+   * Configuration state of the Compute Bare Metal Host.
+   *
+   */
+  "configurationState"?: model.ConfigurationState;
+  /**
+    * The date and time that the compute bare metal host configuration check was updated, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
+* <p>
+Example: {@code 2016-08-25T21:10:29.600Z}
+* 
+    */
+  "timeConfigurationCheck"?: Date;
+  "configurationData"?: model.ComputeHostConfigurationData;
+  "recycleDetails"?: model.RecycleDetails;
+  /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) for Customer-unique Network Block
    *
    */
@@ -180,12 +199,32 @@ export namespace ComputeHost {
   }
 
   export function getJsonObj(obj: ComputeHost): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "configurationData": obj.configurationData
+          ? model.ComputeHostConfigurationData.getJsonObj(obj.configurationData)
+          : undefined,
+        "recycleDetails": obj.recycleDetails
+          ? model.RecycleDetails.getJsonObj(obj.recycleDetails)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: ComputeHost): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "configurationData": obj.configurationData
+          ? model.ComputeHostConfigurationData.getDeserializedJsonObj(obj.configurationData)
+          : undefined,
+        "recycleDetails": obj.recycleDetails
+          ? model.RecycleDetails.getDeserializedJsonObj(obj.recycleDetails)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

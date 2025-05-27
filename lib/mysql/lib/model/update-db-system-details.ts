@@ -54,6 +54,7 @@ export interface UpdateDbSystemDetails {
    *
    */
   "accessMode"?: string;
+  "rest"?: model.UpdateRestDetails;
   /**
     * Specifies if the DB System is highly available.
 * <p>
@@ -200,6 +201,8 @@ export namespace UpdateDbSystemDetails {
     const jsonObj = {
       ...obj,
       ...{
+        "rest": obj.rest ? model.UpdateRestDetails.getJsonObj(obj.rest) : undefined,
+
         "dataStorage": obj.dataStorage
           ? model.DataStorageDetails.getJsonObj(obj.dataStorage)
           : undefined,
@@ -235,6 +238,8 @@ export namespace UpdateDbSystemDetails {
     const jsonObj = {
       ...obj,
       ...{
+        "rest": obj.rest ? model.UpdateRestDetails.getDeserializedJsonObj(obj.rest) : undefined,
+
         "dataStorage": obj.dataStorage
           ? model.DataStorageDetails.getDeserializedJsonObj(obj.dataStorage)
           : undefined,

@@ -1,6 +1,6 @@
 /**
  * Usage API
- * Use the Usage API to view your Oracle Cloud usage and costs. The API allows you to request data that meets the specified filter criteria, and to group that data by the chosen dimension. The Usage API is used by the Cost Analysis and Carbon Emissions Analysis tools in the Console. See [Cost Analysis Overview](https://docs.oracle.com/iaas/Content/Billing/Concepts/costanalysisoverview.htm) and [Using the Usage API](https://docs.oracle.com/iaas/Content/Billing/Concepts/costanalysisoverview.htm#cost_analysis_using_the_api) for more information.
+ * Use the Usage API to view your Oracle Cloud usage and costs. The API allows you to request data that meets the specified filter criteria, and to group that data by the chosen dimension. The Usage API is used by [Cost Analysis](https://docs.oracle.com/iaas/Content/Billing/Concepts/costanalysisoverview.htm), [Scheduled Reports](https://docs.oracle.com/iaas/Content/Billing/Concepts/scheduledreportoverview.htm), and [Carbon Emissions Analysis](https://docs.oracle.com/iaas/Content/General/Concepts/emissions-management.htm) in the Console. Also see [Using the Usage API](https://docs.oracle.com/iaas/Content/Billing/Concepts/costanalysisoverview.htm#cost_analysis_using_the_api) for more information.
  * OpenAPI spec version: 20200107
  *
  *
@@ -31,7 +31,19 @@ export interface RequestUsageCarbonEmissionsDetails {
    */
   "timeUsageEnded": Date;
   /**
-   * Specifies whether aggregated by time. If isAggregateByTime is true, all usage carbon emissions over the query time period will be added up.
+   * Specifies the method used for emission calculation, such as POWER_BASED or SPEND_BASED
+   */
+  "emissionCalculationMethod"?: RequestUsageCarbonEmissionsDetails.EmissionCalculationMethod;
+  /**
+   * Specifies the type of emission, such as MARKET_BASED or LOCATION_BASED.
+   */
+  "emissionType"?: RequestUsageCarbonEmissionsDetails.EmissionType;
+  /**
+   * The carbon emission granularity. DAILY - Daily data aggregation. MONTHLY - Monthly data aggregation.
+   */
+  "granularity"?: RequestUsageCarbonEmissionsDetails.Granularity;
+  /**
+   * Specifies whether aggregated by time. If isAggregateByTime is true, all carbon emissions usage over the query time period are summed.
    */
   "isAggregateByTime"?: boolean;
   /**
@@ -58,6 +70,36 @@ export interface RequestUsageCarbonEmissionsDetails {
 }
 
 export namespace RequestUsageCarbonEmissionsDetails {
+  export enum EmissionCalculationMethod {
+    SpendBased = "SPEND_BASED",
+    PowerBased = "POWER_BASED",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum EmissionType {
+    MarketBased = "MARKET_BASED",
+    LocationBased = "LOCATION_BASED",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum Granularity {
+    Daily = "DAILY",
+    Monthly = "MONTHLY",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: RequestUsageCarbonEmissionsDetails): object {
     const jsonObj = {
       ...obj,

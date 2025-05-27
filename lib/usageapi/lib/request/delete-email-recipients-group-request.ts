@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface DeleteEmailRecipientsGroupRequest extends common.BaseRequest {
   /**
-   * The email recipient group OCID.
+   * The email recipients group OCID.
    */
   "emailRecipientsGroupId": string;
   /**
-   * The UsageStatement Subscription unique OCID.
+   * The usage statement subscription unique OCID.
    */
   "subscriptionId": string;
   /**

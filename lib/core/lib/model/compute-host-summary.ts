@@ -61,6 +61,12 @@ This field is the Fault domain of the host
    */
   "hpcIslandId"?: string;
   /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) for the Customer-unique host group
+   *
+   */
+  "computeHostGroupId"?: string;
+  "recycleDetails"?: model.RecycleDetails;
+  /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) for Customer-unique Network Block
    *
    */
@@ -147,12 +153,26 @@ Example: {@code {\"Department\": \"Finance\"}}
 
 export namespace ComputeHostSummary {
   export function getJsonObj(obj: ComputeHostSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "recycleDetails": obj.recycleDetails
+          ? model.RecycleDetails.getJsonObj(obj.recycleDetails)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: ComputeHostSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "recycleDetails": obj.recycleDetails
+          ? model.RecycleDetails.getDeserializedJsonObj(obj.recycleDetails)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

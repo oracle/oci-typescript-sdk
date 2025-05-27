@@ -1215,7 +1215,7 @@ export class ApmSyntheticClient {
   }
 
   /**
-   * Gets the results for a specific execution of a monitor identified by OCID. The results are in a HAR file, Screenshot, Console Log or Network details.
+   * Gets the results for a specific execution of a monitor identified by OCID. The results are in a HAR file, Screenshot, Console Log, Network details, Diagnostics or Script Content.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetMonitorResultRequest

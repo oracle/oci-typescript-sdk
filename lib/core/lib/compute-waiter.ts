@@ -33,6 +33,37 @@ export class ComputeWaiter {
   ) {}
 
   /**
+   * Waits forAttachComputeHostGroupHost
+   *
+   * @param request the request to send
+   * @return response returns AttachComputeHostGroupHostResponse, GetWorkRequestResponse tuple
+   */
+  public async forAttachComputeHostGroupHost(
+    request: serviceRequests.AttachComputeHostGroupHostRequest
+  ): Promise<{
+    response: serviceResponses.AttachComputeHostGroupHostResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const attachComputeHostGroupHostResponse = await this.client.attachComputeHostGroupHost(
+      request
+    );
+    if (attachComputeHostGroupHostResponse.opcWorkRequestId === undefined)
+      return {
+        response: attachComputeHostGroupHostResponse,
+        workRequestResponse: undefined as any
+      };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      attachComputeHostGroupHostResponse.opcWorkRequestId
+    );
+    return {
+      response: attachComputeHostGroupHostResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
    * Waits forChangeComputeCapacityReservationCompartment
    *
    * @param request the request to send
@@ -121,6 +152,37 @@ export class ComputeWaiter {
     );
     return {
       response: changeComputeHostCompartmentResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forChangeComputeHostGroupCompartment
+   *
+   * @param request the request to send
+   * @return response returns ChangeComputeHostGroupCompartmentResponse, GetWorkRequestResponse tuple
+   */
+  public async forChangeComputeHostGroupCompartment(
+    request: serviceRequests.ChangeComputeHostGroupCompartmentRequest
+  ): Promise<{
+    response: serviceResponses.ChangeComputeHostGroupCompartmentResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const changeComputeHostGroupCompartmentResponse = await this.client.changeComputeHostGroupCompartment(
+      request
+    );
+    if (changeComputeHostGroupCompartmentResponse.opcWorkRequestId === undefined)
+      return {
+        response: changeComputeHostGroupCompartmentResponse,
+        workRequestResponse: undefined as any
+      };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      changeComputeHostGroupCompartmentResponse.opcWorkRequestId
+    );
+    return {
+      response: changeComputeHostGroupCompartmentResponse,
       workRequestResponse: getWorkRequestResponse
     };
   }
@@ -271,6 +333,32 @@ export class ComputeWaiter {
     );
     return {
       response: createComputeGpuMemoryClusterResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forCreateComputeHostGroup
+   *
+   * @param request the request to send
+   * @return response returns CreateComputeHostGroupResponse, GetWorkRequestResponse tuple
+   */
+  public async forCreateComputeHostGroup(
+    request: serviceRequests.CreateComputeHostGroupRequest
+  ): Promise<{
+    response: serviceResponses.CreateComputeHostGroupResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const createComputeHostGroupResponse = await this.client.createComputeHostGroup(request);
+    if (createComputeHostGroupResponse.opcWorkRequestId === undefined)
+      return { response: createComputeHostGroupResponse, workRequestResponse: undefined as any };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      createComputeHostGroupResponse.opcWorkRequestId
+    );
+    return {
+      response: createComputeHostGroupResponse,
       workRequestResponse: getWorkRequestResponse
     };
   }
@@ -438,6 +526,37 @@ export class ComputeWaiter {
   }
 
   /**
+   * Waits forDetachComputeHostGroupHost
+   *
+   * @param request the request to send
+   * @return response returns DetachComputeHostGroupHostResponse, GetWorkRequestResponse tuple
+   */
+  public async forDetachComputeHostGroupHost(
+    request: serviceRequests.DetachComputeHostGroupHostRequest
+  ): Promise<{
+    response: serviceResponses.DetachComputeHostGroupHostResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const detachComputeHostGroupHostResponse = await this.client.detachComputeHostGroupHost(
+      request
+    );
+    if (detachComputeHostGroupHostResponse.opcWorkRequestId === undefined)
+      return {
+        response: detachComputeHostGroupHostResponse,
+        workRequestResponse: undefined as any
+      };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      detachComputeHostGroupHostResponse.opcWorkRequestId
+    );
+    return {
+      response: detachComputeHostGroupHostResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
    * Waits forExportImage
    *
    * @param request the request to send
@@ -587,6 +706,25 @@ export class ComputeWaiter {
       this.config,
       () => this.client.getComputeHost(request),
       response => targetStates.includes(response.computeHost.lifecycleState!)
+    );
+  }
+
+  /**
+   * Waits forComputeHostGroup till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetComputeHostGroupResponse | null (null in case of 404 response)
+   */
+  public async forComputeHostGroup(
+    request: serviceRequests.GetComputeHostGroupRequest,
+    ...targetStates: models.ComputeHostGroup.LifecycleState[]
+  ): Promise<serviceResponses.GetComputeHostGroupResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getComputeHostGroup(request),
+      response => targetStates.includes(response.computeHostGroup.lifecycleState!),
+      targetStates.includes(models.ComputeHostGroup.LifecycleState.Deleted)
     );
   }
 
@@ -875,6 +1013,32 @@ export class ComputeWaiter {
       updateComputeHostResponse.opcWorkRequestId
     );
     return { response: updateComputeHostResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forUpdateComputeHostGroup
+   *
+   * @param request the request to send
+   * @return response returns UpdateComputeHostGroupResponse, GetWorkRequestResponse tuple
+   */
+  public async forUpdateComputeHostGroup(
+    request: serviceRequests.UpdateComputeHostGroupRequest
+  ): Promise<{
+    response: serviceResponses.UpdateComputeHostGroupResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const updateComputeHostGroupResponse = await this.client.updateComputeHostGroup(request);
+    if (updateComputeHostGroupResponse.opcWorkRequestId === undefined)
+      return { response: updateComputeHostGroupResponse, workRequestResponse: undefined as any };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      updateComputeHostGroupResponse.opcWorkRequestId
+    );
+    return {
+      response: updateComputeHostGroupResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
   }
 
   /**

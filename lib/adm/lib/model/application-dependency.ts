@@ -15,7 +15,9 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * An application dependency resource creates a vulnerability audit.
+ * An ApplicationDependency resource is used within the applicationDependencies of a CreateVulnerabilityAuditDetails resource to create a vulnerability audit.
+ * Each ApplicationDependency resource must provide either Package URL (purl) identifier or a Group Artifact Version (GAV) to identify the application dependency.
+ *
  */
 export interface ApplicationDependency {
   /**
@@ -25,7 +27,7 @@ export interface ApplicationDependency {
    */
   "gav"?: string;
   /**
-   * Package URL defined in https://github.com/package-url/purl-spec, e.g. pkg:maven/org.graalvm.nativeimage/svm@21.1.0
+   * Package URL identifier, e.g. pkg:maven/org.graalvm.nativeimage/svm@21.1.0
    */
   "purl"?: string;
   /**

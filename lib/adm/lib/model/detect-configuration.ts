@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A configuration to define the constraints when detecting vulnerable dependencies.
+ * A configuration to define the constraints when detecting vulnerable dependencies and recommending remediations.
  *
  */
 export interface DetectConfiguration {
@@ -32,15 +32,15 @@ export interface DetectConfiguration {
    */
   "upgradePolicy"?: DetectConfiguration.UpgradePolicy;
   /**
-   * The maximum Common Vulnerability Scoring System Version 2 (CVSS V2) score. An artifact with a CVSS V2 score below this value is not considered for patching. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The maximum Common Vulnerability Scoring System Version 2 (CVSS V2) score. A vulnerability with a CVSS V2 score below this value is not considered for remediation. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maxPermissibleCvssV2Score"?: number;
   /**
-   * The maximum Common Vulnerability Scoring System Version 3 (CVSS V3) score. An artifact with a CVSS V3 score below this value is not considered for patching. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The maximum Common Vulnerability Scoring System Version 3 (CVSS V3) score. A vulnerability with a CVSS V3 score below this value is not considered for patching. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maxPermissibleCvssV3Score"?: number;
   /**
-   * The maximum ADM Severity. An artifact with an ADM Severity below this value is not considered for patching.
+   * The maximum ADM Severity. A vulnerability with an severity below this value is not considered for remediation.
    */
   "maxPermissibleSeverity"?: model.ConfigSeverity;
 }

@@ -54,6 +54,7 @@ export interface NetworkFirewall {
    *
    */
   "availabilityDomain"?: string;
+  "natConfiguration"?: model.NatConfigurationResponse;
   /**
    * An array of network security groups [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) associated with the Network Firewall.
    */
@@ -102,12 +103,26 @@ export interface NetworkFirewall {
 
 export namespace NetworkFirewall {
   export function getJsonObj(obj: NetworkFirewall): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "natConfiguration": obj.natConfiguration
+          ? model.NatConfigurationResponse.getJsonObj(obj.natConfiguration)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: NetworkFirewall): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "natConfiguration": obj.natConfiguration
+          ? model.NatConfigurationResponse.getDeserializedJsonObj(obj.natConfiguration)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

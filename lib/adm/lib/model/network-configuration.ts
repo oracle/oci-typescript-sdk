@@ -15,8 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A network configuration defines the required network characteristics for an ADM remediation recipe.
- * A network configuration is required if the build service is one of: GitHub Actions, GitLab Pipeline, or Jenkins Pipeline.
+ * A network configuration defines the required network characteristics for the remediation run of the recipe to access the source repository and/or verify build services.
  *
  */
 export interface NetworkConfiguration {

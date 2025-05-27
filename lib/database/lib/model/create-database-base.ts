@@ -25,7 +25,7 @@ export interface CreateDatabaseBase {
   /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Database Home.
    */
-  "dbHomeId": string;
+  "dbHomeId"?: string;
   /**
     * A valid Oracle Database version. For a list of supported versions, use the ListDbVersions operation.
 * <p>

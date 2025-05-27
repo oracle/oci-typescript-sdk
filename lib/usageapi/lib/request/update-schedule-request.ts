@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface UpdateScheduleRequest extends common.BaseRequest {
   /**
-   * The information to be updated. Currently supports only tags
+   * The information to be updated. Currently supports only tags.
    */
   "updateScheduleDetails": model.UpdateScheduleDetails;
   /**

@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ListScheduledRunsRequest extends common.BaseRequest {
   /**
-   * The unique ID of a schedule.
+   * The schedule unique ID.
    */
   "scheduleId": string;
   /**
@@ -35,7 +35,7 @@ export interface ListScheduledRunsRequest extends common.BaseRequest {
    */
   "page"?: string;
   /**
-   * The maximumimum number of items to return.
+   * The maximum number of items to return.
    */
   "limit"?: number;
   /**

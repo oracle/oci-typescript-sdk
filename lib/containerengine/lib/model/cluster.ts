@@ -112,6 +112,11 @@ export interface Cluster {
    *
    */
   "openIdConnectDiscoveryEndpoint"?: string;
+  /**
+   * The cluster-specific OpenID Connect Discovery Key to derive the DiscoveryEndpoint
+   *
+   */
+  "openIdConnectDiscoveryKey"?: string;
 }
 
 export namespace Cluster {

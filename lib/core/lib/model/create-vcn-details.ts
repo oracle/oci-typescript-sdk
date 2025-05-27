@@ -123,6 +123,11 @@ Example: {@code true}
 * 
     */
   "isIpv6Enabled"?: boolean;
+  /**
+   * Indicates whether Zpr Only Mode is enforced.
+   *
+   */
+  "isZprOnly"?: boolean;
 }
 
 export namespace CreateVcnDetails {
