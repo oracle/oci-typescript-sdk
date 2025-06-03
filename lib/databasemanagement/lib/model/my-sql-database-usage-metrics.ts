@@ -56,6 +56,10 @@ export interface MySqlDatabaseUsageMetrics {
    */
   "databaseStatus": model.MySqlDatabaseStatus;
   /**
+   * The customer's selected type for HeatWave management.
+   */
+  "heatWaveManagementType"?: string;
+  /**
    * Indicates whether HeatWave is enabled for the MySQL Database System or not.
    */
   "isHeatWaveEnabled"?: boolean;

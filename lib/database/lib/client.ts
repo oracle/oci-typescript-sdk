@@ -4763,8 +4763,8 @@ This operation should be performed on respective standby database.
       method: "POST",
       bodyContent: common.ObjectSerializer.serialize(
         createAutonomousContainerDatabaseRequest.createAutonomousContainerDatabaseDetails,
-        "CreateAutonomousContainerDatabaseDetails",
-        model.CreateAutonomousContainerDatabaseDetails.getJsonObj
+        "CreateAutonomousContainerDatabaseBase",
+        model.CreateAutonomousContainerDatabaseBase.getJsonObj
       ),
       pathParams: pathParams,
       headerParams: headerParams,
@@ -19639,6 +19639,94 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
     request: requests.ListApplicationVipsRequest
   ): AsyncIterableIterator<responses.ListApplicationVipsResponse> {
     return paginateResponses(request, req => this.listApplicationVips(req));
+  }
+
+  /**
+   * Gets a list of Autonomous Container Database backups by using either the 'autonomousDatabaseId' or 'compartmentId' as your query parameter.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListAutonomousContainerDatabaseBackupsRequest
+   * @return ListAutonomousContainerDatabaseBackupsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListAutonomousContainerDatabaseBackups.ts.html |here} to see how to use ListAutonomousContainerDatabaseBackups API.
+   */
+  public async listAutonomousContainerDatabaseBackups(
+    listAutonomousContainerDatabaseBackupsRequest: requests.ListAutonomousContainerDatabaseBackupsRequest
+  ): Promise<responses.ListAutonomousContainerDatabaseBackupsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#listAutonomousContainerDatabaseBackups.");
+    const operationName = "listAutonomousContainerDatabaseBackups";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousContainerDatabaseBackup/ListAutonomousContainerDatabaseBackups";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listAutonomousContainerDatabaseBackupsRequest.compartmentId,
+      "autonomousContainerDatabaseId":
+        listAutonomousContainerDatabaseBackupsRequest.autonomousContainerDatabaseId,
+      "isRemote": listAutonomousContainerDatabaseBackupsRequest.isRemote,
+      "infrastructureType": listAutonomousContainerDatabaseBackupsRequest.infrastructureType,
+      "lifecycleState": listAutonomousContainerDatabaseBackupsRequest.lifecycleState,
+      "sortBy": listAutonomousContainerDatabaseBackupsRequest.sortBy,
+      "limit": listAutonomousContainerDatabaseBackupsRequest.limit,
+      "page": listAutonomousContainerDatabaseBackupsRequest.page,
+      "sortOrder": listAutonomousContainerDatabaseBackupsRequest.sortOrder,
+      "displayName": listAutonomousContainerDatabaseBackupsRequest.displayName
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listAutonomousContainerDatabaseBackupsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAutonomousContainerDatabaseBackupsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/autonomousContainerDatabaseBackups",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListAutonomousContainerDatabaseBackupsResponse>{},
+        body: await response.json(),
+        bodyKey: "autonomousContainerDatabaseBackupCollection",
+        bodyModel: model.AutonomousContainerDatabaseBackupCollection,
+        type: "model.AutonomousContainerDatabaseBackupCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
   }
 
   /**

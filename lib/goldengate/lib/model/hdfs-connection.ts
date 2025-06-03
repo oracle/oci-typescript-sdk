@@ -24,6 +24,12 @@ export interface HdfsConnection extends model.Connection {
    * The Hadoop Distributed File System technology type.
    */
   "technologyType": HdfsConnection.TechnologyType;
+  /**
+   * The base64 encoded content of the Hadoop Distributed File System configuration file (core-site.xml).
+   * It is not included in GET responses if the {@code view=COMPACT} query parameter is specified.
+   *
+   */
+  "coreSiteXml"?: string;
 
   "connectionType": string;
 }

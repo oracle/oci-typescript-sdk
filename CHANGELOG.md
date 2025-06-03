@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
+## 2.111.0 - 2025-06-03
+### Added 
+- Support for creating auto Autonomous Container Database backups in a remote region in the Database service 
+- Support for creating new Autonomous Container Databases from a backup in the remote region in the Database service 
+- Support for input/output token usage information in the Generative AI Agent service 
+- Support for standby connection in the Database Management service 
+- Support for additional metrics, including replication metrics, in the Database Management service 
+- Support for replication dashboard in the Database Management service 
+- Support for soft-deleting backups in the HeatWave service 
+- Support for additional connections types for Oracle Rest Data Services (ORDS), Apache Iceberg, and IBM Db2 for i in the Golden Gate service    
+
+### Breaking Changes 
+- The properties `customerContacts`, `displayName`, `dbUniqueName`, `dbName`, `serviceLevelAgreementType`, `autonomousExadataInfrastructureId`, `dbVersion`, `databaseSoftwareImageId`, `peerAutonomousExadataInfrastructureId`, `peerAutonomousContainerDatabaseDisplayName`, `peerAutonomousContainerDatabaseDisplayName;`, `protectionMode`, `fastStartFailOverLagLimitInSeconds`, `isAutomaticFailoverEnabled`, `peerCloudAutonomousVmClusterId`, `peerAutonomousVmClusterId`, `peerAutonomousContainerDatabaseCompartmentId`, `peerAutonomousContainerDatabaseCompartmentId;`, `peerAutonomousContainerDatabaseBackupConfig`, `peerAutonomousContainerDatabaseBackupConfig;`, `peerDbUniqueName`, `autonomousVmClusterId`, `cloudAutonomousVmClusterId`, `compartmentId`, `patchModel`, `maintenanceWindowDetails`, `standbyMaintenanceBufferInDays`, `versionPreference`, `isDstFileUpdateEnabled`, `freeformTags`, `definedTags`, `backupConfig`, `kmsKeyId`, `kmsKeyVersionId`, `vaultId`, `keyStoreId`, `dbSplitThreshold`, `vmFailoverReservation`, `distributionAffinity` and `netServicesArchitecture` have been removed from the model `CreateAutonomousContainerDatabaseDetails` and moved into the base class model `CreateAutonomousContainerDatabaseBase` in the Database service 
+- The enum classes `ServiceLevelAgreementType`, `ProtectionMode`, `PatchModel`, `VersionPreference`, `DistributionAffinity` and `NetServicesArchitecture` have been removed from model `CreateAutonomousContainerDatabaseDetails` and moved into the base class model `CreateAutonomousContainerDatabaseBase` in the Database service
+
 ## 2.110.0 - 2025-05-27
 ### Added 
 - Support for List and Get APIs for out-of-box management dashboard resources in Management Dashboard service 

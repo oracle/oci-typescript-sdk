@@ -36,6 +36,10 @@ export interface RetrievalTrace extends model.Trace {
    * A list of citations retrieved from data sources.
    */
   "citations"?: Array<model.Citation>;
+  /**
+   * Details of model and its usage.
+   */
+  "usage"?: Array<model.Usage>;
 
   "traceType": string;
 }
@@ -48,6 +52,11 @@ export namespace RetrievalTrace {
         "citations": obj.citations
           ? obj.citations.map(item => {
               return model.Citation.getJsonObj(item);
+            })
+          : undefined,
+        "usage": obj.usage
+          ? obj.usage.map(item => {
+              return model.Usage.getJsonObj(item);
             })
           : undefined
       }
@@ -63,6 +72,11 @@ export namespace RetrievalTrace {
         "citations": obj.citations
           ? obj.citations.map(item => {
               return model.Citation.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "usage": obj.usage
+          ? obj.usage.map(item => {
+              return model.Usage.getDeserializedJsonObj(item);
             })
           : undefined
       }

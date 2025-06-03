@@ -79,16 +79,19 @@ export interface CreatePostgresqlConnectionDetails extends model.CreateConnectio
   /**
    * The base64 encoded certificate of the trusted certificate authorities (Trusted CA) for PostgreSQL.
    * The supported file formats are .pem and .crt.
+   * It is not included in GET responses if the {@code view=COMPACT} query parameter is specified.
    *
    */
   "sslCa"?: string;
   /**
    * The base64 encoded list of certificates revoked by the trusted certificate authorities (Trusted CA).
+   * It is not included in GET responses if the {@code view=COMPACT} query parameter is specified.
    *
    */
   "sslCrl"?: string;
   /**
    * The base64 encoded certificate of the PostgreSQL server. The supported file formats are .pem and .crt.
+   * It is not included in GET responses if the {@code view=COMPACT} query parameter is specified.
    *
    */
   "sslCert"?: string;

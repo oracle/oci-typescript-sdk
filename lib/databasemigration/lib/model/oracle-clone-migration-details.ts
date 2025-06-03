@@ -22,6 +22,10 @@ export interface OracleCloneMigrationDetails extends model.CloneMigrationDetails
    * The OCID of the resource being referenced.
    */
   "sourceContainerDatabaseConnectionId"?: string;
+  /**
+   * The OCID of the resource being referenced.
+   */
+  "sourceStandbyDatabaseConnectionId"?: string;
 
   "databaseCombination": string;
 }

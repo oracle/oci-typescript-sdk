@@ -32,6 +32,14 @@ export interface GenerationTrace extends model.Trace {
    * The generated response that's returned to the user.
    */
   "generation"?: string;
+  /**
+   * The input to the generation operation.
+   */
+  "input"?: string;
+  /**
+   * Details of model and its usage.
+   */
+  "usage"?: Array<model.Usage>;
 
   "traceType": string;
 }
@@ -40,7 +48,13 @@ export namespace GenerationTrace {
   export function getJsonObj(obj: GenerationTrace, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj ? obj : (model.Trace.getJsonObj(obj) as GenerationTrace)),
-      ...{}
+      ...{
+        "usage": obj.usage
+          ? obj.usage.map(item => {
+              return model.Usage.getJsonObj(item);
+            })
+          : undefined
+      }
     };
 
     return jsonObj;
@@ -49,7 +63,13 @@ export namespace GenerationTrace {
   export function getDeserializedJsonObj(obj: GenerationTrace, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj ? obj : (model.Trace.getDeserializedJsonObj(obj) as GenerationTrace)),
-      ...{}
+      ...{
+        "usage": obj.usage
+          ? obj.usage.map(item => {
+              return model.Usage.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
     };
 
     return jsonObj;

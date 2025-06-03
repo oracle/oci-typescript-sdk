@@ -25,6 +25,8 @@ import * as ResumeChannelResponse from "./resume-channel-response";
 export import ResumeChannelResponse = ResumeChannelResponse.ResumeChannelResponse;
 import * as UpdateChannelResponse from "./update-channel-response";
 export import UpdateChannelResponse = UpdateChannelResponse.UpdateChannelResponse;
+import * as CancelBackupDeletionResponse from "./cancel-backup-deletion-response";
+export import CancelBackupDeletionResponse = CancelBackupDeletionResponse.CancelBackupDeletionResponse;
 import * as ChangeBackupCompartmentResponse from "./change-backup-compartment-response";
 export import ChangeBackupCompartmentResponse = ChangeBackupCompartmentResponse.ChangeBackupCompartmentResponse;
 import * as CopyBackupResponse from "./copy-backup-response";

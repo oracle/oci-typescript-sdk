@@ -16,256 +16,42 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Describes the required parameters for the creation of an Autonomous Container Database.
+ * Details to create an Oracle Autonomous Container Database.
  *
  */
-export interface CreateAutonomousContainerDatabaseDetails {
-  /**
-   * Customer Contacts. Setting this to an empty list removes all customer contacts.
-   *
-   */
-  "customerContacts"?: Array<model.CustomerContact>;
-  /**
-   * The display name for the Autonomous Container Database.
-   */
-  "displayName": string;
-  /**
-   * **Deprecated.** The {@code DB_UNIQUE_NAME} value is set by Oracle Cloud Infrastructure.  Do not specify a value for this parameter. Specifying a value for this field will cause Terraform operations to fail.
-   *
-   */
-  "dbUniqueName"?: string;
-  /**
-   * The Database name for the Autonomous Container Database. The name must be unique within the Cloud Autonomous VM Cluster, starting with an alphabetic character, followed by 1 to 7 alphanumeric characters.
-   */
-  "dbName"?: string;
-  /**
-   * The service level agreement type of the Autonomous Container Database. The default is STANDARD. For an autonomous dataguard Autonomous Container Database, the specified Autonomous Exadata Infrastructure must be associated with a remote Autonomous Exadata Infrastructure.
-   */
-  "serviceLevelAgreementType"?: CreateAutonomousContainerDatabaseDetails.ServiceLevelAgreementType;
-  /**
-   * **No longer used.** This parameter is no longer used for Autonomous Database on dedicated Exadata infrasture. Specify a {@code cloudAutonomousVmClusterId} instead. Using this parameter will cause the operation to fail.
-   *
-   */
-  "autonomousExadataInfrastructureId"?: string;
-  /**
-   * The base version for the Autonomous Container Database.
-   */
-  "dbVersion"?: string;
-  /**
-   * The Autonomous Database Software Image [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
-   */
-  "databaseSoftwareImageId"?: string;
-  /**
-   * *No longer used.* This parameter is no longer used for Autonomous Database on dedicated Exadata infrasture. Specify a {@code peerCloudAutonomousVmClusterId} instead. Using this parameter will cause the operation to fail.
-   *
-   */
-  "peerAutonomousExadataInfrastructureId"?: string;
-  /**
-   * The display name for the peer Autonomous Container Database.
-   */
-  "peerAutonomousContainerDatabaseDisplayName"?: string;
-  /**
-   * The protection mode of this Autonomous Data Guard association. For more information, see
-   * [Oracle Data Guard Protection Modes](http://docs.oracle.com/database/122/SBYDB/oracle-data-guard-protection-modes.htm#SBYDB02000)
-   * in the Oracle Data Guard documentation.
-   *
-   */
-  "protectionMode"?: CreateAutonomousContainerDatabaseDetails.ProtectionMode;
-  /**
-   * The lag time for my preference based on data loss tolerance in seconds. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
-   */
-  "fastStartFailOverLagLimitInSeconds"?: number;
-  /**
-   * Indicates whether Automatic Failover is enabled for Autonomous Container Database Dataguard Association
-   *
-   */
-  "isAutomaticFailoverEnabled"?: boolean;
-  /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the peer cloud Autonomous Exadata VM Cluster.
-   */
-  "peerCloudAutonomousVmClusterId"?: string;
-  /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the peer Autonomous VM cluster for Autonomous Data Guard. Required to enable Data Guard.
-   *
-   */
-  "peerAutonomousVmClusterId"?: string;
-  /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment where the standby Autonomous Container Database
-   * will be created.
-   *
-   */
-  "peerAutonomousContainerDatabaseCompartmentId"?: string;
-  "peerAutonomousContainerDatabaseBackupConfig"?: model.PeerAutonomousContainerDatabaseBackupConfig;
-  /**
-   * **Deprecated.** The {@code DB_UNIQUE_NAME} of the peer Autonomous Container Database in a Data Guard association is set by Oracle Cloud Infrastructure.  Do not specify a value for this parameter. Specifying a value for this field will cause Terraform operations to fail.
-   *
-   */
-  "peerDbUniqueName"?: string;
-  /**
-   * The OCID of the Autonomous VM Cluster.
-   */
-  "autonomousVmClusterId"?: string;
-  /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the cloud Autonomous Exadata VM Cluster.
-   */
-  "cloudAutonomousVmClusterId"?: string;
-  /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment containing the Autonomous Container Database.
-   */
-  "compartmentId"?: string;
-  /**
-   * Database Patch model preference.
-   */
-  "patchModel": CreateAutonomousContainerDatabaseDetails.PatchModel;
-  "maintenanceWindowDetails"?: model.MaintenanceWindow;
-  /**
-   * The scheduling detail for the quarterly maintenance window of the standby Autonomous Container Database.
-   * This value represents the number of days before scheduled maintenance of the primary database.
-   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
-   */
-  "standbyMaintenanceBufferInDays"?: number;
-  /**
-   * The next maintenance version preference.
-   *
-   */
-  "versionPreference"?: CreateAutonomousContainerDatabaseDetails.VersionPreference;
-  /**
-   * Indicates if an automatic DST Time Zone file update is enabled for the Autonomous Container Database. If enabled along with Release Update, patching will be done in a Non-Rolling manner.
-   */
-  "isDstFileUpdateEnabled"?: boolean;
-  /**
-    * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
-* For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
-* <p>
-Example: {@code {\"Department\": \"Finance\"}}
-* 
-    */
-  "freeformTags"?: { [key: string]: string };
-  /**
-   * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
-   *
-   */
-  "definedTags"?: { [key: string]: { [key: string]: any } };
-  "backupConfig"?: model.AutonomousContainerDatabaseBackupConfig;
-  /**
-   * The OCID of the key container that is used as the master encryption key in database transparent data encryption (TDE) operations.
-   */
-  "kmsKeyId"?: string;
-  /**
-   * The OCID of the key container version that is used in database transparent data encryption (TDE) operations KMS Key can have multiple key versions. If none is specified, the current key version (latest) of the Key Id is used for the operation. Autonomous Database Serverless does not use key versions, hence is not applicable for Autonomous Database Serverless instances.
-   *
-   */
-  "kmsKeyVersionId"?: string;
-  /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Oracle Cloud Infrastructure [vault](https://docs.oracle.com/iaas/Content/KeyManagement/Concepts/keyoverview.htm#concepts). This parameter and {@code secretId} are required for Customer Managed Keys.
-   */
-  "vaultId"?: string;
-  /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the key store of Oracle Vault.
-   */
-  "keyStoreId"?: string;
-  /**
-   * The CPU value beyond which an Autonomous Database will be opened across multiple nodes. The default value of this attribute is 16 for OCPUs and 64 for ECPUs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
-   */
-  "dbSplitThreshold"?: number;
-  /**
-   * The percentage of CPUs reserved across nodes to support node failover. Allowed values are 0%, 25%, and 50%, with 50% being the default option. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
-   */
-  "vmFailoverReservation"?: number;
-  /**
-   * Determines whether an Autonomous Database must be opened across a minimum or maximum of nodes. By default, Minimum nodes is selected.
-   */
-  "distributionAffinity"?: CreateAutonomousContainerDatabaseDetails.DistributionAffinity;
-  /**
-   * Enabling SHARED server architecture enables a database server to allow many client processes to share very few server processes, thereby increasing the number of supported users.
-   */
-  "netServicesArchitecture"?: CreateAutonomousContainerDatabaseDetails.NetServicesArchitecture;
+export interface CreateAutonomousContainerDatabaseDetails
+  extends model.CreateAutonomousContainerDatabaseBase {
+  "source": string;
 }
 
 export namespace CreateAutonomousContainerDatabaseDetails {
-  export enum ServiceLevelAgreementType {
-    Standard = "STANDARD",
-    AutonomousDataguard = "AUTONOMOUS_DATAGUARD"
-  }
-
-  export enum ProtectionMode {
-    MaximumAvailability = "MAXIMUM_AVAILABILITY",
-    MaximumPerformance = "MAXIMUM_PERFORMANCE"
-  }
-
-  export enum PatchModel {
-    ReleaseUpdates = "RELEASE_UPDATES",
-    ReleaseUpdateRevisions = "RELEASE_UPDATE_REVISIONS"
-  }
-
-  export enum VersionPreference {
-    NextReleaseUpdate = "NEXT_RELEASE_UPDATE",
-    LatestReleaseUpdate = "LATEST_RELEASE_UPDATE"
-  }
-
-  export enum DistributionAffinity {
-    MinimumDistribution = "MINIMUM_DISTRIBUTION",
-    MaximumDistribution = "MAXIMUM_DISTRIBUTION"
-  }
-
-  export enum NetServicesArchitecture {
-    Dedicated = "DEDICATED",
-    Shared = "SHARED"
-  }
-
-  export function getJsonObj(obj: CreateAutonomousContainerDatabaseDetails): object {
+  export function getJsonObj(
+    obj: CreateAutonomousContainerDatabaseDetails,
+    isParentJsonObj?: boolean
+  ): object {
     const jsonObj = {
-      ...obj,
-      ...{
-        "customerContacts": obj.customerContacts
-          ? obj.customerContacts.map(item => {
-              return model.CustomerContact.getJsonObj(item);
-            })
-          : undefined,
-
-        "peerAutonomousContainerDatabaseBackupConfig": obj.peerAutonomousContainerDatabaseBackupConfig
-          ? model.PeerAutonomousContainerDatabaseBackupConfig.getJsonObj(
-              obj.peerAutonomousContainerDatabaseBackupConfig
-            )
-          : undefined,
-
-        "maintenanceWindowDetails": obj.maintenanceWindowDetails
-          ? model.MaintenanceWindow.getJsonObj(obj.maintenanceWindowDetails)
-          : undefined,
-
-        "backupConfig": obj.backupConfig
-          ? model.AutonomousContainerDatabaseBackupConfig.getJsonObj(obj.backupConfig)
-          : undefined
-      }
+      ...(isParentJsonObj
+        ? obj
+        : (model.CreateAutonomousContainerDatabaseBase.getJsonObj(
+            obj
+          ) as CreateAutonomousContainerDatabaseDetails)),
+      ...{}
     };
 
     return jsonObj;
   }
-  export function getDeserializedJsonObj(obj: CreateAutonomousContainerDatabaseDetails): object {
+  export const source = "NONE";
+  export function getDeserializedJsonObj(
+    obj: CreateAutonomousContainerDatabaseDetails,
+    isParentJsonObj?: boolean
+  ): object {
     const jsonObj = {
-      ...obj,
-      ...{
-        "customerContacts": obj.customerContacts
-          ? obj.customerContacts.map(item => {
-              return model.CustomerContact.getDeserializedJsonObj(item);
-            })
-          : undefined,
-
-        "peerAutonomousContainerDatabaseBackupConfig": obj.peerAutonomousContainerDatabaseBackupConfig
-          ? model.PeerAutonomousContainerDatabaseBackupConfig.getDeserializedJsonObj(
-              obj.peerAutonomousContainerDatabaseBackupConfig
-            )
-          : undefined,
-
-        "maintenanceWindowDetails": obj.maintenanceWindowDetails
-          ? model.MaintenanceWindow.getDeserializedJsonObj(obj.maintenanceWindowDetails)
-          : undefined,
-
-        "backupConfig": obj.backupConfig
-          ? model.AutonomousContainerDatabaseBackupConfig.getDeserializedJsonObj(obj.backupConfig)
-          : undefined
-      }
+      ...(isParentJsonObj
+        ? obj
+        : (model.CreateAutonomousContainerDatabaseBase.getDeserializedJsonObj(
+            obj
+          ) as CreateAutonomousContainerDatabaseDetails)),
+      ...{}
     };
 
     return jsonObj;

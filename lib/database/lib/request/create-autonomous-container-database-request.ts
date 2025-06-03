@@ -21,7 +21,9 @@ export interface CreateAutonomousContainerDatabaseRequest extends common.BaseReq
   /**
    * Request to create an Autonomous Container Database in a specified Autonomous Exadata Infrastructure or in Autonomous VM Cluster.
    */
-  "createAutonomousContainerDatabaseDetails": model.CreateAutonomousContainerDatabaseDetails;
+  "createAutonomousContainerDatabaseDetails":
+    | model.CreateAutonomousContainerDatabaseDetails
+    | model.CreateAutonomousContainerDatabaseFromBackupDetails;
   /**
    * A token that uniquely identifies a request so it can be retried in case of a timeout or
    * server error without risk of executing that same action again. Retry tokens expire after 24

@@ -2983,7 +2983,9 @@ export class GoldenGateClient {
       "{connectionId}": getConnectionRequest.connectionId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "view": getConnectionRequest.view
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,

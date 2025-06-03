@@ -484,6 +484,8 @@ import * as LaunchDbSystemRequest from "./launch-db-system-request";
 export import LaunchDbSystemRequest = LaunchDbSystemRequest.LaunchDbSystemRequest;
 import * as ListApplicationVipsRequest from "./list-application-vips-request";
 export import ListApplicationVipsRequest = ListApplicationVipsRequest.ListApplicationVipsRequest;
+import * as ListAutonomousContainerDatabaseBackupsRequest from "./list-autonomous-container-database-backups-request";
+export import ListAutonomousContainerDatabaseBackupsRequest = ListAutonomousContainerDatabaseBackupsRequest.ListAutonomousContainerDatabaseBackupsRequest;
 import * as ListAutonomousContainerDatabaseDataguardAssociationsRequest from "./list-autonomous-container-database-dataguard-associations-request";
 export import ListAutonomousContainerDatabaseDataguardAssociationsRequest = ListAutonomousContainerDatabaseDataguardAssociationsRequest.ListAutonomousContainerDatabaseDataguardAssociationsRequest;
 import * as ListAutonomousContainerDatabaseVersionsRequest from "./list-autonomous-container-database-versions-request";

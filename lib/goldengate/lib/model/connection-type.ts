@@ -47,6 +47,7 @@ export enum ConnectionType {
   Databricks = "DATABRICKS",
   GooglePubsub = "GOOGLE_PUBSUB",
   MicrosoftFabric = "MICROSOFT_FABRIC",
+  Iceberg = "ICEBERG",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

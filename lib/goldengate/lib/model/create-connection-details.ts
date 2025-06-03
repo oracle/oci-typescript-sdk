@@ -219,6 +219,11 @@ export namespace CreateConnectionDetails {
             <model.CreateAzureSynapseConnectionDetails>(<object>jsonObj),
             true
           );
+        case "ICEBERG":
+          return model.CreateIcebergConnectionDetails.getJsonObj(
+            <model.CreateIcebergConnectionDetails>(<object>jsonObj),
+            true
+          );
         case "MYSQL":
           return model.CreateMysqlConnectionDetails.getJsonObj(
             <model.CreateMysqlConnectionDetails>(<object>jsonObj),
@@ -372,6 +377,11 @@ export namespace CreateConnectionDetails {
         case "AZURE_SYNAPSE_ANALYTICS":
           return model.CreateAzureSynapseConnectionDetails.getDeserializedJsonObj(
             <model.CreateAzureSynapseConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "ICEBERG":
+          return model.CreateIcebergConnectionDetails.getDeserializedJsonObj(
+            <model.CreateIcebergConnectionDetails>(<object>jsonObj),
             true
           );
         case "MYSQL":

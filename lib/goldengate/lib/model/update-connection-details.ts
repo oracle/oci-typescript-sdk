@@ -216,6 +216,11 @@ export namespace UpdateConnectionDetails {
             <model.UpdateDb2ConnectionDetails>(<object>jsonObj),
             true
           );
+        case "ICEBERG":
+          return model.UpdateIcebergConnectionDetails.getJsonObj(
+            <model.UpdateIcebergConnectionDetails>(<object>jsonObj),
+            true
+          );
         case "GENERIC":
           return model.UpdateGenericConnectionDetails.getJsonObj(
             <model.UpdateGenericConnectionDetails>(<object>jsonObj),
@@ -360,6 +365,11 @@ export namespace UpdateConnectionDetails {
         case "DB2":
           return model.UpdateDb2ConnectionDetails.getDeserializedJsonObj(
             <model.UpdateDb2ConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "ICEBERG":
+          return model.UpdateIcebergConnectionDetails.getDeserializedJsonObj(
+            <model.UpdateIcebergConnectionDetails>(<object>jsonObj),
             true
           );
         case "GENERIC":

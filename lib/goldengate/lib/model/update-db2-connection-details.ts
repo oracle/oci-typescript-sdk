@@ -92,6 +92,7 @@ export interface UpdateDb2ConnectionDetails extends model.UpdateConnectionDetail
   "sslClientKeystashSecretId"?: string;
   /**
    * The base64 encoded file which contains the self-signed server certificate / Certificate Authority (CA) certificate.
+   * It is not included in GET responses if the {@code view=COMPACT} query parameter is specified.
    *
    */
   "sslServerCertificate"?: string;

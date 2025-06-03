@@ -37,6 +37,12 @@ export interface BackupSummary {
    */
   "description"?: string;
   /**
+   * Retains the backup to be deleted due to the retention policy in DELETE SCHEDULED
+   * state for 7 days before permanently deleting it.
+   *
+   */
+  "softDelete"?: model.SoftDelete;
+  /**
    * The time the backup was created.
    */
   "timeCreated": Date;
@@ -44,6 +50,10 @@ export interface BackupSummary {
    * The state of the backup.
    */
   "lifecycleState": string;
+  /**
+   * Additional information about the current lifecycleState.
+   */
+  "lifecycleDetails"?: string;
   /**
    * The type of backup.
    */

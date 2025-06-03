@@ -35,6 +35,10 @@ export interface UpdateOracleMigrationDetails extends model.UpdateMigrationDetai
    * The OCID of the resource being updated.
    */
   "sourceContainerDatabaseConnectionId"?: string;
+  /**
+   * The OCID of the resource being updated.
+   */
+  "sourceStandbyDatabaseConnectionId"?: string;
 
   "databaseCombination": string;
 }

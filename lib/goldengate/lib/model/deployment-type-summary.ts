@@ -111,6 +111,7 @@ export namespace DeploymentTypeSummary {
     Databricks = "DATABRICKS",
     GooglePubsub = "GOOGLE_PUBSUB",
     MicrosoftFabric = "MICROSOFT_FABRIC",
+    Iceberg = "ICEBERG",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
@@ -119,12 +120,12 @@ export namespace DeploymentTypeSummary {
   }
 
   export enum SupportedCapabilities {
-    Placement = "PLACEMENT",
-    DisasterRecovery = "DISASTER_RECOVERY",
     GroupToRole = "GROUP_TO_ROLE",
     BackupRestore = "BACKUP_RESTORE",
     CopyBackup = "COPY_BACKUP",
     ManualBackup = "MANUAL_BACKUP",
+    Placement = "PLACEMENT",
+    DisasterRecovery = "DISASTER_RECOVERY",
     ScheduleManualBackup = "SCHEDULE_MANUAL_BACKUP",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this

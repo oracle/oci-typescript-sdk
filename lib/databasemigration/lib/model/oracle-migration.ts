@@ -32,6 +32,10 @@ export interface OracleMigration extends model.Migration {
    */
   "sourceContainerDatabaseConnectionId"?: string;
   /**
+   * The OCID of the resource being referenced.
+   */
+  "sourceStandbyDatabaseConnectionId"?: string;
+  /**
    * List of Migration Parameter objects.
    */
   "advancedParameters"?: Array<model.MigrationParameterDetails>;

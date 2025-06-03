@@ -22,6 +22,7 @@ import common = require("oci-common");
 export interface UpdateHdfsConnectionDetails extends model.UpdateConnectionDetails {
   /**
    * The base64 encoded content of the Hadoop Distributed File System configuration file (core-site.xml).
+   * It is not included in GET responses if the {@code view=COMPACT} query parameter is specified.
    *
    */
   "coreSiteXml"?: string;

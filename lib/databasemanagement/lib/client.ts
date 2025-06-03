@@ -19897,6 +19897,248 @@ export class ManagedMySqlDatabasesClient {
   }
 
   /**
+   * Changes the management type for a HeatWave MySQL instance, from BASIC to FULL and vice versa.
+   * It can also be used to enable or disable database management.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ChangeMysqlDatabaseManagementTypeRequest
+   * @return ChangeMysqlDatabaseManagementTypeResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ChangeMysqlDatabaseManagementType.ts.html |here} to see how to use ChangeMysqlDatabaseManagementType API.
+   */
+  public async changeMysqlDatabaseManagementType(
+    changeMysqlDatabaseManagementTypeRequest: requests.ChangeMysqlDatabaseManagementTypeRequest
+  ): Promise<responses.ChangeMysqlDatabaseManagementTypeResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ManagedMySqlDatabasesClient#changeMysqlDatabaseManagementType."
+      );
+    const operationName = "changeMysqlDatabaseManagementType";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedMySqlDatabase/ChangeMysqlDatabaseManagementType";
+    const pathParams = {
+      "{managedMySqlDatabaseId}": changeMysqlDatabaseManagementTypeRequest.managedMySqlDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": changeMysqlDatabaseManagementTypeRequest.opcRetryToken,
+      "if-match": changeMysqlDatabaseManagementTypeRequest.ifMatch,
+      "opc-request-id": changeMysqlDatabaseManagementTypeRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeMysqlDatabaseManagementTypeRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedMySqlDatabases/{managedMySqlDatabaseId}/actions/changeManagementType",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeMysqlDatabaseManagementTypeRequest.changeMysqlDatabaseManagementTypeDetails,
+        "ChangeMysqlDatabaseManagementTypeDetails",
+        model.ChangeMysqlDatabaseManagementTypeDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeMysqlDatabaseManagementTypeResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Retrieves information pertaining to binary log of a specific MySQL server.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetBinaryLogInformationRequest
+   * @return GetBinaryLogInformationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetBinaryLogInformation.ts.html |here} to see how to use GetBinaryLogInformation API.
+   */
+  public async getBinaryLogInformation(
+    getBinaryLogInformationRequest: requests.GetBinaryLogInformationRequest
+  ): Promise<responses.GetBinaryLogInformationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ManagedMySqlDatabasesClient#getBinaryLogInformation.");
+    const operationName = "getBinaryLogInformation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedMySqlDatabase/GetBinaryLogInformation";
+    const pathParams = {
+      "{managedMySqlDatabaseId}": getBinaryLogInformationRequest.managedMySqlDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getBinaryLogInformationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getBinaryLogInformationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedMySqlDatabases/{managedMySqlDatabaseId}/binaryLogInformation",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetBinaryLogInformationResponse>{},
+        body: await response.json(),
+        bodyKey: "managedMySqlDatabaseBinaryLogInformation",
+        bodyModel: model.ManagedMySqlDatabaseBinaryLogInformation,
+        type: "model.ManagedMySqlDatabaseBinaryLogInformation",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Retrieves general information regarding replication of a specific MySQL server.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetGeneralReplicationInformationRequest
+   * @return GetGeneralReplicationInformationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetGeneralReplicationInformation.ts.html |here} to see how to use GetGeneralReplicationInformation API.
+   */
+  public async getGeneralReplicationInformation(
+    getGeneralReplicationInformationRequest: requests.GetGeneralReplicationInformationRequest
+  ): Promise<responses.GetGeneralReplicationInformationResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ManagedMySqlDatabasesClient#getGeneralReplicationInformation."
+      );
+    const operationName = "getGeneralReplicationInformation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedMySqlDatabase/GetGeneralReplicationInformation";
+    const pathParams = {
+      "{managedMySqlDatabaseId}": getGeneralReplicationInformationRequest.managedMySqlDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getGeneralReplicationInformationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getGeneralReplicationInformationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedMySqlDatabases/{managedMySqlDatabaseId}/generalReplicationInformation",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetGeneralReplicationInformationResponse>{},
+        body: await response.json(),
+        bodyKey: "managedMySqlDatabaseGeneralReplicationInformation",
+        bodyModel: model.ManagedMySqlDatabaseGeneralReplicationInformation,
+        type: "model.ManagedMySqlDatabaseGeneralReplicationInformation",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets the health metrics for a fleet of HeatWave clusters in a compartment.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -20120,6 +20362,249 @@ export class ManagedMySqlDatabasesClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Retrieves query sample details, explain plan and potential warnings for a given digest.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetMySqlQueryDetailsRequest
+   * @return GetMySqlQueryDetailsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetMySqlQueryDetails.ts.html |here} to see how to use GetMySqlQueryDetails API.
+   */
+  public async getMySqlQueryDetails(
+    getMySqlQueryDetailsRequest: requests.GetMySqlQueryDetailsRequest
+  ): Promise<responses.GetMySqlQueryDetailsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ManagedMySqlDatabasesClient#getMySqlQueryDetails.");
+    const operationName = "getMySqlQueryDetails";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedMySqlDatabase/GetMySqlQueryDetails";
+    const pathParams = {
+      "{managedMySqlDatabaseId}": getMySqlQueryDetailsRequest.managedMySqlDatabaseId
+    };
+
+    const queryParams = {
+      "digest": getMySqlQueryDetailsRequest.digest
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getMySqlQueryDetailsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getMySqlQueryDetailsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedMySqlDatabases/{managedMySqlDatabaseId}/queryDetails",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetMySqlQueryDetailsResponse>{},
+        body: await response.json(),
+        bodyKey: "mySqlQueryDetails",
+        bodyModel: model.MySqlQueryDetails,
+        type: "model.MySqlQueryDetails",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Information about high availability members of a specific MySQL server's replication group.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListHighAvailabilityMembersRequest
+   * @return ListHighAvailabilityMembersResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListHighAvailabilityMembers.ts.html |here} to see how to use ListHighAvailabilityMembers API.
+   */
+  public async listHighAvailabilityMembers(
+    listHighAvailabilityMembersRequest: requests.ListHighAvailabilityMembersRequest
+  ): Promise<responses.ListHighAvailabilityMembersResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ManagedMySqlDatabasesClient#listHighAvailabilityMembers."
+      );
+    const operationName = "listHighAvailabilityMembers";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedMySqlDatabase/ListHighAvailabilityMembers";
+    const pathParams = {
+      "{managedMySqlDatabaseId}": listHighAvailabilityMembersRequest.managedMySqlDatabaseId
+    };
+
+    const queryParams = {
+      "limit": listHighAvailabilityMembersRequest.limit,
+      "page": listHighAvailabilityMembersRequest.page,
+      "sortOrder": listHighAvailabilityMembersRequest.sortOrder,
+      "sortBy": listHighAvailabilityMembersRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listHighAvailabilityMembersRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listHighAvailabilityMembersRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedMySqlDatabases/{managedMySqlDatabaseId}/highAvailabilityMembers",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListHighAvailabilityMembersResponse>{},
+        body: await response.json(),
+        bodyKey: "managedMySqlDatabaseHighAvailabilityMemberCollection",
+        bodyModel: model.ManagedMySqlDatabaseHighAvailabilityMemberCollection,
+        type: "model.ManagedMySqlDatabaseHighAvailabilityMemberCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Retrieves information about the inbound replications of a specific MySQL server.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListInboundReplicationsRequest
+   * @return ListInboundReplicationsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListInboundReplications.ts.html |here} to see how to use ListInboundReplications API.
+   */
+  public async listInboundReplications(
+    listInboundReplicationsRequest: requests.ListInboundReplicationsRequest
+  ): Promise<responses.ListInboundReplicationsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ManagedMySqlDatabasesClient#listInboundReplications.");
+    const operationName = "listInboundReplications";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedMySqlDatabase/ListInboundReplications";
+    const pathParams = {
+      "{managedMySqlDatabaseId}": listInboundReplicationsRequest.managedMySqlDatabaseId
+    };
+
+    const queryParams = {
+      "limit": listInboundReplicationsRequest.limit,
+      "page": listInboundReplicationsRequest.page,
+      "sortOrder": listInboundReplicationsRequest.sortOrder,
+      "sortBy": listInboundReplicationsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listInboundReplicationsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listInboundReplicationsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedMySqlDatabases/{managedMySqlDatabaseId}/inboundReplications",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListInboundReplicationsResponse>{},
+        body: await response.json(),
+        bodyKey: "managedMySqlDatabaseInboundReplicationCollection",
+        bodyModel: model.ManagedMySqlDatabaseInboundReplicationCollection,
+        type: "model.ManagedMySqlDatabaseInboundReplicationCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
             dataType: "string"
           }
         ]
@@ -20369,6 +20854,173 @@ export class ManagedMySqlDatabasesClient {
         bodyKey: "managedMySqlDatabaseCollection",
         bodyModel: model.ManagedMySqlDatabaseCollection,
         type: "model.ManagedMySqlDatabaseCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Retrieves any potential errors for a given digest.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListMySqlDigestErrorsRequest
+   * @return ListMySqlDigestErrorsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListMySqlDigestErrors.ts.html |here} to see how to use ListMySqlDigestErrors API.
+   */
+  public async listMySqlDigestErrors(
+    listMySqlDigestErrorsRequest: requests.ListMySqlDigestErrorsRequest
+  ): Promise<responses.ListMySqlDigestErrorsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ManagedMySqlDatabasesClient#listMySqlDigestErrors.");
+    const operationName = "listMySqlDigestErrors";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedMySqlDatabase/ListMySqlDigestErrors";
+    const pathParams = {
+      "{managedMySqlDatabaseId}": listMySqlDigestErrorsRequest.managedMySqlDatabaseId
+    };
+
+    const queryParams = {
+      "digest": listMySqlDigestErrorsRequest.digest,
+      "page": listMySqlDigestErrorsRequest.page,
+      "limit": listMySqlDigestErrorsRequest.limit,
+      "sortBy": listMySqlDigestErrorsRequest.sortBy,
+      "sortOrder": listMySqlDigestErrorsRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listMySqlDigestErrorsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listMySqlDigestErrorsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedMySqlDatabases/{managedMySqlDatabaseId}/digestErrors",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListMySqlDigestErrorsResponse>{},
+        body: await response.json(),
+        bodyKey: "mySqlDigestErrorsCollection",
+        bodyModel: model.MySqlDigestErrorsCollection,
+        type: "model.MySqlDigestErrorsCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Retrieves information pertaining to outbound replications of a specific MySQL server.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListOutboundReplicationsRequest
+   * @return ListOutboundReplicationsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListOutboundReplications.ts.html |here} to see how to use ListOutboundReplications API.
+   */
+  public async listOutboundReplications(
+    listOutboundReplicationsRequest: requests.ListOutboundReplicationsRequest
+  ): Promise<responses.ListOutboundReplicationsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ManagedMySqlDatabasesClient#listOutboundReplications.");
+    const operationName = "listOutboundReplications";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedMySqlDatabase/ListOutboundReplications";
+    const pathParams = {
+      "{managedMySqlDatabaseId}": listOutboundReplicationsRequest.managedMySqlDatabaseId
+    };
+
+    const queryParams = {
+      "limit": listOutboundReplicationsRequest.limit,
+      "page": listOutboundReplicationsRequest.page,
+      "sortOrder": listOutboundReplicationsRequest.sortOrder,
+      "sortBy": listOutboundReplicationsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listOutboundReplicationsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listOutboundReplicationsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedMySqlDatabases/{managedMySqlDatabaseId}/outboundReplications",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListOutboundReplicationsResponse>{},
+        body: await response.json(),
+        bodyKey: "managedMySqlDatabaseOutboundReplicationCollection",
+        bodyModel: model.ManagedMySqlDatabaseOutboundReplicationCollection,
+        type: "model.ManagedMySqlDatabaseOutboundReplicationCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),

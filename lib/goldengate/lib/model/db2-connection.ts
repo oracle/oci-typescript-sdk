@@ -76,12 +76,19 @@ export interface Db2Connection extends model.Connection {
    *
    */
   "sslClientKeystashSecretId"?: string;
+  /**
+   * The base64 encoded file which contains the self-signed server certificate / Certificate Authority (CA) certificate.
+   * It is not included in GET responses if the {@code view=COMPACT} query parameter is specified.
+   *
+   */
+  "sslServerCertificate"?: string;
 
   "connectionType": string;
 }
 
 export namespace Db2Connection {
   export enum TechnologyType {
+    Db2I = "DB2_I",
     Db2Zos = "DB2_ZOS",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this

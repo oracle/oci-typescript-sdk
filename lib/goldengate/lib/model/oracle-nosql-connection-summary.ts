@@ -41,7 +41,7 @@ export interface OracleNosqlConnectionSummary extends model.ConnectionSummary {
    * If the user is not provided, backend will default to the user who is calling the API endpoint.
    *
    */
-  "userId": string;
+  "userId"?: string;
   /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Secret that stores the content of the private key file (PEM file) corresponding to the API key of the fingerprint.
    * See documentation: https://docs.oracle.com/en-us/iaas/Content/Identity/Tasks/managingcredentials.htm

@@ -40,7 +40,7 @@ export interface SnowflakeConnectionSummary extends model.ConnectionSummary {
    * This username must already exist and be available by Snowflake platform to be connected to.
    *
    */
-  "username"?: string;
+  "username": string;
   /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Secret where the password is stored.
    * The password Oracle GoldenGate uses to connect the associated system of the given technology.

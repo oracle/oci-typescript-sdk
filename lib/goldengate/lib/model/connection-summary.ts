@@ -259,6 +259,11 @@ export namespace ConnectionSummary {
             <model.GoogleBigQueryConnectionSummary>(<object>jsonObj),
             true
           );
+        case "ICEBERG":
+          return model.IcebergConnectionSummary.getJsonObj(
+            <model.IcebergConnectionSummary>(<object>jsonObj),
+            true
+          );
         case "POSTGRESQL":
           return model.PostgresqlConnectionSummary.getJsonObj(
             <model.PostgresqlConnectionSummary>(<object>jsonObj),
@@ -418,6 +423,11 @@ export namespace ConnectionSummary {
         case "GOOGLE_BIGQUERY":
           return model.GoogleBigQueryConnectionSummary.getDeserializedJsonObj(
             <model.GoogleBigQueryConnectionSummary>(<object>jsonObj),
+            true
+          );
+        case "ICEBERG":
+          return model.IcebergConnectionSummary.getDeserializedJsonObj(
+            <model.IcebergConnectionSummary>(<object>jsonObj),
             true
           );
         case "POSTGRESQL":
