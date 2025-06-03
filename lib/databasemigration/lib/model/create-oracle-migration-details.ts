@@ -36,6 +36,10 @@ export interface CreateOracleMigrationDetails extends model.CreateMigrationDetai
    */
   "sourceContainerDatabaseConnectionId"?: string;
   /**
+   * The OCID of the resource being referenced.
+   */
+  "sourceStandbyDatabaseConnectionId"?: string;
+  /**
    * Database objects to exclude from migration, cannot be specified alongside 'includeObjects'
    *
    */

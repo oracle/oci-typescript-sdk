@@ -141,6 +141,8 @@ import * as SecureConnectionDetails from "./secure-connection-details";
 export import SecureConnectionDetails = SecureConnectionDetails.SecureConnectionDetails;
 import * as ShapeSummary from "./shape-summary";
 export import ShapeSummary = ShapeSummary.ShapeSummary;
+import * as SoftDelete from "./soft-delete";
+export import SoftDelete = SoftDelete.SoftDelete;
 import * as StopDbSystemDetails from "./stop-db-system-details";
 export import StopDbSystemDetails = StopDbSystemDetails.StopDbSystemDetails;
 import * as UpdateBackupDetails from "./update-backup-details";

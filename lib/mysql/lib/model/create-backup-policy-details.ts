@@ -25,6 +25,12 @@ export interface CreateBackupPolicyDetails {
    */
   "isEnabled"?: boolean;
   /**
+   * Retains the backup to be deleted due to the retention policy in DELETE SCHEDULED
+   * state for 7 days before permanently deleting it.
+   *
+   */
+  "softDelete"?: model.SoftDelete;
+  /**
     * List of policies of a DB system to schedule cross-region DB system backup copy.
 * <p>
 The policy includes the name of the destination region to which the DB system backup will be copied, and

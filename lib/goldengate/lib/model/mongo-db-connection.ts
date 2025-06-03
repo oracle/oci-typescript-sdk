@@ -64,6 +64,12 @@ export interface MongoDbConnection extends model.Connection {
    *
    */
   "tlsCertificateKeyFilePasswordSecretId"?: string;
+  /**
+   * Database Certificate - The base64 encoded content of a .pem file, containing the server public key (for 1 and 2-way SSL).
+   * It is not included in GET responses if the {@code view=COMPACT} query parameter is specified.
+   *
+   */
+  "tlsCaFile"?: string;
 
   "connectionType": string;
 }
@@ -75,6 +81,7 @@ export namespace MongoDbConnection {
     AzureCosmosDbForMongodb = "AZURE_COSMOS_DB_FOR_MONGODB",
     AmazonDocumentDb = "AMAZON_DOCUMENT_DB",
     OracleJsonCollection = "ORACLE_JSON_COLLECTION",
+    OracleRestDataServices = "ORACLE_REST_DATA_SERVICES",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

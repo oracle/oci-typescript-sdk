@@ -1062,6 +1062,81 @@ export class DbBackupsClient {
   }
 
   /**
+   * Cancels the scheduled deletion of a backup and moves it to ACTIVE state.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CancelBackupDeletionRequest
+   * @return CancelBackupDeletionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/CancelBackupDeletion.ts.html |here} to see how to use CancelBackupDeletion API.
+   */
+  public async cancelBackupDeletion(
+    cancelBackupDeletionRequest: requests.CancelBackupDeletionRequest
+  ): Promise<responses.CancelBackupDeletionResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbBackupsClient#cancelBackupDeletion.");
+    const operationName = "cancelBackupDeletion";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/Backup/CancelBackupDeletion";
+    const pathParams = {
+      "{backupId}": cancelBackupDeletionRequest.backupId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": cancelBackupDeletionRequest.ifMatch,
+      "opc-request-id": cancelBackupDeletionRequest.opcRequestId,
+      "opc-retry-token": cancelBackupDeletionRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      cancelBackupDeletionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/backups/{backupId}/actions/cancelDeletion",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CancelBackupDeletionResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Moves a DB System Backup into a different compartment.
    * When provided, If-Match is checked against ETag values of the Backup.
    *
@@ -1491,6 +1566,7 @@ export class DbBackupsClient {
       "compartmentId": listBackupsRequest.compartmentId,
       "dbSystemId": listBackupsRequest.dbSystemId,
       "displayName": listBackupsRequest.displayName,
+      "softDelete": listBackupsRequest.softDelete,
       "creationType": listBackupsRequest.creationType,
       "sortBy": listBackupsRequest.sortBy,
       "sortOrder": listBackupsRequest.sortOrder,

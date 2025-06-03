@@ -46,6 +46,10 @@ export interface ListBackupsRequest extends common.BaseRequest {
    */
   "displayName"?: string;
   /**
+   * Backup Soft Delete
+   */
+  "softDelete"?: model.SoftDelete;
+  /**
    * Backup creationType
    */
   "creationType"?: string;

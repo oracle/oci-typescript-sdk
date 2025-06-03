@@ -59,6 +59,10 @@ export interface ManagedMySqlDatabaseSummary {
    * Indicates lifecycle  state of the resource.
    */
   "lifecycleState"?: model.LifecycleStates;
+  /**
+   * The customer's selected type for HeatWave management.
+   */
+  "heatWaveManagementType"?: string;
 }
 
 export namespace ManagedMySqlDatabaseSummary {

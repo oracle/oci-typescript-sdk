@@ -53,6 +53,7 @@ export interface UpdateConnectionRequest extends common.BaseRequest {
     | model.UpdateAmazonS3ConnectionDetails
     | model.UpdateMysqlConnectionDetails
     | model.UpdateDb2ConnectionDetails
+    | model.UpdateIcebergConnectionDetails
     | model.UpdateGenericConnectionDetails
     | model.UpdateAzureSynapseConnectionDetails;
   /**

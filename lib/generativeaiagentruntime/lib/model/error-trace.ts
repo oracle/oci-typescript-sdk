@@ -32,6 +32,10 @@ export interface ErrorTrace extends model.Trace {
    * The error message in this trace.
    */
   "errorMessage"?: string;
+  /**
+   * Error code.
+   */
+  "code"?: string;
 
   "traceType": string;
 }

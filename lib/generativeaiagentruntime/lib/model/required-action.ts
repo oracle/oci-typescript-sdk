@@ -42,6 +42,11 @@ export namespace RequiredAction {
 
     if (obj && "requiredActionType" in obj && obj.requiredActionType) {
       switch (obj.requiredActionType) {
+        case "HUMAN_APPROVAL_REQUIRED_ACTION":
+          return model.HumanApprovalRequiredAction.getJsonObj(
+            <model.HumanApprovalRequiredAction>(<object>jsonObj),
+            true
+          );
         case "FUNCTION_CALLING_REQUIRED_ACTION":
           return model.FunctionCallingRequiredAction.getJsonObj(
             <model.FunctionCallingRequiredAction>(<object>jsonObj),
@@ -59,6 +64,11 @@ export namespace RequiredAction {
 
     if (obj && "requiredActionType" in obj && obj.requiredActionType) {
       switch (obj.requiredActionType) {
+        case "HUMAN_APPROVAL_REQUIRED_ACTION":
+          return model.HumanApprovalRequiredAction.getDeserializedJsonObj(
+            <model.HumanApprovalRequiredAction>(<object>jsonObj),
+            true
+          );
         case "FUNCTION_CALLING_REQUIRED_ACTION":
           return model.FunctionCallingRequiredAction.getDeserializedJsonObj(
             <model.FunctionCallingRequiredAction>(<object>jsonObj),

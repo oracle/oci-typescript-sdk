@@ -46,6 +46,10 @@ export interface ManagedMySqlDatabase {
    */
   "name": string;
   /**
+   * The customer's selected type for HeatWave management.
+   */
+  "heatWaveManagementType"?: ManagedMySqlDatabase.HeatWaveManagementType;
+  /**
    * The name of the HeatWave cluster.
    */
   "heatWaveClusterDisplayName"?: string;
@@ -98,6 +102,16 @@ export interface ManagedMySqlDatabase {
 }
 
 export namespace ManagedMySqlDatabase {
+  export enum HeatWaveManagementType {
+    Basic = "BASIC",
+    Full = "FULL",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: ManagedMySqlDatabase): object {
     const jsonObj = {
       ...obj,

@@ -56,6 +56,12 @@ export interface ElasticsearchConnection extends model.Connection {
    *
    */
   "passwordSecretId"?: string;
+  /**
+   * Fingerprint required by TLS security protocol.
+   * Eg.: '6152b2dfbff200f973c5074a5b91d06ab3b472c07c09a1ea57bb7fd406cdce9c'
+   *
+   */
+  "fingerprint"?: string;
 
   "connectionType": string;
 }

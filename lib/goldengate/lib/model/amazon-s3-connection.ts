@@ -36,6 +36,17 @@ export interface AmazonS3Connection extends model.Connection {
    *
    */
   "secretAccessKeySecretId"?: string;
+  /**
+   * The Amazon Endpoint for S3.
+   * e.g.: 'https://my-bucket.s3.us-east-1.amazonaws.com'
+   *
+   */
+  "endpoint"?: string;
+  /**
+   * The name of the region where the bucket is created.
+   *
+   */
+  "region"?: string;
 
   "connectionType": string;
 }

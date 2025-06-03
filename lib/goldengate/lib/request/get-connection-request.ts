@@ -28,4 +28,16 @@ export interface GetConnectionRequest extends common.BaseRequest {
    *
    */
   "opcRequestId"?: string;
+  /**
+   * Selects the connection fields returned in connection details.
+   *
+   */
+  "view"?: GetConnectionRequest.View;
+}
+
+export namespace GetConnectionRequest {
+  export enum View {
+    Full = "FULL",
+    Compact = "COMPACT"
+  }
 }

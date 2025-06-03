@@ -40,7 +40,7 @@ export interface CreateSnowflakeConnectionDetails extends model.CreateConnection
    * This username must already exist and be available by Snowflake platform to be connected to.
    *
    */
-  "username"?: string;
+  "username": string;
   /**
    * The password Oracle GoldenGate uses to connect to Snowflake platform.
    * Deprecated: This field is deprecated and replaced by \"passwordSecretId\". This field will be removed after February 15 2026.

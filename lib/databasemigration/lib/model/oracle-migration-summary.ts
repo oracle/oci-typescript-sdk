@@ -22,6 +22,10 @@ export interface OracleMigrationSummary extends model.MigrationSummary {
    * The OCID of the resource being referenced.
    */
   "sourceContainerDatabaseConnectionId"?: string;
+  /**
+   * The OCID of the resource being referenced.
+   */
+  "sourceStandbyDatabaseConnectionId"?: string;
 
   "databaseCombination": string;
 }

@@ -29,16 +29,34 @@ import common = require("oci-common");
  */
 export interface Trace {
   /**
+   * Unique identifier for the event (UUID).
+   */
+  "key"?: string;
+  /**
+   * Identifier of the parent event, if applicable (UUID).
+   */
+  "parentKey"?: string;
+  "source"?: model.SourceDetails;
+  /**
    * The date and time that the trace was created in the format of an RFC3339 datetime string.
    */
   "timeCreated"?: Date;
+  /**
+   * Timestamp for when the event ended (In RFC 3339).
+   */
+  "timeFinished"?: Date;
 
   "traceType": string;
 }
 
 export namespace Trace {
   export function getJsonObj(obj: Trace): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "source": obj.source ? model.SourceDetails.getJsonObj(obj.source) : undefined
+      }
+    };
 
     if (obj && "traceType" in obj && obj.traceType) {
       switch (obj.traceType) {
@@ -46,8 +64,17 @@ export namespace Trace {
           return model.ErrorTrace.getJsonObj(<model.ErrorTrace>(<object>jsonObj), true);
         case "RETRIEVAL_TRACE":
           return model.RetrievalTrace.getJsonObj(<model.RetrievalTrace>(<object>jsonObj), true);
+        case "EXECUTION_TRACE":
+          return model.ExecutionTrace.getJsonObj(<model.ExecutionTrace>(<object>jsonObj), true);
         case "GENERATION_TRACE":
           return model.GenerationTrace.getJsonObj(<model.GenerationTrace>(<object>jsonObj), true);
+        case "TOOL_INVOCATION_TRACE":
+          return model.ToolInvocationTrace.getJsonObj(
+            <model.ToolInvocationTrace>(<object>jsonObj),
+            true
+          );
+        case "PLANNING_TRACE":
+          return model.PlanningTrace.getJsonObj(<model.PlanningTrace>(<object>jsonObj), true);
         default:
           if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.traceType}`);
       }
@@ -55,7 +82,12 @@ export namespace Trace {
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: Trace): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "source": obj.source ? model.SourceDetails.getDeserializedJsonObj(obj.source) : undefined
+      }
+    };
 
     if (obj && "traceType" in obj && obj.traceType) {
       switch (obj.traceType) {
@@ -66,9 +98,24 @@ export namespace Trace {
             <model.RetrievalTrace>(<object>jsonObj),
             true
           );
+        case "EXECUTION_TRACE":
+          return model.ExecutionTrace.getDeserializedJsonObj(
+            <model.ExecutionTrace>(<object>jsonObj),
+            true
+          );
         case "GENERATION_TRACE":
           return model.GenerationTrace.getDeserializedJsonObj(
             <model.GenerationTrace>(<object>jsonObj),
+            true
+          );
+        case "TOOL_INVOCATION_TRACE":
+          return model.ToolInvocationTrace.getDeserializedJsonObj(
+            <model.ToolInvocationTrace>(<object>jsonObj),
+            true
+          );
+        case "PLANNING_TRACE":
+          return model.PlanningTrace.getDeserializedJsonObj(
+            <model.PlanningTrace>(<object>jsonObj),
             true
           );
         default:

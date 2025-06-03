@@ -27,6 +27,7 @@ export enum DeploymentType {
   DatabaseMysql = "DATABASE_MYSQL",
   DatabasePostgresql = "DATABASE_POSTGRESQL",
   DatabaseDb2Zos = "DATABASE_DB2ZOS",
+  DatabaseDb2I = "DATABASE_DB2I",
   Ggsa = "GGSA",
   DataTransforms = "DATA_TRANSFORMS",
 

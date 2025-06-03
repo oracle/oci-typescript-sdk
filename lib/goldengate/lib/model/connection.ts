@@ -214,6 +214,11 @@ export namespace Connection {
             <model.MicrosoftSqlserverConnection>(<object>jsonObj),
             true
           );
+        case "ICEBERG":
+          return model.IcebergConnection.getJsonObj(
+            <model.IcebergConnection>(<object>jsonObj),
+            true
+          );
         case "GENERIC":
           return model.GenericConnection.getJsonObj(
             <model.GenericConnection>(<object>jsonObj),
@@ -364,6 +369,11 @@ export namespace Connection {
         case "MICROSOFT_SQLSERVER":
           return model.MicrosoftSqlserverConnection.getDeserializedJsonObj(
             <model.MicrosoftSqlserverConnection>(<object>jsonObj),
+            true
+          );
+        case "ICEBERG":
+          return model.IcebergConnection.getDeserializedJsonObj(
+            <model.IcebergConnection>(<object>jsonObj),
             true
           );
         case "GENERIC":

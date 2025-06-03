@@ -25,6 +25,8 @@ import * as ResumeChannelRequest from "./resume-channel-request";
 export import ResumeChannelRequest = ResumeChannelRequest.ResumeChannelRequest;
 import * as UpdateChannelRequest from "./update-channel-request";
 export import UpdateChannelRequest = UpdateChannelRequest.UpdateChannelRequest;
+import * as CancelBackupDeletionRequest from "./cancel-backup-deletion-request";
+export import CancelBackupDeletionRequest = CancelBackupDeletionRequest.CancelBackupDeletionRequest;
 import * as ChangeBackupCompartmentRequest from "./change-backup-compartment-request";
 export import ChangeBackupCompartmentRequest = ChangeBackupCompartmentRequest.ChangeBackupCompartmentRequest;
 import * as CopyBackupRequest from "./copy-backup-request";

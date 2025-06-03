@@ -59,6 +59,7 @@ export interface CreateMongoDbConnectionDetails extends model.CreateConnectionDe
   "securityProtocol"?: string;
   /**
    * Database Certificate - The base64 encoded content of a .pem file, containing the server public key (for 1 and 2-way SSL).
+   * It is not included in GET responses if the {@code view=COMPACT} query parameter is specified.
    *
    */
   "tlsCaFile"?: string;

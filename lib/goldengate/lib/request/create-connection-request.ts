@@ -45,6 +45,7 @@ export interface CreateConnectionRequest extends common.BaseRequest {
     | model.CreateDb2ConnectionDetails
     | model.CreateElasticsearchConnectionDetails
     | model.CreateAzureSynapseConnectionDetails
+    | model.CreateIcebergConnectionDetails
     | model.CreateMysqlConnectionDetails
     | model.CreateGenericConnectionDetails
     | model.CreateOracleConnectionDetails

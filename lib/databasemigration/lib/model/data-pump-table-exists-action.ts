@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * IMPORT: Specifies the action to be performed when data is loaded into a preexisting table.
+ * IMPORT: Specifies the action to be performed when data is loaded into a preexisting table, if unspecified ZDM will apply default value.
  *
  **/
 export enum DataPumpTableExistsAction {
@@ -23,6 +23,7 @@ export enum DataPumpTableExistsAction {
   Replace = "REPLACE",
   Append = "APPEND",
   Skip = "SKIP",
+  Unspecified = "UNSPECIFIED",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

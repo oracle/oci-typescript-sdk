@@ -39,6 +39,12 @@ export interface Backup {
    */
   "description"?: string;
   /**
+   * Retains the backup to be deleted due to the retention policy in DELETE SCHEDULED
+   * state for 7 days before permanently deleting it.
+   *
+   */
+  "softDelete"?: model.SoftDelete;
+  /**
    * The OCID of the compartment.
    */
   "compartmentId": string;
@@ -137,6 +143,7 @@ export namespace Backup {
     Deleting = "DELETING",
     Deleted = "DELETED",
     Failed = "FAILED",
+    DeleteScheduled = "DELETE_SCHEDULED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

@@ -20,12 +20,12 @@ import common = require("oci-common");
  *
  **/
 export enum SupportedCapabilities {
-  Placement = "PLACEMENT",
-  DisasterRecovery = "DISASTER_RECOVERY",
   GroupToRole = "GROUP_TO_ROLE",
   BackupRestore = "BACKUP_RESTORE",
   CopyBackup = "COPY_BACKUP",
   ManualBackup = "MANUAL_BACKUP",
+  Placement = "PLACEMENT",
+  DisasterRecovery = "DISASTER_RECOVERY",
   ScheduleManualBackup = "SCHEDULE_MANUAL_BACKUP",
 
   /**
