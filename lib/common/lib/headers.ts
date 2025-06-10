@@ -67,7 +67,7 @@ export function addUserAgent(headers: Headers) {
 
 function populatePlatformHash() {
   const os = require("os");
-  NODE_PLATFORM_HASH.set(PLATFORM_KEY, os.platform);
-  NODE_PLATFORM_HASH.set(RELEASE_KEY, os.release);
+  NODE_PLATFORM_HASH.set(PLATFORM_KEY, os.platform());
+  NODE_PLATFORM_HASH.set(RELEASE_KEY, os.release());
   NODE_PLATFORM_HASH.set(VERSION_KEY, process.version);
 }
