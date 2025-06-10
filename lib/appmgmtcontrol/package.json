@@ -1,6 +1,6 @@
 {
   "name": "oci-appmgmtcontrol",
-  "version": "2.111.0",
+  "version": "2.111.1",
   "description": "OCI NodeJS client for Appmgmt Control Service",
   "repository": {
     "type": "git",

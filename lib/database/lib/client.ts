@@ -5975,7 +5975,8 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": createDatabaseRequest.opcRetryToken,
-      "opc-request-id": createDatabaseRequest.opcRequestId
+      "opc-request-id": createDatabaseRequest.opcRequestId,
+      "opc-dry-run": createDatabaseRequest.opcDryRun
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
