@@ -1,6 +1,6 @@
 {
   "name": "oci-operatoraccesscontrol",
-  "version": "2.111.0",
+  "version": "2.111.1",
   "description": "OCI NodeJS client for Operator Access Control Service",
   "repository": {
     "type": "git",
