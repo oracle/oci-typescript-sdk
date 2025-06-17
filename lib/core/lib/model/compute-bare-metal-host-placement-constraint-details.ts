@@ -22,13 +22,14 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Customer baremetal host id that needs to be launched
+ * The details for providing placement constraints using the compute bare metal host OCID.
+ * This placement constraint is only applicable during the launch operation.
  *
  */
 export interface ComputeBareMetalHostPlacementConstraintDetails
   extends model.PlacementConstraintDetails {
   /**
-   * The OCID of the compute bare metal host.
+   * The OCID of the compute bare metal host. This is only available for dedicated capacity customers.
    */
   "computeBareMetalHostId": string;
 

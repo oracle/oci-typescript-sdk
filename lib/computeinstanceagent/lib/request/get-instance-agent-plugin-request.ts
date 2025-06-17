@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface GetInstanceAgentPluginRequest extends common.BaseRequest {
   /**
-   * The OCID of the instance.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the instance.
    */
   "instanceagentId": string;
   /**

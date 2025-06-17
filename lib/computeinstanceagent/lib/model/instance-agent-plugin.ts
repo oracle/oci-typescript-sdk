@@ -17,23 +17,36 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The agent plugin
+ * An Oracle Cloud Agent plugin.
  */
 export interface InstanceAgentPlugin {
   /**
-   * The plugin name
+   * The plugin name.
    */
   "name": string;
   /**
-   * The plugin status Specified the plugin state on the instance * {@code RUNNING} - The plugin is in running state * {@code STOPPED} - The plugin is in stopped state * {@code NOT_SUPPORTED} - The plugin is not supported on this platform * {@code INVALID} - The plugin state is not recognizable by the service
-   */
+    * The plugin status.
+* <p>
+These are the available statuses:
+* * {@code RUNNING} - The plugin is running.
+* * {@code STOPPED} - The plugin is stopped.
+* * {@code NOT_SUPPORTED} - The plugin is not supported on this platform.
+* * {@code INVALID} - The plugin status is not recognizable by the service.
+* <p>
+To determine whether the plugin is enabled, use the
+* {@link #getInstance(GetInstanceRequest) getInstance} operation in the Core
+* Services API. To enable or disable the plugin, use the
+* {@link #updateInstance(UpdateInstanceRequest) updateInstance} operation
+* in the Core Services API.
+* 
+    */
   "status": InstanceAgentPlugin.Status;
   /**
-   * The last update time of the plugin in UTC
+   * The last updated time of the plugin, in UTC.
    */
   "timeLastUpdatedUtc": Date;
   /**
-   * The optional message from the agent plugin
+   * An optional message from the plugin.
    */
   "message"?: string;
 }
