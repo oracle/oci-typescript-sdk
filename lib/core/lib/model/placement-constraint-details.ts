@@ -22,7 +22,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Generic placement details field which is overloaded with bare metal host id or host group id based on the resource we are targeting to launch.
+ * The details for providing placement constraints.
  *
  */
 export interface PlacementConstraintDetails {

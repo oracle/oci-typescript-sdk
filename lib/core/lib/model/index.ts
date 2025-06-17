@@ -130,6 +130,8 @@ import * as ByoipRangeVcnIpv6AllocationSummary from "./byoip-range-vcn-ipv6-allo
 export import ByoipRangeVcnIpv6AllocationSummary = ByoipRangeVcnIpv6AllocationSummary.ByoipRangeVcnIpv6AllocationSummary;
 import * as Byoipv6CidrDetails from "./byoipv6-cidr-details";
 export import Byoipv6CidrDetails = Byoipv6CidrDetails.Byoipv6CidrDetails;
+import * as CapacityBin from "./capacity-bin";
+export import CapacityBin = CapacityBin.CapacityBin;
 import * as CapacityReportInstanceShapeConfig from "./capacity-report-instance-shape-config";
 export import CapacityReportInstanceShapeConfig = CapacityReportInstanceShapeConfig.CapacityReportInstanceShapeConfig;
 import * as CapacityReportShapeAvailability from "./capacity-report-shape-availability";

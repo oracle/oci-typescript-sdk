@@ -17,23 +17,23 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Describes where the plugin is supported
+ * Information about where a plugin is supported.
  */
 export interface AvailablePluginSummary {
   /**
-   * The plugin name
+   * The plugin name.
    */
   "name": string;
   /**
-   * A brief description of the plugin functionality
+   * A brief description of the plugin's functionality.
    */
   "summary"?: string;
   /**
-   * Is the plugin supported or not
+   * Whether the plugin is supported.
    */
   "isSupported": boolean;
   /**
-   * Is the plugin enabled or disabled by default
+   * Whether the plugin is enabled or disabled by default.
    */
   "isEnabledByDefault": boolean;
 }

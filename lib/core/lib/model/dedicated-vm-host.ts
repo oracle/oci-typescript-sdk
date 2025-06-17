@@ -118,6 +118,16 @@ Example: {@code 2016-08-25T21:10:29.600Z}
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "remainingMemoryInGBs"?: number;
+  /**
+   * A list of total and remaining CPU & memory per capacity bucket.
+   *
+   */
+  "capacityBins"?: Array<model.CapacityBin>;
+  /**
+   * The compute bare metal host OCID of the dedicated virtual machine host.
+   *
+   */
+  "computeBareMetalHostId"?: string;
 }
 
 export namespace DedicatedVmHost {
@@ -141,6 +151,12 @@ export namespace DedicatedVmHost {
       ...{
         "placementConstraintDetails": obj.placementConstraintDetails
           ? model.PlacementConstraintDetails.getJsonObj(obj.placementConstraintDetails)
+          : undefined,
+
+        "capacityBins": obj.capacityBins
+          ? obj.capacityBins.map(item => {
+              return model.CapacityBin.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -153,6 +169,12 @@ export namespace DedicatedVmHost {
       ...{
         "placementConstraintDetails": obj.placementConstraintDetails
           ? model.PlacementConstraintDetails.getDeserializedJsonObj(obj.placementConstraintDetails)
+          : undefined,
+
+        "capacityBins": obj.capacityBins
+          ? obj.capacityBins.map(item => {
+              return model.CapacityBin.getDeserializedJsonObj(item);
+            })
           : undefined
       }
     };

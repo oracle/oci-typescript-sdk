@@ -11,6 +11,22 @@
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as ChangeOciCacheUserCompartmentResponse from "./change-oci-cache-user-compartment-response";
+export import ChangeOciCacheUserCompartmentResponse = ChangeOciCacheUserCompartmentResponse.ChangeOciCacheUserCompartmentResponse;
+import * as CreateOciCacheUserResponse from "./create-oci-cache-user-response";
+export import CreateOciCacheUserResponse = CreateOciCacheUserResponse.CreateOciCacheUserResponse;
+import * as DeleteOciCacheUserResponse from "./delete-oci-cache-user-response";
+export import DeleteOciCacheUserResponse = DeleteOciCacheUserResponse.DeleteOciCacheUserResponse;
+import * as GetOciCacheUserResponse from "./get-oci-cache-user-response";
+export import GetOciCacheUserResponse = GetOciCacheUserResponse.GetOciCacheUserResponse;
+import * as ListAttachedRedisClustersResponse from "./list-attached-redis-clusters-response";
+export import ListAttachedRedisClustersResponse = ListAttachedRedisClustersResponse.ListAttachedRedisClustersResponse;
+import * as ListOciCacheUsersResponse from "./list-oci-cache-users-response";
+export import ListOciCacheUsersResponse = ListOciCacheUsersResponse.ListOciCacheUsersResponse;
+import * as UpdateOciCacheUserResponse from "./update-oci-cache-user-response";
+export import UpdateOciCacheUserResponse = UpdateOciCacheUserResponse.UpdateOciCacheUserResponse;
+import * as AttachOciCacheUsersResponse from "./attach-oci-cache-users-response";
+export import AttachOciCacheUsersResponse = AttachOciCacheUsersResponse.AttachOciCacheUsersResponse;
 import * as CancelWorkRequestResponse from "./cancel-work-request-response";
 export import CancelWorkRequestResponse = CancelWorkRequestResponse.CancelWorkRequestResponse;
 import * as ChangeRedisClusterCompartmentResponse from "./change-redis-cluster-compartment-response";
@@ -19,10 +35,14 @@ import * as CreateRedisClusterResponse from "./create-redis-cluster-response";
 export import CreateRedisClusterResponse = CreateRedisClusterResponse.CreateRedisClusterResponse;
 import * as DeleteRedisClusterResponse from "./delete-redis-cluster-response";
 export import DeleteRedisClusterResponse = DeleteRedisClusterResponse.DeleteRedisClusterResponse;
+import * as DetachOciCacheUsersResponse from "./detach-oci-cache-users-response";
+export import DetachOciCacheUsersResponse = DetachOciCacheUsersResponse.DetachOciCacheUsersResponse;
 import * as GetRedisClusterResponse from "./get-redis-cluster-response";
 export import GetRedisClusterResponse = GetRedisClusterResponse.GetRedisClusterResponse;
 import * as GetWorkRequestResponse from "./get-work-request-response";
 export import GetWorkRequestResponse = GetWorkRequestResponse.GetWorkRequestResponse;
+import * as ListAttachedOciCacheUsersResponse from "./list-attached-oci-cache-users-response";
+export import ListAttachedOciCacheUsersResponse = ListAttachedOciCacheUsersResponse.ListAttachedOciCacheUsersResponse;
 import * as ListRedisClusterNodesResponse from "./list-redis-cluster-nodes-response";
 export import ListRedisClusterNodesResponse = ListRedisClusterNodesResponse.ListRedisClusterNodesResponse;
 import * as ListRedisClustersResponse from "./list-redis-clusters-response";
@@ -35,3 +55,5 @@ import * as ListWorkRequestsResponse from "./list-work-requests-response";
 export import ListWorkRequestsResponse = ListWorkRequestsResponse.ListWorkRequestsResponse;
 import * as UpdateRedisClusterResponse from "./update-redis-cluster-response";
 export import UpdateRedisClusterResponse = UpdateRedisClusterResponse.UpdateRedisClusterResponse;
+import * as CreateIdentityTokenResponse from "./create-identity-token-response";
+export import CreateIdentityTokenResponse = CreateIdentityTokenResponse.CreateIdentityTokenResponse;

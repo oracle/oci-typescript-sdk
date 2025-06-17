@@ -23,7 +23,7 @@ export interface ListInstanceAgentPluginsRequest extends common.BaseRequest {
    */
   "compartmentId": string;
   /**
-   * The OCID of the instance.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the instance.
    */
   "instanceagentId": string;
   /**
@@ -33,7 +33,7 @@ export interface ListInstanceAgentPluginsRequest extends common.BaseRequest {
    */
   "opcRequestId"?: string;
   /**
-   * The plugin status
+   * The plugin status.
    */
   "status"?: ListInstanceAgentPluginsRequest.Status;
   /**
@@ -68,7 +68,7 @@ export interface ListInstanceAgentPluginsRequest extends common.BaseRequest {
    */
   "sortOrder"?: ListInstanceAgentPluginsRequest.SortOrder;
   /**
-   * The plugin name
+   * The plugin name.
    */
   "name"?: string;
 }

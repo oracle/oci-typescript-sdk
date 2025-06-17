@@ -22,12 +22,12 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Host group id that needs to be launched
+ * The details for providing placement constraints using the compute host group OCID.
  *
  */
 export interface HostGroupPlacementConstraintDetails extends model.PlacementConstraintDetails {
   /**
-   * The OCID of the compute host group.
+   * The OCID of the compute host group. This is only available for dedicated capacity customers.
    */
   "computeHostGroupId": string;
 
