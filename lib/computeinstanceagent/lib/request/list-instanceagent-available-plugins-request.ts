@@ -23,18 +23,23 @@ export interface ListInstanceagentAvailablePluginsRequest extends common.BaseReq
    */
   "compartmentId": string;
   /**
-   * The OS for which the plugin is supported.
-   * Examples of OperatingSystemQueryParam:OperatingSystemVersionQueryParam are as follows:
-   * 'CentOS' '6.10' , 'CentOS Linux' '7', 'CentOS Linux' '8',
-   * 'Oracle Linux Server' '6.10', 'Oracle Linux Server' '8.0',
-   * 'Red Hat Enterprise Linux Server' '7.8',
-   * 'Windows' '10', 'Windows' '2008ServerR2', 'Windows' '2012ServerR2', 'Windows' '7', 'Windows' '8.1'
-   *
-   */
+ * The image (OS) for the compute instance.
+* <p>
+If no match is found, all plugins are returned.
+* <p>
+Examples: {@code CentOS}, {@code Oracle Linux}, {@code Oracle Autonomous Linux}, {@code Canonical Ubuntu}, {@code Windows Server}
+* 
+ */
   "osName": string;
   /**
-   * The OS version for which the plugin is supported.
-   */
+ * The OS version for the instance.
+* <p>
+If no match is found, all plugins are returned.
+* <p>
+Examples: {@code 7.9}, {@code 8} for CentOS and Oracle Linux. {@code 20.04}, {@code 20.04 Minimal} for Canonical Ubuntu.
+* {@code 2012 R2 Datacenter}, {@code 2019 Standard} for Windows Server.
+* 
+ */
   "osVersion": string;
   /**
    * Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request,
@@ -74,7 +79,7 @@ export interface ListInstanceagentAvailablePluginsRequest extends common.BaseReq
    */
   "sortOrder"?: ListInstanceagentAvailablePluginsRequest.SortOrder;
   /**
-   * The plugin name
+   * The plugin name.
    */
   "name"?: string;
 }

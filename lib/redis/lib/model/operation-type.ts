@@ -27,6 +27,12 @@ export enum OperationType {
   UpdateRedisConfigSet = "UPDATE_REDIS_CONFIG_SET",
   DeleteRedisConfigSet = "DELETE_REDIS_CONFIG_SET",
   MoveRedisConfigSet = "MOVE_REDIS_CONFIG_SET",
+  MigrateCluster = "MIGRATE_CLUSTER",
+  ClusterRollback = "CLUSTER_ROLLBACK",
+  AttachOciCacheUsers = "ATTACH_OCI_CACHE_USERS",
+  DetachOciCacheUsers = "DETACH_OCI_CACHE_USERS",
+  CreateOciCacheUser = "CREATE_OCI_CACHE_USER",
+  UpdateOciCacheUser = "UPDATE_OCI_CACHE_USER",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

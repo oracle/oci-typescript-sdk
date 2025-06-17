@@ -34,6 +34,13 @@ export interface InstanceAgentCommandContent {
     | model.InstanceAgentCommandOutputViaObjectStorageUriDetails
     | model.InstanceAgentCommandOutputViaObjectStorageTupleDetails
     | model.InstanceAgentCommandOutputViaTextDetails;
+  /**
+   * Command String is a fully formed command that runcommand executes.
+   * Example: main.sh is stored in object storage and user provides the following command with parameters to execute
+   * /bin/sh main.sh abc 10 foo.sh
+   *
+   */
+  "commandString"?: string;
 }
 
 export namespace InstanceAgentCommandContent {

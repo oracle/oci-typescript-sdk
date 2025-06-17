@@ -11,6 +11,22 @@
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as ChangeOciCacheUserCompartmentRequest from "./change-oci-cache-user-compartment-request";
+export import ChangeOciCacheUserCompartmentRequest = ChangeOciCacheUserCompartmentRequest.ChangeOciCacheUserCompartmentRequest;
+import * as CreateOciCacheUserRequest from "./create-oci-cache-user-request";
+export import CreateOciCacheUserRequest = CreateOciCacheUserRequest.CreateOciCacheUserRequest;
+import * as DeleteOciCacheUserRequest from "./delete-oci-cache-user-request";
+export import DeleteOciCacheUserRequest = DeleteOciCacheUserRequest.DeleteOciCacheUserRequest;
+import * as GetOciCacheUserRequest from "./get-oci-cache-user-request";
+export import GetOciCacheUserRequest = GetOciCacheUserRequest.GetOciCacheUserRequest;
+import * as ListAttachedRedisClustersRequest from "./list-attached-redis-clusters-request";
+export import ListAttachedRedisClustersRequest = ListAttachedRedisClustersRequest.ListAttachedRedisClustersRequest;
+import * as ListOciCacheUsersRequest from "./list-oci-cache-users-request";
+export import ListOciCacheUsersRequest = ListOciCacheUsersRequest.ListOciCacheUsersRequest;
+import * as UpdateOciCacheUserRequest from "./update-oci-cache-user-request";
+export import UpdateOciCacheUserRequest = UpdateOciCacheUserRequest.UpdateOciCacheUserRequest;
+import * as AttachOciCacheUsersRequest from "./attach-oci-cache-users-request";
+export import AttachOciCacheUsersRequest = AttachOciCacheUsersRequest.AttachOciCacheUsersRequest;
 import * as CancelWorkRequestRequest from "./cancel-work-request-request";
 export import CancelWorkRequestRequest = CancelWorkRequestRequest.CancelWorkRequestRequest;
 import * as ChangeRedisClusterCompartmentRequest from "./change-redis-cluster-compartment-request";
@@ -19,10 +35,14 @@ import * as CreateRedisClusterRequest from "./create-redis-cluster-request";
 export import CreateRedisClusterRequest = CreateRedisClusterRequest.CreateRedisClusterRequest;
 import * as DeleteRedisClusterRequest from "./delete-redis-cluster-request";
 export import DeleteRedisClusterRequest = DeleteRedisClusterRequest.DeleteRedisClusterRequest;
+import * as DetachOciCacheUsersRequest from "./detach-oci-cache-users-request";
+export import DetachOciCacheUsersRequest = DetachOciCacheUsersRequest.DetachOciCacheUsersRequest;
 import * as GetRedisClusterRequest from "./get-redis-cluster-request";
 export import GetRedisClusterRequest = GetRedisClusterRequest.GetRedisClusterRequest;
 import * as GetWorkRequestRequest from "./get-work-request-request";
 export import GetWorkRequestRequest = GetWorkRequestRequest.GetWorkRequestRequest;
+import * as ListAttachedOciCacheUsersRequest from "./list-attached-oci-cache-users-request";
+export import ListAttachedOciCacheUsersRequest = ListAttachedOciCacheUsersRequest.ListAttachedOciCacheUsersRequest;
 import * as ListRedisClusterNodesRequest from "./list-redis-cluster-nodes-request";
 export import ListRedisClusterNodesRequest = ListRedisClusterNodesRequest.ListRedisClusterNodesRequest;
 import * as ListRedisClustersRequest from "./list-redis-clusters-request";
@@ -35,3 +55,5 @@ import * as ListWorkRequestsRequest from "./list-work-requests-request";
 export import ListWorkRequestsRequest = ListWorkRequestsRequest.ListWorkRequestsRequest;
 import * as UpdateRedisClusterRequest from "./update-redis-cluster-request";
 export import UpdateRedisClusterRequest = UpdateRedisClusterRequest.UpdateRedisClusterRequest;
+import * as CreateIdentityTokenRequest from "./create-identity-token-request";
+export import CreateIdentityTokenRequest = CreateIdentityTokenRequest.CreateIdentityTokenRequest;

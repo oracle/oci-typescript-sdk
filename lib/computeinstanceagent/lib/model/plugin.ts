@@ -17,27 +17,27 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The agent plugin
+ * An Oracle Cloud Agent plugin.
  */
 export interface Plugin {
   /**
-   * The plugin name
+   * The plugin name.
    */
   "name": string;
   /**
-   * The plugin version
+   * The plugin version.
    */
   "version": string;
   /**
-   * The plugin status
+   * The plugin status.
    */
   "status": string;
   /**
-   * The last update time of the plugin
+   * The last updated time of the plugin, in UTC.
    */
   "lastUpdateTime"?: Date;
   /**
-   * The optional message from the agent plugin
+   * An optional message from the plugin.
    */
   "message"?: string;
 }

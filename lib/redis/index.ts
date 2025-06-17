@@ -15,10 +15,14 @@ import * as requests from "./lib/request";
 import * as models from "./lib/model";
 import * as responses from "./lib/response";
 import * as client from "./lib/client";
+import * as ocicacheuser_waiter from "./lib/ocicacheuser-waiter";
 import * as rediscluster_waiter from "./lib/rediscluster-waiter";
 
 export { models };
 export { requests };
 export { responses };
+export import OciCacheUserClient = client.OciCacheUserClient;
+export import OciCacheUserWaiter = ocicacheuser_waiter.OciCacheUserWaiter;
 export import RedisClusterClient = client.RedisClusterClient;
 export import RedisClusterWaiter = rediscluster_waiter.RedisClusterWaiter;
+export import RedisIdentityClient = client.RedisIdentityClient;
