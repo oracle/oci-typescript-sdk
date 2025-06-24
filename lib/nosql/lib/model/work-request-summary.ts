@@ -73,6 +73,7 @@ export namespace WorkRequestSummary {
     CreateTable = "CREATE_TABLE",
     UpdateTable = "UPDATE_TABLE",
     DeleteTable = "DELETE_TABLE",
+    UpdateConfiguration = "UPDATE_CONFIGURATION",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

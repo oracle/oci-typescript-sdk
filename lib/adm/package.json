@@ -1,6 +1,6 @@
 {
   "name": "oci-adm",
-  "version": "2.111.2",
+  "version": "2.111.3",
   "description": "OCI NodeJS client for Adm Service",
   "repository": {
     "type": "git",

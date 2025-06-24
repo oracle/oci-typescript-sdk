@@ -91,6 +91,11 @@ export namespace CreateFsuCycleDetails {
             <model.CreatePatchFsuCycle>(<object>jsonObj),
             true
           );
+        case "UPGRADE":
+          return model.CreateUpgradeFsuCycle.getJsonObj(
+            <model.CreateUpgradeFsuCycle>(<object>jsonObj),
+            true
+          );
         default:
           if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.type}`);
       }
@@ -124,6 +129,11 @@ export namespace CreateFsuCycleDetails {
         case "PATCH":
           return model.CreatePatchFsuCycle.getDeserializedJsonObj(
             <model.CreatePatchFsuCycle>(<object>jsonObj),
+            true
+          );
+        case "UPGRADE":
+          return model.CreateUpgradeFsuCycle.getDeserializedJsonObj(
+            <model.CreateUpgradeFsuCycle>(<object>jsonObj),
             true
           );
         default:

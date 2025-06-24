@@ -39,17 +39,17 @@ export interface CreateCloudVmClusterDetails {
    */
   "backupSubnetId": string;
   /**
-    * The number of CPU cores to enable for a cloud VM cluster. Valid values depend on the specified shape:
-* <p>
-- Exadata.Base.48 - Specify a multiple of 2, from 0 to 48.
-* - Exadata.Quarter1.84 - Specify a multiple of 2, from 22 to 84.
-* - Exadata.Half1.168 - Specify a multiple of 4, from 44 to 168.
-* - Exadata.Full1.336 - Specify a multiple of 8, from 88 to 336.
-* - Exadata.Quarter2.92 - Specify a multiple of 2, from 0 to 92.
-* - Exadata.Half2.184 - Specify a multiple of 4, from 0 to 184.
-* - Exadata.Full2.368 - Specify a multiple of 8, from 0 to 368.
-*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
-    */
+   * The number of ECPUs (X11M and higher) or number of OCPUs (X10M and earlier) to enable for the VM cluster.
+   *
+   *  - Exadata.Base.48 - Specify a multiple of 2, from 0 to 48.
+   *  - Exadata.Quarter1.84 - Specify a multiple of 2, from 22 to 84.
+   *  - Exadata.Half1.168 - Specify a multiple of 4, from 44 to 168.
+   *  - Exadata.Full1.336 - Specify a multiple of 8, from 88 to 336.
+   *  - Exadata.Quarter2.92 - Specify a multiple of 2, from 0 to 92.
+   *  - Exadata.Half2.184 - Specify a multiple of 4, from 0 to 184.
+   *  - Exadata.Full2.368 - Specify a multiple of 8, from 0 to 368.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
   "cpuCoreCount": number;
   /**
    * The number of OCPU cores to enable for a cloud VM cluster. Only 1 decimal place is allowed for the fractional part. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.

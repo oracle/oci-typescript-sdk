@@ -32,6 +32,17 @@ Example: {@code example_load_balancer}
     */
   "displayName"?: string;
   /**
+    * Whether the load balancer has an IPv4 or IPv6 IP address.
+* <p>
+  If \"IPV4\", the service assigns an IPv4 address and the load balancer supports IPv4 traffic.
+* <p>
+  If \"IPV6\", the service assigns an IPv6 address and the load balancer supports IPv6 traffic.
+* <p>
+  Example: \"ipMode\":\"IPV6\"
+* 
+    */
+  "ipMode"?: UpdateLoadBalancerDetails.IpMode;
+  /**
     * Whether or not the load balancer has delete protection enabled.
 * <p>
 If \"true\", the loadbalancer will be protected against deletion if configured to accept traffic.
@@ -105,6 +116,11 @@ Example: {@code {\"Oracle-ZPR\": {\"MaxEgressCount\": {\"value\":\"42\",\"mode\"
 }
 
 export namespace UpdateLoadBalancerDetails {
+  export enum IpMode {
+    Ipv4 = "IPV4",
+    Ipv6 = "IPV6"
+  }
+
   export function getJsonObj(obj: UpdateLoadBalancerDetails): object {
     const jsonObj = { ...obj, ...{} };
 

@@ -27,7 +27,7 @@ export interface UpdateFsuCycleRequest extends common.BaseRequest {
    * The Exadata Fleet Update Cycle details to be updated.
    *
    */
-  "updateFsuCycleDetails": model.UpdatePatchFsuCycle;
+  "updateFsuCycleDetails": model.UpdatePatchFsuCycle | model.UpdateUpgradeFsuCycle;
   /**
    * For optimistic concurrency control. In the PUT or DELETE call
    * for a resource, set the {@code if-match} parameter to the value of the
