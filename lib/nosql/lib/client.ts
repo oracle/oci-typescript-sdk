@@ -398,7 +398,7 @@ export class NosqlClient {
   }
 
   /**
-   * Add a replica for this table
+   * Add a replica for this table. The table's schema must be frozen prior to this operation.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateReplicaRequest
    * @return CreateReplicaResponse
@@ -915,6 +915,87 @@ export class NosqlClient {
           {
             value: response.headers.get("opc-work-request-id"),
             key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Retrieves the current service-level configuration.  The
+   * service may of the standard MULTI_TENANCY type, or of the
+   * HOSTED environment type.  In the latter case, information about the
+   * current state of the environment's global encryption key is
+   * included in the response.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetConfigurationRequest
+   * @return GetConfigurationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/nosql/GetConfiguration.ts.html |here} to see how to use GetConfiguration API.
+   */
+  public async getConfiguration(
+    getConfigurationRequest: requests.GetConfigurationRequest
+  ): Promise<responses.GetConfigurationResponse> {
+    if (this.logger) this.logger.debug("Calling operation NosqlClient#getConfiguration.");
+    const operationName = "getConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/nosql-database/20190828/Configuration/GetConfiguration";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": getConfigurationRequest.compartmentId
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getConfigurationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/configuration",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetConfigurationResponse>{},
+        body: await response.json(),
+        bodyKey: "configuration",
+        bodyModel: model.Configuration,
+        type: "model.Configuration",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
             dataType: "string"
           },
           {
@@ -1947,6 +2028,164 @@ export class NosqlClient {
         bodyModel: model.StatementSummary,
         type: "model.StatementSummary",
         responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Removes the global encryption key, if such exists, from a
+   * Hosted Environment, reverting to Oracle-managed encryption.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UnassignKmsKeyRequest
+   * @return UnassignKmsKeyResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/nosql/UnassignKmsKey.ts.html |here} to see how to use UnassignKmsKey API.
+   */
+  public async unassignKmsKey(
+    unassignKmsKeyRequest: requests.UnassignKmsKeyRequest
+  ): Promise<responses.UnassignKmsKeyResponse> {
+    if (this.logger) this.logger.debug("Calling operation NosqlClient#unassignKmsKey.");
+    const operationName = "unassignKmsKey";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/nosql-database/20190828/Configuration/UnassignKmsKey";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": unassignKmsKeyRequest.compartmentId
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": unassignKmsKeyRequest.opcRequestId,
+      "if-match": unassignKmsKeyRequest.ifMatch,
+      "is-opc-dry-run": unassignKmsKeyRequest.isOpcDryRun
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      unassignKmsKeyRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/configuration/actions/unassignkmskey",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UnassignKmsKeyResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the service-level configuration.  The discriminator value
+   * `UpdateConfigurationDetails.environment` must match the service's
+   * environment type.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateConfigurationRequest
+   * @return UpdateConfigurationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/nosql/UpdateConfiguration.ts.html |here} to see how to use UpdateConfiguration API.
+   */
+  public async updateConfiguration(
+    updateConfigurationRequest: requests.UpdateConfigurationRequest
+  ): Promise<responses.UpdateConfigurationResponse> {
+    if (this.logger) this.logger.debug("Calling operation NosqlClient#updateConfiguration.");
+    const operationName = "updateConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/nosql-database/20190828/Configuration/UpdateConfiguration";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": updateConfigurationRequest.compartmentId
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateConfigurationRequest.opcRequestId,
+      "if-match": updateConfigurationRequest.ifMatch,
+      "is-opc-dry-run": updateConfigurationRequest.isOpcDryRun
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/configuration",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateConfigurationRequest.updateConfigurationDetails,
+        "UpdateConfigurationDetails",
+        model.UpdateConfigurationDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateConfigurationResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",

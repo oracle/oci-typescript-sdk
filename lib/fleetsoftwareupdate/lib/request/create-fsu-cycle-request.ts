@@ -23,7 +23,7 @@ export interface CreateFsuCycleRequest extends common.BaseRequest {
    * Targets can only exist in one active Fleet Software Update Maintenance Cycle.
    *
    */
-  "createFsuCycleDetails": model.CreatePatchFsuCycle;
+  "createFsuCycleDetails": model.CreatePatchFsuCycle | model.CreateUpgradeFsuCycle;
   /**
    * A token that uniquely identifies a request so it can be retried in case of a timeout or
    * server error without risk of executing that same action again. Retry tokens expire after 24

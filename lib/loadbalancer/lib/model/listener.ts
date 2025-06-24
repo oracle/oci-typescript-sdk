@@ -45,8 +45,9 @@ Example: {@code 80}
     */
   "port": number;
   /**
-    * The protocol on which the listener accepts connection requests. The supported protocols are HTTP, HTTP2, TCP, and GRPC.
-* You can also use the {@link #listProtocols(ListProtocolsRequest) listProtocols} operation to get a list of valid protocols.
+    * The protocol on which the listener accepts connection requests.
+* To get a list of valid protocols, use the {@link #listProtocols(ListProtocolsRequest) listProtocols}
+* operation.
 * <p>
 Example: {@code HTTP}
 * 

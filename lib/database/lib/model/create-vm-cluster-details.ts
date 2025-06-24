@@ -34,7 +34,7 @@ export interface CreateVmClusterDetails {
    */
   "exadataInfrastructureId": string;
   /**
-   * The number of CPU cores to enable for the VM cluster. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The number of ECPUs (X11M and higher) or number of OCPUs (X10M and earlier) to enable for the VM cluster. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "cpuCoreCount": number;
   /**

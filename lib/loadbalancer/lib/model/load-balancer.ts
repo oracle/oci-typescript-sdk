@@ -189,6 +189,17 @@ Example: {@code {\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}}
   "systemTags"?: { [key: string]: { [key: string]: any } };
   "ruleSets"?: { [key: string]: model.RuleSet };
   "routingPolicies"?: { [key: string]: model.RoutingPolicy };
+  /**
+    * Whether the load balancer has an IPv4 or IPv6 IP address.
+* <p>
+  If \"IPV4\", the service assigns an IPv4 address and the load balancer supports IPv4 traffic.
+* <p>
+  If \"IPV6\", the service assigns an IPv6 address and the load balancer supports IPv6 traffic.
+* <p>
+  Example: \"ipMode\":\"IPV6\"
+* 
+    */
+  "ipMode"?: LoadBalancer.IpMode;
 }
 
 export namespace LoadBalancer {
@@ -198,6 +209,16 @@ export namespace LoadBalancer {
     Active = "ACTIVE",
     Deleting = "DELETING",
     Deleted = "DELETED",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum IpMode {
+    Ipv4 = "IPV4",
+    Ipv6 = "IPV6",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

@@ -28,6 +28,8 @@ Create a reserved Public IP and then while creating the load balancer pass the o
 Reserved IPs will not be deleted when the Load balancer is deleted. They will be unattached from the Load balancer.
 * <p>
 Example: \"ocid1.publicip.oc1.phx.unique_ID\"
+* <p>
+IPV6 example: \"ocid1.ipv6.oc1.phx.unique_ID\"
 * 
     */
   "id"?: string;

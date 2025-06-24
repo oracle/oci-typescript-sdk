@@ -90,6 +90,15 @@ Example: \"ipMode\":\"IPV6\"
     */
   "ipMode"?: CreateLoadBalancerDetails.IpMode;
   /**
+    * Applies to IPV6 LB creation only. 
+* <p>
+Used to disambiguate which subnet prefix should be used to create an IPv6 LB. 
+* <p>
+Example: \"2002::1234:abcd:ffff:c0a8:101/64\"
+* 
+    */
+  "ipv6SubnetCidr"?: string;
+  /**
     * Whether or not the load balancer has the Request Id feature enabled for HTTP listeners.
 * <p>
 If \"true\", the load balancer will attach a unique request id header to every request
