@@ -186,6 +186,7 @@ It is not possible to decrease data storage size.
    */
   "databaseManagement"?: model.DatabaseManagementStatus;
   "secureConnections"?: model.SecureConnectionDetails;
+  "encryptData"?: model.EncryptDataDetails;
   /**
    * The list of customer email addresses that receive information from Oracle about the specified OCI DB System resource.
    * Oracle uses these email addresses to send notifications about planned and unplanned software maintenance updates, information about system hardware, and other information needed by administrators.
@@ -220,6 +221,9 @@ export namespace UpdateDbSystemDetails {
 
         "secureConnections": obj.secureConnections
           ? model.SecureConnectionDetails.getJsonObj(obj.secureConnections)
+          : undefined,
+        "encryptData": obj.encryptData
+          ? model.EncryptDataDetails.getJsonObj(obj.encryptData)
           : undefined,
         "customerContacts": obj.customerContacts
           ? obj.customerContacts.map(item => {
@@ -257,6 +261,9 @@ export namespace UpdateDbSystemDetails {
 
         "secureConnections": obj.secureConnections
           ? model.SecureConnectionDetails.getDeserializedJsonObj(obj.secureConnections)
+          : undefined,
+        "encryptData": obj.encryptData
+          ? model.EncryptDataDetails.getDeserializedJsonObj(obj.encryptData)
           : undefined,
         "customerContacts": obj.customerContacts
           ? obj.customerContacts.map(item => {

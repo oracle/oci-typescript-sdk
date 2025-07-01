@@ -32,7 +32,12 @@ export interface BulkActivateAttributeDetail {
    */
   "attributeType": BulkActivateAttributeDetail.AttributeType;
   /**
-   * Unit of the attribute to be updated.
+   * Attribute expression if this attribute is an alias
+   *
+   */
+  "attributeExpression"?: string;
+  /**
+   * Unit of the attribute to be updated.  If unit is not specified, it defaults to NONE.
    *
    */
   "unit"?: BulkActivateAttributeDetail.Unit;
@@ -47,7 +52,8 @@ export interface BulkActivateAttributeDetail {
 export namespace BulkActivateAttributeDetail {
   export enum AttributeType {
     Numeric = "NUMERIC",
-    String = "STRING"
+    String = "STRING",
+    None = "NONE"
   }
 
   export enum Unit {
@@ -62,7 +68,8 @@ export namespace BulkActivateAttributeDetail {
 
   export enum AttributeNameSpace {
     Traces = "TRACES",
-    Synthetic = "SYNTHETIC"
+    Synthetic = "SYNTHETIC",
+    Logs = "LOGS"
   }
 
   export function getJsonObj(obj: BulkActivateAttributeDetail): object {

@@ -36,7 +36,8 @@ export interface BulkPinAttributeDetail {
 export namespace BulkPinAttributeDetail {
   export enum AttributeNameSpace {
     Traces = "TRACES",
-    Synthetic = "SYNTHETIC"
+    Synthetic = "SYNTHETIC",
+    Logs = "LOGS"
   }
 
   export function getJsonObj(obj: BulkPinAttributeDetail): object {

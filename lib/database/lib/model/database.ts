@@ -105,6 +105,12 @@ Example: {@code {\"Department\": \"Finance\"}}
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
+   * System tags for this resource. Each key is predefined and scoped to a namespace.
+   * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
+   *
+   */
+  "systemTags"?: { [key: string]: { [key: string]: any } };
+  /**
    * The Connection strings used to connect to the Oracle Database.
    */
   "connectionStrings"?: model.DatabaseConnectionStrings;
@@ -148,7 +154,9 @@ Example: {@code {\"Department\": \"Finance\"}}
    */
   "keyStoreWalletName"?: string;
   "dataGuardGroup"?: model.DataGuardGroup;
-  "encryptionKeyLocationDetails"?: model.ExternalHsmEncryptionDetails;
+  "encryptionKeyLocationDetails"?:
+    | model.ExternalHsmEncryptionDetails
+    | model.AzureEncryptionKeyDetails;
 }
 
 export namespace Database {

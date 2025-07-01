@@ -26,7 +26,7 @@ export interface BulkUpdateAttributeDetail {
    */
   "attributeName": string;
   /**
-   * Unit of the attribute to be updated.
+   * Unit of the attribute to be updated.  If unit is not specified, it defaults to NONE.
    *
    */
   "unit"?: BulkUpdateAttributeDetail.Unit;
@@ -50,7 +50,8 @@ export namespace BulkUpdateAttributeDetail {
 
   export enum AttributeNameSpace {
     Traces = "TRACES",
-    Synthetic = "SYNTHETIC"
+    Synthetic = "SYNTHETIC",
+    Logs = "LOGS"
   }
 
   export function getJsonObj(obj: BulkUpdateAttributeDetail): object {

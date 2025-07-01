@@ -632,6 +632,89 @@ export class DatabaseMigrationClient {
   }
 
   /**
+   * Collects the DB trace and alert logs.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CollectTracesRequest
+   * @return CollectTracesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/CollectTraces.ts.html |here} to see how to use CollectTraces API.
+   */
+  public async collectTraces(
+    collectTracesRequest: requests.CollectTracesRequest
+  ): Promise<responses.CollectTracesResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseMigrationClient#collectTraces.");
+    const operationName = "collectTraces";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-migration/20230518/Job/CollectTraces";
+    const pathParams = {
+      "{jobId}": collectTracesRequest.jobId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": collectTracesRequest.opcRequestId,
+      "if-match": collectTracesRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      collectTracesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/jobs/{jobId}/actions/collectTraces",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        collectTracesRequest.collectTracesDetails,
+        "CollectTracesDetails",
+        model.CollectTracesDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CollectTracesResponse>{},
+        body: await response.json(),
+        bodyKey: "job",
+        bodyModel: model.Job,
+        type: "model.Job",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Perform connection test for a database connection.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.

@@ -48,6 +48,8 @@ import * as ChangeBackupDestinationCompartmentResponse from "./change-backup-des
 export import ChangeBackupDestinationCompartmentResponse = ChangeBackupDestinationCompartmentResponse.ChangeBackupDestinationCompartmentResponse;
 import * as ChangeCloudAutonomousVmClusterCompartmentResponse from "./change-cloud-autonomous-vm-cluster-compartment-response";
 export import ChangeCloudAutonomousVmClusterCompartmentResponse = ChangeCloudAutonomousVmClusterCompartmentResponse.ChangeCloudAutonomousVmClusterCompartmentResponse;
+import * as ChangeCloudAutonomousVmClusterSubscriptionResponse from "./change-cloud-autonomous-vm-cluster-subscription-response";
+export import ChangeCloudAutonomousVmClusterSubscriptionResponse = ChangeCloudAutonomousVmClusterSubscriptionResponse.ChangeCloudAutonomousVmClusterSubscriptionResponse;
 import * as ChangeCloudExadataInfrastructureCompartmentResponse from "./change-cloud-exadata-infrastructure-compartment-response";
 export import ChangeCloudExadataInfrastructureCompartmentResponse = ChangeCloudExadataInfrastructureCompartmentResponse.ChangeCloudExadataInfrastructureCompartmentResponse;
 import * as ChangeCloudExadataInfrastructureSubscriptionResponse from "./change-cloud-exadata-infrastructure-subscription-response";
@@ -624,6 +626,8 @@ import * as ListPluggableDatabasesResponse from "./list-pluggable-databases-resp
 export import ListPluggableDatabasesResponse = ListPluggableDatabasesResponse.ListPluggableDatabasesResponse;
 import * as ListRecommendedScheduledActionsResponse from "./list-recommended-scheduled-actions-response";
 export import ListRecommendedScheduledActionsResponse = ListRecommendedScheduledActionsResponse.ListRecommendedScheduledActionsResponse;
+import * as ListResourcePoolMembersResponse from "./list-resource-pool-members-response";
+export import ListResourcePoolMembersResponse = ListResourcePoolMembersResponse.ListResourcePoolMembersResponse;
 import * as ListScheduledActionsResponse from "./list-scheduled-actions-response";
 export import ListScheduledActionsResponse = ListScheduledActionsResponse.ListScheduledActionsResponse;
 import * as ListSchedulingPlansResponse from "./list-scheduling-plans-response";
@@ -668,6 +672,8 @@ import * as RefreshPluggableDatabaseResponse from "./refresh-pluggable-database-
 export import RefreshPluggableDatabaseResponse = RefreshPluggableDatabaseResponse.RefreshPluggableDatabaseResponse;
 import * as RegisterAutonomousDatabaseDataSafeResponse from "./register-autonomous-database-data-safe-response";
 export import RegisterAutonomousDatabaseDataSafeResponse = RegisterAutonomousDatabaseDataSafeResponse.RegisterAutonomousDatabaseDataSafeResponse;
+import * as RegisterCloudVmClusterPkcsResponse from "./register-cloud-vm-cluster-pkcs-response";
+export import RegisterCloudVmClusterPkcsResponse = RegisterCloudVmClusterPkcsResponse.RegisterCloudVmClusterPkcsResponse;
 import * as ReinstateAutonomousContainerDatabaseDataguardResponse from "./reinstate-autonomous-container-database-dataguard-response";
 export import ReinstateAutonomousContainerDatabaseDataguardResponse = ReinstateAutonomousContainerDatabaseDataguardResponse.ReinstateAutonomousContainerDatabaseDataguardResponse;
 import * as ReinstateAutonomousContainerDatabaseDataguardAssociationResponse from "./reinstate-autonomous-container-database-dataguard-association-response";
@@ -754,6 +760,8 @@ import * as TerminateAutonomousExadataInfrastructureResponse from "./terminate-a
 export import TerminateAutonomousExadataInfrastructureResponse = TerminateAutonomousExadataInfrastructureResponse.TerminateAutonomousExadataInfrastructureResponse;
 import * as TerminateDbSystemResponse from "./terminate-db-system-response";
 export import TerminateDbSystemResponse = TerminateDbSystemResponse.TerminateDbSystemResponse;
+import * as UnregisterCloudVmClusterPkcsResponse from "./unregister-cloud-vm-cluster-pkcs-response";
+export import UnregisterCloudVmClusterPkcsResponse = UnregisterCloudVmClusterPkcsResponse.UnregisterCloudVmClusterPkcsResponse;
 import * as UpdateAutonomousContainerDatabaseResponse from "./update-autonomous-container-database-response";
 export import UpdateAutonomousContainerDatabaseResponse = UpdateAutonomousContainerDatabaseResponse.UpdateAutonomousContainerDatabaseResponse;
 import * as UpdateAutonomousContainerDatabaseDataguardAssociationResponse from "./update-autonomous-container-database-dataguard-association-response";

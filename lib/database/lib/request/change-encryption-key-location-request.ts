@@ -25,7 +25,9 @@ export interface ChangeEncryptionKeyLocationRequest extends common.BaseRequest {
   /**
    * Request to change the source of the encryption key for the database.
    */
-  "encryptionKeyLocationDetails": model.ExternalHsmEncryptionDetails;
+  "encryptionKeyLocationDetails":
+    | model.ExternalHsmEncryptionDetails
+    | model.AzureEncryptionKeyDetails;
   /**
    * For optimistic concurrency control. In the PUT or DELETE call for a resource, set the {@code if-match}
    * parameter to the value of the etag from a previous GET or POST response for that resource.  The resource

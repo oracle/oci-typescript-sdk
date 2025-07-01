@@ -33,6 +33,11 @@ export namespace EncryptionKeyLocationDetails {
             <model.ExternalHsmEncryptionDetails>(<object>jsonObj),
             true
           );
+        case "AZURE":
+          return model.AzureEncryptionKeyDetails.getJsonObj(
+            <model.AzureEncryptionKeyDetails>(<object>jsonObj),
+            true
+          );
         default:
           if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.providerType}`);
       }
@@ -47,6 +52,11 @@ export namespace EncryptionKeyLocationDetails {
         case "EXTERNAL":
           return model.ExternalHsmEncryptionDetails.getDeserializedJsonObj(
             <model.ExternalHsmEncryptionDetails>(<object>jsonObj),
+            true
+          );
+        case "AZURE":
+          return model.AzureEncryptionKeyDetails.getDeserializedJsonObj(
+            <model.AzureEncryptionKeyDetails>(<object>jsonObj),
             true
           );
         default:

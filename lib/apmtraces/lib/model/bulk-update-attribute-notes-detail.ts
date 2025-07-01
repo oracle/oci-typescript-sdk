@@ -41,7 +41,8 @@ export interface BulkUpdateAttributeNotesDetail {
 export namespace BulkUpdateAttributeNotesDetail {
   export enum AttributeNameSpace {
     Traces = "TRACES",
-    Synthetic = "SYNTHETIC"
+    Synthetic = "SYNTHETIC",
+    Logs = "LOGS"
   }
 
   export function getJsonObj(obj: BulkUpdateAttributeNotesDetail): object {

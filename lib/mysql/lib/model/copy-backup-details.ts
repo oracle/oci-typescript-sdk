@@ -55,16 +55,31 @@ export interface CopyBackupDetails {
    *
    */
   "sourceRegion": string;
+  "encryptData"?: model.EncryptDataDetails;
 }
 
 export namespace CopyBackupDetails {
   export function getJsonObj(obj: CopyBackupDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "encryptData": obj.encryptData
+          ? model.EncryptDataDetails.getJsonObj(obj.encryptData)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: CopyBackupDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "encryptData": obj.encryptData
+          ? model.EncryptDataDetails.getDeserializedJsonObj(obj.encryptData)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

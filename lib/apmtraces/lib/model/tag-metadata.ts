@@ -26,7 +26,7 @@ export interface TagMetadata {
    */
   "tagType"?: TagMetadata.TagType;
   /**
-   * Unit associated with the tag key.
+   * Unit associated with the tag key.  If unit is not specified, it defaults to NONE.
    *
    */
   "tagUnit"?: TagMetadata.TagUnit;

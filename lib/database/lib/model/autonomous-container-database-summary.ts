@@ -151,6 +151,12 @@ Example: {@code {\"Department\": \"Finance\"}}
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
+   * System tags for this resource. Each key is predefined and scoped to a namespace.
+   * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
+   *
+   */
+  "systemTags"?: { [key: string]: { [key: string]: any } };
+  /**
    * The Data Guard role of the Autonomous Container Database or Autonomous Database, if Autonomous Data Guard is enabled.
    *
    */

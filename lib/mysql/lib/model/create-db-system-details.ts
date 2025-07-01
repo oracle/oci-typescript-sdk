@@ -170,6 +170,7 @@ Must be unique across all VNICs in the subnet and comply with RFC 952 and RFC 11
    */
   "databaseManagement"?: model.DatabaseManagementStatus;
   "secureConnections"?: model.SecureConnectionDetails;
+  "encryptData"?: model.EncryptDataDetails;
   /**
    * The database mode indicating the types of statements that will be allowed to run in the DB system.
    * This mode will apply only to statements run by user connections. Replicated write statements will continue
@@ -224,6 +225,9 @@ export namespace CreateDbSystemDetails {
         "secureConnections": obj.secureConnections
           ? model.SecureConnectionDetails.getJsonObj(obj.secureConnections)
           : undefined,
+        "encryptData": obj.encryptData
+          ? model.EncryptDataDetails.getJsonObj(obj.encryptData)
+          : undefined,
 
         "customerContacts": obj.customerContacts
           ? obj.customerContacts.map(item => {
@@ -264,6 +268,9 @@ export namespace CreateDbSystemDetails {
 
         "secureConnections": obj.secureConnections
           ? model.SecureConnectionDetails.getDeserializedJsonObj(obj.secureConnections)
+          : undefined,
+        "encryptData": obj.encryptData
+          ? model.EncryptDataDetails.getDeserializedJsonObj(obj.encryptData)
           : undefined,
 
         "customerContacts": obj.customerContacts

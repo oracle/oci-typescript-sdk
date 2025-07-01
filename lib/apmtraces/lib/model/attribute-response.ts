@@ -31,7 +31,7 @@ export interface AttributeResponse {
    */
   "attributeType": AttributeResponse.AttributeType;
   /**
-   * Unit of the attribute.
+   * Unit of the attribute.   If unit is not specified, it defaults to NONE.
    *
    */
   "unit"?: AttributeResponse.Unit;

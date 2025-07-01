@@ -180,6 +180,9 @@ export class Region {
     public static AP_SUWON_1: Region = Region.register("ap-suwon-1", Realm.OC35, "dln");
     public static AP_CHUNCHEON_2: Region = Region.register("ap-chuncheon-2", Realm.OC35, "bno");
 
+    // OC42
+    public static US_ASHBURN_2: Region = Region.register("us-ashburn-2", Realm.OC42, "yxj");
+
     /**
    * Return all known Regions in this version of the SDK, except possibly the region returned by IMDS (Instance Metadata
    * Service, only available on OCI instances), since IMDS is not automatically contacted by this method.

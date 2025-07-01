@@ -17,6 +17,7 @@ import * as requests from "./request";
 import * as model from "./model";
 import * as responses from "./response";
 import { paginateRecords, paginateResponses } from "oci-common";
+import { ScheduledQueryWaiter } from "./scheduledquery-waiter";
 import {
   composeResponse,
   composeRequest,
@@ -214,9 +215,9 @@ export class AttributesClient {
   }
 
   /**
-   * Activates a set of attributes for the given APM Domain.  The API is not case-sensitive.  Any duplicates present in the bulk activation
+   * Activates a set of attributes for the given APM Domain.  Attribute names are not case-sensitive.  Any duplicates present in the bulk activation
    * request are deduplicated and only unique attributes are activated.  A maximum number of 700 string attributes and 100 numeric attributes
-   * can be activated in an APM Domain subject to the available string and numeric slots.  Once an attribute has been activated, it may take sometime
+   * can be activated in an APM Domain subject to the available string and numeric slots.  Once an attribute has been activated, it may take some time
    * for it to be appear in searches as ingest might not have picked up the changes or any associated caches might not have refreshed.  The
    * bulk activation operation is atomic, and the operation succeeds only if all the attributes in the request have been processed successfully and they
    * get a success status back.  If the processing of any attribute results in a processing or validation error, then none of the attributes in the bulk
@@ -297,10 +298,10 @@ export class AttributesClient {
   }
 
   /**
-   * Deactivates a set of attributes for the given APM Domain.  The API is case in-sensitive.  Any duplicates present in the bulk deactivation
+   * Deactivates a set of attributes for the given APM Domain.  Attribute names are not case-sensitive.  Any duplicates present in the bulk deactivation
    * request are deduplicated and only unique attributes are deactivated.  A maximum number of 700 string attributes and 100 numeric attributes
    * can be deactivated in an APM Domain subject to the available string and numeric slots.  Out of box attributes (Trace and Span) cannot be
-   * deactivated, and will result in a processing error.  Once an attribute has been deactivated, it may take sometime for it to disappear in
+   * deactivated, and will result in a processing error.  Once an attribute has been deactivated, it may take some time for it to disappear in
    * searches as ingest might not have picked up the changes or any associated caches might not have refreshed.  The bulk deactivation
    * operation is atomic, and the operation succeeds only if all the attributes in the request have been processed successfully and they get a success
    * status back.  If the processing of any attribute results in a processing or validation error, then none of the attributes in the bulk request
@@ -1253,6 +1254,624 @@ export class QueryClient {
     }
   }
 }
+export enum ScheduledQueryApiKeys {}
+/**
+ * This service client uses {@link common.CircuitBreaker.DefaultConfiguration} for all the operations by default if no circuit breaker configuration is defined by the user.
+ */
+export class ScheduledQueryClient {
+  protected static serviceEndpointTemplate = "https://apm-trace.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
+  protected "_endpoint": string = "";
+  protected "_defaultHeaders": any = {};
+  protected "_waiters": ScheduledQueryWaiter;
+  protected "_clientConfiguration": common.ClientConfiguration;
+  protected _circuitBreaker: typeof Breaker | null = null;
+  protected _httpOptions: any = undefined;
+  protected _bodyDuplexMode: any = undefined;
+  public targetService = "ScheduledQuery";
+  protected _regionId: string = "";
+  protected "_region": common.Region;
+  protected _lastSetRegionOrRegionId: string = "";
+
+  protected _httpClient: common.HttpClient;
+  protected _authProvider: common.AuthenticationDetailsProvider | undefined;
+
+  constructor(params: common.AuthParams, clientConfiguration?: common.ClientConfiguration) {
+    const requestSigner = params.authenticationDetailsProvider
+      ? new common.DefaultRequestSigner(params.authenticationDetailsProvider)
+      : null;
+    this._authProvider = params.authenticationDetailsProvider;
+    if (clientConfiguration) {
+      this._clientConfiguration = clientConfiguration;
+      this._circuitBreaker = clientConfiguration.circuitBreaker
+        ? clientConfiguration.circuitBreaker!.circuit
+        : null;
+      this._httpOptions = clientConfiguration.httpOptions
+        ? clientConfiguration.httpOptions
+        : undefined;
+      this._bodyDuplexMode = clientConfiguration.bodyDuplexMode
+        ? clientConfiguration.bodyDuplexMode
+        : undefined;
+    }
+
+    if (!developerToolConfiguration.isServiceEnabled("apmtraces")) {
+      let errmsg =
+        "The developerToolConfiguration configuration disabled this service, this behavior is controlled by developerToolConfiguration.ociEnabledServiceSet variable. Please check if your local developer_tool_configuration file has configured the service you're targeting or contact the cloud provider on the availability of this service : ";
+      throw errmsg.concat("apmtraces");
+    }
+
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = true;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
+    }
+    this._httpClient =
+      params.httpClient ||
+      new common.FetchHttpClient(
+        requestSigner,
+        this._circuitBreaker,
+        this._httpOptions,
+        this._bodyDuplexMode
+      );
+
+    if (
+      params.authenticationDetailsProvider &&
+      common.isRegionProvider(params.authenticationDetailsProvider)
+    ) {
+      const provider: common.RegionProvider = params.authenticationDetailsProvider;
+      if (provider.getRegion()) {
+        this.region = provider.getRegion();
+      }
+    }
+  }
+
+  /**
+   * Get the endpoint that is being used to call (ex, https://www.example.com).
+   */
+  public get endpoint() {
+    return this._endpoint;
+  }
+
+  /**
+   * Sets the endpoint to call (ex, https://www.example.com).
+   * @param endpoint The endpoint of the service.
+   */
+  public set endpoint(endpoint: string) {
+    this._endpoint = endpoint;
+    this._endpoint = this._endpoint + "/20200630";
+    if (this.logger) this.logger.info(`ScheduledQueryClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
+  }
+
+  /**
+   * Determines whether realm specific endpoint should be used or not.
+   * Set realmSpecificEndpointTemplateEnabled to "true" if the user wants to enable use of realm specific endpoint template, otherwise set it to "false"
+   * @param realmSpecificEndpointTemplateEnabled flag to enable the use of realm specific endpoint template
+   */
+  public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
+    this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
+    if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
+      this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
+        ScheduledQueryClient.serviceEndpointTemplate,
+        this._region,
+        ScheduledQueryClient.endpointServiceName
+      );
+    } else if (this._lastSetRegionOrRegionId === common.Region.REGION_ID_STRING) {
+      this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
+        ScheduledQueryClient.serviceEndpointTemplate,
+        this._regionId,
+        ScheduledQueryClient.endpointServiceName
+      );
+    }
+  }
+
+  /**
+   * Sets the region to call (ex, Region.US_PHOENIX_1).
+   * Note, this will call {@link #endpoint(String) endpoint} after resolving the endpoint.
+   * @param region The region of the service.
+   */
+  public set region(region: common.Region) {
+    this._region = region;
+    this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
+      ScheduledQueryClient.serviceEndpointTemplate,
+      region,
+      ScheduledQueryClient.endpointServiceName
+    );
+    this._lastSetRegionOrRegionId = common.Region.REGION_STRING;
+  }
+
+  /**
+   * Sets the regionId to call (ex, 'us-phoenix-1').
+   *
+   * Note, this will first try to map the region ID to a known Region and call {@link #region(Region) region}.
+   * If no known Region could be determined, it will create an endpoint assuming its in default Realm OC1
+   * and then call {@link #endpoint(String) endpoint}.
+   * @param regionId The public region ID.
+   */
+  public set regionId(regionId: string) {
+    this._regionId = regionId;
+    this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
+      ScheduledQueryClient.serviceEndpointTemplate,
+      regionId,
+      ScheduledQueryClient.endpointServiceName
+    );
+    this._lastSetRegionOrRegionId = common.Region.REGION_ID_STRING;
+  }
+
+  /**
+   * Creates a new ScheduledQueryWaiter for resources for this service.
+   *
+   * @param config The waiter configuration for termination and delay strategy
+   * @return The service waiters.
+   */
+  public createWaiters(config?: common.WaiterConfiguration): ScheduledQueryWaiter {
+    this._waiters = new ScheduledQueryWaiter(this, config);
+    return this._waiters;
+  }
+
+  /**
+   * Gets the waiters available for resources for this service.
+   *
+   * @return The service waiters.
+   */
+  public getWaiters(): ScheduledQueryWaiter {
+    if (this._waiters) {
+      return this._waiters;
+    }
+    throw Error("Waiters do not exist. Please create waiters.");
+  }
+
+  /**
+   * Shutdown the circuit breaker used by the client when it is no longer needed
+   */
+  public shutdownCircuitBreaker() {
+    if (this._circuitBreaker) {
+      this._circuitBreaker.shutdown();
+    }
+  }
+
+  /**
+   * Close the provider if possible which in turn shuts down any associated circuit breaker
+   */
+  public closeProvider() {
+    if (this._authProvider) {
+      if (this._authProvider instanceof common.AbstractRequestingAuthenticationDetailsProvider)
+        (<common.AbstractRequestingAuthenticationDetailsProvider>(
+          this._authProvider
+        )).closeProvider();
+    }
+  }
+
+  /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+    this.closeProvider();
+  }
+
+  /**
+   * Create a scheduled query in the APM Domain.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateScheduledQueryRequest
+   * @return CreateScheduledQueryResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmtraces/CreateScheduledQuery.ts.html |here} to see how to use CreateScheduledQuery API.
+   */
+  public async createScheduledQuery(
+    createScheduledQueryRequest: requests.CreateScheduledQueryRequest
+  ): Promise<responses.CreateScheduledQueryResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ScheduledQueryClient#createScheduledQuery.");
+    const operationName = "createScheduledQuery";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/apm-trace-explorer/20200630/ScheduledQuery/CreateScheduledQuery";
+    const pathParams = {};
+
+    const queryParams = {
+      "apmDomainId": createScheduledQueryRequest.apmDomainId
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createScheduledQueryRequest.opcRequestId,
+      "opc-retry-token": createScheduledQueryRequest.opcRetryToken,
+      "opc-dry-run": createScheduledQueryRequest.opcDryRun
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createScheduledQueryRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/scheduledQueries",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createScheduledQueryRequest.createScheduledQueryDetails,
+        "CreateScheduledQueryDetails",
+        model.CreateScheduledQueryDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateScheduledQueryResponse>{},
+        body: await response.json(),
+        bodyKey: "scheduledQuery",
+        bodyModel: model.ScheduledQuery,
+        type: "model.ScheduledQuery",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Delete a scheduled query in the APM Domain.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteScheduledQueryRequest
+   * @return DeleteScheduledQueryResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmtraces/DeleteScheduledQuery.ts.html |here} to see how to use DeleteScheduledQuery API.
+   */
+  public async deleteScheduledQuery(
+    deleteScheduledQueryRequest: requests.DeleteScheduledQueryRequest
+  ): Promise<responses.DeleteScheduledQueryResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ScheduledQueryClient#deleteScheduledQuery.");
+    const operationName = "deleteScheduledQuery";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/apm-trace-explorer/20200630/ScheduledQuery/DeleteScheduledQuery";
+    const pathParams = {
+      "{scheduledQueryId}": deleteScheduledQueryRequest.scheduledQueryId
+    };
+
+    const queryParams = {
+      "apmDomainId": deleteScheduledQueryRequest.apmDomainId
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": deleteScheduledQueryRequest.opcRequestId,
+      "if-match": deleteScheduledQueryRequest.ifMatch,
+      "opc-retry-token": deleteScheduledQueryRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteScheduledQueryRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/scheduledQueries/{scheduledQueryId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteScheduledQueryResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Retrieve a scheduled query in the APM Domain.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetScheduledQueryRequest
+   * @return GetScheduledQueryResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmtraces/GetScheduledQuery.ts.html |here} to see how to use GetScheduledQuery API.
+   */
+  public async getScheduledQuery(
+    getScheduledQueryRequest: requests.GetScheduledQueryRequest
+  ): Promise<responses.GetScheduledQueryResponse> {
+    if (this.logger) this.logger.debug("Calling operation ScheduledQueryClient#getScheduledQuery.");
+    const operationName = "getScheduledQuery";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/apm-trace-explorer/20200630/ScheduledQuery/GetScheduledQuery";
+    const pathParams = {
+      "{scheduledQueryId}": getScheduledQueryRequest.scheduledQueryId
+    };
+
+    const queryParams = {
+      "apmDomainId": getScheduledQueryRequest.apmDomainId
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getScheduledQueryRequest.opcRequestId,
+      "opc-retry-token": getScheduledQueryRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getScheduledQueryRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/scheduledQueries/{scheduledQueryId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetScheduledQueryResponse>{},
+        body: await response.json(),
+        bodyKey: "scheduledQuery",
+        bodyModel: model.ScheduledQuery,
+        type: "model.ScheduledQuery",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns a list of all scheduled queries in the APM Domain.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListScheduledQueriesRequest
+   * @return ListScheduledQueriesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmtraces/ListScheduledQueries.ts.html |here} to see how to use ListScheduledQueries API.
+   */
+  public async listScheduledQueries(
+    listScheduledQueriesRequest: requests.ListScheduledQueriesRequest
+  ): Promise<responses.ListScheduledQueriesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ScheduledQueryClient#listScheduledQueries.");
+    const operationName = "listScheduledQueries";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/apm-trace-explorer/20200630/ScheduledQueryCollection/ListScheduledQueries";
+    const pathParams = {};
+
+    const queryParams = {
+      "apmDomainId": listScheduledQueriesRequest.apmDomainId,
+      "limit": listScheduledQueriesRequest.limit,
+      "page": listScheduledQueriesRequest.page,
+      "displayName": listScheduledQueriesRequest.displayName,
+      "sortOrder": listScheduledQueriesRequest.sortOrder,
+      "sortBy": listScheduledQueriesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listScheduledQueriesRequest.opcRequestId,
+      "opc-retry-token": listScheduledQueriesRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listScheduledQueriesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/scheduledQueries",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListScheduledQueriesResponse>{},
+        body: await response.json(),
+        bodyKey: "scheduledQueryCollection",
+        bodyModel: model.ScheduledQueryCollection,
+        type: "model.ScheduledQueryCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Update a scheduled query in the APM Domain.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateScheduledQueryRequest
+   * @return UpdateScheduledQueryResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmtraces/UpdateScheduledQuery.ts.html |here} to see how to use UpdateScheduledQuery API.
+   */
+  public async updateScheduledQuery(
+    updateScheduledQueryRequest: requests.UpdateScheduledQueryRequest
+  ): Promise<responses.UpdateScheduledQueryResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ScheduledQueryClient#updateScheduledQuery.");
+    const operationName = "updateScheduledQuery";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/apm-trace-explorer/20200630/ScheduledQuery/UpdateScheduledQuery";
+    const pathParams = {
+      "{scheduledQueryId}": updateScheduledQueryRequest.scheduledQueryId
+    };
+
+    const queryParams = {
+      "apmDomainId": updateScheduledQueryRequest.apmDomainId
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateScheduledQueryRequest.ifMatch,
+      "opc-request-id": updateScheduledQueryRequest.opcRequestId,
+      "opc-retry-token": updateScheduledQueryRequest.opcRetryToken,
+      "opc-dry-run": updateScheduledQueryRequest.opcDryRun
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateScheduledQueryRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/scheduledQueries/{scheduledQueryId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateScheduledQueryRequest.updateScheduledQueryDetails,
+        "UpdateScheduledQueryDetails",
+        model.UpdateScheduledQueryDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateScheduledQueryResponse>{},
+        body: await response.json(),
+        bodyKey: "scheduledQuery",
+        bodyModel: model.ScheduledQuery,
+        type: "model.ScheduledQuery",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+}
 export enum TraceApiKeys {}
 /**
  * This service client uses {@link common.CircuitBreaker.DefaultConfiguration} for all the operations by default if no circuit breaker configuration is defined by the user.
@@ -1504,6 +2123,86 @@ export class TraceClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Retrieve a log in the APM Domain.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetLogRequest
+   * @return GetLogResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmtraces/GetLog.ts.html |here} to see how to use GetLog API.
+   */
+  public async getLog(getLogRequest: requests.GetLogRequest): Promise<responses.GetLogResponse> {
+    if (this.logger) this.logger.debug("Calling operation TraceClient#getLog.");
+    const operationName = "getLog";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/apm-trace-explorer/20200630/Log/GetLog";
+    const pathParams = {
+      "{logKey}": getLogRequest.logKey
+    };
+
+    const queryParams = {
+      "apmDomainId": getLogRequest.apmDomainId,
+      "timeLogStartedGreaterThanOrEqualTo": getLogRequest.timeLogStartedGreaterThanOrEqualTo,
+      "timeLogEndedLessThan": getLogRequest.timeLogEndedLessThan
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getLogRequest.opcRequestId,
+      "opc-retry-token": getLogRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getLogRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/logs/{logKey}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetLogResponse>{},
+        body: await response.json(),
+        bodyKey: "log",
+        bodyModel: model.Log,
+        type: "model.Log",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
             dataType: "string"
           }
         ]

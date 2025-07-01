@@ -113,6 +113,12 @@ Example: {@code {\"Department\": \"Finance\"}}
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
+   * System tags for this resource. Each key is predefined and scoped to a namespace.
+   * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
+   *
+   */
+  "systemTags"?: { [key: string]: { [key: string]: any } };
+  /**
    * The compute model of the Autonomous Database. This is required if using the {@code computeCount} parameter. If using {@code cpuCoreCount} then it is an error to specify {@code computeModel} to a non-null value. ECPU compute model is the recommended model and OCPU compute model is legacy.
    */
   "computeModel"?: DbServer.ComputeModel;

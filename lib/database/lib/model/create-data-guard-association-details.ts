@@ -43,7 +43,9 @@ The password must contain no fewer than nine characters and include:
 * 
     */
   "databaseAdminPassword": string;
-  "sourceEncryptionKeyLocationDetails"?: model.ExternalHsmEncryptionDetails;
+  "sourceEncryptionKeyLocationDetails"?:
+    | model.ExternalHsmEncryptionDetails
+    | model.AzureEncryptionKeyDetails;
   /**
    * The protection mode to set up between the primary and standby databases. For more information, see
    * [Oracle Data Guard Protection Modes](http://docs.oracle.com/database/122/SBYDB/oracle-data-guard-protection-modes.htm#SBYDB02000)

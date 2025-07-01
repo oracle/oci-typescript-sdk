@@ -36,7 +36,8 @@ export interface BulkDeActivateAttributeDetail {
 export namespace BulkDeActivateAttributeDetail {
   export enum AttributeNameSpace {
     Traces = "TRACES",
-    Synthetic = "SYNTHETIC"
+    Synthetic = "SYNTHETIC",
+    Logs = "LOGS"
   }
 
   export function getJsonObj(obj: BulkDeActivateAttributeDetail): object {

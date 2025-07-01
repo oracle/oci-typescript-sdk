@@ -104,7 +104,9 @@ Example: {@code {\"Department\": \"Finance\"}}
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the key store of Oracle Vault.
    */
   "keyStoreId"?: string;
-  "encryptionKeyLocationDetails"?: model.ExternalHsmEncryptionDetails;
+  "encryptionKeyLocationDetails"?:
+    | model.ExternalHsmEncryptionDetails
+    | model.AzureEncryptionKeyDetails;
 }
 
 export namespace CreateDatabaseDetails {
