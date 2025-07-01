@@ -71,6 +71,7 @@ export interface Job {
    *
    */
   "parameterFileVersions"?: Array<model.ParameterFileVersionSummary>;
+  "collectTracesData"?: model.CollectTracesData;
   /**
    * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
    * For more information, see Resource Tags. Example: {\"Department\": \"Finance\"}
@@ -109,6 +110,9 @@ export namespace Job {
           ? obj.parameterFileVersions.map(item => {
               return model.ParameterFileVersionSummary.getJsonObj(item);
             })
+          : undefined,
+        "collectTracesData": obj.collectTracesData
+          ? model.CollectTracesData.getJsonObj(obj.collectTracesData)
           : undefined
       }
     };
@@ -132,6 +136,9 @@ export namespace Job {
           ? obj.parameterFileVersions.map(item => {
               return model.ParameterFileVersionSummary.getDeserializedJsonObj(item);
             })
+          : undefined,
+        "collectTracesData": obj.collectTracesData
+          ? model.CollectTracesData.getDeserializedJsonObj(obj.collectTracesData)
           : undefined
       }
     };

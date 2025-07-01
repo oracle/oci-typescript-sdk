@@ -78,6 +78,12 @@ Example: {@code {\"Department\": \"Finance\"}}
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * System tags for this resource. Each key is predefined and scoped to a namespace.
+   * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
+   *
+   */
+  "systemTags"?: { [key: string]: { [key: string]: any } };
   "pluggableDatabaseManagementConfig"?: model.PluggableDatabaseManagementConfig;
   /**
    * The OCID of the key container that is used as the master encryption key in database transparent data encryption (TDE) operations.

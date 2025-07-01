@@ -145,6 +145,7 @@ export interface DbSystemSnapshot {
    */
   "databaseManagement"?: model.DatabaseManagementStatus;
   "secureConnections"?: model.SecureConnectionDetails;
+  "encryptData"?: model.EncryptDataDetails;
   /**
    * The region identifier of the region where the DB system exists.
    * For more information, please see [Regions and Availability Domains](https://docs.oracle.com/en-us/iaas/Content/General/Concepts/regions.htm).
@@ -181,6 +182,9 @@ export namespace DbSystemSnapshot {
 
         "secureConnections": obj.secureConnections
           ? model.SecureConnectionDetails.getJsonObj(obj.secureConnections)
+          : undefined,
+        "encryptData": obj.encryptData
+          ? model.EncryptDataDetails.getJsonObj(obj.encryptData)
           : undefined,
 
         "readEndpoint": obj.readEndpoint
@@ -219,6 +223,9 @@ export namespace DbSystemSnapshot {
 
         "secureConnections": obj.secureConnections
           ? model.SecureConnectionDetails.getDeserializedJsonObj(obj.secureConnections)
+          : undefined,
+        "encryptData": obj.encryptData
+          ? model.EncryptDataDetails.getDeserializedJsonObj(obj.encryptData)
           : undefined,
 
         "readEndpoint": obj.readEndpoint

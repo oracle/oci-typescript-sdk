@@ -127,7 +127,9 @@ export interface BackupSummary {
    * Type of the backup destination.
    */
   "backupDestinationType"?: BackupSummary.BackupDestinationType;
-  "encryptionKeyLocationDetails"?: model.ExternalHsmEncryptionDetails;
+  "encryptionKeyLocationDetails"?:
+    | model.ExternalHsmEncryptionDetails
+    | model.AzureEncryptionKeyDetails;
 }
 
 export namespace BackupSummary {

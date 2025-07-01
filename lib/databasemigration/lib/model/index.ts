@@ -29,6 +29,12 @@ import * as ChangeMigrationCompartmentDetails from "./change-migration-compartme
 export import ChangeMigrationCompartmentDetails = ChangeMigrationCompartmentDetails.ChangeMigrationCompartmentDetails;
 import * as CloneMigrationDetails from "./clone-migration-details";
 export import CloneMigrationDetails = CloneMigrationDetails.CloneMigrationDetails;
+import * as CollectTracesData from "./collect-traces-data";
+export import CollectTracesData = CollectTracesData.CollectTracesData;
+import * as CollectTracesDetails from "./collect-traces-details";
+export import CollectTracesDetails = CollectTracesDetails.CollectTracesDetails;
+import * as CollectTracesStates from "./collect-traces-states";
+export import CollectTracesStates = CollectTracesStates.CollectTracesStates;
 import * as CompatibilityOption from "./compatibility-option";
 export import CompatibilityOption = CompatibilityOption.CompatibilityOption;
 import * as Connection from "./connection";

@@ -21,6 +21,8 @@ import * as ChangeMigrationCompartmentRequest from "./change-migration-compartme
 export import ChangeMigrationCompartmentRequest = ChangeMigrationCompartmentRequest.ChangeMigrationCompartmentRequest;
 import * as CloneMigrationRequest from "./clone-migration-request";
 export import CloneMigrationRequest = CloneMigrationRequest.CloneMigrationRequest;
+import * as CollectTracesRequest from "./collect-traces-request";
+export import CollectTracesRequest = CollectTracesRequest.CollectTracesRequest;
 import * as ConnectionDiagnosticsRequest from "./connection-diagnostics-request";
 export import ConnectionDiagnosticsRequest = ConnectionDiagnosticsRequest.ConnectionDiagnosticsRequest;
 import * as CreateConnectionRequest from "./create-connection-request";

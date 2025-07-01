@@ -16,10 +16,13 @@ import * as requests from "./lib/request";
 import * as models from "./lib/model";
 import * as responses from "./lib/response";
 import * as client from "./lib/client";
+import * as scheduledquery_waiter from "./lib/scheduledquery-waiter";
 
 export { models };
 export { requests };
 export { responses };
 export import AttributesClient = client.AttributesClient;
 export import QueryClient = client.QueryClient;
+export import ScheduledQueryClient = client.ScheduledQueryClient;
+export import ScheduledQueryWaiter = scheduledquery_waiter.ScheduledQueryWaiter;
 export import TraceClient = client.TraceClient;

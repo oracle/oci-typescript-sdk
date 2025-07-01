@@ -24,7 +24,7 @@ export interface AutoActivateStatus {
    * State of autoactivation in this APM Domain.  If \"ON\" auto-activate is set to true, if \"OFF\" auto-activate is set to false.
    *
    */
-  "state": string;
+  "state": AutoActivateStatus.State;
   /**
    * Data key type for which auto-activate needs needs to be turned on or off.
    *
@@ -33,6 +33,16 @@ export interface AutoActivateStatus {
 }
 
 export namespace AutoActivateStatus {
+  export enum State {
+    On = "ON",
+    Off = "OFF",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export enum DataKey {
     PrivateDataKey = "PRIVATE_DATA_KEY",
     PublicDataKey = "PUBLIC_DATA_KEY",

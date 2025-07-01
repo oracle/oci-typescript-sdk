@@ -132,6 +132,7 @@ export interface Backup {
    *
    */
   "timeCopyCreated"?: Date;
+  "encryptData"?: model.EncryptDataDetails;
 }
 
 export namespace Backup {
@@ -178,6 +179,10 @@ export namespace Backup {
       ...{
         "dbSystemSnapshot": obj.dbSystemSnapshot
           ? model.DbSystemSnapshot.getJsonObj(obj.dbSystemSnapshot)
+          : undefined,
+
+        "encryptData": obj.encryptData
+          ? model.EncryptDataDetails.getJsonObj(obj.encryptData)
           : undefined
       }
     };
@@ -190,6 +195,10 @@ export namespace Backup {
       ...{
         "dbSystemSnapshot": obj.dbSystemSnapshot
           ? model.DbSystemSnapshot.getDeserializedJsonObj(obj.dbSystemSnapshot)
+          : undefined,
+
+        "encryptData": obj.encryptData
+          ? model.EncryptDataDetails.getDeserializedJsonObj(obj.encryptData)
           : undefined
       }
     };

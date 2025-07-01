@@ -120,7 +120,9 @@ export interface Backup {
    * Type of the backup destination.
    */
   "backupDestinationType"?: Backup.BackupDestinationType;
-  "encryptionKeyLocationDetails"?: model.ExternalHsmEncryptionDetails;
+  "encryptionKeyLocationDetails"?:
+    | model.ExternalHsmEncryptionDetails
+    | model.AzureEncryptionKeyDetails;
 }
 
 export namespace Backup {
