@@ -122,6 +122,10 @@ Example: {@code {\"Department\": \"Finance\"}}
    *
    */
   "securityAttributes"?: { [key: string]: { [key: string]: any } };
+  /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subscription with which resource needs to be associated with.
+   */
+  "subscriptionId"?: string;
 }
 
 export namespace CreateCloudAutonomousVmClusterDetails {

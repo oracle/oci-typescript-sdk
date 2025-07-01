@@ -34,7 +34,9 @@ export interface CreateStandbyDetails {
    * The TDE wallet password of the source database specified by 'sourceDatabaseId'.
    */
   "sourceTdeWalletPassword": string;
-  "sourceEncryptionKeyLocationDetails"?: model.ExternalHsmEncryptionDetails;
+  "sourceEncryptionKeyLocationDetails"?:
+    | model.ExternalHsmEncryptionDetails
+    | model.AzureEncryptionKeyDetails;
   /**
    * True if active Data Guard is enabled.
    */

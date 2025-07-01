@@ -36,7 +36,8 @@ export interface BulkUnpinAttributeDetail {
 export namespace BulkUnpinAttributeDetail {
   export enum AttributeNameSpace {
     Traces = "TRACES",
-    Synthetic = "SYNTHETIC"
+    Synthetic = "SYNTHETIC",
+    Logs = "LOGS"
   }
 
   export function getJsonObj(obj: BulkUnpinAttributeDetail): object {

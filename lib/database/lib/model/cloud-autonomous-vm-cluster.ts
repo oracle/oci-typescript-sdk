@@ -280,6 +280,16 @@ Example: {@code {\"Department\": \"Finance\"}}
    * The lowest value to which maximum number of ACDs can be scaled down. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maxAcdsLowestScaledValue"?: number;
+  /**
+   * System tags for this resource. Each key is predefined and scoped to a namespace.
+   * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
+   *
+   */
+  "systemTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subscription with which resource needs to be associated with.
+   */
+  "subscriptionId"?: string;
 }
 
 export namespace CloudAutonomousVmCluster {

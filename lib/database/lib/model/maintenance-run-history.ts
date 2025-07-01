@@ -37,6 +37,12 @@ export interface MaintenanceRunHistory {
    * The list of granular maintenance history details.
    */
   "granularMaintenanceHistory"?: Array<model.GranularMaintenanceHistoryDetails>;
+  /**
+   * System tags for this resource. Each key is predefined and scoped to a namespace.
+   * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
+   *
+   */
+  "systemTags"?: { [key: string]: { [key: string]: any } };
 }
 
 export namespace MaintenanceRunHistory {

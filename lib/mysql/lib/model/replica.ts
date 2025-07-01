@@ -19,6 +19,7 @@ import common = require("oci-common");
  */
 export interface Replica {
   "secureConnections"?: model.SecureConnectionDetails;
+  "encryptData"?: model.EncryptDataDetails;
   /**
    * The OCID of the read replica.
    */
@@ -145,6 +146,9 @@ export namespace Replica {
         "secureConnections": obj.secureConnections
           ? model.SecureConnectionDetails.getJsonObj(obj.secureConnections)
           : undefined,
+        "encryptData": obj.encryptData
+          ? model.EncryptDataDetails.getJsonObj(obj.encryptData)
+          : undefined,
 
         "replicaOverrides": obj.replicaOverrides
           ? model.ReplicaOverrides.getJsonObj(obj.replicaOverrides)
@@ -160,6 +164,9 @@ export namespace Replica {
       ...{
         "secureConnections": obj.secureConnections
           ? model.SecureConnectionDetails.getDeserializedJsonObj(obj.secureConnections)
+          : undefined,
+        "encryptData": obj.encryptData
+          ? model.EncryptDataDetails.getDeserializedJsonObj(obj.encryptData)
           : undefined,
 
         "replicaOverrides": obj.replicaOverrides

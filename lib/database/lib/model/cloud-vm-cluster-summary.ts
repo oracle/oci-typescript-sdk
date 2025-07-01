@@ -294,6 +294,14 @@ Example: {@code {\"Department\": \"Finance\"}}
    * The compute model of the Autonomous Database. This is required if using the {@code computeCount} parameter. If using {@code cpuCoreCount} then it is an error to specify {@code computeModel} to a non-null value. ECPU compute model is the recommended model and OCPU compute model is legacy.
    */
   "computeModel"?: CloudVmClusterSummary.ComputeModel;
+  /**
+   * Details of the multi cloud identity connectors of the VM cluster.
+   */
+  "multiCloudIdentityConnectorConfigs"?: Array<model.IdentityConnectorDetails>;
+  /**
+   * TDE keystore type
+   */
+  "tdeKeyStoreType"?: CloudVmClusterSummary.TdeKeyStoreType;
 }
 
 export namespace CloudVmClusterSummary {
@@ -352,6 +360,16 @@ export namespace CloudVmClusterSummary {
     UnknownValue = "UNKNOWN_VALUE"
   }
 
+  export enum TdeKeyStoreType {
+    Azure = "AZURE",
+    Oci = "OCI",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: CloudVmClusterSummary): object {
     const jsonObj = {
       ...obj,
@@ -367,6 +385,12 @@ export namespace CloudVmClusterSummary {
           : undefined,
         "cloudAutomationUpdateDetails": obj.cloudAutomationUpdateDetails
           ? model.CloudAutomationUpdateDetails.getJsonObj(obj.cloudAutomationUpdateDetails)
+          : undefined,
+
+        "multiCloudIdentityConnectorConfigs": obj.multiCloudIdentityConnectorConfigs
+          ? obj.multiCloudIdentityConnectorConfigs.map(item => {
+              return model.IdentityConnectorDetails.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -390,6 +414,12 @@ export namespace CloudVmClusterSummary {
           ? model.CloudAutomationUpdateDetails.getDeserializedJsonObj(
               obj.cloudAutomationUpdateDetails
             )
+          : undefined,
+
+        "multiCloudIdentityConnectorConfigs": obj.multiCloudIdentityConnectorConfigs
+          ? obj.multiCloudIdentityConnectorConfigs.map(item => {
+              return model.IdentityConnectorDetails.getDeserializedJsonObj(item);
+            })
           : undefined
       }
     };

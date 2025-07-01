@@ -24,18 +24,20 @@ export interface QueryRequest extends common.BaseRequest {
    */
   "apmDomainId": string;
   /**
-   * Include spans that have a {@code spanStartTime} equal to or greater than this value.
+   * Include spans that have a {@code spanStartTime} equal to or greater than this value.  Also, include logs and traces
+   * that have startTime greater than this value.
    *
    */
   "timeSpanStartedGreaterThanOrEqualTo": Date;
   /**
-   * Include spans that have a {@code spanStartTime}less than this value.
+   * Include spans that have a {@code spanStartTime} less than this value.  Also, include traces that have startTime less than this value
+   * and logs that have endTime less than this value.
    *
    */
   "timeSpanStartedLessThan": Date;
   /**
-   * Request body containing the query to be run against the trace data and to filter and
-   * retrieve trace data results.
+   * Request body containing the query to be run against the trace, span, services, background queries and other metric data and to filter and
+   * retrieve the results.
    *
    */
   "queryDetails": model.QueryDetails;

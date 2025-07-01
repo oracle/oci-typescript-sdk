@@ -35,12 +35,12 @@ export interface GetTraceRequest extends common.BaseRequest {
    */
   "opcRequestId"?: string;
   /**
-   * Include traces that have a {@code minTraceStartTime} equal to or greater than this value.
+   * Include traces that have a minTraceStartTime equal to or greater than this value.
    *
    */
   "timeTraceStartedGreaterThanOrEqualTo"?: Date;
   /**
-   * Include traces that have a {@code minTraceStartTime} less than this value.
+   * Include traces that have a minTraceStartTime less than this value.
    *
    */
   "timeTraceStartedLessThan"?: Date;

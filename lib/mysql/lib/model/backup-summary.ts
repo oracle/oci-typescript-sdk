@@ -124,6 +124,7 @@ export interface BackupSummary {
    */
   "timeCopyCreated"?: Date;
   "dbSystemSnapshotSummary"?: model.DbSystemSnapshotSummary;
+  "encryptData"?: model.EncryptDataDetails;
 }
 
 export namespace BackupSummary {
@@ -133,6 +134,9 @@ export namespace BackupSummary {
       ...{
         "dbSystemSnapshotSummary": obj.dbSystemSnapshotSummary
           ? model.DbSystemSnapshotSummary.getJsonObj(obj.dbSystemSnapshotSummary)
+          : undefined,
+        "encryptData": obj.encryptData
+          ? model.EncryptDataDetails.getJsonObj(obj.encryptData)
           : undefined
       }
     };
@@ -145,6 +149,9 @@ export namespace BackupSummary {
       ...{
         "dbSystemSnapshotSummary": obj.dbSystemSnapshotSummary
           ? model.DbSystemSnapshotSummary.getDeserializedJsonObj(obj.dbSystemSnapshotSummary)
+          : undefined,
+        "encryptData": obj.encryptData
+          ? model.EncryptDataDetails.getDeserializedJsonObj(obj.encryptData)
           : undefined
       }
     };

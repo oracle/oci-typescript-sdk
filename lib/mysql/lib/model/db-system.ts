@@ -192,6 +192,7 @@ For a standalone DB System, this defines the fault domain in which the DB System
    */
   "databaseManagement"?: model.DatabaseManagementStatus;
   "secureConnections"?: model.SecureConnectionDetails;
+  "encryptData"?: model.EncryptDataDetails;
   /**
    * The database mode indicating the types of statements that are allowed to run in the the DB system.
    * This mode applies only to statements run by user connections. Replicated write statements continue
@@ -303,6 +304,9 @@ export namespace DbSystem {
         "secureConnections": obj.secureConnections
           ? model.SecureConnectionDetails.getJsonObj(obj.secureConnections)
           : undefined,
+        "encryptData": obj.encryptData
+          ? model.EncryptDataDetails.getJsonObj(obj.encryptData)
+          : undefined,
 
         "customerContacts": obj.customerContacts
           ? obj.customerContacts.map(item => {
@@ -364,6 +368,9 @@ export namespace DbSystem {
 
         "secureConnections": obj.secureConnections
           ? model.SecureConnectionDetails.getDeserializedJsonObj(obj.secureConnections)
+          : undefined,
+        "encryptData": obj.encryptData
+          ? model.EncryptDataDetails.getDeserializedJsonObj(obj.encryptData)
           : undefined,
 
         "customerContacts": obj.customerContacts

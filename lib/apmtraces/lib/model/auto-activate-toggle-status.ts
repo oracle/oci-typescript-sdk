@@ -29,7 +29,7 @@ export interface AutoActivateToggleStatus {
    * State of autoactivation in this APM Domain.  If \"ON\" auto-activate is set to true, if \"OFF\" auto-activate is set to false.
    *
    */
-  "state": string;
+  "state": AutoActivateToggleStatus.State;
   /**
    * Data key type for which auto-activate needs needs to be turned on or off.
    *
@@ -40,6 +40,16 @@ export interface AutoActivateToggleStatus {
 export namespace AutoActivateToggleStatus {
   export enum Status {
     Success = "SUCCESS",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum State {
+    On = "ON",
+    Off = "OFF",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
