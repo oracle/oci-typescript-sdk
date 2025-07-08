@@ -39,6 +39,14 @@ export interface Model {
    */
   "modelType": Model.ModelType;
   /**
+   * Applicable to only PRE_TRAINED_KEY_VALUE_EXTRACTION, PRE_TRAINED_DOCUMENT_ELEMENTS_EXTRACTION.
+   */
+  "modelSubType"?: model.KvModelSubType | model.DocumentElementsSubType;
+  /**
+   * Number of replicas required for this model. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "inferenceUnits"?: number;
+  /**
    * The tenancy id of the model.
    */
   "tenancyId"?: string;
@@ -58,6 +66,10 @@ export interface Model {
    * The maximum model training time in hours, expressed as a decimal fraction. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maxTrainingTimeInHours"?: number;
+  /**
+   * The document language for model training, abbreviated according to the BCP 47 syntax.
+   */
+  "language"?: string;
   /**
    * The total hours actually used for model training. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
@@ -97,7 +109,14 @@ export interface Model {
    * A message describing the current state in more detail, that can provide actionable information if training failed.
    */
   "lifecycleDetails"?: string;
-  "metrics"?: model.DocumentClassificationModelMetrics | model.KeyValueDetectionModelMetrics;
+  "metrics"?:
+    | model.PreTrainedDocumentElementsExtractionModelDetails
+    | model.DocumentClassificationModelMetrics
+    | model.PretrainedDocumentClassificationModelDetails
+    | model.PretrainedTableExtractionModelDetails
+    | model.KeyValueDetectionModelMetrics
+    | model.PretrainedKeyValueExtractionModelDetails
+    | model.PretrainedTextExtractionModelDetails;
   /**
    * A simple key-value pair that is applied without any predefined name, type, or scope. It exists for cross-compatibility only.
    * For example: {@code {\"bar-key\": \"value\"}}
@@ -126,6 +145,11 @@ export namespace Model {
   export enum ModelType {
     KeyValueExtraction = "KEY_VALUE_EXTRACTION",
     DocumentClassification = "DOCUMENT_CLASSIFICATION",
+    PreTrainedTextExtraction = "PRE_TRAINED_TEXT_EXTRACTION",
+    PreTrainedTableExtraction = "PRE_TRAINED_TABLE_EXTRACTION",
+    PreTrainedKeyValueExtraction = "PRE_TRAINED_KEY_VALUE_EXTRACTION",
+    PreTrainedDocumentClassification = "PRE_TRAINED_DOCUMENT_CLASSIFICATION",
+    PreTrainedDocumentElementsExtraction = "PRE_TRAINED_DOCUMENT_ELEMENTS_EXTRACTION",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
@@ -151,6 +175,10 @@ export namespace Model {
     const jsonObj = {
       ...obj,
       ...{
+        "modelSubType": obj.modelSubType
+          ? model.ModelSubType.getJsonObj(obj.modelSubType)
+          : undefined,
+
         "trainingDataset": obj.trainingDataset
           ? model.Dataset.getJsonObj(obj.trainingDataset)
           : undefined,
@@ -182,6 +210,10 @@ export namespace Model {
     const jsonObj = {
       ...obj,
       ...{
+        "modelSubType": obj.modelSubType
+          ? model.ModelSubType.getDeserializedJsonObj(obj.modelSubType)
+          : undefined,
+
         "trainingDataset": obj.trainingDataset
           ? model.Dataset.getDeserializedJsonObj(obj.trainingDataset)
           : undefined,

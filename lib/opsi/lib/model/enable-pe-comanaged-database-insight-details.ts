@@ -34,7 +34,11 @@ export interface EnablePeComanagedDatabaseInsightDetails
    * Database service name used for connection requests.
    */
   "serviceName": string;
-  "credentialDetails": model.CredentialsBySource | model.CredentialByVault | model.CredentialByIam;
+  "credentialDetails":
+    | model.CredentialByNamedCredentials
+    | model.CredentialsBySource
+    | model.CredentialByVault
+    | model.CredentialByIam;
   "connectionDetails"?: model.PeComanagedDatabaseConnectionDetails;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.

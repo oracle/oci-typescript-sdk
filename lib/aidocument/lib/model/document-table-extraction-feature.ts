@@ -18,6 +18,11 @@ import common = require("oci-common");
  * Detecting and extracting data in tables.
  */
 export interface DocumentTableExtractionFeature extends model.DocumentFeature {
+  /**
+   * Unique identifier custom model OCID that should be used for inference.
+   */
+  "modelId"?: string;
+
   "featureType": string;
 }
 

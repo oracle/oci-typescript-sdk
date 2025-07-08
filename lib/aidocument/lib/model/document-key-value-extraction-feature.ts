@@ -19,9 +19,13 @@ import common = require("oci-common");
  */
 export interface DocumentKeyValueExtractionFeature extends model.DocumentFeature {
   /**
-   * The custom model ID.
+   * Unique identifier custom model OCID that should be used for inference.
    */
   "modelId"?: string;
+  /**
+   * The custom model tenancy ID when modelId represents aliasName.
+   */
+  "tenancyId"?: string;
 
   "featureType": string;
 }

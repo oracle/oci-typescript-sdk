@@ -36,14 +36,39 @@ export namespace ModelMetrics {
 
     if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
+        case "PRE_TRAINED_DOCUMENT_ELEMENTS_EXTRACTION":
+          return model.PreTrainedDocumentElementsExtractionModelDetails.getJsonObj(
+            <model.PreTrainedDocumentElementsExtractionModelDetails>(<object>jsonObj),
+            true
+          );
         case "DOCUMENT_CLASSIFICATION":
           return model.DocumentClassificationModelMetrics.getJsonObj(
             <model.DocumentClassificationModelMetrics>(<object>jsonObj),
             true
           );
+        case "PRE_TRAINED_DOCUMENT_CLASSIFICATION":
+          return model.PretrainedDocumentClassificationModelDetails.getJsonObj(
+            <model.PretrainedDocumentClassificationModelDetails>(<object>jsonObj),
+            true
+          );
+        case "PRE_TRAINED_TABLE_EXTRACTION":
+          return model.PretrainedTableExtractionModelDetails.getJsonObj(
+            <model.PretrainedTableExtractionModelDetails>(<object>jsonObj),
+            true
+          );
         case "KEY_VALUE_EXTRACTION":
           return model.KeyValueDetectionModelMetrics.getJsonObj(
             <model.KeyValueDetectionModelMetrics>(<object>jsonObj),
+            true
+          );
+        case "PRE_TRAINED_KEY_VALUE_EXTRACTION":
+          return model.PretrainedKeyValueExtractionModelDetails.getJsonObj(
+            <model.PretrainedKeyValueExtractionModelDetails>(<object>jsonObj),
+            true
+          );
+        case "PRE_TRAINED_TEXT_EXTRACTION":
+          return model.PretrainedTextExtractionModelDetails.getJsonObj(
+            <model.PretrainedTextExtractionModelDetails>(<object>jsonObj),
             true
           );
         default:
@@ -64,14 +89,39 @@ export namespace ModelMetrics {
 
     if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
+        case "PRE_TRAINED_DOCUMENT_ELEMENTS_EXTRACTION":
+          return model.PreTrainedDocumentElementsExtractionModelDetails.getDeserializedJsonObj(
+            <model.PreTrainedDocumentElementsExtractionModelDetails>(<object>jsonObj),
+            true
+          );
         case "DOCUMENT_CLASSIFICATION":
           return model.DocumentClassificationModelMetrics.getDeserializedJsonObj(
             <model.DocumentClassificationModelMetrics>(<object>jsonObj),
             true
           );
+        case "PRE_TRAINED_DOCUMENT_CLASSIFICATION":
+          return model.PretrainedDocumentClassificationModelDetails.getDeserializedJsonObj(
+            <model.PretrainedDocumentClassificationModelDetails>(<object>jsonObj),
+            true
+          );
+        case "PRE_TRAINED_TABLE_EXTRACTION":
+          return model.PretrainedTableExtractionModelDetails.getDeserializedJsonObj(
+            <model.PretrainedTableExtractionModelDetails>(<object>jsonObj),
+            true
+          );
         case "KEY_VALUE_EXTRACTION":
           return model.KeyValueDetectionModelMetrics.getDeserializedJsonObj(
             <model.KeyValueDetectionModelMetrics>(<object>jsonObj),
+            true
+          );
+        case "PRE_TRAINED_KEY_VALUE_EXTRACTION":
+          return model.PretrainedKeyValueExtractionModelDetails.getDeserializedJsonObj(
+            <model.PretrainedKeyValueExtractionModelDetails>(<object>jsonObj),
+            true
+          );
+        case "PRE_TRAINED_TEXT_EXTRACTION":
+          return model.PretrainedTextExtractionModelDetails.getDeserializedJsonObj(
+            <model.PretrainedTextExtractionModelDetails>(<object>jsonObj),
             true
           );
         default:

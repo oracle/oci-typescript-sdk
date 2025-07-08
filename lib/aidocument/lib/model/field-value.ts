@@ -31,6 +31,14 @@ export interface FieldValue {
    * The indexes of the words in the field value.
    */
   "wordIndexes": Array<number>;
+  /**
+   * The normalized value.
+   */
+  "normalizedValue"?: string;
+  /**
+   * The normalized value confidence score between 0 and 1. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "normalizedConfidence"?: number;
 
   "valueType": string;
 }

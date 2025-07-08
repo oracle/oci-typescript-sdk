@@ -51,7 +51,11 @@ export interface AutonomousDatabaseInsight extends model.DatabaseInsight {
    */
   "isAdvancedFeaturesEnabled"?: boolean;
   "connectionDetails"?: model.ConnectionDetails;
-  "credentialDetails"?: model.CredentialsBySource | model.CredentialByVault | model.CredentialByIam;
+  "credentialDetails"?:
+    | model.CredentialByNamedCredentials
+    | model.CredentialsBySource
+    | model.CredentialByVault
+    | model.CredentialByIam;
 
   "entitySource": string;
 }

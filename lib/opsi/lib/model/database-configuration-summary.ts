@@ -80,6 +80,11 @@ export namespace DatabaseConfigurationSummary {
             <model.EmManagedExternalDatabaseConfigurationSummary>(<object>jsonObj),
             true
           );
+        case "MACS_MANAGED_AUTONOMOUS_DATABASE":
+          return model.MacsManagedAutonomousDatabaseConfigurationSummary.getJsonObj(
+            <model.MacsManagedAutonomousDatabaseConfigurationSummary>(<object>jsonObj),
+            true
+          );
         case "EXTERNAL_MYSQL_DATABASE_SYSTEM":
           return model.ExternalMysqlDatabaseConfigurationSummary.getJsonObj(
             <model.ExternalMysqlDatabaseConfigurationSummary>(<object>jsonObj),
@@ -124,6 +129,11 @@ export namespace DatabaseConfigurationSummary {
         case "EM_MANAGED_EXTERNAL_DATABASE":
           return model.EmManagedExternalDatabaseConfigurationSummary.getDeserializedJsonObj(
             <model.EmManagedExternalDatabaseConfigurationSummary>(<object>jsonObj),
+            true
+          );
+        case "MACS_MANAGED_AUTONOMOUS_DATABASE":
+          return model.MacsManagedAutonomousDatabaseConfigurationSummary.getDeserializedJsonObj(
+            <model.MacsManagedAutonomousDatabaseConfigurationSummary>(<object>jsonObj),
             true
           );
         case "EXTERNAL_MYSQL_DATABASE_SYSTEM":

@@ -39,6 +39,10 @@ export interface ModelSummary {
    */
   "modelType": string;
   /**
+   * Number of replicas required for this model. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "inferenceUnits"?: number;
+  /**
    * The version of the model.
    */
   "modelVersion": string;

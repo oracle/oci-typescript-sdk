@@ -30,6 +30,10 @@ export interface ObjectStorageDocumentDetails extends model.DocumentDetails {
    * The Object Storage object name.
    */
   "objectName": string;
+  /**
+   * The page ranges to be analysed.
+   */
+  "pageRange"?: Array<string>;
 
   "source": string;
 }

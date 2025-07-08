@@ -27,6 +27,10 @@ export interface UpdateModelDetails {
    */
   "description"?: string;
   /**
+   * Number of replicas required for this model. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "inferenceUnits"?: number;
+  /**
    * A simple key-value pair that is applied without any predefined name, type, or scope. It exists for cross-compatibility only.
    * For example: {@code {\"bar-key\": \"value\"}}
    *

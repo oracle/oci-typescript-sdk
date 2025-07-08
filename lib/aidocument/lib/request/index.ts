@@ -37,6 +37,8 @@ import * as DeleteProjectRequest from "./delete-project-request";
 export import DeleteProjectRequest = DeleteProjectRequest.DeleteProjectRequest;
 import * as GetModelRequest from "./get-model-request";
 export import GetModelRequest = GetModelRequest.GetModelRequest;
+import * as GetModelTypeRequest from "./get-model-type-request";
+export import GetModelTypeRequest = GetModelTypeRequest.GetModelTypeRequest;
 import * as GetProcessorJobRequest from "./get-processor-job-request";
 export import GetProcessorJobRequest = GetProcessorJobRequest.GetProcessorJobRequest;
 import * as GetProjectRequest from "./get-project-request";

@@ -37,6 +37,14 @@ export interface VmClusterSummary {
    * The number of DB nodes on a VM Cluster. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "dbNodesCount"?: number;
+  /**
+   * The storage allocated on a VM Cluster. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "storageAllocatedInGBs"?: number;
+  /**
+   * The OCID of the VM Cluster.
+   */
+  "vmClusterId"?: string;
 }
 
 export namespace VmClusterSummary {

@@ -28,7 +28,7 @@ export interface CreateProcessorJobDetails {
    * The display name of the processor job.
    */
   "displayName"?: string;
-  "processorConfig": model.GeneralProcessorConfig;
+  "processorConfig": model.InvoiceProcessorConfig | model.GeneralProcessorConfig;
 }
 
 export namespace CreateProcessorJobDetails {

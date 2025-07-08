@@ -193,7 +193,11 @@ export namespace SummarizeSqlStatisticsRequest {
     ComanagedExaccPdb = "COMANAGED-EXACC-PDB",
     ComanagedExaccNoncdb = "COMANAGED-EXACC-NONCDB",
     MdsMysql = "MDS-MYSQL",
-    ExternalMysql = "EXTERNAL-MYSQL"
+    ExternalMysql = "EXTERNAL-MYSQL",
+    AtpExacc = "ATP-EXACC",
+    AdwExacc = "ADW-EXACC",
+    ExternalAdw = "EXTERNAL-ADW",
+    ExternalAtp = "EXTERNAL-ATP"
   }
 
   export enum SortBy {

@@ -26,7 +26,11 @@ export interface EnableAutonomousDatabaseInsightAdvancedFeaturesDetails {
    */
   "opsiPrivateEndpointId"?: string;
   "connectionDetails": model.ConnectionDetails;
-  "credentialDetails": model.CredentialsBySource | model.CredentialByVault | model.CredentialByIam;
+  "credentialDetails":
+    | model.CredentialByNamedCredentials
+    | model.CredentialsBySource
+    | model.CredentialByVault
+    | model.CredentialByIam;
 }
 
 export namespace EnableAutonomousDatabaseInsightAdvancedFeaturesDetails {

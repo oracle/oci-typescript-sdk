@@ -47,6 +47,18 @@ export interface Page {
    * The form fields detected on the page.
    */
   "documentFields"?: Array<model.DocumentField>;
+  /**
+   * The signatures detected on the page.
+   */
+  "signatures"?: Array<model.Signature>;
+  /**
+   * The bar codes detected on the page.
+   */
+  "barCodes"?: Array<model.BarCode>;
+  /**
+   * The checkboxes and selection marks detected on the page.
+   */
+  "selectionMarks"?: Array<model.SelectionMark>;
 }
 
 export namespace Page {
@@ -83,6 +95,21 @@ export namespace Page {
         "documentFields": obj.documentFields
           ? obj.documentFields.map(item => {
               return model.DocumentField.getJsonObj(item);
+            })
+          : undefined,
+        "signatures": obj.signatures
+          ? obj.signatures.map(item => {
+              return model.Signature.getJsonObj(item);
+            })
+          : undefined,
+        "barCodes": obj.barCodes
+          ? obj.barCodes.map(item => {
+              return model.BarCode.getJsonObj(item);
+            })
+          : undefined,
+        "selectionMarks": obj.selectionMarks
+          ? obj.selectionMarks.map(item => {
+              return model.SelectionMark.getJsonObj(item);
             })
           : undefined
       }
@@ -125,6 +152,21 @@ export namespace Page {
         "documentFields": obj.documentFields
           ? obj.documentFields.map(item => {
               return model.DocumentField.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "signatures": obj.signatures
+          ? obj.signatures.map(item => {
+              return model.Signature.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "barCodes": obj.barCodes
+          ? obj.barCodes.map(item => {
+              return model.BarCode.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "selectionMarks": obj.selectionMarks
+          ? obj.selectionMarks.map(item => {
+              return model.SelectionMark.getDeserializedJsonObj(item);
             })
           : undefined
       }

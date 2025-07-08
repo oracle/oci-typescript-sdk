@@ -27,6 +27,7 @@ export interface ChangeMacsManagedCloudDatabaseInsightConnectionDetails {
   "managementAgentId": string;
   "connectionDetails": model.ConnectionDetails;
   "connectionCredentialDetails":
+    | model.CredentialByNamedCredentials
     | model.CredentialsBySource
     | model.CredentialByVault
     | model.CredentialByIam;
