@@ -22,7 +22,11 @@ import common = require("oci-common");
  */
 export interface ChangeAutonomousDatabaseInsightAdvancedFeaturesDetails {
   "connectionDetails": model.ConnectionDetails;
-  "credentialDetails": model.CredentialsBySource | model.CredentialByVault | model.CredentialByIam;
+  "credentialDetails":
+    | model.CredentialByNamedCredentials
+    | model.CredentialsBySource
+    | model.CredentialByVault
+    | model.CredentialByIam;
   /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the OPSI private endpoint
    */

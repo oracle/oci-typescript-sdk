@@ -23,9 +23,9 @@ import common = require("oci-common");
  */
 export interface CredentialDetails {
   /**
-   * Credential source name that had been added in Management Agent wallet. This is supplied in the External Database Service.
+   * Credential source name that had been added in Management Agent wallet. This value is only required when Credential set by CREDENTIALS_BY_SOURCE and is optional properties for ther others.
    */
-  "credentialSourceName": string;
+  "credentialSourceName"?: string;
 
   "credentialType": string;
 }
@@ -36,6 +36,11 @@ export namespace CredentialDetails {
 
     if (obj && "credentialType" in obj && obj.credentialType) {
       switch (obj.credentialType) {
+        case "CREDENTIALS_BY_NAMED_CREDS":
+          return model.CredentialByNamedCredentials.getJsonObj(
+            <model.CredentialByNamedCredentials>(<object>jsonObj),
+            true
+          );
         case "CREDENTIALS_BY_SOURCE":
           return model.CredentialsBySource.getJsonObj(
             <model.CredentialsBySource>(<object>jsonObj),
@@ -59,6 +64,11 @@ export namespace CredentialDetails {
 
     if (obj && "credentialType" in obj && obj.credentialType) {
       switch (obj.credentialType) {
+        case "CREDENTIALS_BY_NAMED_CREDS":
+          return model.CredentialByNamedCredentials.getDeserializedJsonObj(
+            <model.CredentialByNamedCredentials>(<object>jsonObj),
+            true
+          );
         case "CREDENTIALS_BY_SOURCE":
           return model.CredentialsBySource.getDeserializedJsonObj(
             <model.CredentialsBySource>(<object>jsonObj),

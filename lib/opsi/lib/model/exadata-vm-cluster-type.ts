@@ -21,7 +21,8 @@ import common = require("oci-common");
  * OCI Exadata VM Cluster Type
  **/
 export enum ExadataVmClusterType {
-  VmCluster = "vmCluster"
+  VmCluster = "vmCluster",
+  AutonomousVmCluster = "autonomousVmCluster"
 }
 
 export namespace ExadataVmClusterType {

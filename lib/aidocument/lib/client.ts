@@ -1278,6 +1278,79 @@ export class AIServiceDocumentClient {
   }
 
   /**
+   * Gets model capabilities
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetModelTypeRequest
+   * @return GetModelTypeResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidocument/GetModelType.ts.html |here} to see how to use GetModelType API.
+   */
+  public async getModelType(
+    getModelTypeRequest: requests.GetModelTypeRequest
+  ): Promise<responses.GetModelTypeResponse> {
+    if (this.logger) this.logger.debug("Calling operation AIServiceDocumentClient#getModelType.");
+    const operationName = "getModelType";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{modelType}": getModelTypeRequest.modelType
+    };
+
+    const queryParams = {
+      "compartmentId": getModelTypeRequest.compartmentId,
+      "modelSubType": getModelTypeRequest.modelSubType
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getModelTypeRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getModelTypeRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/modelTypes/{modelType}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetModelTypeResponse>{},
+        body: await response.json(),
+        bodyKey: "modelTypeInfo",
+        bodyModel: model.ModelTypeInfo,
+        type: "model.ModelTypeInfo",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Get the details of a processor job.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.

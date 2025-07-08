@@ -31,6 +31,7 @@ export interface MacsManagedExternalDatabaseInsight extends model.DatabaseInsigh
   "connectorId"?: string;
   "connectionDetails"?: model.ConnectionDetails;
   "connectionCredentialDetails"?:
+    | model.CredentialByNamedCredentials
     | model.CredentialsBySource
     | model.CredentialByVault
     | model.CredentialByIam;

@@ -38,6 +38,14 @@ export interface CreatePeComanagedExadataVmclusterDetails {
    */
   "memberDatabaseDetails"?: Array<model.CreatePeComanagedDatabaseInsightDetails>;
   /**
+   * Exadata VMCluster type
+   */
+  "vmClusterType"?: model.ExadataVmClusterType;
+  /**
+   * The autonomous databases that belong to the Autonomous VM Cluster
+   */
+  "memberAutonomousDetails"?: Array<model.CreateAutonomousDatabaseInsightDetails>;
+  /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment.
    */
   "compartmentId": string;
@@ -52,6 +60,12 @@ export namespace CreatePeComanagedExadataVmclusterDetails {
           ? obj.memberDatabaseDetails.map(item => {
               return model.CreatePeComanagedDatabaseInsightDetails.getJsonObj(item);
             })
+          : undefined,
+
+        "memberAutonomousDetails": obj.memberAutonomousDetails
+          ? obj.memberAutonomousDetails.map(item => {
+              return model.CreateAutonomousDatabaseInsightDetails.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -65,6 +79,12 @@ export namespace CreatePeComanagedExadataVmclusterDetails {
         "memberDatabaseDetails": obj.memberDatabaseDetails
           ? obj.memberDatabaseDetails.map(item => {
               return model.CreatePeComanagedDatabaseInsightDetails.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "memberAutonomousDetails": obj.memberAutonomousDetails
+          ? obj.memberAutonomousDetails.map(item => {
+              return model.CreateAutonomousDatabaseInsightDetails.getDeserializedJsonObj(item);
             })
           : undefined
       }

@@ -30,6 +30,7 @@ export enum ExadataRackType {
   Elastic = "ELASTIC",
   ElasticBase = "ELASTIC_BASE",
   ElasticLarge = "ELASTIC_LARGE",
+  ElasticExtraLarge = "ELASTIC_EXTRA_LARGE",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

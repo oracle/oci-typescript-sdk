@@ -30,6 +30,8 @@ import * as ChangeExternalMysqlDatabaseInsightConnectionResponse from "./change-
 export import ChangeExternalMysqlDatabaseInsightConnectionResponse = ChangeExternalMysqlDatabaseInsightConnectionResponse.ChangeExternalMysqlDatabaseInsightConnectionResponse;
 import * as ChangeHostInsightCompartmentResponse from "./change-host-insight-compartment-response";
 export import ChangeHostInsightCompartmentResponse = ChangeHostInsightCompartmentResponse.ChangeHostInsightCompartmentResponse;
+import * as ChangeMacsManagedAutonomousDatabaseInsightConnectionResponse from "./change-macs-managed-autonomous-database-insight-connection-response";
+export import ChangeMacsManagedAutonomousDatabaseInsightConnectionResponse = ChangeMacsManagedAutonomousDatabaseInsightConnectionResponse.ChangeMacsManagedAutonomousDatabaseInsightConnectionResponse;
 import * as ChangeMacsManagedCloudDatabaseInsightConnectionResponse from "./change-macs-managed-cloud-database-insight-connection-response";
 export import ChangeMacsManagedCloudDatabaseInsightConnectionResponse = ChangeMacsManagedCloudDatabaseInsightConnectionResponse.ChangeMacsManagedCloudDatabaseInsightConnectionResponse;
 import * as ChangeNewsReportCompartmentResponse from "./change-news-report-compartment-response";
@@ -352,6 +354,10 @@ import * as SummarizeSqlStatisticsTimeSeriesResponse from "./summarize-sql-stati
 export import SummarizeSqlStatisticsTimeSeriesResponse = SummarizeSqlStatisticsTimeSeriesResponse.SummarizeSqlStatisticsTimeSeriesResponse;
 import * as SummarizeSqlStatisticsTimeSeriesByPlanResponse from "./summarize-sql-statistics-time-series-by-plan-response";
 export import SummarizeSqlStatisticsTimeSeriesByPlanResponse = SummarizeSqlStatisticsTimeSeriesByPlanResponse.SummarizeSqlStatisticsTimeSeriesByPlanResponse;
+import * as SynchronizeAutonomousDatabaseToExadataResponse from "./synchronize-autonomous-database-to-exadata-response";
+export import SynchronizeAutonomousDatabaseToExadataResponse = SynchronizeAutonomousDatabaseToExadataResponse.SynchronizeAutonomousDatabaseToExadataResponse;
+import * as TestMacsManagedAutonomousDatabaseInsightConnectionResponse from "./test-macs-managed-autonomous-database-insight-connection-response";
+export import TestMacsManagedAutonomousDatabaseInsightConnectionResponse = TestMacsManagedAutonomousDatabaseInsightConnectionResponse.TestMacsManagedAutonomousDatabaseInsightConnectionResponse;
 import * as TestMacsManagedCloudDatabaseInsightConnectionResponse from "./test-macs-managed-cloud-database-insight-connection-response";
 export import TestMacsManagedCloudDatabaseInsightConnectionResponse = TestMacsManagedCloudDatabaseInsightConnectionResponse.TestMacsManagedCloudDatabaseInsightConnectionResponse;
 import * as UpdateAwrHubResponse from "./update-awr-hub-response";

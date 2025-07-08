@@ -27,6 +27,11 @@ export namespace DocumentFeature {
 
     if (obj && "featureType" in obj && obj.featureType) {
       switch (obj.featureType) {
+        case "DOCUMENT_ELEMENTS_EXTRACTION":
+          return model.DocumentElementsExtractionFeature.getJsonObj(
+            <model.DocumentElementsExtractionFeature>(<object>jsonObj),
+            true
+          );
         case "DOCUMENT_CLASSIFICATION":
           return model.DocumentClassificationFeature.getJsonObj(
             <model.DocumentClassificationFeature>(<object>jsonObj),
@@ -63,6 +68,11 @@ export namespace DocumentFeature {
 
     if (obj && "featureType" in obj && obj.featureType) {
       switch (obj.featureType) {
+        case "DOCUMENT_ELEMENTS_EXTRACTION":
+          return model.DocumentElementsExtractionFeature.getDeserializedJsonObj(
+            <model.DocumentElementsExtractionFeature>(<object>jsonObj),
+            true
+          );
         case "DOCUMENT_CLASSIFICATION":
           return model.DocumentClassificationFeature.getDeserializedJsonObj(
             <model.DocumentClassificationFeature>(<object>jsonObj),

@@ -888,6 +888,89 @@ export class OperationsInsightsClient {
   }
 
   /**
+   * Change the connection details of a MACS-managed autonomous database insight. When provided, If-Match is checked against ETag values of the resource.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ChangeMacsManagedAutonomousDatabaseInsightConnectionRequest
+   * @return ChangeMacsManagedAutonomousDatabaseInsightConnectionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ChangeMacsManagedAutonomousDatabaseInsightConnection.ts.html |here} to see how to use ChangeMacsManagedAutonomousDatabaseInsightConnection API.
+   */
+  public async changeMacsManagedAutonomousDatabaseInsightConnection(
+    changeMacsManagedAutonomousDatabaseInsightConnectionRequest: requests.ChangeMacsManagedAutonomousDatabaseInsightConnectionRequest
+  ): Promise<responses.ChangeMacsManagedAutonomousDatabaseInsightConnectionResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OperationsInsightsClient#changeMacsManagedAutonomousDatabaseInsightConnection."
+      );
+    const operationName = "changeMacsManagedAutonomousDatabaseInsightConnection";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{databaseInsightId}":
+        changeMacsManagedAutonomousDatabaseInsightConnectionRequest.databaseInsightId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeMacsManagedAutonomousDatabaseInsightConnectionRequest.ifMatch,
+      "opc-request-id": changeMacsManagedAutonomousDatabaseInsightConnectionRequest.opcRequestId,
+      "opc-retry-token": changeMacsManagedAutonomousDatabaseInsightConnectionRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeMacsManagedAutonomousDatabaseInsightConnectionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/databaseInsights/{databaseInsightId}/actions/changeMacsManagedAutonomousDatabaseInsightConnectionDetails",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeMacsManagedAutonomousDatabaseInsightConnectionRequest.changeMacsManagedAutonomousDatabaseInsightConnectionDetails,
+        "ChangeMacsManagedAutonomousDatabaseInsightConnectionDetails",
+        model.ChangeMacsManagedAutonomousDatabaseInsightConnectionDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeMacsManagedAutonomousDatabaseInsightConnectionResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Change the connection details of a Cloud MACS-managed database insight. When provided, If-Match is checked against ETag values of the resource.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeMacsManagedCloudDatabaseInsightConnectionRequest
@@ -15301,6 +15384,174 @@ Note that this API does not return information on the number of times each datab
           {
             value: response.headers.get("opc-next-page"),
             key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Synchronize infrastructure details that has been missing when autonomous database onboarded in Operations Insights.
+   * Onboarded Opsi ExadataInsight resource need to be provided with compartmentId for searching infrastruture details.
+   * The query parameters, DatabaseId and DatabaseInsightId, are mutually exclusive and provided for searching Opsi resources that have been onboarded.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param SynchronizeAutonomousDatabaseToExadataRequest
+   * @return SynchronizeAutonomousDatabaseToExadataResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SynchronizeAutonomousDatabaseToExadata.ts.html |here} to see how to use SynchronizeAutonomousDatabaseToExadata API.
+   */
+  public async synchronizeAutonomousDatabaseToExadata(
+    synchronizeAutonomousDatabaseToExadataRequest: requests.SynchronizeAutonomousDatabaseToExadataRequest
+  ): Promise<responses.SynchronizeAutonomousDatabaseToExadataResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OperationsInsightsClient#synchronizeAutonomousDatabaseToExadata."
+      );
+    const operationName = "synchronizeAutonomousDatabaseToExadata";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": synchronizeAutonomousDatabaseToExadataRequest.compartmentId,
+      "databaseId": synchronizeAutonomousDatabaseToExadataRequest.databaseId,
+      "id": synchronizeAutonomousDatabaseToExadataRequest.id,
+      "exadataInsightId": synchronizeAutonomousDatabaseToExadataRequest.exadataInsightId
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": synchronizeAutonomousDatabaseToExadataRequest.ifMatch,
+      "opc-request-id": synchronizeAutonomousDatabaseToExadataRequest.opcRequestId,
+      "opc-retry-token": synchronizeAutonomousDatabaseToExadataRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      synchronizeAutonomousDatabaseToExadataRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseInsights/actions/synchronizeAutonomousDatabaseToExadata",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        synchronizeAutonomousDatabaseToExadataRequest.synchronizeAutonomousDatabaseToExadataDetails,
+        "SynchronizeAutonomousDatabaseToExadataDetails",
+        model.SynchronizeAutonomousDatabaseToExadataDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SynchronizeAutonomousDatabaseToExadataResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Test the connection details of a MACS-managed autonomous database.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param TestMacsManagedAutonomousDatabaseInsightConnectionRequest
+   * @return TestMacsManagedAutonomousDatabaseInsightConnectionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/TestMacsManagedAutonomousDatabaseInsightConnection.ts.html |here} to see how to use TestMacsManagedAutonomousDatabaseInsightConnection API.
+   */
+  public async testMacsManagedAutonomousDatabaseInsightConnection(
+    testMacsManagedAutonomousDatabaseInsightConnectionRequest: requests.TestMacsManagedAutonomousDatabaseInsightConnectionRequest
+  ): Promise<responses.TestMacsManagedAutonomousDatabaseInsightConnectionResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OperationsInsightsClient#testMacsManagedAutonomousDatabaseInsightConnection."
+      );
+    const operationName = "testMacsManagedAutonomousDatabaseInsightConnection";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "databaseId": testMacsManagedAutonomousDatabaseInsightConnectionRequest.databaseId,
+      "id": testMacsManagedAutonomousDatabaseInsightConnectionRequest.id
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": testMacsManagedAutonomousDatabaseInsightConnectionRequest.opcRequestId,
+      "opc-retry-token": testMacsManagedAutonomousDatabaseInsightConnectionRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      testMacsManagedAutonomousDatabaseInsightConnectionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseInsights/actions/testMacsManagedAutonomousDatabaseInsightConnectionDetails",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        testMacsManagedAutonomousDatabaseInsightConnectionRequest.testMacsManagedAutonomousDatabaseInsightConnectionDetails,
+        "TestMacsManagedAutonomousDatabaseInsightConnectionDetails",
+        model.TestMacsManagedAutonomousDatabaseInsightConnectionDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.TestMacsManagedAutonomousDatabaseInsightConnectionResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           }
         ]

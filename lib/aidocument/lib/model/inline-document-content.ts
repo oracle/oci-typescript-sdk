@@ -22,6 +22,10 @@ export interface InlineDocumentContent extends model.InputLocation {
    * Raw document data with Base64 encoding.
    */
   "data": string;
+  /**
+   * The page ranges to be analysed.
+   */
+  "pageRange"?: Array<string>;
 
   "sourceType": string;
 }

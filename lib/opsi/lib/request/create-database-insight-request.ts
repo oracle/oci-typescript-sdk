@@ -25,6 +25,7 @@ export interface CreateDatabaseInsightRequest extends common.BaseRequest {
     | model.CreateMacsManagedCloudDatabaseInsightDetails
     | model.CreateExternalMysqlDatabaseInsightDetails
     | model.CreateAutonomousDatabaseInsightDetails
+    | model.CreateMacsManagedAutonomousDatabaseInsightDetails
     | model.CreateMdsMySqlDatabaseInsightDetails
     | model.CreateEmManagedExternalDatabaseInsightDetails
     | model.CreatePeComanagedDatabaseInsightDetails;

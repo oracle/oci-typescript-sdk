@@ -22,6 +22,14 @@ export interface DocumentTextExtractionFeature extends model.DocumentFeature {
    * Whether or not to generate a searchable PDF file.
    */
   "generateSearchablePdf"?: boolean;
+  /**
+   * Unique identifier custom model OCID that should be used for inference.
+   */
+  "modelId"?: string;
+  /**
+   * Whether checkbox detection feature is enabled or disabled.
+   */
+  "selectionMarkDetection"?: boolean;
 
   "featureType": string;
 }
