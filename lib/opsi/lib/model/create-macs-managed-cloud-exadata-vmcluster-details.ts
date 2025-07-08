@@ -26,6 +26,10 @@ export interface CreateMacsManagedCloudExadataVmclusterDetails
    * The databases that belong to the VM Cluster
    */
   "memberDatabaseDetails"?: Array<model.CreateMacsManagedCloudDatabaseInsightDetails>;
+  /**
+   * The autonomous databases that belong to the Autonmous VM Cluster
+   */
+  "memberAutonomousDetails"?: Array<model.CreateMacsManagedAutonomousDatabaseInsightDetails>;
 
   "vmClusterType": string;
 }
@@ -45,6 +49,11 @@ export namespace CreateMacsManagedCloudExadataVmclusterDetails {
         "memberDatabaseDetails": obj.memberDatabaseDetails
           ? obj.memberDatabaseDetails.map(item => {
               return model.CreateMacsManagedCloudDatabaseInsightDetails.getJsonObj(item);
+            })
+          : undefined,
+        "memberAutonomousDetails": obj.memberAutonomousDetails
+          ? obj.memberAutonomousDetails.map(item => {
+              return model.CreateMacsManagedAutonomousDatabaseInsightDetails.getJsonObj(item);
             })
           : undefined
       }
@@ -67,6 +76,13 @@ export namespace CreateMacsManagedCloudExadataVmclusterDetails {
         "memberDatabaseDetails": obj.memberDatabaseDetails
           ? obj.memberDatabaseDetails.map(item => {
               return model.CreateMacsManagedCloudDatabaseInsightDetails.getDeserializedJsonObj(
+                item
+              );
+            })
+          : undefined,
+        "memberAutonomousDetails": obj.memberAutonomousDetails
+          ? obj.memberAutonomousDetails.map(item => {
+              return model.CreateMacsManagedAutonomousDatabaseInsightDetails.getDeserializedJsonObj(
                 item
               );
             })

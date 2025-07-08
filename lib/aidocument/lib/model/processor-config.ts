@@ -27,6 +27,11 @@ export namespace ProcessorConfig {
 
     if (obj && "processorType" in obj && obj.processorType) {
       switch (obj.processorType) {
+        case "INVOICE":
+          return model.InvoiceProcessorConfig.getJsonObj(
+            <model.InvoiceProcessorConfig>(<object>jsonObj),
+            true
+          );
         case "GENERAL":
           return model.GeneralProcessorConfig.getJsonObj(
             <model.GeneralProcessorConfig>(<object>jsonObj),
@@ -43,6 +48,11 @@ export namespace ProcessorConfig {
 
     if (obj && "processorType" in obj && obj.processorType) {
       switch (obj.processorType) {
+        case "INVOICE":
+          return model.InvoiceProcessorConfig.getDeserializedJsonObj(
+            <model.InvoiceProcessorConfig>(<object>jsonObj),
+            true
+          );
         case "GENERAL":
           return model.GeneralProcessorConfig.getDeserializedJsonObj(
             <model.GeneralProcessorConfig>(<object>jsonObj),

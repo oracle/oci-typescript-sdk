@@ -22,6 +22,10 @@ export interface InlineDocumentDetails extends model.DocumentDetails {
    * Raw document data with Base64 encoding.
    */
   "data": string;
+  /**
+   * The page ranges to be analysed.
+   */
+  "pageRange"?: Array<string>;
 
   "source": string;
 }

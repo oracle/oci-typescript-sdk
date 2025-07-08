@@ -98,6 +98,11 @@ export namespace DatabaseInsight {
             <model.EmManagedExternalDatabaseInsight>(<object>jsonObj),
             true
           );
+        case "MACS_MANAGED_AUTONOMOUS_DATABASE":
+          return model.MacsManagedAutonomousDatabaseInsight.getJsonObj(
+            <model.MacsManagedAutonomousDatabaseInsight>(<object>jsonObj),
+            true
+          );
         case "MACS_MANAGED_EXTERNAL_DATABASE":
           return model.MacsManagedExternalDatabaseInsight.getJsonObj(
             <model.MacsManagedExternalDatabaseInsight>(<object>jsonObj),
@@ -142,6 +147,11 @@ export namespace DatabaseInsight {
         case "EM_MANAGED_EXTERNAL_DATABASE":
           return model.EmManagedExternalDatabaseInsight.getDeserializedJsonObj(
             <model.EmManagedExternalDatabaseInsight>(<object>jsonObj),
+            true
+          );
+        case "MACS_MANAGED_AUTONOMOUS_DATABASE":
+          return model.MacsManagedAutonomousDatabaseInsight.getDeserializedJsonObj(
+            <model.MacsManagedAutonomousDatabaseInsight>(<object>jsonObj),
             true
           );
         case "MACS_MANAGED_EXTERNAL_DATABASE":

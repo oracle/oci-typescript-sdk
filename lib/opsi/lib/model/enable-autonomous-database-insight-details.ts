@@ -31,7 +31,11 @@ export interface EnableAutonomousDatabaseInsightDetails extends model.EnableData
    */
   "isAdvancedFeaturesEnabled": boolean;
   "connectionDetails"?: model.ConnectionDetails;
-  "credentialDetails"?: model.CredentialsBySource | model.CredentialByVault | model.CredentialByIam;
+  "credentialDetails"?:
+    | model.CredentialByNamedCredentials
+    | model.CredentialsBySource
+    | model.CredentialByVault
+    | model.CredentialByIam;
   /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the OPSI private endpoint
    */

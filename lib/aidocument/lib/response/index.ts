@@ -37,6 +37,8 @@ import * as DeleteProjectResponse from "./delete-project-response";
 export import DeleteProjectResponse = DeleteProjectResponse.DeleteProjectResponse;
 import * as GetModelResponse from "./get-model-response";
 export import GetModelResponse = GetModelResponse.GetModelResponse;
+import * as GetModelTypeResponse from "./get-model-type-response";
+export import GetModelTypeResponse = GetModelTypeResponse.GetModelTypeResponse;
 import * as GetProcessorJobResponse from "./get-processor-job-response";
 export import GetProcessorJobResponse = GetProcessorJobResponse.GetProcessorJobResponse;
 import * as GetProjectResponse from "./get-project-response";

@@ -35,6 +35,14 @@ export interface CreateModelDetails {
    */
   "modelType": string;
   /**
+   * Applicable to only PRE_TRAINED_KEY_VALUE_EXTRACTION, PRE_TRAINED_DOCUMENT_ELEMENTS_EXTRACTION.
+   */
+  "modelSubType"?: model.KvModelSubType | model.DocumentElementsSubType;
+  /**
+   * Number of replicas required for this model. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "inferenceUnits"?: number;
+  /**
    * The compartment identifier.
    */
   "compartmentId": string;
@@ -46,6 +54,10 @@ export interface CreateModelDetails {
    * The maximum model training time in hours, expressed as a decimal fraction. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maxTrainingTimeInHours"?: number;
+  /**
+   * The document language for model training, abbreviated according to the BCP 47 syntax.
+   */
+  "language"?: string;
   "trainingDataset"?: model.DataScienceLabelingDataset | model.ObjectStorageDataset;
   "testingDataset"?: model.DataScienceLabelingDataset | model.ObjectStorageDataset;
   "validationDataset"?: model.DataScienceLabelingDataset | model.ObjectStorageDataset;
@@ -80,6 +92,10 @@ export namespace CreateModelDetails {
     const jsonObj = {
       ...obj,
       ...{
+        "modelSubType": obj.modelSubType
+          ? model.ModelSubType.getJsonObj(obj.modelSubType)
+          : undefined,
+
         "trainingDataset": obj.trainingDataset
           ? model.Dataset.getJsonObj(obj.trainingDataset)
           : undefined,
@@ -103,6 +119,10 @@ export namespace CreateModelDetails {
     const jsonObj = {
       ...obj,
       ...{
+        "modelSubType": obj.modelSubType
+          ? model.ModelSubType.getDeserializedJsonObj(obj.modelSubType)
+          : undefined,
+
         "trainingDataset": obj.trainingDataset
           ? model.Dataset.getDeserializedJsonObj(obj.trainingDataset)
           : undefined,

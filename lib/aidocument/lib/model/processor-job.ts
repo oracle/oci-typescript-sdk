@@ -30,7 +30,7 @@ export interface ProcessorJob {
    * The display name of the processor job.
    */
   "displayName"?: string;
-  "processorConfig": model.GeneralProcessorConfig;
+  "processorConfig": model.InvoiceProcessorConfig | model.GeneralProcessorConfig;
   "inputLocation"?: model.InlineDocumentContent | model.ObjectStorageLocations;
   /**
    * The job acceptance time.

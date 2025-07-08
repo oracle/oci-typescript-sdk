@@ -30,6 +30,8 @@ import * as ChangeExternalMysqlDatabaseInsightConnectionRequest from "./change-e
 export import ChangeExternalMysqlDatabaseInsightConnectionRequest = ChangeExternalMysqlDatabaseInsightConnectionRequest.ChangeExternalMysqlDatabaseInsightConnectionRequest;
 import * as ChangeHostInsightCompartmentRequest from "./change-host-insight-compartment-request";
 export import ChangeHostInsightCompartmentRequest = ChangeHostInsightCompartmentRequest.ChangeHostInsightCompartmentRequest;
+import * as ChangeMacsManagedAutonomousDatabaseInsightConnectionRequest from "./change-macs-managed-autonomous-database-insight-connection-request";
+export import ChangeMacsManagedAutonomousDatabaseInsightConnectionRequest = ChangeMacsManagedAutonomousDatabaseInsightConnectionRequest.ChangeMacsManagedAutonomousDatabaseInsightConnectionRequest;
 import * as ChangeMacsManagedCloudDatabaseInsightConnectionRequest from "./change-macs-managed-cloud-database-insight-connection-request";
 export import ChangeMacsManagedCloudDatabaseInsightConnectionRequest = ChangeMacsManagedCloudDatabaseInsightConnectionRequest.ChangeMacsManagedCloudDatabaseInsightConnectionRequest;
 import * as ChangeNewsReportCompartmentRequest from "./change-news-report-compartment-request";
@@ -352,6 +354,10 @@ import * as SummarizeSqlStatisticsTimeSeriesRequest from "./summarize-sql-statis
 export import SummarizeSqlStatisticsTimeSeriesRequest = SummarizeSqlStatisticsTimeSeriesRequest.SummarizeSqlStatisticsTimeSeriesRequest;
 import * as SummarizeSqlStatisticsTimeSeriesByPlanRequest from "./summarize-sql-statistics-time-series-by-plan-request";
 export import SummarizeSqlStatisticsTimeSeriesByPlanRequest = SummarizeSqlStatisticsTimeSeriesByPlanRequest.SummarizeSqlStatisticsTimeSeriesByPlanRequest;
+import * as SynchronizeAutonomousDatabaseToExadataRequest from "./synchronize-autonomous-database-to-exadata-request";
+export import SynchronizeAutonomousDatabaseToExadataRequest = SynchronizeAutonomousDatabaseToExadataRequest.SynchronizeAutonomousDatabaseToExadataRequest;
+import * as TestMacsManagedAutonomousDatabaseInsightConnectionRequest from "./test-macs-managed-autonomous-database-insight-connection-request";
+export import TestMacsManagedAutonomousDatabaseInsightConnectionRequest = TestMacsManagedAutonomousDatabaseInsightConnectionRequest.TestMacsManagedAutonomousDatabaseInsightConnectionRequest;
 import * as TestMacsManagedCloudDatabaseInsightConnectionRequest from "./test-macs-managed-cloud-database-insight-connection-request";
 export import TestMacsManagedCloudDatabaseInsightConnectionRequest = TestMacsManagedCloudDatabaseInsightConnectionRequest.TestMacsManagedCloudDatabaseInsightConnectionRequest;
 import * as UpdateAwrHubRequest from "./update-awr-hub-request";

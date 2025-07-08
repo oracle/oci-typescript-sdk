@@ -30,6 +30,10 @@ export interface ObjectLocation {
    * The Object Storage object name.
    */
   "objectName": string;
+  /**
+   * The page ranges to be analysed.
+   */
+  "pageRange"?: Array<string>;
 }
 
 export namespace ObjectLocation {

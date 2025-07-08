@@ -51,6 +51,10 @@ export interface SubscriptionSummary {
    */
   "isIntentToPay"?: boolean;
   /**
+   * Corporate conversion allowed status
+   */
+  "isCorporateConversionAllowed"?: boolean;
+  /**
    * Currency code
    */
   "currencyCode"?: string;
@@ -121,6 +125,7 @@ export namespace SubscriptionSummary {
   export enum UpgradeStateDetails {
     TaxError = "TAX_ERROR",
     UpgradeError = "UPGRADE_ERROR",
+    P2CError = "P2C_ERROR",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

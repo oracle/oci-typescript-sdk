@@ -46,6 +46,14 @@ export interface ExadataDatabaseMachineConfigurationSummary
    * Enterprise Manager Entity Type
    */
   "enterpriseManagerEntityType": string;
+  /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the database.
+   */
+  "parentId"?: string;
+  /**
+   * The region the resource resides in.
+   */
+  "region"?: string;
 
   "entitySource": string;
 }

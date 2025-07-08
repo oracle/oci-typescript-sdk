@@ -144,6 +144,11 @@ export namespace DatabaseInsightSummary {
             <model.ExternalMysqlDatabaseInsightSummary>(<object>jsonObj),
             true
           );
+        case "MACS_MANAGED_AUTONOMOUS_DATABASE":
+          return model.MacsManagedAutonomousDatabaseInsightSummary.getJsonObj(
+            <model.MacsManagedAutonomousDatabaseInsightSummary>(<object>jsonObj),
+            true
+          );
         default:
           if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.entitySource}`);
       }
@@ -188,6 +193,11 @@ export namespace DatabaseInsightSummary {
         case "EXTERNAL_MYSQL_DATABASE_SYSTEM":
           return model.ExternalMysqlDatabaseInsightSummary.getDeserializedJsonObj(
             <model.ExternalMysqlDatabaseInsightSummary>(<object>jsonObj),
+            true
+          );
+        case "MACS_MANAGED_AUTONOMOUS_DATABASE":
+          return model.MacsManagedAutonomousDatabaseInsightSummary.getDeserializedJsonObj(
+            <model.MacsManagedAutonomousDatabaseInsightSummary>(<object>jsonObj),
             true
           );
         default:

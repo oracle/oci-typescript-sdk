@@ -52,6 +52,14 @@ export interface AnalyzeDocumentResult {
    */
   "tableExtractionModelVersion"?: string;
   /**
+   * The document signature extraction model version.
+   */
+  "signatureExtractionModelVersion"?: string;
+  /**
+   * The document bar code extraction model version.
+   */
+  "barCodeExtractionModelVersion"?: string;
+  /**
    * The errors encountered during document analysis.
    */
   "errors"?: Array<model.ProcessingError>;
