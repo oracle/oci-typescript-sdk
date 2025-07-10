@@ -1,6 +1,6 @@
 {
   "name": "oci-events",
-  "version": "2.112.0",
+  "version": "2.112.1",
   "description": "OCI NodeJS client for Events Service",
   "repository": {
     "type": "git",
