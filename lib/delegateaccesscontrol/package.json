@@ -1,6 +1,6 @@
 {
   "name": "oci-delegateaccesscontrol",
-  "version": "2.112.1",
+  "version": "2.112.2",
   "description": "OCI NodeJS client for Delegate Access Control Service",
   "repository": {
     "type": "git",
