@@ -1,6 +1,6 @@
 {
   "name": "oci-aidocument",
-  "version": "2.112.1",
+  "version": "2.112.2",
   "description": "OCI NodeJS client for Ai Document Service",
   "repository": {
     "type": "git",
