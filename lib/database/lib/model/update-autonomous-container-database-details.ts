@@ -30,6 +30,11 @@ export interface UpdateAutonomousContainerDatabaseDetails {
    */
   "customerContacts"?: Array<model.CustomerContact>;
   /**
+   * The OKV End Point Group name for the Autonomous Container Database.
+   *
+   */
+  "okvEndPointGroupName"?: string;
+  /**
    * Database Patch model preference.
    */
   "patchModel"?: UpdateAutonomousContainerDatabaseDetails.PatchModel;

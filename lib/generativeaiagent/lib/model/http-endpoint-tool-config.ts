@@ -33,11 +33,7 @@ export interface HttpEndpointToolConfig extends model.ToolConfig {
    * The subnet ID from agent developer tenancy through which the egress is going to be routed.
    */
   "subnetId": string;
-  "httpEndpointAuthConfig":
-    | model.HttpEndpointIdcsAuthConfig
-    | model.HttpEndpointDelegatedBearerAuthConfig
-    | model.HttpEndpointNoAuthConfig
-    | model.HttpEndpointOciResourcePrincipalAuthConfig;
+  "httpEndpointAuthConfig": model.HttpEndpointAuthConfig;
 
   "toolConfigType": string;
 }

@@ -40,6 +40,7 @@ export interface UpdateToolDetails {
     | model.SqlToolConfig
     | model.FunctionCallingToolConfig
     | model.HttpEndpointToolConfig
+    | model.AgentToolConfig
     | model.RagToolConfig;
   /**
    * Key-value pairs to allow additional configurations.

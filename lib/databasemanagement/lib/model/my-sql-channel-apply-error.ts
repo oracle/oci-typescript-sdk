@@ -18,11 +18,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * MySQL server replication Channel name and error from its apply operation.
+ * MySQL server replication channel name and error from its apply operation.
  */
 export interface MySqlChannelApplyError {
   /**
-   * The name of the replication channel
+   * The name of the replication channel.
    */
   "channelName"?: string;
   "applyError": model.MySqlApplyError;

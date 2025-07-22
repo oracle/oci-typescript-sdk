@@ -1,11 +1,8 @@
 /**
  * Autoscaling API
- * APIs for dynamically scaling Compute resources to meet application requirements. For more information about
+ * Use the Autoscaling API to dynamically scale compute resources to meet application requirements. For more information about
 autoscaling, see [Autoscaling](https://docs.oracle.com/iaas/Content/Compute/Tasks/autoscalinginstancepools.htm). For information about the
-Compute service, see [Overview of the Compute Service](https://docs.oracle.com/iaas/Content/Compute/Concepts/computeoverview.htm).
-
-**Note:** Autoscaling is not available in US Government Cloud tenancies. For more information, see
-[Oracle Cloud Infrastructure US Government Cloud](https://docs.oracle.com/iaas/Content/General/Concepts/govoverview.htm).
+Compute service, see [Compute](https://docs.oracle.com/iaas/Content/Compute/home.htm).
 
  * OpenAPI spec version: 20181001
  * 
@@ -41,8 +38,8 @@ import * as CreateConditionDetails from "./create-condition-details";
 export import CreateConditionDetails = CreateConditionDetails.CreateConditionDetails;
 import * as ExecutionSchedule from "./execution-schedule";
 export import ExecutionSchedule = ExecutionSchedule.ExecutionSchedule;
-import * as Metric from "./metric";
-export import Metric = Metric.Metric;
+import * as MetricBase from "./metric-base";
+export import MetricBase = MetricBase.MetricBase;
 import * as Resource from "./resource";
 export import Resource = Resource.Resource;
 import * as ResourceAction from "./resource-action";
@@ -62,8 +59,12 @@ import * as CreateThresholdPolicyDetails from "./create-threshold-policy-details
 export import CreateThresholdPolicyDetails = CreateThresholdPolicyDetails.CreateThresholdPolicyDetails;
 import * as CronExecutionSchedule from "./cron-execution-schedule";
 export import CronExecutionSchedule = CronExecutionSchedule.CronExecutionSchedule;
+import * as CustomMetric from "./custom-metric";
+export import CustomMetric = CustomMetric.CustomMetric;
 import * as InstancePoolResource from "./instance-pool-resource";
 export import InstancePoolResource = InstancePoolResource.InstancePoolResource;
+import * as Metric from "./metric";
+export import Metric = Metric.Metric;
 import * as ResourcePowerAction from "./resource-power-action";
 export import ResourcePowerAction = ResourcePowerAction.ResourcePowerAction;
 import * as ScheduledPolicy from "./scheduled-policy";

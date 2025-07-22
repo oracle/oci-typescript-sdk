@@ -44,6 +44,8 @@ export interface DataIngestionJobSummary {
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the parent DataSource.
    */
   "dataSourceId": string;
+  "dataIngestionJobType": model.DataIngestionJobType;
+  "dataIngestionJobStatistics": model.DataIngestionJobStatistics;
   /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment.
    */
@@ -99,12 +101,32 @@ Example: {@code {\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}}
 
 export namespace DataIngestionJobSummary {
   export function getJsonObj(obj: DataIngestionJobSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "dataIngestionJobType": obj.dataIngestionJobType
+          ? model.DataIngestionJobType.getJsonObj(obj.dataIngestionJobType)
+          : undefined,
+        "dataIngestionJobStatistics": obj.dataIngestionJobStatistics
+          ? model.DataIngestionJobStatistics.getJsonObj(obj.dataIngestionJobStatistics)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: DataIngestionJobSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "dataIngestionJobType": obj.dataIngestionJobType
+          ? model.DataIngestionJobType.getDeserializedJsonObj(obj.dataIngestionJobType)
+          : undefined,
+        "dataIngestionJobStatistics": obj.dataIngestionJobStatistics
+          ? model.DataIngestionJobStatistics.getDeserializedJsonObj(obj.dataIngestionJobStatistics)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

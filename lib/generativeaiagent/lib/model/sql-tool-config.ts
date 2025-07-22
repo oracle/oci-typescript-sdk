@@ -29,7 +29,7 @@ import common = require("oci-common");
  */
 export interface SqlToolConfig extends model.ToolConfig {
   "iclExamples"?: model.ObjectStorageInputLocation | model.InlineInputLocation;
-  "databaseSchema": model.ObjectStorageInputLocation | model.InlineInputLocation;
+  "databaseSchema"?: model.ObjectStorageInputLocation | model.InlineInputLocation;
   /**
    * To enable/disable SQL execution.
    */

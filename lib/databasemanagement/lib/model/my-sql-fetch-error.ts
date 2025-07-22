@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Error from fetch operation of a MySQL server replication channel.
+ * Error from the fetch operation of a MySQL server replication channel.
  */
 export interface MySqlFetchError {
   /**

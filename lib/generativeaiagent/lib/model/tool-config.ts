@@ -49,6 +49,8 @@ export namespace ToolConfig {
             <model.HttpEndpointToolConfig>(<object>jsonObj),
             true
           );
+        case "AGENT_TOOL_CONFIG":
+          return model.AgentToolConfig.getJsonObj(<model.AgentToolConfig>(<object>jsonObj), true);
         case "RAG_TOOL_CONFIG":
           return model.RagToolConfig.getJsonObj(<model.RagToolConfig>(<object>jsonObj), true);
         default:
@@ -75,6 +77,11 @@ export namespace ToolConfig {
         case "HTTP_ENDPOINT_TOOL_CONFIG":
           return model.HttpEndpointToolConfig.getDeserializedJsonObj(
             <model.HttpEndpointToolConfig>(<object>jsonObj),
+            true
+          );
+        case "AGENT_TOOL_CONFIG":
+          return model.AgentToolConfig.getDeserializedJsonObj(
+            <model.AgentToolConfig>(<object>jsonObj),
             true
           );
         case "RAG_TOOL_CONFIG":

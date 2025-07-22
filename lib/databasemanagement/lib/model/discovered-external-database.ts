@@ -63,6 +63,10 @@ export interface DiscoveredExternalDatabase extends model.DiscoveredExternalDbSy
    * The list of Pluggable Databases.
    */
   "pluggableDatabases"?: Array<model.DiscoveredExternalPluggableDatabase>;
+  /**
+   * The list of database instances.
+   */
+  "dbInstances"?: Array<model.DiscoveredExternalDbInstance>;
   "connector"?: model.ExternalDbSystemDiscoveryMacsConnector;
   /**
    * Indicates whether Diagnostics & Management should be enabled for all the current pluggable databases in the container database.
@@ -103,6 +107,11 @@ export namespace DiscoveredExternalDatabase {
               return model.DiscoveredExternalPluggableDatabase.getJsonObj(item);
             })
           : undefined,
+        "dbInstances": obj.dbInstances
+          ? obj.dbInstances.map(item => {
+              return model.DiscoveredExternalDbInstance.getJsonObj(item);
+            })
+          : undefined,
         "connector": obj.connector
           ? model.ExternalDbSystemDiscoveryConnector.getJsonObj(obj.connector)
           : undefined
@@ -126,6 +135,11 @@ export namespace DiscoveredExternalDatabase {
         "pluggableDatabases": obj.pluggableDatabases
           ? obj.pluggableDatabases.map(item => {
               return model.DiscoveredExternalPluggableDatabase.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "dbInstances": obj.dbInstances
+          ? obj.dbInstances.map(item => {
+              return model.DiscoveredExternalDbInstance.getDeserializedJsonObj(item);
             })
           : undefined,
         "connector": obj.connector

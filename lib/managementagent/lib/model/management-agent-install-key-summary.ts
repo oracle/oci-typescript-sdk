@@ -64,6 +64,24 @@ export interface ManagementAgentInstallKeySummary {
    * If set to true, the install key has no expiration date or usage limit. Properties allowedKeyInstallCount and timeExpires are ignored if set to true. Defaults to false.
    */
   "isUnlimited"?: boolean;
+  /**
+   * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
+   * Example: {@code {\"bar-key\": \"value\"}}
+   *
+   */
+  "freeformTags"?: { [key: string]: string };
+  /**
+   * Defined tags for this resource. Each key is predefined and scoped to a namespace.
+   * Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
+   *
+   */
+  "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * Usage of system tag keys. These predefined keys are scoped to namespaces.
+   * Example: {@code { \"orcl-cloud\": { \"free-tier-retained\": \"true\" } }}
+   *
+   */
+  "systemTags"?: { [key: string]: { [key: string]: any } };
 }
 
 export namespace ManagementAgentInstallKeySummary {

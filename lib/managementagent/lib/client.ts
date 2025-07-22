@@ -403,6 +403,94 @@ export class ManagementAgentClient {
   }
 
   /**
+   * Named credential creation request to given Management Agent.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateNamedCredentialRequest
+   * @return CreateNamedCredentialResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managementagent/CreateNamedCredential.ts.html |here} to see how to use CreateNamedCredential API.
+   */
+  public async createNamedCredential(
+    createNamedCredentialRequest: requests.CreateNamedCredentialRequest
+  ): Promise<responses.CreateNamedCredentialResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ManagementAgentClient#createNamedCredential.");
+    const operationName = "createNamedCredential";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/management-agent/20200202/NamedCredential/CreateNamedCredential";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createNamedCredentialRequest.opcRetryToken,
+      "opc-request-id": createNamedCredentialRequest.opcRequestId,
+      "if-match": createNamedCredentialRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createNamedCredentialRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/namedCredentials",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createNamedCredentialRequest.createNamedCredentialDetails,
+        "CreateNamedCredentialDetails",
+        model.CreateNamedCredentialDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateNamedCredentialResponse>{},
+        body: await response.json(),
+        bodyKey: "namedCredential",
+        bodyModel: model.NamedCredential,
+        type: "model.NamedCredential",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Datasource delete request to given Management Agent.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -605,6 +693,81 @@ export class ManagementAgentClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Named credential delete request to sent to associated Management Agent.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteNamedCredentialRequest
+   * @return DeleteNamedCredentialResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managementagent/DeleteNamedCredential.ts.html |here} to see how to use DeleteNamedCredential API.
+   */
+  public async deleteNamedCredential(
+    deleteNamedCredentialRequest: requests.DeleteNamedCredentialRequest
+  ): Promise<responses.DeleteNamedCredentialResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ManagementAgentClient#deleteNamedCredential.");
+    const operationName = "deleteNamedCredential";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/management-agent/20200202/ManagementAgent/DeleteNamedCredential";
+    const pathParams = {
+      "{namedCredentialId}": deleteNamedCredentialRequest.namedCredentialId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteNamedCredentialRequest.ifMatch,
+      "opc-request-id": deleteNamedCredentialRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteNamedCredentialRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/namedCredentials/{namedCredentialId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteNamedCredentialResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           }
         ]
@@ -1147,6 +1310,164 @@ export class ManagementAgentClient {
           {
             value: response.headers.get("content-type"),
             key: "contentType",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get Named credential details for given Id and given Management Agent.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetNamedCredentialRequest
+   * @return GetNamedCredentialResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managementagent/GetNamedCredential.ts.html |here} to see how to use GetNamedCredential API.
+   */
+  public async getNamedCredential(
+    getNamedCredentialRequest: requests.GetNamedCredentialRequest
+  ): Promise<responses.GetNamedCredentialResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ManagementAgentClient#getNamedCredential.");
+    const operationName = "getNamedCredential";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/management-agent/20200202/ManagementAgent/GetNamedCredential";
+    const pathParams = {
+      "{namedCredentialId}": getNamedCredentialRequest.namedCredentialId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": getNamedCredentialRequest.opcRetryToken,
+      "opc-request-id": getNamedCredentialRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getNamedCredentialRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/namedCredentials/{namedCredentialId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetNamedCredentialResponse>{},
+        body: await response.json(),
+        bodyKey: "namedCredential",
+        bodyModel: model.NamedCredential,
+        type: "model.NamedCredential",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Return the Metadata definition for Named Credentials supported by Management Agent.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetNamedCredentialsMetadatumRequest
+   * @return GetNamedCredentialsMetadatumResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managementagent/GetNamedCredentialsMetadatum.ts.html |here} to see how to use GetNamedCredentialsMetadatum API.
+   */
+  public async getNamedCredentialsMetadatum(
+    getNamedCredentialsMetadatumRequest: requests.GetNamedCredentialsMetadatumRequest
+  ): Promise<responses.GetNamedCredentialsMetadatumResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ManagementAgentClient#getNamedCredentialsMetadatum.");
+    const operationName = "getNamedCredentialsMetadatum";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/management-agent/20200202/NamedCredential/GetNamedCredentialsMetadatum";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": getNamedCredentialsMetadatumRequest.compartmentId,
+      "managementAgentId": getNamedCredentialsMetadatumRequest.managementAgentId
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getNamedCredentialsMetadatumRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getNamedCredentialsMetadatumRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managementAgents/namedCredentialsMetadata",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetNamedCredentialsMetadatumResponse>{},
+        body: await response.json(),
+        bodyKey: "namedCredentialsMetadatum",
+        bodyModel: model.NamedCredentialsMetadatum,
+        type: "model.NamedCredentialsMetadatum",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
             dataType: "string"
           }
         ]
@@ -2076,6 +2397,92 @@ export class ManagementAgentClient {
   }
 
   /**
+   * A list of Management Agent Data Sources for the given Management Agent Id.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListNamedCredentialsRequest
+   * @return ListNamedCredentialsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managementagent/ListNamedCredentials.ts.html |here} to see how to use ListNamedCredentials API.
+   */
+  public async listNamedCredentials(
+    listNamedCredentialsRequest: requests.ListNamedCredentialsRequest
+  ): Promise<responses.ListNamedCredentialsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ManagementAgentClient#listNamedCredentials.");
+    const operationName = "listNamedCredentials";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/management-agent/20200202/NamedCredential/ListNamedCredentials";
+    const pathParams = {};
+
+    const queryParams = {
+      "page": listNamedCredentialsRequest.page,
+      "limit": listNamedCredentialsRequest.limit,
+      "sortOrder": listNamedCredentialsRequest.sortOrder,
+      "sortBy": listNamedCredentialsRequest.sortBy,
+      "lifecycleState": listNamedCredentialsRequest.lifecycleState,
+      "name": listNamedCredentialsRequest.name,
+      "type": listNamedCredentialsRequest.type,
+      "managementAgentId": listNamedCredentialsRequest.managementAgentId,
+      "id": listNamedCredentialsRequest.id
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listNamedCredentialsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listNamedCredentialsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/namedCredentials",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListNamedCredentialsResponse>{},
+        body: await response.json(),
+        bodyKey: "namedCredentialCollection",
+        bodyModel: model.NamedCredentialCollection,
+        type: "model.NamedCredentialCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Return a (paginated) list of errors for a given work request.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -2969,6 +3376,96 @@ export class ManagementAgentClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Named credential update request to given Management Agent.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateNamedCredentialRequest
+   * @return UpdateNamedCredentialResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managementagent/UpdateNamedCredential.ts.html |here} to see how to use UpdateNamedCredential API.
+   */
+  public async updateNamedCredential(
+    updateNamedCredentialRequest: requests.UpdateNamedCredentialRequest
+  ): Promise<responses.UpdateNamedCredentialResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ManagementAgentClient#updateNamedCredential.");
+    const operationName = "updateNamedCredential";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/management-agent/20200202/ManagementAgent/UpdateNamedCredential";
+    const pathParams = {
+      "{namedCredentialId}": updateNamedCredentialRequest.namedCredentialId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": updateNamedCredentialRequest.opcRetryToken,
+      "opc-request-id": updateNamedCredentialRequest.opcRequestId,
+      "if-match": updateNamedCredentialRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateNamedCredentialRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/namedCredentials/{namedCredentialId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateNamedCredentialRequest.updateNamedCredentialDetails,
+        "UpdateNamedCredentialDetails",
+        model.UpdateNamedCredentialDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateNamedCredentialResponse>{},
+        body: await response.json(),
+        bodyKey: "namedCredential",
+        bodyModel: model.NamedCredential,
+        type: "model.NamedCredential",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
             dataType: "string"
           }
         ]

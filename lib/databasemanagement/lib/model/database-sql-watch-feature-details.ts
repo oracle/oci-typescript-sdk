@@ -21,6 +21,15 @@ import common = require("oci-common");
  * The details required to enable the SQL Watch feature.
  */
 export interface DatabaseSqlWatchFeatureDetails extends model.DatabaseFeatureDetails {
+  /**
+   * Indicates whether SQL Watch should be enabled for all the current pluggable databases in the container database.
+   */
+  "canEnableAllCurrentPdbs"?: boolean;
+  /**
+   * Indicates whether SQL Watch should be enabled automatically for all the pluggable databases in the container database.
+   */
+  "isAutoEnablePluggableDatabase"?: boolean;
+
   "feature": string;
 }
 

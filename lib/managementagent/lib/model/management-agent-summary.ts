@@ -110,6 +110,10 @@ export interface ManagementAgentSummary {
    */
   "installType"?: model.InstallTypes;
   /**
+   * The latest supported management agent version
+   */
+  "latestSupportedVersion"?: string;
+  /**
    * list of dataSources summaries associated with the agent
    */
   "dataSourceSummaryList"?: Array<model.DataSourceSummaryItem>;
@@ -125,6 +129,12 @@ export interface ManagementAgentSummary {
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * Usage of system tag keys. These predefined keys are scoped to namespaces.
+   * Example: {@code { \"orcl-cloud\": { \"free-tier-retained\": \"true\" } }}
+   *
+   */
+  "systemTags"?: { [key: string]: { [key: string]: any } };
 }
 
 export namespace ManagementAgentSummary {

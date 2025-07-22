@@ -18,23 +18,23 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Information pertaining to binary logs of a MySQL server.
+ * Information pertaining to the binary logs of a MySQL server.
  */
 export interface ManagedMySqlDatabaseBinaryLogInformation {
   /**
-   * Status of binary logging on this server.
+   * The status of binary logging on the MySQL server.
    */
   "binaryLogging": string;
   /**
-   * The binary logging format used by this server.
+   * The binary logging format used by the MySQL server.
    */
   "binaryLogFormat"?: string;
   /**
-   * Indicates whether compression is enabled for transactions written to binary log files on this server.
+   * Indicates whether compression is enabled for transactions written to binary log files on the MySQL server.
    */
   "binaryLogCompression"?: string;
   /**
-   * The compression ratio for binary log expressed as a percentage. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The compression ratio for the binary log, expressed as a percentage. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "binaryLogCompressionPercent"?: number;
   /**

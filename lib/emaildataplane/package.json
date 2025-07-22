@@ -1,6 +1,6 @@
 {
   "name": "oci-emaildataplane",
-  "version": "2.112.2",
+  "version": "2.113.0",
   "description": "OCI NodeJS client for Email Data Plane Service",
   "repository": {
     "type": "git",

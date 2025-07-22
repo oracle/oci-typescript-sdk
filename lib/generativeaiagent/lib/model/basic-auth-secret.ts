@@ -24,7 +24,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The details of Basic authentication configured as in OpenSearch.
+ * The details of Basic authentication configured using a secret stored in a vault.
  *
  */
 export interface BasicAuthSecret extends model.SecretDetail {
