@@ -50,6 +50,11 @@ export interface ListAutoScalingConfigurationsRequest extends common.BaseRequest
    * The field to sort by. You can provide one sort order ({@code sortOrder}). Default order for
    * TIMECREATED is descending. Default order for DISPLAYNAME is ascending. The DISPLAYNAME
    * sort order is case sensitive.
+   * <p>
+   **Note:** In general, some \"List\" operations (for example, {@code ListInstances}) let you
+   * optionally filter by availability domain if the scope of the resource type is within a
+   * single availability domain. If you call one of these \"List\" operations without specifying
+   * an availability domain, the resources are grouped by availability domain, then sorted.
    *
    */
   "sortBy"?: ListAutoScalingConfigurationsRequest.SortBy;

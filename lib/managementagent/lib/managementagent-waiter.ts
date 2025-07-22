@@ -64,6 +64,25 @@ export class ManagementAgentWaiter {
   }
 
   /**
+   * Waits forNamedCredential till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetNamedCredentialResponse | null (null in case of 404 response)
+   */
+  public async forNamedCredential(
+    request: serviceRequests.GetNamedCredentialRequest,
+    ...targetStates: models.NamedCredential.LifecycleState[]
+  ): Promise<serviceResponses.GetNamedCredentialResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getNamedCredential(request),
+      response => targetStates.includes(response.namedCredential.lifecycleState!),
+      targetStates.includes(models.NamedCredential.LifecycleState.Deleted)
+    );
+  }
+
+  /**
    * Waits forWorkRequest
    *
    * @param request the request to send

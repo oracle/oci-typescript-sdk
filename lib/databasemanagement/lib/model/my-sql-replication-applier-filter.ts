@@ -18,11 +18,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Filter configured for a replication channel
+ * Filter configured for a replication channel.
  */
 export interface MySqlReplicationApplierFilter {
   /**
-   * Type of replication filter that has been configured for the replication channel.
+   * The type of replication filter that has been configured for the replication channel.
    */
   "filterName": string;
   /**

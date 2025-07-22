@@ -22,11 +22,11 @@ import common = require("oci-common");
  */
 export interface ManagedMySqlDatabaseHighAvailabilityMemberSummary {
   /**
-   * The host name of the group member which clients use to connect to it.
+   * The host name of the group member that clients use to connect to it.
    */
   "memberHost": string;
   /**
-   * The port number of the group member which clients to connect to it. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The port number of the group member that clients use to connect to it. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "memberPort": number;
   /**

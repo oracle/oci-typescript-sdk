@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * If the replica is multi-threaded, error from worker threads. Otherwise error from the applier thread.
+ * If the replica is multi-threaded, error from worker threads. Otherwise, error from the applier thread.
  */
 export interface MySqlApplyErrorWorker {
   /**

@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
+## 2.113.0 - 2025-07-22
+### Added 
+- Support for calling Oracle Cloud Infrastructure services in the `ap-batam-1` region 
+- Support for updating autonomous databases with schedule DB version upgrade in the Database service 
+- Support for new OKV Endpoint group parameter for Autonomous Container Database operations in the Database service 
+- Support for specifying tags in backup databases and standby databases in the Database service 
+- Support for cloud database systems and improved system monitoring in the Database Management service 
+- Support for stack, image, lead generation, and service listing types in the Marketplace service 
+- Support for adding custom metric-based policies in the Autoscaling service 
+- Support for Named Credentials in the Management Agent service 
+- Support for multilingual capability, user configured Agent-As-A-Tool, data ingestion of documents, and sequentially executed steps in the Generative AI Agent service 
+- Support for IAM authentication in the Cache service    
+
+### Breaking Changes 
+- The field `httpEndpointAuthConfigType` was removed from the model `HttpEndpointAuthConfig` in the Generative AI Agent service 
+- The model `HttpEndpointIdcsAuthConfig` was removed in the Generative AI Agent service 
+- The models `AttachmentSummary`, `Attachment`, `BuyerInformation`, `CreateAttachmentDetails`, `CreateOfferDetails`, `CreateOfferRequest`, `DeleteOfferRequest`, `ListAttachmentsRequest`, `ListOffersRequest`, `AttachmentClient`, `OfferClient`, `OfferCollection`, `OfferInternalDetail`, `OfferSummary`, `Offer`, `Pricing`, `ResourceBundle`, `SellerInformation`, and `UpdateOfferDetails` were removed in the Marketplace service 
+- The AI Anomaly Detection service has reached End-of-life
+
 ## 2.112.2 - 2025-07-15
 ### Added 
 - Support for calling Oracle Cloud Infrastructure services in the ap-delhi-1 region

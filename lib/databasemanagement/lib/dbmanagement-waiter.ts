@@ -27,6 +27,196 @@ export class DbManagementWaiter {
   ) {}
 
   /**
+   * Waits forCloudAsm till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetCloudAsmResponse | null (null in case of 404 response)
+   */
+  public async forCloudAsm(
+    request: serviceRequests.GetCloudAsmRequest,
+    ...targetStates: models.CloudAsm.LifecycleState[]
+  ): Promise<serviceResponses.GetCloudAsmResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getCloudAsm(request),
+      response => targetStates.includes(response.cloudAsm.lifecycleState!),
+      targetStates.includes(models.CloudAsm.LifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forCloudAsmInstance till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetCloudAsmInstanceResponse | null (null in case of 404 response)
+   */
+  public async forCloudAsmInstance(
+    request: serviceRequests.GetCloudAsmInstanceRequest,
+    ...targetStates: models.CloudAsmInstance.LifecycleState[]
+  ): Promise<serviceResponses.GetCloudAsmInstanceResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getCloudAsmInstance(request),
+      response => targetStates.includes(response.cloudAsmInstance.lifecycleState!),
+      targetStates.includes(models.CloudAsmInstance.LifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forCloudCluster till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetCloudClusterResponse | null (null in case of 404 response)
+   */
+  public async forCloudCluster(
+    request: serviceRequests.GetCloudClusterRequest,
+    ...targetStates: models.CloudCluster.LifecycleState[]
+  ): Promise<serviceResponses.GetCloudClusterResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getCloudCluster(request),
+      response => targetStates.includes(response.cloudCluster.lifecycleState!),
+      targetStates.includes(models.CloudCluster.LifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forCloudClusterInstance till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetCloudClusterInstanceResponse | null (null in case of 404 response)
+   */
+  public async forCloudClusterInstance(
+    request: serviceRequests.GetCloudClusterInstanceRequest,
+    ...targetStates: models.CloudClusterInstance.LifecycleState[]
+  ): Promise<serviceResponses.GetCloudClusterInstanceResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getCloudClusterInstance(request),
+      response => targetStates.includes(response.cloudClusterInstance.lifecycleState!),
+      targetStates.includes(models.CloudClusterInstance.LifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forCloudDbHome till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetCloudDbHomeResponse | null (null in case of 404 response)
+   */
+  public async forCloudDbHome(
+    request: serviceRequests.GetCloudDbHomeRequest,
+    ...targetStates: models.CloudDbHome.LifecycleState[]
+  ): Promise<serviceResponses.GetCloudDbHomeResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getCloudDbHome(request),
+      response => targetStates.includes(response.cloudDbHome.lifecycleState!),
+      targetStates.includes(models.CloudDbHome.LifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forCloudDbNode till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetCloudDbNodeResponse | null (null in case of 404 response)
+   */
+  public async forCloudDbNode(
+    request: serviceRequests.GetCloudDbNodeRequest,
+    ...targetStates: models.CloudDbNode.LifecycleState[]
+  ): Promise<serviceResponses.GetCloudDbNodeResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getCloudDbNode(request),
+      response => targetStates.includes(response.cloudDbNode.lifecycleState!),
+      targetStates.includes(models.CloudDbNode.LifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forCloudDbSystem till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetCloudDbSystemResponse | null (null in case of 404 response)
+   */
+  public async forCloudDbSystem(
+    request: serviceRequests.GetCloudDbSystemRequest,
+    ...targetStates: models.CloudDbSystem.LifecycleState[]
+  ): Promise<serviceResponses.GetCloudDbSystemResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getCloudDbSystem(request),
+      response => targetStates.includes(response.cloudDbSystem.lifecycleState!),
+      targetStates.includes(models.CloudDbSystem.LifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forCloudDbSystemConnector till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetCloudDbSystemConnectorResponse | null (null in case of 404 response)
+   */
+  public async forCloudDbSystemConnector(
+    request: serviceRequests.GetCloudDbSystemConnectorRequest,
+    ...targetStates: models.CloudDbSystemConnector.LifecycleState[]
+  ): Promise<serviceResponses.GetCloudDbSystemConnectorResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getCloudDbSystemConnector(request),
+      response => targetStates.includes(response.cloudDbSystemConnector.lifecycleState!),
+      targetStates.includes(models.CloudDbSystemConnector.LifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forCloudDbSystemDiscovery till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetCloudDbSystemDiscoveryResponse | null (null in case of 404 response)
+   */
+  public async forCloudDbSystemDiscovery(
+    request: serviceRequests.GetCloudDbSystemDiscoveryRequest,
+    ...targetStates: models.CloudDbSystemDiscovery.LifecycleState[]
+  ): Promise<serviceResponses.GetCloudDbSystemDiscoveryResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getCloudDbSystemDiscovery(request),
+      response => targetStates.includes(response.cloudDbSystemDiscovery.lifecycleState!),
+      targetStates.includes(models.CloudDbSystemDiscovery.LifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forCloudListener till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetCloudListenerResponse | null (null in case of 404 response)
+   */
+  public async forCloudListener(
+    request: serviceRequests.GetCloudListenerRequest,
+    ...targetStates: models.CloudListener.LifecycleState[]
+  ): Promise<serviceResponses.GetCloudListenerResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getCloudListener(request),
+      response => targetStates.includes(response.cloudListener.lifecycleState!),
+      targetStates.includes(models.CloudListener.LifecycleState.Deleted)
+    );
+  }
+
+  /**
    * Waits forDbManagementPrivateEndpoint till it reaches any of the provided states
    *
    * @param request the request to send

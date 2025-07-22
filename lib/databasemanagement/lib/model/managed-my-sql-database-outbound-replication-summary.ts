@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * An outbound replication record of a MySQL Server.
+ * An outbound replication record of a MySQL server.
  */
 export interface ManagedMySqlDatabaseOutboundReplicationSummary {
   /**

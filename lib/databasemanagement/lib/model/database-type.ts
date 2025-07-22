@@ -25,6 +25,7 @@ import common = require("oci-common");
  * - CLOUD_RAC: Oracle RAC database in Oracle Cloud.
  * - SHARED: Autonomous shared database in Oracle Cloud.
  * - DEDICATED: Autonomous dedicated database in Oracle Cloud.
+ * - CLOUD_AT_CUSTOMER: Autonomous dedicated database in Cloud at the Customer.
  *
  **/
 export enum DatabaseType {
@@ -34,6 +35,7 @@ export enum DatabaseType {
   CloudRac = "CLOUD_RAC",
   Shared = "SHARED",
   Dedicated = "DEDICATED",
+  CloudAtCustomer = "CLOUD_AT_CUSTOMER",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

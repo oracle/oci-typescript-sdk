@@ -18,11 +18,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * MySQL server replication Channel name and error from its fetch operation.
+ * MySQL server replication channel name and error from its fetch operation.
  */
 export interface MySqlChannelFetchError {
   /**
-   * The name of the replication channel
+   * The name of the replication channel.
    */
   "channelName"?: string;
   "fetchError": model.MySqlFetchError;
