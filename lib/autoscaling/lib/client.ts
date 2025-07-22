@@ -1,11 +1,8 @@
 /**
  * Autoscaling API
- * APIs for dynamically scaling Compute resources to meet application requirements. For more information about
+ * Use the Autoscaling API to dynamically scale compute resources to meet application requirements. For more information about
 autoscaling, see [Autoscaling](https://docs.oracle.com/iaas/Content/Compute/Tasks/autoscalinginstancepools.htm). For information about the
-Compute service, see [Overview of the Compute Service](https://docs.oracle.com/iaas/Content/Compute/Concepts/computeoverview.htm).
-
-**Note:** Autoscaling is not available in US Government Cloud tenancies. For more information, see
-[Oracle Cloud Infrastructure US Government Cloud](https://docs.oracle.com/iaas/Content/General/Concepts/govoverview.htm).
+Compute service, see [Compute](https://docs.oracle.com/iaas/Content/Compute/home.htm).
 
  * OpenAPI spec version: 20181001
  * 
@@ -226,7 +223,7 @@ export class AutoScalingClient {
 When you move an autoscaling configuration to a different compartment, associated resources such as instance
 * pools are not moved.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param ChangeAutoScalingConfigurationCompartmentRequest
      * @return ChangeAutoScalingConfigurationCompartmentResponse
      * @throws OciError when an error occurs
@@ -256,7 +253,7 @@ When you move an autoscaling configuration to a different compartment, associate
       "opc-retry-token": changeAutoScalingConfigurationCompartmentRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       changeAutoScalingConfigurationCompartmentRequest.retryConfiguration,
@@ -309,7 +306,7 @@ When you move an autoscaling configuration to a different compartment, associate
 
   /**
    * Creates an autoscaling configuration.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateAutoScalingConfigurationRequest
    * @return CreateAutoScalingConfigurationResponse
    * @throws OciError when an error occurs
@@ -333,7 +330,7 @@ When you move an autoscaling configuration to a different compartment, associate
       "opc-retry-token": createAutoScalingConfigurationRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createAutoScalingConfigurationRequest.retryConfiguration,
@@ -399,7 +396,7 @@ You can create the following types of autoscaling policies:
 An autoscaling configuration can either have multiple schedule-based autoscaling policies, or one
 * threshold-based autoscaling policy.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param CreateAutoScalingPolicyRequest
      * @return CreateAutoScalingPolicyResponse
      * @throws OciError when an error occurs
@@ -425,7 +422,7 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
       "opc-retry-token": createAutoScalingPolicyRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createAutoScalingPolicyRequest.retryConfiguration,
@@ -482,7 +479,7 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
 
   /**
    * Deletes an autoscaling configuration.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteAutoScalingConfigurationRequest
    * @return DeleteAutoScalingConfigurationResponse
    * @throws OciError when an error occurs
@@ -509,7 +506,7 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
       "opc-request-id": deleteAutoScalingConfigurationRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteAutoScalingConfigurationRequest.retryConfiguration,
@@ -552,7 +549,7 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
 
   /**
    * Deletes an autoscaling policy for the specified autoscaling configuration.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteAutoScalingPolicyRequest
    * @return DeleteAutoScalingPolicyResponse
    * @throws OciError when an error occurs
@@ -579,7 +576,7 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
       "opc-request-id": deleteAutoScalingPolicyRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteAutoScalingPolicyRequest.retryConfiguration,
@@ -623,7 +620,7 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
 
   /**
    * Gets information about the specified autoscaling configuration.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetAutoScalingConfigurationRequest
    * @return GetAutoScalingConfigurationResponse
    * @throws OciError when an error occurs
@@ -648,7 +645,7 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
       "opc-request-id": getAutoScalingConfigurationRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getAutoScalingConfigurationRequest.retryConfiguration,
@@ -700,7 +697,7 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
 
   /**
    * Gets information about the specified autoscaling policy in the specified autoscaling configuration.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetAutoScalingPolicyRequest
    * @return GetAutoScalingPolicyResponse
    * @throws OciError when an error occurs
@@ -725,7 +722,7 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
       "opc-request-id": getAutoScalingPolicyRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getAutoScalingPolicyRequest.retryConfiguration,
@@ -779,7 +776,7 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
   /**
    * Lists autoscaling configurations in the specifed compartment.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListAutoScalingConfigurationsRequest
    * @return ListAutoScalingConfigurationsResponse
    * @throws OciError when an error occurs
@@ -809,7 +806,7 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
       "opc-request-id": listAutoScalingConfigurationsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listAutoScalingConfigurationsRequest.retryConfiguration,
@@ -914,7 +911,7 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
   /**
    * Lists the autoscaling policies in the specified autoscaling configuration.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListAutoScalingPoliciesRequest
    * @return ListAutoScalingPoliciesResponse
    * @throws OciError when an error occurs
@@ -945,7 +942,7 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
       "opc-request-id": listAutoScalingPoliciesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listAutoScalingPoliciesRequest.retryConfiguration,
@@ -1051,7 +1048,7 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
    * Updates certain fields on the specified autoscaling configuration, such as the name, the cooldown period,
    * and whether the autoscaling configuration is enabled.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateAutoScalingConfigurationRequest
    * @return UpdateAutoScalingConfigurationResponse
    * @throws OciError when an error occurs
@@ -1079,7 +1076,7 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
       "opc-retry-token": updateAutoScalingConfigurationRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateAutoScalingConfigurationRequest.retryConfiguration,
@@ -1136,7 +1133,7 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
 
   /**
    * Updates an autoscaling policy in the specified autoscaling configuration.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateAutoScalingPolicyRequest
    * @return UpdateAutoScalingPolicyResponse
    * @throws OciError when an error occurs
@@ -1164,7 +1161,7 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
       "opc-retry-token": updateAutoScalingPolicyRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateAutoScalingPolicyRequest.retryConfiguration,

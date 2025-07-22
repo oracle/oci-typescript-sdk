@@ -72,6 +72,7 @@ Example: {@code 2016-08-25T21:10:29.600Z}
     | model.SqlToolConfig
     | model.FunctionCallingToolConfig
     | model.HttpEndpointToolConfig
+    | model.AgentToolConfig
     | model.RagToolConfig;
   /**
    * Key-value pairs to allow additional configurations.

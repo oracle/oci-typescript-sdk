@@ -378,6 +378,19 @@ Service Change: The default value of the isMTLSConnectionRequired attribute will
    */
   "isBackupRetentionLocked"?: boolean;
   /**
+   * The date and time the Autonomous Database scheduled to upgrade to 23ai.
+   *
+   */
+  "timeScheduledDbVersionUpgrade"?: Date;
+  /**
+   * True if user wants to disable Autonomous Database scheduled upgrade to 23ai.
+   */
+  "isDisableDbVersionUpgradeSchedule"?: boolean;
+  /**
+   * True if user wants to schedule Autonomous Database upgrade to the earliest available time.
+   */
+  "isScheduleDbVersionUpgradeToEarliest"?: boolean;
+  /**
     * The list of scheduled operations. Consists of values such as dayOfWeek, scheduledStartTime, scheduledStopTime.
 * <p>
 This cannot be updated in parallel with any of the following: licenseModel, dbEdition, cpuCoreCount, computeCount, computeModel, whitelistedIps, isMTLSConnectionRequired, openMode, permissionLevel, dbWorkload, privateEndpointLabel, nsgIds, dbVersion, isRefreshable, dbName, dbToolsDetails, isLocalDataGuardEnabled, or isFreeTier.

@@ -27,6 +27,10 @@ export interface KeyStoreAssociatedDatabaseDetails {
    * The name of the database that is associated with the key store.
    */
   "dbName"?: string;
+  /**
+   * The unique name of the database that is associated with the key store.
+   */
+  "dbUniqueName"?: string;
 }
 
 export namespace KeyStoreAssociatedDatabaseDetails {

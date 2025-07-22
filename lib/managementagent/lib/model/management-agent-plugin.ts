@@ -59,7 +59,8 @@ export namespace ManagementAgentPlugin {
     Linux = "LINUX",
     Windows = "WINDOWS",
     Solaris = "SOLARIS",
-    Macosx = "MACOSX"
+    Macosx = "MACOSX",
+    Aix = "AIX"
   }
 
   export function getJsonObj(obj: ManagementAgentPlugin): object {

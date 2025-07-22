@@ -34,9 +34,15 @@ export interface ChatResult {
    */
   "traces"?: Array<model.Trace>;
   /**
-   * A map where each key is a toolId and the value contains tool type and additional dynamic results.
+   * A map where each key is a toolId and the value contains tool type and additional dynamic results. This field is deprecated and will be removed after July 02 2026.
    */
   "toolResults"?: { [key: string]: string };
+  /**
+   * Array of tool outputs in execution order. Each item includes the tool OCID, output type,
+   * and corresponding content. The result structure is defined by the {@code toolOutputType} discriminator.
+   *
+   */
+  "toolOutputs"?: Array<model.ToolOutput>;
   /**
    * A list of actions the agent requires the user or agent client to perform.
    *
@@ -60,6 +66,11 @@ export namespace ChatResult {
             })
           : undefined,
 
+        "toolOutputs": obj.toolOutputs
+          ? obj.toolOutputs.map(item => {
+              return model.ToolOutput.getJsonObj(item);
+            })
+          : undefined,
         "requiredActions": obj.requiredActions
           ? obj.requiredActions.map(item => {
               return model.RequiredAction.getJsonObj(item);
@@ -81,6 +92,11 @@ export namespace ChatResult {
             })
           : undefined,
 
+        "toolOutputs": obj.toolOutputs
+          ? obj.toolOutputs.map(item => {
+              return model.ToolOutput.getDeserializedJsonObj(item);
+            })
+          : undefined,
         "requiredActions": obj.requiredActions
           ? obj.requiredActions.map(item => {
               return model.RequiredAction.getDeserializedJsonObj(item);

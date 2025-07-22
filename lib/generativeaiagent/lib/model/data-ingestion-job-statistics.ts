@@ -37,6 +37,10 @@ export interface DataIngestionJobStatistics {
    */
   "numberOfIngestedFiles"?: number;
   /**
+   * The number of files that have been ignored during the ingestion. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "numberOfIgnoredFiles"?: number;
+  /**
    * The duration of this ingestion job. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "durationInSeconds"?: number;

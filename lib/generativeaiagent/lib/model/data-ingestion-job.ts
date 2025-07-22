@@ -54,6 +54,7 @@ export interface DataIngestionJob {
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the parent KnowledgeBase.
    */
   "knowledgeBaseId"?: string;
+  "dataIngestionJobType": model.DataIngestionJobType;
   "dataIngestionJobStatistics": model.DataIngestionJobStatistics;
   /**
     * The date and time the data ingestion job was created, in the format defined by [RFC 3339](https://tools.ietf.org/html/rfc3339).
@@ -124,6 +125,9 @@ export namespace DataIngestionJob {
     const jsonObj = {
       ...obj,
       ...{
+        "dataIngestionJobType": obj.dataIngestionJobType
+          ? model.DataIngestionJobType.getJsonObj(obj.dataIngestionJobType)
+          : undefined,
         "dataIngestionJobStatistics": obj.dataIngestionJobStatistics
           ? model.DataIngestionJobStatistics.getJsonObj(obj.dataIngestionJobStatistics)
           : undefined
@@ -136,6 +140,9 @@ export namespace DataIngestionJob {
     const jsonObj = {
       ...obj,
       ...{
+        "dataIngestionJobType": obj.dataIngestionJobType
+          ? model.DataIngestionJobType.getDeserializedJsonObj(obj.dataIngestionJobType)
+          : undefined,
         "dataIngestionJobStatistics": obj.dataIngestionJobStatistics
           ? model.DataIngestionJobStatistics.getDeserializedJsonObj(obj.dataIngestionJobStatistics)
           : undefined

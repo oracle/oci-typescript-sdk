@@ -26,6 +26,11 @@ export interface CreateAutonomousContainerDatabaseBase {
    */
   "customerContacts"?: Array<model.CustomerContact>;
   /**
+   * The OKV End Point Group name for the Autonomous Container Database.
+   *
+   */
+  "okvEndPointGroupName"?: string;
+  /**
    * The display name for the Autonomous Container Database.
    */
   "displayName": string;

@@ -18,19 +18,19 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Error from apply operation of a MySQL server replication channel.
+ * Error from the apply operation of a MySQL server replication channel.
  */
 export interface MySqlApplyError {
   /**
-   * The error number of the most recent error that caused the SQL/coordinator thread to stop. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The error number of the most recent error that caused the SQL or coordinator thread to stop. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "lastErrorNumber"?: number;
   /**
-   * The error message of the most recent error that caused the SQL/coordinator thread to stop.
+   * The error message of the most recent error that caused the SQL or coordinator thread to stop.
    */
   "lastErrorMessage"?: string;
   /**
-   * The timestamp when the most recent SQL/coordinator error occurred.
+   * The timestamp when the most recent SQL or coordinator error occurred.
    */
   "timeLastError"?: Date;
   /**

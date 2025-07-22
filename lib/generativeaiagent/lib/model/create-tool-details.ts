@@ -48,6 +48,7 @@ export interface CreateToolDetails {
     | model.SqlToolConfig
     | model.FunctionCallingToolConfig
     | model.HttpEndpointToolConfig
+    | model.AgentToolConfig
     | model.RagToolConfig;
   /**
    * Key-value pairs to allow additional configurations.

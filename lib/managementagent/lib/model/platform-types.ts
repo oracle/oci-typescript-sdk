@@ -24,6 +24,7 @@ export enum PlatformTypes {
   Windows = "WINDOWS",
   Solaris = "SOLARIS",
   Macosx = "MACOSX",
+  Aix = "AIX",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

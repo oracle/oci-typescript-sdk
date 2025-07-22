@@ -24,76 +24,46 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Auth related information to be used when invoking external endpoint
+ * Authentication configuration used for HTTP Endpoint tools. Defines the type of authentication
+ * and the source of credentials.
  *
  */
 export interface HttpEndpointAuthConfig {
-  "httpEndpointAuthConfigType": string;
+  /**
+   * A list of credential sources from which authentication credentials can be resolved.
+   * Only AGENT is supported for HTTP Endpoint Tool.
+   *
+   */
+  "httpEndpointAuthSources": Array<model.HttpEndpointAuthSource>;
 }
 
 export namespace HttpEndpointAuthConfig {
   export function getJsonObj(obj: HttpEndpointAuthConfig): object {
-    const jsonObj = { ...obj, ...{} };
-
-    if (obj && "httpEndpointAuthConfigType" in obj && obj.httpEndpointAuthConfigType) {
-      switch (obj.httpEndpointAuthConfigType) {
-        case "HTTP_ENDPOINT_IDCS_AUTH_CONFIG":
-          return model.HttpEndpointIdcsAuthConfig.getJsonObj(
-            <model.HttpEndpointIdcsAuthConfig>(<object>jsonObj),
-            true
-          );
-        case "HTTP_ENDPOINT_DELEGATED_BEARER_AUTH_CONFIG":
-          return model.HttpEndpointDelegatedBearerAuthConfig.getJsonObj(
-            <model.HttpEndpointDelegatedBearerAuthConfig>(<object>jsonObj),
-            true
-          );
-        case "HTTP_ENDPOINT_NO_AUTH_CONFIG":
-          return model.HttpEndpointNoAuthConfig.getJsonObj(
-            <model.HttpEndpointNoAuthConfig>(<object>jsonObj),
-            true
-          );
-        case "HTTP_ENDPOINT_OCI_RESOURCE_PRINCIPAL_AUTH_CONFIG":
-          return model.HttpEndpointOciResourcePrincipalAuthConfig.getJsonObj(
-            <model.HttpEndpointOciResourcePrincipalAuthConfig>(<object>jsonObj),
-            true
-          );
-        default:
-          if (common.LOG.logger)
-            common.LOG.logger.info(`Unknown value for: ${obj.httpEndpointAuthConfigType}`);
+    const jsonObj = {
+      ...obj,
+      ...{
+        "httpEndpointAuthSources": obj.httpEndpointAuthSources
+          ? obj.httpEndpointAuthSources.map(item => {
+              return model.HttpEndpointAuthSource.getJsonObj(item);
+            })
+          : undefined
       }
-    }
+    };
+
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: HttpEndpointAuthConfig): object {
-    const jsonObj = { ...obj, ...{} };
-
-    if (obj && "httpEndpointAuthConfigType" in obj && obj.httpEndpointAuthConfigType) {
-      switch (obj.httpEndpointAuthConfigType) {
-        case "HTTP_ENDPOINT_IDCS_AUTH_CONFIG":
-          return model.HttpEndpointIdcsAuthConfig.getDeserializedJsonObj(
-            <model.HttpEndpointIdcsAuthConfig>(<object>jsonObj),
-            true
-          );
-        case "HTTP_ENDPOINT_DELEGATED_BEARER_AUTH_CONFIG":
-          return model.HttpEndpointDelegatedBearerAuthConfig.getDeserializedJsonObj(
-            <model.HttpEndpointDelegatedBearerAuthConfig>(<object>jsonObj),
-            true
-          );
-        case "HTTP_ENDPOINT_NO_AUTH_CONFIG":
-          return model.HttpEndpointNoAuthConfig.getDeserializedJsonObj(
-            <model.HttpEndpointNoAuthConfig>(<object>jsonObj),
-            true
-          );
-        case "HTTP_ENDPOINT_OCI_RESOURCE_PRINCIPAL_AUTH_CONFIG":
-          return model.HttpEndpointOciResourcePrincipalAuthConfig.getDeserializedJsonObj(
-            <model.HttpEndpointOciResourcePrincipalAuthConfig>(<object>jsonObj),
-            true
-          );
-        default:
-          if (common.LOG.logger)
-            common.LOG.logger.info(`Unknown value for: ${obj.httpEndpointAuthConfigType}`);
+    const jsonObj = {
+      ...obj,
+      ...{
+        "httpEndpointAuthSources": obj.httpEndpointAuthSources
+          ? obj.httpEndpointAuthSources.map(item => {
+              return model.HttpEndpointAuthSource.getDeserializedJsonObj(item);
+            })
+          : undefined
       }
-    }
+    };
+
     return jsonObj;
   }
 }

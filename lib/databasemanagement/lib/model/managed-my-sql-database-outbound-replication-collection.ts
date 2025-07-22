@@ -22,7 +22,7 @@ import common = require("oci-common");
  */
 export interface ManagedMySqlDatabaseOutboundReplicationCollection {
   /**
-   * The number of outbound replications from this server. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The number of outbound replications from the MySQL server. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "outboundReplicationsCount"?: number;
   /**

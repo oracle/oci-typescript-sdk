@@ -115,6 +115,11 @@ export namespace DiscoveredExternalDbSystemComponent {
             <model.DiscoveredExternalDbNode>(<object>jsonObj),
             true
           );
+        case "DATABASE_INSTANCE":
+          return model.DiscoveredExternalDbInstance.getJsonObj(
+            <model.DiscoveredExternalDbInstance>(<object>jsonObj),
+            true
+          );
         case "ASM":
           return model.DiscoveredExternalAsm.getJsonObj(
             <model.DiscoveredExternalAsm>(<object>jsonObj),
@@ -178,6 +183,11 @@ export namespace DiscoveredExternalDbSystemComponent {
         case "DATABASE_NODE":
           return model.DiscoveredExternalDbNode.getDeserializedJsonObj(
             <model.DiscoveredExternalDbNode>(<object>jsonObj),
+            true
+          );
+        case "DATABASE_INSTANCE":
+          return model.DiscoveredExternalDbInstance.getDeserializedJsonObj(
+            <model.DiscoveredExternalDbInstance>(<object>jsonObj),
             true
           );
         case "ASM":

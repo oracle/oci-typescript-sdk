@@ -34,6 +34,11 @@ export interface AutonomousContainerDatabase {
    */
   "customerContacts"?: Array<model.CustomerContact>;
   /**
+   * The OKV End Point Group name for the Autonomous Container Database.
+   *
+   */
+  "okvEndPointGroupName"?: string;
+  /**
    * **Deprecated.** The {@code DB_UNIQUE_NAME} value is set by Oracle Cloud Infrastructure.  Do not specify a value for this parameter. Specifying a value for this field will cause Terraform operations to fail.
    *
    */

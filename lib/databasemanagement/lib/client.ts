@@ -1284,6 +1284,90 @@ The database purges plans that have not been used for longer than
   }
 
   /**
+   * Checks the status of the cloud DB system component connection specified in this connector.
+   * This operation will refresh the connectionStatus and timeConnectionStatusLastUpdated fields.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CheckCloudDbSystemConnectorConnectionStatusRequest
+   * @return CheckCloudDbSystemConnectorConnectionStatusResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/CheckCloudDbSystemConnectorConnectionStatus.ts.html |here} to see how to use CheckCloudDbSystemConnectorConnectionStatus API.
+   */
+  public async checkCloudDbSystemConnectorConnectionStatus(
+    checkCloudDbSystemConnectorConnectionStatusRequest: requests.CheckCloudDbSystemConnectorConnectionStatusRequest
+  ): Promise<responses.CheckCloudDbSystemConnectorConnectionStatusResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#checkCloudDbSystemConnectorConnectionStatus."
+      );
+    const operationName = "checkCloudDbSystemConnectorConnectionStatus";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/CloudDbSystemConnector/CheckCloudDbSystemConnectorConnectionStatus";
+    const pathParams = {
+      "{cloudDbSystemConnectorId}":
+        checkCloudDbSystemConnectorConnectionStatusRequest.cloudDbSystemConnectorId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": checkCloudDbSystemConnectorConnectionStatusRequest.ifMatch,
+      "opc-request-id": checkCloudDbSystemConnectorConnectionStatusRequest.opcRequestId,
+      "opc-retry-token": checkCloudDbSystemConnectorConnectionStatusRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      checkCloudDbSystemConnectorConnectionStatusRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudDbSystemConnectors/{cloudDbSystemConnectorId}/actions/checkConnectionStatus",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CheckCloudDbSystemConnectorConnectionStatusResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudDbSystemConnector",
+        bodyModel: model.CloudDbSystemConnector,
+        type: "model.CloudDbSystemConnector",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-location"),
+            key: "contentLocation",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Checks the status of the external DB system component connection specified in this connector.
    * This operation will refresh the connectionStatus and timeConnectionStatusLastUpdated fields.
    *
@@ -1677,6 +1761,280 @@ The database purges plans that have not been used for longer than
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a cloud DB system and its related resources.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateCloudDbSystemRequest
+   * @return CreateCloudDbSystemResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/CreateCloudDbSystem.ts.html |here} to see how to use CreateCloudDbSystem API.
+   */
+  public async createCloudDbSystem(
+    createCloudDbSystemRequest: requests.CreateCloudDbSystemRequest
+  ): Promise<responses.CreateCloudDbSystemResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#createCloudDbSystem.");
+    const operationName = "createCloudDbSystem";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/CloudDbSystem/CreateCloudDbSystem";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createCloudDbSystemRequest.opcRequestId,
+      "opc-retry-token": createCloudDbSystemRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createCloudDbSystemRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudDbSystems",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createCloudDbSystemRequest.createCloudDbSystemDetails,
+        "CreateCloudDbSystemDetails",
+        model.CreateCloudDbSystemDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateCloudDbSystemResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudDbSystem",
+        bodyModel: model.CloudDbSystem,
+        type: "model.CloudDbSystem",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-location"),
+            key: "contentLocation",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new cloud connector.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateCloudDbSystemConnectorRequest
+   * @return CreateCloudDbSystemConnectorResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/CreateCloudDbSystemConnector.ts.html |here} to see how to use CreateCloudDbSystemConnector API.
+   */
+  public async createCloudDbSystemConnector(
+    createCloudDbSystemConnectorRequest: requests.CreateCloudDbSystemConnectorRequest
+  ): Promise<responses.CreateCloudDbSystemConnectorResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#createCloudDbSystemConnector.");
+    const operationName = "createCloudDbSystemConnector";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/CloudDbSystemConnector/CreateCloudDbSystemConnector";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createCloudDbSystemConnectorRequest.opcRequestId,
+      "opc-retry-token": createCloudDbSystemConnectorRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createCloudDbSystemConnectorRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudDbSystemConnectors",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createCloudDbSystemConnectorRequest.createCloudDbSystemConnectorDetails,
+        "CreateCloudDbSystemConnectorDetails",
+        model.CreateCloudDbSystemConnectorDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateCloudDbSystemConnectorResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudDbSystemConnector",
+        bodyModel: model.CloudDbSystemConnector,
+        type: "model.CloudDbSystemConnector",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a cloud DB system discovery resource and initiates the discovery process.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateCloudDbSystemDiscoveryRequest
+   * @return CreateCloudDbSystemDiscoveryResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/CreateCloudDbSystemDiscovery.ts.html |here} to see how to use CreateCloudDbSystemDiscovery API.
+   */
+  public async createCloudDbSystemDiscovery(
+    createCloudDbSystemDiscoveryRequest: requests.CreateCloudDbSystemDiscoveryRequest
+  ): Promise<responses.CreateCloudDbSystemDiscoveryResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#createCloudDbSystemDiscovery.");
+    const operationName = "createCloudDbSystemDiscovery";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/CloudDbSystemDiscovery/CreateCloudDbSystemDiscovery";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createCloudDbSystemDiscoveryRequest.opcRequestId,
+      "opc-retry-token": createCloudDbSystemDiscoveryRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createCloudDbSystemDiscoveryRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudDbSystemDiscoveries",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createCloudDbSystemDiscoveryRequest.createCloudDbSystemDiscoveryDetails,
+        "CreateCloudDbSystemDiscoveryDetails",
+        model.CreateCloudDbSystemDiscoveryDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateCloudDbSystemDiscoveryResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudDbSystemDiscovery",
+        bodyModel: model.CloudDbSystemDiscovery,
+        type: "model.CloudDbSystemDiscovery",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-location"),
+            key: "contentLocation",
             dataType: "string"
           }
         ]
@@ -2742,6 +3100,220 @@ The database purges plans that have not been used for longer than
         bodyKey: "tablespace",
         bodyModel: model.Tablespace,
         type: "model.Tablespace",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the cloud DB system specified by `cloudDbSystemId`.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteCloudDbSystemRequest
+   * @return DeleteCloudDbSystemResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DeleteCloudDbSystem.ts.html |here} to see how to use DeleteCloudDbSystem API.
+   */
+  public async deleteCloudDbSystem(
+    deleteCloudDbSystemRequest: requests.DeleteCloudDbSystemRequest
+  ): Promise<responses.DeleteCloudDbSystemResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#deleteCloudDbSystem.");
+    const operationName = "deleteCloudDbSystem";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/CloudDbSystem/DeleteCloudDbSystem";
+    const pathParams = {
+      "{cloudDbSystemId}": deleteCloudDbSystemRequest.cloudDbSystemId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": deleteCloudDbSystemRequest.opcRequestId,
+      "if-match": deleteCloudDbSystemRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteCloudDbSystemRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudDbSystems/{cloudDbSystemId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteCloudDbSystemResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the cloud connector specified by `cloudDbSystemConnectorId`.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteCloudDbSystemConnectorRequest
+   * @return DeleteCloudDbSystemConnectorResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DeleteCloudDbSystemConnector.ts.html |here} to see how to use DeleteCloudDbSystemConnector API.
+   */
+  public async deleteCloudDbSystemConnector(
+    deleteCloudDbSystemConnectorRequest: requests.DeleteCloudDbSystemConnectorRequest
+  ): Promise<responses.DeleteCloudDbSystemConnectorResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#deleteCloudDbSystemConnector.");
+    const operationName = "deleteCloudDbSystemConnector";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/CloudDbSystemConnector/DeleteCloudDbSystemConnector";
+    const pathParams = {
+      "{cloudDbSystemConnectorId}": deleteCloudDbSystemConnectorRequest.cloudDbSystemConnectorId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": deleteCloudDbSystemConnectorRequest.opcRequestId,
+      "if-match": deleteCloudDbSystemConnectorRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteCloudDbSystemConnectorRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudDbSystemConnectors/{cloudDbSystemConnectorId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteCloudDbSystemConnectorResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the cloud DB system discovery resource specified by `cloudDbSystemDiscoveryId`.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteCloudDbSystemDiscoveryRequest
+   * @return DeleteCloudDbSystemDiscoveryResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DeleteCloudDbSystemDiscovery.ts.html |here} to see how to use DeleteCloudDbSystemDiscovery API.
+   */
+  public async deleteCloudDbSystemDiscovery(
+    deleteCloudDbSystemDiscoveryRequest: requests.DeleteCloudDbSystemDiscoveryRequest
+  ): Promise<responses.DeleteCloudDbSystemDiscoveryResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#deleteCloudDbSystemDiscovery.");
+    const operationName = "deleteCloudDbSystemDiscovery";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/CloudDbSystemDiscovery/DeleteCloudDbSystemDiscovery";
+    const pathParams = {
+      "{cloudDbSystemDiscoveryId}": deleteCloudDbSystemDiscoveryRequest.cloudDbSystemDiscoveryId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": deleteCloudDbSystemDiscoveryRequest.opcRequestId,
+      "if-match": deleteCloudDbSystemDiscoveryRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteCloudDbSystemDiscoveryRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudDbSystemDiscoveries/{cloudDbSystemDiscoveryId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteCloudDbSystemDiscoveryResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3851,6 +4423,164 @@ One client controls both Automatic SQL Tuning Advisor and Automatic SPM Evolve A
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.DisableAutonomousDatabaseManagementFeatureResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Disables Database Management service for all the components of the specified
+   * cloud DB system (except databases).
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DisableCloudDbSystemDatabaseManagementRequest
+   * @return DisableCloudDbSystemDatabaseManagementResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DisableCloudDbSystemDatabaseManagement.ts.html |here} to see how to use DisableCloudDbSystemDatabaseManagement API.
+   */
+  public async disableCloudDbSystemDatabaseManagement(
+    disableCloudDbSystemDatabaseManagementRequest: requests.DisableCloudDbSystemDatabaseManagementRequest
+  ): Promise<responses.DisableCloudDbSystemDatabaseManagementResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#disableCloudDbSystemDatabaseManagement."
+      );
+    const operationName = "disableCloudDbSystemDatabaseManagement";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/CloudDbSystem/DisableCloudDbSystemDatabaseManagement";
+    const pathParams = {
+      "{cloudDbSystemId}": disableCloudDbSystemDatabaseManagementRequest.cloudDbSystemId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": disableCloudDbSystemDatabaseManagementRequest.opcRequestId,
+      "opc-retry-token": disableCloudDbSystemDatabaseManagementRequest.opcRetryToken,
+      "if-match": disableCloudDbSystemDatabaseManagementRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      disableCloudDbSystemDatabaseManagementRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudDbSystems/{cloudDbSystemId}/actions/disableDatabaseManagement",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DisableCloudDbSystemDatabaseManagementResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Disables Stack Monitoring for all the components of the specified
+   * cloud DB system (except databases).
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DisableCloudDbSystemStackMonitoringRequest
+   * @return DisableCloudDbSystemStackMonitoringResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DisableCloudDbSystemStackMonitoring.ts.html |here} to see how to use DisableCloudDbSystemStackMonitoring API.
+   */
+  public async disableCloudDbSystemStackMonitoring(
+    disableCloudDbSystemStackMonitoringRequest: requests.DisableCloudDbSystemStackMonitoringRequest
+  ): Promise<responses.DisableCloudDbSystemStackMonitoringResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#disableCloudDbSystemStackMonitoring."
+      );
+    const operationName = "disableCloudDbSystemStackMonitoring";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/CloudDbSystem/DisableCloudDbSystemStackMonitoring";
+    const pathParams = {
+      "{cloudDbSystemId}": disableCloudDbSystemStackMonitoringRequest.cloudDbSystemId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": disableCloudDbSystemStackMonitoringRequest.opcRequestId,
+      "opc-retry-token": disableCloudDbSystemStackMonitoringRequest.opcRetryToken,
+      "if-match": disableCloudDbSystemStackMonitoringRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      disableCloudDbSystemStackMonitoringRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudDbSystems/{cloudDbSystemId}/actions/disableStackMonitoring",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DisableCloudDbSystemStackMonitoringResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -5285,6 +6015,172 @@ One client controls both Automatic SQL Tuning Advisor and Automatic SPM Evolve A
   }
 
   /**
+   * Enables Database Management service for all the components of the specified
+   * cloud DB system (except databases).
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param EnableCloudDbSystemDatabaseManagementRequest
+   * @return EnableCloudDbSystemDatabaseManagementResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/EnableCloudDbSystemDatabaseManagement.ts.html |here} to see how to use EnableCloudDbSystemDatabaseManagement API.
+   */
+  public async enableCloudDbSystemDatabaseManagement(
+    enableCloudDbSystemDatabaseManagementRequest: requests.EnableCloudDbSystemDatabaseManagementRequest
+  ): Promise<responses.EnableCloudDbSystemDatabaseManagementResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#enableCloudDbSystemDatabaseManagement."
+      );
+    const operationName = "enableCloudDbSystemDatabaseManagement";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/CloudDbSystem/EnableCloudDbSystemDatabaseManagement";
+    const pathParams = {
+      "{cloudDbSystemId}": enableCloudDbSystemDatabaseManagementRequest.cloudDbSystemId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": enableCloudDbSystemDatabaseManagementRequest.opcRequestId,
+      "opc-retry-token": enableCloudDbSystemDatabaseManagementRequest.opcRetryToken,
+      "if-match": enableCloudDbSystemDatabaseManagementRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      enableCloudDbSystemDatabaseManagementRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudDbSystems/{cloudDbSystemId}/actions/enableDatabaseManagement",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        enableCloudDbSystemDatabaseManagementRequest.enableCloudDbSystemDatabaseManagementDetails,
+        "EnableCloudDbSystemDatabaseManagementDetails",
+        model.EnableCloudDbSystemDatabaseManagementDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.EnableCloudDbSystemDatabaseManagementResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Enables Stack Monitoring for all the components of the specified
+   * cloud DB system (except databases).
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param EnableCloudDbSystemStackMonitoringRequest
+   * @return EnableCloudDbSystemStackMonitoringResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/EnableCloudDbSystemStackMonitoring.ts.html |here} to see how to use EnableCloudDbSystemStackMonitoring API.
+   */
+  public async enableCloudDbSystemStackMonitoring(
+    enableCloudDbSystemStackMonitoringRequest: requests.EnableCloudDbSystemStackMonitoringRequest
+  ): Promise<responses.EnableCloudDbSystemStackMonitoringResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#enableCloudDbSystemStackMonitoring.");
+    const operationName = "enableCloudDbSystemStackMonitoring";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/CloudDbSystem/EnableCloudDbSystemStackMonitoring";
+    const pathParams = {
+      "{cloudDbSystemId}": enableCloudDbSystemStackMonitoringRequest.cloudDbSystemId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": enableCloudDbSystemStackMonitoringRequest.opcRequestId,
+      "opc-retry-token": enableCloudDbSystemStackMonitoringRequest.opcRetryToken,
+      "if-match": enableCloudDbSystemStackMonitoringRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      enableCloudDbSystemStackMonitoringRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudDbSystems/{cloudDbSystemId}/actions/enableStackMonitoring",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        enableCloudDbSystemStackMonitoringRequest.enableCloudDbSystemStackMonitoringDetails,
+        "EnableCloudDbSystemStackMonitoringDetails",
+        model.EnableCloudDbSystemStackMonitoringDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.EnableCloudDbSystemStackMonitoringResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Enables a Database Management feature for the specified cloud database.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -6284,7 +7180,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   }
 
   /**
-   * Gets the AWR report for the specific database.
+   * Gets the AWR report for the specified database.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetAwrDbReportRequest
@@ -6368,7 +7264,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   }
 
   /**
-   * Gets the SQL health check report for one SQL of the specific database.
+   * Gets the SQL health check report for one SQL of the specified database.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetAwrDbSqlReportRequest
@@ -6437,6 +7333,853 @@ When enabled, the optimizer uses SQL plan baselines to select plans
         bodyModel: model.AwrDbSqlReport,
         type: "model.AwrDbSqlReport",
         responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the details for the cloud ASM specified by `cloudAsmId`.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetCloudAsmRequest
+   * @return GetCloudAsmResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetCloudAsm.ts.html |here} to see how to use GetCloudAsm API.
+   */
+  public async getCloudAsm(
+    getCloudAsmRequest: requests.GetCloudAsmRequest
+  ): Promise<responses.GetCloudAsmResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#getCloudAsm.");
+    const operationName = "getCloudAsm";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/CloudAsm/GetCloudAsm";
+    const pathParams = {
+      "{cloudAsmId}": getCloudAsmRequest.cloudAsmId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getCloudAsmRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getCloudAsmRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudAsms/{cloudAsmId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetCloudAsmResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudAsm",
+        bodyModel: model.CloudAsm,
+        type: "model.CloudAsm",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets configuration details including disk groups for the cloud ASM specified by `cloudAsmId`.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetCloudAsmConfigurationRequest
+   * @return GetCloudAsmConfigurationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetCloudAsmConfiguration.ts.html |here} to see how to use GetCloudAsmConfiguration API.
+   */
+  public async getCloudAsmConfiguration(
+    getCloudAsmConfigurationRequest: requests.GetCloudAsmConfigurationRequest
+  ): Promise<responses.GetCloudAsmConfigurationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#getCloudAsmConfiguration.");
+    const operationName = "getCloudAsmConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/CloudAsm/GetCloudAsmConfiguration";
+    const pathParams = {
+      "{cloudAsmId}": getCloudAsmConfigurationRequest.cloudAsmId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getCloudAsmConfigurationRequest.opcRequestId,
+      "opc-named-credential-id": getCloudAsmConfigurationRequest.opcNamedCredentialId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getCloudAsmConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudAsms/{cloudAsmId}/configuration",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetCloudAsmConfigurationResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudAsmConfiguration",
+        bodyModel: model.CloudAsmConfiguration,
+        type: "model.CloudAsmConfiguration",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the details for the cloud ASM instance specified by `cloudAsmInstanceId`.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetCloudAsmInstanceRequest
+   * @return GetCloudAsmInstanceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetCloudAsmInstance.ts.html |here} to see how to use GetCloudAsmInstance API.
+   */
+  public async getCloudAsmInstance(
+    getCloudAsmInstanceRequest: requests.GetCloudAsmInstanceRequest
+  ): Promise<responses.GetCloudAsmInstanceResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#getCloudAsmInstance.");
+    const operationName = "getCloudAsmInstance";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/CloudAsmInstance/GetCloudAsmInstance";
+    const pathParams = {
+      "{cloudAsmInstanceId}": getCloudAsmInstanceRequest.cloudAsmInstanceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getCloudAsmInstanceRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getCloudAsmInstanceRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudAsmInstances/{cloudAsmInstanceId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetCloudAsmInstanceResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudAsmInstance",
+        bodyModel: model.CloudAsmInstance,
+        type: "model.CloudAsmInstance",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the details for the cloud cluster specified by `cloudClusterId`.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetCloudClusterRequest
+   * @return GetCloudClusterResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetCloudCluster.ts.html |here} to see how to use GetCloudCluster API.
+   */
+  public async getCloudCluster(
+    getCloudClusterRequest: requests.GetCloudClusterRequest
+  ): Promise<responses.GetCloudClusterResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#getCloudCluster.");
+    const operationName = "getCloudCluster";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/CloudCluster/GetCloudCluster";
+    const pathParams = {
+      "{cloudClusterId}": getCloudClusterRequest.cloudClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getCloudClusterRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getCloudClusterRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudClusters/{cloudClusterId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetCloudClusterResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudCluster",
+        bodyModel: model.CloudCluster,
+        type: "model.CloudCluster",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the details for the cloud cluster instance specified by `cloudClusterInstanceId`.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetCloudClusterInstanceRequest
+   * @return GetCloudClusterInstanceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetCloudClusterInstance.ts.html |here} to see how to use GetCloudClusterInstance API.
+   */
+  public async getCloudClusterInstance(
+    getCloudClusterInstanceRequest: requests.GetCloudClusterInstanceRequest
+  ): Promise<responses.GetCloudClusterInstanceResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#getCloudClusterInstance.");
+    const operationName = "getCloudClusterInstance";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/CloudClusterInstance/GetCloudClusterInstance";
+    const pathParams = {
+      "{cloudClusterInstanceId}": getCloudClusterInstanceRequest.cloudClusterInstanceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getCloudClusterInstanceRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getCloudClusterInstanceRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudClusterInstances/{cloudClusterInstanceId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetCloudClusterInstanceResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudClusterInstance",
+        bodyModel: model.CloudClusterInstance,
+        type: "model.CloudClusterInstance",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the details for the cloud DB home specified by `cloudDbHomeId`.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetCloudDbHomeRequest
+   * @return GetCloudDbHomeResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetCloudDbHome.ts.html |here} to see how to use GetCloudDbHome API.
+   */
+  public async getCloudDbHome(
+    getCloudDbHomeRequest: requests.GetCloudDbHomeRequest
+  ): Promise<responses.GetCloudDbHomeResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#getCloudDbHome.");
+    const operationName = "getCloudDbHome";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/CloudDbHome/GetCloudDbHome";
+    const pathParams = {
+      "{cloudDbHomeId}": getCloudDbHomeRequest.cloudDbHomeId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getCloudDbHomeRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getCloudDbHomeRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudDbHomes/{cloudDbHomeId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetCloudDbHomeResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudDbHome",
+        bodyModel: model.CloudDbHome,
+        type: "model.CloudDbHome",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the details for the cloud DB node specified by `cloudDbNodeId`.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetCloudDbNodeRequest
+   * @return GetCloudDbNodeResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetCloudDbNode.ts.html |here} to see how to use GetCloudDbNode API.
+   */
+  public async getCloudDbNode(
+    getCloudDbNodeRequest: requests.GetCloudDbNodeRequest
+  ): Promise<responses.GetCloudDbNodeResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#getCloudDbNode.");
+    const operationName = "getCloudDbNode";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/CloudDbNode/GetCloudDbNode";
+    const pathParams = {
+      "{cloudDbNodeId}": getCloudDbNodeRequest.cloudDbNodeId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getCloudDbNodeRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getCloudDbNodeRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudDbNodes/{cloudDbNodeId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetCloudDbNodeResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudDbNode",
+        bodyModel: model.CloudDbNode,
+        type: "model.CloudDbNode",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the details for the cloud DB system specified by `cloudDbSystemId`.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetCloudDbSystemRequest
+   * @return GetCloudDbSystemResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetCloudDbSystem.ts.html |here} to see how to use GetCloudDbSystem API.
+   */
+  public async getCloudDbSystem(
+    getCloudDbSystemRequest: requests.GetCloudDbSystemRequest
+  ): Promise<responses.GetCloudDbSystemResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#getCloudDbSystem.");
+    const operationName = "getCloudDbSystem";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/CloudDbSystem/GetCloudDbSystem";
+    const pathParams = {
+      "{cloudDbSystemId}": getCloudDbSystemRequest.cloudDbSystemId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getCloudDbSystemRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getCloudDbSystemRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudDbSystems/{cloudDbSystemId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetCloudDbSystemResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudDbSystem",
+        bodyModel: model.CloudDbSystem,
+        type: "model.CloudDbSystem",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the details for the cloud connector specified by `cloudDbSystemConnectorId`.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetCloudDbSystemConnectorRequest
+   * @return GetCloudDbSystemConnectorResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetCloudDbSystemConnector.ts.html |here} to see how to use GetCloudDbSystemConnector API.
+   */
+  public async getCloudDbSystemConnector(
+    getCloudDbSystemConnectorRequest: requests.GetCloudDbSystemConnectorRequest
+  ): Promise<responses.GetCloudDbSystemConnectorResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#getCloudDbSystemConnector.");
+    const operationName = "getCloudDbSystemConnector";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/CloudDbSystemConnector/GetCloudDbSystemConnector";
+    const pathParams = {
+      "{cloudDbSystemConnectorId}": getCloudDbSystemConnectorRequest.cloudDbSystemConnectorId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getCloudDbSystemConnectorRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getCloudDbSystemConnectorRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudDbSystemConnectors/{cloudDbSystemConnectorId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetCloudDbSystemConnectorResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudDbSystemConnector",
+        bodyModel: model.CloudDbSystemConnector,
+        type: "model.CloudDbSystemConnector",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the details for the cloud DB system discovery resource specified by `cloudDbSystemDiscoveryId`.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetCloudDbSystemDiscoveryRequest
+   * @return GetCloudDbSystemDiscoveryResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetCloudDbSystemDiscovery.ts.html |here} to see how to use GetCloudDbSystemDiscovery API.
+   */
+  public async getCloudDbSystemDiscovery(
+    getCloudDbSystemDiscoveryRequest: requests.GetCloudDbSystemDiscoveryRequest
+  ): Promise<responses.GetCloudDbSystemDiscoveryResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#getCloudDbSystemDiscovery.");
+    const operationName = "getCloudDbSystemDiscovery";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/CloudDbSystemDiscovery/GetCloudDbSystemDiscovery";
+    const pathParams = {
+      "{cloudDbSystemDiscoveryId}": getCloudDbSystemDiscoveryRequest.cloudDbSystemDiscoveryId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getCloudDbSystemDiscoveryRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getCloudDbSystemDiscoveryRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudDbSystemDiscoveries/{cloudDbSystemDiscoveryId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetCloudDbSystemDiscoveryResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudDbSystemDiscovery",
+        bodyModel: model.CloudDbSystemDiscovery,
+        type: "model.CloudDbSystemDiscovery",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the details for the cloud listener specified by `cloudListenerId`.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetCloudListenerRequest
+   * @return GetCloudListenerResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetCloudListener.ts.html |here} to see how to use GetCloudListener API.
+   */
+  public async getCloudListener(
+    getCloudListenerRequest: requests.GetCloudListenerRequest
+  ): Promise<responses.GetCloudListenerResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#getCloudListener.");
+    const operationName = "getCloudListener";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/CloudListener/GetCloudListener";
+    const pathParams = {
+      "{cloudListenerId}": getCloudListenerRequest.cloudListenerId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getCloudListenerRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getCloudListenerRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudListeners/{cloudListenerId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetCloudListenerResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudListener",
+        bodyModel: model.CloudListener,
+        type: "model.CloudListener",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -8600,7 +10343,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   }
 
   /**
-   * Gets the details for the job specified by jobId.
+   * Gets the details of the job specified by jobId.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetJobRequest
@@ -8680,7 +10423,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   }
 
   /**
-   * Gets the details for the job execution specified by jobExecutionId.
+   * Gets the details of the job execution specified by jobExecutionId.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetJobExecutionRequest
@@ -8752,7 +10495,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   }
 
   /**
-   * Gets the details for the job run specified by jobRunId.
+   * Gets the details of the job run specified by jobRunId.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetJobRunRequest
@@ -8824,7 +10567,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   }
 
   /**
-   * Gets the details for the Managed Database specified by managedDatabaseId.
+   * Gets the details of the Managed Database specified by managedDatabaseId.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetManagedDatabaseRequest
@@ -8901,7 +10644,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   }
 
   /**
-   * Gets the details for the Managed Database Group specified by managedDatabaseGroupId.
+   * Gets the details of the Managed Database Group specified by managedDatabaseGroupId.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetManagedDatabaseGroupRequest
@@ -9980,7 +11723,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   }
 
   /**
-   * Gets the status of the work request with the given Work Request ID
+   * Gets the status of the work request with the given Work Request ID.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
@@ -10461,6 +12204,1166 @@ When enabled, the optimizer uses SQL plan baselines to select plans
         bodyKey: "awrDbCollection",
         bodyModel: model.AwrDbCollection,
         type: "model.AwrDbCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists ASM disk groups for the cloud ASM specified by `cloudAsmId`.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListCloudAsmDiskGroupsRequest
+   * @return ListCloudAsmDiskGroupsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListCloudAsmDiskGroups.ts.html |here} to see how to use ListCloudAsmDiskGroups API.
+   */
+  public async listCloudAsmDiskGroups(
+    listCloudAsmDiskGroupsRequest: requests.ListCloudAsmDiskGroupsRequest
+  ): Promise<responses.ListCloudAsmDiskGroupsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#listCloudAsmDiskGroups.");
+    const operationName = "listCloudAsmDiskGroups";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/CloudAsm/ListCloudAsmDiskGroups";
+    const pathParams = {
+      "{cloudAsmId}": listCloudAsmDiskGroupsRequest.cloudAsmId
+    };
+
+    const queryParams = {
+      "page": listCloudAsmDiskGroupsRequest.page,
+      "limit": listCloudAsmDiskGroupsRequest.limit,
+      "sortBy": listCloudAsmDiskGroupsRequest.sortBy,
+      "sortOrder": listCloudAsmDiskGroupsRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listCloudAsmDiskGroupsRequest.opcRequestId,
+      "opc-named-credential-id": listCloudAsmDiskGroupsRequest.opcNamedCredentialId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listCloudAsmDiskGroupsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudAsms/{cloudAsmId}/diskGroups",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListCloudAsmDiskGroupsResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudAsmDiskGroupCollection",
+        bodyModel: model.CloudAsmDiskGroupCollection,
+        type: "model.CloudAsmDiskGroupCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists the ASM instances in the specified cloud ASM.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListCloudAsmInstancesRequest
+   * @return ListCloudAsmInstancesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListCloudAsmInstances.ts.html |here} to see how to use ListCloudAsmInstances API.
+   */
+  public async listCloudAsmInstances(
+    listCloudAsmInstancesRequest: requests.ListCloudAsmInstancesRequest
+  ): Promise<responses.ListCloudAsmInstancesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#listCloudAsmInstances.");
+    const operationName = "listCloudAsmInstances";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/CloudAsmInstance/ListCloudAsmInstances";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listCloudAsmInstancesRequest.compartmentId,
+      "cloudAsmId": listCloudAsmInstancesRequest.cloudAsmId,
+      "displayName": listCloudAsmInstancesRequest.displayName,
+      "page": listCloudAsmInstancesRequest.page,
+      "limit": listCloudAsmInstancesRequest.limit,
+      "sortBy": listCloudAsmInstancesRequest.sortBy,
+      "sortOrder": listCloudAsmInstancesRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listCloudAsmInstancesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listCloudAsmInstancesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudAsmInstances",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListCloudAsmInstancesResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudAsmInstanceCollection",
+        bodyModel: model.CloudAsmInstanceCollection,
+        type: "model.CloudAsmInstanceCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists ASM users for the cloud ASM specified by `cloudAsmId`.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListCloudAsmUsersRequest
+   * @return ListCloudAsmUsersResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListCloudAsmUsers.ts.html |here} to see how to use ListCloudAsmUsers API.
+   */
+  public async listCloudAsmUsers(
+    listCloudAsmUsersRequest: requests.ListCloudAsmUsersRequest
+  ): Promise<responses.ListCloudAsmUsersResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#listCloudAsmUsers.");
+    const operationName = "listCloudAsmUsers";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/CloudAsm/ListCloudAsmUsers";
+    const pathParams = {
+      "{cloudAsmId}": listCloudAsmUsersRequest.cloudAsmId
+    };
+
+    const queryParams = {
+      "page": listCloudAsmUsersRequest.page,
+      "limit": listCloudAsmUsersRequest.limit,
+      "sortBy": listCloudAsmUsersRequest.sortBy,
+      "sortOrder": listCloudAsmUsersRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listCloudAsmUsersRequest.opcRequestId,
+      "opc-named-credential-id": listCloudAsmUsersRequest.opcNamedCredentialId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listCloudAsmUsersRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudAsms/{cloudAsmId}/users",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListCloudAsmUsersResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudAsmUserCollection",
+        bodyModel: model.CloudAsmUserCollection,
+        type: "model.CloudAsmUserCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists the ASMs in the specified cloud DB system.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListCloudAsmsRequest
+   * @return ListCloudAsmsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListCloudAsms.ts.html |here} to see how to use ListCloudAsms API.
+   */
+  public async listCloudAsms(
+    listCloudAsmsRequest: requests.ListCloudAsmsRequest
+  ): Promise<responses.ListCloudAsmsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#listCloudAsms.");
+    const operationName = "listCloudAsms";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/CloudAsm/ListCloudAsms";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listCloudAsmsRequest.compartmentId,
+      "cloudDbSystemId": listCloudAsmsRequest.cloudDbSystemId,
+      "displayName": listCloudAsmsRequest.displayName,
+      "page": listCloudAsmsRequest.page,
+      "limit": listCloudAsmsRequest.limit,
+      "sortBy": listCloudAsmsRequest.sortBy,
+      "sortOrder": listCloudAsmsRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listCloudAsmsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listCloudAsmsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudAsms",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListCloudAsmsResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudAsmCollection",
+        bodyModel: model.CloudAsmCollection,
+        type: "model.CloudAsmCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists the cluster instances in the specified cloud cluster.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListCloudClusterInstancesRequest
+   * @return ListCloudClusterInstancesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListCloudClusterInstances.ts.html |here} to see how to use ListCloudClusterInstances API.
+   */
+  public async listCloudClusterInstances(
+    listCloudClusterInstancesRequest: requests.ListCloudClusterInstancesRequest
+  ): Promise<responses.ListCloudClusterInstancesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#listCloudClusterInstances.");
+    const operationName = "listCloudClusterInstances";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/CloudClusterInstance/ListCloudClusterInstances";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listCloudClusterInstancesRequest.compartmentId,
+      "cloudClusterId": listCloudClusterInstancesRequest.cloudClusterId,
+      "displayName": listCloudClusterInstancesRequest.displayName,
+      "page": listCloudClusterInstancesRequest.page,
+      "limit": listCloudClusterInstancesRequest.limit,
+      "sortBy": listCloudClusterInstancesRequest.sortBy,
+      "sortOrder": listCloudClusterInstancesRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listCloudClusterInstancesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listCloudClusterInstancesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudClusterInstances",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListCloudClusterInstancesResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudClusterInstanceCollection",
+        bodyModel: model.CloudClusterInstanceCollection,
+        type: "model.CloudClusterInstanceCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists the clusters in the specified cloud DB system.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListCloudClustersRequest
+   * @return ListCloudClustersResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListCloudClusters.ts.html |here} to see how to use ListCloudClusters API.
+   */
+  public async listCloudClusters(
+    listCloudClustersRequest: requests.ListCloudClustersRequest
+  ): Promise<responses.ListCloudClustersResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#listCloudClusters.");
+    const operationName = "listCloudClusters";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/CloudCluster/ListCloudClusters";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listCloudClustersRequest.compartmentId,
+      "cloudDbSystemId": listCloudClustersRequest.cloudDbSystemId,
+      "displayName": listCloudClustersRequest.displayName,
+      "page": listCloudClustersRequest.page,
+      "limit": listCloudClustersRequest.limit,
+      "sortBy": listCloudClustersRequest.sortBy,
+      "sortOrder": listCloudClustersRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listCloudClustersRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listCloudClustersRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudClusters",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListCloudClustersResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudClusterCollection",
+        bodyModel: model.CloudClusterCollection,
+        type: "model.CloudClusterCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists the cloud databases in the specified compartment or in the specified DB system.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListCloudDatabasesRequest
+   * @return ListCloudDatabasesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListCloudDatabases.ts.html |here} to see how to use ListCloudDatabases API.
+   */
+  public async listCloudDatabases(
+    listCloudDatabasesRequest: requests.ListCloudDatabasesRequest
+  ): Promise<responses.ListCloudDatabasesResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#listCloudDatabases.");
+    const operationName = "listCloudDatabases";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/CloudDatabaseCollection/ListCloudDatabases";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listCloudDatabasesRequest.compartmentId,
+      "cloudDbSystemId": listCloudDatabasesRequest.cloudDbSystemId,
+      "displayName": listCloudDatabasesRequest.displayName,
+      "page": listCloudDatabasesRequest.page,
+      "limit": listCloudDatabasesRequest.limit,
+      "sortBy": listCloudDatabasesRequest.sortBy,
+      "sortOrder": listCloudDatabasesRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listCloudDatabasesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listCloudDatabasesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudDatabases",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListCloudDatabasesResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudDatabaseCollection",
+        bodyModel: model.CloudDatabaseCollection,
+        type: "model.CloudDatabaseCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists the DB homes in the specified cloud DB system.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListCloudDbHomesRequest
+   * @return ListCloudDbHomesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListCloudDbHomes.ts.html |here} to see how to use ListCloudDbHomes API.
+   */
+  public async listCloudDbHomes(
+    listCloudDbHomesRequest: requests.ListCloudDbHomesRequest
+  ): Promise<responses.ListCloudDbHomesResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#listCloudDbHomes.");
+    const operationName = "listCloudDbHomes";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/CloudDbHome/ListCloudDbHomes";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listCloudDbHomesRequest.compartmentId,
+      "cloudDbSystemId": listCloudDbHomesRequest.cloudDbSystemId,
+      "displayName": listCloudDbHomesRequest.displayName,
+      "page": listCloudDbHomesRequest.page,
+      "limit": listCloudDbHomesRequest.limit,
+      "sortBy": listCloudDbHomesRequest.sortBy,
+      "sortOrder": listCloudDbHomesRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listCloudDbHomesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listCloudDbHomesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudDbHomes",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListCloudDbHomesResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudDbHomeCollection",
+        bodyModel: model.CloudDbHomeCollection,
+        type: "model.CloudDbHomeCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists the cloud DB nodes in the specified cloud DB system.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListCloudDbNodesRequest
+   * @return ListCloudDbNodesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListCloudDbNodes.ts.html |here} to see how to use ListCloudDbNodes API.
+   */
+  public async listCloudDbNodes(
+    listCloudDbNodesRequest: requests.ListCloudDbNodesRequest
+  ): Promise<responses.ListCloudDbNodesResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#listCloudDbNodes.");
+    const operationName = "listCloudDbNodes";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/CloudDbNode/ListCloudDbNodes";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listCloudDbNodesRequest.compartmentId,
+      "cloudDbSystemId": listCloudDbNodesRequest.cloudDbSystemId,
+      "displayName": listCloudDbNodesRequest.displayName,
+      "page": listCloudDbNodesRequest.page,
+      "limit": listCloudDbNodesRequest.limit,
+      "sortBy": listCloudDbNodesRequest.sortBy,
+      "sortOrder": listCloudDbNodesRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listCloudDbNodesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listCloudDbNodesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudDbNodes",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListCloudDbNodesResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudDbNodeCollection",
+        bodyModel: model.CloudDbNodeCollection,
+        type: "model.CloudDbNodeCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists the cloud connectors in the specified cloud DB system.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListCloudDbSystemConnectorsRequest
+   * @return ListCloudDbSystemConnectorsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListCloudDbSystemConnectors.ts.html |here} to see how to use ListCloudDbSystemConnectors API.
+   */
+  public async listCloudDbSystemConnectors(
+    listCloudDbSystemConnectorsRequest: requests.ListCloudDbSystemConnectorsRequest
+  ): Promise<responses.ListCloudDbSystemConnectorsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#listCloudDbSystemConnectors.");
+    const operationName = "listCloudDbSystemConnectors";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/CloudDbSystemConnector/ListCloudDbSystemConnectors";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listCloudDbSystemConnectorsRequest.compartmentId,
+      "cloudDbSystemId": listCloudDbSystemConnectorsRequest.cloudDbSystemId,
+      "displayName": listCloudDbSystemConnectorsRequest.displayName,
+      "page": listCloudDbSystemConnectorsRequest.page,
+      "limit": listCloudDbSystemConnectorsRequest.limit,
+      "sortBy": listCloudDbSystemConnectorsRequest.sortBy,
+      "sortOrder": listCloudDbSystemConnectorsRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listCloudDbSystemConnectorsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listCloudDbSystemConnectorsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudDbSystemConnectors",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListCloudDbSystemConnectorsResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudDbSystemConnectorCollection",
+        bodyModel: model.CloudDbSystemConnectorCollection,
+        type: "model.CloudDbSystemConnectorCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists the cloud DB system discovery resources in the specified compartment.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListCloudDbSystemDiscoveriesRequest
+   * @return ListCloudDbSystemDiscoveriesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListCloudDbSystemDiscoveries.ts.html |here} to see how to use ListCloudDbSystemDiscoveries API.
+   */
+  public async listCloudDbSystemDiscoveries(
+    listCloudDbSystemDiscoveriesRequest: requests.ListCloudDbSystemDiscoveriesRequest
+  ): Promise<responses.ListCloudDbSystemDiscoveriesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#listCloudDbSystemDiscoveries.");
+    const operationName = "listCloudDbSystemDiscoveries";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/CloudDbSystemDiscovery/ListCloudDbSystemDiscoveries";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listCloudDbSystemDiscoveriesRequest.compartmentId,
+      "displayName": listCloudDbSystemDiscoveriesRequest.displayName,
+      "page": listCloudDbSystemDiscoveriesRequest.page,
+      "limit": listCloudDbSystemDiscoveriesRequest.limit,
+      "sortBy": listCloudDbSystemDiscoveriesRequest.sortBy,
+      "sortOrder": listCloudDbSystemDiscoveriesRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listCloudDbSystemDiscoveriesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listCloudDbSystemDiscoveriesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudDbSystemDiscoveries",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListCloudDbSystemDiscoveriesResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudDbSystemDiscoveryCollection",
+        bodyModel: model.CloudDbSystemDiscoveryCollection,
+        type: "model.CloudDbSystemDiscoveryCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists the cloud DB systems in the specified compartment.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListCloudDbSystemsRequest
+   * @return ListCloudDbSystemsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListCloudDbSystems.ts.html |here} to see how to use ListCloudDbSystems API.
+   */
+  public async listCloudDbSystems(
+    listCloudDbSystemsRequest: requests.ListCloudDbSystemsRequest
+  ): Promise<responses.ListCloudDbSystemsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#listCloudDbSystems.");
+    const operationName = "listCloudDbSystems";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/CloudDbSystem/ListCloudDbSystems";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listCloudDbSystemsRequest.compartmentId,
+      "dbaasParentInfrastructureId": listCloudDbSystemsRequest.dbaasParentInfrastructureId,
+      "deploymentType": listCloudDbSystemsRequest.deploymentType,
+      "displayName": listCloudDbSystemsRequest.displayName,
+      "lifecycleState": listCloudDbSystemsRequest.lifecycleState,
+      "page": listCloudDbSystemsRequest.page,
+      "limit": listCloudDbSystemsRequest.limit,
+      "sortBy": listCloudDbSystemsRequest.sortBy,
+      "sortOrder": listCloudDbSystemsRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listCloudDbSystemsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listCloudDbSystemsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudDbSystems",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListCloudDbSystemsResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudDbSystemCollection",
+        bodyModel: model.CloudDbSystemCollection,
+        type: "model.CloudDbSystemCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists the database services registered with the specified cloud listener
+   * for the specified Managed Database.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListCloudListenerServicesRequest
+   * @return ListCloudListenerServicesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListCloudListenerServices.ts.html |here} to see how to use ListCloudListenerServices API.
+   */
+  public async listCloudListenerServices(
+    listCloudListenerServicesRequest: requests.ListCloudListenerServicesRequest
+  ): Promise<responses.ListCloudListenerServicesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#listCloudListenerServices.");
+    const operationName = "listCloudListenerServices";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/CloudListener/ListCloudListenerServices";
+    const pathParams = {
+      "{cloudListenerId}": listCloudListenerServicesRequest.cloudListenerId
+    };
+
+    const queryParams = {
+      "managedDatabaseId": listCloudListenerServicesRequest.managedDatabaseId,
+      "page": listCloudListenerServicesRequest.page,
+      "limit": listCloudListenerServicesRequest.limit,
+      "sortBy": listCloudListenerServicesRequest.sortBy,
+      "sortOrder": listCloudListenerServicesRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listCloudListenerServicesRequest.opcRequestId,
+      "opc-named-credential-id": listCloudListenerServicesRequest.opcNamedCredentialId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listCloudListenerServicesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudListeners/{cloudListenerId}/services",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListCloudListenerServicesResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudListenerServiceCollection",
+        bodyModel: model.CloudListenerServiceCollection,
+        type: "model.CloudListenerServiceCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists the listeners in the specified cloud DB system.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListCloudListenersRequest
+   * @return ListCloudListenersResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListCloudListeners.ts.html |here} to see how to use ListCloudListeners API.
+   */
+  public async listCloudListeners(
+    listCloudListenersRequest: requests.ListCloudListenersRequest
+  ): Promise<responses.ListCloudListenersResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#listCloudListeners.");
+    const operationName = "listCloudListeners";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/CloudListener/ListCloudListeners";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listCloudListenersRequest.compartmentId,
+      "cloudDbSystemId": listCloudListenersRequest.cloudDbSystemId,
+      "displayName": listCloudListenersRequest.displayName,
+      "page": listCloudListenersRequest.page,
+      "limit": listCloudListenersRequest.limit,
+      "sortBy": listCloudListenersRequest.sortBy,
+      "sortOrder": listCloudListenersRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listCloudListenersRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listCloudListenersRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudListeners",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListCloudListenersResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudListenerCollection",
+        bodyModel: model.CloudListenerCollection,
+        type: "model.CloudListenerCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -14392,7 +17295,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   }
 
   /**
-   * The list of work requests in a specific compartment was retrieved successfully.
+   * Lists the work requests in a specific compartment.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListWorkRequestsRequest
@@ -14963,6 +17866,90 @@ When enabled, the optimizer uses SQL plan baselines to select plans
           {
             value: response.headers.get("opc-work-request-id"),
             key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Patches the cloud DB system discovery specified by `cloudDbSystemDiscoveryId`.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param PatchCloudDbSystemDiscoveryRequest
+   * @return PatchCloudDbSystemDiscoveryResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/PatchCloudDbSystemDiscovery.ts.html |here} to see how to use PatchCloudDbSystemDiscovery API.
+   */
+  public async patchCloudDbSystemDiscovery(
+    patchCloudDbSystemDiscoveryRequest: requests.PatchCloudDbSystemDiscoveryRequest
+  ): Promise<responses.PatchCloudDbSystemDiscoveryResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#patchCloudDbSystemDiscovery.");
+    const operationName = "patchCloudDbSystemDiscovery";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/CloudDbSystemDiscovery/PatchCloudDbSystemDiscovery";
+    const pathParams = {
+      "{cloudDbSystemDiscoveryId}": patchCloudDbSystemDiscoveryRequest.cloudDbSystemDiscoveryId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": patchCloudDbSystemDiscoveryRequest.opcRequestId,
+      "if-match": patchCloudDbSystemDiscoveryRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      patchCloudDbSystemDiscoveryRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudDbSystemDiscoveries/{cloudDbSystemDiscoveryId}",
+      method: "PATCH",
+      bodyContent: common.ObjectSerializer.serialize(
+        patchCloudDbSystemDiscoveryRequest.patchCloudDbSystemDiscoveryDetails,
+        "PatchCloudDbSystemDiscoveryDetails",
+        model.PatchCloudDbSystemDiscoveryDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.PatchCloudDbSystemDiscoveryResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudDbSystemDiscovery",
+        bodyModel: model.CloudDbSystemDiscovery,
+        type: "model.CloudDbSystemDiscovery",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           }
         ]
@@ -16318,6 +19305,429 @@ Note that this API does not return information on the number of times each datab
   }
 
   /**
+   * Gets metrics for the cloud ASM specified by `cloudAsmId`.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param SummarizeCloudAsmMetricsRequest
+   * @return SummarizeCloudAsmMetricsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/SummarizeCloudAsmMetrics.ts.html |here} to see how to use SummarizeCloudAsmMetrics API.
+   */
+  public async summarizeCloudAsmMetrics(
+    summarizeCloudAsmMetricsRequest: requests.SummarizeCloudAsmMetricsRequest
+  ): Promise<responses.SummarizeCloudAsmMetricsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#summarizeCloudAsmMetrics.");
+    const operationName = "summarizeCloudAsmMetrics";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/CloudAsm/SummarizeCloudAsmMetrics";
+    const pathParams = {
+      "{cloudAsmId}": summarizeCloudAsmMetricsRequest.cloudAsmId
+    };
+
+    const queryParams = {
+      "page": summarizeCloudAsmMetricsRequest.page,
+      "limit": summarizeCloudAsmMetricsRequest.limit,
+      "startTime": summarizeCloudAsmMetricsRequest.startTime,
+      "endTime": summarizeCloudAsmMetricsRequest.endTime,
+      "filterByMetricNames": summarizeCloudAsmMetricsRequest.filterByMetricNames
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizeCloudAsmMetricsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeCloudAsmMetricsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudAsms/{cloudAsmId}/metrics",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SummarizeCloudAsmMetricsResponse>{},
+        body: await response.json(),
+        bodyKey: "metricsAggregationRangeCollection",
+        bodyModel: model.MetricsAggregationRangeCollection,
+        type: "model.MetricsAggregationRangeCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets metrics for the cloud cluster specified by `cloudClusterId`.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param SummarizeCloudClusterMetricsRequest
+   * @return SummarizeCloudClusterMetricsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/SummarizeCloudClusterMetrics.ts.html |here} to see how to use SummarizeCloudClusterMetrics API.
+   */
+  public async summarizeCloudClusterMetrics(
+    summarizeCloudClusterMetricsRequest: requests.SummarizeCloudClusterMetricsRequest
+  ): Promise<responses.SummarizeCloudClusterMetricsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#summarizeCloudClusterMetrics.");
+    const operationName = "summarizeCloudClusterMetrics";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/CloudCluster/SummarizeCloudClusterMetrics";
+    const pathParams = {
+      "{cloudClusterId}": summarizeCloudClusterMetricsRequest.cloudClusterId
+    };
+
+    const queryParams = {
+      "page": summarizeCloudClusterMetricsRequest.page,
+      "limit": summarizeCloudClusterMetricsRequest.limit,
+      "startTime": summarizeCloudClusterMetricsRequest.startTime,
+      "endTime": summarizeCloudClusterMetricsRequest.endTime,
+      "filterByMetricNames": summarizeCloudClusterMetricsRequest.filterByMetricNames
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizeCloudClusterMetricsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeCloudClusterMetricsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudClusters/{cloudClusterId}/metrics",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SummarizeCloudClusterMetricsResponse>{},
+        body: await response.json(),
+        bodyKey: "metricsAggregationRangeCollection",
+        bodyModel: model.MetricsAggregationRangeCollection,
+        type: "model.MetricsAggregationRangeCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets metrics for the cloud DB node specified by `cloudDbNodeId`.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param SummarizeCloudDbNodeMetricsRequest
+   * @return SummarizeCloudDbNodeMetricsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/SummarizeCloudDbNodeMetrics.ts.html |here} to see how to use SummarizeCloudDbNodeMetrics API.
+   */
+  public async summarizeCloudDbNodeMetrics(
+    summarizeCloudDbNodeMetricsRequest: requests.SummarizeCloudDbNodeMetricsRequest
+  ): Promise<responses.SummarizeCloudDbNodeMetricsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#summarizeCloudDbNodeMetrics.");
+    const operationName = "summarizeCloudDbNodeMetrics";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/CloudDbNode/SummarizeCloudDbNodeMetrics";
+    const pathParams = {
+      "{cloudDbNodeId}": summarizeCloudDbNodeMetricsRequest.cloudDbNodeId
+    };
+
+    const queryParams = {
+      "page": summarizeCloudDbNodeMetricsRequest.page,
+      "limit": summarizeCloudDbNodeMetricsRequest.limit,
+      "startTime": summarizeCloudDbNodeMetricsRequest.startTime,
+      "endTime": summarizeCloudDbNodeMetricsRequest.endTime,
+      "filterByMetricNames": summarizeCloudDbNodeMetricsRequest.filterByMetricNames
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizeCloudDbNodeMetricsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeCloudDbNodeMetricsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudDbNodes/{cloudDbNodeId}/metrics",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SummarizeCloudDbNodeMetricsResponse>{},
+        body: await response.json(),
+        bodyKey: "metricsAggregationRangeCollection",
+        bodyModel: model.MetricsAggregationRangeCollection,
+        type: "model.MetricsAggregationRangeCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets availability metrics for the components present in the cloud DB system specified by `cloudDbSystemId`.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param SummarizeCloudDbSystemAvailabilityMetricsRequest
+   * @return SummarizeCloudDbSystemAvailabilityMetricsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/SummarizeCloudDbSystemAvailabilityMetrics.ts.html |here} to see how to use SummarizeCloudDbSystemAvailabilityMetrics API.
+   */
+  public async summarizeCloudDbSystemAvailabilityMetrics(
+    summarizeCloudDbSystemAvailabilityMetricsRequest: requests.SummarizeCloudDbSystemAvailabilityMetricsRequest
+  ): Promise<responses.SummarizeCloudDbSystemAvailabilityMetricsResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#summarizeCloudDbSystemAvailabilityMetrics."
+      );
+    const operationName = "summarizeCloudDbSystemAvailabilityMetrics";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/CloudDbSystem/SummarizeCloudDbSystemAvailabilityMetrics";
+    const pathParams = {
+      "{cloudDbSystemId}": summarizeCloudDbSystemAvailabilityMetricsRequest.cloudDbSystemId
+    };
+
+    const queryParams = {
+      "page": summarizeCloudDbSystemAvailabilityMetricsRequest.page,
+      "limit": summarizeCloudDbSystemAvailabilityMetricsRequest.limit,
+      "filterByComponentTypes":
+        summarizeCloudDbSystemAvailabilityMetricsRequest.filterByComponentTypes,
+      "startTime": summarizeCloudDbSystemAvailabilityMetricsRequest.startTime,
+      "endTime": summarizeCloudDbSystemAvailabilityMetricsRequest.endTime
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizeCloudDbSystemAvailabilityMetricsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeCloudDbSystemAvailabilityMetricsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudDbSystems/{cloudDbSystemId}/availabilityMetrics",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SummarizeCloudDbSystemAvailabilityMetricsResponse>{},
+        body: await response.json(),
+        bodyKey: "metricsAggregationRangeCollection",
+        bodyModel: model.MetricsAggregationRangeCollection,
+        type: "model.MetricsAggregationRangeCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets metrics for the cloud listener specified by `cloudListenerId`.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param SummarizeCloudListenerMetricsRequest
+   * @return SummarizeCloudListenerMetricsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/SummarizeCloudListenerMetrics.ts.html |here} to see how to use SummarizeCloudListenerMetrics API.
+   */
+  public async summarizeCloudListenerMetrics(
+    summarizeCloudListenerMetricsRequest: requests.SummarizeCloudListenerMetricsRequest
+  ): Promise<responses.SummarizeCloudListenerMetricsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#summarizeCloudListenerMetrics.");
+    const operationName = "summarizeCloudListenerMetrics";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/CloudListener/SummarizeCloudListenerMetrics";
+    const pathParams = {
+      "{cloudListenerId}": summarizeCloudListenerMetricsRequest.cloudListenerId
+    };
+
+    const queryParams = {
+      "page": summarizeCloudListenerMetricsRequest.page,
+      "limit": summarizeCloudListenerMetricsRequest.limit,
+      "startTime": summarizeCloudListenerMetricsRequest.startTime,
+      "endTime": summarizeCloudListenerMetricsRequest.endTime,
+      "filterByMetricNames": summarizeCloudListenerMetricsRequest.filterByMetricNames
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizeCloudListenerMetricsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeCloudListenerMetricsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudListeners/{cloudListenerId}/metrics",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SummarizeCloudListenerMetricsResponse>{},
+        body: await response.json(),
+        bodyKey: "metricsAggregationRangeCollection",
+        bodyModel: model.MetricsAggregationRangeCollection,
+        type: "model.MetricsAggregationRangeCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets metrics for the external ASM specified by `externalAsmId`.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -17217,6 +20627,815 @@ Note that this API does not return information on the number of times each datab
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the cloud ASM specified by `cloudAsmId`.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateCloudAsmRequest
+   * @return UpdateCloudAsmResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdateCloudAsm.ts.html |here} to see how to use UpdateCloudAsm API.
+   */
+  public async updateCloudAsm(
+    updateCloudAsmRequest: requests.UpdateCloudAsmRequest
+  ): Promise<responses.UpdateCloudAsmResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#updateCloudAsm.");
+    const operationName = "updateCloudAsm";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/CloudAsm/UpdateCloudAsm";
+    const pathParams = {
+      "{cloudAsmId}": updateCloudAsmRequest.cloudAsmId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateCloudAsmRequest.opcRequestId,
+      "if-match": updateCloudAsmRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateCloudAsmRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudAsms/{cloudAsmId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateCloudAsmRequest.updateCloudAsmDetails,
+        "UpdateCloudAsmDetails",
+        model.UpdateCloudAsmDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateCloudAsmResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the cloud ASM instance specified by `cloudAsmInstanceId`.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateCloudAsmInstanceRequest
+   * @return UpdateCloudAsmInstanceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdateCloudAsmInstance.ts.html |here} to see how to use UpdateCloudAsmInstance API.
+   */
+  public async updateCloudAsmInstance(
+    updateCloudAsmInstanceRequest: requests.UpdateCloudAsmInstanceRequest
+  ): Promise<responses.UpdateCloudAsmInstanceResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#updateCloudAsmInstance.");
+    const operationName = "updateCloudAsmInstance";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/CloudAsmInstance/UpdateCloudAsmInstance";
+    const pathParams = {
+      "{cloudAsmInstanceId}": updateCloudAsmInstanceRequest.cloudAsmInstanceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateCloudAsmInstanceRequest.opcRequestId,
+      "if-match": updateCloudAsmInstanceRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateCloudAsmInstanceRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudAsmInstances/{cloudAsmInstanceId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateCloudAsmInstanceRequest.updateCloudAsmInstanceDetails,
+        "UpdateCloudAsmInstanceDetails",
+        model.UpdateCloudAsmInstanceDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateCloudAsmInstanceResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudAsmInstance",
+        bodyModel: model.CloudAsmInstance,
+        type: "model.CloudAsmInstance",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the cloud cluster specified by `cloudClusterId`.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateCloudClusterRequest
+   * @return UpdateCloudClusterResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdateCloudCluster.ts.html |here} to see how to use UpdateCloudCluster API.
+   */
+  public async updateCloudCluster(
+    updateCloudClusterRequest: requests.UpdateCloudClusterRequest
+  ): Promise<responses.UpdateCloudClusterResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#updateCloudCluster.");
+    const operationName = "updateCloudCluster";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/CloudCluster/UpdateCloudCluster";
+    const pathParams = {
+      "{cloudClusterId}": updateCloudClusterRequest.cloudClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateCloudClusterRequest.opcRequestId,
+      "if-match": updateCloudClusterRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateCloudClusterRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudClusters/{cloudClusterId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateCloudClusterRequest.updateCloudClusterDetails,
+        "UpdateCloudClusterDetails",
+        model.UpdateCloudClusterDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateCloudClusterResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the cloud cluster instance specified by `cloudClusterInstanceId`.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateCloudClusterInstanceRequest
+   * @return UpdateCloudClusterInstanceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdateCloudClusterInstance.ts.html |here} to see how to use UpdateCloudClusterInstance API.
+   */
+  public async updateCloudClusterInstance(
+    updateCloudClusterInstanceRequest: requests.UpdateCloudClusterInstanceRequest
+  ): Promise<responses.UpdateCloudClusterInstanceResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#updateCloudClusterInstance.");
+    const operationName = "updateCloudClusterInstance";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/CloudClusterInstance/UpdateCloudClusterInstance";
+    const pathParams = {
+      "{cloudClusterInstanceId}": updateCloudClusterInstanceRequest.cloudClusterInstanceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateCloudClusterInstanceRequest.opcRequestId,
+      "if-match": updateCloudClusterInstanceRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateCloudClusterInstanceRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudClusterInstances/{cloudClusterInstanceId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateCloudClusterInstanceRequest.updateCloudClusterInstanceDetails,
+        "UpdateCloudClusterInstanceDetails",
+        model.UpdateCloudClusterInstanceDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateCloudClusterInstanceResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the cloud DB home specified by `cloudDbHomeId`.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateCloudDbHomeRequest
+   * @return UpdateCloudDbHomeResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdateCloudDbHome.ts.html |here} to see how to use UpdateCloudDbHome API.
+   */
+  public async updateCloudDbHome(
+    updateCloudDbHomeRequest: requests.UpdateCloudDbHomeRequest
+  ): Promise<responses.UpdateCloudDbHomeResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#updateCloudDbHome.");
+    const operationName = "updateCloudDbHome";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/CloudDbHome/UpdateCloudDbHome";
+    const pathParams = {
+      "{cloudDbHomeId}": updateCloudDbHomeRequest.cloudDbHomeId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateCloudDbHomeRequest.opcRequestId,
+      "if-match": updateCloudDbHomeRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateCloudDbHomeRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudDbHomes/{cloudDbHomeId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateCloudDbHomeRequest.updateCloudDbHomeDetails,
+        "UpdateCloudDbHomeDetails",
+        model.UpdateCloudDbHomeDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateCloudDbHomeResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudDbHome",
+        bodyModel: model.CloudDbHome,
+        type: "model.CloudDbHome",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the cloud DB node specified by `cloudDbNodeId`.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateCloudDbNodeRequest
+   * @return UpdateCloudDbNodeResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdateCloudDbNode.ts.html |here} to see how to use UpdateCloudDbNode API.
+   */
+  public async updateCloudDbNode(
+    updateCloudDbNodeRequest: requests.UpdateCloudDbNodeRequest
+  ): Promise<responses.UpdateCloudDbNodeResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#updateCloudDbNode.");
+    const operationName = "updateCloudDbNode";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/CloudDbNode/UpdateCloudDbNode";
+    const pathParams = {
+      "{cloudDbNodeId}": updateCloudDbNodeRequest.cloudDbNodeId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateCloudDbNodeRequest.opcRequestId,
+      "if-match": updateCloudDbNodeRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateCloudDbNodeRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudDbNodes/{cloudDbNodeId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateCloudDbNodeRequest.updateCloudDbNodeDetails,
+        "UpdateCloudDbNodeDetails",
+        model.UpdateCloudDbNodeDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateCloudDbNodeResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the cloud DB system specified by `cloudDbSystemId`.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateCloudDbSystemRequest
+   * @return UpdateCloudDbSystemResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdateCloudDbSystem.ts.html |here} to see how to use UpdateCloudDbSystem API.
+   */
+  public async updateCloudDbSystem(
+    updateCloudDbSystemRequest: requests.UpdateCloudDbSystemRequest
+  ): Promise<responses.UpdateCloudDbSystemResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#updateCloudDbSystem.");
+    const operationName = "updateCloudDbSystem";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/CloudDbSystem/UpdateCloudDbSystem";
+    const pathParams = {
+      "{cloudDbSystemId}": updateCloudDbSystemRequest.cloudDbSystemId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateCloudDbSystemRequest.opcRequestId,
+      "if-match": updateCloudDbSystemRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateCloudDbSystemRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudDbSystems/{cloudDbSystemId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateCloudDbSystemRequest.updateCloudDbSystemDetails,
+        "UpdateCloudDbSystemDetails",
+        model.UpdateCloudDbSystemDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateCloudDbSystemResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudDbSystem",
+        bodyModel: model.CloudDbSystem,
+        type: "model.CloudDbSystem",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the cloud connector specified by `cloudDbSystemConnectorId`.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateCloudDbSystemConnectorRequest
+   * @return UpdateCloudDbSystemConnectorResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdateCloudDbSystemConnector.ts.html |here} to see how to use UpdateCloudDbSystemConnector API.
+   */
+  public async updateCloudDbSystemConnector(
+    updateCloudDbSystemConnectorRequest: requests.UpdateCloudDbSystemConnectorRequest
+  ): Promise<responses.UpdateCloudDbSystemConnectorResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#updateCloudDbSystemConnector.");
+    const operationName = "updateCloudDbSystemConnector";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/CloudDbSystemConnector/UpdateCloudDbSystemConnector";
+    const pathParams = {
+      "{cloudDbSystemConnectorId}": updateCloudDbSystemConnectorRequest.cloudDbSystemConnectorId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateCloudDbSystemConnectorRequest.ifMatch,
+      "opc-request-id": updateCloudDbSystemConnectorRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateCloudDbSystemConnectorRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudDbSystemConnectors/{cloudDbSystemConnectorId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateCloudDbSystemConnectorRequest.updateCloudDbSystemConnectorDetails,
+        "UpdateCloudDbSystemConnectorDetails",
+        model.UpdateCloudDbSystemConnectorDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateCloudDbSystemConnectorResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the cloud DB system discovery specified by `cloudDbSystemDiscoveryId`.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateCloudDbSystemDiscoveryRequest
+   * @return UpdateCloudDbSystemDiscoveryResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdateCloudDbSystemDiscovery.ts.html |here} to see how to use UpdateCloudDbSystemDiscovery API.
+   */
+  public async updateCloudDbSystemDiscovery(
+    updateCloudDbSystemDiscoveryRequest: requests.UpdateCloudDbSystemDiscoveryRequest
+  ): Promise<responses.UpdateCloudDbSystemDiscoveryResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#updateCloudDbSystemDiscovery.");
+    const operationName = "updateCloudDbSystemDiscovery";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/CloudDbSystemDiscovery/UpdateCloudDbSystemDiscovery";
+    const pathParams = {
+      "{cloudDbSystemDiscoveryId}": updateCloudDbSystemDiscoveryRequest.cloudDbSystemDiscoveryId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateCloudDbSystemDiscoveryRequest.opcRequestId,
+      "if-match": updateCloudDbSystemDiscoveryRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateCloudDbSystemDiscoveryRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudDbSystemDiscoveries/{cloudDbSystemDiscoveryId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateCloudDbSystemDiscoveryRequest.updateCloudDbSystemDiscoveryDetails,
+        "UpdateCloudDbSystemDiscoveryDetails",
+        model.UpdateCloudDbSystemDiscoveryDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateCloudDbSystemDiscoveryResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudDbSystemDiscovery",
+        bodyModel: model.CloudDbSystemDiscovery,
+        type: "model.CloudDbSystemDiscovery",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the cloud listener specified by `cloudListenerId`.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateCloudListenerRequest
+   * @return UpdateCloudListenerResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdateCloudListener.ts.html |here} to see how to use UpdateCloudListener API.
+   */
+  public async updateCloudListener(
+    updateCloudListenerRequest: requests.UpdateCloudListenerRequest
+  ): Promise<responses.UpdateCloudListenerResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#updateCloudListener.");
+    const operationName = "updateCloudListener";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/CloudListener/UpdateCloudListener";
+    const pathParams = {
+      "{cloudListenerId}": updateCloudListenerRequest.cloudListenerId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateCloudListenerRequest.opcRequestId,
+      "if-match": updateCloudListenerRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateCloudListenerRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudListeners/{cloudListenerId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateCloudListenerRequest.updateCloudListenerDetails,
+        "UpdateCloudListenerDetails",
+        model.UpdateCloudListenerDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateCloudListenerResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           }
         ]
@@ -18650,7 +22869,7 @@ Note that this API does not return information on the number of times each datab
   }
 
   /**
-   * Updates the details for the recurring scheduled job specified by jobId. Note that non-recurring (one time) jobs cannot be updated.
+   * Updates the details of the recurring scheduled job specified by jobId. Note that non-recurring (one time) jobs cannot be updated.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateJobRequest
@@ -19981,7 +24200,7 @@ export class ManagedMySqlDatabasesClient {
   }
 
   /**
-   * Retrieves information pertaining to binary log of a specific MySQL server.
+   * Retrieves information pertaining to the binary log of a specific MySQL server.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetBinaryLogInformationRequest
@@ -20059,7 +24278,7 @@ export class ManagedMySqlDatabasesClient {
   }
 
   /**
-   * Retrieves general information regarding replication of a specific MySQL server.
+   * Retrieves general information regarding the replication of a specific MySQL server.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetGeneralReplicationInformationRequest
@@ -20449,7 +24668,7 @@ export class ManagedMySqlDatabasesClient {
   }
 
   /**
-   * Information about high availability members of a specific MySQL server's replication group.
+   * Retrieves information about the high availability members of a specific MySQL server's replication group.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListHighAvailabilityMembersRequest
@@ -20959,7 +25178,7 @@ export class ManagedMySqlDatabasesClient {
   }
 
   /**
-   * Retrieves information pertaining to outbound replications of a specific MySQL server.
+   * Retrieves information pertaining to the outbound replications of a specific MySQL server.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListOutboundReplicationsRequest

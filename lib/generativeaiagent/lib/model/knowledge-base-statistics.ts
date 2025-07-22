@@ -31,6 +31,10 @@ export interface KnowledgeBaseStatistics {
    * Knowledge Base size in bytes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "sizeInBytes"?: number;
+  /**
+   * Total number of ingested files in Knowledge Base. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "totalIngestedFiles"?: number;
 }
 
 export namespace KnowledgeBaseStatistics {

@@ -223,6 +223,21 @@ For Autonomous Transaction Processing databases using ECPUs on Serverless Infras
    */
   "timeUndeleted"?: Date;
   /**
+   * The earliest(min) date and time the Autonomous Database can be scheduled to upgrade to 23ai.
+   *
+   */
+  "timeEarliestAvailableDbVersionUpgrade"?: Date;
+  /**
+   * The max date and time the Autonomous Database can be scheduled to upgrade to 23ai.
+   *
+   */
+  "timeLatestAvailableDbVersionUpgrade"?: Date;
+  /**
+   * The date and time the Autonomous Database scheduled to upgrade to 23ai.
+   *
+   */
+  "timeScheduledDbVersionUpgrade"?: Date;
+  /**
    * The date and time the Autonomous Database was created.
    */
   "timeCreated"?: Date;

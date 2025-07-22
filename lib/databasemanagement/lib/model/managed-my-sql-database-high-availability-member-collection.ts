@@ -50,7 +50,7 @@ export interface ManagedMySqlDatabaseHighAvailabilityMemberCollection {
    */
   "viewId"?: string;
   /**
-   * Number of transactions that were replicated within the cluster. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The number of transactions that were replicated within the cluster. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "transactionsInGtidExecuted"?: number;
   /**

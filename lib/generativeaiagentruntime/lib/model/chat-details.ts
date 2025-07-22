@@ -41,9 +41,14 @@ export interface ChatDetails {
    */
   "sessionId"?: string;
   /**
-   * A map where each key is a toolId and the value contains tool type and additional dynamic parameters.
+   * A map where each key is a toolId and the value contains tool type and additional dynamic parameters. This field is deprecated and will be removed after July 02 2026.
    */
   "toolParameters"?: { [key: string]: string };
+  /**
+   * Array of tool input objects, each specifying a tool's ID, type, and corresponding input parameters required for execution.
+   *
+   */
+  "toolInputs"?: Array<model.ToolInput>;
   /**
    * A list of actions that have been performed based on prior required actions.
    */
@@ -55,6 +60,11 @@ export namespace ChatDetails {
     const jsonObj = {
       ...obj,
       ...{
+        "toolInputs": obj.toolInputs
+          ? obj.toolInputs.map(item => {
+              return model.ToolInput.getJsonObj(item);
+            })
+          : undefined,
         "performedActions": obj.performedActions
           ? obj.performedActions.map(item => {
               return model.PerformedAction.getJsonObj(item);
@@ -69,6 +79,11 @@ export namespace ChatDetails {
     const jsonObj = {
       ...obj,
       ...{
+        "toolInputs": obj.toolInputs
+          ? obj.toolInputs.map(item => {
+              return model.ToolInput.getDeserializedJsonObj(item);
+            })
+          : undefined,
         "performedActions": obj.performedActions
           ? obj.performedActions.map(item => {
               return model.PerformedAction.getDeserializedJsonObj(item);
