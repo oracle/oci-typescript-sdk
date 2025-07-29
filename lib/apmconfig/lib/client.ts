@@ -610,6 +610,83 @@ export class ConfigClient {
   }
 
   /**
+   * The domain-wide agents matching attribute key.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetMatchAgentsWithAttributeKeyRequest
+   * @return GetMatchAgentsWithAttributeKeyResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmconfig/GetMatchAgentsWithAttributeKey.ts.html |here} to see how to use GetMatchAgentsWithAttributeKey API.
+   */
+  public async getMatchAgentsWithAttributeKey(
+    getMatchAgentsWithAttributeKeyRequest: requests.GetMatchAgentsWithAttributeKeyRequest
+  ): Promise<responses.GetMatchAgentsWithAttributeKeyResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ConfigClient#getMatchAgentsWithAttributeKey.");
+    const operationName = "getMatchAgentsWithAttributeKey";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/apm-config/20210201/MatchAgentsWithAttributeKey/GetMatchAgentsWithAttributeKey";
+    const pathParams = {};
+
+    const queryParams = {
+      "apmDomainId": getMatchAgentsWithAttributeKeyRequest.apmDomainId
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getMatchAgentsWithAttributeKeyRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getMatchAgentsWithAttributeKeyRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/actions/matchAgentsWithAttributeKey",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetMatchAgentsWithAttributeKeyResponse>{},
+        body: await response.json(),
+        bodyKey: "matchAgentsWithAttributeKey",
+        bodyModel: model.MatchAgentsWithAttributeKey,
+        type: "model.MatchAgentsWithAttributeKey",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Import configurations Item(s) with its dependencies into a destination domain.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ImportConfigurationRequest
@@ -1081,6 +1158,88 @@ export class ConfigClient {
         bodyKey: "config",
         bodyModel: model.Config,
         type: "model.Config",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the agent matching attribute key for the APM Domain.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateMatchAgentsWithAttributeKeyRequest
+   * @return UpdateMatchAgentsWithAttributeKeyResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmconfig/UpdateMatchAgentsWithAttributeKey.ts.html |here} to see how to use UpdateMatchAgentsWithAttributeKey API.
+   */
+  public async updateMatchAgentsWithAttributeKey(
+    updateMatchAgentsWithAttributeKeyRequest: requests.UpdateMatchAgentsWithAttributeKeyRequest
+  ): Promise<responses.UpdateMatchAgentsWithAttributeKeyResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ConfigClient#updateMatchAgentsWithAttributeKey.");
+    const operationName = "updateMatchAgentsWithAttributeKey";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/apm-config/20210201/MatchAgentsWithAttributeKey/UpdateMatchAgentsWithAttributeKey";
+    const pathParams = {};
+
+    const queryParams = {
+      "apmDomainId": updateMatchAgentsWithAttributeKeyRequest.apmDomainId
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateMatchAgentsWithAttributeKeyRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateMatchAgentsWithAttributeKeyRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/actions/matchAgentsWithAttributeKey",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateMatchAgentsWithAttributeKeyRequest.updateMatchAgentsWithAttributeKeyDetails,
+        "UpdateMatchAgentsWithAttributeKeyDetails",
+        model.UpdateMatchAgentsWithAttributeKeyDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateMatchAgentsWithAttributeKeyResponse>{},
+        body: await response.json(),
+        bodyKey: "matchAgentsWithAttributeKey",
+        bodyModel: model.MatchAgentsWithAttributeKey,
+        type: "model.MatchAgentsWithAttributeKey",
         responseHeaders: [
           {
             value: response.headers.get("etag"),

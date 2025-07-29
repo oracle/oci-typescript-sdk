@@ -40,6 +40,10 @@ Example: {@code My new resource}
    */
   "apiId": string;
   /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.AddResourceLockDetails>;
+  /**
     * Free-form tags for this resource. Each tag is a simple key-value pair
 * with no predefined name, type, or namespace. For more information, see
 * [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
@@ -69,12 +73,30 @@ Example: {@code {\"configName\": \"configValue\"}}
 
 export namespace CreateSdkDetails {
   export function getJsonObj(obj: CreateSdkDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.AddResourceLockDetails.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: CreateSdkDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.AddResourceLockDetails.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

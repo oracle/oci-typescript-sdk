@@ -54,9 +54,19 @@ export namespace CreateConfigDetails {
             <model.CreateMetricGroupDetails>(<object>jsonObj),
             true
           );
+        case "AGENT":
+          return model.CreateAgentConfigDetails.getJsonObj(
+            <model.CreateAgentConfigDetails>(<object>jsonObj),
+            true
+          );
         case "OPTIONS":
           return model.CreateOptionsDetails.getJsonObj(
             <model.CreateOptionsDetails>(<object>jsonObj),
+            true
+          );
+        case "MACS_APM_EXTENSION":
+          return model.CreateMacsApmExtensionDetails.getJsonObj(
+            <model.CreateMacsApmExtensionDetails>(<object>jsonObj),
             true
           );
         case "APDEX":
@@ -85,9 +95,19 @@ export namespace CreateConfigDetails {
             <model.CreateMetricGroupDetails>(<object>jsonObj),
             true
           );
+        case "AGENT":
+          return model.CreateAgentConfigDetails.getDeserializedJsonObj(
+            <model.CreateAgentConfigDetails>(<object>jsonObj),
+            true
+          );
         case "OPTIONS":
           return model.CreateOptionsDetails.getDeserializedJsonObj(
             <model.CreateOptionsDetails>(<object>jsonObj),
+            true
+          );
+        case "MACS_APM_EXTENSION":
+          return model.CreateMacsApmExtensionDetails.getDeserializedJsonObj(
+            <model.CreateMacsApmExtensionDetails>(<object>jsonObj),
             true
           );
         case "APDEX":

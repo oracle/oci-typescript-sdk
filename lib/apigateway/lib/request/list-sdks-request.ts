@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ListSdksRequest extends common.BaseRequest {
   /**
-   * The ocid of the SDK.
+   * The ocid of the SDK. This value must be present unless apiId is present.
    */
   "sdkId"?: string;
   /**
@@ -57,7 +57,7 @@ Example: {@code ACTIVE} or {@code DELETED}
    */
   "sortBy"?: ListSdksRequest.SortBy;
   /**
-   * The ocid of the API.
+   * The ocid of the API. This value must be present unless sdkId is present.
    */
   "apiId"?: string;
   /**

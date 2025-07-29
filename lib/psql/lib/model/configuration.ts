@@ -61,10 +61,11 @@ Example: {@code 2016-08-25T21:10:29.600Z}
    */
   "configType"?: Configuration.ConfigType;
   /**
-   * The name of the shape for the configuration.
-   * Example: {@code VM.Standard.E4.Flex}
-   *
-   */
+    * The name of the shape for the configuration. 
+* <p>
+For multi-shape enabled configurations, it is set to PostgreSQL. Please use compatibleShapes property to get list of supported shapes for such configurations.
+* 
+    */
   "shape": string;
   /**
    * Whether the configuration supports flexible shapes.
@@ -84,6 +85,15 @@ It's value is set to 0 if configuration is for a flexible shape.
 *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "instanceMemorySizeInGBs": number;
+  /**
+   * Indicates the collection of compatible shapes for this configuration.
+   *
+   */
+  "compatibleShapes": Array<string>;
+  /**
+   * The Default configuration used for this configuration.
+   */
+  "defaultConfigId": string;
   "configurationDetails": model.ConfigurationDetails;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.

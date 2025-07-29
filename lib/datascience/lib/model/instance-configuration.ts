@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The model deployment instance configuration
+ * The model deployment instance configuration.
  */
 export interface InstanceConfiguration {
   /**

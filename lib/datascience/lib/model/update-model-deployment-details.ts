@@ -32,7 +32,9 @@ export interface UpdateModelDeploymentDetails {
    * A short description of the model deployment.
    */
   "description"?: string;
-  "modelDeploymentConfigurationDetails"?: model.UpdateSingleModelDeploymentConfigurationDetails;
+  "modelDeploymentConfigurationDetails"?:
+    | model.UpdateModelGroupDeploymentConfigurationDetails
+    | model.UpdateSingleModelDeploymentConfigurationDetails;
   "categoryLogDetails"?: model.UpdateCategoryLogDetails;
   /**
    * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace. See [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).

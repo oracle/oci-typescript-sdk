@@ -22,6 +22,9 @@ import common = require("oci-common");
  *
  */
 export interface HTTPBackend extends model.ApiSpecificationRouteBackend {
+  /**
+   * The url of the HTTP Backend
+   */
   "url": string;
   /**
    * Defines a timeout for establishing a connection with a proxied server.

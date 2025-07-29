@@ -1440,6 +1440,7 @@ export class AIServiceSpeechClient {
     const queryParams = {
       "compartmentId": listVoicesRequest.compartmentId,
       "modelName": listVoicesRequest.modelName,
+      "languageCode": listVoicesRequest.languageCode,
       "displayName": listVoicesRequest.displayName
     };
 

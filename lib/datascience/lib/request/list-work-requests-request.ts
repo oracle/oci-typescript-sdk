@@ -117,7 +117,11 @@ export namespace ListWorkRequestsRequest {
     ScheduleActivate = "SCHEDULE_ACTIVATE",
     ScheduleDeactivate = "SCHEDULE_DEACTIVATE",
     RegisterModelArtifact = "REGISTER_MODEL_ARTIFACT",
-    RestoreArchivedModel = "RESTORE_ARCHIVED_MODEL"
+    RestoreArchivedModel = "RESTORE_ARCHIVED_MODEL",
+    ModelGroupCreate = "MODEL_GROUP_CREATE",
+    ModelGroupUpdate = "MODEL_GROUP_UPDATE",
+    ModelGroupDelete = "MODEL_GROUP_DELETE",
+    ModelGroupVersionHistoryDelete = "MODEL_GROUP_VERSION_HISTORY_DELETE"
   }
 
   export enum Status {

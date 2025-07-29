@@ -65,6 +65,10 @@ export enum WorkRequestOperationType {
   ScheduleDeactivate = "SCHEDULE_DEACTIVATE",
   RegisterModelArtifact = "REGISTER_MODEL_ARTIFACT",
   RestoreArchivedModel = "RESTORE_ARCHIVED_MODEL",
+  ModelGroupCreate = "MODEL_GROUP_CREATE",
+  ModelGroupUpdate = "MODEL_GROUP_UPDATE",
+  ModelGroupDelete = "MODEL_GROUP_DELETE",
+  ModelGroupVersionHistoryDelete = "MODEL_GROUP_VERSION_HISTORY_DELETE",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

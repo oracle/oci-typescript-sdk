@@ -41,6 +41,10 @@ Example: {@code My new resource}
    */
   "compartmentId": string;
   /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.AddResourceLockDetails>;
+  /**
     * Free-form tags for this resource. Each tag is a simple key-value pair
 * with no predefined name, type, or namespace. For more information, see
 * [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
@@ -69,6 +73,12 @@ export namespace CreateUsagePlanDetails {
           ? obj.entitlements.map(item => {
               return model.Entitlement.getJsonObj(item);
             })
+          : undefined,
+
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.AddResourceLockDetails.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -82,6 +92,12 @@ export namespace CreateUsagePlanDetails {
         "entitlements": obj.entitlements
           ? obj.entitlements.map(item => {
               return model.Entitlement.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.AddResourceLockDetails.getDeserializedJsonObj(item);
             })
           : undefined
       }

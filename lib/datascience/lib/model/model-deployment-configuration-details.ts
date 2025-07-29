@@ -33,6 +33,11 @@ export namespace ModelDeploymentConfigurationDetails {
             <model.SingleModelDeploymentConfigurationDetails>(<object>jsonObj),
             true
           );
+        case "MODEL_GROUP":
+          return model.ModelGroupDeploymentConfigurationDetails.getJsonObj(
+            <model.ModelGroupDeploymentConfigurationDetails>(<object>jsonObj),
+            true
+          );
         default:
           if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.deploymentType}`);
       }
@@ -47,6 +52,11 @@ export namespace ModelDeploymentConfigurationDetails {
         case "SINGLE_MODEL":
           return model.SingleModelDeploymentConfigurationDetails.getDeserializedJsonObj(
             <model.SingleModelDeploymentConfigurationDetails>(<object>jsonObj),
+            true
+          );
+        case "MODEL_GROUP":
+          return model.ModelGroupDeploymentConfigurationDetails.getDeserializedJsonObj(
+            <model.ModelGroupDeploymentConfigurationDetails>(<object>jsonObj),
             true
           );
         default:

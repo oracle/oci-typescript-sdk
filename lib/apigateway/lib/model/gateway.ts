@@ -81,6 +81,10 @@ Example: {@code PUBLIC} or {@code PRIVATE}
    */
   "lifecycleDetails"?: string;
   /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.ResourceLock>;
+  /**
    * The hostname for APIs deployed on the gateway.
    */
   "hostname"?: string;
@@ -112,6 +116,12 @@ Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
 * 
     */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * System tags for this resource. Each key is predefined and scoped to a namespace.
+   * Example: {@code {\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}}
+   *
+   */
+  "systemTags"?: { [key: string]: { [key: string]: any } };
   /**
    * An array of CA bundles that should be used on the Gateway for TLS validation.
    */
@@ -147,6 +157,12 @@ export namespace Gateway {
     const jsonObj = {
       ...obj,
       ...{
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getJsonObj(item);
+            })
+          : undefined,
+
         "ipAddresses": obj.ipAddresses
           ? obj.ipAddresses.map(item => {
               return model.IpAddress.getJsonObj(item);
@@ -170,6 +186,12 @@ export namespace Gateway {
     const jsonObj = {
       ...obj,
       ...{
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
         "ipAddresses": obj.ipAddresses
           ? obj.ipAddresses.map(item => {
               return model.IpAddress.getDeserializedJsonObj(item);

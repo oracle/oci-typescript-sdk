@@ -64,6 +64,12 @@ Example: {@code {\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}}
    * The current lifecycle state of the secret.
    */
   "lifecycleState": SecretSummary.LifecycleState;
+  "replicationConfig"?: model.ReplicationConfig;
+  /**
+   * A Boolean value that indicates whether the secret is a source or replica secret.
+   */
+  "isReplica"?: boolean;
+  "sourceRegionInformation"?: model.SourceRegionInformation;
   "rotationConfig"?: model.RotationConfig;
   /**
    * Additional information about the status of the secret rotation
@@ -140,6 +146,13 @@ export namespace SecretSummary {
     const jsonObj = {
       ...obj,
       ...{
+        "replicationConfig": obj.replicationConfig
+          ? model.ReplicationConfig.getJsonObj(obj.replicationConfig)
+          : undefined,
+
+        "sourceRegionInformation": obj.sourceRegionInformation
+          ? model.SourceRegionInformation.getJsonObj(obj.sourceRegionInformation)
+          : undefined,
         "rotationConfig": obj.rotationConfig
           ? model.RotationConfig.getJsonObj(obj.rotationConfig)
           : undefined,
@@ -156,6 +169,13 @@ export namespace SecretSummary {
     const jsonObj = {
       ...obj,
       ...{
+        "replicationConfig": obj.replicationConfig
+          ? model.ReplicationConfig.getDeserializedJsonObj(obj.replicationConfig)
+          : undefined,
+
+        "sourceRegionInformation": obj.sourceRegionInformation
+          ? model.SourceRegionInformation.getDeserializedJsonObj(obj.sourceRegionInformation)
+          : undefined,
         "rotationConfig": obj.rotationConfig
           ? model.RotationConfig.getDeserializedJsonObj(obj.rotationConfig)
           : undefined,

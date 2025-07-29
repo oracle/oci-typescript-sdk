@@ -22,6 +22,9 @@ import common = require("oci-common");
  *
  */
 export interface OAuth2LogoutBackend extends model.ApiSpecificationRouteBackend {
+  /**
+   * A list of allowed post-logout URLs to which a request can be redirected after revoke access
+   */
   "allowedPostLogoutUris"?: Array<string>;
   /**
    * Defines a state that should be shared on redirecting to postLogout URL.

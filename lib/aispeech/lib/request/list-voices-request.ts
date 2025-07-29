@@ -23,9 +23,13 @@ export interface ListVoicesRequest extends common.BaseRequest {
    */
   "compartmentId"?: string;
   /**
-   * The model the user wants to run the inference on.
+   * The model name to filter voices for given model name.
    */
   "modelName"?: string;
+  /**
+   * The Code or Id of the language to filter voices for given language code.
+   */
+  "languageCode"?: string;
   /**
    * The name of the speaker voice in which the user wants tts inference to be.
    */

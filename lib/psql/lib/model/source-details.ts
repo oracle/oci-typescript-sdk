@@ -17,7 +17,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The source used to restore the database system.
+ * The source of the database system.
  */
 export interface SourceDetails {
   "sourceType": string;
