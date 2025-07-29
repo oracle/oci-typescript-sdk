@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Customization details.
+ * Details of the base ASR model to train a Customization for.
  */
 export interface CustomizationModelDetails {
   /**
-   * Customization Domain
+   * Domain of the ASR model
    */
   "domain"?: CustomizationModelDetails.Domain;
   /**

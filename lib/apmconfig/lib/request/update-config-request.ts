@@ -33,6 +33,8 @@ export interface UpdateConfigRequest extends common.BaseRequest {
    */
   "updateConfigDetails":
     | model.UpdateMetricGroupDetails
+    | model.UpdateAgentConfigDetails
+    | model.UpdateMacsApmExtensionDetails
     | model.UpdateApdexRulesDetails
     | model.UpdateSpanFilterDetails
     | model.UpdateOptionsDetails;

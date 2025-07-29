@@ -390,6 +390,83 @@ export class DataScienceClient {
   }
 
   /**
+   * Activates the model group.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ActivateModelGroupRequest
+   * @return ActivateModelGroupResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/ActivateModelGroup.ts.html |here} to see how to use ActivateModelGroup API.
+   */
+  public async activateModelGroup(
+    activateModelGroupRequest: requests.ActivateModelGroupRequest
+  ): Promise<responses.ActivateModelGroupResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#activateModelGroup.");
+    const operationName = "activateModelGroup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/ModelGroup/ActivateModelGroup";
+    const pathParams = {
+      "{modelGroupId}": activateModelGroupRequest.modelGroupId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": activateModelGroupRequest.ifMatch,
+      "opc-request-id": activateModelGroupRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      activateModelGroupRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/modelGroups/{modelGroupId}/actions/activate",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ActivateModelGroupResponse>{},
+        body: await response.json(),
+        bodyKey: "modelGroup",
+        bodyModel: model.ModelGroup,
+        type: "model.ModelGroup",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Activates the notebook session.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ActivateNotebookSessionRequest
@@ -1435,6 +1512,159 @@ export class DataScienceClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeModelDeploymentCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Moves a model group resource into a different compartment.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ChangeModelGroupCompartmentRequest
+   * @return ChangeModelGroupCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/ChangeModelGroupCompartment.ts.html |here} to see how to use ChangeModelGroupCompartment API.
+   */
+  public async changeModelGroupCompartment(
+    changeModelGroupCompartmentRequest: requests.ChangeModelGroupCompartmentRequest
+  ): Promise<responses.ChangeModelGroupCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#changeModelGroupCompartment.");
+    const operationName = "changeModelGroupCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/ModelGroup/ChangeModelGroupCompartment";
+    const pathParams = {
+      "{modelGroupId}": changeModelGroupCompartmentRequest.modelGroupId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeModelGroupCompartmentRequest.ifMatch,
+      "opc-request-id": changeModelGroupCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeModelGroupCompartmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeModelGroupCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/modelGroups/{modelGroupId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeModelGroupCompartmentRequest.changeModelGroupCompartmentDetails,
+        "ChangeModelGroupCompartmentDetails",
+        model.ChangeModelGroupCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeModelGroupCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Moves a model Group Version History resource into a different compartment.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ChangeModelGroupVersionHistoryCompartmentRequest
+   * @return ChangeModelGroupVersionHistoryCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/ChangeModelGroupVersionHistoryCompartment.ts.html |here} to see how to use ChangeModelGroupVersionHistoryCompartment API.
+   */
+  public async changeModelGroupVersionHistoryCompartment(
+    changeModelGroupVersionHistoryCompartmentRequest: requests.ChangeModelGroupVersionHistoryCompartmentRequest
+  ): Promise<responses.ChangeModelGroupVersionHistoryCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DataScienceClient#changeModelGroupVersionHistoryCompartment."
+      );
+    const operationName = "changeModelGroupVersionHistoryCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/ModelGroupVersionHistory/ChangeModelGroupVersionHistoryCompartment";
+    const pathParams = {
+      "{modelGroupVersionHistoryId}":
+        changeModelGroupVersionHistoryCompartmentRequest.modelGroupVersionHistoryId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeModelGroupVersionHistoryCompartmentRequest.ifMatch,
+      "opc-request-id": changeModelGroupVersionHistoryCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeModelGroupVersionHistoryCompartmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeModelGroupVersionHistoryCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/modelGroupVersionHistory/{modelGroupVersionHistoryId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeModelGroupVersionHistoryCompartmentRequest.changeModelGroupVersionHistoryCompartmentDetails,
+        "ChangeModelGroupVersionHistoryCompartmentDetails",
+        model.ChangeModelGroupVersionHistoryCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeModelGroupVersionHistoryCompartmentResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2906,6 +3136,251 @@ export class DataScienceClient {
   }
 
   /**
+   * Create a new Model Group resource.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateModelGroupRequest
+   * @return CreateModelGroupResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/CreateModelGroup.ts.html |here} to see how to use CreateModelGroup API.
+   */
+  public async createModelGroup(
+    createModelGroupRequest: requests.CreateModelGroupRequest
+  ): Promise<responses.CreateModelGroupResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#createModelGroup.");
+    const operationName = "createModelGroup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/ModelGroup/CreateModelGroup";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createModelGroupRequest.opcRequestId,
+      "opc-retry-token": createModelGroupRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createModelGroupRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/modelGroups",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createModelGroupRequest.createBaseModelGroupDetails,
+        "CreateBaseModelGroupDetails",
+        model.CreateBaseModelGroupDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateModelGroupResponse>{},
+        body: await response.json(),
+        bodyKey: "modelGroup",
+        bodyModel: model.ModelGroup,
+        type: "model.ModelGroup",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates artifact for the Model Group.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateModelGroupArtifactRequest
+   * @return CreateModelGroupArtifactResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/CreateModelGroupArtifact.ts.html |here} to see how to use CreateModelGroupArtifact API.
+   */
+  public async createModelGroupArtifact(
+    createModelGroupArtifactRequest: requests.CreateModelGroupArtifactRequest
+  ): Promise<responses.CreateModelGroupArtifactResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#createModelGroupArtifact.");
+    const operationName = "createModelGroupArtifact";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/ModelGroup/CreateModelGroupArtifact";
+    const pathParams = {
+      "{modelGroupId}": createModelGroupArtifactRequest.modelGroupId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "opc-request-id": createModelGroupArtifactRequest.opcRequestId,
+      "opc-retry-token": createModelGroupArtifactRequest.opcRetryToken,
+      "content-length": createModelGroupArtifactRequest.contentLength,
+      "content-disposition": createModelGroupArtifactRequest.contentDisposition,
+      "if-match": createModelGroupArtifactRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createModelGroupArtifactRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/modelGroups/{modelGroupId}/artifact",
+      method: "POST",
+      bodyContent: createModelGroupArtifactRequest.modelGroupArtifact,
+      pathParams: pathParams,
+      headerParams: headerParams,
+      backupBinaryBody: retrier.backUpBinaryBody,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink,
+        true
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateModelGroupArtifactResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new modelGroupVersionHistory.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateModelGroupVersionHistoryRequest
+   * @return CreateModelGroupVersionHistoryResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/CreateModelGroupVersionHistory.ts.html |here} to see how to use CreateModelGroupVersionHistory API.
+   */
+  public async createModelGroupVersionHistory(
+    createModelGroupVersionHistoryRequest: requests.CreateModelGroupVersionHistoryRequest
+  ): Promise<responses.CreateModelGroupVersionHistoryResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#createModelGroupVersionHistory.");
+    const operationName = "createModelGroupVersionHistory";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/ModelGroupVersionHistory/CreateModelGroupVersionHistory";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createModelGroupVersionHistoryRequest.opcRequestId,
+      "opc-retry-token": createModelGroupVersionHistoryRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createModelGroupVersionHistoryRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/modelGroupVersionHistory",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createModelGroupVersionHistoryRequest.createModelGroupVersionHistoryDetails,
+        "CreateModelGroupVersionHistoryDetails",
+        model.CreateModelGroupVersionHistoryDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateModelGroupVersionHistoryResponse>{},
+        body: await response.json(),
+        bodyKey: "modelGroupVersionHistory",
+        bodyModel: model.ModelGroupVersionHistory,
+        type: "model.ModelGroupVersionHistory",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates provenance information for the specified model.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateModelProvenanceRequest
@@ -3712,6 +4187,83 @@ export class DataScienceClient {
           {
             value: response.headers.get("opc-work-request-id"),
             key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deactivates the model group.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeactivateModelGroupRequest
+   * @return DeactivateModelGroupResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/DeactivateModelGroup.ts.html |here} to see how to use DeactivateModelGroup API.
+   */
+  public async deactivateModelGroup(
+    deactivateModelGroupRequest: requests.DeactivateModelGroupRequest
+  ): Promise<responses.DeactivateModelGroupResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#deactivateModelGroup.");
+    const operationName = "deactivateModelGroup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/ModelGroup/DeactivateModelGroup";
+    const pathParams = {
+      "{modelGroupId}": deactivateModelGroupRequest.modelGroupId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deactivateModelGroupRequest.ifMatch,
+      "opc-request-id": deactivateModelGroupRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deactivateModelGroupRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/modelGroups/{modelGroupId}/actions/deactivate",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeactivateModelGroupResponse>{},
+        body: await response.json(),
+        bodyKey: "modelGroup",
+        bodyModel: model.ModelGroup,
+        type: "model.ModelGroup",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
             dataType: "string"
           },
           {
@@ -4574,6 +5126,154 @@ export class DataScienceClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteModelDeploymentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the specified Model Group.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteModelGroupRequest
+   * @return DeleteModelGroupResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/DeleteModelGroup.ts.html |here} to see how to use DeleteModelGroup API.
+   */
+  public async deleteModelGroup(
+    deleteModelGroupRequest: requests.DeleteModelGroupRequest
+  ): Promise<responses.DeleteModelGroupResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#deleteModelGroup.");
+    const operationName = "deleteModelGroup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/ModelGroup/DeleteModelGroup";
+    const pathParams = {
+      "{modelGroupId}": deleteModelGroupRequest.modelGroupId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": deleteModelGroupRequest.opcRequestId,
+      "if-match": deleteModelGroupRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteModelGroupRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/modelGroups/{modelGroupId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteModelGroupResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the specified modelGroupVersionHistory.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteModelGroupVersionHistoryRequest
+   * @return DeleteModelGroupVersionHistoryResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/DeleteModelGroupVersionHistory.ts.html |here} to see how to use DeleteModelGroupVersionHistory API.
+   */
+  public async deleteModelGroupVersionHistory(
+    deleteModelGroupVersionHistoryRequest: requests.DeleteModelGroupVersionHistoryRequest
+  ): Promise<responses.DeleteModelGroupVersionHistoryResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#deleteModelGroupVersionHistory.");
+    const operationName = "deleteModelGroupVersionHistory";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/ModelGroupVersionHistory/DeleteModelGroupVersionHistory";
+    const pathParams = {
+      "{modelGroupVersionHistoryId}":
+        deleteModelGroupVersionHistoryRequest.modelGroupVersionHistoryId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": deleteModelGroupVersionHistoryRequest.opcRequestId,
+      "if-match": deleteModelGroupVersionHistoryRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteModelGroupVersionHistoryRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/modelGroupVersionHistory/{modelGroupVersionHistoryId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteModelGroupVersionHistoryResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -6618,6 +7318,257 @@ export class DataScienceClient {
   }
 
   /**
+   * Retrieves the Model Group resource based on the specified modelGroup id.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetModelGroupRequest
+   * @return GetModelGroupResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/GetModelGroup.ts.html |here} to see how to use GetModelGroup API.
+   */
+  public async getModelGroup(
+    getModelGroupRequest: requests.GetModelGroupRequest
+  ): Promise<responses.GetModelGroupResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#getModelGroup.");
+    const operationName = "getModelGroup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/ModelGroup/GetModelGroup";
+    const pathParams = {
+      "{modelGroupId}": getModelGroupRequest.modelGroupId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getModelGroupRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getModelGroupRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/modelGroups/{modelGroupId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetModelGroupResponse>{},
+        body: await response.json(),
+        bodyKey: "modelGroup",
+        bodyModel: model.ModelGroup,
+        type: "model.ModelGroup",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Downloads the model artifact for the specified model group.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetModelGroupArtifactContentRequest
+   * @return GetModelGroupArtifactContentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/GetModelGroupArtifactContent.ts.html |here} to see how to use GetModelGroupArtifactContent API.
+   */
+  public async getModelGroupArtifactContent(
+    getModelGroupArtifactContentRequest: requests.GetModelGroupArtifactContentRequest
+  ): Promise<responses.GetModelGroupArtifactContentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#getModelGroupArtifactContent.");
+    const operationName = "getModelGroupArtifactContent";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/ModelGroup/GetModelGroupArtifactContent";
+    const pathParams = {
+      "{modelGroupId}": getModelGroupArtifactContentRequest.modelGroupId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getModelGroupArtifactContentRequest.opcRequestId,
+      "range": getModelGroupArtifactContentRequest.range
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getModelGroupArtifactContentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/modelGroups/{modelGroupId}/artifact/content",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetModelGroupArtifactContentResponse>{},
+
+        body: response.body!,
+        bodyKey: "value",
+        bodyModel: "string",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-length"),
+            key: "contentLength",
+            dataType: "number"
+          },
+          {
+            value: response.headers.get("content-disposition"),
+            key: "contentDisposition",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-md5"),
+            key: "contentMd5",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("last-modified"),
+            key: "lastModified",
+            dataType: "Date"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the specified modelGroupVersionHistory's information.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetModelGroupVersionHistoryRequest
+   * @return GetModelGroupVersionHistoryResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/GetModelGroupVersionHistory.ts.html |here} to see how to use GetModelGroupVersionHistory API.
+   */
+  public async getModelGroupVersionHistory(
+    getModelGroupVersionHistoryRequest: requests.GetModelGroupVersionHistoryRequest
+  ): Promise<responses.GetModelGroupVersionHistoryResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#getModelGroupVersionHistory.");
+    const operationName = "getModelGroupVersionHistory";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/ModelGroupVersionHistory/GetModelGroupVersionHistory";
+    const pathParams = {
+      "{modelGroupVersionHistoryId}": getModelGroupVersionHistoryRequest.modelGroupVersionHistoryId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getModelGroupVersionHistoryRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getModelGroupVersionHistoryRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/modelGroupVersionHistory/{modelGroupVersionHistoryId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetModelGroupVersionHistoryResponse>{},
+        body: await response.json(),
+        bodyKey: "modelGroupVersionHistory",
+        bodyModel: model.ModelGroupVersionHistory,
+        type: "model.ModelGroupVersionHistory",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets provenance information for specified model.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetModelProvenanceRequest
@@ -7662,6 +8613,99 @@ export class DataScienceClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.HeadModelDefinedMetadatumArtifactResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-length"),
+            key: "contentLength",
+            dataType: "number"
+          },
+          {
+            value: response.headers.get("content-disposition"),
+            key: "contentDisposition",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-md5"),
+            key: "contentMd5",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("last-modified"),
+            key: "lastModified",
+            dataType: "Date"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets model group artifact metadata for a specified model group.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param HeadModelGroupArtifactRequest
+   * @return HeadModelGroupArtifactResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/HeadModelGroupArtifact.ts.html |here} to see how to use HeadModelGroupArtifact API.
+   */
+  public async headModelGroupArtifact(
+    headModelGroupArtifactRequest: requests.HeadModelGroupArtifactRequest
+  ): Promise<responses.HeadModelGroupArtifactResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#headModelGroupArtifact.");
+    const operationName = "headModelGroupArtifact";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/ModelGroup/HeadModelGroupArtifact";
+    const pathParams = {
+      "{modelGroupId}": headModelGroupArtifactRequest.modelGroupId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": headModelGroupArtifactRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      headModelGroupArtifactRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/modelGroups/{modelGroupId}/artifact/content",
+      method: "HEAD",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.HeadModelGroupArtifactResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -9142,6 +10186,151 @@ export class DataScienceClient {
   }
 
   /**
+   * Lists the status of models in a model group deployment.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListModelDeploymentModelStatesRequest
+   * @return ListModelDeploymentModelStatesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/ListModelDeploymentModelStates.ts.html |here} to see how to use ListModelDeploymentModelStates API.
+   */
+  public async listModelDeploymentModelStates(
+    listModelDeploymentModelStatesRequest: requests.ListModelDeploymentModelStatesRequest
+  ): Promise<responses.ListModelDeploymentModelStatesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#listModelDeploymentModelStates.");
+    const operationName = "listModelDeploymentModelStates";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/ModelDeploymentModelStateSummary/ListModelDeploymentModelStates";
+    const pathParams = {
+      "{modelDeploymentId}": listModelDeploymentModelStatesRequest.modelDeploymentId
+    };
+
+    const queryParams = {
+      "compartmentId": listModelDeploymentModelStatesRequest.compartmentId,
+      "projectId": listModelDeploymentModelStatesRequest.projectId,
+      "displayName": listModelDeploymentModelStatesRequest.displayName,
+      "inferenceKey": listModelDeploymentModelStatesRequest.inferenceKey,
+      "modelId": listModelDeploymentModelStatesRequest.modelId,
+      "limit": listModelDeploymentModelStatesRequest.limit,
+      "page": listModelDeploymentModelStatesRequest.page,
+      "sortOrder": listModelDeploymentModelStatesRequest.sortOrder,
+      "sortBy": listModelDeploymentModelStatesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listModelDeploymentModelStatesRequest.opcRequestId,
+      "opc-retry-token": listModelDeploymentModelStatesRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listModelDeploymentModelStatesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/modelDeployments/{modelDeploymentId}/models/modelState",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListModelDeploymentModelStatesResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.ModelDeploymentModelStateSummary,
+        type: "Array<model.ModelDeploymentModelStateSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listModelDeploymentModelStatesRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.ModelDeploymentModelStateSummary objects
+   * contained in responses from the listModelDeploymentModelStates operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllModelDeploymentModelStates(
+    request: requests.ListModelDeploymentModelStatesRequest
+  ): AsyncIterableIterator<model.ModelDeploymentModelStateSummary> {
+    return paginateRecords(request, req => this.listModelDeploymentModelStates(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listModelDeploymentModelStatesResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listModelDeploymentModelStates operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllModelDeploymentModelStatesResponses(
+    request: requests.ListModelDeploymentModelStatesRequest
+  ): AsyncIterableIterator<responses.ListModelDeploymentModelStatesResponse> {
+    return paginateResponses(request, req => this.listModelDeploymentModelStates(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ModelDeploymentModelStateSummary objects
+   * contained in responses from the listModelDeploymentModelStates operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listModelDeploymentModelStatesRecordIterator(
+    request: requests.ListModelDeploymentModelStatesRequest
+  ): AsyncIterableIterator<model.ModelDeploymentModelStateSummary> {
+    return paginateRecords(request, req => this.listModelDeploymentModelStates(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listModelDeploymentModelStates operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listModelDeploymentModelStatesResponseIterator(
+    request: requests.ListModelDeploymentModelStatesRequest
+  ): AsyncIterableIterator<responses.ListModelDeploymentModelStatesResponse> {
+    return paginateResponses(request, req => this.listModelDeploymentModelStates(req));
+  }
+
+  /**
    * Lists the valid model deployment shapes.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListModelDeploymentShapesRequest
@@ -9418,6 +10607,435 @@ export class DataScienceClient {
     request: requests.ListModelDeploymentsRequest
   ): AsyncIterableIterator<responses.ListModelDeploymentsResponse> {
     return paginateResponses(request, req => this.listModelDeployments(req));
+  }
+
+  /**
+   * Lists all models associated with the modelGroup in the specified compartment.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListModelGroupModelsRequest
+   * @return ListModelGroupModelsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/ListModelGroupModels.ts.html |here} to see how to use ListModelGroupModels API.
+   */
+  public async listModelGroupModels(
+    listModelGroupModelsRequest: requests.ListModelGroupModelsRequest
+  ): Promise<responses.ListModelGroupModelsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#listModelGroupModels.");
+    const operationName = "listModelGroupModels";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/ModelGroup/ListModelGroupModels";
+    const pathParams = {
+      "{modelGroupId}": listModelGroupModelsRequest.modelGroupId
+    };
+
+    const queryParams = {
+      "compartmentId": listModelGroupModelsRequest.compartmentId,
+      "id": listModelGroupModelsRequest.id,
+      "displayName": listModelGroupModelsRequest.displayName,
+      "lifecycleState": listModelGroupModelsRequest.lifecycleState,
+      "createdBy": listModelGroupModelsRequest.createdBy,
+      "limit": listModelGroupModelsRequest.limit,
+      "page": listModelGroupModelsRequest.page,
+      "sortOrder": listModelGroupModelsRequest.sortOrder,
+      "sortBy": listModelGroupModelsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listModelGroupModelsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listModelGroupModelsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/modelGroups/{modelGroupId}/models",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListModelGroupModelsResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.ModelGroupModelSummary,
+        type: "Array<model.ModelGroupModelSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listModelGroupModelsRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.ModelGroupModelSummary objects
+   * contained in responses from the listModelGroupModels operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllModelGroupModels(
+    request: requests.ListModelGroupModelsRequest
+  ): AsyncIterableIterator<model.ModelGroupModelSummary> {
+    return paginateRecords(request, req => this.listModelGroupModels(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listModelGroupModelsResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listModelGroupModels operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllModelGroupModelsResponses(
+    request: requests.ListModelGroupModelsRequest
+  ): AsyncIterableIterator<responses.ListModelGroupModelsResponse> {
+    return paginateResponses(request, req => this.listModelGroupModels(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ModelGroupModelSummary objects
+   * contained in responses from the listModelGroupModels operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listModelGroupModelsRecordIterator(
+    request: requests.ListModelGroupModelsRequest
+  ): AsyncIterableIterator<model.ModelGroupModelSummary> {
+    return paginateRecords(request, req => this.listModelGroupModels(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listModelGroupModels operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listModelGroupModelsResponseIterator(
+    request: requests.ListModelGroupModelsRequest
+  ): AsyncIterableIterator<responses.ListModelGroupModelsResponse> {
+    return paginateResponses(request, req => this.listModelGroupModels(req));
+  }
+
+  /**
+   * List all modelGroupVersionHistories in the specified compartment. The query must include compartmentId.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListModelGroupVersionHistoriesRequest
+   * @return ListModelGroupVersionHistoriesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/ListModelGroupVersionHistories.ts.html |here} to see how to use ListModelGroupVersionHistories API.
+   */
+  public async listModelGroupVersionHistories(
+    listModelGroupVersionHistoriesRequest: requests.ListModelGroupVersionHistoriesRequest
+  ): Promise<responses.ListModelGroupVersionHistoriesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#listModelGroupVersionHistories.");
+    const operationName = "listModelGroupVersionHistories";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/ModelGroupVersionHistorySummary/ListModelGroupVersionHistories";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listModelGroupVersionHistoriesRequest.compartmentId,
+      "projectId": listModelGroupVersionHistoriesRequest.projectId,
+      "id": listModelGroupVersionHistoriesRequest.id,
+      "displayName": listModelGroupVersionHistoriesRequest.displayName,
+      "lifecycleState": listModelGroupVersionHistoriesRequest.lifecycleState,
+      "createdBy": listModelGroupVersionHistoriesRequest.createdBy,
+      "limit": listModelGroupVersionHistoriesRequest.limit,
+      "page": listModelGroupVersionHistoriesRequest.page,
+      "sortOrder": listModelGroupVersionHistoriesRequest.sortOrder,
+      "sortBy": listModelGroupVersionHistoriesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listModelGroupVersionHistoriesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listModelGroupVersionHistoriesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/modelGroupVersionHistory",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListModelGroupVersionHistoriesResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.ModelGroupVersionHistorySummary,
+        type: "Array<model.ModelGroupVersionHistorySummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listModelGroupVersionHistoriesRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.ModelGroupVersionHistorySummary objects
+   * contained in responses from the listModelGroupVersionHistories operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllModelGroupVersionHistories(
+    request: requests.ListModelGroupVersionHistoriesRequest
+  ): AsyncIterableIterator<model.ModelGroupVersionHistorySummary> {
+    return paginateRecords(request, req => this.listModelGroupVersionHistories(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listModelGroupVersionHistoriesResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listModelGroupVersionHistories operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllModelGroupVersionHistoriesResponses(
+    request: requests.ListModelGroupVersionHistoriesRequest
+  ): AsyncIterableIterator<responses.ListModelGroupVersionHistoriesResponse> {
+    return paginateResponses(request, req => this.listModelGroupVersionHistories(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ModelGroupVersionHistorySummary objects
+   * contained in responses from the listModelGroupVersionHistories operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listModelGroupVersionHistoriesRecordIterator(
+    request: requests.ListModelGroupVersionHistoriesRequest
+  ): AsyncIterableIterator<model.ModelGroupVersionHistorySummary> {
+    return paginateRecords(request, req => this.listModelGroupVersionHistories(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listModelGroupVersionHistories operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listModelGroupVersionHistoriesResponseIterator(
+    request: requests.ListModelGroupVersionHistoriesRequest
+  ): AsyncIterableIterator<responses.ListModelGroupVersionHistoriesResponse> {
+    return paginateResponses(request, req => this.listModelGroupVersionHistories(req));
+  }
+
+  /**
+   * Lists all the modelGroups in the specified compartment. The query must include compartmentId.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListModelGroupsRequest
+   * @return ListModelGroupsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/ListModelGroups.ts.html |here} to see how to use ListModelGroups API.
+   */
+  public async listModelGroups(
+    listModelGroupsRequest: requests.ListModelGroupsRequest
+  ): Promise<responses.ListModelGroupsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#listModelGroups.");
+    const operationName = "listModelGroups";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/ModelGroupSummary/ListModelGroups";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listModelGroupsRequest.compartmentId,
+      "projectId": listModelGroupsRequest.projectId,
+      "id": listModelGroupsRequest.id,
+      "displayName": listModelGroupsRequest.displayName,
+      "lifecycleState": listModelGroupsRequest.lifecycleState,
+      "createdBy": listModelGroupsRequest.createdBy,
+      "modelGroupVersionHistoryId": listModelGroupsRequest.modelGroupVersionHistoryId,
+      "limit": listModelGroupsRequest.limit,
+      "page": listModelGroupsRequest.page,
+      "sortOrder": listModelGroupsRequest.sortOrder,
+      "sortBy": listModelGroupsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listModelGroupsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listModelGroupsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/modelGroups",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListModelGroupsResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.ModelGroupSummary,
+        type: "Array<model.ModelGroupSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listModelGroupsRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.ModelGroupSummary objects
+   * contained in responses from the listModelGroups operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllModelGroups(
+    request: requests.ListModelGroupsRequest
+  ): AsyncIterableIterator<model.ModelGroupSummary> {
+    return paginateRecords(request, req => this.listModelGroups(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listModelGroupsResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listModelGroups operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllModelGroupsResponses(
+    request: requests.ListModelGroupsRequest
+  ): AsyncIterableIterator<responses.ListModelGroupsResponse> {
+    return paginateResponses(request, req => this.listModelGroups(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ModelGroupSummary objects
+   * contained in responses from the listModelGroups operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listModelGroupsRecordIterator(
+    request: requests.ListModelGroupsRequest
+  ): AsyncIterableIterator<model.ModelGroupSummary> {
+    return paginateRecords(request, req => this.listModelGroups(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listModelGroups operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listModelGroupsResponseIterator(
+    request: requests.ListModelGroupsRequest
+  ): AsyncIterableIterator<responses.ListModelGroupsResponse> {
+    return paginateResponses(request, req => this.listModelGroups(req));
   }
 
   /**
@@ -12411,6 +14029,172 @@ export class DataScienceClient {
           {
             value: response.headers.get("opc-work-request-id"),
             key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the properties of the Model Group.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateModelGroupRequest
+   * @return UpdateModelGroupResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/UpdateModelGroup.ts.html |here} to see how to use UpdateModelGroup API.
+   */
+  public async updateModelGroup(
+    updateModelGroupRequest: requests.UpdateModelGroupRequest
+  ): Promise<responses.UpdateModelGroupResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#updateModelGroup.");
+    const operationName = "updateModelGroup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/ModelGroup/UpdateModelGroup";
+    const pathParams = {
+      "{modelGroupId}": updateModelGroupRequest.modelGroupId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateModelGroupRequest.opcRequestId,
+      "if-match": updateModelGroupRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateModelGroupRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/modelGroups/{modelGroupId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateModelGroupRequest.updateModelGroupDetails,
+        "UpdateModelGroupDetails",
+        model.UpdateModelGroupDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateModelGroupResponse>{},
+        body: await response.json(),
+        bodyKey: "modelGroup",
+        bodyModel: model.ModelGroup,
+        type: "model.ModelGroup",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the properties of a modelGroupVersionHistory.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateModelGroupVersionHistoryRequest
+   * @return UpdateModelGroupVersionHistoryResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/UpdateModelGroupVersionHistory.ts.html |here} to see how to use UpdateModelGroupVersionHistory API.
+   */
+  public async updateModelGroupVersionHistory(
+    updateModelGroupVersionHistoryRequest: requests.UpdateModelGroupVersionHistoryRequest
+  ): Promise<responses.UpdateModelGroupVersionHistoryResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#updateModelGroupVersionHistory.");
+    const operationName = "updateModelGroupVersionHistory";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/ModelGroupVersionHistory/UpdateModelGroupVersionHistory";
+    const pathParams = {
+      "{modelGroupVersionHistoryId}":
+        updateModelGroupVersionHistoryRequest.modelGroupVersionHistoryId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateModelGroupVersionHistoryRequest.opcRequestId,
+      "if-match": updateModelGroupVersionHistoryRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateModelGroupVersionHistoryRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/modelGroupVersionHistory/{modelGroupVersionHistoryId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateModelGroupVersionHistoryRequest.updateModelGroupVersionHistoryDetails,
+        "UpdateModelGroupVersionHistoryDetails",
+        model.UpdateModelGroupVersionHistoryDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateModelGroupVersionHistoryResponse>{},
+        body: await response.json(),
+        bodyKey: "modelGroupVersionHistory",
+        bodyModel: model.ModelGroupVersionHistory,
+        type: "model.ModelGroupVersionHistory",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           }
         ]

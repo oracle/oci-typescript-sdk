@@ -38,7 +38,9 @@ export interface CreateModelDeploymentDetails {
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment where you want to create the model deployment.
    */
   "compartmentId": string;
-  "modelDeploymentConfigurationDetails": model.SingleModelDeploymentConfigurationDetails;
+  "modelDeploymentConfigurationDetails":
+    | model.SingleModelDeploymentConfigurationDetails
+    | model.ModelGroupDeploymentConfigurationDetails;
   "categoryLogDetails"?: model.CategoryLogDetails;
   /**
    * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace. See [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).

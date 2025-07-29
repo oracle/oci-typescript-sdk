@@ -21,6 +21,9 @@ import common = require("oci-common");
  * Validate the URL query parameters on the incoming API requests on a specific route.
  */
 export interface QueryParameterValidationRequestPolicy {
+  /**
+   * The List of Query Parameters
+   */
   "parameters"?: Array<model.QueryParameterValidationItem>;
   /**
     * Validation behavior mode.

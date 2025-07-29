@@ -21,6 +21,9 @@ import common = require("oci-common");
  * Validate the HTTP headers on the incoming API requests on a specific route.
  */
 export interface HeaderValidationRequestPolicy {
+  /**
+   * The List of Headers
+   */
   "headers"?: Array<model.HeaderValidationItem>;
   /**
     * Validation behavior mode.

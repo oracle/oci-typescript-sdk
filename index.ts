@@ -239,3 +239,4 @@ export import distributeddatabase = require("oci-distributeddatabase");
 export import apiaccesscontrol = require("oci-apiaccesscontrol");
 export import wlms = require("oci-wlms");
 export import dbmulticloud = require("oci-dbmulticloud");
+export import apiplatform = require("oci-apiplatform");

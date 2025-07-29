@@ -29,9 +29,29 @@ export interface NotebookSessionShapeConfigDetails {
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "memoryInGBs"?: number;
+  /**
+   * The baseline OCPU utilization for a subcore burstable VM instance. If this attribute is left bank, it will default to {@code BASELINE_1_1}.
+   * The following values are supported:
+   *   BASELINE_1_8 - baseline usage is 1/8 of an OCPU.
+   *   BASELINE_1_2 - baseline usage is 1/2 of an OCPU.
+   *   BASELINE_1_1 - baseline usage is an entire OCPU. This represents a non-burstable instance.
+   *
+   */
+  "cpuBaseline"?: NotebookSessionShapeConfigDetails.CpuBaseline;
 }
 
 export namespace NotebookSessionShapeConfigDetails {
+  export enum CpuBaseline {
+    Baseline18 = "BASELINE_1_8",
+    Baseline12 = "BASELINE_1_2",
+    Baseline11 = "BASELINE_1_1",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: NotebookSessionShapeConfigDetails): object {
     const jsonObj = { ...obj, ...{} };
 

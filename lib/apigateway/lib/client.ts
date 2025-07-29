@@ -245,6 +245,252 @@ export class ApiGatewayClient {
   }
 
   /**
+   * Adds a lock to a Api resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param AddApiLockRequest
+   * @return AddApiLockResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apigateway/AddApiLock.ts.html |here} to see how to use AddApiLock API.
+   */
+  public async addApiLock(
+    addApiLockRequest: requests.AddApiLockRequest
+  ): Promise<responses.AddApiLockResponse> {
+    if (this.logger) this.logger.debug("Calling operation ApiGatewayClient#addApiLock.");
+    const operationName = "addApiLock";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/api-gateway/20190501/Api/AddApiLock";
+    const pathParams = {
+      "{apiId}": addApiLockRequest.apiId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": addApiLockRequest.opcRequestId,
+      "if-match": addApiLockRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      addApiLockRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/apis/{apiId}/actions/addLock",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        addApiLockRequest.addResourceLockDetails,
+        "AddResourceLockDetails",
+        model.AddResourceLockDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AddApiLockResponse>{},
+        body: await response.json(),
+        bodyKey: "api",
+        bodyModel: model.Api,
+        type: "model.Api",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Adds a lock to a Certificate resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param AddCertificateLockRequest
+   * @return AddCertificateLockResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apigateway/AddCertificateLock.ts.html |here} to see how to use AddCertificateLock API.
+   */
+  public async addCertificateLock(
+    addCertificateLockRequest: requests.AddCertificateLockRequest
+  ): Promise<responses.AddCertificateLockResponse> {
+    if (this.logger) this.logger.debug("Calling operation ApiGatewayClient#addCertificateLock.");
+    const operationName = "addCertificateLock";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/api-gateway/20190501/Certificate/AddCertificateLock";
+    const pathParams = {
+      "{certificateId}": addCertificateLockRequest.certificateId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": addCertificateLockRequest.opcRequestId,
+      "if-match": addCertificateLockRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      addCertificateLockRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/certificates/{certificateId}/actions/addLock",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        addCertificateLockRequest.addResourceLockDetails,
+        "AddResourceLockDetails",
+        model.AddResourceLockDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AddCertificateLockResponse>{},
+        body: await response.json(),
+        bodyKey: "certificate",
+        bodyModel: model.Certificate,
+        type: "model.Certificate",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Adds a lock to a Sdk resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param AddSdkLockRequest
+   * @return AddSdkLockResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apigateway/AddSdkLock.ts.html |here} to see how to use AddSdkLock API.
+   */
+  public async addSdkLock(
+    addSdkLockRequest: requests.AddSdkLockRequest
+  ): Promise<responses.AddSdkLockResponse> {
+    if (this.logger) this.logger.debug("Calling operation ApiGatewayClient#addSdkLock.");
+    const operationName = "addSdkLock";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/api-gateway/20190501/Sdk/AddSdkLock";
+    const pathParams = {
+      "{sdkId}": addSdkLockRequest.sdkId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": addSdkLockRequest.opcRequestId,
+      "if-match": addSdkLockRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      addSdkLockRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sdks/{sdkId}/actions/addLock",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        addSdkLockRequest.addResourceLockDetails,
+        "AddResourceLockDetails",
+        model.AddResourceLockDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AddSdkLockResponse>{},
+        body: await response.json(),
+        bodyKey: "sdk",
+        bodyModel: model.Sdk,
+        type: "model.Sdk",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Changes the API compartment.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeApiCompartmentRequest
@@ -263,7 +509,9 @@ export class ApiGatewayClient {
       "{apiId}": changeApiCompartmentRequest.apiId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": changeApiCompartmentRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -343,7 +591,9 @@ export class ApiGatewayClient {
       "{certificateId}": changeCertificateCompartmentRequest.certificateId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": changeCertificateCompartmentRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -687,7 +937,9 @@ export class ApiGatewayClient {
       "{apiId}": deleteApiRequest.apiId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": deleteApiRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -760,7 +1012,9 @@ export class ApiGatewayClient {
       "{certificateId}": deleteCertificateRequest.certificateId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": deleteCertificateRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -833,7 +1087,9 @@ export class ApiGatewayClient {
       "{sdkId}": deleteSdkRequest.sdkId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": deleteSdkRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -1700,6 +1956,252 @@ export class ApiGatewayClient {
   }
 
   /**
+   * Removes a lock from a Api resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param RemoveApiLockRequest
+   * @return RemoveApiLockResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apigateway/RemoveApiLock.ts.html |here} to see how to use RemoveApiLock API.
+   */
+  public async removeApiLock(
+    removeApiLockRequest: requests.RemoveApiLockRequest
+  ): Promise<responses.RemoveApiLockResponse> {
+    if (this.logger) this.logger.debug("Calling operation ApiGatewayClient#removeApiLock.");
+    const operationName = "removeApiLock";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/api-gateway/20190501/Api/RemoveApiLock";
+    const pathParams = {
+      "{apiId}": removeApiLockRequest.apiId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": removeApiLockRequest.opcRequestId,
+      "if-match": removeApiLockRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removeApiLockRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/apis/{apiId}/actions/removeLock",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        removeApiLockRequest.removeResourceLockDetails,
+        "RemoveResourceLockDetails",
+        model.RemoveResourceLockDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RemoveApiLockResponse>{},
+        body: await response.json(),
+        bodyKey: "api",
+        bodyModel: model.Api,
+        type: "model.Api",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Removes a lock from a Certificate resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param RemoveCertificateLockRequest
+   * @return RemoveCertificateLockResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apigateway/RemoveCertificateLock.ts.html |here} to see how to use RemoveCertificateLock API.
+   */
+  public async removeCertificateLock(
+    removeCertificateLockRequest: requests.RemoveCertificateLockRequest
+  ): Promise<responses.RemoveCertificateLockResponse> {
+    if (this.logger) this.logger.debug("Calling operation ApiGatewayClient#removeCertificateLock.");
+    const operationName = "removeCertificateLock";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/api-gateway/20190501/Certificate/RemoveCertificateLock";
+    const pathParams = {
+      "{certificateId}": removeCertificateLockRequest.certificateId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": removeCertificateLockRequest.opcRequestId,
+      "if-match": removeCertificateLockRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removeCertificateLockRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/certificates/{certificateId}/actions/removeLock",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        removeCertificateLockRequest.removeResourceLockDetails,
+        "RemoveResourceLockDetails",
+        model.RemoveResourceLockDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RemoveCertificateLockResponse>{},
+        body: await response.json(),
+        bodyKey: "certificate",
+        bodyModel: model.Certificate,
+        type: "model.Certificate",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Removes a lock from a Sdk resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param RemoveSdkLockRequest
+   * @return RemoveSdkLockResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apigateway/RemoveSdkLock.ts.html |here} to see how to use RemoveSdkLock API.
+   */
+  public async removeSdkLock(
+    removeSdkLockRequest: requests.RemoveSdkLockRequest
+  ): Promise<responses.RemoveSdkLockResponse> {
+    if (this.logger) this.logger.debug("Calling operation ApiGatewayClient#removeSdkLock.");
+    const operationName = "removeSdkLock";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/api-gateway/20190501/Sdk/RemoveSdkLock";
+    const pathParams = {
+      "{sdkId}": removeSdkLockRequest.sdkId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": removeSdkLockRequest.opcRequestId,
+      "if-match": removeSdkLockRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removeSdkLockRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sdks/{sdkId}/actions/removeLock",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        removeSdkLockRequest.removeResourceLockDetails,
+        "RemoveResourceLockDetails",
+        model.RemoveResourceLockDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RemoveSdkLockResponse>{},
+        body: await response.json(),
+        bodyKey: "sdk",
+        bodyModel: model.Sdk,
+        type: "model.Sdk",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Updates the API with the given identifier.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateApiRequest
@@ -1718,7 +2220,9 @@ export class ApiGatewayClient {
       "{apiId}": updateApiRequest.apiId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": updateApiRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -1796,7 +2300,9 @@ export class ApiGatewayClient {
       "{certificateId}": updateCertificateRequest.certificateId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": updateCertificateRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -1874,7 +2380,9 @@ export class ApiGatewayClient {
       "{sdkId}": updateSdkRequest.sdkId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": updateSdkRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -2137,6 +2645,88 @@ export class DeploymentClient {
   }
 
   /**
+   * Adds a lock to a Deployment resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param AddDeploymentLockRequest
+   * @return AddDeploymentLockResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apigateway/AddDeploymentLock.ts.html |here} to see how to use AddDeploymentLock API.
+   */
+  public async addDeploymentLock(
+    addDeploymentLockRequest: requests.AddDeploymentLockRequest
+  ): Promise<responses.AddDeploymentLockResponse> {
+    if (this.logger) this.logger.debug("Calling operation DeploymentClient#addDeploymentLock.");
+    const operationName = "addDeploymentLock";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/api-gateway/20190501/Deployment/AddDeploymentLock";
+    const pathParams = {
+      "{deploymentId}": addDeploymentLockRequest.deploymentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": addDeploymentLockRequest.opcRequestId,
+      "if-match": addDeploymentLockRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      addDeploymentLockRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/deployments/{deploymentId}/actions/addLock",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        addDeploymentLockRequest.addResourceLockDetails,
+        "AddResourceLockDetails",
+        model.AddResourceLockDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AddDeploymentLockResponse>{},
+        body: await response.json(),
+        bodyKey: "deployment",
+        bodyModel: model.Deployment,
+        type: "model.Deployment",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Changes the deployment compartment.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeDeploymentCompartmentRequest
@@ -2156,7 +2746,9 @@ export class DeploymentClient {
       "{deploymentId}": changeDeploymentCompartmentRequest.deploymentId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": changeDeploymentCompartmentRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -2325,7 +2917,9 @@ export class DeploymentClient {
       "{deploymentId}": deleteDeploymentRequest.deploymentId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": deleteDeploymentRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -2545,6 +3139,88 @@ export class DeploymentClient {
   }
 
   /**
+   * Removes a lock from a Deployment resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param RemoveDeploymentLockRequest
+   * @return RemoveDeploymentLockResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apigateway/RemoveDeploymentLock.ts.html |here} to see how to use RemoveDeploymentLock API.
+   */
+  public async removeDeploymentLock(
+    removeDeploymentLockRequest: requests.RemoveDeploymentLockRequest
+  ): Promise<responses.RemoveDeploymentLockResponse> {
+    if (this.logger) this.logger.debug("Calling operation DeploymentClient#removeDeploymentLock.");
+    const operationName = "removeDeploymentLock";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/api-gateway/20190501/Deployment/RemoveDeploymentLock";
+    const pathParams = {
+      "{deploymentId}": removeDeploymentLockRequest.deploymentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": removeDeploymentLockRequest.opcRequestId,
+      "if-match": removeDeploymentLockRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removeDeploymentLockRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/deployments/{deploymentId}/actions/removeLock",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        removeDeploymentLockRequest.removeResourceLockDetails,
+        "RemoveResourceLockDetails",
+        model.RemoveResourceLockDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RemoveDeploymentLockResponse>{},
+        body: await response.json(),
+        bodyKey: "deployment",
+        bodyModel: model.Deployment,
+        type: "model.Deployment",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Updates the deployment with the given identifier.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateDeploymentRequest
@@ -2563,7 +3239,9 @@ export class DeploymentClient {
       "{deploymentId}": updateDeploymentRequest.deploymentId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": updateDeploymentRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -2831,6 +3509,88 @@ export class GatewayClient {
   }
 
   /**
+   * Adds a lock to a Gateway resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param AddGatewayLockRequest
+   * @return AddGatewayLockResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apigateway/AddGatewayLock.ts.html |here} to see how to use AddGatewayLock API.
+   */
+  public async addGatewayLock(
+    addGatewayLockRequest: requests.AddGatewayLockRequest
+  ): Promise<responses.AddGatewayLockResponse> {
+    if (this.logger) this.logger.debug("Calling operation GatewayClient#addGatewayLock.");
+    const operationName = "addGatewayLock";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/api-gateway/20190501/Gateway/AddGatewayLock";
+    const pathParams = {
+      "{gatewayId}": addGatewayLockRequest.gatewayId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": addGatewayLockRequest.opcRequestId,
+      "if-match": addGatewayLockRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      addGatewayLockRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/gateways/{gatewayId}/actions/addLock",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        addGatewayLockRequest.addResourceLockDetails,
+        "AddResourceLockDetails",
+        model.AddResourceLockDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AddGatewayLockResponse>{},
+        body: await response.json(),
+        bodyKey: "gateway",
+        bodyModel: model.Gateway,
+        type: "model.Gateway",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Changes the gateway compartment.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeGatewayCompartmentRequest
@@ -2849,7 +3609,9 @@ export class GatewayClient {
       "{gatewayId}": changeGatewayCompartmentRequest.gatewayId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": changeGatewayCompartmentRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -3018,7 +3780,9 @@ export class GatewayClient {
       "{gatewayId}": deleteGatewayRequest.gatewayId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": deleteGatewayRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -3238,6 +4002,88 @@ export class GatewayClient {
   }
 
   /**
+   * Removes a lock from a Gateway resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param RemoveGatewayLockRequest
+   * @return RemoveGatewayLockResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apigateway/RemoveGatewayLock.ts.html |here} to see how to use RemoveGatewayLock API.
+   */
+  public async removeGatewayLock(
+    removeGatewayLockRequest: requests.RemoveGatewayLockRequest
+  ): Promise<responses.RemoveGatewayLockResponse> {
+    if (this.logger) this.logger.debug("Calling operation GatewayClient#removeGatewayLock.");
+    const operationName = "removeGatewayLock";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/api-gateway/20190501/Gateway/RemoveGatewayLock";
+    const pathParams = {
+      "{gatewayId}": removeGatewayLockRequest.gatewayId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": removeGatewayLockRequest.opcRequestId,
+      "if-match": removeGatewayLockRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removeGatewayLockRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/gateways/{gatewayId}/actions/removeLock",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        removeGatewayLockRequest.removeResourceLockDetails,
+        "RemoveResourceLockDetails",
+        model.RemoveResourceLockDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RemoveGatewayLockResponse>{},
+        body: await response.json(),
+        bodyKey: "gateway",
+        bodyModel: model.Gateway,
+        type: "model.Gateway",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Updates the gateway with the given identifier.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateGatewayRequest
@@ -3256,7 +4102,9 @@ export class GatewayClient {
       "{gatewayId}": updateGatewayRequest.gatewayId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": updateGatewayRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -3524,6 +4372,88 @@ export class SubscribersClient {
   }
 
   /**
+   * Adds a lock to a Subscriber resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param AddSubscriberLockRequest
+   * @return AddSubscriberLockResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apigateway/AddSubscriberLock.ts.html |here} to see how to use AddSubscriberLock API.
+   */
+  public async addSubscriberLock(
+    addSubscriberLockRequest: requests.AddSubscriberLockRequest
+  ): Promise<responses.AddSubscriberLockResponse> {
+    if (this.logger) this.logger.debug("Calling operation SubscribersClient#addSubscriberLock.");
+    const operationName = "addSubscriberLock";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/api-gateway/20190501/Subscriber/AddSubscriberLock";
+    const pathParams = {
+      "{subscriberId}": addSubscriberLockRequest.subscriberId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": addSubscriberLockRequest.opcRequestId,
+      "if-match": addSubscriberLockRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      addSubscriberLockRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/subscribers/{subscriberId}/actions/addLock",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        addSubscriberLockRequest.addResourceLockDetails,
+        "AddResourceLockDetails",
+        model.AddResourceLockDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AddSubscriberLockResponse>{},
+        body: await response.json(),
+        bodyKey: "subscriber",
+        bodyModel: model.Subscriber,
+        type: "model.Subscriber",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Changes the subscriber compartment.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeSubscriberCompartmentRequest
@@ -3543,7 +4473,9 @@ export class SubscribersClient {
       "{subscriberId}": changeSubscriberCompartmentRequest.subscriberId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": changeSubscriberCompartmentRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -3711,7 +4643,9 @@ export class SubscribersClient {
       "{subscriberId}": deleteSubscriberRequest.subscriberId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": deleteSubscriberRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -3929,6 +4863,88 @@ export class SubscribersClient {
   }
 
   /**
+   * Removes a lock from a Subscriber resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param RemoveSubscriberLockRequest
+   * @return RemoveSubscriberLockResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apigateway/RemoveSubscriberLock.ts.html |here} to see how to use RemoveSubscriberLock API.
+   */
+  public async removeSubscriberLock(
+    removeSubscriberLockRequest: requests.RemoveSubscriberLockRequest
+  ): Promise<responses.RemoveSubscriberLockResponse> {
+    if (this.logger) this.logger.debug("Calling operation SubscribersClient#removeSubscriberLock.");
+    const operationName = "removeSubscriberLock";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/api-gateway/20190501/Subscriber/RemoveSubscriberLock";
+    const pathParams = {
+      "{subscriberId}": removeSubscriberLockRequest.subscriberId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": removeSubscriberLockRequest.opcRequestId,
+      "if-match": removeSubscriberLockRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removeSubscriberLockRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/subscribers/{subscriberId}/actions/removeLock",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        removeSubscriberLockRequest.removeResourceLockDetails,
+        "RemoveResourceLockDetails",
+        model.RemoveResourceLockDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RemoveSubscriberLockResponse>{},
+        body: await response.json(),
+        bodyKey: "subscriber",
+        bodyModel: model.Subscriber,
+        type: "model.Subscriber",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Updates the subscriber with the given identifier.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateSubscriberRequest
@@ -3947,7 +4963,9 @@ export class SubscribersClient {
       "{subscriberId}": updateSubscriberRequest.subscriberId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": updateSubscriberRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -4215,6 +5233,88 @@ export class UsagePlansClient {
   }
 
   /**
+   * Adds a lock to a UsagePlan resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param AddUsagePlanLockRequest
+   * @return AddUsagePlanLockResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apigateway/AddUsagePlanLock.ts.html |here} to see how to use AddUsagePlanLock API.
+   */
+  public async addUsagePlanLock(
+    addUsagePlanLockRequest: requests.AddUsagePlanLockRequest
+  ): Promise<responses.AddUsagePlanLockResponse> {
+    if (this.logger) this.logger.debug("Calling operation UsagePlansClient#addUsagePlanLock.");
+    const operationName = "addUsagePlanLock";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/api-gateway/20190501/UsagePlan/AddUsagePlanLock";
+    const pathParams = {
+      "{usagePlanId}": addUsagePlanLockRequest.usagePlanId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": addUsagePlanLockRequest.opcRequestId,
+      "if-match": addUsagePlanLockRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      addUsagePlanLockRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/usagePlans/{usagePlanId}/actions/addLock",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        addUsagePlanLockRequest.addResourceLockDetails,
+        "AddResourceLockDetails",
+        model.AddResourceLockDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AddUsagePlanLockResponse>{},
+        body: await response.json(),
+        bodyKey: "usagePlan",
+        bodyModel: model.UsagePlan,
+        type: "model.UsagePlan",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Changes the usage plan compartment.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeUsagePlanCompartmentRequest
@@ -4234,7 +5334,9 @@ export class UsagePlansClient {
       "{usagePlanId}": changeUsagePlanCompartmentRequest.usagePlanId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": changeUsagePlanCompartmentRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -4402,7 +5504,9 @@ export class UsagePlansClient {
       "{usagePlanId}": deleteUsagePlanRequest.usagePlanId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": deleteUsagePlanRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -4620,6 +5724,88 @@ export class UsagePlansClient {
   }
 
   /**
+   * Removes a lock from a UsagePlan resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param RemoveUsagePlanLockRequest
+   * @return RemoveUsagePlanLockResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apigateway/RemoveUsagePlanLock.ts.html |here} to see how to use RemoveUsagePlanLock API.
+   */
+  public async removeUsagePlanLock(
+    removeUsagePlanLockRequest: requests.RemoveUsagePlanLockRequest
+  ): Promise<responses.RemoveUsagePlanLockResponse> {
+    if (this.logger) this.logger.debug("Calling operation UsagePlansClient#removeUsagePlanLock.");
+    const operationName = "removeUsagePlanLock";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/api-gateway/20190501/UsagePlan/RemoveUsagePlanLock";
+    const pathParams = {
+      "{usagePlanId}": removeUsagePlanLockRequest.usagePlanId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": removeUsagePlanLockRequest.opcRequestId,
+      "if-match": removeUsagePlanLockRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removeUsagePlanLockRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/usagePlans/{usagePlanId}/actions/removeLock",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        removeUsagePlanLockRequest.removeResourceLockDetails,
+        "RemoveResourceLockDetails",
+        model.RemoveResourceLockDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RemoveUsagePlanLockResponse>{},
+        body: await response.json(),
+        bodyKey: "usagePlan",
+        bodyModel: model.UsagePlan,
+        type: "model.UsagePlan",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Updates the usage plan with the given identifier.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateUsagePlanRequest
@@ -4638,7 +5824,9 @@ export class UsagePlansClient {
       "{usagePlanId}": updateUsagePlanRequest.usagePlanId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": updateUsagePlanRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,

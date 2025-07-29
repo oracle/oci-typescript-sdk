@@ -31,7 +31,7 @@ export interface ListConfigsRequest extends common.BaseRequest {
   "opcRequestId"?: string;
   /**
    * A filter to match configuration items of a given type.
-   * Supported values are SPAN_FILTER, METRIC_GROUP, and APDEX.
+   * Supported values are SPAN_FILTER, METRIC_GROUP, APDEX, AGENT and MACS_APM_EXTENSION.
    *
    */
   "configType"?: string;

@@ -29,7 +29,9 @@ export interface CreateConfigRequest extends common.BaseRequest {
   "createConfigDetails":
     | model.CreateSpanFilterDetails
     | model.CreateMetricGroupDetails
+    | model.CreateAgentConfigDetails
     | model.CreateOptionsDetails
+    | model.CreateMacsApmExtensionDetails
     | model.CreateApdexRulesDetails;
   /**
    * A token that uniquely identifies a request so it can be retried in case of a timeout or

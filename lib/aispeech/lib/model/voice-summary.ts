@@ -41,7 +41,7 @@ export interface VoiceSummary {
   /**
    * An abbreviated notation of region to which the language and accent of the speaker belongs to.
    */
-  "languageCode"?: VoiceSummary.LanguageCode;
+  "languageCode"?: string;
   /**
    * A description of region to which the language and accent of the speaker belongs to.
    */
@@ -64,15 +64,6 @@ export namespace VoiceSummary {
   export enum Gender {
     Male = "MALE",
     Female = "FEMALE",
-    /**
-     * This value is used if a service returns a value for this enum that is not recognized by this
-     * version of the SDK.
-     */
-    UnknownValue = "UNKNOWN_VALUE"
-  }
-
-  export enum LanguageCode {
-    EnUs = "en-US",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

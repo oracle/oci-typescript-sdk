@@ -48,6 +48,16 @@ export namespace UpdateConfigDetails {
             <model.UpdateMetricGroupDetails>(<object>jsonObj),
             true
           );
+        case "AGENT":
+          return model.UpdateAgentConfigDetails.getJsonObj(
+            <model.UpdateAgentConfigDetails>(<object>jsonObj),
+            true
+          );
+        case "MACS_APM_EXTENSION":
+          return model.UpdateMacsApmExtensionDetails.getJsonObj(
+            <model.UpdateMacsApmExtensionDetails>(<object>jsonObj),
+            true
+          );
         case "APDEX":
           return model.UpdateApdexRulesDetails.getJsonObj(
             <model.UpdateApdexRulesDetails>(<object>jsonObj),
@@ -77,6 +87,16 @@ export namespace UpdateConfigDetails {
         case "METRIC_GROUP":
           return model.UpdateMetricGroupDetails.getDeserializedJsonObj(
             <model.UpdateMetricGroupDetails>(<object>jsonObj),
+            true
+          );
+        case "AGENT":
+          return model.UpdateAgentConfigDetails.getDeserializedJsonObj(
+            <model.UpdateAgentConfigDetails>(<object>jsonObj),
+            true
+          );
+        case "MACS_APM_EXTENSION":
+          return model.UpdateMacsApmExtensionDetails.getDeserializedJsonObj(
+            <model.UpdateMacsApmExtensionDetails>(<object>jsonObj),
             true
           );
         case "APDEX":
