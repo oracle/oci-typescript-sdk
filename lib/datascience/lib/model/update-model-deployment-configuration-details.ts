@@ -28,6 +28,11 @@ export namespace UpdateModelDeploymentConfigurationDetails {
 
     if (obj && "deploymentType" in obj && obj.deploymentType) {
       switch (obj.deploymentType) {
+        case "MODEL_GROUP":
+          return model.UpdateModelGroupDeploymentConfigurationDetails.getJsonObj(
+            <model.UpdateModelGroupDeploymentConfigurationDetails>(<object>jsonObj),
+            true
+          );
         case "SINGLE_MODEL":
           return model.UpdateSingleModelDeploymentConfigurationDetails.getJsonObj(
             <model.UpdateSingleModelDeploymentConfigurationDetails>(<object>jsonObj),
@@ -44,6 +49,11 @@ export namespace UpdateModelDeploymentConfigurationDetails {
 
     if (obj && "deploymentType" in obj && obj.deploymentType) {
       switch (obj.deploymentType) {
+        case "MODEL_GROUP":
+          return model.UpdateModelGroupDeploymentConfigurationDetails.getDeserializedJsonObj(
+            <model.UpdateModelGroupDeploymentConfigurationDetails>(<object>jsonObj),
+            true
+          );
         case "SINGLE_MODEL":
           return model.UpdateSingleModelDeploymentConfigurationDetails.getDeserializedJsonObj(
             <model.UpdateSingleModelDeploymentConfigurationDetails>(<object>jsonObj),

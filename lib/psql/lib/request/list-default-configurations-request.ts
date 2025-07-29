@@ -31,11 +31,18 @@ export interface ListDefaultConfigurationsRequest extends common.BaseRequest {
    */
   "dbVersion"?: string;
   /**
-   * The name of the shape for the configuration.
-   * Example: {@code VM.Standard.E4.Flex}
+   * The compute name of the shape for the configuration.
    *
    */
   "shape"?: string;
+  /**
+   * The instance ocpu count for the configuration.
+   */
+  "instanceOcpuCount"?: number;
+  /**
+   * The instance memory size in GBs for the configuration.
+   */
+  "instanceMemorySizeInGBs"?: number;
   /**
    * A unique identifier for the configuration.
    */

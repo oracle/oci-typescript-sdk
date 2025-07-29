@@ -20,6 +20,7 @@ import common = require("oci-common");
  **/
 export enum ModelDeploymentType {
   SingleModel = "SINGLE_MODEL",
+  ModelGroup = "MODEL_GROUP",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

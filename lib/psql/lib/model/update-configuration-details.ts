@@ -40,6 +40,11 @@ export interface UpdateConfigurationDetails {
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * Indicates the collection of compatible shapes for this configuration.
+   *
+   */
+  "compatibleShapes"?: Array<string>;
 }
 
 export namespace UpdateConfigurationDetails {

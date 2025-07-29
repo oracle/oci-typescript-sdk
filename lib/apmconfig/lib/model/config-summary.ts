@@ -84,6 +84,11 @@ export namespace ConfigSummary {
 
     if (obj && "configType" in obj && obj.configType) {
       switch (obj.configType) {
+        case "MACS_APM_EXTENSION":
+          return model.MacsApmExtensionSummary.getJsonObj(
+            <model.MacsApmExtensionSummary>(<object>jsonObj),
+            true
+          );
         case "METRIC_GROUP":
           return model.MetricGroupSummary.getJsonObj(
             <model.MetricGroupSummary>(<object>jsonObj),
@@ -92,6 +97,11 @@ export namespace ConfigSummary {
         case "APDEX":
           return model.ApdexRulesSummary.getJsonObj(
             <model.ApdexRulesSummary>(<object>jsonObj),
+            true
+          );
+        case "AGENT":
+          return model.AgentConfigSummary.getJsonObj(
+            <model.AgentConfigSummary>(<object>jsonObj),
             true
           );
         case "SPAN_FILTER":
@@ -112,6 +122,11 @@ export namespace ConfigSummary {
 
     if (obj && "configType" in obj && obj.configType) {
       switch (obj.configType) {
+        case "MACS_APM_EXTENSION":
+          return model.MacsApmExtensionSummary.getDeserializedJsonObj(
+            <model.MacsApmExtensionSummary>(<object>jsonObj),
+            true
+          );
         case "METRIC_GROUP":
           return model.MetricGroupSummary.getDeserializedJsonObj(
             <model.MetricGroupSummary>(<object>jsonObj),
@@ -120,6 +135,11 @@ export namespace ConfigSummary {
         case "APDEX":
           return model.ApdexRulesSummary.getDeserializedJsonObj(
             <model.ApdexRulesSummary>(<object>jsonObj),
+            true
+          );
+        case "AGENT":
+          return model.AgentConfigSummary.getDeserializedJsonObj(
+            <model.AgentConfigSummary>(<object>jsonObj),
             true
           );
         case "SPAN_FILTER":

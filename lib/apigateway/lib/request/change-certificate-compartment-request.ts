@@ -48,4 +48,8 @@ export interface ChangeCertificateCompartmentRequest extends common.BaseRequest 
    * The client request id for tracing.
    */
   "opcRequestId"?: string;
+  /**
+   * Whether to override locks (if any exist).
+   */
+  "isLockOverride"?: boolean;
 }

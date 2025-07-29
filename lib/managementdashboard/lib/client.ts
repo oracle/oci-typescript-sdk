@@ -772,7 +772,9 @@ export class DashxApisClient {
       "{exportDashboardId}": exportDashboardRequest.exportDashboardId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "exportTags": exportDashboardRequest.exportTags
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -996,7 +998,7 @@ export class DashxApisClient {
   }
 
   /**
-   * Gets an OOB dashboard and its saved searches by ID.  Deleted or unauthorized saved searches are marked by tile's state property.
+   * Gets an out-of-the-box dashboard and its saved searches by ID.  Deleted or unauthorized saved searches are marked by tile's state property.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetOobManagementDashboardRequest
    * @return GetOobManagementDashboardResponse
@@ -1078,7 +1080,7 @@ export class DashxApisClient {
   }
 
   /**
-   * Gets a saved search by ID.
+   * Gets an out-of-the-box saved search by ID.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetOobManagementSavedSearchRequest
    * @return GetOobManagementSavedSearchResponse
@@ -1177,7 +1179,12 @@ export class DashxApisClient {
       "https://docs.oracle.com/iaas/api/#/en/managementdashboard/20200901/ManagementDashboardImportDetails/ImportDashboard";
     const pathParams = {};
 
-    const queryParams = {};
+    const queryParams = {
+      "overrideSameName": importDashboardRequest.overrideSameName,
+      "overrideDashboardCompartmentOcid": importDashboardRequest.overrideDashboardCompartmentOcid,
+      "overrideSavedSearchCompartmentOcid":
+        importDashboardRequest.overrideSavedSearchCompartmentOcid
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -1402,7 +1409,7 @@ export class DashxApisClient {
   }
 
   /**
-   * Gets the list of OOB dashboards with pagination.  Returned properties are the summary.
+   * Gets the list of out-of-the-box dashboards with pagination. Returned properties are the summary.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListOobManagementDashboardsRequest
    * @return ListOobManagementDashboardsResponse
@@ -1484,7 +1491,7 @@ export class DashxApisClient {
   }
 
   /**
-   * Gets the list of out-of-box saved searches in a compartment with pagination.  Returned properties are the summary.
+   * Gets the list of out-of-the-box saved searches in a compartment with pagination.  Returned properties are the summary.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListOobManagementSavedSearchesRequest
    * @return ListOobManagementSavedSearchesResponse

@@ -52,7 +52,9 @@ export interface ModelDeployment {
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the model deployment's compartment.
    */
   "compartmentId": string;
-  "modelDeploymentConfigurationDetails"?: model.SingleModelDeploymentConfigurationDetails;
+  "modelDeploymentConfigurationDetails"?:
+    | model.SingleModelDeploymentConfigurationDetails
+    | model.ModelGroupDeploymentConfigurationDetails;
   "categoryLogDetails"?: model.CategoryLogDetails;
   /**
    * The URL to interact with the model deployment.

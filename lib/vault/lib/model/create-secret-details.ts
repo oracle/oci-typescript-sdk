@@ -53,6 +53,7 @@ export interface CreateSecretDetails {
    */
   "metadata"?: { [key: string]: any };
   "secretContent"?: model.Base64SecretContentDetails;
+  "replicationConfig"?: model.ReplicationConfig;
   "rotationConfig"?: model.RotationConfig;
   /**
    * A user-friendly name for the secret. Secret names should be unique within a vault. Avoid entering confidential information. Valid characters are uppercase or lowercase letters, numbers, hyphens, underscores, and periods.
@@ -86,6 +87,9 @@ export namespace CreateSecretDetails {
         "secretContent": obj.secretContent
           ? model.SecretContentDetails.getJsonObj(obj.secretContent)
           : undefined,
+        "replicationConfig": obj.replicationConfig
+          ? model.ReplicationConfig.getJsonObj(obj.replicationConfig)
+          : undefined,
         "rotationConfig": obj.rotationConfig
           ? model.RotationConfig.getJsonObj(obj.rotationConfig)
           : undefined,
@@ -110,6 +114,9 @@ export namespace CreateSecretDetails {
       ...{
         "secretContent": obj.secretContent
           ? model.SecretContentDetails.getDeserializedJsonObj(obj.secretContent)
+          : undefined,
+        "replicationConfig": obj.replicationConfig
+          ? model.ReplicationConfig.getDeserializedJsonObj(obj.replicationConfig)
           : undefined,
         "rotationConfig": obj.rotationConfig
           ? model.RotationConfig.getDeserializedJsonObj(obj.rotationConfig)

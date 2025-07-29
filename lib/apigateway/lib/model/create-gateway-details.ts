@@ -55,11 +55,16 @@ Example: {@code PUBLIC} or {@code PRIVATE}
    */
   "networkSecurityGroupIds"?: Array<string>;
   /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the resource.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the resource which can be
+   * empty string.
    *
    */
   "certificateId"?: string;
   "responseCacheDetails"?: model.ExternalRespCache | model.NoCache;
+  /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.AddResourceLockDetails>;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair
 * with no predefined name, type, or namespace. For more information, see
@@ -92,6 +97,11 @@ export namespace CreateGatewayDetails {
         "responseCacheDetails": obj.responseCacheDetails
           ? model.ResponseCacheDetails.getJsonObj(obj.responseCacheDetails)
           : undefined,
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.AddResourceLockDetails.getJsonObj(item);
+            })
+          : undefined,
 
         "caBundles": obj.caBundles
           ? obj.caBundles.map(item => {
@@ -109,6 +119,11 @@ export namespace CreateGatewayDetails {
       ...{
         "responseCacheDetails": obj.responseCacheDetails
           ? model.ResponseCacheDetails.getDeserializedJsonObj(obj.responseCacheDetails)
+          : undefined,
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.AddResourceLockDetails.getDeserializedJsonObj(item);
+            })
           : undefined,
 
         "caBundles": obj.caBundles

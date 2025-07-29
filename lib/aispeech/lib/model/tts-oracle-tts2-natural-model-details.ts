@@ -24,6 +24,20 @@ export interface TtsOracleTts2NaturalModelDetails extends model.TtsOracleModelDe
    *
    */
   "voiceId"?: string;
+  /**
+   * Locale value as per given in [https://datatracker.ietf.org/doc/html/rfc5646]. Default en-US
+   * - en-US: English - United States
+   * - en-GB: English - Great Britain
+   * - es-ES: Spanish - Spain
+   * - pt-BR: Portuguese - Brazil
+   * - hi-IN: Hindi - India
+   * - fr-FR: French - France
+   * - it-IT: Italian - Italy
+   * - ja-JP: Japanese - Japan
+   * - zh-CN: Mandarin - China
+   *
+   */
+  "languageCode"?: string;
 
   "modelName": string;
 }

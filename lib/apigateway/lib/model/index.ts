@@ -16,6 +16,8 @@ For more information, see
 
 import * as AccessLogPolicy from "./access-log-policy";
 export import AccessLogPolicy = AccessLogPolicy.AccessLogPolicy;
+import * as AddResourceLockDetails from "./add-resource-lock-details";
+export import AddResourceLockDetails = AddResourceLockDetails.AddResourceLockDetails;
 import * as AdditionalValidationPolicy from "./additional-validation-policy";
 export import AdditionalValidationPolicy = AdditionalValidationPolicy.AdditionalValidationPolicy;
 import * as Api from "./api";
@@ -158,6 +160,8 @@ import * as RateLimit from "./rate-limit";
 export import RateLimit = RateLimit.RateLimit;
 import * as RateLimitingPolicy from "./rate-limiting-policy";
 export import RateLimitingPolicy = RateLimitingPolicy.RateLimitingPolicy;
+import * as RemoveResourceLockDetails from "./remove-resource-lock-details";
+export import RemoveResourceLockDetails = RemoveResourceLockDetails.RemoveResourceLockDetails;
 import * as RenameHeaderPolicy from "./rename-header-policy";
 export import RenameHeaderPolicy = RenameHeaderPolicy.RenameHeaderPolicy;
 import * as RenameHeaderPolicyItem from "./rename-header-policy-item";
@@ -168,6 +172,8 @@ import * as RenameQueryParameterPolicyItem from "./rename-query-parameter-policy
 export import RenameQueryParameterPolicyItem = RenameQueryParameterPolicyItem.RenameQueryParameterPolicyItem;
 import * as RequestParameterValidation from "./request-parameter-validation";
 export import RequestParameterValidation = RequestParameterValidation.RequestParameterValidation;
+import * as ResourceLock from "./resource-lock";
+export import ResourceLock = ResourceLock.ResourceLock;
 import * as ResponseCacheDetails from "./response-cache-details";
 export import ResponseCacheDetails = ResponseCacheDetails.ResponseCacheDetails;
 import * as ResponseCacheLookupPolicy from "./response-cache-lookup-policy";

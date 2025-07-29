@@ -50,6 +50,10 @@ Example: {@code My new resource}
   "pathPrefix": string;
   "specification": model.ApiSpecification;
   /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.AddResourceLockDetails>;
+  /**
     * Free-form tags for this resource. Each tag is a simple key-value pair
 * with no predefined name, type, or namespace. For more information, see
 * [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
@@ -76,6 +80,11 @@ export namespace CreateDeploymentDetails {
       ...{
         "specification": obj.specification
           ? model.ApiSpecification.getJsonObj(obj.specification)
+          : undefined,
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.AddResourceLockDetails.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -88,6 +97,11 @@ export namespace CreateDeploymentDetails {
       ...{
         "specification": obj.specification
           ? model.ApiSpecification.getDeserializedJsonObj(obj.specification)
+          : undefined,
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.AddResourceLockDetails.getDeserializedJsonObj(item);
+            })
           : undefined
       }
     };

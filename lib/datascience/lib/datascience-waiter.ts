@@ -212,6 +212,44 @@ export class DataScienceWaiter {
   }
 
   /**
+   * Waits forModelGroup till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetModelGroupResponse | null (null in case of 404 response)
+   */
+  public async forModelGroup(
+    request: serviceRequests.GetModelGroupRequest,
+    ...targetStates: models.ModelGroupLifecycleState[]
+  ): Promise<serviceResponses.GetModelGroupResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getModelGroup(request),
+      response => targetStates.includes(response.modelGroup.lifecycleState!),
+      targetStates.includes(models.ModelGroupLifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forModelGroupVersionHistory till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetModelGroupVersionHistoryResponse | null (null in case of 404 response)
+   */
+  public async forModelGroupVersionHistory(
+    request: serviceRequests.GetModelGroupVersionHistoryRequest,
+    ...targetStates: models.ModelGroupVersionHistoryLifecycleState[]
+  ): Promise<serviceResponses.GetModelGroupVersionHistoryResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getModelGroupVersionHistory(request),
+      response => targetStates.includes(response.modelGroupVersionHistory.lifecycleState!),
+      targetStates.includes(models.ModelGroupVersionHistoryLifecycleState.Deleted)
+    );
+  }
+
+  /**
    * Waits forModelVersionSet till it reaches any of the provided states
    *
    * @param request the request to send

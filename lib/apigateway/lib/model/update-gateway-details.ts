@@ -35,7 +35,8 @@ Example: {@code My new resource}
    */
   "networkSecurityGroupIds"?: Array<string>;
   /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the resource.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the resource which can be
+   * empty string.
    *
    */
   "certificateId"?: string;

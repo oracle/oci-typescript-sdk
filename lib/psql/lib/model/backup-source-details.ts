@@ -17,8 +17,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Restoring to a new database system from the backup.
- * The database system details that are part of the CreateDbSystem request are not required, but if present will override the details from the backup's database system snapshot.
+ * Details of the database system backup.
  *
  */
 export interface BackupSourceDetails extends model.SourceDetails {
