@@ -15,3 +15,5 @@ For more information, see [Overview of the Email Delivery Service](https://docs.
 
 import * as SubmitEmailResponse from "./submit-email-response";
 export import SubmitEmailResponse = SubmitEmailResponse.SubmitEmailResponse;
+import * as SubmitRawEmailResponse from "./submit-raw-email-response";
+export import SubmitRawEmailResponse = SubmitRawEmailResponse.SubmitRawEmailResponse;

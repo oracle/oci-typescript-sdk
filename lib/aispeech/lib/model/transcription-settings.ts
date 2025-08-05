@@ -19,6 +19,10 @@ import common = require("oci-common");
  */
 export interface TranscriptionSettings {
   "diarization"?: model.Diarization;
+  /**
+   * Simple key-value pair for setting model specific properties. For more details, refer the documentation.
+   */
+  "additionalSettings"?: { [key: string]: string };
 }
 
 export namespace TranscriptionSettings {

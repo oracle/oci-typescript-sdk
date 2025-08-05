@@ -15,6 +15,8 @@ For more information, see [Overview of the Email Delivery Service](https://docs.
 
 import * as EmailAddress from "./email-address";
 export import EmailAddress = EmailAddress.EmailAddress;
+import * as EmailRawSubmittedResponse from "./email-raw-submitted-response";
+export import EmailRawSubmittedResponse = EmailRawSubmittedResponse.EmailRawSubmittedResponse;
 import * as EmailSubmittedResponse from "./email-submitted-response";
 export import EmailSubmittedResponse = EmailSubmittedResponse.EmailSubmittedResponse;
 import * as Recipients from "./recipients";

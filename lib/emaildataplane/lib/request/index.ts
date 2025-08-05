@@ -15,3 +15,5 @@ For more information, see [Overview of the Email Delivery Service](https://docs.
 
 import * as SubmitEmailRequest from "./submit-email-request";
 export import SubmitEmailRequest = SubmitEmailRequest.SubmitEmailRequest;
+import * as SubmitRawEmailRequest from "./submit-raw-email-request";
+export import SubmitRawEmailRequest = SubmitRawEmailRequest.SubmitRawEmailRequest;
