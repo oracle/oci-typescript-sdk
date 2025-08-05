@@ -45,6 +45,7 @@ export interface TranscriptionModelDetails {
 * - it-IT: Italian - Italy
 * <p>
 Whisper supported language codes are (Whisper models are locale agnostic).
+* - auto: Auto-detect language
 * - af: Afrikaans
 * - ar: Arabic
 * - az: Azerbaijani
@@ -129,6 +130,7 @@ export namespace TranscriptionModelDetails {
     FrFr = "fr-FR",
     DeDe = "de-DE",
     ItIt = "it-IT",
+    Auto = "auto",
     Af = "af",
     Ar = "ar",
     Az = "az",

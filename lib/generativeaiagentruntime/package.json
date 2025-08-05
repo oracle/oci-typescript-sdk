@@ -1,6 +1,6 @@
 {
   "name": "oci-generativeaiagentruntime",
-  "version": "2.114.0",
+  "version": "2.114.1",
   "description": "OCI NodeJS client for Generative Ai Agent Runtime Service",
   "repository": {
     "type": "git",
