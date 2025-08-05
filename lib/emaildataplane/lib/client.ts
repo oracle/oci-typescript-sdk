@@ -286,4 +286,78 @@ export class EmailDPClient {
       throw err;
     }
   }
+
+  /**
+   * Submits a raw email.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param SubmitRawEmailRequest
+   * @return SubmitRawEmailResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/emaildataplane/SubmitRawEmail.ts.html |here} to see how to use SubmitRawEmail API.
+   */
+  public async submitRawEmail(
+    submitRawEmailRequest: requests.SubmitRawEmailRequest
+  ): Promise<responses.SubmitRawEmailResponse> {
+    if (this.logger) this.logger.debug("Calling operation EmailDPClient#submitRawEmail.");
+    const operationName = "submitRawEmail";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "opc-request-id": submitRawEmailRequest.opcRequestId,
+      "content-length": submitRawEmailRequest.contentLength,
+      "content-type": submitRawEmailRequest.contentType,
+      "compartment-id": submitRawEmailRequest.compartmentId,
+      "sender": submitRawEmailRequest.sender,
+      "recipients": submitRawEmailRequest.recipients
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      submitRawEmailRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/actions/submitRawEmail",
+      method: "POST",
+      bodyContent: submitRawEmailRequest.rawMessage,
+      pathParams: pathParams,
+      headerParams: headerParams,
+      backupBinaryBody: retrier.backUpBinaryBody,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SubmitRawEmailResponse>{},
+        body: await response.json(),
+        bodyKey: "emailRawSubmittedResponse",
+        bodyModel: model.EmailRawSubmittedResponse,
+        type: "model.EmailRawSubmittedResponse",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
 }

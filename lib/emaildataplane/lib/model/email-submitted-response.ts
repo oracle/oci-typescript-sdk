@@ -21,7 +21,7 @@ import common = require("oci-common");
  */
 export interface EmailSubmittedResponse {
   /**
-   * The unique ID for the email's Message-ID header used for service log correlation. The submission will return an error if the syntax is not a valid RFC 5322 Message-ID. This will be generated if not provided.
+   * The unique ID for the email's Message-ID header used for service log correlation.
    * Example: sdiofu234qwermls24fd@mail.example.com
    *
    */
