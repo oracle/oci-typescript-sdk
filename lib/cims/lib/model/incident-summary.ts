@@ -20,7 +20,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details about the support ticket.
+ * Details about the support request.
  */
 export interface IncidentSummary {
   /**
@@ -35,6 +35,11 @@ export interface IncidentSummary {
   "tenancyInformation"?: model.TenancyInformation;
   "ticket"?: model.Ticket;
   "incidentType"?: model.IncidentResourceType;
+  /**
+   * Technical support type ({@code TECH}) only: The pre-migration identifier of the support request in My Oracle Support (MOS).
+   *
+   */
+  "migratedSrNumber"?: string;
   /**
    * Technical support type ({@code TECH}) only: The identifier of the support request's user group in My Oracle Cloud Support portal.
    *
@@ -67,12 +72,12 @@ export interface IncidentSummary {
    */
   "warnMessage"?: string;
   /**
-   * The kind of support ticket (type of support request).
-   * For information about {@code ACCOUNT} support tickets, see
+   * The kind of support request (type of support request).
+   * For information about {@code ACCOUNT} support requests, see
    * [Creating a Billing Support Request](https://docs.oracle.com/iaas/Content/GSG/support/create-incident-billing.htm).
-   * For information about {@code LIMIT} support tickets, see
+   * For information about {@code LIMIT} support requests, see
    * [Creating a Service Limit Increase Request](https://docs.oracle.com/iaas/Content/GSG/support/create-incident-limit.htm).
-   * For information about {@code TECH} support tickets, see
+   * For information about {@code TECH} support requests, see
    * [Creating a Technical Support Request](https://docs.oracle.com/iaas/Content/GSG/support/create-incident-technical.htm).
    *
    */

@@ -56,6 +56,9 @@ export namespace ColumnFilter {
     CoCs = "CO_CS",
     Not = "NOT",
     NotIn = "NOT_IN",
+    Pr = "PR",
+    InSet = "IN_SET",
+    NotInSet = "NOT_IN_SET",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

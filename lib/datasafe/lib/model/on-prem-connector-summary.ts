@@ -41,7 +41,7 @@ export interface OnPremConnectorSummary {
   /**
    * The current state of the on-premises connector.
    */
-  "lifecycleState": model.LifecycleState;
+  "lifecycleState": model.OnPremConnectorLifecycleState;
   /**
    * Details about the current state of the on-premises connector.
    */

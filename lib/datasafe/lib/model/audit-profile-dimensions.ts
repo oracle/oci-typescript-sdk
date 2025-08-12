@@ -25,6 +25,22 @@ export interface AuditProfileDimensions {
    *
    */
   "isPaidUsageEnabled"?: boolean;
+  /**
+   * The resource type that is represented by the audit profile.
+   */
+  "targetType"?: string;
+  /**
+   * The name or the OCID of the resource from which the online month retention setting is sourced. For example a target database group OCID or global.
+   */
+  "onlineMonthsSource"?: string;
+  /**
+   * The name or the OCID of the resource from which the offline month retention setting is sourced. For example a target database group OCID or global.
+   */
+  "offlineMonthsSource"?: string;
+  /**
+   * The name or the OCID of the resource from which the paid usage setting is sourced. For example a target database group OCID or global.
+   */
+  "paidUsageSource"?: string;
 }
 
 export namespace AuditProfileDimensions {

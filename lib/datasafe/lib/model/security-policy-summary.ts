@@ -36,6 +36,10 @@ export interface SecurityPolicySummary {
    */
   "description"?: string;
   /**
+   * The type of the security policy.
+   */
+  "securityPolicyType"?: string;
+  /**
    * The time that the security policy was created, in the format defined by RFC3339.
    */
   "timeCreated": Date;

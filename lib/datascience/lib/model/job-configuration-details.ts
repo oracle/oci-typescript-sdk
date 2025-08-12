@@ -29,6 +29,11 @@ export namespace JobConfigurationDetails {
 
     if (obj && "jobType" in obj && obj.jobType) {
       switch (obj.jobType) {
+        case "EMPTY":
+          return model.EmptyJobConfigurationDetails.getJsonObj(
+            <model.EmptyJobConfigurationDetails>(<object>jsonObj),
+            true
+          );
         case "DEFAULT":
           return model.DefaultJobConfigurationDetails.getJsonObj(
             <model.DefaultJobConfigurationDetails>(<object>jsonObj),
@@ -45,6 +50,11 @@ export namespace JobConfigurationDetails {
 
     if (obj && "jobType" in obj && obj.jobType) {
       switch (obj.jobType) {
+        case "EMPTY":
+          return model.EmptyJobConfigurationDetails.getDeserializedJsonObj(
+            <model.EmptyJobConfigurationDetails>(<object>jsonObj),
+            true
+          );
         case "DEFAULT":
           return model.DefaultJobConfigurationDetails.getDeserializedJsonObj(
             <model.DefaultJobConfigurationDetails>(<object>jsonObj),

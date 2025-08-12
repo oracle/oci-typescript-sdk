@@ -31,9 +31,27 @@ export interface CreateSecurityAssessmentDetails {
    */
   "description"?: string;
   /**
-   * The OCID of the target database on which security assessment is to be run.
+   * The OCID of the target database or target database group on which security assessment is to be run.
    */
   "targetId"?: string;
+  /**
+   * The type of security assessment resource whether it is individual or group resource. For individual target use type TARGET_DATABASE and for group resource use type TARGET_DATABASE_GROUP. If not provided, TARGET_DATABASE would be used as default value.
+   */
+  "targetType"?: model.SecurityAssessmentTargetType;
+  /**
+   * The type of the security assessment
+   */
+  "type"?: CreateSecurityAssessmentDetails.Type;
+  /**
+   * The OCID of the template assessment. It will be required while creating the template baseline assessment.
+   */
+  "templateAssessmentId"?: string;
+  /**
+   * The OCID of the security assessment. The assessment should be of type SAVED.
+   * It will be required while creating the template baseline assessment for individual targets to fetch the detailed information from an existing security assessment.
+   *
+   */
+  "baseSecurityAssessmentId"?: string;
   /**
    * Indicates whether the assessment is scheduled to run.
    */
@@ -74,6 +92,15 @@ Example: {@code {\"Department\": \"Finance\"}}
 }
 
 export namespace CreateSecurityAssessmentDetails {
+  export enum Type {
+    Latest = "LATEST",
+    Saved = "SAVED",
+    SaveSchedule = "SAVE_SCHEDULE",
+    Compartment = "COMPARTMENT",
+    Template = "TEMPLATE",
+    TemplateBaseline = "TEMPLATE_BASELINE"
+  }
+
   export function getJsonObj(obj: CreateSecurityAssessmentDetails): object {
     const jsonObj = { ...obj, ...{} };
 

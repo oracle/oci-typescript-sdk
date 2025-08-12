@@ -49,7 +49,7 @@ export interface ListIncidentResourceTypesRequest extends common.BaseRequest {
    */
   "sortOrder"?: model.SortOrder;
   /**
-   * The user-friendly name of the support ticket type.
+   * The user-friendly name of the support request type.
    */
   "name"?: string;
   /**

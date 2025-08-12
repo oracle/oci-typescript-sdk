@@ -27,6 +27,10 @@ export interface MaskingAnalyticsSummary {
    * The total count for the aggregation metric. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "count": number;
+  /**
+   * The date and time the target database was last masked using a masking policy, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
+   */
+  "timeLastMasked"?: Date;
 }
 
 export namespace MaskingAnalyticsSummary {

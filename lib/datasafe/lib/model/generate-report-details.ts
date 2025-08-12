@@ -27,6 +27,10 @@ export interface GenerateReportDetails {
    */
   "targetIds"?: Array<string>;
   /**
+   * Array of target group OCIDs.
+   */
+  "targetGroupIds"?: Array<string>;
+  /**
    * The description of the report to be generated
    */
   "description"?: string;

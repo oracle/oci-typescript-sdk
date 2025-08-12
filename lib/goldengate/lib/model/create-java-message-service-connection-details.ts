@@ -68,7 +68,7 @@ export interface CreateJavaMessageServiceConnectionDetails extends model.CreateC
    */
   "jndiSecurityCredentialsSecretId"?: string;
   /**
-   * Connectin URL of the Java Message Service, specifying the protocol, host, and port.
+   * Connection URL of the Java Message Service, specifying the protocol, host, and port.
    * e.g.: 'mq://myjms.host.domain:7676'
    *
    */

@@ -27,6 +27,10 @@ export interface DiscoveryAnalyticsSummary {
    * The total count for the aggregation metric. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "count": number;
+  /**
+   * The date and time when data discovery was last done on the target database, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
+   */
+  "timeLastDiscovered"?: Date;
 }
 
 export namespace DiscoveryAnalyticsSummary {

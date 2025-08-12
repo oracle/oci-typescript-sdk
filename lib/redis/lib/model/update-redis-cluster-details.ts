@@ -19,6 +19,10 @@ import common = require("oci-common");
  */
 export interface UpdateRedisClusterDetails {
   /**
+   * The ID of the corresponding OCI Cache Config Set for the cluster.
+   */
+  "ociCacheConfigSetId"?: string;
+  /**
    * The number of shards in sharded cluster. Only applicable when clusterMode is SHARDED. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "shardCount"?: number;

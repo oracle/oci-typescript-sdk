@@ -128,7 +128,7 @@ Example: {@code 10.0.1.0/24}
 Example: {@code 2001:db8::/32}
 * 
     */
-  "staticRoutes": Array<string>;
+  "staticRoutes"?: Array<string>;
   /**
     * The date and time the IPSec connection was created, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
 * <p>

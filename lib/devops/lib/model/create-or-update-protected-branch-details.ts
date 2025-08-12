@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface CreateOrUpdateProtectedBranchDetails {
   /**
-   * Name of a branch to protect.
+   * The branchName can either be exact branch name or branch pattern.
    */
   "branchName": string;
   /**

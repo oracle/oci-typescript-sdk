@@ -36,9 +36,17 @@ export interface SecurityPolicyDeployment {
    */
   "description"?: string;
   /**
-   * The OCID of the target where the security policy is deployed.
+   * The OCID of the target/target group where the security policy is deployed.
    */
   "targetId": string;
+  /**
+   * Indicates whether the security policy deployment is for a target database or a target database group.
+   */
+  "targetType"?: SecurityPolicyDeployment.TargetType;
+  /**
+   * The last date and time the security policy was deployed, in the format defined by RFC3339.
+   */
+  "timeDeployed"?: Date;
   /**
    * The OCID of the security policy corresponding to the security policy deployment.
    */
@@ -81,6 +89,16 @@ Example: {@code {\"Department\": \"Finance\"}}
 }
 
 export namespace SecurityPolicyDeployment {
+  export enum TargetType {
+    TargetDatabase = "TARGET_DATABASE",
+    TargetDatabaseGroup = "TARGET_DATABASE_GROUP",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: SecurityPolicyDeployment): object {
     const jsonObj = { ...obj, ...{} };
 

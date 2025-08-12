@@ -34,6 +34,7 @@ export interface DefaultJobConfigurationDetails extends model.JobConfigurationDe
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maximumRuntimeInMinutes"?: number;
+  "startupProbeDetails"?: model.JobExecProbeDetails;
 
   "jobType": string;
 }
@@ -47,7 +48,11 @@ export namespace DefaultJobConfigurationDetails {
       ...(isParentJsonObj
         ? obj
         : (model.JobConfigurationDetails.getJsonObj(obj) as DefaultJobConfigurationDetails)),
-      ...{}
+      ...{
+        "startupProbeDetails": obj.startupProbeDetails
+          ? model.JobProbeDetails.getJsonObj(obj.startupProbeDetails)
+          : undefined
+      }
     };
 
     return jsonObj;
@@ -63,7 +68,11 @@ export namespace DefaultJobConfigurationDetails {
         : (model.JobConfigurationDetails.getDeserializedJsonObj(
             obj
           ) as DefaultJobConfigurationDetails)),
-      ...{}
+      ...{
+        "startupProbeDetails": obj.startupProbeDetails
+          ? model.JobProbeDetails.getDeserializedJsonObj(obj.startupProbeDetails)
+          : undefined
+      }
     };
 
     return jsonObj;

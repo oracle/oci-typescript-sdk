@@ -20,8 +20,8 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details about the issue that the account support ticket relates to. Avoid entering confidential information.
- * For information about {@code ACCOUNT} support tickets, see [Creating a Billing Support Request](https://docs.oracle.com/iaas/Content/GSG/support/create-incident-billing.htm).
+ * Details about the issue that the account support request relates to. Avoid entering confidential information.
+ * For information about {@code ACCOUNT} support requests, see [Creating a Billing Support Request](https://docs.oracle.com/iaas/Content/GSG/support/create-incident-billing.htm).
  *
  */
 export interface CreateAccountItemDetails extends model.CreateItemDetails {

@@ -20,8 +20,8 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details about the issue that the technical support ticket relates to. Avoid entering confidential information.
- * For information about {@code TECH} support tickets, see [Creating a Technical Support Request](https://docs.oracle.com/iaas/Content/GSG/support/create-incident-technical.htm).
+ * Details about the issue that the technical support request relates to. Avoid entering confidential information.
+ * For information about {@code TECH} support requests, see [Creating a Technical Support Request](https://docs.oracle.com/iaas/Content/GSG/support/create-incident-technical.htm).
  *
  */
 export interface CreateTechSupportItemDetails extends model.CreateItemDetails {

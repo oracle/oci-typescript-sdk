@@ -31,6 +31,10 @@ export interface Face {
    * A point of interest within a face.
    */
   "landmarks"?: Array<model.Landmark>;
+  /**
+   * The facial feature vectors of detected faces
+   */
+  "embeddings"?: Array<number>;
 }
 
 export namespace Face {

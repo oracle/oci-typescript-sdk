@@ -182,6 +182,10 @@ export class Region {
 
   // OC42
   public static US_ASHBURN_2: Region = Region.register("us-ashburn-2", Realm.OC42, "yxj");
+    public static US_NEWARK_1: Region = Region.register("us-newark-1", Realm.OC42, "pgc");
+
+    // OC51
+    public static EU_BUDAPEST_1: Region = Region.register("eu-budapest-1", Realm.OC51, "jsk");
 
   /**
  * Return all known Regions in this version of the SDK, except possibly the region returned by IMDS (Instance Metadata

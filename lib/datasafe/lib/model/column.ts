@@ -38,9 +38,41 @@ export interface Column {
    * Specifies the display order of the column. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "displayOrder": number;
+  /**
+   * Specifies if column is virtual and can only be used as column filter.
+   */
+  "isVirtual"?: boolean;
+  /**
+   * An array of operators that can be supported by column fieldName.
+   */
+  "applicableOperators"?: Array<Column.ApplicableOperators>;
 }
 
 export namespace Column {
+  export enum ApplicableOperators {
+    In = "IN",
+    Eq = "EQ",
+    EqCs = "EQ_CS",
+    Gt = "GT",
+    Ge = "GE",
+    Lt = "LT",
+    Le = "LE",
+    And = "AND",
+    Or = "OR",
+    Ne = "NE",
+    Co = "CO",
+    CoCs = "CO_CS",
+    Not = "NOT",
+    NotIn = "NOT_IN",
+    InSet = "IN_SET",
+    NotInSet = "NOT_IN_SET",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: Column): object {
     const jsonObj = { ...obj, ...{} };
 

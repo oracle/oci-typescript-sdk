@@ -1,6 +1,6 @@
 {
   "name": "oci-sdk",
-  "version": "2.114.1",
+  "version": "2.115.0",
   "author": {
     "name": "Oracle Cloud Infrastructure",
     "email": ""
@@ -26,7 +26,6 @@
   "dependencies": {
     "oci-accessgovernancecp": "file:lib/accessgovernancecp",
     "oci-adm": "file:lib/adm",
-    "oci-aianomalydetection": "file:lib/aianomalydetection",
     "oci-aidocument": "file:lib/aidocument",
     "oci-ailanguage": "file:lib/ailanguage",
     "oci-aispeech": "file:lib/aispeech",
@@ -72,7 +71,6 @@
     "oci-devops": "file:lib/devops",
     "oci-disasterrecovery": "file:lib/disasterrecovery",
     "oci-dns": "file:lib/dns",
-    "oci-dts": "file:lib/dts",
     "oci-email": "file:lib/email",
     "oci-emwarehouse": "file:lib/emwarehouse",
     "oci-events": "file:lib/events",
@@ -119,7 +117,6 @@
     "oci-operatoraccesscontrol": "file:lib/operatoraccesscontrol",
     "oci-opsi": "file:lib/opsi",
     "oci-optimizer": "file:lib/optimizer",
-    "oci-osmanagement": "file:lib/osmanagement",
     "oci-osmanagementhub": "file:lib/osmanagementhub",
     "oci-ospgateway": "file:lib/ospgateway",
     "oci-osubbillingschedule": "file:lib/osubbillingschedule",
@@ -135,7 +132,6 @@
     "oci-secrets": "file:lib/secrets",
     "oci-servicecatalog": "file:lib/servicecatalog",
     "oci-servicemanagerproxy": "file:lib/servicemanagerproxy",
-    "oci-servicemesh": "file:lib/servicemesh",
     "oci-stackmonitoring": "file:lib/stackmonitoring",
     "oci-streaming": "file:lib/streaming",
     "oci-tenantmanagercontrolplane": "file:lib/tenantmanagercontrolplane",

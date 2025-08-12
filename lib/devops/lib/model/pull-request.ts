@@ -74,6 +74,10 @@ export interface PullRequest {
    * List of Reviewers.
    */
   "reviewers"?: Array<model.Reviewer>;
+  /**
+   * The commit ID when the Pull Request was merged.
+   */
+  "mergedCommitId"?: string;
   "mergeChecks"?: model.MergeCheckCollection;
   "createdBy": model.PrincipalDetails;
   "mergedBy"?: model.PrincipalDetails;
@@ -140,6 +144,7 @@ export namespace PullRequest {
               return model.Reviewer.getJsonObj(item);
             })
           : undefined,
+
         "mergeChecks": obj.mergeChecks
           ? model.MergeCheckCollection.getJsonObj(obj.mergeChecks)
           : undefined,
@@ -159,6 +164,7 @@ export namespace PullRequest {
               return model.Reviewer.getDeserializedJsonObj(item);
             })
           : undefined,
+
         "mergeChecks": obj.mergeChecks
           ? model.MergeCheckCollection.getDeserializedJsonObj(obj.mergeChecks)
           : undefined,

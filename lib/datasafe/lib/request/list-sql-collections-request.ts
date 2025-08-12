@@ -81,6 +81,10 @@ export interface ListSqlCollectionsRequest extends common.BaseRequest {
    */
   "targetId"?: string;
   /**
+   * A filter to return the target database group that matches the specified OCID.
+   */
+  "targetDatabaseGroupId"?: string;
+  /**
    * A filter to return only items that match the specified user name.
    */
   "dbUserName"?: string;

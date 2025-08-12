@@ -20,7 +20,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The sort order to use to query support ticket lists, either ascending ({@code ASC}) or descending ({@code DESC}).
+ * The sort order to use to query support request lists, either ascending ({@code ASC}) or descending ({@code DESC}).
  **/
 export enum SortOrder {
   Asc = "ASC",

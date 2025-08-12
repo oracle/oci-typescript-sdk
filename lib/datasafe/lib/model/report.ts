@@ -47,6 +47,14 @@ export interface Report {
    */
   "timeGenerated": Date;
   /**
+   * Specifies the time at which the report was created.
+   */
+  "timeCreated"?: Date;
+  /**
+   * The date and time of the report update in Data Safe.
+   */
+  "timeUpdated"?: Date;
+  /**
    * The current state of the audit report.
    */
   "lifecycleState": model.ReportLifecycleState;
@@ -54,6 +62,10 @@ export interface Report {
    * The type of the audit report.
    */
   "type"?: model.ReportType;
+  /**
+   * Specifies the name of a resource that provides data for the report. For example alerts, events.
+   */
+  "dataSource"?: model.ReportDefinitionDataSource;
   /**
    * Details about the current state of the report in Data Safe.
    */

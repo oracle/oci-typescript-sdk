@@ -54,6 +54,10 @@ export interface ListAuditPoliciesRequest extends common.BaseRequest {
    */
   "targetId"?: string;
   /**
+   * A filter to return the target database group that matches the specified OCID.
+   */
+  "targetDatabaseGroupId"?: string;
+  /**
    * The current state of the audit policy.
    */
   "lifecycleState"?: model.AuditPolicyLifecycleState;

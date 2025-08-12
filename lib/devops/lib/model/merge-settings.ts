@@ -21,11 +21,11 @@ export interface MergeSettings {
   /**
    * Default type of merge strategy associated with the a Project or Repository.
    */
-  "defaultMergeStrategy": model.MergeStrategy;
+  "defaultMergeStrategy"?: model.MergeStrategy;
   /**
    * List of merge strategies which are allowed for a Project or Repository.
    */
-  "allowedMergeStrategies": Array<model.MergeStrategy>;
+  "allowedMergeStrategies"?: Array<model.MergeStrategy>;
 }
 
 export namespace MergeSettings {

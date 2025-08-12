@@ -63,18 +63,22 @@ export interface Db2ConnectionSummary extends model.ConnectionSummary {
    */
   "passwordSecretId"?: string;
   /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Secret where the keystore file stored,
-   * which created at the client containing the server certificate / CA root certificate.
-   * Note: When provided, 'sslClientKeystoredb' field must not be provided.
-   *
-   */
+    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Secret where the keystore file stored, 
+* which created at the client containing the server certificate / CA root certificate.
+* This property is not supported for IBM Db2 for i, as client TLS mode is not available.
+* <p>
+Note: When provided, 'sslClientKeystoredb' field must not be provided.
+* 
+    */
   "sslClientKeystoredbSecretId"?: string;
   /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Secret where the keystash file is stored,
-   * which contains the encrypted password to the key database file.
-   * Note: When provided, 'sslClientKeystash' field must not be provided.
-   *
-   */
+    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Secret where the keystash file is stored, 
+* which contains the encrypted password to the key database file.
+* This property is not supported for IBM Db2 for i, as client TLS mode is not available.
+* <p>
+Note: When provided, 'sslClientKeystash' field must not be provided.
+* 
+    */
   "sslClientKeystashSecretId"?: string;
 
   "connectionType": string;

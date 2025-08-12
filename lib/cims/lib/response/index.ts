@@ -24,6 +24,8 @@ import * as ListIncidentResourceTypesResponse from "./list-incident-resource-typ
 export import ListIncidentResourceTypesResponse = ListIncidentResourceTypesResponse.ListIncidentResourceTypesResponse;
 import * as ListIncidentsResponse from "./list-incidents-response";
 export import ListIncidentsResponse = ListIncidentsResponse.ListIncidentsResponse;
+import * as PutAttachmentResponse from "./put-attachment-response";
+export import PutAttachmentResponse = PutAttachmentResponse.PutAttachmentResponse;
 import * as UpdateIncidentResponse from "./update-incident-response";
 export import UpdateIncidentResponse = UpdateIncidentResponse.UpdateIncidentResponse;
 import * as ValidateUserResponse from "./validate-user-response";

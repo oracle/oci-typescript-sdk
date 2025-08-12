@@ -536,6 +536,8 @@ import * as DrgAttachmentNetworkDetails from "./drg-attachment-network-details";
 export import DrgAttachmentNetworkDetails = DrgAttachmentNetworkDetails.DrgAttachmentNetworkDetails;
 import * as DrgAttachmentNetworkUpdateDetails from "./drg-attachment-network-update-details";
 export import DrgAttachmentNetworkUpdateDetails = DrgAttachmentNetworkUpdateDetails.DrgAttachmentNetworkUpdateDetails;
+import * as DrgPromotionStatusResponse from "./drg-promotion-status-response";
+export import DrgPromotionStatusResponse = DrgPromotionStatusResponse.DrgPromotionStatusResponse;
 import * as DrgRedundancyStatus from "./drg-redundancy-status";
 export import DrgRedundancyStatus = DrgRedundancyStatus.DrgRedundancyStatus;
 import * as DrgRouteDistribution from "./drg-route-distribution";
@@ -648,6 +650,8 @@ import * as InstanceConfigurationLaunchInstanceShapeConfigDetails from "./instan
 export import InstanceConfigurationLaunchInstanceShapeConfigDetails = InstanceConfigurationLaunchInstanceShapeConfigDetails.InstanceConfigurationLaunchInstanceShapeConfigDetails;
 import * as InstanceConfigurationLaunchOptions from "./instance-configuration-launch-options";
 export import InstanceConfigurationLaunchOptions = InstanceConfigurationLaunchOptions.InstanceConfigurationLaunchOptions;
+import * as InstanceConfigurationPlacementConstraintDetails from "./instance-configuration-placement-constraint-details";
+export import InstanceConfigurationPlacementConstraintDetails = InstanceConfigurationPlacementConstraintDetails.InstanceConfigurationPlacementConstraintDetails;
 import * as InstanceConfigurationSummary from "./instance-configuration-summary";
 export import InstanceConfigurationSummary = InstanceConfigurationSummary.InstanceConfigurationSummary;
 import * as InstanceConfigurationVolumeSourceDetails from "./instance-configuration-volume-source-details";
@@ -1233,6 +1237,8 @@ import * as InstanceConfigurationDetachedVolumeAutotunePolicy from "./instance-c
 export import InstanceConfigurationDetachedVolumeAutotunePolicy = InstanceConfigurationDetachedVolumeAutotunePolicy.InstanceConfigurationDetachedVolumeAutotunePolicy;
 import * as InstanceConfigurationGenericBmLaunchInstancePlatformConfig from "./instance-configuration-generic-bm-launch-instance-platform-config";
 export import InstanceConfigurationGenericBmLaunchInstancePlatformConfig = InstanceConfigurationGenericBmLaunchInstancePlatformConfig.InstanceConfigurationGenericBmLaunchInstancePlatformConfig;
+import * as InstanceConfigurationHostGroupPlacementConstraintDetails from "./instance-configuration-host-group-placement-constraint-details";
+export import InstanceConfigurationHostGroupPlacementConstraintDetails = InstanceConfigurationHostGroupPlacementConstraintDetails.InstanceConfigurationHostGroupPlacementConstraintDetails;
 import * as InstanceConfigurationInstanceSourceViaBootVolumeDetails from "./instance-configuration-instance-source-via-boot-volume-details";
 export import InstanceConfigurationInstanceSourceViaBootVolumeDetails = InstanceConfigurationInstanceSourceViaBootVolumeDetails.InstanceConfigurationInstanceSourceViaBootVolumeDetails;
 import * as InstanceConfigurationInstanceSourceViaImageDetails from "./instance-configuration-instance-source-via-image-details";

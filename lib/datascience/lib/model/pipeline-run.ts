@@ -62,6 +62,7 @@ export interface PipelineRun {
   "configurationDetails"?: model.PipelineDefaultConfigurationDetails;
   "configurationOverrideDetails"?: model.PipelineDefaultConfigurationDetails;
   "logConfigurationOverrideDetails"?: model.PipelineLogConfigurationDetails;
+  "infrastructureConfigurationOverrideDetails"?: model.PipelineInfrastructureConfigurationDetails;
   /**
    * Array of step override details. Only Step Configuration is allowed to be overridden.
    */
@@ -113,6 +114,11 @@ export namespace PipelineRun {
         "logConfigurationOverrideDetails": obj.logConfigurationOverrideDetails
           ? model.PipelineLogConfigurationDetails.getJsonObj(obj.logConfigurationOverrideDetails)
           : undefined,
+        "infrastructureConfigurationOverrideDetails": obj.infrastructureConfigurationOverrideDetails
+          ? model.PipelineInfrastructureConfigurationDetails.getJsonObj(
+              obj.infrastructureConfigurationOverrideDetails
+            )
+          : undefined,
         "stepOverrideDetails": obj.stepOverrideDetails
           ? obj.stepOverrideDetails.map(item => {
               return model.PipelineStepOverrideDetails.getJsonObj(item);
@@ -146,6 +152,11 @@ export namespace PipelineRun {
         "logConfigurationOverrideDetails": obj.logConfigurationOverrideDetails
           ? model.PipelineLogConfigurationDetails.getDeserializedJsonObj(
               obj.logConfigurationOverrideDetails
+            )
+          : undefined,
+        "infrastructureConfigurationOverrideDetails": obj.infrastructureConfigurationOverrideDetails
+          ? model.PipelineInfrastructureConfigurationDetails.getDeserializedJsonObj(
+              obj.infrastructureConfigurationOverrideDetails
             )
           : undefined,
         "stepOverrideDetails": obj.stepOverrideDetails

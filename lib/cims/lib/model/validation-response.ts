@@ -29,7 +29,10 @@ export interface ValidationResponse {
    */
   "isValidUser"?: boolean;
   /**
-   * Technical support type ({@code TECH}) only: Identifier and name of the support request's user group ({@code userGroupId} and {@code userGroupName}).
+   * Array of user groups that the user has access to for creating technical support type ({@code TECH}) support requests.
+   * Each user group is indicated by its identifier and name ({@code userGroupId} and {@code userGroupName}).
+   * Note: The Customer User Administrator (CUA) can manage user groups by name using
+   * [My Oracle Cloud Support portal](https://support.oracle.com).
    *
    */
   "writePermittedUserGroupInfos"?: Array<model.CmosUserGroupInfo>;

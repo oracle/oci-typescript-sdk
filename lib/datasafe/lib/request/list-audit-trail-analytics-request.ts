@@ -53,6 +53,27 @@ export interface ListAuditTrailAnalyticsRequest extends common.BaseRequest {
    */
   "targetId"?: string;
   /**
+   * An optional filter to return audit events whose creation time in the database is greater than and equal to the date-time specified,
+   * in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
+   *
+   */
+  "timeStarted"?: Date;
+  /**
+   * An optional filter to return audit events whose creation time in the database is less than and equal to the date-time specified,
+   * in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
+   *
+   */
+  "timeEnded"?: Date;
+  /**
+   * Default time zone is UTC if no time zone provided. The date-time considerations of the resource will be in accordance with the specified time zone.
+   *
+   */
+  "queryTimeZone"?: string;
+  /**
+   * A filter to return the target database group that matches the specified OCID.
+   */
+  "targetDatabaseGroupId"?: string;
+  /**
    * Unique identifier for the request.
    */
   "opcRequestId"?: string;

@@ -37,6 +37,11 @@ export namespace ImageFeature {
             <model.FaceDetectionFeature>(<object>jsonObj),
             true
           );
+        case "FACE_EMBEDDING":
+          return model.FaceEmbeddingFeature.getJsonObj(
+            <model.FaceEmbeddingFeature>(<object>jsonObj),
+            true
+          );
         case "OBJECT_DETECTION":
           return model.ImageObjectDetectionFeature.getJsonObj(
             <model.ImageObjectDetectionFeature>(<object>jsonObj),
@@ -66,6 +71,11 @@ export namespace ImageFeature {
         case "FACE_DETECTION":
           return model.FaceDetectionFeature.getDeserializedJsonObj(
             <model.FaceDetectionFeature>(<object>jsonObj),
+            true
+          );
+        case "FACE_EMBEDDING":
+          return model.FaceEmbeddingFeature.getDeserializedJsonObj(
+            <model.FaceEmbeddingFeature>(<object>jsonObj),
             true
           );
         case "OBJECT_DETECTION":

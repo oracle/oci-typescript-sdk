@@ -20,7 +20,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details for updating the support ticket activity.
+ * Details for updating the support request activity.
  *
  */
 export interface UpdateActivityItemDetails extends model.UpdateItemDetails {
@@ -30,6 +30,13 @@ export interface UpdateActivityItemDetails extends model.UpdateItemDetails {
   "comments"?: string;
   /**
    * The type of activity occurring.
+   * {@code NOTES} is the activity associated to attachments.
+   * {@code PROBLEM_DESCRIPTION} is the activity associated to customer problem description.
+   * {@code UPDATE} is the activity associated to adding comments.
+   * {@code CLOSE} is the activity associated to closing the support request.
+   * {@code REOPEN} is the activity associated to reopening the support request.
+   * {@code ADD_CONTACT} is the activity associated to adding additional contact to the support request.
+   *
    */
   "activityType"?: UpdateActivityItemDetails.ActivityType;
 
@@ -42,7 +49,8 @@ export namespace UpdateActivityItemDetails {
     ProblemDescription = "PROBLEM_DESCRIPTION",
     Update = "UPDATE",
     Close = "CLOSE",
-    Reopen = "REOPEN"
+    Reopen = "REOPEN",
+    AddContact = "ADD_CONTACT"
   }
 
   export function getJsonObj(obj: UpdateActivityItemDetails, isParentJsonObj?: boolean): object {

@@ -29,6 +29,16 @@ export namespace JobInfrastructureConfigurationDetails {
 
     if (obj && "jobInfrastructureType" in obj && obj.jobInfrastructureType) {
       switch (obj.jobInfrastructureType) {
+        case "MULTI_NODE":
+          return model.MultiNodeJobInfrastructureConfigurationDetails.getJsonObj(
+            <model.MultiNodeJobInfrastructureConfigurationDetails>(<object>jsonObj),
+            true
+          );
+        case "EMPTY":
+          return model.EmptyJobInfrastructureConfigurationDetails.getJsonObj(
+            <model.EmptyJobInfrastructureConfigurationDetails>(<object>jsonObj),
+            true
+          );
         case "ME_STANDALONE":
           return model.ManagedEgressStandaloneJobInfrastructureConfigurationDetails.getJsonObj(
             <model.ManagedEgressStandaloneJobInfrastructureConfigurationDetails>(<object>jsonObj),
@@ -51,6 +61,16 @@ export namespace JobInfrastructureConfigurationDetails {
 
     if (obj && "jobInfrastructureType" in obj && obj.jobInfrastructureType) {
       switch (obj.jobInfrastructureType) {
+        case "MULTI_NODE":
+          return model.MultiNodeJobInfrastructureConfigurationDetails.getDeserializedJsonObj(
+            <model.MultiNodeJobInfrastructureConfigurationDetails>(<object>jsonObj),
+            true
+          );
+        case "EMPTY":
+          return model.EmptyJobInfrastructureConfigurationDetails.getDeserializedJsonObj(
+            <model.EmptyJobInfrastructureConfigurationDetails>(<object>jsonObj),
+            true
+          );
         case "ME_STANDALONE":
           return model.ManagedEgressStandaloneJobInfrastructureConfigurationDetails.getDeserializedJsonObj(
             <model.ManagedEgressStandaloneJobInfrastructureConfigurationDetails>(<object>jsonObj),

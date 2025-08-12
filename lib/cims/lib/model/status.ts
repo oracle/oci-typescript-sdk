@@ -20,7 +20,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details about the status of the support ticket.
+ * Details about the status of the support request.
  */
 export interface Status {
   /**

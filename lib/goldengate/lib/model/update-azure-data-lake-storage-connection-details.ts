@@ -88,6 +88,15 @@ export interface UpdateAzureDataLakeStorageConnectionDetails extends model.Updat
    *
    */
   "endpoint"?: string;
+  /**
+   * The endpoint used for authentication with Microsoft Entra ID (formerly Azure Active Directory).
+   * Default value: https://login.microsoftonline.com
+   * When connecting to a non-public Azure Cloud, the endpoint must be provided, eg:
+   * * Azure China: https://login.chinacloudapi.cn/
+   * * Azure US Government: https://login.microsoftonline.us/
+   *
+   */
+  "azureAuthorityHost"?: string;
 
   "connectionType": string;
 }

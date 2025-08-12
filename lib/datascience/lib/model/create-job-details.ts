@@ -36,8 +36,12 @@ export interface CreateJobDetails {
    * A short description of the job.
    */
   "description"?: string;
-  "jobConfigurationDetails": model.DefaultJobConfigurationDetails;
-  "jobInfrastructureConfigurationDetails":
+  "jobConfigurationDetails"?:
+    | model.EmptyJobConfigurationDetails
+    | model.DefaultJobConfigurationDetails;
+  "jobInfrastructureConfigurationDetails"?:
+    | model.MultiNodeJobInfrastructureConfigurationDetails
+    | model.EmptyJobInfrastructureConfigurationDetails
     | model.ManagedEgressStandaloneJobInfrastructureConfigurationDetails
     | model.StandaloneJobInfrastructureConfigurationDetails;
   "jobEnvironmentConfigurationDetails"?: model.OcirContainerJobEnvironmentConfigurationDetails;
@@ -46,6 +50,7 @@ export interface CreateJobDetails {
    * Collection of JobStorageMountConfigurationDetails.
    */
   "jobStorageMountConfigurationDetailsList"?: Array<model.StorageMountConfigurationDetails>;
+  "jobNodeConfigurationDetails"?: model.MultiNodeJobNodeConfigurationDetails;
   /**
    * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace. See [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
    * Example: {@code {\"Department\": \"Finance\"}}
@@ -85,6 +90,9 @@ export namespace CreateJobDetails {
           ? obj.jobStorageMountConfigurationDetailsList.map(item => {
               return model.StorageMountConfigurationDetails.getJsonObj(item);
             })
+          : undefined,
+        "jobNodeConfigurationDetails": obj.jobNodeConfigurationDetails
+          ? model.JobNodeConfigurationDetails.getJsonObj(obj.jobNodeConfigurationDetails)
           : undefined
       }
     };
@@ -115,6 +123,11 @@ export namespace CreateJobDetails {
           ? obj.jobStorageMountConfigurationDetailsList.map(item => {
               return model.StorageMountConfigurationDetails.getDeserializedJsonObj(item);
             })
+          : undefined,
+        "jobNodeConfigurationDetails": obj.jobNodeConfigurationDetails
+          ? model.JobNodeConfigurationDetails.getDeserializedJsonObj(
+              obj.jobNodeConfigurationDetails
+            )
           : undefined
       }
     };

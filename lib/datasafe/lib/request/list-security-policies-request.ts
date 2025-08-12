@@ -54,6 +54,10 @@ export interface ListSecurityPoliciesRequest extends common.BaseRequest {
    */
   "lifecycleState"?: model.SecurityPolicyLifecycleState;
   /**
+   * The type of the security policy.
+   */
+  "securityPolicyType"?: string;
+  /**
    * An optional filter to return only resources that match the specified OCID of the security policy resource.
    */
   "securityPolicyId"?: string;
