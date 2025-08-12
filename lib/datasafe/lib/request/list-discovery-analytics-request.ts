@@ -37,6 +37,19 @@ export interface ListDiscoveryAnalyticsRequest extends common.BaseRequest {
    */
   "targetId"?: string;
   /**
+   * A filter to return the target database group that matches the specified OCID.
+   */
+  "targetDatabaseGroupId"?: string;
+  /**
+   * The field to sort by. You can specify only one sorting parameter (sortOrder). The default order for all the fields is ascending.
+   *
+   */
+  "sortBy"?: ListDiscoveryAnalyticsRequest.SortBy;
+  /**
+   * The sort order to use, either ascending (ASC) or descending (DESC).
+   */
+  "sortOrder"?: ListDiscoveryAnalyticsRequest.SortOrder;
+  /**
    * A filter to return only the resources that match the specified sensitive data model OCID.
    */
   "sensitiveDataModelId"?: string;
@@ -62,6 +75,10 @@ export interface ListDiscoveryAnalyticsRequest extends common.BaseRequest {
    *
    */
   "isCommon"?: boolean;
+  /**
+   * An optional filter to return only resources that match the specified OCID of the sensitive type group resource.
+   */
+  "sensitiveTypeGroupId"?: string;
 }
 
 export namespace ListDiscoveryAnalyticsRequest {
@@ -72,5 +89,14 @@ export namespace ListDiscoveryAnalyticsRequest {
     TargetIdAndSensitiveDataModelId = "targetIdAndSensitiveDataModelId",
     SensitiveTypeIdAndTargetId = "sensitiveTypeIdAndTargetId",
     SensitiveTypeIdAndSensitiveDataModelId = "sensitiveTypeIdAndSensitiveDataModelId"
+  }
+
+  export enum SortBy {
+    TimeLastDiscovered = "timeLastDiscovered"
+  }
+
+  export enum SortOrder {
+    Asc = "ASC",
+    Desc = "DESC"
   }
 }

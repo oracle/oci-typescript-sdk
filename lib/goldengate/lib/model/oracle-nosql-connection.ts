@@ -62,7 +62,8 @@ export interface OracleNosqlConnection extends model.Connection {
    */
   "publicKeyFingerprint"?: string;
   /**
-   * Indicates that the user intents to connect to the instance through resource principal.
+   * Specifies that the user intends to authenticate to the instance using a resource principal.
+   * Default: false
    *
    */
   "shouldUseResourcePrincipal"?: boolean;

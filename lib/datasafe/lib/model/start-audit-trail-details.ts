@@ -28,6 +28,12 @@ export interface StartAuditTrailDetails {
    *
    */
   "isAutoPurgeEnabled"?: boolean;
+  /**
+   * Indicates if the Datasafe updates last archive time on target database. If isAutoPurgeEnabled field
+   * is enabled, this field must be true.
+   *
+   */
+  "canUpdateLastArchiveTimeOnTarget"?: boolean;
 }
 
 export namespace StartAuditTrailDetails {

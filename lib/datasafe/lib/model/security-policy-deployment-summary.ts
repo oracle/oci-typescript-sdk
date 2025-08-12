@@ -36,9 +36,17 @@ export interface SecurityPolicyDeploymentSummary {
    */
   "description"?: string;
   /**
-   * The OCID of the target where the security policy is deployed.
+   * The OCID of the target/target group where the security policy is deployed.
    */
   "targetId": string;
+  /**
+   * Indicates whether the security policy deployment is for a target database or a target database group.
+   */
+  "targetType"?: string;
+  /**
+   * The last date and time the security policy was deployed, in the format defined by RFC3339.
+   */
+  "timeDeployed"?: Date;
   /**
    * The OCID of the security policy corresponding to the security policy deployment.
    */

@@ -39,6 +39,14 @@ export interface ListSecurityPolicyEntryStatesRequest extends common.BaseRequest
    */
   "securityPolicyEntryId"?: string;
   /**
+   * The type of the security policy deployment.
+   */
+  "securityPolicyEntryType"?: string;
+  /**
+   * An optional filter to return only resources that match the specified target id.
+   */
+  "targetId"?: string;
+  /**
    * Unique identifier for the request.
    */
   "opcRequestId"?: string;

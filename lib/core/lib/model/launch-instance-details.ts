@@ -117,10 +117,6 @@ Example: {@code {\"Department\": \"Finance\"}}
     */
   "freeformTags"?: { [key: string]: string };
   /**
-   * The OCID of the compute host group attached to the host where the bare metal instance will be launched.
-   */
-  "computeHostGroupId"?: string;
-  /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the
    * [compute cluster](https://docs.oracle.com/iaas/Content/Compute/Tasks/compute-clusters.htm) that the instance will be created in.
    *

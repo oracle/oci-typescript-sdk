@@ -22,6 +22,10 @@ export interface VideoTrackedObjectProperties {
    * The axle count value of a tracked vehicle. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "axleCount"?: number;
+  /**
+   * Object IDs of the trailers associated with the tracked vehicle.
+   */
+  "trailerIds"?: Array<number>;
 }
 
 export namespace VideoTrackedObjectProperties {

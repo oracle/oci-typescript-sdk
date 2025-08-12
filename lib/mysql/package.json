@@ -1,6 +1,6 @@
 {
   "name": "oci-mysql",
-  "version": "2.114.1",
+  "version": "2.115.0",
   "description": "OCI NodeJS client for Mysql ",
   "repository": {
     "type": "git",

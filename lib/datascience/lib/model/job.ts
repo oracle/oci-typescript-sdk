@@ -49,8 +49,12 @@ export interface Job {
    * A short description of the job.
    */
   "description"?: string;
-  "jobConfigurationDetails": model.DefaultJobConfigurationDetails;
+  "jobConfigurationDetails":
+    | model.EmptyJobConfigurationDetails
+    | model.DefaultJobConfigurationDetails;
   "jobInfrastructureConfigurationDetails":
+    | model.MultiNodeJobInfrastructureConfigurationDetails
+    | model.EmptyJobInfrastructureConfigurationDetails
     | model.ManagedEgressStandaloneJobInfrastructureConfigurationDetails
     | model.StandaloneJobInfrastructureConfigurationDetails;
   "jobEnvironmentConfigurationDetails"?: model.OcirContainerJobEnvironmentConfigurationDetails;
@@ -59,6 +63,7 @@ export interface Job {
    * Collection of JobStorageMountConfigurationDetails.
    */
   "jobStorageMountConfigurationDetailsList"?: Array<model.StorageMountConfigurationDetails>;
+  "jobNodeConfigurationDetails"?: model.MultiNodeJobNodeConfigurationDetails;
   /**
    * The state of the job.
    */
@@ -106,6 +111,9 @@ export namespace Job {
           ? obj.jobStorageMountConfigurationDetailsList.map(item => {
               return model.StorageMountConfigurationDetails.getJsonObj(item);
             })
+          : undefined,
+        "jobNodeConfigurationDetails": obj.jobNodeConfigurationDetails
+          ? model.JobNodeConfigurationDetails.getJsonObj(obj.jobNodeConfigurationDetails)
           : undefined
       }
     };
@@ -136,6 +144,11 @@ export namespace Job {
           ? obj.jobStorageMountConfigurationDetailsList.map(item => {
               return model.StorageMountConfigurationDetails.getDeserializedJsonObj(item);
             })
+          : undefined,
+        "jobNodeConfigurationDetails": obj.jobNodeConfigurationDetails
+          ? model.JobNodeConfigurationDetails.getDeserializedJsonObj(
+              obj.jobNodeConfigurationDetails
+            )
           : undefined
       }
     };

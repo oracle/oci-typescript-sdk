@@ -28,6 +28,8 @@ export interface UpdateJobDetails {
    */
   "description"?: string;
   "jobInfrastructureConfigurationDetails"?:
+    | model.MultiNodeJobInfrastructureConfigurationDetails
+    | model.EmptyJobInfrastructureConfigurationDetails
     | model.ManagedEgressStandaloneJobInfrastructureConfigurationDetails
     | model.StandaloneJobInfrastructureConfigurationDetails;
   /**

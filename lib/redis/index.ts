@@ -15,12 +15,18 @@ import * as requests from "./lib/request";
 import * as models from "./lib/model";
 import * as responses from "./lib/response";
 import * as client from "./lib/client";
+import * as ocicacheconfigset_waiter from "./lib/ocicacheconfigset-waiter";
+import * as ocicachedefaultconfigset_waiter from "./lib/ocicachedefaultconfigset-waiter";
 import * as ocicacheuser_waiter from "./lib/ocicacheuser-waiter";
 import * as rediscluster_waiter from "./lib/rediscluster-waiter";
 
 export { models };
 export { requests };
 export { responses };
+export import OciCacheConfigSetClient = client.OciCacheConfigSetClient;
+export import OciCacheConfigSetWaiter = ocicacheconfigset_waiter.OciCacheConfigSetWaiter;
+export import OciCacheDefaultConfigSetClient = client.OciCacheDefaultConfigSetClient;
+export import OciCacheDefaultConfigSetWaiter = ocicachedefaultconfigset_waiter.OciCacheDefaultConfigSetWaiter;
 export import OciCacheUserClient = client.OciCacheUserClient;
 export import OciCacheUserWaiter = ocicacheuser_waiter.OciCacheUserWaiter;
 export import RedisClusterClient = client.RedisClusterClient;

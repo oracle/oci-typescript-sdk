@@ -110,6 +110,14 @@ export interface ListUserAssessmentsRequest extends common.BaseRequest {
    * Unique identifier for the request.
    */
   "opcRequestId"?: string;
+  /**
+   * A filter to return only only target database resources or target database group resources.
+   */
+  "targetType"?: model.UserAssessmentTargetType;
+  /**
+   * A filter to return the target database group that matches the specified OCID.
+   */
+  "targetDatabaseGroupId"?: string;
 }
 
 export namespace ListUserAssessmentsRequest {

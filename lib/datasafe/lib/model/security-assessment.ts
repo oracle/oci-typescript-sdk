@@ -66,6 +66,14 @@ export interface SecurityAssessment {
    */
   "targetVersion"?: string;
   /**
+   * The ocid of a security assessment which is of type TEMPLATE, this will be null or empty when type is TEMPLATE.
+   */
+  "templateAssessmentId"?: string;
+  /**
+   * The ocid of a security assessment which is of type TEMPLATE_BASELINE, this will be null or empty when type is TEMPLATE_BASELINE.
+   */
+  "baselineAssessmentId"?: string;
+  /**
    * Indicates whether or not the security assessment is set as a baseline. This is applicable only for saved security assessments.
    */
   "isBaseline"?: boolean;
@@ -101,6 +109,18 @@ export interface SecurityAssessment {
    * Indicates whether the assessment is scheduled to run.
    */
   "isAssessmentScheduled"?: boolean;
+  /**
+   * The OCID of the target database group that the group assessment is created for.
+   */
+  "targetDatabaseGroupId"?: string;
+  /**
+   * Indicates whether the security assessment is for a target database or a target database group.
+   */
+  "targetType"?: model.SecurityAssessmentTargetType;
+  /**
+   * The security checks to be evaluated for type template.
+   */
+  "checks"?: Array<model.Check>;
   /**
     * Schedule to save the assessment periodically in the specified format:
 * <version-string>;<version-specific-schedule>
@@ -174,6 +194,8 @@ export namespace SecurityAssessment {
     Saved = "SAVED",
     SaveSchedule = "SAVE_SCHEDULE",
     Compartment = "COMPARTMENT",
+    Template = "TEMPLATE",
+    TemplateBaseline = "TEMPLATE_BASELINE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
@@ -185,6 +207,12 @@ export namespace SecurityAssessment {
     const jsonObj = {
       ...obj,
       ...{
+        "checks": obj.checks
+          ? obj.checks.map(item => {
+              return model.Check.getJsonObj(item);
+            })
+          : undefined,
+
         "statistics": obj.statistics
           ? model.SecurityAssessmentStatistics.getJsonObj(obj.statistics)
           : undefined
@@ -197,6 +225,12 @@ export namespace SecurityAssessment {
     const jsonObj = {
       ...obj,
       ...{
+        "checks": obj.checks
+          ? obj.checks.map(item => {
+              return model.Check.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
         "statistics": obj.statistics
           ? model.SecurityAssessmentStatistics.getDeserializedJsonObj(obj.statistics)
           : undefined

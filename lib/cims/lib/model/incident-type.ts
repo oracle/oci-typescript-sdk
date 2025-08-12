@@ -20,7 +20,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details about the incident type associated with the support ticket.
+ * Details about the incident type associated with the support request.
  */
 export interface IncidentType {
   /**

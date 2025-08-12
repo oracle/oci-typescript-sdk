@@ -24,6 +24,8 @@ import * as ListIncidentResourceTypesRequest from "./list-incident-resource-type
 export import ListIncidentResourceTypesRequest = ListIncidentResourceTypesRequest.ListIncidentResourceTypesRequest;
 import * as ListIncidentsRequest from "./list-incidents-request";
 export import ListIncidentsRequest = ListIncidentsRequest.ListIncidentsRequest;
+import * as PutAttachmentRequest from "./put-attachment-request";
+export import PutAttachmentRequest = PutAttachmentRequest.PutAttachmentRequest;
 import * as UpdateIncidentRequest from "./update-incident-request";
 export import UpdateIncidentRequest = UpdateIncidentRequest.UpdateIncidentRequest;
 import * as ValidateUserRequest from "./validate-user-request";

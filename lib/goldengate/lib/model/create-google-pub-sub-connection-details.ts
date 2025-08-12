@@ -30,7 +30,7 @@ export interface CreateGooglePubSubConnectionDetails extends model.CreateConnect
    * Deprecated: This field is deprecated and replaced by \"serviceAccountKeyFileSecretId\". This field will be removed after February 15 2026.
    *
    */
-  "serviceAccountKeyFile": string;
+  "serviceAccountKeyFile"?: string;
   /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Secret where the content of the service account key file is stored,
    * which contains the credentials required to use Google PubSub.

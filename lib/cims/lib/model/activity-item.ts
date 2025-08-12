@@ -24,7 +24,11 @@ import common = require("oci-common");
  */
 export interface ActivityItem extends model.Item {
   /**
-   * Comments added with the activity on the support ticket.
+   * Identifier of the activity on the support request.
+   */
+  "id"?: string;
+  /**
+   * Comments or file attachments added with the activity on the support request.
    */
   "comments": string;
   /**
@@ -36,13 +40,13 @@ export interface ActivityItem extends model.Item {
    */
   "timeUpdated": number;
   /**
-   * The type of activity occuring on the support ticket.
+   * The type of activity occuring on the support request.
    */
   "activityType": ActivityItem.ActivityType;
   "activityAuthor": ActivityItem.ActivityAuthor;
   "itemType"?: ActivityItem.ItemType;
   /**
-   * Who updates the activity on the support ticket.
+   * Who updates the activity on the support request.
    */
   "itemStatus"?: ActivityItem.ItemStatus;
   /**
@@ -92,6 +96,8 @@ export namespace ActivityItem {
     Attached = "ATTACHED",
     Removed = "REMOVED",
     Failed = "FAILED",
+    Rejected = "REJECTED",
+    Received = "RECEIVED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

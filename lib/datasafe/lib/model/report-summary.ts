@@ -43,6 +43,14 @@ export interface ReportSummary {
    */
   "timeGenerated": Date;
   /**
+   * Specifies the time at which the report was created.
+   */
+  "timeCreated"?: Date;
+  /**
+   * The date and time of the report update in Data Safe.
+   */
+  "timeUpdated"?: Date;
+  /**
    * The OCID of the compartment containing the report.
    */
   "compartmentId": string;
@@ -54,6 +62,10 @@ export interface ReportSummary {
    * The type of the report.
    */
   "type"?: model.ReportType;
+  /**
+   * Specifies the name of a resource that provides data for the report. For example alerts, events.
+   */
+  "dataSource"?: model.ReportDefinitionDataSource;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm)
 * <p>

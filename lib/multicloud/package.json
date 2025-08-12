@@ -1,6 +1,6 @@
 {
   "name": "oci-multicloud",
-  "version": "2.114.1",
+  "version": "2.115.0",
   "description": "OCI NodeJS client for Multicloud Service",
   "repository": {
     "type": "git",

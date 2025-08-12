@@ -34,7 +34,7 @@ export interface ListOnPremConnectorsRequest extends common.BaseRequest {
   /**
    * A filter to return only on-premises connector resources that match the specified lifecycle state.
    */
-  "onPremConnectorLifecycleState"?: model.OnPremConnectorLifecycleState;
+  "lifecycleState"?: model.OnPremConnectorLifecycleState;
   /**
    * For list pagination. The maximum number of items to return per page in a paginated \"List\" call. For details about how pagination works, see [List Pagination](https://docs.oracle.com/iaas/en-us/iaas/Content/API/Concepts/usingapi.htm#nine).
    */

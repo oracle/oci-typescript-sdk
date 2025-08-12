@@ -26,6 +26,10 @@ export interface MaskingAnalyticsDimensions {
    * The OCID of the masking policy.
    */
   "policyId"?: string;
+  /**
+   * The OCID of the sensitive type masked.
+   */
+  "sensitiveTypeId"?: string;
 }
 
 export namespace MaskingAnalyticsDimensions {

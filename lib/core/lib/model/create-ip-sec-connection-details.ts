@@ -97,7 +97,7 @@ Example: {@code 10.0.1.0/24}
 Example: {@code 2001:db8::/32}
 * 
     */
-  "staticRoutes": Array<string>;
+  "staticRoutes"?: Array<string>;
   /**
    * Information for creating the individual tunnels in the IPSec connection. You can provide a
    * maximum of 2 {@code tunnelConfiguration} objects in the array (one for each of the

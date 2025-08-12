@@ -68,6 +68,45 @@ export interface ListFindingAnalyticsRequest extends common.BaseRequest {
    * For list pagination. The page token representing the page at which to start retrieving results. It is usually retrieved from a previous \"List\" call. For details about how pagination works, see [List Pagination](https://docs.oracle.com/iaas/en-us/iaas/Content/API/Concepts/usingapi.htm#nine).
    */
   "page"?: string;
+  /**
+   * A filter to return the target database group that matches the specified OCID.
+   */
+  "targetDatabaseGroupId"?: string;
+  /**
+   * An optional filter to return only findings that match the specified references. Use containsReferences param if need to filter by multiple references.
+   */
+  "containsReferences"?: Array<model.SecurityAssessmentReferences>;
+  /**
+   * An optional filter to return only findings that match the specified target ids. Use this parameter to filter by multiple target ids.
+   */
+  "targetIds"?: Array<string>;
+  /**
+   * The category of the finding.
+   */
+  "category"?: string;
+  /**
+   * A filter to return only findings that match the specified risk level(s). Use containsSeverity parameter if need to filter by multiple risk levels.
+   */
+  "containsSeverity"?: Array<ListFindingAnalyticsRequest.ContainsSeverity>;
+  /**
+ * The scimQuery query parameter accepts filter expressions that use the syntax described in Section 3.2.2.2
+* of the System for Cross-Domain Identity Management (SCIM) specification, which is available
+* at [RFC3339](https://tools.ietf.org/html/draft-ietf-scim-api-12). In SCIM filtering expressions,
+* text, date, and time values must be enclosed in quotation marks, with date and time values using ISO-8601 format.
+* (Numeric and boolean values should not be quoted.)
+* <p>
+**Example:** |
+* scimQuery=(severity eq 'high')
+* scimQuery=(category eq \"Users\") and (reference eq 'CIS')
+* <p>
+Supported fields:
+* severity
+* reference
+* title
+* category
+* 
+ */
+  "scimQuery"?: string;
 }
 
 export namespace ListFindingAnalyticsRequest {
@@ -78,10 +117,21 @@ export namespace ListFindingAnalyticsRequest {
 
   export enum GroupBy {
     FindingKeyAndTopFindingStatus = "findingKeyAndTopFindingStatus",
-    FindingKeyAndSeverity = "findingKeyAndSeverity"
+    FindingKeyAndSeverity = "findingKeyAndSeverity",
+    Severity = "severity"
   }
 
   export enum Severity {
+    High = "HIGH",
+    Medium = "MEDIUM",
+    Low = "LOW",
+    Evaluate = "EVALUATE",
+    Advisory = "ADVISORY",
+    Pass = "PASS",
+    Deferred = "DEFERRED"
+  }
+
+  export enum ContainsSeverity {
     High = "HIGH",
     Medium = "MEDIUM",
     Low = "LOW",

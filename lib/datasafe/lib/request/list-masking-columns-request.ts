@@ -139,6 +139,7 @@ export namespace ListMaskingColumnsRequest {
     TimeCreated = "timeCreated",
     SchemaName = "schemaName",
     ObjectName = "objectName",
+    ColumnName = "columnName",
     DataType = "dataType"
   }
 

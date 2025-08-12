@@ -262,11 +262,6 @@ Example: {@code 2016-08-25T21:10:29.600Z}
    * List of licensing configurations associated with the instance.
    */
   "licensingConfigs"?: Array<model.LicensingConfig>;
-  /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) for the Customer-unique host group
-   *
-   */
-  "computeHostGroupId"?: string;
 }
 
 export namespace Instance {

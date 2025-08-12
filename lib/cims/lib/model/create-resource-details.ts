@@ -20,7 +20,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details about the resource that the support ticket relates to.
+ * Details about the resource that the support request relates to.
  *
  */
 export interface CreateResourceDetails {

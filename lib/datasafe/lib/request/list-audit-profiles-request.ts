@@ -45,6 +45,14 @@ export interface ListAuditProfilesRequest extends common.BaseRequest {
    */
   "targetId"?: string;
   /**
+   * A filter to return the target database group that matches the specified OCID.
+   */
+  "targetDatabaseGroupId"?: string;
+  /**
+   * A optional filter to return only resources that belong to the specified audit profile type.
+   */
+  "targetType"?: model.AuditProfileTargetType;
+  /**
    * A filter to return only resources that match the specified display name.
    *
    */

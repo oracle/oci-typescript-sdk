@@ -54,9 +54,6 @@ export import datacatalog = require("oci-datacatalog");
 // DNS
 export import dns = require("oci-dns");
 
-// DTS
-export import dts = require("oci-dts");
-
 // Email
 export import email = require("oci-email");
 
@@ -104,9 +101,6 @@ export import oda = require("oci-oda");
 
 // ONS
 export import ons = require("oci-ons");
-
-// OS Management
-export import osmanagement = require("oci-osmanagement");
 
 // Resource manager
 export import resourcemanager = require("oci-resourcemanager");
@@ -162,7 +156,6 @@ export import bastion = require("oci-bastion");
 export import genericartifactscontent = require("oci-genericartifactscontent");
 export import jms = require("oci-jms");
 export import devops = require("oci-devops");
-export import aianomalydetection = require("oci-aianomalydetection");
 export import apmconfig = require("oci-apmconfig");
 export import datalabelingservice = require("oci-datalabelingservice");
 export import datalabelingservicedataplane = require("oci-datalabelingservicedataplane");
@@ -184,7 +177,6 @@ export import aivision = require("oci-aivision");
 export import threatintelligence = require("oci-threatintelligence");
 export import aispeech = require("oci-aispeech");
 export import stackmonitoring = require("oci-stackmonitoring");
-export import servicemesh = require("oci-servicemesh");
 export import adm = require("oci-adm");
 export import licensemanager = require("oci-licensemanager");
 export import governancerulescontrolplane = require("oci-governancerulescontrolplane");

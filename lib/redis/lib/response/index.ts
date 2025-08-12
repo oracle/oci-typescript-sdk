@@ -11,6 +11,24 @@
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as ChangeOciCacheConfigSetCompartmentResponse from "./change-oci-cache-config-set-compartment-response";
+export import ChangeOciCacheConfigSetCompartmentResponse = ChangeOciCacheConfigSetCompartmentResponse.ChangeOciCacheConfigSetCompartmentResponse;
+import * as CreateOciCacheConfigSetResponse from "./create-oci-cache-config-set-response";
+export import CreateOciCacheConfigSetResponse = CreateOciCacheConfigSetResponse.CreateOciCacheConfigSetResponse;
+import * as DeleteOciCacheConfigSetResponse from "./delete-oci-cache-config-set-response";
+export import DeleteOciCacheConfigSetResponse = DeleteOciCacheConfigSetResponse.DeleteOciCacheConfigSetResponse;
+import * as GetOciCacheConfigSetResponse from "./get-oci-cache-config-set-response";
+export import GetOciCacheConfigSetResponse = GetOciCacheConfigSetResponse.GetOciCacheConfigSetResponse;
+import * as ListAssociatedOciCacheClustersResponse from "./list-associated-oci-cache-clusters-response";
+export import ListAssociatedOciCacheClustersResponse = ListAssociatedOciCacheClustersResponse.ListAssociatedOciCacheClustersResponse;
+import * as ListOciCacheConfigSetsResponse from "./list-oci-cache-config-sets-response";
+export import ListOciCacheConfigSetsResponse = ListOciCacheConfigSetsResponse.ListOciCacheConfigSetsResponse;
+import * as UpdateOciCacheConfigSetResponse from "./update-oci-cache-config-set-response";
+export import UpdateOciCacheConfigSetResponse = UpdateOciCacheConfigSetResponse.UpdateOciCacheConfigSetResponse;
+import * as GetOciCacheDefaultConfigSetResponse from "./get-oci-cache-default-config-set-response";
+export import GetOciCacheDefaultConfigSetResponse = GetOciCacheDefaultConfigSetResponse.GetOciCacheDefaultConfigSetResponse;
+import * as ListOciCacheDefaultConfigSetsResponse from "./list-oci-cache-default-config-sets-response";
+export import ListOciCacheDefaultConfigSetsResponse = ListOciCacheDefaultConfigSetsResponse.ListOciCacheDefaultConfigSetsResponse;
 import * as ChangeOciCacheUserCompartmentResponse from "./change-oci-cache-user-compartment-response";
 export import ChangeOciCacheUserCompartmentResponse = ChangeOciCacheUserCompartmentResponse.ChangeOciCacheUserCompartmentResponse;
 import * as CreateOciCacheUserResponse from "./create-oci-cache-user-response";

@@ -21,6 +21,9 @@ export enum SecurityPolicyEntryStateDeploymentStatus {
   Created = "CREATED",
   Modified = "MODIFIED",
   Conflict = "CONFLICT",
+  ConnectivityIssue = "CONNECTIVITY_ISSUE",
+  UnsupportedSyntax = "UNSUPPORTED_SYNTAX",
+  UnknownError = "UNKNOWN_ERROR",
   Unauthorized = "UNAUTHORIZED",
   Deleted = "DELETED",
 

@@ -98,6 +98,63 @@ export class AIServiceVisionWaiter {
   }
 
   /**
+   * Waits forStreamGroup till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetStreamGroupResponse | null (null in case of 404 response)
+   */
+  public async forStreamGroup(
+    request: serviceRequests.GetStreamGroupRequest,
+    ...targetStates: models.StreamGroup.LifecycleState[]
+  ): Promise<serviceResponses.GetStreamGroupResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getStreamGroup(request),
+      response => targetStates.includes(response.streamGroup.lifecycleState!),
+      targetStates.includes(models.StreamGroup.LifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forStreamJob till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetStreamJobResponse | null (null in case of 404 response)
+   */
+  public async forStreamJob(
+    request: serviceRequests.GetStreamJobRequest,
+    ...targetStates: models.StreamJob.LifecycleState[]
+  ): Promise<serviceResponses.GetStreamJobResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getStreamJob(request),
+      response => targetStates.includes(response.streamJob.lifecycleState!),
+      targetStates.includes(models.StreamJob.LifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forStreamSource till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetStreamSourceResponse | null (null in case of 404 response)
+   */
+  public async forStreamSource(
+    request: serviceRequests.GetStreamSourceRequest,
+    ...targetStates: models.StreamSource.LifecycleState[]
+  ): Promise<serviceResponses.GetStreamSourceResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getStreamSource(request),
+      response => targetStates.includes(response.streamSource.lifecycleState!),
+      targetStates.includes(models.StreamSource.LifecycleState.Deleted)
+    );
+  }
+
+  /**
    * Waits forVideoJob till it reaches any of the provided states
    *
    * @param request the request to send
@@ -112,6 +169,25 @@ export class AIServiceVisionWaiter {
       this.config,
       () => this.client.getVideoJob(request),
       response => targetStates.includes(response.videoJob.lifecycleState!)
+    );
+  }
+
+  /**
+   * Waits forVisionPrivateEndpoint till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetVisionPrivateEndpointResponse | null (null in case of 404 response)
+   */
+  public async forVisionPrivateEndpoint(
+    request: serviceRequests.GetVisionPrivateEndpointRequest,
+    ...targetStates: models.VisionPrivateEndpoint.LifecycleState[]
+  ): Promise<serviceResponses.GetVisionPrivateEndpointResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getVisionPrivateEndpoint(request),
+      response => targetStates.includes(response.visionPrivateEndpoint.lifecycleState!),
+      targetStates.includes(models.VisionPrivateEndpoint.LifecycleState.Deleted)
     );
   }
 

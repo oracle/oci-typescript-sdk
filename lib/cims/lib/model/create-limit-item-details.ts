@@ -21,7 +21,7 @@ import common = require("oci-common");
 
 /**
  * Details about the service limit increase request. Avoid entering confidential information.
- * For information about {@code LIMIT} support tickets, see [Creating a Service Limit Increase Request](https://docs.oracle.com/iaas/Content/GSG/support/create-incident-limit.htm).
+ * For information about {@code LIMIT} support requests, see [Creating a Service Limit Increase Request](https://docs.oracle.com/iaas/Content/GSG/support/create-incident-limit.htm).
  *
  */
 export interface CreateLimitItemDetails extends model.CreateItemDetails {

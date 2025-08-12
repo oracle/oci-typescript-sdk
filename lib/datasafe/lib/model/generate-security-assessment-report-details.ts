@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface GenerateSecurityAssessmentReportDetails {
   /**
-   * Format of the report.
+   * Format of the Security Assessment report.
    */
   "format": GenerateSecurityAssessmentReportDetails.Format;
 }
@@ -27,7 +27,8 @@ export interface GenerateSecurityAssessmentReportDetails {
 export namespace GenerateSecurityAssessmentReportDetails {
   export enum Format {
     Pdf = "PDF",
-    Xls = "XLS"
+    Xls = "XLS",
+    Stigxls = "STIGXLS"
   }
 
   export function getJsonObj(obj: GenerateSecurityAssessmentReportDetails): object {

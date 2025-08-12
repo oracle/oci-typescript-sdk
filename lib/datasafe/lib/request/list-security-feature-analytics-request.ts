@@ -44,6 +44,10 @@ export interface ListSecurityFeatureAnalyticsRequest extends common.BaseRequest 
    * Unique identifier for the request.
    */
   "opcRequestId"?: string;
+  /**
+   * A filter to return the target database group that matches the specified OCID.
+   */
+  "targetDatabaseGroupId"?: string;
 }
 
 export namespace ListSecurityFeatureAnalyticsRequest {

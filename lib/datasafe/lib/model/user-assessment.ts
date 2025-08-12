@@ -75,6 +75,14 @@ export interface UserAssessment {
    */
   "isAssessmentScheduled"?: boolean;
   /**
+   * The OCID of target database group.
+   */
+  "targetDatabaseGroupId"?: string;
+  /**
+   * Indicates whether the user assessment is for a target database or a target database group.
+   */
+  "targetType"?: model.UserAssessmentTargetType;
+  /**
     * Schedule of the assessment that runs periodically in this specified format:
 *   <version-string>;<version-specific-schedule>
 * <p>

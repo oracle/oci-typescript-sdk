@@ -59,6 +59,14 @@ export interface UserAssessmentSummary {
    */
   "lastComparedBaselineId"?: string;
   /**
+   * The OCID of target database group.
+   */
+  "targetDatabaseGroupId"?: string;
+  /**
+   * Indicates whether the user assessment is for a target database or a target database group.
+   */
+  "targetType"?: model.UserAssessmentTargetType;
+  /**
    * The current state of the user assessment.
    */
   "lifecycleState": model.UserAssessmentLifecycleState;

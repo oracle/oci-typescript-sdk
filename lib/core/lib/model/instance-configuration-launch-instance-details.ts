@@ -40,6 +40,13 @@ Example: {@code Uocm:PHX-AD-1}
    * The OCID of the compute capacity reservation this instance is launched under.
    */
   "capacityReservationId"?: string;
+  "placementConstraintDetails"?: model.InstanceConfigurationHostGroupPlacementConstraintDetails;
+  /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the
+   * [compute cluster](https://docs.oracle.com/iaas/Content/Compute/Tasks/compute-clusters.htm) that the instance will be created in.
+   *
+   */
+  "computeClusterId"?: string;
   /**
    * The OCID of the compartment containing the instance.
    * Instances created from instance configurations are placed in the same compartment
@@ -281,6 +288,12 @@ export namespace InstanceConfigurationLaunchInstanceDetails {
     const jsonObj = {
       ...obj,
       ...{
+        "placementConstraintDetails": obj.placementConstraintDetails
+          ? model.InstanceConfigurationPlacementConstraintDetails.getJsonObj(
+              obj.placementConstraintDetails
+            )
+          : undefined,
+
         "createVnicDetails": obj.createVnicDetails
           ? model.InstanceConfigurationCreateVnicDetails.getJsonObj(obj.createVnicDetails)
           : undefined,
@@ -325,6 +338,12 @@ export namespace InstanceConfigurationLaunchInstanceDetails {
     const jsonObj = {
       ...obj,
       ...{
+        "placementConstraintDetails": obj.placementConstraintDetails
+          ? model.InstanceConfigurationPlacementConstraintDetails.getDeserializedJsonObj(
+              obj.placementConstraintDetails
+            )
+          : undefined,
+
         "createVnicDetails": obj.createVnicDetails
           ? model.InstanceConfigurationCreateVnicDetails.getDeserializedJsonObj(
               obj.createVnicDetails

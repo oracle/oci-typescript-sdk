@@ -36,9 +36,17 @@ export interface CreateJobRunDetails {
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the job to create a run for.
    */
   "jobId": string;
-  "jobConfigurationOverrideDetails"?: model.DefaultJobConfigurationDetails;
+  "jobConfigurationOverrideDetails"?:
+    | model.EmptyJobConfigurationDetails
+    | model.DefaultJobConfigurationDetails;
   "jobLogConfigurationOverrideDetails"?: model.JobLogConfigurationDetails;
   "jobEnvironmentConfigurationOverrideDetails"?: model.OcirContainerJobEnvironmentConfigurationDetails;
+  "jobInfrastructureConfigurationOverrideDetails"?:
+    | model.MultiNodeJobInfrastructureConfigurationDetails
+    | model.EmptyJobInfrastructureConfigurationDetails
+    | model.ManagedEgressStandaloneJobInfrastructureConfigurationDetails
+    | model.StandaloneJobInfrastructureConfigurationDetails;
+  "jobNodeConfigurationOverrideDetails"?: model.MultiNodeJobNodeConfigurationDetails;
   /**
    * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace. See [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
    * Example: {@code {\"Department\": \"Finance\"}}
@@ -68,6 +76,14 @@ export namespace CreateJobRunDetails {
           ? model.JobEnvironmentConfigurationDetails.getJsonObj(
               obj.jobEnvironmentConfigurationOverrideDetails
             )
+          : undefined,
+        "jobInfrastructureConfigurationOverrideDetails": obj.jobInfrastructureConfigurationOverrideDetails
+          ? model.JobInfrastructureConfigurationDetails.getJsonObj(
+              obj.jobInfrastructureConfigurationOverrideDetails
+            )
+          : undefined,
+        "jobNodeConfigurationOverrideDetails": obj.jobNodeConfigurationOverrideDetails
+          ? model.JobNodeConfigurationDetails.getJsonObj(obj.jobNodeConfigurationOverrideDetails)
           : undefined
       }
     };
@@ -91,6 +107,16 @@ export namespace CreateJobRunDetails {
         "jobEnvironmentConfigurationOverrideDetails": obj.jobEnvironmentConfigurationOverrideDetails
           ? model.JobEnvironmentConfigurationDetails.getDeserializedJsonObj(
               obj.jobEnvironmentConfigurationOverrideDetails
+            )
+          : undefined,
+        "jobInfrastructureConfigurationOverrideDetails": obj.jobInfrastructureConfigurationOverrideDetails
+          ? model.JobInfrastructureConfigurationDetails.getDeserializedJsonObj(
+              obj.jobInfrastructureConfigurationOverrideDetails
+            )
+          : undefined,
+        "jobNodeConfigurationOverrideDetails": obj.jobNodeConfigurationOverrideDetails
+          ? model.JobNodeConfigurationDetails.getDeserializedJsonObj(
+              obj.jobNodeConfigurationOverrideDetails
             )
           : undefined
       }

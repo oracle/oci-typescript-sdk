@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface DeleteProtectedBranchDetails {
   /**
-   * Name of a protected branch.
+   * The branchName can either be exact branch name or branch pattern.
    */
   "branchName": string;
 }

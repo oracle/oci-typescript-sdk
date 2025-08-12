@@ -53,7 +53,7 @@ export interface VideoJob {
   "percentComplete"?: number;
   "outputLocation": model.OutputLocation;
   /**
-   * The current state of the batch document job.
+   * The current state of the video job.
    */
   "lifecycleState": VideoJob.LifecycleState;
   /**

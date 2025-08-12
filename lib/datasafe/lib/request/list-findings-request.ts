@@ -35,6 +35,14 @@ export interface ListFindingsRequest extends common.BaseRequest {
    */
   "severity"?: ListFindingsRequest.Severity;
   /**
+   * A filter to return only findings that match the specified risk level(s). Use containsSeverity parameter if need to filter by multiple risk levels.
+   */
+  "containsSeverity"?: Array<ListFindingsRequest.ContainsSeverity>;
+  /**
+   * The category of the finding.
+   */
+  "category"?: string;
+  /**
    * A filter to return only the findings that match the specified lifecycle states.
    */
   "lifecycleState"?: model.FindingLifecycleState;
@@ -42,6 +50,10 @@ export interface ListFindingsRequest extends common.BaseRequest {
    * An optional filter to return only findings that match the specified reference.
    */
   "references"?: model.SecurityAssessmentReferences;
+  /**
+   * An optional filter to return only findings that match the specified references. Use containsReferences param if need to filter by multiple references.
+   */
+  "containsReferences"?: Array<model.SecurityAssessmentReferences>;
   /**
    * For list pagination. The maximum number of items to return per page in a paginated \"List\" call. For details about how pagination works, see [List Pagination](https://docs.oracle.com/iaas/en-us/iaas/Content/API/Concepts/usingapi.htm#nine).
    */
@@ -68,6 +80,10 @@ export interface ListFindingsRequest extends common.BaseRequest {
    * A filter to return only items related to a specific target OCID.
    */
   "targetId"?: string;
+  /**
+   * An optional filter to return only findings that match the specified target ids. Use this parameter to filter by multiple target ids.
+   */
+  "targetIds"?: Array<string>;
   /**
  * The scimQuery query parameter accepts filter expressions that use the syntax described in Section 3.2.2.2
 * of the System for Cross-Domain Identity Management (SCIM) specification, which is available
@@ -105,6 +121,10 @@ Supported fields:
    */
   "sortBy"?: ListFindingsRequest.SortBy;
   /**
+   * The sort order to use, either ascending (ASC) or descending (DESC).
+   */
+  "sortOrder"?: ListFindingsRequest.SortOrder;
+  /**
    * Each finding in security assessment has an associated key (think of key as a finding's name).
    * For a given finding, the key will be the same across targets. The user can use these keys to filter the findings.
    *
@@ -114,6 +134,16 @@ Supported fields:
 
 export namespace ListFindingsRequest {
   export enum Severity {
+    High = "HIGH",
+    Medium = "MEDIUM",
+    Low = "LOW",
+    Evaluate = "EVALUATE",
+    Advisory = "ADVISORY",
+    Pass = "PASS",
+    Deferred = "DEFERRED"
+  }
+
+  export enum ContainsSeverity {
     High = "HIGH",
     Medium = "MEDIUM",
     Low = "LOW",
@@ -146,5 +176,10 @@ export namespace ListFindingsRequest {
     Category = "category",
     FindingKey = "findingKey",
     Severity = "severity"
+  }
+
+  export enum SortOrder {
+    Asc = "ASC",
+    Desc = "DESC"
   }
 }

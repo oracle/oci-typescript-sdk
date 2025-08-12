@@ -13574,7 +13574,7 @@ You can limit the list by specifying a compute capacity reservation display name
       this.logger.debug("Calling operation ComputeClient#listComputeGpuMemoryClusters.");
     const operationName = "listComputeGpuMemoryClusters";
     const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeGpuMemoryClusterCollection/ListComputeGpuMemoryClusters";
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeGpuMemoryCluster/ListComputeGpuMemoryClusters";
     const pathParams = {};
 
     const queryParams = {
@@ -16056,7 +16056,8 @@ This is an asynchronous operation. The instance's `lifecycleState` changes to TE
     const queryParams = {
       "preserveBootVolume": terminateInstanceRequest.preserveBootVolume,
       "preserveDataVolumesCreatedAtLaunch":
-        terminateInstanceRequest.preserveDataVolumesCreatedAtLaunch
+        terminateInstanceRequest.preserveDataVolumesCreatedAtLaunch,
+      "recycleLevel": terminateInstanceRequest.recycleLevel
     };
 
     let headerParams = {
