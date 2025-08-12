@@ -9504,6 +9504,164 @@ export class DevopsClient {
   }
 
   /**
+   * Reopen a PullRequest Comment
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ReopenPullRequestCommentRequest
+   * @return ReopenPullRequestCommentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ReopenPullRequestComment.ts.html |here} to see how to use ReopenPullRequestComment API.
+   */
+  public async reopenPullRequestComment(
+    reopenPullRequestCommentRequest: requests.ReopenPullRequestCommentRequest
+  ): Promise<responses.ReopenPullRequestCommentResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#reopenPullRequestComment.");
+    const operationName = "reopenPullRequestComment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/PullRequest/ReopenPullRequestComment";
+    const pathParams = {
+      "{pullRequestId}": reopenPullRequestCommentRequest.pullRequestId,
+      "{commentId}": reopenPullRequestCommentRequest.commentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": reopenPullRequestCommentRequest.ifMatch,
+      "opc-request-id": reopenPullRequestCommentRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      reopenPullRequestCommentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pullRequests/{pullRequestId}/comments/{commentId}/actions/reopen",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ReopenPullRequestCommentResponse>{},
+        body: await response.json(),
+        bodyKey: "pullRequestComment",
+        bodyModel: model.PullRequestComment,
+        type: "model.PullRequestComment",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Resolve a PullRequest Comment
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ResolvePullRequestCommentRequest
+   * @return ResolvePullRequestCommentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ResolvePullRequestComment.ts.html |here} to see how to use ResolvePullRequestComment API.
+   */
+  public async resolvePullRequestComment(
+    resolvePullRequestCommentRequest: requests.ResolvePullRequestCommentRequest
+  ): Promise<responses.ResolvePullRequestCommentResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#resolvePullRequestComment.");
+    const operationName = "resolvePullRequestComment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/PullRequest/ResolvePullRequestComment";
+    const pathParams = {
+      "{pullRequestId}": resolvePullRequestCommentRequest.pullRequestId,
+      "{commentId}": resolvePullRequestCommentRequest.commentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": resolvePullRequestCommentRequest.ifMatch,
+      "opc-request-id": resolvePullRequestCommentRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      resolvePullRequestCommentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pullRequests/{pullRequestId}/comments/{commentId}/actions/resolve",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ResolvePullRequestCommentResponse>{},
+        body: await response.json(),
+        bodyKey: "pullRequestComment",
+        bodyModel: model.PullRequestComment,
+        type: "model.PullRequestComment",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Review a PullRequest
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.

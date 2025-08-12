@@ -36,6 +36,10 @@ export interface SecurityPolicy {
    */
   "description"?: string;
   /**
+   * The type of the security policy.
+   */
+  "securityPolicyType"?: SecurityPolicy.SecurityPolicyType;
+  /**
    * The time that the security policy was created, in the format defined by RFC3339.
    */
   "timeCreated": Date;
@@ -73,6 +77,16 @@ Example: {@code {\"Department\": \"Finance\"}}
 }
 
 export namespace SecurityPolicy {
+  export enum SecurityPolicyType {
+    DatasafeManaged = "DATASAFE_MANAGED",
+    SeededPolicy = "SEEDED_POLICY",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: SecurityPolicy): object {
     const jsonObj = { ...obj, ...{} };
 

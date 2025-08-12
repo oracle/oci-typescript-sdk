@@ -55,8 +55,12 @@ export interface JobRun {
    * A user-friendly display name for the resource.
    */
   "displayName"?: string;
-  "jobConfigurationOverrideDetails": model.DefaultJobConfigurationDetails;
+  "jobConfigurationOverrideDetails":
+    | model.EmptyJobConfigurationDetails
+    | model.DefaultJobConfigurationDetails;
   "jobInfrastructureConfigurationDetails":
+    | model.MultiNodeJobInfrastructureConfigurationDetails
+    | model.EmptyJobInfrastructureConfigurationDetails
     | model.ManagedEgressStandaloneJobInfrastructureConfigurationDetails
     | model.StandaloneJobInfrastructureConfigurationDetails;
   "jobEnvironmentConfigurationOverrideDetails"?: model.OcirContainerJobEnvironmentConfigurationDetails;
@@ -66,6 +70,16 @@ export interface JobRun {
    */
   "jobStorageMountConfigurationDetailsList"?: Array<model.StorageMountConfigurationDetails>;
   "logDetails"?: model.JobRunLogDetails;
+  "jobInfrastructureConfigurationOverrideDetails"?:
+    | model.MultiNodeJobInfrastructureConfigurationDetails
+    | model.EmptyJobInfrastructureConfigurationDetails
+    | model.ManagedEgressStandaloneJobInfrastructureConfigurationDetails
+    | model.StandaloneJobInfrastructureConfigurationDetails;
+  "jobNodeConfigurationOverrideDetails"?: model.MultiNodeJobNodeConfigurationDetails;
+  /**
+   * Collection of NodeGroupDetails
+   */
+  "nodeGroupDetailsList"?: Array<model.NodeGroupDetails>;
   /**
    * The state of the job run.
    */
@@ -114,7 +128,22 @@ export namespace JobRun {
               return model.StorageMountConfigurationDetails.getJsonObj(item);
             })
           : undefined,
-        "logDetails": obj.logDetails ? model.JobRunLogDetails.getJsonObj(obj.logDetails) : undefined
+        "logDetails": obj.logDetails
+          ? model.JobRunLogDetails.getJsonObj(obj.logDetails)
+          : undefined,
+        "jobInfrastructureConfigurationOverrideDetails": obj.jobInfrastructureConfigurationOverrideDetails
+          ? model.JobInfrastructureConfigurationDetails.getJsonObj(
+              obj.jobInfrastructureConfigurationOverrideDetails
+            )
+          : undefined,
+        "jobNodeConfigurationOverrideDetails": obj.jobNodeConfigurationOverrideDetails
+          ? model.JobNodeConfigurationDetails.getJsonObj(obj.jobNodeConfigurationOverrideDetails)
+          : undefined,
+        "nodeGroupDetailsList": obj.nodeGroupDetailsList
+          ? obj.nodeGroupDetailsList.map(item => {
+              return model.NodeGroupDetails.getJsonObj(item);
+            })
+          : undefined
       }
     };
 
@@ -151,6 +180,21 @@ export namespace JobRun {
           : undefined,
         "logDetails": obj.logDetails
           ? model.JobRunLogDetails.getDeserializedJsonObj(obj.logDetails)
+          : undefined,
+        "jobInfrastructureConfigurationOverrideDetails": obj.jobInfrastructureConfigurationOverrideDetails
+          ? model.JobInfrastructureConfigurationDetails.getDeserializedJsonObj(
+              obj.jobInfrastructureConfigurationOverrideDetails
+            )
+          : undefined,
+        "jobNodeConfigurationOverrideDetails": obj.jobNodeConfigurationOverrideDetails
+          ? model.JobNodeConfigurationDetails.getDeserializedJsonObj(
+              obj.jobNodeConfigurationOverrideDetails
+            )
+          : undefined,
+        "nodeGroupDetailsList": obj.nodeGroupDetailsList
+          ? obj.nodeGroupDetailsList.map(item => {
+              return model.NodeGroupDetails.getDeserializedJsonObj(item);
+            })
           : undefined
       }
     };

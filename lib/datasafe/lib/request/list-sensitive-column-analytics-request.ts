@@ -41,6 +41,10 @@ export interface ListSensitiveColumnAnalyticsRequest extends common.BaseRequest 
    */
   "targetId"?: string;
   /**
+   * A filter to return the target database group that matches the specified OCID.
+   */
+  "targetDatabaseGroupId"?: string;
+  /**
    * A filter to return only the sensitive columns that are associated with one of the sensitive types identified by the specified OCIDs.
    */
   "sensitiveTypeId"?: Array<string>;

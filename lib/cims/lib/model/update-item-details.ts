@@ -38,6 +38,11 @@ export namespace UpdateItemDetails {
             <model.UpdateActivityItemDetails>(<object>jsonObj),
             true
           );
+        case "contact":
+          return model.UpdateContactItemDetails.getJsonObj(
+            <model.UpdateContactItemDetails>(<object>jsonObj),
+            true
+          );
         default:
           if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.type}`);
       }
@@ -52,6 +57,11 @@ export namespace UpdateItemDetails {
         case "activity":
           return model.UpdateActivityItemDetails.getDeserializedJsonObj(
             <model.UpdateActivityItemDetails>(<object>jsonObj),
+            true
+          );
+        case "contact":
+          return model.UpdateContactItemDetails.getDeserializedJsonObj(
+            <model.UpdateContactItemDetails>(<object>jsonObj),
             true
           );
         default:

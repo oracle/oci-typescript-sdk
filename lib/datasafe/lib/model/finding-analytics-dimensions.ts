@@ -29,6 +29,10 @@ export interface FindingAnalyticsDimensions {
    */
   "topFindingCategory"?: string;
   /**
+   * The category of the top finding.
+   */
+  "category"?: string;
+  /**
    * The short title of the finding.
    */
   "title"?: string;
@@ -45,9 +49,17 @@ export interface FindingAnalyticsDimensions {
    */
   "severity"?: FindingAnalyticsDimensions.Severity;
   /**
+   * The explanation of the issue in this finding. It explains the reason for the rule and, if a risk is reported, it may also explain the recommended actions for remediation.
+   */
+  "remarks"?: string;
+  /**
    * The OCID of the target database.
    */
   "targetId"?: string;
+  /**
+   * Provides information on whether the finding is related to a CIS Oracle Database Benchmark recommendation, STIG rule, or related to a GDPR Article/Recital.
+   */
+  "references"?: model.References;
 }
 
 export namespace FindingAnalyticsDimensions {
@@ -80,12 +92,24 @@ export namespace FindingAnalyticsDimensions {
   }
 
   export function getJsonObj(obj: FindingAnalyticsDimensions): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "references": obj.references ? model.References.getJsonObj(obj.references) : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: FindingAnalyticsDimensions): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "references": obj.references
+          ? model.References.getDeserializedJsonObj(obj.references)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

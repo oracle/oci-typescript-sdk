@@ -32,13 +32,40 @@ export interface SecurityPolicyEntryState {
    */
   "securityPolicyDeploymentId"?: string;
   /**
+   * The OCID of the target on which the security policy is deployed.
+   */
+  "targetId": string;
+  /**
+   * The security policy entry type. Allowed values:
+   * - FIREWALL_POLICY - The SQL Firewall policy entry type.
+   * - AUDIT_POLICY - The audit policy entry type.
+   * - CONFIG - Config changes deployment.
+   *
+   */
+  "entryType": SecurityPolicyEntryState.EntryType;
+  /**
+   * Details about the current deployment status.
+   */
+  "deploymentStatusDetails"?: string;
+  /**
    * The current deployment status of the security policy deployment and the security policy entry associated.
    */
   "deploymentStatus": model.SecurityPolicyEntryStateDeploymentStatus;
-  "entryDetails"?: model.FirewallPolicyEntryDetails;
+  "entryDetails"?: model.AuditPolicyEntryDetails | model.FirewallPolicyEntryDetails;
 }
 
 export namespace SecurityPolicyEntryState {
+  export enum EntryType {
+    FirewallPolicy = "FIREWALL_POLICY",
+    AuditPolicy = "AUDIT_POLICY",
+    Config = "CONFIG",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: SecurityPolicyEntryState): object {
     const jsonObj = {
       ...obj,

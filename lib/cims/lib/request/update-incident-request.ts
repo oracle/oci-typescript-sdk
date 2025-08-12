@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface UpdateIncidentRequest extends common.BaseRequest {
   /**
-   * Unique identifier for the support ticket.
+   * Unique identifier for the support request.
    */
   "incidentKey": string;
   /**
-   * Details about the support ticket being updated.
+   * Details about the support request being updated.
    */
   "updateIncidentDetails": model.UpdateIncident;
   /**

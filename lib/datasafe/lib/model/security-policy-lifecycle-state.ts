@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The current state of security policies available on the target.
+ * The current state of the security policies available on the target.
  **/
 export enum SecurityPolicyLifecycleState {
   Creating = "CREATING",

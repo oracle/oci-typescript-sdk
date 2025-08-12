@@ -41,6 +41,23 @@ export interface ListMaskingAnalyticsRequest extends common.BaseRequest {
    */
   "maskingPolicyId"?: string;
   /**
+   * A filter to return only items related to a specific sensitive type OCID.
+   */
+  "sensitiveTypeId"?: string;
+  /**
+   * A filter to return the target database group that matches the specified OCID.
+   */
+  "targetDatabaseGroupId"?: string;
+  /**
+   * The field to sort by. You can specify only one sorting parameter (sortOrder). The default order for all the fields is ascending.
+   *
+   */
+  "sortBy"?: ListMaskingAnalyticsRequest.SortBy;
+  /**
+   * The sort order to use, either ascending (ASC) or descending (DESC).
+   */
+  "sortOrder"?: ListMaskingAnalyticsRequest.SortOrder;
+  /**
    * For list pagination. The maximum number of items to return per page in a paginated \"List\" call. For details about how pagination works, see [List Pagination](https://docs.oracle.com/iaas/en-us/iaas/Content/API/Concepts/usingapi.htm#nine).
    */
   "limit"?: number;
@@ -57,6 +74,17 @@ export interface ListMaskingAnalyticsRequest extends common.BaseRequest {
 export namespace ListMaskingAnalyticsRequest {
   export enum GroupBy {
     TargetId = "targetId",
-    PolicyId = "policyId"
+    PolicyId = "policyId",
+    TargetIdAndPolicyId = "targetIdAndPolicyId",
+    SensitiveTypeId = "sensitiveTypeId"
+  }
+
+  export enum SortBy {
+    TimeLastMasked = "timeLastMasked"
+  }
+
+  export enum SortOrder {
+    Asc = "ASC",
+    Desc = "DESC"
   }
 }

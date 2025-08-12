@@ -823,6 +823,324 @@ export class AIServiceVisionClient {
   }
 
   /**
+   * Move a streamGroup from one compartment to another. When provided, If-Match is checked against the ETag values of the resource.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ChangeStreamGroupCompartmentRequest
+   * @return ChangeStreamGroupCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aivision/ChangeStreamGroupCompartment.ts.html |here} to see how to use ChangeStreamGroupCompartment API.
+   */
+  public async changeStreamGroupCompartment(
+    changeStreamGroupCompartmentRequest: requests.ChangeStreamGroupCompartmentRequest
+  ): Promise<responses.ChangeStreamGroupCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation AIServiceVisionClient#changeStreamGroupCompartment.");
+    const operationName = "changeStreamGroupCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vision/20220125/StreamGroup/ChangeStreamGroupCompartment";
+    const pathParams = {
+      "{streamGroupId}": changeStreamGroupCompartmentRequest.streamGroupId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeStreamGroupCompartmentRequest.ifMatch,
+      "opc-retry-token": changeStreamGroupCompartmentRequest.opcRetryToken,
+      "opc-request-id": changeStreamGroupCompartmentRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeStreamGroupCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/streamGroups/{streamGroupId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeStreamGroupCompartmentRequest.changeStreamGroupCompartmentDetails,
+        "ChangeStreamGroupCompartmentDetails",
+        model.ChangeStreamGroupCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeStreamGroupCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Move a streamJob from one compartment to another. When provided, If-Match is checked against the ETag values of the resource.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ChangeStreamJobCompartmentRequest
+   * @return ChangeStreamJobCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aivision/ChangeStreamJobCompartment.ts.html |here} to see how to use ChangeStreamJobCompartment API.
+   */
+  public async changeStreamJobCompartment(
+    changeStreamJobCompartmentRequest: requests.ChangeStreamJobCompartmentRequest
+  ): Promise<responses.ChangeStreamJobCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation AIServiceVisionClient#changeStreamJobCompartment.");
+    const operationName = "changeStreamJobCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vision/20220125/StreamJob/ChangeStreamJobCompartment";
+    const pathParams = {
+      "{streamJobId}": changeStreamJobCompartmentRequest.streamJobId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeStreamJobCompartmentRequest.ifMatch,
+      "opc-retry-token": changeStreamJobCompartmentRequest.opcRetryToken,
+      "opc-request-id": changeStreamJobCompartmentRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeStreamJobCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/streamJobs/{streamJobId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeStreamJobCompartmentRequest.changeStreamJobCompartmentDetails,
+        "ChangeStreamJobCompartmentDetails",
+        model.ChangeStreamJobCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeStreamJobCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Move a streamSource from one compartment to another. When provided, If-Match is checked against the ETag values of the resource.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ChangeStreamSourceCompartmentRequest
+   * @return ChangeStreamSourceCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aivision/ChangeStreamSourceCompartment.ts.html |here} to see how to use ChangeStreamSourceCompartment API.
+   */
+  public async changeStreamSourceCompartment(
+    changeStreamSourceCompartmentRequest: requests.ChangeStreamSourceCompartmentRequest
+  ): Promise<responses.ChangeStreamSourceCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation AIServiceVisionClient#changeStreamSourceCompartment.");
+    const operationName = "changeStreamSourceCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vision/20220125/StreamSource/ChangeStreamSourceCompartment";
+    const pathParams = {
+      "{streamSourceId}": changeStreamSourceCompartmentRequest.streamSourceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeStreamSourceCompartmentRequest.ifMatch,
+      "opc-retry-token": changeStreamSourceCompartmentRequest.opcRetryToken,
+      "opc-request-id": changeStreamSourceCompartmentRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeStreamSourceCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/streamSources/{streamSourceId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeStreamSourceCompartmentRequest.changeStreamSourceCompartmentDetails,
+        "ChangeStreamSourceCompartmentDetails",
+        model.ChangeStreamSourceCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeStreamSourceCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Move a visionPrivateEndpoint from one compartment to another. When provided, If-Match is checked against the ETag values of the resource.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ChangeVisionPrivateEndpointCompartmentRequest
+   * @return ChangeVisionPrivateEndpointCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aivision/ChangeVisionPrivateEndpointCompartment.ts.html |here} to see how to use ChangeVisionPrivateEndpointCompartment API.
+   */
+  public async changeVisionPrivateEndpointCompartment(
+    changeVisionPrivateEndpointCompartmentRequest: requests.ChangeVisionPrivateEndpointCompartmentRequest
+  ): Promise<responses.ChangeVisionPrivateEndpointCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation AIServiceVisionClient#changeVisionPrivateEndpointCompartment."
+      );
+    const operationName = "changeVisionPrivateEndpointCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vision/20220125/VisionPrivateEndpoint/ChangeVisionPrivateEndpointCompartment";
+    const pathParams = {
+      "{visionPrivateEndpointId}":
+        changeVisionPrivateEndpointCompartmentRequest.visionPrivateEndpointId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeVisionPrivateEndpointCompartmentRequest.ifMatch,
+      "opc-retry-token": changeVisionPrivateEndpointCompartmentRequest.opcRetryToken,
+      "opc-request-id": changeVisionPrivateEndpointCompartmentRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeVisionPrivateEndpointCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/visionPrivateEndpoints/{visionPrivateEndpointId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeVisionPrivateEndpointCompartmentRequest.changeVisionPrivateEndpointCompartmentDetails,
+        "ChangeVisionPrivateEndpointCompartmentDetails",
+        model.ChangeVisionPrivateEndpointCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeVisionPrivateEndpointCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Create a document analysis batch job.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -1156,6 +1474,266 @@ export class AIServiceVisionClient {
   }
 
   /**
+   * Registration of new streamGroup
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateStreamGroupRequest
+   * @return CreateStreamGroupResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aivision/CreateStreamGroup.ts.html |here} to see how to use CreateStreamGroup API.
+   */
+  public async createStreamGroup(
+    createStreamGroupRequest: requests.CreateStreamGroupRequest
+  ): Promise<responses.CreateStreamGroupResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation AIServiceVisionClient#createStreamGroup.");
+    const operationName = "createStreamGroup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vision/20220125/StreamGroup/CreateStreamGroup";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createStreamGroupRequest.opcRetryToken,
+      "opc-request-id": createStreamGroupRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createStreamGroupRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/streamGroups",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createStreamGroupRequest.createStreamGroupDetails,
+        "CreateStreamGroupDetails",
+        model.CreateStreamGroupDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateStreamGroupResponse>{},
+        body: await response.json(),
+        bodyKey: "streamGroup",
+        bodyModel: model.StreamGroup,
+        type: "model.StreamGroup",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Create a stream analysis job with given inputs and features.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateStreamJobRequest
+   * @return CreateStreamJobResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aivision/CreateStreamJob.ts.html |here} to see how to use CreateStreamJob API.
+   */
+  public async createStreamJob(
+    createStreamJobRequest: requests.CreateStreamJobRequest
+  ): Promise<responses.CreateStreamJobResponse> {
+    if (this.logger) this.logger.debug("Calling operation AIServiceVisionClient#createStreamJob.");
+    const operationName = "createStreamJob";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vision/20220125/StreamJob/CreateStreamJob";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createStreamJobRequest.opcRetryToken,
+      "opc-request-id": createStreamJobRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createStreamJobRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/streamJobs",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createStreamJobRequest.createStreamJobDetails,
+        "CreateStreamJobDetails",
+        model.CreateStreamJobDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateStreamJobResponse>{},
+        body: await response.json(),
+        bodyKey: "streamJob",
+        bodyModel: model.StreamJob,
+        type: "model.StreamJob",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Registration of new streamSource
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateStreamSourceRequest
+   * @return CreateStreamSourceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aivision/CreateStreamSource.ts.html |here} to see how to use CreateStreamSource API.
+   */
+  public async createStreamSource(
+    createStreamSourceRequest: requests.CreateStreamSourceRequest
+  ): Promise<responses.CreateStreamSourceResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation AIServiceVisionClient#createStreamSource.");
+    const operationName = "createStreamSource";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vision/20220125/StreamSource/CreateStreamSource";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createStreamSourceRequest.opcRetryToken,
+      "opc-request-id": createStreamSourceRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createStreamSourceRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/streamSources",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createStreamSourceRequest.createStreamSourceDetails,
+        "CreateStreamSourceDetails",
+        model.CreateStreamSourceDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateStreamSourceResponse>{},
+        body: await response.json(),
+        bodyKey: "streamSource",
+        bodyModel: model.StreamSource,
+        type: "model.StreamSource",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Create a video analysis job with given inputs and features.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -1220,6 +1798,92 @@ export class AIServiceVisionClient {
           {
             value: response.headers.get("etag"),
             key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Create a new visionPrivateEndpoint.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateVisionPrivateEndpointRequest
+   * @return CreateVisionPrivateEndpointResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aivision/CreateVisionPrivateEndpoint.ts.html |here} to see how to use CreateVisionPrivateEndpoint API.
+   */
+  public async createVisionPrivateEndpoint(
+    createVisionPrivateEndpointRequest: requests.CreateVisionPrivateEndpointRequest
+  ): Promise<responses.CreateVisionPrivateEndpointResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation AIServiceVisionClient#createVisionPrivateEndpoint.");
+    const operationName = "createVisionPrivateEndpoint";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createVisionPrivateEndpointRequest.opcRetryToken,
+      "opc-request-id": createVisionPrivateEndpointRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createVisionPrivateEndpointRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/visionPrivateEndpoints",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createVisionPrivateEndpointRequest.createVisionPrivateEndpointDetails,
+        "CreateVisionPrivateEndpointDetails",
+        model.CreateVisionPrivateEndpointDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateVisionPrivateEndpointResponse>{},
+        body: await response.json(),
+        bodyKey: "visionPrivateEndpoint",
+        bodyModel: model.VisionPrivateEndpoint,
+        type: "model.VisionPrivateEndpoint",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           },
           {
@@ -1362,6 +2026,304 @@ export class AIServiceVisionClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteProjectResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Delete a  streamGroup
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteStreamGroupRequest
+   * @return DeleteStreamGroupResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aivision/DeleteStreamGroup.ts.html |here} to see how to use DeleteStreamGroup API.
+   */
+  public async deleteStreamGroup(
+    deleteStreamGroupRequest: requests.DeleteStreamGroupRequest
+  ): Promise<responses.DeleteStreamGroupResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation AIServiceVisionClient#deleteStreamGroup.");
+    const operationName = "deleteStreamGroup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vision/20220125/StreamGroup/DeleteStreamGroup";
+    const pathParams = {
+      "{streamGroupId}": deleteStreamGroupRequest.streamGroupId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": deleteStreamGroupRequest.opcRequestId,
+      "if-match": deleteStreamGroupRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteStreamGroupRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/streamGroups/{streamGroupId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteStreamGroupResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get details of a stream analysis job.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteStreamJobRequest
+   * @return DeleteStreamJobResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aivision/DeleteStreamJob.ts.html |here} to see how to use DeleteStreamJob API.
+   */
+  public async deleteStreamJob(
+    deleteStreamJobRequest: requests.DeleteStreamJobRequest
+  ): Promise<responses.DeleteStreamJobResponse> {
+    if (this.logger) this.logger.debug("Calling operation AIServiceVisionClient#deleteStreamJob.");
+    const operationName = "deleteStreamJob";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vision/20220125/StreamJob/DeleteStreamJob";
+    const pathParams = {
+      "{streamJobId}": deleteStreamJobRequest.streamJobId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": deleteStreamJobRequest.opcRequestId,
+      "if-match": deleteStreamJobRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteStreamJobRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/streamJobs/{streamJobId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteStreamJobResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Delete a  streamSource
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteStreamSourceRequest
+   * @return DeleteStreamSourceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aivision/DeleteStreamSource.ts.html |here} to see how to use DeleteStreamSource API.
+   */
+  public async deleteStreamSource(
+    deleteStreamSourceRequest: requests.DeleteStreamSourceRequest
+  ): Promise<responses.DeleteStreamSourceResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation AIServiceVisionClient#deleteStreamSource.");
+    const operationName = "deleteStreamSource";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vision/20220125/StreamSource/DeleteStreamSource";
+    const pathParams = {
+      "{streamSourceId}": deleteStreamSourceRequest.streamSourceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": deleteStreamSourceRequest.opcRequestId,
+      "if-match": deleteStreamSourceRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteStreamSourceRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/streamSources/{streamSourceId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteStreamSourceResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Delete a visionPrivateEndpoint by identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteVisionPrivateEndpointRequest
+   * @return DeleteVisionPrivateEndpointResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aivision/DeleteVisionPrivateEndpoint.ts.html |here} to see how to use DeleteVisionPrivateEndpoint API.
+   */
+  public async deleteVisionPrivateEndpoint(
+    deleteVisionPrivateEndpointRequest: requests.DeleteVisionPrivateEndpointRequest
+  ): Promise<responses.DeleteVisionPrivateEndpointResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation AIServiceVisionClient#deleteVisionPrivateEndpoint.");
+    const operationName = "deleteVisionPrivateEndpoint";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vision/20220125/VisionPrivateEndpoint/DeleteVisionPrivateEndpoint";
+    const pathParams = {
+      "{visionPrivateEndpointId}": deleteVisionPrivateEndpointRequest.visionPrivateEndpointId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteVisionPrivateEndpointRequest.ifMatch,
+      "opc-request-id": deleteVisionPrivateEndpointRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteVisionPrivateEndpointRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/visionPrivateEndpoints/{visionPrivateEndpointId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteVisionPrivateEndpointResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -1688,6 +2650,237 @@ export class AIServiceVisionClient {
   }
 
   /**
+   * Get a  streamGroup
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetStreamGroupRequest
+   * @return GetStreamGroupResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aivision/GetStreamGroup.ts.html |here} to see how to use GetStreamGroup API.
+   */
+  public async getStreamGroup(
+    getStreamGroupRequest: requests.GetStreamGroupRequest
+  ): Promise<responses.GetStreamGroupResponse> {
+    if (this.logger) this.logger.debug("Calling operation AIServiceVisionClient#getStreamGroup.");
+    const operationName = "getStreamGroup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vision/20220125/StreamGroup/GetStreamGroup";
+    const pathParams = {
+      "{streamGroupId}": getStreamGroupRequest.streamGroupId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getStreamGroupRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getStreamGroupRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/streamGroups/{streamGroupId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetStreamGroupResponse>{},
+        body: await response.json(),
+        bodyKey: "streamGroup",
+        bodyModel: model.StreamGroup,
+        type: "model.StreamGroup",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get details of a stream analysis job.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetStreamJobRequest
+   * @return GetStreamJobResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aivision/GetStreamJob.ts.html |here} to see how to use GetStreamJob API.
+   */
+  public async getStreamJob(
+    getStreamJobRequest: requests.GetStreamJobRequest
+  ): Promise<responses.GetStreamJobResponse> {
+    if (this.logger) this.logger.debug("Calling operation AIServiceVisionClient#getStreamJob.");
+    const operationName = "getStreamJob";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vision/20220125/StreamJob/GetStreamJob";
+    const pathParams = {
+      "{streamJobId}": getStreamJobRequest.streamJobId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getStreamJobRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getStreamJobRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/streamJobs/{streamJobId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetStreamJobResponse>{},
+        body: await response.json(),
+        bodyKey: "streamJob",
+        bodyModel: model.StreamJob,
+        type: "model.StreamJob",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get a  streamSource
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetStreamSourceRequest
+   * @return GetStreamSourceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aivision/GetStreamSource.ts.html |here} to see how to use GetStreamSource API.
+   */
+  public async getStreamSource(
+    getStreamSourceRequest: requests.GetStreamSourceRequest
+  ): Promise<responses.GetStreamSourceResponse> {
+    if (this.logger) this.logger.debug("Calling operation AIServiceVisionClient#getStreamSource.");
+    const operationName = "getStreamSource";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vision/20220125/StreamSource/GetStreamSource";
+    const pathParams = {
+      "{streamSourceId}": getStreamSourceRequest.streamSourceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getStreamSourceRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getStreamSourceRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/streamSources/{streamSourceId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetStreamSourceResponse>{},
+        body: await response.json(),
+        bodyKey: "streamSource",
+        bodyModel: model.StreamSource,
+        type: "model.StreamSource",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Get details of a video analysis job.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -1744,6 +2937,83 @@ export class AIServiceVisionClient {
         bodyKey: "videoJob",
         bodyModel: model.VideoJob,
         type: "model.VideoJob",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get a visionPrivateEndpoint by identifier.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetVisionPrivateEndpointRequest
+   * @return GetVisionPrivateEndpointResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aivision/GetVisionPrivateEndpoint.ts.html |here} to see how to use GetVisionPrivateEndpoint API.
+   */
+  public async getVisionPrivateEndpoint(
+    getVisionPrivateEndpointRequest: requests.GetVisionPrivateEndpointRequest
+  ): Promise<responses.GetVisionPrivateEndpointResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation AIServiceVisionClient#getVisionPrivateEndpoint.");
+    const operationName = "getVisionPrivateEndpoint";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vision/20220125/VisionPrivateEndpoint/GetVisionPrivateEndpoint";
+    const pathParams = {
+      "{visionPrivateEndpointId}": getVisionPrivateEndpointRequest.visionPrivateEndpointId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getVisionPrivateEndpointRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getVisionPrivateEndpointRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/visionPrivateEndpoints/{visionPrivateEndpointId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetVisionPrivateEndpointResponse>{},
+        body: await response.json(),
+        bodyKey: "visionPrivateEndpoint",
+        bodyModel: model.VisionPrivateEndpoint,
+        type: "model.VisionPrivateEndpoint",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -2015,6 +3285,343 @@ export class AIServiceVisionClient {
   }
 
   /**
+   * Gets a list of the streamGroups in the specified compartment.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListStreamGroupsRequest
+   * @return ListStreamGroupsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aivision/ListStreamGroups.ts.html |here} to see how to use ListStreamGroups API.
+   */
+  public async listStreamGroups(
+    listStreamGroupsRequest: requests.ListStreamGroupsRequest
+  ): Promise<responses.ListStreamGroupsResponse> {
+    if (this.logger) this.logger.debug("Calling operation AIServiceVisionClient#listStreamGroups.");
+    const operationName = "listStreamGroups";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vision/20220125/StreamGroupCollection/ListStreamGroups";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listStreamGroupsRequest.compartmentId,
+      "id": listStreamGroupsRequest.id,
+      "displayName": listStreamGroupsRequest.displayName,
+      "limit": listStreamGroupsRequest.limit,
+      "page": listStreamGroupsRequest.page,
+      "sortOrder": listStreamGroupsRequest.sortOrder,
+      "sortBy": listStreamGroupsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listStreamGroupsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listStreamGroupsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/streamGroups",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListStreamGroupsResponse>{},
+        body: await response.json(),
+        bodyKey: "streamGroupCollection",
+        bodyModel: model.StreamGroupCollection,
+        type: "model.StreamGroupCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get list of stream jobs
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListStreamJobsRequest
+   * @return ListStreamJobsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aivision/ListStreamJobs.ts.html |here} to see how to use ListStreamJobs API.
+   */
+  public async listStreamJobs(
+    listStreamJobsRequest: requests.ListStreamJobsRequest
+  ): Promise<responses.ListStreamJobsResponse> {
+    if (this.logger) this.logger.debug("Calling operation AIServiceVisionClient#listStreamJobs.");
+    const operationName = "listStreamJobs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vision/20220125/StreamJobCollection/ListStreamJobs";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listStreamJobsRequest.compartmentId,
+      "lifecycleState": listStreamJobsRequest.lifecycleState,
+      "id": listStreamJobsRequest.id,
+      "displayName": listStreamJobsRequest.displayName,
+      "limit": listStreamJobsRequest.limit,
+      "page": listStreamJobsRequest.page,
+      "sortOrder": listStreamJobsRequest.sortOrder,
+      "sortBy": listStreamJobsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listStreamJobsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listStreamJobsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/streamJobs",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListStreamJobsResponse>{},
+        body: await response.json(),
+        bodyKey: "streamJobCollection",
+        bodyModel: model.StreamJobCollection,
+        type: "model.StreamJobCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a list of the streamSources in the specified compartment.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListStreamSourcesRequest
+   * @return ListStreamSourcesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aivision/ListStreamSources.ts.html |here} to see how to use ListStreamSources API.
+   */
+  public async listStreamSources(
+    listStreamSourcesRequest: requests.ListStreamSourcesRequest
+  ): Promise<responses.ListStreamSourcesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation AIServiceVisionClient#listStreamSources.");
+    const operationName = "listStreamSources";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vision/20220125/StreamSourceCollection/ListStreamSources";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listStreamSourcesRequest.compartmentId,
+      "lifecycleState": listStreamSourcesRequest.lifecycleState,
+      "id": listStreamSourcesRequest.id,
+      "displayName": listStreamSourcesRequest.displayName,
+      "limit": listStreamSourcesRequest.limit,
+      "page": listStreamSourcesRequest.page,
+      "sortOrder": listStreamSourcesRequest.sortOrder,
+      "sortBy": listStreamSourcesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listStreamSourcesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listStreamSourcesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/streamSources",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListStreamSourcesResponse>{},
+        body: await response.json(),
+        bodyKey: "streamSourceCollection",
+        bodyModel: model.StreamSourceCollection,
+        type: "model.StreamSourceCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns a list of visionPrivateEndpoints.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListVisionPrivateEndpointsRequest
+   * @return ListVisionPrivateEndpointsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aivision/ListVisionPrivateEndpoints.ts.html |here} to see how to use ListVisionPrivateEndpoints API.
+   */
+  public async listVisionPrivateEndpoints(
+    listVisionPrivateEndpointsRequest: requests.ListVisionPrivateEndpointsRequest
+  ): Promise<responses.ListVisionPrivateEndpointsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation AIServiceVisionClient#listVisionPrivateEndpoints.");
+    const operationName = "listVisionPrivateEndpoints";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vision/20220125/VisionPrivateEndpointCollection/ListVisionPrivateEndpoints";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listVisionPrivateEndpointsRequest.compartmentId,
+      "lifecycleState": listVisionPrivateEndpointsRequest.lifecycleState,
+      "displayName": listVisionPrivateEndpointsRequest.displayName,
+      "id": listVisionPrivateEndpointsRequest.id,
+      "limit": listVisionPrivateEndpointsRequest.limit,
+      "page": listVisionPrivateEndpointsRequest.page,
+      "sortOrder": listVisionPrivateEndpointsRequest.sortOrder,
+      "sortBy": listVisionPrivateEndpointsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listVisionPrivateEndpointsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listVisionPrivateEndpointsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/visionPrivateEndpoints",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListVisionPrivateEndpointsResponse>{},
+        body: await response.json(),
+        bodyKey: "visionPrivateEndpointCollection",
+        bodyModel: model.VisionPrivateEndpointCollection,
+        type: "model.VisionPrivateEndpointCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Returns a (paginated) list of errors for a given work request.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -2265,6 +3872,156 @@ export class AIServiceVisionClient {
   }
 
   /**
+   * End a stream analysis Run.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param StartStreamJobRequest
+   * @return StartStreamJobResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aivision/StartStreamJob.ts.html |here} to see how to use StartStreamJob API.
+   */
+  public async startStreamJob(
+    startStreamJobRequest: requests.StartStreamJobRequest
+  ): Promise<responses.StartStreamJobResponse> {
+    if (this.logger) this.logger.debug("Calling operation AIServiceVisionClient#startStreamJob.");
+    const operationName = "startStreamJob";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vision/20220125/StreamJob/StartStreamJob";
+    const pathParams = {
+      "{streamJobId}": startStreamJobRequest.streamJobId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": startStreamJobRequest.opcRetryToken,
+      "opc-request-id": startStreamJobRequest.opcRequestId,
+      "if-match": startStreamJobRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      startStreamJobRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/streamJobs/{streamJobId}/actions/start",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.StartStreamJobResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * End a stream analysis Run.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param StopStreamJobRequest
+   * @return StopStreamJobResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aivision/StopStreamJob.ts.html |here} to see how to use StopStreamJob API.
+   */
+  public async stopStreamJob(
+    stopStreamJobRequest: requests.StopStreamJobRequest
+  ): Promise<responses.StopStreamJobResponse> {
+    if (this.logger) this.logger.debug("Calling operation AIServiceVisionClient#stopStreamJob.");
+    const operationName = "stopStreamJob";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vision/20220125/StreamJob/StopStreamJob";
+    const pathParams = {
+      "{streamJobId}": stopStreamJobRequest.streamJobId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": stopStreamJobRequest.opcRetryToken,
+      "if-match": stopStreamJobRequest.ifMatch,
+      "opc-request-id": stopStreamJobRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      stopStreamJobRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/streamJobs/{streamJobId}/actions/stop",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.StopStreamJobResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Updates the model metadata.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateModelRequest
@@ -2400,6 +4157,324 @@ export class AIServiceVisionClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateProjectResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Update a streamGroup
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateStreamGroupRequest
+   * @return UpdateStreamGroupResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aivision/UpdateStreamGroup.ts.html |here} to see how to use UpdateStreamGroup API.
+   */
+  public async updateStreamGroup(
+    updateStreamGroupRequest: requests.UpdateStreamGroupRequest
+  ): Promise<responses.UpdateStreamGroupResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation AIServiceVisionClient#updateStreamGroup.");
+    const operationName = "updateStreamGroup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vision/20220125/StreamGroup/UpdateStreamGroup";
+    const pathParams = {
+      "{streamGroupId}": updateStreamGroupRequest.streamGroupId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateStreamGroupRequest.ifMatch,
+      "opc-request-id": updateStreamGroupRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateStreamGroupRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/streamGroups/{streamGroupId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateStreamGroupRequest.updateStreamGroupDetails,
+        "UpdateStreamGroupDetails",
+        model.UpdateStreamGroupDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateStreamGroupResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Create a stream analysis job with given inputs and features.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateStreamJobRequest
+   * @return UpdateStreamJobResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aivision/UpdateStreamJob.ts.html |here} to see how to use UpdateStreamJob API.
+   */
+  public async updateStreamJob(
+    updateStreamJobRequest: requests.UpdateStreamJobRequest
+  ): Promise<responses.UpdateStreamJobResponse> {
+    if (this.logger) this.logger.debug("Calling operation AIServiceVisionClient#updateStreamJob.");
+    const operationName = "updateStreamJob";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vision/20220125/StreamJob/UpdateStreamJob";
+    const pathParams = {
+      "{streamJobId}": updateStreamJobRequest.streamJobId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateStreamJobRequest.opcRequestId,
+      "if-match": updateStreamJobRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateStreamJobRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/streamJobs/{streamJobId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateStreamJobRequest.updateStreamJobDetails,
+        "UpdateStreamJobDetails",
+        model.UpdateStreamJobDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateStreamJobResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Update a streamSource
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateStreamSourceRequest
+   * @return UpdateStreamSourceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aivision/UpdateStreamSource.ts.html |here} to see how to use UpdateStreamSource API.
+   */
+  public async updateStreamSource(
+    updateStreamSourceRequest: requests.UpdateStreamSourceRequest
+  ): Promise<responses.UpdateStreamSourceResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation AIServiceVisionClient#updateStreamSource.");
+    const operationName = "updateStreamSource";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vision/20220125/StreamSource/UpdateStreamSource";
+    const pathParams = {
+      "{streamSourceId}": updateStreamSourceRequest.streamSourceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateStreamSourceRequest.ifMatch,
+      "opc-request-id": updateStreamSourceRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateStreamSourceRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/streamSources/{streamSourceId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateStreamSourceRequest.updateStreamSourceDetails,
+        "UpdateStreamSourceDetails",
+        model.UpdateStreamSourceDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateStreamSourceResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Update the visionPrivateEndpoint metadata.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateVisionPrivateEndpointRequest
+   * @return UpdateVisionPrivateEndpointResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aivision/UpdateVisionPrivateEndpoint.ts.html |here} to see how to use UpdateVisionPrivateEndpoint API.
+   */
+  public async updateVisionPrivateEndpoint(
+    updateVisionPrivateEndpointRequest: requests.UpdateVisionPrivateEndpointRequest
+  ): Promise<responses.UpdateVisionPrivateEndpointResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation AIServiceVisionClient#updateVisionPrivateEndpoint.");
+    const operationName = "updateVisionPrivateEndpoint";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vision/20220125/VisionPrivateEndpoint/UpdateVisionPrivateEndpoint";
+    const pathParams = {
+      "{visionPrivateEndpointId}": updateVisionPrivateEndpointRequest.visionPrivateEndpointId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateVisionPrivateEndpointRequest.ifMatch,
+      "opc-request-id": updateVisionPrivateEndpointRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateVisionPrivateEndpointRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/visionPrivateEndpoints/{visionPrivateEndpointId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateVisionPrivateEndpointRequest.updateVisionPrivateEndpointDetails,
+        "UpdateVisionPrivateEndpointDetails",
+        model.UpdateVisionPrivateEndpointDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateVisionPrivateEndpointResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),

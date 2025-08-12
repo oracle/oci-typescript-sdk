@@ -50,6 +50,10 @@ export interface ListAuditArchiveRetrievalsRequest extends common.BaseRequest {
    */
   "targetId"?: string;
   /**
+   * A filter to return the target database group that matches the specified OCID.
+   */
+  "targetDatabaseGroupId"?: string;
+  /**
    * For list pagination. The maximum number of items to return per page in a paginated \"List\" call. For details about how pagination works, see [List Pagination](https://docs.oracle.com/iaas/en-us/iaas/Content/API/Concepts/usingapi.htm#nine).
    */
   "limit"?: number;

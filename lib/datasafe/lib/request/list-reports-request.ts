@@ -96,6 +96,10 @@ export interface ListReportsRequest extends common.BaseRequest {
    * An optional filter to return only resources that match the specified type.
    */
   "type"?: model.ReportType;
+  /**
+   * Specifies the name of a resource that provides data for the report. For example  alerts, events.
+   */
+  "dataSource"?: model.ReportDefinitionDataSource;
 }
 
 export namespace ListReportsRequest {

@@ -11,6 +11,24 @@
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as ChangeOciCacheConfigSetCompartmentRequest from "./change-oci-cache-config-set-compartment-request";
+export import ChangeOciCacheConfigSetCompartmentRequest = ChangeOciCacheConfigSetCompartmentRequest.ChangeOciCacheConfigSetCompartmentRequest;
+import * as CreateOciCacheConfigSetRequest from "./create-oci-cache-config-set-request";
+export import CreateOciCacheConfigSetRequest = CreateOciCacheConfigSetRequest.CreateOciCacheConfigSetRequest;
+import * as DeleteOciCacheConfigSetRequest from "./delete-oci-cache-config-set-request";
+export import DeleteOciCacheConfigSetRequest = DeleteOciCacheConfigSetRequest.DeleteOciCacheConfigSetRequest;
+import * as GetOciCacheConfigSetRequest from "./get-oci-cache-config-set-request";
+export import GetOciCacheConfigSetRequest = GetOciCacheConfigSetRequest.GetOciCacheConfigSetRequest;
+import * as ListAssociatedOciCacheClustersRequest from "./list-associated-oci-cache-clusters-request";
+export import ListAssociatedOciCacheClustersRequest = ListAssociatedOciCacheClustersRequest.ListAssociatedOciCacheClustersRequest;
+import * as ListOciCacheConfigSetsRequest from "./list-oci-cache-config-sets-request";
+export import ListOciCacheConfigSetsRequest = ListOciCacheConfigSetsRequest.ListOciCacheConfigSetsRequest;
+import * as UpdateOciCacheConfigSetRequest from "./update-oci-cache-config-set-request";
+export import UpdateOciCacheConfigSetRequest = UpdateOciCacheConfigSetRequest.UpdateOciCacheConfigSetRequest;
+import * as GetOciCacheDefaultConfigSetRequest from "./get-oci-cache-default-config-set-request";
+export import GetOciCacheDefaultConfigSetRequest = GetOciCacheDefaultConfigSetRequest.GetOciCacheDefaultConfigSetRequest;
+import * as ListOciCacheDefaultConfigSetsRequest from "./list-oci-cache-default-config-sets-request";
+export import ListOciCacheDefaultConfigSetsRequest = ListOciCacheDefaultConfigSetsRequest.ListOciCacheDefaultConfigSetsRequest;
 import * as ChangeOciCacheUserCompartmentRequest from "./change-oci-cache-user-compartment-request";
 export import ChangeOciCacheUserCompartmentRequest = ChangeOciCacheUserCompartmentRequest.ChangeOciCacheUserCompartmentRequest;
 import * as CreateOciCacheUserRequest from "./create-oci-cache-user-request";

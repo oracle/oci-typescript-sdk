@@ -63,6 +63,10 @@ export interface IpInventorySubnetResourceSummary {
    */
   "assignedResourceName"?: string;
   /**
+   * Primary flag for IP Resource
+   */
+  "isPrimary"?: boolean;
+  /**
    * Type of the resource.
    */
   "assignedResourceType"?: IpInventorySubnetResourceSummary.AssignedResourceType;

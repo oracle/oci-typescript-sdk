@@ -43,6 +43,10 @@ export interface RepositoryCommit {
    */
   "committerEmail"?: string;
   /**
+   * Id of the PullRequest that this commit was merged with.
+   */
+  "mergedPullRequestId"?: string;
+  /**
    * An array of parent commit IDs of created commit.
    */
   "parentCommitIds"?: Array<string>;

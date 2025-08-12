@@ -34,6 +34,10 @@ export interface InventoryResourceSummary {
    */
   "resourceType"?: InventoryResourceSummary.ResourceType;
   /**
+   * Mac Address of IP Resource
+   */
+  "macAddress"?: string;
+  /**
    * Lists the 'IpAddressCollection' object.
    *
    */

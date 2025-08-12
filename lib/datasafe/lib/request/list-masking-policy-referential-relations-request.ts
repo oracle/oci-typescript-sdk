@@ -81,7 +81,6 @@ export namespace ListMaskingPolicyReferentialRelationsRequest {
   export enum SortBy {
     RelationType = "relationType",
     SchemaName = "schemaName",
-    TableName = "tableName",
-    ColumnName = "columnName"
+    ObjectName = "objectName"
   }
 }

@@ -20,17 +20,19 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Identifier and name of the technical support request's user group ({@code userGroupId} and {@code userGroupName}).
+ * Identifier and name of a user group ({@code userGroupId} and {@code userGroupName}) that the current user has access to.
+ * Note: The Customer User Administrator (CUA) can manage user groups by name using
+ * [My Oracle Cloud Support portal](https://support.oracle.com).
  *
  */
 export interface CmosUserGroupInfo {
   /**
-   * Technical support type ({@code TECH}) only: The identifier of the support request's user group in My Oracle Cloud Support portal.
+   * Technical support type ({@code TECH}) only: The identifier of a user group in My Oracle Cloud Support portal.
    *
    */
   "userGroupId"?: string;
   /**
-   * Technical support type ({@code TECH}) only: Name of the support request's user group in My Oracle Cloud Support portal.
+   * Technical support type ({@code TECH}) only: Name of a user group in My Oracle Cloud Support portal.
    *
    */
   "userGroupName"?: string;

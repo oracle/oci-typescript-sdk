@@ -79,6 +79,24 @@ export class DataSafeWaiter {
   }
 
   /**
+   * Waits forAttributeSet till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetAttributeSetResponse
+   */
+  public async forAttributeSet(
+    request: serviceRequests.GetAttributeSetRequest,
+    ...targetStates: models.AttributeSet.LifecycleState[]
+  ): Promise<serviceResponses.GetAttributeSetResponse> {
+    return genericWaiter(
+      this.config,
+      () => this.client.getAttributeSet(request),
+      response => targetStates.includes(response.attributeSet.lifecycleState!)
+    );
+  }
+
+  /**
    * Waits forAuditArchiveRetrieval till it reaches any of the provided states
    *
    * @param request the request to send
@@ -331,13 +349,13 @@ export class DataSafeWaiter {
    */
   public async forOnPremConnector(
     request: serviceRequests.GetOnPremConnectorRequest,
-    ...targetStates: models.LifecycleState[]
+    ...targetStates: models.OnPremConnectorLifecycleState[]
   ): Promise<serviceResponses.GetOnPremConnectorResponse | null> {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getOnPremConnector(request),
       response => targetStates.includes(response.onPremConnector.lifecycleState!),
-      targetStates.includes(models.LifecycleState.Deleted)
+      targetStates.includes(models.OnPremConnectorLifecycleState.Deleted)
     );
   }
 
@@ -458,16 +476,17 @@ export class DataSafeWaiter {
    *
    * @param request the request to send
    * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
-   * @return response returns GetSecurityAssessmentComparisonResponse
+   * @return response returns GetSecurityAssessmentComparisonResponse | null (null in case of 404 response)
    */
   public async forSecurityAssessmentComparison(
     request: serviceRequests.GetSecurityAssessmentComparisonRequest,
     ...targetStates: models.SecurityAssessmentComparison.LifecycleState[]
-  ): Promise<serviceResponses.GetSecurityAssessmentComparisonResponse> {
-    return genericWaiter(
+  ): Promise<serviceResponses.GetSecurityAssessmentComparisonResponse | null> {
+    return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getSecurityAssessmentComparison(request),
-      response => targetStates.includes(response.securityAssessmentComparison.lifecycleState!)
+      response => targetStates.includes(response.securityAssessmentComparison.lifecycleState!),
+      targetStates.includes(models.SecurityAssessmentComparison.LifecycleState.Deleted)
     );
   }
 
@@ -487,6 +506,25 @@ export class DataSafeWaiter {
       () => this.client.getSecurityPolicy(request),
       response => targetStates.includes(response.securityPolicy.lifecycleState!),
       targetStates.includes(models.SecurityPolicyLifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forSecurityPolicyConfig till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetSecurityPolicyConfigResponse | null (null in case of 404 response)
+   */
+  public async forSecurityPolicyConfig(
+    request: serviceRequests.GetSecurityPolicyConfigRequest,
+    ...targetStates: models.SecurityPolicyConfigLifecycleState[]
+  ): Promise<serviceResponses.GetSecurityPolicyConfigResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getSecurityPolicyConfig(request),
+      response => targetStates.includes(response.securityPolicyConfig.lifecycleState!),
+      targetStates.includes(models.SecurityPolicyConfigLifecycleState.Deleted)
     );
   }
 
@@ -714,6 +752,62 @@ export class DataSafeWaiter {
       () => this.client.getTargetDatabase(request),
       response => targetStates.includes(response.targetDatabase.lifecycleState!),
       targetStates.includes(models.TargetDatabaseLifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forTargetDatabaseGroup till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetTargetDatabaseGroupResponse | null (null in case of 404 response)
+   */
+  public async forTargetDatabaseGroup(
+    request: serviceRequests.GetTargetDatabaseGroupRequest,
+    ...targetStates: models.TargetDatabaseGroupLifecycleState[]
+  ): Promise<serviceResponses.GetTargetDatabaseGroupResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getTargetDatabaseGroup(request),
+      response => targetStates.includes(response.targetDatabaseGroup.lifecycleState!),
+      targetStates.includes(models.TargetDatabaseGroupLifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forUnifiedAuditPolicy till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetUnifiedAuditPolicyResponse | null (null in case of 404 response)
+   */
+  public async forUnifiedAuditPolicy(
+    request: serviceRequests.GetUnifiedAuditPolicyRequest,
+    ...targetStates: models.UnifiedAuditPolicyLifecycleState[]
+  ): Promise<serviceResponses.GetUnifiedAuditPolicyResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getUnifiedAuditPolicy(request),
+      response => targetStates.includes(response.unifiedAuditPolicy.lifecycleState!),
+      targetStates.includes(models.UnifiedAuditPolicyLifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forUnifiedAuditPolicyDefinition till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetUnifiedAuditPolicyDefinitionResponse
+   */
+  public async forUnifiedAuditPolicyDefinition(
+    request: serviceRequests.GetUnifiedAuditPolicyDefinitionRequest,
+    ...targetStates: models.UnifiedAuditPolicyDefinitionLifecycleState[]
+  ): Promise<serviceResponses.GetUnifiedAuditPolicyDefinitionResponse> {
+    return genericWaiter(
+      this.config,
+      () => this.client.getUnifiedAuditPolicyDefinition(request),
+      response => targetStates.includes(response.unifiedAuditPolicyDefinition.lifecycleState!)
     );
   }
 

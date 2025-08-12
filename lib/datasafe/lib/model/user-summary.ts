@@ -109,6 +109,12 @@ export namespace UserSummary {
     Locked = "LOCKED",
     Expired = "EXPIRED",
     ExpiredAndLocked = "EXPIRED_AND_LOCKED",
+    OpenAndInRollover = "OPEN_AND_IN_ROLLOVER",
+    ExpiredAndInRollover = "EXPIRED_AND_IN_ROLLOVER",
+    LockedAndInRollover = "LOCKED_AND_IN_ROLLOVER",
+    ExpiredAndLockedAndInRollover = "EXPIRED_AND_LOCKED_AND_IN_ROLLOVER",
+    LockedTimedAndInRollover = "LOCKED_TIMED_AND_IN_ROLLOVER",
+    ExpiredAndLockedTimedAndInRol = "EXPIRED_AND_LOCKED_TIMED_AND_IN_ROL",
     None = "NONE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this

@@ -23,7 +23,7 @@ export interface AuditProfile {
    */
   "id": string;
   /**
-   * The OCID of the compartment that contains the audit.
+   * The OCID of the compartment that contains the audit profile.
    */
   "compartmentId": string;
   /**
@@ -47,7 +47,7 @@ export interface AuditProfile {
    */
   "lifecycleDetails"?: string;
   /**
-   * The OCID of the Data Safe target for which the audit profile is created.
+   * The OCID of the target database or target database group for which the audit profile is created.
    */
   "targetId": string;
   /**
@@ -55,7 +55,7 @@ export interface AuditProfile {
    */
   "description"?: string;
   /**
-   * Indicates the list of available audit trails on the target.
+   * Contains the list of available audit trails on the target database.
    */
   "auditTrails"?: Array<model.AuditTrail>;
   /**
@@ -66,30 +66,53 @@ export interface AuditProfile {
    */
   "isPaidUsageEnabled": boolean;
   /**
-   * Indicates the number of months the audit records will be stored online in Oracle Data Safe audit repository for immediate reporting and analysis.
+   * Number of months the audit records will be stored online in the audit repository for immediate reporting and analysis.
    * Minimum: 1; Maximum: 12 months
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "onlineMonths": number;
   /**
-   * Indicates the number of months the audit records will be stored offline in the Data Safe audit archive.
+   * Number of months the audit records will be stored offline in the offline archive.
    * Minimum: 0; Maximum: 72 months.
-   * If you have a requirement to store the audit data even longer in archive, please contact the Oracle Support.
+   * If you have a requirement to store the audit data even longer in the offline archive, please contact the Oracle Support.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "offlineMonths": number;
   /**
-   * Indicates number of audit records collected by Data Safe in the current calendar month.
+   * Number of audit records collected in the current calendar month.
    * Audit records for the Data Safe service account are excluded and are not counted towards your monthly free limit.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "auditCollectedVolume"?: number;
   /**
-   * Indicates whether audit retention settings like online and offline months is set at the
-   * target level overriding the global audit retention settings.
+   * Indicates whether audit retention settings like online and offline months set at the
+   * target level override both the global settings and the target group level audit retention settings.
    *
    */
   "isOverrideGlobalRetentionSetting": boolean;
+  /**
+   * Indicates whether audit paid usage settings specified at the target database level override both the global settings and the target group level paid usage settings.
+   * Enabling paid usage continues the collection of audit records beyond the free limit of one million audit records per month per target database,
+   * potentially incurring additional charges. For more information, see [Data Safe Price List](https://www.oracle.com/cloud/price-list/#data-safe).
+   *
+   */
+  "isOverrideGlobalPaidUsage"?: boolean;
+  /**
+   * The name or the OCID of the resource from which the online month retention setting is sourced. For example, a global setting or a target database group OCID.
+   */
+  "onlineMonthsSource"?: string;
+  /**
+   * The name or the OCID of the resource from which the offline month retention setting is sourced. For example, a global setting or a target database group OCID.
+   */
+  "offlineMonthsSource"?: string;
+  /**
+   * The name or the OCID of the resource from which the paid usage setting is sourced. For example, a global setting or a target database group OCID.
+   */
+  "paidUsageSource"?: string;
+  /**
+   * The resource type that is represented by the audit profile.
+   */
+  "targetType"?: model.AuditProfileTargetType;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm)
 * <p>

@@ -27,6 +27,11 @@ export namespace EntryDetails {
 
     if (obj && "entryType" in obj && obj.entryType) {
       switch (obj.entryType) {
+        case "AUDIT_POLICY":
+          return model.AuditPolicyEntryDetails.getJsonObj(
+            <model.AuditPolicyEntryDetails>(<object>jsonObj),
+            true
+          );
         case "FIREWALL_POLICY":
           return model.FirewallPolicyEntryDetails.getJsonObj(
             <model.FirewallPolicyEntryDetails>(<object>jsonObj),
@@ -43,6 +48,11 @@ export namespace EntryDetails {
 
     if (obj && "entryType" in obj && obj.entryType) {
       switch (obj.entryType) {
+        case "AUDIT_POLICY":
+          return model.AuditPolicyEntryDetails.getDeserializedJsonObj(
+            <model.AuditPolicyEntryDetails>(<object>jsonObj),
+            true
+          );
         case "FIREWALL_POLICY":
           return model.FirewallPolicyEntryDetails.getDeserializedJsonObj(
             <model.FirewallPolicyEntryDetails>(<object>jsonObj),

@@ -20,7 +20,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details for creating the category of the support ticket.
+ * Details for creating the category of the support request.
  *
  */
 export interface CreateCategoryDetails {

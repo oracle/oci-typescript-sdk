@@ -49,6 +49,10 @@ export interface ListAuditProfileAnalyticsRequest extends common.BaseRequest {
    */
   "groupBy"?: Array<ListAuditProfileAnalyticsRequest.GroupBy>;
   /**
+   * A optional filter to return only resources that belong to the specified audit profile type.
+   */
+  "targetType"?: model.AuditProfileTargetType;
+  /**
    * Unique identifier for the request.
    */
   "opcRequestId"?: string;
@@ -61,6 +65,10 @@ export namespace ListAuditProfileAnalyticsRequest {
   }
 
   export enum GroupBy {
-    IsPaidUsageEnabled = "isPaidUsageEnabled"
+    IsPaidUsageEnabled = "isPaidUsageEnabled",
+    TargetType = "targetType",
+    PaidUsageSource = "paidUsageSource",
+    OnlineMonthsSource = "onlineMonthsSource",
+    OfflineMonthsSource = "offlineMonthsSource"
   }
 }

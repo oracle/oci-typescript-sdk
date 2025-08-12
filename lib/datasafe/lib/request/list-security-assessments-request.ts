@@ -55,7 +55,7 @@ export interface ListSecurityAssessmentsRequest extends common.BaseRequest {
    */
   "isScheduleAssessment"?: boolean;
   /**
-   * A filter to return only security asessments that were created by either user or system.
+   * A filter to return only security assessments that were created by either user or system.
    */
   "triggeredBy"?: ListSecurityAssessmentsRequest.TriggeredBy;
   /**
@@ -110,6 +110,18 @@ export interface ListSecurityAssessmentsRequest extends common.BaseRequest {
    * A filter to return only resources that match the specified lifecycle state.
    */
   "lifecycleState"?: model.SecurityAssessmentLifecycleState;
+  /**
+   * A filter to return only only target database resources or target database group resources.
+   */
+  "targetType"?: model.SecurityAssessmentTargetType;
+  /**
+   * A filter to return the target database group that matches the specified OCID.
+   */
+  "targetDatabaseGroupId"?: string;
+  /**
+   * The OCID of the security assessment of type TEMPLATE.
+   */
+  "templateAssessmentId"?: string;
 }
 
 export namespace ListSecurityAssessmentsRequest {
@@ -122,7 +134,9 @@ export namespace ListSecurityAssessmentsRequest {
     Latest = "LATEST",
     Saved = "SAVED",
     SaveSchedule = "SAVE_SCHEDULE",
-    Compartment = "COMPARTMENT"
+    Compartment = "COMPARTMENT",
+    Template = "TEMPLATE",
+    TemplateBaseline = "TEMPLATE_BASELINE"
   }
 
   export enum TriggeredBy {
@@ -137,6 +151,8 @@ export namespace ListSecurityAssessmentsRequest {
 
   export enum SortBy {
     TimeCreated = "timeCreated",
-    DisplayName = "displayName"
+    DisplayName = "displayName",
+    TimeLastAssessed = "timeLastAssessed",
+    TimeUpdated = "timeUpdated"
   }
 }

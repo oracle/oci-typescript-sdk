@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Value for a given merge check setting. Can be ENABLED or DISABLED.
+ * Value for a given merge check setting. Can be ENABLED or DISABLED. Can be INHERITED at repositoryLevel.
  **/
 export enum MergeCheckSettingsValue {
   Enabled = "ENABLED",

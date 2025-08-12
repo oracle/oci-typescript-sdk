@@ -42,4 +42,17 @@ export interface TerminateInstanceRequest extends common.BaseRequest {
    *
    */
   "preserveDataVolumesCreatedAtLaunch"?: boolean;
+  /**
+   * This optional parameter overrides recycle level for hosts. The parameter can be used when hosts are associated
+   * with a Capacity Reservation.
+   * * {@code FULL_RECYCLE} - Does not skip host wipe. This is the default behavior.
+   *
+   */
+  "recycleLevel"?: TerminateInstanceRequest.RecycleLevel;
+}
+
+export namespace TerminateInstanceRequest {
+  export enum RecycleLevel {
+    FullRecycle = "FULL_RECYCLE"
+  }
 }

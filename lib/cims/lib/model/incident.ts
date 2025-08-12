@@ -20,11 +20,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details about the support ticket.
+ * Details about the support request.
  */
 export interface Incident {
   /**
-   * Unique identifier for the support ticket.
+   * Unique identifier for the support request.
    */
   "key": string;
   /**
@@ -35,6 +35,11 @@ export interface Incident {
   "tenancyInformation"?: model.TenancyInformation;
   "ticket"?: model.Ticket;
   "incidentType"?: model.IncidentType;
+  /**
+   * Technical support type ({@code TECH}) only: The pre-migration identifier of the support request in My Oracle Support (MOS).
+   *
+   */
+  "migratedSrNumber"?: string;
   /**
    * Technical support type ({@code TECH}) only: The identifier of the support request's user group in My Oracle Cloud Support portal.
    *
@@ -67,18 +72,18 @@ export interface Incident {
    */
   "warnMessage"?: string;
   /**
-   * The kind of support ticket (type of support request).
-   * For information about {@code ACCOUNT} support tickets, see
+   * The kind of support request (type of support request).
+   * For information about {@code ACCOUNT} support requests, see
    * [Creating a Billing Support Request](https://docs.oracle.com/iaas/Content/GSG/support/create-incident-billing.htm).
-   * For information about {@code LIMIT} support tickets, see
+   * For information about {@code LIMIT} support requests, see
    * [Creating a Service Limit Increase Request](https://docs.oracle.com/iaas/Content/GSG/support/create-incident-limit.htm).
-   * For information about {@code TECH} support tickets, see
+   * For information about {@code TECH} support requests, see
    * [Creating a Technical Support Request](https://docs.oracle.com/iaas/Content/GSG/support/create-incident-technical.htm).
    *
    */
   "problemType"?: model.ProblemType;
   /**
-   * The incident referrer. This value is often the URL that the customer used when creating the support ticket.
+   * The incident referrer. This value is often the URL that the customer used when creating the support request.
    */
   "referrer"?: string;
 }

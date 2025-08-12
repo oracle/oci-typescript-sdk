@@ -62,6 +62,10 @@ export interface ListSecurityPolicyDeploymentsRequest extends common.BaseRequest
    */
   "targetId"?: string;
   /**
+   * A optional filter to return only resources that belong to the specified target type.
+   */
+  "targetType"?: string;
+  /**
    * An optional filter to return only resources that match the specified OCID of the security policy resource.
    */
   "securityPolicyId"?: string;

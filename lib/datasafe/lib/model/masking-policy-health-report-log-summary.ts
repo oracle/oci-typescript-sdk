@@ -53,6 +53,7 @@ export interface MaskingPolicyHealthReportLogSummary {
    * ACTIVE_MASK_JOB_CHECK checks if there is any active masking job running on the target database.
    * DETERMINISTIC_ENCRYPTION_FORMAT_CHECK checks if any masking column has deterministic encryption masking format.
    * COLUMN_EXIST_CHECK checks if the masking columns are available in the target database.
+   * TIME_TRAVEL_CHECK checks if the masking tables have Time Travel enabled.
    *
    */
   "healthCheckType"?: MaskingPolicyHealthReportLogSummary.HealthCheckType;
@@ -86,6 +87,7 @@ export namespace MaskingPolicyHealthReportLogSummary {
     TargetValidationCheck = "TARGET_VALIDATION_CHECK",
     DeterministicEncryptionFormatCheck = "DETERMINISTIC_ENCRYPTION_FORMAT_CHECK",
     ColumnExistCheck = "COLUMN_EXIST_CHECK",
+    TimeTravelCheck = "TIME_TRAVEL_CHECK",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

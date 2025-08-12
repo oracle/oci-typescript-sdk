@@ -20,7 +20,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details gathered during the creation of the support ticket.
+ * Details gathered during the creation of the support request.
  *
  */
 export interface CreateIncident {
@@ -30,23 +30,27 @@ export interface CreateIncident {
   "compartmentId": string;
   "ticket": model.CreateTicketDetails;
   /**
-   * The Customer Support Identifier (CSI) number associated with the support account.
+   * Deprecated. The Customer Support Identifier (CSI) number associated with the support account.
    * The CSI is optional for all support request types.
    *
    */
   "csi"?: string;
   /**
-   * Technical support type ({@code TECH}) only: The identifier of the support request's user group in My Oracle Cloud Support portal.
+   * Technical support type ({@code TECH}) only: Identifier of the user group to assign the new support request to.
+   * To find identifiers of user groups that you have access to, run the
+   * {@link #validateUser(ValidateUserRequest) validateUser} operation.
+   * Note: The Customer User Administrator (CUA) can manage user groups by name using
+   * [My Oracle Cloud Support portal](https://support.oracle.com).
    *
    */
   "userGroupId"?: string;
   /**
-   * The kind of support ticket (type of support request).
-   * For information about {@code ACCOUNT} support tickets, see
+   * The kind of support request (type of support request).
+   * For information about {@code ACCOUNT} support requests, see
    * [Creating a Billing Support Request](https://docs.oracle.com/iaas/Content/GSG/support/create-incident-billing.htm).
-   * For information about {@code LIMIT} support tickets, see
+   * For information about {@code LIMIT} support requests, see
    * [Creating a Service Limit Increase Request](https://docs.oracle.com/iaas/Content/GSG/support/create-incident-limit.htm).
-   * For information about {@code TECH} support tickets, see
+   * For information about {@code TECH} support requests, see
    * [Creating a Technical Support Request](https://docs.oracle.com/iaas/Content/GSG/support/create-incident-technical.htm).
    *
    */
@@ -56,7 +60,7 @@ export interface CreateIncident {
    */
   "contacts"?: Array<model.Contact>;
   /**
-   * The incident referrer. This value is often the URL that the customer used when creating the support ticket.
+   * The incident referrer. This value is often the URL that the customer used when creating the support request.
    */
   "referrer"?: string;
 }

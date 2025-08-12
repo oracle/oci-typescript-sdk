@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The standalone job infrastructure configuration with network egress settings preconfigured.
+ * This type should only be used at the top level infrastructure configuration field for configuring single-node jobs.
  */
 export interface ManagedEgressStandaloneJobInfrastructureConfigurationDetails
   extends model.JobInfrastructureConfigurationDetails {

@@ -219,7 +219,7 @@ export class IncidentClient {
   }
 
   /**
-   * Creates a support ticket in the specified tenancy.
+   * Creates a support request in the specified tenancy.
    * For more information, see [Creating Support Requests](https://docs.oracle.com/iaas/Content/GSG/support/create-incident.htm).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -301,7 +301,7 @@ export class IncidentClient {
   }
 
   /**
-   * Gets the specified support ticket.
+   * Gets the specified support request.
    * For more information, see [Getting Details for a Support Request](https://docs.oracle.com/iaas/Content/GSG/support/get-incident.htm).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -385,7 +385,7 @@ export class IncidentClient {
 
   /**
    * Depending on the selected `productType`, either
-   * lists available products (service groups, services, service categories, and subcategories) for technical support tickets or
+   * lists available products (service groups, services, service categories, and subcategories) for technical support requests or
    * lists limits and current usage for limit increase tickets.
    * This operation is called during creation of technical support and limit increase tickets.
    * For more information about listing products, see
@@ -531,7 +531,7 @@ export class IncidentClient {
   }
 
   /**
-   * Lists support tickets for the specified tenancy.
+   * Lists support requests for the specified tenancy.
    * For more information, see [Listing Support Requests](https://docs.oracle.com/iaas/Content/GSG/support/list-incidents.htm).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -684,7 +684,92 @@ export class IncidentClient {
   }
 
   /**
-   * Updates the specified support ticket.
+   * Uploads the file and attaches it to the support request.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param PutAttachmentRequest
+   * @return PutAttachmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cims/PutAttachment.ts.html |here} to see how to use PutAttachment API.
+   */
+  public async putAttachment(
+    putAttachmentRequest: requests.PutAttachmentRequest
+  ): Promise<responses.PutAttachmentResponse> {
+    if (this.logger) this.logger.debug("Calling operation IncidentClient#putAttachment.");
+    const operationName = "putAttachment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/incidentmanagement/20181231/Incident/PutAttachment";
+    const pathParams = {
+      "{incidentKey}": putAttachmentRequest.incidentKey
+    };
+
+    const queryParams = {
+      "attachmentName": putAttachmentRequest.attachmentName,
+      "compartmentId": putAttachmentRequest.compartmentId,
+      "isRestrictedFlag": putAttachmentRequest.isRestrictedFlag
+    };
+
+    let headerParams = {
+      "csi": putAttachmentRequest.csi,
+      "opc-request-id": putAttachmentRequest.opcRequestId,
+      "ocid": putAttachmentRequest.ocid,
+      "if-match": putAttachmentRequest.ifMatch,
+      "homeregion": putAttachmentRequest.homeregion,
+      "problemtype": putAttachmentRequest.problemtype,
+      "bearertokentype": putAttachmentRequest.bearertokentype,
+      "bearertoken": putAttachmentRequest.bearertoken,
+      "idtoken": putAttachmentRequest.idtoken,
+      "domainid": putAttachmentRequest.domainid
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      putAttachmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/v2/incidents/{incidentKey}/attachment",
+      method: "PUT",
+      bodyContent: putAttachmentRequest.putAttachmentDetails,
+      pathParams: pathParams,
+      headerParams: headerParams,
+      backupBinaryBody: retrier.backUpBinaryBody,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.PutAttachmentResponse>{},
+        body: await response.json(),
+        bodyKey: "incident",
+        bodyModel: model.Incident,
+        type: "model.Incident",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the specified support request.
    * For more information, see [Updating Support Requests](https://docs.oracle.com/iaas/Content/GSG/support/update-incident.htm).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.

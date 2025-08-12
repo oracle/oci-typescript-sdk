@@ -151,6 +151,14 @@ export interface AuditEventSummary {
    */
   "auditType"?: AuditEventSummary.AuditType;
   /**
+   * The user ID of the external user of the audit event.
+   */
+  "externalUserId"?: string;
+  /**
+   * The user on whom the GRANT/REVOKE/AUDIT/NOAUDIT statement was executed.
+   */
+  "targetUser"?: string;
+  /**
    * The secondary id assigned for the peer database registered with Data Safe. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "peerTargetDatabaseKey"?: number;

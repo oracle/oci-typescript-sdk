@@ -20,12 +20,12 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details relevant to the support ticket.
+ * Details relevant to the support request.
  *
  */
 export interface CreateTicketDetails {
   /**
-   * The severity of the support ticket.
+   * The severity of the support request.
    */
   "severity": CreateTicketDetails.Severity;
   /**
@@ -33,11 +33,13 @@ export interface CreateTicketDetails {
    */
   "resourceList"?: Array<model.CreateResourceDetails>;
   /**
-   * The title of the support ticket. Avoid entering confidential information.
+   * The title of the support request. Avoid entering confidential information.
    */
   "title": string;
   /**
-   * The description of the support ticket. Avoid entering confidential information.
+   * <b>Important</b>: On January 27, 2026, the <b>Max Length</b> value will change to 1500.
+   * The description of the support request. Avoid entering confidential information.
+   *
    */
   "description": string;
   "contextualData"?: model.ContextualData;

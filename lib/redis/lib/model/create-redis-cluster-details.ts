@@ -19,6 +19,10 @@ import common = require("oci-common");
  */
 export interface CreateRedisClusterDetails {
   /**
+   * The ID of the corresponding OCI Cache Config Set for the cluster.
+   */
+  "ociCacheConfigSetId"?: string;
+  /**
    * Specifies whether the cluster is sharded or non-sharded.
    */
   "clusterMode"?: string;

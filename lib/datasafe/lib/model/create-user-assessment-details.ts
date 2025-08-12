@@ -55,9 +55,13 @@ export interface CreateUserAssessmentDetails {
     */
   "schedule"?: string;
   /**
-   * The OCID of the target database on which the user assessment is to be run.
+   * The OCID of the target database or target database group on which user assessment is to be run.
    */
   "targetId": string;
+  /**
+   * The type of user assessment resource whether it is individual or group resource. For individual target use type TARGET_DATABASE and for group resource use type TARGET_DATABASE_GROUP. If not provided, TARGET_DATABASE would be used as default value.
+   */
+  "targetType"?: model.UserAssessmentTargetType;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm)
 * <p>

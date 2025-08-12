@@ -20,7 +20,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Information about the support ticket classifier.
+ * Information about the support request classifier.
  */
 export interface ServiceCategory {
   /**

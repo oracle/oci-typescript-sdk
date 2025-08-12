@@ -24,7 +24,7 @@ import common = require("oci-common");
  *
  */
 export interface UpdateResourceDetails {
-  "item"?: model.UpdateActivityItemDetails;
+  "item"?: model.UpdateActivityItemDetails | model.UpdateContactItemDetails;
 }
 
 export namespace UpdateResourceDetails {

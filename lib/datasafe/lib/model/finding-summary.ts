@@ -43,6 +43,10 @@ export interface FindingSummary {
    */
   "title"?: string;
   /**
+   * The category to which the finding belongs to.
+   */
+  "category"?: string;
+  /**
    * The explanation of the issue in this finding. It explains the reason for the rule and, if a risk is reported, it may also explain the recommended actions for remediation.
    */
   "remarks"?: string;
@@ -58,6 +62,10 @@ export interface FindingSummary {
    * Provides a recommended approach to take to remediate the finding reported.
    */
   "oneline"?: string;
+  /**
+   * Documentation link provided by Oracle that explains a specific security finding or check.
+   */
+  "doclink"?: string;
   /**
    * Provides information on whether the finding is related to a CIS Oracle Database Benchmark recommendation, a STIG rule, or a GDPR Article/Recital.
    */
