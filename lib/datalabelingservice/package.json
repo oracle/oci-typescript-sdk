@@ -1,6 +1,6 @@
 {
   "name": "oci-datalabelingservice",
-  "version": "2.115.0",
+  "version": "2.116.0",
   "description": "OCI NodeJS client for Data Labeling Service Service",
   "repository": {
     "type": "git",

@@ -74,6 +74,10 @@ Example: {@code 2001:0db8:0123:1111:abcd:ef01:2345:6789}
     */
   "ipAddress": string;
   /**
+   * Length of cidr range. Optional field to specify flexible cidr. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "cidrPrefixLength"?: number;
+  /**
    * The IPv6's current state.
    */
   "lifecycleState": Ipv6.LifecycleState;

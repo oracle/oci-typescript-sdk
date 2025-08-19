@@ -29,7 +29,12 @@ export interface ChatChoice {
    * The index of the chat. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "index": number;
-  "message": model.SystemMessage | model.AssistantMessage | model.UserMessage | model.ToolMessage;
+  "message":
+    | model.SystemMessage
+    | model.AssistantMessage
+    | model.UserMessage
+    | model.ToolMessage
+    | model.DeveloperMessage;
   /**
     * The reason why the model stopped generating tokens.
 * <p>
@@ -38,6 +43,7 @@ Stops if the model hits a natural stop point or a provided stop sequence. Return
     */
   "finishReason": string;
   "logprobs"?: model.Logprobs;
+  "usage"?: model.Usage;
 }
 
 export namespace ChatChoice {
@@ -47,7 +53,8 @@ export namespace ChatChoice {
       ...{
         "message": obj.message ? model.Message.getJsonObj(obj.message) : undefined,
 
-        "logprobs": obj.logprobs ? model.Logprobs.getJsonObj(obj.logprobs) : undefined
+        "logprobs": obj.logprobs ? model.Logprobs.getJsonObj(obj.logprobs) : undefined,
+        "usage": obj.usage ? model.Usage.getJsonObj(obj.usage) : undefined
       }
     };
 
@@ -59,7 +66,8 @@ export namespace ChatChoice {
       ...{
         "message": obj.message ? model.Message.getDeserializedJsonObj(obj.message) : undefined,
 
-        "logprobs": obj.logprobs ? model.Logprobs.getDeserializedJsonObj(obj.logprobs) : undefined
+        "logprobs": obj.logprobs ? model.Logprobs.getDeserializedJsonObj(obj.logprobs) : undefined,
+        "usage": obj.usage ? model.Usage.getDeserializedJsonObj(obj.usage) : undefined
       }
     };
 

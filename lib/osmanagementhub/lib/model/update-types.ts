@@ -26,13 +26,7 @@ export enum UpdateTypes {
   Other = "OTHER",
   KspliceKernel = "KSPLICE_KERNEL",
   KspliceUserspace = "KSPLICE_USERSPACE",
-  All = "ALL",
-
-  /**
-   * This value is used if a service returns a value for this enum that is not recognized by this
-   * version of the SDK.
-   */
-  UnknownValue = "UNKNOWN_VALUE"
+  All = "ALL"
 }
 
 export namespace UpdateTypes {

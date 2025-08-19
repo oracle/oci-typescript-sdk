@@ -2367,6 +2367,37 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forCreatePluggableDatabaseSnapshot
+   *
+   * @param request the request to send
+   * @return response returns CreatePluggableDatabaseSnapshotResponse, GetWorkRequestResponse tuple
+   */
+  public async forCreatePluggableDatabaseSnapshot(
+    request: serviceRequests.CreatePluggableDatabaseSnapshotRequest
+  ): Promise<{
+    response: serviceResponses.CreatePluggableDatabaseSnapshotResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const createPluggableDatabaseSnapshotResponse = await this.client.createPluggableDatabaseSnapshot(
+      request
+    );
+    if (createPluggableDatabaseSnapshotResponse.opcWorkRequestId === undefined)
+      return {
+        response: createPluggableDatabaseSnapshotResponse,
+        workRequestResponse: undefined as any
+      };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      createPluggableDatabaseSnapshotResponse.opcWorkRequestId
+    );
+    return {
+      response: createPluggableDatabaseSnapshotResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
    * Waits forCreateScheduledAction
    *
    * @param request the request to send
@@ -3184,6 +3215,37 @@ export class DatabaseWaiter {
     );
     return {
       response: deletePluggableDatabaseResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forDeletePluggableDatabaseSnapshot
+   *
+   * @param request the request to send
+   * @return response returns DeletePluggableDatabaseSnapshotResponse, GetWorkRequestResponse tuple
+   */
+  public async forDeletePluggableDatabaseSnapshot(
+    request: serviceRequests.DeletePluggableDatabaseSnapshotRequest
+  ): Promise<{
+    response: serviceResponses.DeletePluggableDatabaseSnapshotResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const deletePluggableDatabaseSnapshotResponse = await this.client.deletePluggableDatabaseSnapshot(
+      request
+    );
+    if (deletePluggableDatabaseSnapshotResponse.opcWorkRequestId === undefined)
+      return {
+        response: deletePluggableDatabaseSnapshotResponse,
+        workRequestResponse: undefined as any
+      };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      deletePluggableDatabaseSnapshotResponse.opcWorkRequestId
+    );
+    return {
+      response: deletePluggableDatabaseSnapshotResponse,
       workRequestResponse: getWorkRequestResponse
     };
   }
@@ -5082,6 +5144,25 @@ export class DatabaseWaiter {
       () => this.client.getPluggableDatabase(request),
       response => targetStates.includes(response.pluggableDatabase.lifecycleState!),
       targetStates.includes(models.PluggableDatabase.LifecycleState.Terminated)
+    );
+  }
+
+  /**
+   * Waits forPluggableDatabaseSnapshot till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetPluggableDatabaseSnapshotResponse | null (null in case of 404 response)
+   */
+  public async forPluggableDatabaseSnapshot(
+    request: serviceRequests.GetPluggableDatabaseSnapshotRequest,
+    ...targetStates: models.PluggableDatabaseSnapshot.LifecycleState[]
+  ): Promise<serviceResponses.GetPluggableDatabaseSnapshotResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getPluggableDatabaseSnapshot(request),
+      response => targetStates.includes(response.pluggableDatabaseSnapshot.lifecycleState!),
+      targetStates.includes(models.PluggableDatabaseSnapshot.LifecycleState.Terminated)
     );
   }
 

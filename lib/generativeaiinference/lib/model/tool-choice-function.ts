@@ -22,7 +22,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The tool choice for a function.
+ * The tool choice for a function. The model will generate the parameters for user to call the function.
  */
 export interface ToolChoiceFunction extends model.ToolChoice {
   /**
