@@ -1,6 +1,6 @@
 {
   "name": "oci-identity",
-  "version": "2.115.0",
+  "version": "2.116.0",
   "description": "OCI NodeJS client for Identity",
   "repository": {
     "type": "git",

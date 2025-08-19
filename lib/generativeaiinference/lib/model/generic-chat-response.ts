@@ -33,6 +33,7 @@ export interface GenericChatResponse extends model.BaseChatResponse {
    * A list of generated texts. Can be more than one if n is greater than 1.
    */
   "choices": Array<model.ChatChoice>;
+  "usage"?: model.Usage;
 
   "apiFormat": string;
 }
@@ -46,7 +47,8 @@ export namespace GenericChatResponse {
           ? obj.choices.map(item => {
               return model.ChatChoice.getJsonObj(item);
             })
-          : undefined
+          : undefined,
+        "usage": obj.usage ? model.Usage.getJsonObj(obj.usage) : undefined
       }
     };
 
@@ -66,7 +68,8 @@ export namespace GenericChatResponse {
           ? obj.choices.map(item => {
               return model.ChatChoice.getDeserializedJsonObj(item);
             })
-          : undefined
+          : undefined,
+        "usage": obj.usage ? model.Usage.getDeserializedJsonObj(obj.usage) : undefined
       }
     };
 
