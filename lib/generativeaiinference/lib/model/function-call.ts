@@ -26,7 +26,7 @@ import common = require("oci-common");
  */
 export interface FunctionCall extends model.ToolCall {
   /**
-   * The name of the function to call.
+   * The name of the function to call. Must be a-z, A-Z, 0-9, or contain underscores and dashes, with a maximum length of 64.
    */
   "name"?: string;
   /**

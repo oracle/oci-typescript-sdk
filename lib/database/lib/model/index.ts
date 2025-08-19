@@ -350,6 +350,8 @@ import * as CreatePluggableDatabaseDetails from "./create-pluggable-database-det
 export import CreatePluggableDatabaseDetails = CreatePluggableDatabaseDetails.CreatePluggableDatabaseDetails;
 import * as CreatePluggableDatabaseRefreshableCloneDetails from "./create-pluggable-database-refreshable-clone-details";
 export import CreatePluggableDatabaseRefreshableCloneDetails = CreatePluggableDatabaseRefreshableCloneDetails.CreatePluggableDatabaseRefreshableCloneDetails;
+import * as CreatePluggableDatabaseSnapshotDetails from "./create-pluggable-database-snapshot-details";
+export import CreatePluggableDatabaseSnapshotDetails = CreatePluggableDatabaseSnapshotDetails.CreatePluggableDatabaseSnapshotDetails;
 import * as CreateScheduledActionDetails from "./create-scheduled-action-details";
 export import CreateScheduledActionDetails = CreateScheduledActionDetails.CreateScheduledActionDetails;
 import * as CreateSchedulingPlanDetails from "./create-scheduling-plan-details";
@@ -670,6 +672,10 @@ import * as PluggableDatabaseNodeLevelDetails from "./pluggable-database-node-le
 export import PluggableDatabaseNodeLevelDetails = PluggableDatabaseNodeLevelDetails.PluggableDatabaseNodeLevelDetails;
 import * as PluggableDatabaseRefreshableCloneConfig from "./pluggable-database-refreshable-clone-config";
 export import PluggableDatabaseRefreshableCloneConfig = PluggableDatabaseRefreshableCloneConfig.PluggableDatabaseRefreshableCloneConfig;
+import * as PluggableDatabaseSnapshot from "./pluggable-database-snapshot";
+export import PluggableDatabaseSnapshot = PluggableDatabaseSnapshot.PluggableDatabaseSnapshot;
+import * as PluggableDatabaseSnapshotSummary from "./pluggable-database-snapshot-summary";
+export import PluggableDatabaseSnapshotSummary = PluggableDatabaseSnapshotSummary.PluggableDatabaseSnapshotSummary;
 import * as PluggableDatabaseSummary from "./pluggable-database-summary";
 export import PluggableDatabaseSummary = PluggableDatabaseSummary.PluggableDatabaseSummary;
 import * as RecommendedScheduledActionSummary from "./recommended-scheduled-action-summary";

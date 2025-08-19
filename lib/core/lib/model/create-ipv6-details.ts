@@ -55,6 +55,10 @@ Example: {@code 2001:DB8::}
     */
   "ipAddress"?: string;
   /**
+   * Length of cidr range. Optional field to specify flexible cidr. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "cidrPrefixLength"?: number;
+  /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the VNIC to assign the IPv6 to. The
    * IPv6 will be in the VNIC's subnet.
    *

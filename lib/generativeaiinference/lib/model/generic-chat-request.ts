@@ -30,9 +30,27 @@ export interface GenericChatRequest extends model.BaseChatRequest {
    */
   "messages"?: Array<model.Message>;
   /**
+   * Constrains effort on reasoning for reasoning models. Currently supported values are minimal, low, medium, and high. Reducing reasoning effort can result in faster responses and fewer tokens used on reasoning in a response.
+   *
+   */
+  "reasoningEffort"?: GenericChatRequest.ReasoningEffort;
+  /**
+   * Constrains the verbosity of the model's response. Lower values will result in more concise responses, while higher values will result in more verbose responses.
+   *
+   */
+  "verbosity"?: GenericChatRequest.Verbosity;
+  /**
+    * Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format, and querying for objects via API or the dashboard.
+* <p>
+Keys are strings with a maximum length of 64 characters. Values are strings with a maximum length of 512 characters.
+* 
+    */
+  "metadata"?: any;
+  /**
    * Whether to stream back partial progress. If set to true, as tokens become available, they are sent as data-only server-sent events.
    */
   "isStream"?: boolean;
+  "streamOptions"?: model.StreamOptions;
   /**
    * The number of of generated texts that will be returned. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
@@ -90,11 +108,15 @@ For example, if the log probability is 5, the API returns a list of the 5 most l
     */
   "logProbs"?: number;
   /**
-   * The maximum number of tokens that can be generated per output sequence. The token count of your prompt plus {@code maxTokens} must not exceed the model's context length.
-   * Not setting a value for maxTokens results in the possible use of model's full context length.
+   * The maximum number of tokens that can be generated per output sequence. The token count of your prompt plus maxTokens must not exceed the model's context length. For on-demand inferencing, the response length is capped at 4,000 tokens for each run.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maxTokens"?: number;
+  /**
+   * An upper bound for the number of tokens that can be generated for a completion, including visible output tokens and reasoning tokens.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "maxCompletionTokens"?: number;
   /**
     * Modifies the likelihood of specified tokens that appear in the completion.
 * <p>
@@ -102,11 +124,20 @@ Example: '{\"6395\": 2, \"8134\": 1, \"21943\": 0.5, \"5923\": -100}'
 * 
     */
   "logitBias"?: any;
+  "prediction"?: model.StaticContent;
+  "responseFormat"?:
+    | model.TextResponseFormat
+    | model.JsonObjectResponseFormat
+    | model.JsonSchemaResponseFormat;
   "toolChoice"?:
     | model.ToolChoiceFunction
     | model.ToolChoiceNone
     | model.ToolChoiceAuto
     | model.ToolChoiceRequired;
+  /**
+   * Whether to enable parallel function calling during tool use.
+   */
+  "isParallelToolCalls"?: boolean;
   /**
    * A list of tools the model may call. Use this to provide a list of functions the model may generate JSON inputs for. A max of 128 functions are supported.
    */
@@ -116,6 +147,19 @@ Example: '{\"6395\": 2, \"8134\": 1, \"21943\": 0.5, \"5923\": -100}'
 }
 
 export namespace GenericChatRequest {
+  export enum ReasoningEffort {
+    Minimal = "MINIMAL",
+    Low = "LOW",
+    Medium = "MEDIUM",
+    High = "HIGH"
+  }
+
+  export enum Verbosity {
+    Low = "LOW",
+    Medium = "MEDIUM",
+    High = "HIGH"
+  }
+
   export function getJsonObj(obj: GenericChatRequest, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj ? obj : (model.BaseChatRequest.getJsonObj(obj) as GenericChatRequest)),
@@ -126,7 +170,16 @@ export namespace GenericChatRequest {
             })
           : undefined,
 
+        "streamOptions": obj.streamOptions
+          ? model.StreamOptions.getJsonObj(obj.streamOptions)
+          : undefined,
+
+        "prediction": obj.prediction ? model.Prediction.getJsonObj(obj.prediction) : undefined,
+        "responseFormat": obj.responseFormat
+          ? model.ResponseFormat.getJsonObj(obj.responseFormat)
+          : undefined,
         "toolChoice": obj.toolChoice ? model.ToolChoice.getJsonObj(obj.toolChoice) : undefined,
+
         "tools": obj.tools
           ? obj.tools.map(item => {
               return model.ToolDefinition.getJsonObj(item);
@@ -153,9 +206,20 @@ export namespace GenericChatRequest {
             })
           : undefined,
 
+        "streamOptions": obj.streamOptions
+          ? model.StreamOptions.getDeserializedJsonObj(obj.streamOptions)
+          : undefined,
+
+        "prediction": obj.prediction
+          ? model.Prediction.getDeserializedJsonObj(obj.prediction)
+          : undefined,
+        "responseFormat": obj.responseFormat
+          ? model.ResponseFormat.getDeserializedJsonObj(obj.responseFormat)
+          : undefined,
         "toolChoice": obj.toolChoice
           ? model.ToolChoice.getDeserializedJsonObj(obj.toolChoice)
           : undefined,
+
         "tools": obj.tools
           ? obj.tools.map(item => {
               return model.ToolDefinition.getDeserializedJsonObj(item);

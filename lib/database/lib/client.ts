@@ -7502,6 +7502,92 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   }
 
   /**
+   * Creates a Pluggable Database Snapshot
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreatePluggableDatabaseSnapshotRequest
+   * @return CreatePluggableDatabaseSnapshotResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreatePluggableDatabaseSnapshot.ts.html |here} to see how to use CreatePluggableDatabaseSnapshot API.
+   */
+  public async createPluggableDatabaseSnapshot(
+    createPluggableDatabaseSnapshotRequest: requests.CreatePluggableDatabaseSnapshotRequest
+  ): Promise<responses.CreatePluggableDatabaseSnapshotResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#createPluggableDatabaseSnapshot.");
+    const operationName = "createPluggableDatabaseSnapshot";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createPluggableDatabaseSnapshotRequest.opcRetryToken,
+      "opc-request-id": createPluggableDatabaseSnapshotRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createPluggableDatabaseSnapshotRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pluggableDatabaseSnapshots",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createPluggableDatabaseSnapshotRequest.createPluggableDatabaseSnapshotDetails,
+        "CreatePluggableDatabaseSnapshotDetails",
+        model.CreatePluggableDatabaseSnapshotDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreatePluggableDatabaseSnapshotResponse>{},
+        body: await response.json(),
+        bodyKey: "pluggableDatabaseSnapshot",
+        bodyModel: model.PluggableDatabaseSnapshot,
+        type: "model.PluggableDatabaseSnapshot",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates a Scheduled Action resource.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -10110,6 +10196,82 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeletePluggableDatabaseResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the specified Exadata Pluggable Database Snapshot.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeletePluggableDatabaseSnapshotRequest
+   * @return DeletePluggableDatabaseSnapshotResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeletePluggableDatabaseSnapshot.ts.html |here} to see how to use DeletePluggableDatabaseSnapshot API.
+   */
+  public async deletePluggableDatabaseSnapshot(
+    deletePluggableDatabaseSnapshotRequest: requests.DeletePluggableDatabaseSnapshotRequest
+  ): Promise<responses.DeletePluggableDatabaseSnapshotResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#deletePluggableDatabaseSnapshot.");
+    const operationName = "deletePluggableDatabaseSnapshot";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/PluggableDatabaseSnapshot/DeletePluggableDatabaseSnapshot";
+    const pathParams = {
+      "{pluggableDatabaseSnapshotId}":
+        deletePluggableDatabaseSnapshotRequest.pluggableDatabaseSnapshotId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deletePluggableDatabaseSnapshotRequest.ifMatch,
+      "opc-request-id": deletePluggableDatabaseSnapshotRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deletePluggableDatabaseSnapshotRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pluggableDatabaseSnapshots/{pluggableDatabaseSnapshotId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeletePluggableDatabaseSnapshotResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -18623,6 +18785,85 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
         bodyKey: "pluggableDatabase",
         bodyModel: model.PluggableDatabase,
         type: "model.PluggableDatabase",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets information about the specified Exadata Pluggable Database Snapshot in the specified compartment.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetPluggableDatabaseSnapshotRequest
+   * @return GetPluggableDatabaseSnapshotResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetPluggableDatabaseSnapshot.ts.html |here} to see how to use GetPluggableDatabaseSnapshot API.
+   */
+  public async getPluggableDatabaseSnapshot(
+    getPluggableDatabaseSnapshotRequest: requests.GetPluggableDatabaseSnapshotRequest
+  ): Promise<responses.GetPluggableDatabaseSnapshotResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#getPluggableDatabaseSnapshot.");
+    const operationName = "getPluggableDatabaseSnapshot";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/PluggableDatabaseSnapshot/GetPluggableDatabaseSnapshot";
+    const pathParams = {
+      "{pluggableDatabaseSnapshotId}":
+        getPluggableDatabaseSnapshotRequest.pluggableDatabaseSnapshotId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getPluggableDatabaseSnapshotRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getPluggableDatabaseSnapshotRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pluggableDatabaseSnapshots/{pluggableDatabaseSnapshotId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetPluggableDatabaseSnapshotResponse>{},
+        body: await response.json(),
+        bodyKey: "pluggableDatabaseSnapshot",
+        bodyModel: model.PluggableDatabaseSnapshot,
+        type: "model.PluggableDatabaseSnapshot",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -28389,6 +28630,144 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
     request: requests.ListPdbConversionHistoryEntriesRequest
   ): AsyncIterableIterator<responses.ListPdbConversionHistoryEntriesResponse> {
     return paginateResponses(request, req => this.listPdbConversionHistoryEntries(req));
+  }
+
+  /**
+   * Gets a list of the Exadata Pluggable Database Snapshots in the specified compartment.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListPluggableDatabaseSnapshotsRequest
+   * @return ListPluggableDatabaseSnapshotsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListPluggableDatabaseSnapshots.ts.html |here} to see how to use ListPluggableDatabaseSnapshots API.
+   */
+  public async listPluggableDatabaseSnapshots(
+    listPluggableDatabaseSnapshotsRequest: requests.ListPluggableDatabaseSnapshotsRequest
+  ): Promise<responses.ListPluggableDatabaseSnapshotsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#listPluggableDatabaseSnapshots.");
+    const operationName = "listPluggableDatabaseSnapshots";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/PluggableDatabaseSnapshot/ListPluggableDatabaseSnapshots";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listPluggableDatabaseSnapshotsRequest.compartmentId,
+      "limit": listPluggableDatabaseSnapshotsRequest.limit,
+      "page": listPluggableDatabaseSnapshotsRequest.page,
+      "sortBy": listPluggableDatabaseSnapshotsRequest.sortBy,
+      "name": listPluggableDatabaseSnapshotsRequest.name,
+      "sortOrder": listPluggableDatabaseSnapshotsRequest.sortOrder,
+      "lifecycleState": listPluggableDatabaseSnapshotsRequest.lifecycleState,
+      "clusterId": listPluggableDatabaseSnapshotsRequest.clusterId,
+      "pluggableDatabaseId": listPluggableDatabaseSnapshotsRequest.pluggableDatabaseId
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listPluggableDatabaseSnapshotsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listPluggableDatabaseSnapshotsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pluggableDatabaseSnapshots",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListPluggableDatabaseSnapshotsResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.PluggableDatabaseSnapshotSummary,
+        type: "Array<model.PluggableDatabaseSnapshotSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listPluggableDatabaseSnapshotsRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.PluggableDatabaseSnapshotSummary objects
+   * contained in responses from the listPluggableDatabaseSnapshots operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllPluggableDatabaseSnapshots(
+    request: requests.ListPluggableDatabaseSnapshotsRequest
+  ): AsyncIterableIterator<model.PluggableDatabaseSnapshotSummary> {
+    return paginateRecords(request, req => this.listPluggableDatabaseSnapshots(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listPluggableDatabaseSnapshotsResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listPluggableDatabaseSnapshots operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllPluggableDatabaseSnapshotsResponses(
+    request: requests.ListPluggableDatabaseSnapshotsRequest
+  ): AsyncIterableIterator<responses.ListPluggableDatabaseSnapshotsResponse> {
+    return paginateResponses(request, req => this.listPluggableDatabaseSnapshots(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.PluggableDatabaseSnapshotSummary objects
+   * contained in responses from the listPluggableDatabaseSnapshots operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listPluggableDatabaseSnapshotsRecordIterator(
+    request: requests.ListPluggableDatabaseSnapshotsRequest
+  ): AsyncIterableIterator<model.PluggableDatabaseSnapshotSummary> {
+    return paginateRecords(request, req => this.listPluggableDatabaseSnapshots(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listPluggableDatabaseSnapshots operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listPluggableDatabaseSnapshotsResponseIterator(
+    request: requests.ListPluggableDatabaseSnapshotsRequest
+  ): AsyncIterableIterator<responses.ListPluggableDatabaseSnapshotsResponse> {
+    return paginateResponses(request, req => this.listPluggableDatabaseSnapshots(req));
   }
 
   /**

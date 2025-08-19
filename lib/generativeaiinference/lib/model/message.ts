@@ -56,6 +56,8 @@ export namespace Message {
           return model.UserMessage.getJsonObj(<model.UserMessage>(<object>jsonObj), true);
         case "TOOL":
           return model.ToolMessage.getJsonObj(<model.ToolMessage>(<object>jsonObj), true);
+        case "DEVELOPER":
+          return model.DeveloperMessage.getJsonObj(<model.DeveloperMessage>(<object>jsonObj), true);
         default:
           if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.role}`);
       }
@@ -94,6 +96,11 @@ export namespace Message {
         case "TOOL":
           return model.ToolMessage.getDeserializedJsonObj(
             <model.ToolMessage>(<object>jsonObj),
+            true
+          );
+        case "DEVELOPER":
+          return model.DeveloperMessage.getDeserializedJsonObj(
+            <model.DeveloperMessage>(<object>jsonObj),
             true
           );
         default:
