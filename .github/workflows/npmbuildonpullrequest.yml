@@ -15,12 +15,9 @@ jobs:
         uses: actions/checkout@v3
         with:
           ref: ${{ github.event.pull_request.head.ref }}
-        env:
-          GITHUB_EVENT: ${{ toJson(github.event) }}
 
       - name: Log GitHub event
         run: |
-          echo "GitHub event: $GITHUB_EVENT"
           echo "PR head ref: ${{ github.event.pull_request.head.ref }}"
           echo "PR head sha: ${{ github.event.pull_request.head.sha }}"
 
