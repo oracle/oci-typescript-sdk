@@ -2,7 +2,7 @@ name: NPM Build on PR Open
 
 on:
   pull_request:
-    types: [opened, synchronize]
+    types: [opened]
 
 jobs:
   build:
