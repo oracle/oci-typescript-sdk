@@ -1,0 +1,44 @@
+name: NPM Build on PR Open
+
+on:
+  pull_request:
+    types: [opened]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+        env:
+          GITHUB_EVENT: ${{ toJson(github.event) }}
+
+      - name: Log GitHub event
+        run: |
+          echo "GitHub event: $GITHUB_EVENT"
+          echo "PR head ref: ${{ github.event.pull_request.head.ref }}"
+          echo "PR head sha: ${{ github.event.pull_request.head.sha }}"
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+
+      - name: Log Node.js and npm versions
+        run: |
+          echo "Node.js version: $(node --version)"
+          echo "npm version: $(npm --version)"
+
+      - name: Install dependencies
+        run: |
+          echo "Installing dependencies..."
+          npm install
+          echo "Dependencies installed."
+
+      - name: Run build
+        run: |
+          echo "Running build..."
+          npm run build
+          echo "Build completed."
