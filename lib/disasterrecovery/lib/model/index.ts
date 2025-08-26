@@ -77,6 +77,10 @@ import * as CreateFileSystemMountDetails from "./create-file-system-mount-detail
 export import CreateFileSystemMountDetails = CreateFileSystemMountDetails.CreateFileSystemMountDetails;
 import * as CreateFileSystemUnmountDetails from "./create-file-system-unmount-details";
 export import CreateFileSystemUnmountDetails = CreateFileSystemUnmountDetails.CreateFileSystemUnmountDetails;
+import * as CreateMySqlDbSystemAdminUserDetails from "./create-my-sql-db-system-admin-user-details";
+export import CreateMySqlDbSystemAdminUserDetails = CreateMySqlDbSystemAdminUserDetails.CreateMySqlDbSystemAdminUserDetails;
+import * as CreateMySqlDbSystemReplicationUserDetails from "./create-my-sql-db-system-replication-user-details";
+export import CreateMySqlDbSystemReplicationUserDetails = CreateMySqlDbSystemReplicationUserDetails.CreateMySqlDbSystemReplicationUserDetails;
 import * as CreateObjectStorageLogLocationDetails from "./create-object-storage-log-location-details";
 export import CreateObjectStorageLogLocationDetails = CreateObjectStorageLogLocationDetails.CreateObjectStorageLogLocationDetails;
 import * as CreateOkeBackupLocationDetails from "./create-oke-backup-location-details";
@@ -181,6 +185,10 @@ import * as LoadBalancerBackendSetMapping from "./load-balancer-backend-set-mapp
 export import LoadBalancerBackendSetMapping = LoadBalancerBackendSetMapping.LoadBalancerBackendSetMapping;
 import * as LoadBalancerBackendSetMappingDetails from "./load-balancer-backend-set-mapping-details";
 export import LoadBalancerBackendSetMappingDetails = LoadBalancerBackendSetMappingDetails.LoadBalancerBackendSetMappingDetails;
+import * as MySqlDbSystemAdminUserDetails from "./my-sql-db-system-admin-user-details";
+export import MySqlDbSystemAdminUserDetails = MySqlDbSystemAdminUserDetails.MySqlDbSystemAdminUserDetails;
+import * as MySqlDbSystemReplicationUserDetails from "./my-sql-db-system-replication-user-details";
+export import MySqlDbSystemReplicationUserDetails = MySqlDbSystemReplicationUserDetails.MySqlDbSystemReplicationUserDetails;
 import * as NetworkLoadBalancerBackendSetMapping from "./network-load-balancer-backend-set-mapping";
 export import NetworkLoadBalancerBackendSetMapping = NetworkLoadBalancerBackendSetMapping.NetworkLoadBalancerBackendSetMapping;
 import * as NetworkLoadBalancerBackendSetMappingDetails from "./network-load-balancer-backend-set-mapping-details";
@@ -253,6 +261,10 @@ import * as UpdateFileSystemMountDetails from "./update-file-system-mount-detail
 export import UpdateFileSystemMountDetails = UpdateFileSystemMountDetails.UpdateFileSystemMountDetails;
 import * as UpdateFileSystemUnmountDetails from "./update-file-system-unmount-details";
 export import UpdateFileSystemUnmountDetails = UpdateFileSystemUnmountDetails.UpdateFileSystemUnmountDetails;
+import * as UpdateMySqlDbSystemAdminUserDetails from "./update-my-sql-db-system-admin-user-details";
+export import UpdateMySqlDbSystemAdminUserDetails = UpdateMySqlDbSystemAdminUserDetails.UpdateMySqlDbSystemAdminUserDetails;
+import * as UpdateMySqlDbSystemReplicationUserDetails from "./update-my-sql-db-system-replication-user-details";
+export import UpdateMySqlDbSystemReplicationUserDetails = UpdateMySqlDbSystemReplicationUserDetails.UpdateMySqlDbSystemReplicationUserDetails;
 import * as UpdateObjectStorageLogLocationDetails from "./update-object-storage-log-location-details";
 export import UpdateObjectStorageLogLocationDetails = UpdateObjectStorageLogLocationDetails.UpdateObjectStorageLogLocationDetails;
 import * as UpdateObjectStorageScriptLocationDetails from "./update-object-storage-script-location-details";
@@ -314,6 +326,8 @@ import * as CreateDrProtectionGroupMemberFileSystemDetails from "./create-dr-pro
 export import CreateDrProtectionGroupMemberFileSystemDetails = CreateDrProtectionGroupMemberFileSystemDetails.CreateDrProtectionGroupMemberFileSystemDetails;
 import * as CreateDrProtectionGroupMemberLoadBalancerDetails from "./create-dr-protection-group-member-load-balancer-details";
 export import CreateDrProtectionGroupMemberLoadBalancerDetails = CreateDrProtectionGroupMemberLoadBalancerDetails.CreateDrProtectionGroupMemberLoadBalancerDetails;
+import * as CreateDrProtectionGroupMemberMySqlDbSystemDetails from "./create-dr-protection-group-member-my-sql-db-system-details";
+export import CreateDrProtectionGroupMemberMySqlDbSystemDetails = CreateDrProtectionGroupMemberMySqlDbSystemDetails.CreateDrProtectionGroupMemberMySqlDbSystemDetails;
 import * as CreateDrProtectionGroupMemberNetworkLoadBalancerDetails from "./create-dr-protection-group-member-network-load-balancer-details";
 export import CreateDrProtectionGroupMemberNetworkLoadBalancerDetails = CreateDrProtectionGroupMemberNetworkLoadBalancerDetails.CreateDrProtectionGroupMemberNetworkLoadBalancerDetails;
 import * as CreateDrProtectionGroupMemberObjectStorageBucketDetails from "./create-dr-protection-group-member-object-storage-bucket-details";
@@ -340,6 +354,8 @@ import * as DrProtectionGroupMemberFileSystem from "./dr-protection-group-member
 export import DrProtectionGroupMemberFileSystem = DrProtectionGroupMemberFileSystem.DrProtectionGroupMemberFileSystem;
 import * as DrProtectionGroupMemberLoadBalancer from "./dr-protection-group-member-load-balancer";
 export import DrProtectionGroupMemberLoadBalancer = DrProtectionGroupMemberLoadBalancer.DrProtectionGroupMemberLoadBalancer;
+import * as DrProtectionGroupMemberMySqlDbSystem from "./dr-protection-group-member-my-sql-db-system";
+export import DrProtectionGroupMemberMySqlDbSystem = DrProtectionGroupMemberMySqlDbSystem.DrProtectionGroupMemberMySqlDbSystem;
 import * as DrProtectionGroupMemberNetworkLoadBalancer from "./dr-protection-group-member-network-load-balancer";
 export import DrProtectionGroupMemberNetworkLoadBalancer = DrProtectionGroupMemberNetworkLoadBalancer.DrProtectionGroupMemberNetworkLoadBalancer;
 import * as DrProtectionGroupMemberObjectStorageBucket from "./dr-protection-group-member-object-storage-bucket";
@@ -420,6 +436,8 @@ import * as UpdateDrProtectionGroupMemberFileSystemDetails from "./update-dr-pro
 export import UpdateDrProtectionGroupMemberFileSystemDetails = UpdateDrProtectionGroupMemberFileSystemDetails.UpdateDrProtectionGroupMemberFileSystemDetails;
 import * as UpdateDrProtectionGroupMemberLoadBalancerDetails from "./update-dr-protection-group-member-load-balancer-details";
 export import UpdateDrProtectionGroupMemberLoadBalancerDetails = UpdateDrProtectionGroupMemberLoadBalancerDetails.UpdateDrProtectionGroupMemberLoadBalancerDetails;
+import * as UpdateDrProtectionGroupMemberMySqlDbSystemDetails from "./update-dr-protection-group-member-my-sql-db-system-details";
+export import UpdateDrProtectionGroupMemberMySqlDbSystemDetails = UpdateDrProtectionGroupMemberMySqlDbSystemDetails.UpdateDrProtectionGroupMemberMySqlDbSystemDetails;
 import * as UpdateDrProtectionGroupMemberNetworkLoadBalancerDetails from "./update-dr-protection-group-member-network-load-balancer-details";
 export import UpdateDrProtectionGroupMemberNetworkLoadBalancerDetails = UpdateDrProtectionGroupMemberNetworkLoadBalancerDetails.UpdateDrProtectionGroupMemberNetworkLoadBalancerDetails;
 import * as UpdateDrProtectionGroupMemberObjectStorageBucketDetails from "./update-dr-protection-group-member-object-storage-bucket-details";

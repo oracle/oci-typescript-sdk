@@ -38,6 +38,10 @@ export interface ListDbSystemStoragePerformancesRequest extends common.BaseReque
    *
    */
   "opcRequestId"?: string;
+  /**
+   * The compartment [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   */
+  "compartmentId"?: string;
 }
 
 export namespace ListDbSystemStoragePerformancesRequest {

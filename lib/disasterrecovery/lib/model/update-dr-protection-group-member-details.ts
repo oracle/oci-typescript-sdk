@@ -44,14 +44,14 @@ export namespace UpdateDrProtectionGroupMemberDetails {
             <model.UpdateDrProtectionGroupMemberComputeInstanceDetails>(<object>jsonObj),
             true
           );
+        case "MYSQL_DB_SYSTEM":
+          return model.UpdateDrProtectionGroupMemberMySqlDbSystemDetails.getJsonObj(
+            <model.UpdateDrProtectionGroupMemberMySqlDbSystemDetails>(<object>jsonObj),
+            true
+          );
         case "NETWORK_LOAD_BALANCER":
           return model.UpdateDrProtectionGroupMemberNetworkLoadBalancerDetails.getJsonObj(
             <model.UpdateDrProtectionGroupMemberNetworkLoadBalancerDetails>(<object>jsonObj),
-            true
-          );
-        case "OKE_CLUSTER":
-          return model.UpdateDrProtectionGroupMemberOkeClusterDetails.getJsonObj(
-            <model.UpdateDrProtectionGroupMemberOkeClusterDetails>(<object>jsonObj),
             true
           );
         case "AUTONOMOUS_DATABASE":
@@ -69,6 +69,21 @@ export namespace UpdateDrProtectionGroupMemberDetails {
             <model.UpdateDrProtectionGroupMemberVolumeGroupDetails>(<object>jsonObj),
             true
           );
+        case "LOAD_BALANCER":
+          return model.UpdateDrProtectionGroupMemberLoadBalancerDetails.getJsonObj(
+            <model.UpdateDrProtectionGroupMemberLoadBalancerDetails>(<object>jsonObj),
+            true
+          );
+        case "DATABASE":
+          return model.UpdateDrProtectionGroupMemberDatabaseDetails.getJsonObj(
+            <model.UpdateDrProtectionGroupMemberDatabaseDetails>(<object>jsonObj),
+            true
+          );
+        case "OKE_CLUSTER":
+          return model.UpdateDrProtectionGroupMemberOkeClusterDetails.getJsonObj(
+            <model.UpdateDrProtectionGroupMemberOkeClusterDetails>(<object>jsonObj),
+            true
+          );
         case "COMPUTE_INSTANCE_NON_MOVABLE":
           return model.UpdateDrProtectionGroupMemberComputeInstanceNonMovableDetails.getJsonObj(
             <model.UpdateDrProtectionGroupMemberComputeInstanceNonMovableDetails>(<object>jsonObj),
@@ -81,11 +96,6 @@ export namespace UpdateDrProtectionGroupMemberDetails {
             ),
             true
           );
-        case "LOAD_BALANCER":
-          return model.UpdateDrProtectionGroupMemberLoadBalancerDetails.getJsonObj(
-            <model.UpdateDrProtectionGroupMemberLoadBalancerDetails>(<object>jsonObj),
-            true
-          );
         case "OBJECT_STORAGE_BUCKET":
           return model.UpdateDrProtectionGroupMemberObjectStorageBucketDetails.getJsonObj(
             <model.UpdateDrProtectionGroupMemberObjectStorageBucketDetails>(<object>jsonObj),
@@ -94,11 +104,6 @@ export namespace UpdateDrProtectionGroupMemberDetails {
         case "COMPUTE_INSTANCE_MOVABLE":
           return model.UpdateDrProtectionGroupMemberComputeInstanceMovableDetails.getJsonObj(
             <model.UpdateDrProtectionGroupMemberComputeInstanceMovableDetails>(<object>jsonObj),
-            true
-          );
-        case "DATABASE":
-          return model.UpdateDrProtectionGroupMemberDatabaseDetails.getJsonObj(
-            <model.UpdateDrProtectionGroupMemberDatabaseDetails>(<object>jsonObj),
             true
           );
         default:
@@ -117,14 +122,14 @@ export namespace UpdateDrProtectionGroupMemberDetails {
             <model.UpdateDrProtectionGroupMemberComputeInstanceDetails>(<object>jsonObj),
             true
           );
+        case "MYSQL_DB_SYSTEM":
+          return model.UpdateDrProtectionGroupMemberMySqlDbSystemDetails.getDeserializedJsonObj(
+            <model.UpdateDrProtectionGroupMemberMySqlDbSystemDetails>(<object>jsonObj),
+            true
+          );
         case "NETWORK_LOAD_BALANCER":
           return model.UpdateDrProtectionGroupMemberNetworkLoadBalancerDetails.getDeserializedJsonObj(
             <model.UpdateDrProtectionGroupMemberNetworkLoadBalancerDetails>(<object>jsonObj),
-            true
-          );
-        case "OKE_CLUSTER":
-          return model.UpdateDrProtectionGroupMemberOkeClusterDetails.getDeserializedJsonObj(
-            <model.UpdateDrProtectionGroupMemberOkeClusterDetails>(<object>jsonObj),
             true
           );
         case "AUTONOMOUS_DATABASE":
@@ -142,6 +147,21 @@ export namespace UpdateDrProtectionGroupMemberDetails {
             <model.UpdateDrProtectionGroupMemberVolumeGroupDetails>(<object>jsonObj),
             true
           );
+        case "LOAD_BALANCER":
+          return model.UpdateDrProtectionGroupMemberLoadBalancerDetails.getDeserializedJsonObj(
+            <model.UpdateDrProtectionGroupMemberLoadBalancerDetails>(<object>jsonObj),
+            true
+          );
+        case "DATABASE":
+          return model.UpdateDrProtectionGroupMemberDatabaseDetails.getDeserializedJsonObj(
+            <model.UpdateDrProtectionGroupMemberDatabaseDetails>(<object>jsonObj),
+            true
+          );
+        case "OKE_CLUSTER":
+          return model.UpdateDrProtectionGroupMemberOkeClusterDetails.getDeserializedJsonObj(
+            <model.UpdateDrProtectionGroupMemberOkeClusterDetails>(<object>jsonObj),
+            true
+          );
         case "COMPUTE_INSTANCE_NON_MOVABLE":
           return model.UpdateDrProtectionGroupMemberComputeInstanceNonMovableDetails.getDeserializedJsonObj(
             <model.UpdateDrProtectionGroupMemberComputeInstanceNonMovableDetails>(<object>jsonObj),
@@ -154,11 +174,6 @@ export namespace UpdateDrProtectionGroupMemberDetails {
             ),
             true
           );
-        case "LOAD_BALANCER":
-          return model.UpdateDrProtectionGroupMemberLoadBalancerDetails.getDeserializedJsonObj(
-            <model.UpdateDrProtectionGroupMemberLoadBalancerDetails>(<object>jsonObj),
-            true
-          );
         case "OBJECT_STORAGE_BUCKET":
           return model.UpdateDrProtectionGroupMemberObjectStorageBucketDetails.getDeserializedJsonObj(
             <model.UpdateDrProtectionGroupMemberObjectStorageBucketDetails>(<object>jsonObj),
@@ -167,11 +182,6 @@ export namespace UpdateDrProtectionGroupMemberDetails {
         case "COMPUTE_INSTANCE_MOVABLE":
           return model.UpdateDrProtectionGroupMemberComputeInstanceMovableDetails.getDeserializedJsonObj(
             <model.UpdateDrProtectionGroupMemberComputeInstanceMovableDetails>(<object>jsonObj),
-            true
-          );
-        case "DATABASE":
-          return model.UpdateDrProtectionGroupMemberDatabaseDetails.getDeserializedJsonObj(
-            <model.UpdateDrProtectionGroupMemberDatabaseDetails>(<object>jsonObj),
             true
           );
         default:

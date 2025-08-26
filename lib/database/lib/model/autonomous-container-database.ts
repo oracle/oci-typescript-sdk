@@ -189,7 +189,8 @@ Example: {@code {\"Department\": \"Finance\"}}
    */
   "keyStoreWalletName"?: string;
   /**
-   * The amount of memory (in GBs) enabled per ECPU or OCPU in the Autonomous VM Cluster. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The amount of memory (in GBs) enabled per ECPU or OCPU in the Autonomous VM Cluster.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "memoryPerOracleComputeUnitInGBs"?: number;
   /**

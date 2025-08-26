@@ -224,7 +224,7 @@ Example: {@code {\"Department\": \"Finance\"}}
    */
   "dbNodeStorageSizeInGBs"?: number;
   /**
-   * The amount of memory (in GBs) enabled per OCPU or ECPU.
+   * The amount of memory (in GBs) to be enabled per OCPU or ECPU.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "memoryPerOracleComputeUnitInGBs"?: number;

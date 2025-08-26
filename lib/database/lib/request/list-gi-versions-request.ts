@@ -46,6 +46,10 @@ export interface ListGiVersionsRequest extends common.BaseRequest {
    * If provided, filters the results for the specified resource Id.
    */
   "resourceId"?: string;
+  /**
+   * If provided and applicable, return DB System shape parameters based on the shapeAttribute provided
+   */
+  "shapeAttribute"?: string;
 }
 
 export namespace ListGiVersionsRequest {

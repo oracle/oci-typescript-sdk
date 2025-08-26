@@ -23,7 +23,7 @@ export interface ComputePerformanceSummary {
   /**
    * The number of CPU cores available. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
-  "cpuCoreCount": number;
+  "cpuCoreCount"?: number;
   /**
    * The amount of memory allocated for the VMDB System. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
@@ -31,18 +31,36 @@ export interface ComputePerformanceSummary {
   /**
    * The network bandwidth of the VMDB system in gbps. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
-  "networkBandwidthInGbps": number;
+  "networkBandwidthInGbps"?: number;
   /**
    * IOPS for the VMDB System. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
-  "networkIops": number;
+  "networkIops"?: number;
   /**
    * Network throughput for the VMDB System. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
-  "networkThroughputInMbps": number;
+  "networkThroughputInMbps"?: number;
+  /**
+   * The compute model for Base Database Service. This is required if using the {@code computeCount} parameter. If using {@code cpuCoreCount} then it is an error to specify {@code computeModel} to a non-null value. The ECPU compute model is the recommended model, and the OCPU compute model is legacy.
+   */
+  "computeModel"?: ComputePerformanceSummary.ComputeModel;
+  /**
+   * The number of compute servers for the DB system. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "computeCount"?: number;
 }
 
 export namespace ComputePerformanceSummary {
+  export enum ComputeModel {
+    Ecpu = "ECPU",
+    Ocpu = "OCPU",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: ComputePerformanceSummary): object {
     const jsonObj = { ...obj, ...{} };
 

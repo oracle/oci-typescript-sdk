@@ -25286,7 +25286,8 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       "availabilityDomain": listDbSystemShapesRequest.availabilityDomain,
       "compartmentId": listDbSystemShapesRequest.compartmentId,
       "limit": listDbSystemShapesRequest.limit,
-      "page": listDbSystemShapesRequest.page
+      "page": listDbSystemShapesRequest.page,
+      "shapeAttribute": listDbSystemShapesRequest.shapeAttribute
     };
 
     let headerParams = {
@@ -25417,7 +25418,8 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
     const queryParams = {
       "storageManagement": listDbSystemStoragePerformancesRequest.storageManagement,
       "shapeType": listDbSystemStoragePerformancesRequest.shapeType,
-      "databaseEdition": listDbSystemStoragePerformancesRequest.databaseEdition
+      "databaseEdition": listDbSystemStoragePerformancesRequest.databaseEdition,
+      "compartmentId": listDbSystemStoragePerformancesRequest.compartmentId
     };
 
     let headerParams = {
@@ -25907,6 +25909,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       "dbSystemShape": listDbVersionsRequest.dbSystemShape,
       "dbSystemId": listDbVersionsRequest.dbSystemId,
       "storageManagement": listDbVersionsRequest.storageManagement,
+      "shapeAttribute": listDbVersionsRequest.shapeAttribute,
       "isUpgradeSupported": listDbVersionsRequest.isUpgradeSupported,
       "isDatabaseSoftwareImageSupported": listDbVersionsRequest.isDatabaseSoftwareImageSupported
     };
@@ -26588,6 +26591,13 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       "sortOrder": listExascaleDbStorageVaultsRequest.sortOrder,
       "lifecycleState": listExascaleDbStorageVaultsRequest.lifecycleState,
       "clusterPlacementGroupId": listExascaleDbStorageVaultsRequest.clusterPlacementGroupId,
+      "attachedShapeAttributesNotEqualTo":
+        listExascaleDbStorageVaultsRequest.attachedShapeAttributesNotEqualTo,
+      "attachedShapeAttributes": listExascaleDbStorageVaultsRequest.attachedShapeAttributes,
+      "vmClusterCountLessThanOrEqualTo":
+        listExascaleDbStorageVaultsRequest.vmClusterCountLessThanOrEqualTo,
+      "vmClusterCountGreaterThanOrEqualTo":
+        listExascaleDbStorageVaultsRequest.vmClusterCountGreaterThanOrEqualTo,
       "displayName": listExascaleDbStorageVaultsRequest.displayName,
       "exadataInfrastructureId": listExascaleDbStorageVaultsRequest.exadataInfrastructureId
     };
@@ -27763,7 +27773,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       "sortOrder": listGiVersionsRequest.sortOrder,
       "shape": listGiVersionsRequest.shape,
       "availabilityDomain": listGiVersionsRequest.availabilityDomain,
-      "resourceId": listGiVersionsRequest.resourceId
+      "resourceId": listGiVersionsRequest.resourceId,
+      "shapeAttribute": listGiVersionsRequest.shapeAttribute
     };
 
     let headerParams = {

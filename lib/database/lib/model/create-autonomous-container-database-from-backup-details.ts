@@ -16,13 +16,13 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details to create an Oracle Autonomous Container Database by cloning from a backup of an existing Autonomous Container Database.
+ * Details to create an Autonomous Container Database (ACD) by cloning a backup of an existing ACD.
  *
  */
 export interface CreateAutonomousContainerDatabaseFromBackupDetails
   extends model.CreateAutonomousContainerDatabaseBase {
   /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the source Autonomous Container Database Backup that you will clone to create a new Autonomous Container Database.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the source ACD backup that you will clone to create a new ACD.
    */
   "autonomousContainerDatabaseBackupId": string;
 

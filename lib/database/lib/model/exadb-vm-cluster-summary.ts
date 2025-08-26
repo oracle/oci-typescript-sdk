@@ -250,6 +250,11 @@ Example: {@code {\"Department\": \"Finance\"}}
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subscription with which resource needs to be associated with.
    */
   "subscriptionId"?: string;
+  /**
+   * The type of Exascale storage used for Exadata VM cluster. The default is SMART_STORAGE which supports Oracle Database 23ai and later
+   *
+   */
+  "shapeAttribute"?: ExadbVmClusterSummary.ShapeAttribute;
 }
 
 export namespace ExadbVmClusterSummary {
@@ -281,6 +286,16 @@ export namespace ExadbVmClusterSummary {
   export enum LicenseModel {
     LicenseIncluded = "LICENSE_INCLUDED",
     BringYourOwnLicense = "BRING_YOUR_OWN_LICENSE",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum ShapeAttribute {
+    SmartStorage = "SMART_STORAGE",
+    BlockStorage = "BLOCK_STORAGE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

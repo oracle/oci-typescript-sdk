@@ -39,6 +39,41 @@ export namespace CreateDrProtectionGroupMemberDetails {
 
     if (obj && "memberType" in obj && obj.memberType) {
       switch (obj.memberType) {
+        case "DATABASE":
+          return model.CreateDrProtectionGroupMemberDatabaseDetails.getJsonObj(
+            <model.CreateDrProtectionGroupMemberDatabaseDetails>(<object>jsonObj),
+            true
+          );
+        case "AUTONOMOUS_DATABASE":
+          return model.CreateDrProtectionGroupMemberAutonomousDatabaseDetails.getJsonObj(
+            <model.CreateDrProtectionGroupMemberAutonomousDatabaseDetails>(<object>jsonObj),
+            true
+          );
+        case "NETWORK_LOAD_BALANCER":
+          return model.CreateDrProtectionGroupMemberNetworkLoadBalancerDetails.getJsonObj(
+            <model.CreateDrProtectionGroupMemberNetworkLoadBalancerDetails>(<object>jsonObj),
+            true
+          );
+        case "MYSQL_DB_SYSTEM":
+          return model.CreateDrProtectionGroupMemberMySqlDbSystemDetails.getJsonObj(
+            <model.CreateDrProtectionGroupMemberMySqlDbSystemDetails>(<object>jsonObj),
+            true
+          );
+        case "FILE_SYSTEM":
+          return model.CreateDrProtectionGroupMemberFileSystemDetails.getJsonObj(
+            <model.CreateDrProtectionGroupMemberFileSystemDetails>(<object>jsonObj),
+            true
+          );
+        case "OBJECT_STORAGE_BUCKET":
+          return model.CreateDrProtectionGroupMemberObjectStorageBucketDetails.getJsonObj(
+            <model.CreateDrProtectionGroupMemberObjectStorageBucketDetails>(<object>jsonObj),
+            true
+          );
+        case "LOAD_BALANCER":
+          return model.CreateDrProtectionGroupMemberLoadBalancerDetails.getJsonObj(
+            <model.CreateDrProtectionGroupMemberLoadBalancerDetails>(<object>jsonObj),
+            true
+          );
         case "COMPUTE_INSTANCE_MOVABLE":
           return model.CreateDrProtectionGroupMemberComputeInstanceMovableDetails.getJsonObj(
             <model.CreateDrProtectionGroupMemberComputeInstanceMovableDetails>(<object>jsonObj),
@@ -61,21 +96,6 @@ export namespace CreateDrProtectionGroupMemberDetails {
             <model.CreateDrProtectionGroupMemberComputeInstanceDetails>(<object>jsonObj),
             true
           );
-        case "DATABASE":
-          return model.CreateDrProtectionGroupMemberDatabaseDetails.getJsonObj(
-            <model.CreateDrProtectionGroupMemberDatabaseDetails>(<object>jsonObj),
-            true
-          );
-        case "AUTONOMOUS_DATABASE":
-          return model.CreateDrProtectionGroupMemberAutonomousDatabaseDetails.getJsonObj(
-            <model.CreateDrProtectionGroupMemberAutonomousDatabaseDetails>(<object>jsonObj),
-            true
-          );
-        case "NETWORK_LOAD_BALANCER":
-          return model.CreateDrProtectionGroupMemberNetworkLoadBalancerDetails.getJsonObj(
-            <model.CreateDrProtectionGroupMemberNetworkLoadBalancerDetails>(<object>jsonObj),
-            true
-          );
         case "VOLUME_GROUP":
           return model.CreateDrProtectionGroupMemberVolumeGroupDetails.getJsonObj(
             <model.CreateDrProtectionGroupMemberVolumeGroupDetails>(<object>jsonObj),
@@ -84,21 +104,6 @@ export namespace CreateDrProtectionGroupMemberDetails {
         case "OKE_CLUSTER":
           return model.CreateDrProtectionGroupMemberOkeClusterDetails.getJsonObj(
             <model.CreateDrProtectionGroupMemberOkeClusterDetails>(<object>jsonObj),
-            true
-          );
-        case "FILE_SYSTEM":
-          return model.CreateDrProtectionGroupMemberFileSystemDetails.getJsonObj(
-            <model.CreateDrProtectionGroupMemberFileSystemDetails>(<object>jsonObj),
-            true
-          );
-        case "OBJECT_STORAGE_BUCKET":
-          return model.CreateDrProtectionGroupMemberObjectStorageBucketDetails.getJsonObj(
-            <model.CreateDrProtectionGroupMemberObjectStorageBucketDetails>(<object>jsonObj),
-            true
-          );
-        case "LOAD_BALANCER":
-          return model.CreateDrProtectionGroupMemberLoadBalancerDetails.getJsonObj(
-            <model.CreateDrProtectionGroupMemberLoadBalancerDetails>(<object>jsonObj),
             true
           );
         default:
@@ -112,6 +117,41 @@ export namespace CreateDrProtectionGroupMemberDetails {
 
     if (obj && "memberType" in obj && obj.memberType) {
       switch (obj.memberType) {
+        case "DATABASE":
+          return model.CreateDrProtectionGroupMemberDatabaseDetails.getDeserializedJsonObj(
+            <model.CreateDrProtectionGroupMemberDatabaseDetails>(<object>jsonObj),
+            true
+          );
+        case "AUTONOMOUS_DATABASE":
+          return model.CreateDrProtectionGroupMemberAutonomousDatabaseDetails.getDeserializedJsonObj(
+            <model.CreateDrProtectionGroupMemberAutonomousDatabaseDetails>(<object>jsonObj),
+            true
+          );
+        case "NETWORK_LOAD_BALANCER":
+          return model.CreateDrProtectionGroupMemberNetworkLoadBalancerDetails.getDeserializedJsonObj(
+            <model.CreateDrProtectionGroupMemberNetworkLoadBalancerDetails>(<object>jsonObj),
+            true
+          );
+        case "MYSQL_DB_SYSTEM":
+          return model.CreateDrProtectionGroupMemberMySqlDbSystemDetails.getDeserializedJsonObj(
+            <model.CreateDrProtectionGroupMemberMySqlDbSystemDetails>(<object>jsonObj),
+            true
+          );
+        case "FILE_SYSTEM":
+          return model.CreateDrProtectionGroupMemberFileSystemDetails.getDeserializedJsonObj(
+            <model.CreateDrProtectionGroupMemberFileSystemDetails>(<object>jsonObj),
+            true
+          );
+        case "OBJECT_STORAGE_BUCKET":
+          return model.CreateDrProtectionGroupMemberObjectStorageBucketDetails.getDeserializedJsonObj(
+            <model.CreateDrProtectionGroupMemberObjectStorageBucketDetails>(<object>jsonObj),
+            true
+          );
+        case "LOAD_BALANCER":
+          return model.CreateDrProtectionGroupMemberLoadBalancerDetails.getDeserializedJsonObj(
+            <model.CreateDrProtectionGroupMemberLoadBalancerDetails>(<object>jsonObj),
+            true
+          );
         case "COMPUTE_INSTANCE_MOVABLE":
           return model.CreateDrProtectionGroupMemberComputeInstanceMovableDetails.getDeserializedJsonObj(
             <model.CreateDrProtectionGroupMemberComputeInstanceMovableDetails>(<object>jsonObj),
@@ -134,21 +174,6 @@ export namespace CreateDrProtectionGroupMemberDetails {
             <model.CreateDrProtectionGroupMemberComputeInstanceDetails>(<object>jsonObj),
             true
           );
-        case "DATABASE":
-          return model.CreateDrProtectionGroupMemberDatabaseDetails.getDeserializedJsonObj(
-            <model.CreateDrProtectionGroupMemberDatabaseDetails>(<object>jsonObj),
-            true
-          );
-        case "AUTONOMOUS_DATABASE":
-          return model.CreateDrProtectionGroupMemberAutonomousDatabaseDetails.getDeserializedJsonObj(
-            <model.CreateDrProtectionGroupMemberAutonomousDatabaseDetails>(<object>jsonObj),
-            true
-          );
-        case "NETWORK_LOAD_BALANCER":
-          return model.CreateDrProtectionGroupMemberNetworkLoadBalancerDetails.getDeserializedJsonObj(
-            <model.CreateDrProtectionGroupMemberNetworkLoadBalancerDetails>(<object>jsonObj),
-            true
-          );
         case "VOLUME_GROUP":
           return model.CreateDrProtectionGroupMemberVolumeGroupDetails.getDeserializedJsonObj(
             <model.CreateDrProtectionGroupMemberVolumeGroupDetails>(<object>jsonObj),
@@ -157,21 +182,6 @@ export namespace CreateDrProtectionGroupMemberDetails {
         case "OKE_CLUSTER":
           return model.CreateDrProtectionGroupMemberOkeClusterDetails.getDeserializedJsonObj(
             <model.CreateDrProtectionGroupMemberOkeClusterDetails>(<object>jsonObj),
-            true
-          );
-        case "FILE_SYSTEM":
-          return model.CreateDrProtectionGroupMemberFileSystemDetails.getDeserializedJsonObj(
-            <model.CreateDrProtectionGroupMemberFileSystemDetails>(<object>jsonObj),
-            true
-          );
-        case "OBJECT_STORAGE_BUCKET":
-          return model.CreateDrProtectionGroupMemberObjectStorageBucketDetails.getDeserializedJsonObj(
-            <model.CreateDrProtectionGroupMemberObjectStorageBucketDetails>(<object>jsonObj),
-            true
-          );
-        case "LOAD_BALANCER":
-          return model.CreateDrProtectionGroupMemberLoadBalancerDetails.getDeserializedJsonObj(
-            <model.CreateDrProtectionGroupMemberLoadBalancerDetails>(<object>jsonObj),
             true
           );
         default:

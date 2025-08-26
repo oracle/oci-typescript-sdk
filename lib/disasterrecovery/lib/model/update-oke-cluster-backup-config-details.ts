@@ -23,8 +23,9 @@ import common = require("oci-common");
  */
 export interface UpdateOkeClusterBackupConfigDetails {
   /**
-    * A list of namespaces that need to be backed up. 
-* The default value is null. If a list of namespaces is not provided, all namespaces will be backed up.
+    * A list of namespaces to be included in the backup. 
+* The default value is null. If a list of namespaces to include is not provided, all namespaces will be backed up.
+* Specify either the {@code namespaces} or the {@code excludeNamespaces} parameter, but not both.
 * This property applies to the OKE cluster member in primary region.
 * <p>
 Example: [\"default\", \"pv-nginx\"]
@@ -32,8 +33,18 @@ Example: [\"default\", \"pv-nginx\"]
     */
   "namespaces"?: Array<string>;
   /**
-    * The schedule for backing up namespaces to the destination region. If a backup schedule is not specified, only a single backup will be created. 
-* This format of the string specifying the backup schedule must conform with RFC-5545.
+    * A list of namespaces to be excluded from the backup. 
+* The default value is null. If a list of namespaces to exclude is not provided, all namespaces will be backed up.
+* Specify either the {@code namespaces} or the {@code excludeNamespaces} parameter, but not both.
+* This property applies to OKE cluster members in the primary region.
+* <p>
+Example: [\"namespace_string_3\", \"namespace_string_4\"]
+* 
+    */
+  "excludeNamespaces"?: Array<string>;
+  /**
+    * The schedule for backing up namespaces to the destination region. If a{@code backupSchedule} is not specified, only a single backup will be created. 
+* This format of the string specifying the {@code backupSchedule} must conform with RFC-5545.
 * This schedule will use the UTC timezone.
 * This property applies to the OKE cluster member in primary region.
 * <p>
