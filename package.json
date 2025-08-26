@@ -20,7 +20,9 @@
     "prettier:check": "prettier --config .prettierrc --c \"**/*.ts\"",
     "prettier:format": "prettier --config .prettierrc --write",
     "prettier:format-all": "npm run prettier:format -- \"**/*.ts\"",
-    "cleanup": "rm -rf target"
+    "cleanup": "rm -rf target",
+    "test": "npm run build && npm run test:fast",
+    "test:fast": "mocha \"lib/**/tests/**/*.spec.ts\" --require ts-node/register"
   },
   "license": "(UPL-1.0 OR Apache-2.0)",
   "dependencies": {
