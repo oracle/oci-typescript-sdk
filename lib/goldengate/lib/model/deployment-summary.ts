@@ -109,6 +109,18 @@ Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
    */
   "licenseModel": model.LicenseModel;
   /**
+   * Flag to allow to configure the 'Bring Your Own License' (BYOL) license type CPU limit.
+   * If enabled, the exact number of CPUs must be provided via byolCpuCoreCountLimit.
+   *
+   */
+  "isByolCpuCoreCountLimitEnabled"?: boolean;
+  /**
+   * The maximum number of CPUs allowed with a 'Bring Your Own License' (BYOL) license type.
+   * Any CPU usage above this limit is considered as License Included and billed.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "byolCpuCoreCountLimit"?: number;
+  /**
    * Specifies whether the deployment is used in a production or development/testing environment.
    *
    */

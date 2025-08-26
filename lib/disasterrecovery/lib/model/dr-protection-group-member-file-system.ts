@@ -43,6 +43,13 @@ Example: {@code ocid1.filesystemsnapshotpolicy.oc1..uniqueID}
 * 
     */
   "destinationSnapshotPolicyId"?: string;
+  /**
+    * The OCID of a compartment in the destination region in which the file system should be launched.
+* <p>
+Example: {@code ocid1.compartment.oc1..uniqueID}
+* 
+    */
+  "destinationCompartmentId"?: string;
 
   "memberType": string;
 }

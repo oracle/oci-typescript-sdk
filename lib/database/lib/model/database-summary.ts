@@ -165,6 +165,7 @@ Example: {@code {\"Department\": \"Finance\"}}
   "encryptionKeyLocationDetails"?:
     | model.ExternalHsmEncryptionDetails
     | model.AzureEncryptionKeyDetails;
+  "storageSizeDetails"?: model.DatabaseStorageSizeResponseDetails;
 }
 
 export namespace DatabaseSummary {
@@ -207,6 +208,9 @@ export namespace DatabaseSummary {
           : undefined,
         "encryptionKeyLocationDetails": obj.encryptionKeyLocationDetails
           ? model.EncryptionKeyLocationDetails.getJsonObj(obj.encryptionKeyLocationDetails)
+          : undefined,
+        "storageSizeDetails": obj.storageSizeDetails
+          ? model.DatabaseStorageSizeResponseDetails.getJsonObj(obj.storageSizeDetails)
           : undefined
       }
     };
@@ -236,6 +240,9 @@ export namespace DatabaseSummary {
           ? model.EncryptionKeyLocationDetails.getDeserializedJsonObj(
               obj.encryptionKeyLocationDetails
             )
+          : undefined,
+        "storageSizeDetails": obj.storageSizeDetails
+          ? model.DatabaseStorageSizeResponseDetails.getDeserializedJsonObj(obj.storageSizeDetails)
           : undefined
       }
     };

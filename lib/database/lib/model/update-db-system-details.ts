@@ -89,12 +89,25 @@ To get a list of shapes, use the {@link #listDbSystemShapes(ListDbSystemShapesRe
   "licenseModel"?: UpdateDbSystemDetails.LicenseModel;
   "maintenanceWindowDetails"?: model.MaintenanceWindow;
   "dataCollectionOptions"?: model.DataCollectionOptions;
+  /**
+   * The compute model for Base Database Service. This is required if using the {@code computeCount} parameter. If using {@code cpuCoreCount} then it is an error to specify {@code computeModel} to a non-null value. The ECPU compute model is the recommended model, and the OCPU compute model is legacy.
+   */
+  "computeModel"?: UpdateDbSystemDetails.ComputeModel;
+  /**
+   * The number of compute servers for the DB system. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "computeCount"?: number;
 }
 
 export namespace UpdateDbSystemDetails {
   export enum LicenseModel {
     LicenseIncluded = "LICENSE_INCLUDED",
     BringYourOwnLicense = "BRING_YOUR_OWN_LICENSE"
+  }
+
+  export enum ComputeModel {
+    Ecpu = "ECPU",
+    Ocpu = "OCPU"
   }
 
   export function getJsonObj(obj: UpdateDbSystemDetails): object {

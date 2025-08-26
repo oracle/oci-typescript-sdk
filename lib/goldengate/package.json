@@ -1,6 +1,6 @@
 {
   "name": "oci-goldengate",
-  "version": "2.116.0",
+  "version": "2.116.1",
   "description": "OCI NodeJS client for Golden Gate Service",
   "repository": {
     "type": "git",

@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details to create an Oracle Autonomous Container Database.
+ * Details to create an Autonomous Container Database (ACD).
  *
  */
 export interface CreateAutonomousContainerDatabaseDetails

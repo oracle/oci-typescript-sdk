@@ -21,6 +21,10 @@ import common = require("oci-common");
  */
 export interface DbSystemStoragePerformanceSummary {
   /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment.
+   */
+  "compartmentId"?: string;
+  /**
    * ShapeType of the DbSystems INTEL , AMD, INTEL_FLEX_X9 or AMPERE_FLEX_A1
    */
   "shapeType": DbSystemStoragePerformanceSummary.ShapeType;
@@ -40,6 +44,7 @@ export namespace DbSystemStoragePerformanceSummary {
     Intel = "INTEL",
     IntelFlexX9 = "INTEL_FLEX_X9",
     AmpereFlexA1 = "AMPERE_FLEX_A1",
+    StandardX86 = "STANDARD_X86",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

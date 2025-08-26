@@ -34,4 +34,8 @@ export interface ListDbSystemShapesRequest extends common.BaseRequest {
    * The pagination token to continue listing from.
    */
   "page"?: string;
+  /**
+   * If provided and applicable, return DB System shape parameters based on the shapeAttribute provided
+   */
+  "shapeAttribute"?: string;
 }

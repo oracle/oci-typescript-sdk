@@ -169,6 +169,14 @@ Example: {@code {\"Department\": \"Finance\"}}
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Exacc Db server associated with the database node.
    */
   "dbServerId"?: string;
+  /**
+   * The compute model for Base Database Service. This is required if using the {@code computeCount} parameter. If using {@code cpuCoreCount} then it is an error to specify {@code computeModel} to a non-null value. The ECPU compute model is the recommended model, and the OCPU compute model is legacy.
+   */
+  "computeModel"?: DbNodeSummary.ComputeModel;
+  /**
+   * The number of compute servers for the DB system. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "computeCount"?: number;
 }
 
 export namespace DbNodeSummary {
@@ -192,6 +200,16 @@ export namespace DbNodeSummary {
   export enum MaintenanceType {
     VmdbRebootMigration = "VMDB_REBOOT_MIGRATION",
     ExadbxsRebootMigration = "EXADBXS_REBOOT_MIGRATION",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum ComputeModel {
+    Ecpu = "ECPU",
+    Ocpu = "OCPU",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

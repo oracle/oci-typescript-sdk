@@ -39,6 +39,7 @@ export interface UpdateDatabaseDetails {
    * The new password to open the TDE wallet. The password must be at least nine characters and contain at least two uppercase, two lowercase, two numeric, and two special characters. The special characters must be _, \\#, or -.
    */
   "newTdeWalletPassword"?: string;
+  "storageSizeDetails"?: model.DatabaseStorageSizeDetails;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
 * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
@@ -62,6 +63,10 @@ export namespace UpdateDatabaseDetails {
       ...{
         "dbBackupConfig": obj.dbBackupConfig
           ? model.DbBackupConfig.getJsonObj(obj.dbBackupConfig)
+          : undefined,
+
+        "storageSizeDetails": obj.storageSizeDetails
+          ? model.DatabaseStorageSizeDetails.getJsonObj(obj.storageSizeDetails)
           : undefined
       }
     };
@@ -74,6 +79,10 @@ export namespace UpdateDatabaseDetails {
       ...{
         "dbBackupConfig": obj.dbBackupConfig
           ? model.DbBackupConfig.getDeserializedJsonObj(obj.dbBackupConfig)
+          : undefined,
+
+        "storageSizeDetails": obj.storageSizeDetails
+          ? model.DatabaseStorageSizeDetails.getDeserializedJsonObj(obj.storageSizeDetails)
           : undefined
       }
     };

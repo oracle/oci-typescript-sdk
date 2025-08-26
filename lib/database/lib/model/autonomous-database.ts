@@ -182,7 +182,7 @@ The following points apply to Autonomous Databases on Serverless Infrastructure:
     */
   "dataStorageSizeInTBs": number;
   /**
-   * The amount of memory (in GBs) enabled per ECPU or OCPU.
+   * The amount of memory (in GBs) to be enabled per OCPU or ECPU.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "memoryPerOracleComputeUnitInGBs"?: number;

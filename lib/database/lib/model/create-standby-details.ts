@@ -73,6 +73,7 @@ For more information, see
 * 
     */
   "transportType": CreateStandbyDetails.TransportType;
+  "storageSizeDetails"?: model.DatabaseStorageSizeDetails;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
 * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
@@ -108,6 +109,10 @@ export namespace CreateStandbyDetails {
       ...{
         "sourceEncryptionKeyLocationDetails": obj.sourceEncryptionKeyLocationDetails
           ? model.EncryptionKeyLocationDetails.getJsonObj(obj.sourceEncryptionKeyLocationDetails)
+          : undefined,
+
+        "storageSizeDetails": obj.storageSizeDetails
+          ? model.DatabaseStorageSizeDetails.getJsonObj(obj.storageSizeDetails)
           : undefined
       }
     };
@@ -122,6 +127,10 @@ export namespace CreateStandbyDetails {
           ? model.EncryptionKeyLocationDetails.getDeserializedJsonObj(
               obj.sourceEncryptionKeyLocationDetails
             )
+          : undefined,
+
+        "storageSizeDetails": obj.storageSizeDetails
+          ? model.DatabaseStorageSizeDetails.getDeserializedJsonObj(obj.storageSizeDetails)
           : undefined
       }
     };

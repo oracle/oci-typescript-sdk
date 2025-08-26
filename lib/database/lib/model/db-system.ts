@@ -121,7 +121,7 @@ These subnets are used by the Oracle Clusterware private interconnect on the dat
   /**
    * The number of CPU cores enabled on the DB system. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
-  "cpuCoreCount": number;
+  "cpuCoreCount"?: number;
   /**
    * The cluster name for Exadata and 2-node RAC virtual machine DB systems. The cluster name must begin with an alphabetic character, and may contain hyphens (-). Underscores (_) are not permitted. The cluster name can be no longer than 11 characters and is not case sensitive.
    *
@@ -287,6 +287,14 @@ Example: {@code {\"Department\": \"Finance\"}}
    */
   "pointInTimeDataDiskCloneTimestamp"?: Date;
   "dataCollectionOptions"?: model.DataCollectionOptions;
+  /**
+   * The compute model for Base Database Service. This is required if using the {@code computeCount} parameter. If using {@code cpuCoreCount} then it is an error to specify {@code computeModel} to a non-null value. The ECPU compute model is the recommended model, and the OCPU compute model is legacy.
+   */
+  "computeModel"?: DbSystem.ComputeModel;
+  /**
+   * The number of compute servers for the DB system. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "computeCount"?: number;
 }
 
 export namespace DbSystem {
@@ -344,6 +352,16 @@ export namespace DbSystem {
   export enum LicenseModel {
     LicenseIncluded = "LICENSE_INCLUDED",
     BringYourOwnLicense = "BRING_YOUR_OWN_LICENSE",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum ComputeModel {
+    Ecpu = "ECPU",
+    Ocpu = "OCPU",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
