@@ -33,6 +33,13 @@ describe("Test Request Generator ", () => {
     ? `${clientInfo} (${os.platform}/${os.release}; Node/${process.version}) ${appendUserAgent}`
     : `${clientInfo} (${os.platform}/${os.release}; Node/${process.version})`;
 
+  const testFilePath = __dirname + "/resources/test_file.bin";
+  const largeString = "a".repeat(10485760);
+
+  before(() => {
+    fs.writeFileSync(testFilePath, largeString);
+  });
+
   it("should compose request properly  in Node environment", async function() {
     const sdkRequest = await composeRequest({
       baseEndpoint: "http://test-end-point/20191002",
@@ -61,9 +68,9 @@ describe("Test Request Generator ", () => {
       "Content-Length": undefined,
       "opc-retry-token": undefined
     };
-    const fileLocation = __dirname + "/resources/large_file.bin";
-    const objectData = await fs.createReadStream(fileLocation);
-    const size = fs.statSync(fileLocation).size;
+
+    const objectData = await fs.createReadStream(testFilePath);
+    const size = fs.statSync(testFilePath).size;
     const sdkRequest = await composeRequest({
       baseEndpoint: "http://test-end-point/20191002",
       defaultHeaders: {},
@@ -95,9 +102,9 @@ describe("Test Request Generator ", () => {
       "Content-Length": undefined,
       "opc-retry-token": undefined
     };
-    const fileLocation = __dirname + "/resources/large_file.bin";
-    const size = fs.statSync(fileLocation).size;
-    const objectData = await fs.createReadStream(fileLocation);
+
+    const size = fs.statSync(testFilePath).size;
+    const objectData = await fs.createReadStream(testFilePath);
     objectData.path = ""; // Force the path to be an empty string
     const sdkRequest = await composeRequest({
       baseEndpoint: "http://test-end-point/20191002",
@@ -192,5 +199,11 @@ describe("Test Request Generator ", () => {
     expect(sdkRequest.uri).equals(
       "http://test-end-point/20191002/testUrl/Test-Id/actions?imageId=test&definedTagEquals=namespace1.key.val&definedTagEquals=namespace1.key.val2&definedTagEquals=namespace2.key.val&freeformTagEquals=ff1key.val&freeformTagEquals=ff2key.val"
     );
+  });
+
+  after(() => {
+    // if (fs.existsSync(testFilePath)) {
+    //   fs.rmSync(testFilePath);
+    // }
   });
 });
