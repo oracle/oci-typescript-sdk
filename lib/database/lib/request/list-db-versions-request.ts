@@ -46,6 +46,10 @@ export interface ListDbVersionsRequest extends common.BaseRequest {
    */
   "storageManagement"?: string;
   /**
+   * If provided and applicable, return DB System shape parameters based on the shapeAttribute provided
+   */
+  "shapeAttribute"?: string;
+  /**
    * If provided, filters the results to the set of database versions which are supported for Upgrade.
    */
   "isUpgradeSupported"?: boolean;

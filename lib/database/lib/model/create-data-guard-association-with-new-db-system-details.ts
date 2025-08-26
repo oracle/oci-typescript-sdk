@@ -49,6 +49,14 @@ To get a list of all shapes, use the {@link #listDbSystemShapes(ListDbSystemShap
    */
   "storageVolumePerformanceMode"?: CreateDataGuardAssociationWithNewDbSystemDetails.StorageVolumePerformanceMode;
   /**
+   * The compute model for Base Database Service. This is required if using the {@code computeCount} parameter. If using {@code cpuCoreCount} then it is an error to specify {@code computeModel} to a non-null value. The ECPU compute model is the recommended model, and the OCPU compute model is legacy.
+   */
+  "computeModel"?: CreateDataGuardAssociationWithNewDbSystemDetails.ComputeModel;
+  /**
+   * The number of compute servers for the DB system. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "computeCount"?: number;
+  /**
    * The number of nodes to launch for the DB system of the standby in the Data Guard association. For a 2-node RAC virtual machine DB system, specify either 1 or 2. If you do not supply this parameter, the default is the node count of the primary DB system.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
@@ -173,6 +181,11 @@ export namespace CreateDataGuardAssociationWithNewDbSystemDetails {
   export enum StorageVolumePerformanceMode {
     Balanced = "BALANCED",
     HighPerformance = "HIGH_PERFORMANCE"
+  }
+
+  export enum ComputeModel {
+    Ecpu = "ECPU",
+    Ocpu = "OCPU"
   }
 
   export enum LicenseModel {

@@ -100,9 +100,24 @@ Example: {@code {\"Department\": \"Finance\"}}
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subscription with which resource needs to be associated with.
    */
   "subscriptionId"?: string;
+  /**
+   * The shapeAttribute of the Exadata VM cluster(s) associated with the Exadata Database Storage Vault.
+   *
+   */
+  "attachedShapeAttributes"?: Array<ExascaleDbStorageVaultSummary.AttachedShapeAttributes>;
 }
 
 export namespace ExascaleDbStorageVaultSummary {
+  export enum AttachedShapeAttributes {
+    SmartStorage = "SMART_STORAGE",
+    BlockStorage = "BLOCK_STORAGE",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: ExascaleDbStorageVaultSummary): object {
     const jsonObj = {
       ...obj,

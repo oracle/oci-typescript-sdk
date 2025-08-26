@@ -72,6 +72,10 @@ export interface ComputeGpuMemoryFabric {
    */
   "healthyHostCount": number;
   /**
+   * The total number of available bare metal hosts located in this compute GPU memory fabric. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "availableHostCount"?: number;
+  /**
    * The total number of bare metal hosts located in this compute GPU memory fabric. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "totalHostCount": number;

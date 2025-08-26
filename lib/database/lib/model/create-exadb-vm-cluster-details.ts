@@ -170,12 +170,22 @@ Example: {@code {\"Department\": \"Finance\"}}
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subscription with which resource needs to be associated with.
    */
   "subscriptionId"?: string;
+  /**
+   * The type of Exascale storage used for Exadata VM cluster. The default is SMART_STORAGE which supports Oracle Database 23ai and later
+   *
+   */
+  "shapeAttribute"?: CreateExadbVmClusterDetails.ShapeAttribute;
 }
 
 export namespace CreateExadbVmClusterDetails {
   export enum LicenseModel {
     LicenseIncluded = "LICENSE_INCLUDED",
     BringYourOwnLicense = "BRING_YOUR_OWN_LICENSE"
+  }
+
+  export enum ShapeAttribute {
+    SmartStorage = "SMART_STORAGE",
+    BlockStorage = "BLOCK_STORAGE"
   }
 
   export function getJsonObj(obj: CreateExadbVmClusterDetails): object {

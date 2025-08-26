@@ -52,6 +52,11 @@ export interface ListDeploymentsRequest extends common.BaseRequest {
    */
   "lifecycleSubState"?: model.LifecycleSubState;
   /**
+   * A filter that returns only the resources matching the specified 'deploymentType'.
+   *
+   */
+  "deploymentType"?: model.DeploymentType;
+  /**
    * A filter to return only the resources that match the entire 'displayName' given.
    *
    */

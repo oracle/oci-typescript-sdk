@@ -48,6 +48,22 @@ export interface ListExascaleDbStorageVaultsRequest extends common.BaseRequest {
    */
   "clusterPlacementGroupId"?: string;
   /**
+   * A filter to return only Exadata Database Storage Vaults which do not match the given attachedShapeAttributes
+   */
+  "attachedShapeAttributesNotEqualTo"?: string;
+  /**
+   * A filter to return only Exadata Database Storage Vaults which match the given attachedShapeAttributes or has null attachedShapeAttributes
+   */
+  "attachedShapeAttributes"?: string;
+  /**
+   * A filter to return only Exadata Database Storage Vaults with associated Exadata VM Clusters less than or equal to the given count
+   */
+  "vmClusterCountLessThanOrEqualTo"?: number;
+  /**
+   * A filter to return only Exadata Database Storage Vaults with associated Exadata VM Clusters greater than or equal to the given count
+   */
+  "vmClusterCountGreaterThanOrEqualTo"?: number;
+  /**
    * A filter to return only resources that match the entire display name given. The match is not case sensitive.
    */
   "displayName"?: string;

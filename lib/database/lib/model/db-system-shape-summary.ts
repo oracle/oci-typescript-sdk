@@ -124,6 +124,11 @@ export interface DbSystemShapeSummary {
    * The maximum number of CPU cores per database node that can be enabled for this shape. Only applicable to the flex Exadata shape, ExaCC Elastic shapes and VM Flex shapes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "availableCoreCountPerNode"?: number;
+  /**
+   * The shapeAttributes of the DB system shape.
+   *
+   */
+  "shapeAttributes"?: Array<string>;
 }
 
 export namespace DbSystemShapeSummary {
@@ -132,6 +137,7 @@ export namespace DbSystemShapeSummary {
     Intel = "INTEL",
     IntelFlexX9 = "INTEL_FLEX_X9",
     AmpereFlexA1 = "AMPERE_FLEX_A1",
+    StandardX86 = "STANDARD_X86",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

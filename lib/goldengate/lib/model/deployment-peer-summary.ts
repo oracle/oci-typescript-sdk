@@ -73,6 +73,12 @@ export interface DeploymentPeerSummary {
    */
   "timeRoleChanged": Date;
   /**
+   * The time of the last data synchronization from the primary to the standby peer.
+   * [RFC3339](https://tools.ietf.org/html/rfc3339), such as {@code 2016-08-25T21:10:29.600Z}.
+   *
+   */
+  "timeLastSynced"?: Date;
+  /**
    * Possible lifecycle states for deployment peer.
    */
   "lifecycleState": DeploymentPeerSummary.LifecycleState;

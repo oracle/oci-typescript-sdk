@@ -39,7 +39,7 @@ export interface ListAutonomousContainerDatabaseBackupsRequest extends common.Ba
    */
   "lifecycleState"?: string;
   /**
-   * The field to sort by.  You can provide one sort order ({@code sortOrder}).  Default order for TIMECREATED is descending.  Default order for DISPLAYNAME is ascending. The DISPLAYNAME sort order is case sensitive.
+   * The field to sort by. You can provide one sort order ({@code sortOrder}). Default order for TIMECREATED is descending. Default order for DISPLAYNAME is ascending. The DISPLAYNAME sort order is case sensitive.
    * <p>
    **Note:** If you do not include the availability domain filter, the resources are grouped by availability domain, then sorted.
    *

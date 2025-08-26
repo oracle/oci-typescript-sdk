@@ -1,6 +1,6 @@
 {
   "name": "oci-sdk",
-  "version": "2.116.0",
+  "version": "2.116.1",
   "author": {
     "name": "Oracle Cloud Infrastructure",
     "email": ""
@@ -175,7 +175,8 @@
     "oci-wlms": "file:lib/wlms",
     "oci-dbmulticloud": "file:lib/dbmulticloud",
     "oci-apiplatform": "file:lib/apiplatform",
-    "oci-multicloud": "file:lib/multicloud"
+    "oci-multicloud": "file:lib/multicloud",
+    "oci-managedkafka": "file:lib/managedkafka"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"

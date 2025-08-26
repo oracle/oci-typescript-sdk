@@ -60,16 +60,15 @@ export interface BackupDestinationConfigurationSummary {
    */
   "dbrsPolicyId"?: string;
   /**
-   * Indicates whether the backup destination is cross-region or local region.
+   * Indicates whether the backup destination is cross-region or local.
    */
   "isRemote"?: boolean;
   /**
-    * The name of the remote region where the remote automatic incremental backups will be stored.
-* <p>
-For information about valid region names, see
-* [Regions and Availability Domains](https://docs.oracle.com/iaas/Content/General/Concepts/regions.htm).
-* 
-    */
+   * The name of the remote region where the remote automatic incremental backups will be stored.
+   * For information about valid region names, see
+   * [Regions and Availability Domains](https://docs.oracle.com/iaas/Content/General/Concepts/regions.htm).
+   *
+   */
   "remoteRegion"?: string;
 }
 

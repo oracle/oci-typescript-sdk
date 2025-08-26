@@ -67,6 +67,14 @@ export interface ComputeGpuMemoryFabricSummary {
    */
   "totalHostCount": number;
   /**
+   * The total number of available bare metal hosts located in this compute GPU memory fabric. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "availableHostCount"?: number;
+  /**
+   * The total number of healthy bare metal hosts located in this compute GPU memory fabric. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "healthyHostCount"?: number;
+  /**
     * The date and time that the compute GPU memory fabric record was created, in the format defined by [RFC3339]
 * (https://tools.ietf.org/html/rfc3339).
 * <p>

@@ -4629,6 +4629,7 @@ export class GoldenGateClient {
       "assignableConnectionId": listDeploymentsRequest.assignableConnectionId,
       "lifecycleState": listDeploymentsRequest.lifecycleState,
       "lifecycleSubState": listDeploymentsRequest.lifecycleSubState,
+      "deploymentType": listDeploymentsRequest.deploymentType,
       "displayName": listDeploymentsRequest.displayName,
       "fqdn": listDeploymentsRequest.fqdn,
       "limit": listDeploymentsRequest.limit,

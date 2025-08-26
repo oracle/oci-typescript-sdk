@@ -48,6 +48,13 @@ An entry for each volume in volume group should be added in this list. The encry
     model.CreateSourceVolumeToDestinationEncryptionKeyMappingDetails
   >;
   "commonDestinationKey"?: model.CreateVaultAndEncryptionKeyDetails;
+  /**
+    * The OCID of a compartment in the destination region in which the volume group should be launched.
+* <p>
+Example: {@code ocid1.compartment.oc1..uniqueID}
+* 
+    */
+  "destinationCompartmentId"?: string;
 
   "memberType": string;
 }
