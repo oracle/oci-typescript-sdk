@@ -202,8 +202,8 @@ describe("Test Request Generator ", () => {
   });
 
   after(() => {
-    // if (fs.existsSync(testFilePath)) {
-    //   fs.rmSync(testFilePath);
-    // }
+    if (fs.existsSync(testFilePath)) {
+      fs.rmSync(testFilePath);
+    }
   });
 });
