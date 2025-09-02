@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface GetOracleDbAzureKeyRequest extends common.BaseRequest {
   /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Oracle DB Azure Vault Key Resource.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Oracle DB Azure Vault Key resource.
    */
   "oracleDbAzureKeyId": string;
   /**

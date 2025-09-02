@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface PatchOracleDbAzureConnectorRequest extends common.BaseRequest {
   /**
-   * The ID of the Oracle DB Azure Connector Resource.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Oracle DB Azure Connector resource.
    */
   "oracleDbAzureConnectorId": string;
   /**
-   * Patch Azure Arc Agent on VM Cluster with new version.
+   * Patch Azure Arc Agent on Oracle Cloud VM Cluster with new version.
    */
   "patchOracleDbAzureConnectorDetails": model.PatchOracleDbAzureConnectorDetails;
   /**

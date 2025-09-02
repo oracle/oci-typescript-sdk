@@ -1,15 +1,34 @@
 /**
- * Oracle Database MultiCloud Data plane Integration
- * 1. Oracle Azure Connector Resource: This is for installing Azure Arc Server in ExaCS VM Cluster.
-  There are two way to install Azure Arc Server (Azure Identity) in ExaCS VMCluster.
-    a. Using Bearer Access Token or
-    b. By providing Authentication token
+ * Oracle Database MultiCloud Data Plane Integration
+ * <b>Microsoft Azure:</b> <br>
+<b>Oracle Azure Connector Resource:</b>:&nbsp;&nbsp;The Oracle Azure Connector Resource is used to install the Azure Arc Server on an Exadata VM cluster in Oracle Exadata Database Service on Dedicated Infrastructure (ExaDB-D).
+ The supported method to install the Azure Arc Server (Azure Identity) on the Exadata VM cluster:
+<ul>
+ <li>Using a Bearer Access Token</li>
+</ul>
 
-2. Oracle Azure Blob Container Resource: This is for to capture Azure Container details 
-   and same will be used in multiple ExaCS VMCluster to mount the Azure Container.
+<b>Oracle Azure Blob Container Resource:</b>&nbsp;&nbsp;The Oracle Azure Blob Container Resource is used to capture the details of an Azure Blob Container. 
+This resource can then be reused across multiple Exadata VM clusters in Oracle Exadata Database Service on Dedicated Infrastructure (ExaDB-D) to mount the Azure container.
 
-3. Oracle Azure Blob Mount Resource: This is for to mount Azure Container in ExaCS VMCluster 
-   using Oracle Azure Connector and Oracle Azure Blob Container Resource.
+<b>Oracle Azure Blob Mount Resource:</b>&nbsp;&nbsp;The Oracle Azure Blob Mount Resource is used to mount an Azure Blob Container on an Exadata VM cluster in Oracle Exadata Database Service on Dedicated Infrastructure (ExaDB-D).
+It relies on both the Oracle Azure Connector and the Oracle Azure Blob Container Resource to perform the mount operation.
+
+<b>Discover Azure Vaults and Keys Resource:</b>&nbsp;&nbsp;The Discover Oracle Azure Vaults and Azure Keys Resource is used to discover Azure Vaults and the associated encryption keys available in your Azure project.
+
+<b>Oracle Azure Vault:</b>&nbsp;&nbsp;The Oracle Azure Vault Resource is used to manage Azure Vaults within Oracle Cloud Infrastructure (OCI) for use with services such as Oracle Exadata Database Service on Dedicated Infrastructure.
+
+<b>Oracle Azure Key:</b>&nbsp;&nbsp;Oracle Azure Key Resource is used to register and manage a Oracle Azure Key Key within Oracle Cloud Infrastructure (OCI) under an associated Azure Vault.
+
+<br>
+
+<b>Google Cloud:</b><br>
+<b>Oracle Google Cloud Connector Resource:</b>&nbsp;&nbsp;The Oracle Google Cloud Connector Resource is used to install the Google Cloud Identity Connector on an Exadata VM cluster in Oracle Exadata Database Service on Dedicated Infrastructure (ExaDB-D).
+
+<b>Discover Google Key Rings and Keys Resource:</b>&nbsp;&nbsp;The Discover Google Key Rings and Keys Resource is used to discover Google Cloud Key Rings and the associated encryption keys available in your Google Cloud project.
+
+<b>Google Key Rings Resource:</b>&nbsp;&nbsp;The Google Key Rings Resource is used to register and manage Google Cloud Key Rings within Oracle Cloud Infrastructure (OCI) for use with services such as Oracle Exadata Database Service on Dedicated Infrastructure.
+
+<b>Google Key Resource:</b>&nbsp;&nbsp;The Google Key Resource is used to register and manage a Google Cloud Key within Oracle Cloud Infrastructure (OCI) under an associated Google Key Ring.
 
  * OpenAPI spec version: 20240501
  * 
@@ -21,6 +40,38 @@
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as ChangeOracleDbGcpIdentityConnectorCompartmentRequest from "./change-oracle-db-gcp-identity-connector-compartment-request";
+export import ChangeOracleDbGcpIdentityConnectorCompartmentRequest = ChangeOracleDbGcpIdentityConnectorCompartmentRequest.ChangeOracleDbGcpIdentityConnectorCompartmentRequest;
+import * as ChangeOracleDbGcpKeyRingCompartmentRequest from "./change-oracle-db-gcp-key-ring-compartment-request";
+export import ChangeOracleDbGcpKeyRingCompartmentRequest = ChangeOracleDbGcpKeyRingCompartmentRequest.ChangeOracleDbGcpKeyRingCompartmentRequest;
+import * as CreateOracleDbGcpIdentityConnectorRequest from "./create-oracle-db-gcp-identity-connector-request";
+export import CreateOracleDbGcpIdentityConnectorRequest = CreateOracleDbGcpIdentityConnectorRequest.CreateOracleDbGcpIdentityConnectorRequest;
+import * as CreateOracleDbGcpKeyRingRequest from "./create-oracle-db-gcp-key-ring-request";
+export import CreateOracleDbGcpKeyRingRequest = CreateOracleDbGcpKeyRingRequest.CreateOracleDbGcpKeyRingRequest;
+import * as DeleteOracleDbGcpIdentityConnectorRequest from "./delete-oracle-db-gcp-identity-connector-request";
+export import DeleteOracleDbGcpIdentityConnectorRequest = DeleteOracleDbGcpIdentityConnectorRequest.DeleteOracleDbGcpIdentityConnectorRequest;
+import * as DeleteOracleDbGcpKeyRingRequest from "./delete-oracle-db-gcp-key-ring-request";
+export import DeleteOracleDbGcpKeyRingRequest = DeleteOracleDbGcpKeyRingRequest.DeleteOracleDbGcpKeyRingRequest;
+import * as GetOracleDbGcpIdentityConnectorRequest from "./get-oracle-db-gcp-identity-connector-request";
+export import GetOracleDbGcpIdentityConnectorRequest = GetOracleDbGcpIdentityConnectorRequest.GetOracleDbGcpIdentityConnectorRequest;
+import * as GetOracleDbGcpKeyRequest from "./get-oracle-db-gcp-key-request";
+export import GetOracleDbGcpKeyRequest = GetOracleDbGcpKeyRequest.GetOracleDbGcpKeyRequest;
+import * as GetOracleDbGcpKeyRingRequest from "./get-oracle-db-gcp-key-ring-request";
+export import GetOracleDbGcpKeyRingRequest = GetOracleDbGcpKeyRingRequest.GetOracleDbGcpKeyRingRequest;
+import * as ListOracleDbGcpIdentityConnectorsRequest from "./list-oracle-db-gcp-identity-connectors-request";
+export import ListOracleDbGcpIdentityConnectorsRequest = ListOracleDbGcpIdentityConnectorsRequest.ListOracleDbGcpIdentityConnectorsRequest;
+import * as ListOracleDbGcpKeyRingsRequest from "./list-oracle-db-gcp-key-rings-request";
+export import ListOracleDbGcpKeyRingsRequest = ListOracleDbGcpKeyRingsRequest.ListOracleDbGcpKeyRingsRequest;
+import * as ListOracleDbGcpKeysRequest from "./list-oracle-db-gcp-keys-request";
+export import ListOracleDbGcpKeysRequest = ListOracleDbGcpKeysRequest.ListOracleDbGcpKeysRequest;
+import * as RefreshOracleDbGcpIdentityConnectorRequest from "./refresh-oracle-db-gcp-identity-connector-request";
+export import RefreshOracleDbGcpIdentityConnectorRequest = RefreshOracleDbGcpIdentityConnectorRequest.RefreshOracleDbGcpIdentityConnectorRequest;
+import * as RefreshOracleDbGcpKeyRingRequest from "./refresh-oracle-db-gcp-key-ring-request";
+export import RefreshOracleDbGcpKeyRingRequest = RefreshOracleDbGcpKeyRingRequest.RefreshOracleDbGcpKeyRingRequest;
+import * as UpdateOracleDbGcpIdentityConnectorRequest from "./update-oracle-db-gcp-identity-connector-request";
+export import UpdateOracleDbGcpIdentityConnectorRequest = UpdateOracleDbGcpIdentityConnectorRequest.UpdateOracleDbGcpIdentityConnectorRequest;
+import * as UpdateOracleDbGcpKeyRingRequest from "./update-oracle-db-gcp-key-ring-request";
+export import UpdateOracleDbGcpKeyRingRequest = UpdateOracleDbGcpKeyRingRequest.UpdateOracleDbGcpKeyRingRequest;
 import * as ChangeMultiCloudResourceDiscoveryCompartmentRequest from "./change-multi-cloud-resource-discovery-compartment-request";
 export import ChangeMultiCloudResourceDiscoveryCompartmentRequest = ChangeMultiCloudResourceDiscoveryCompartmentRequest.ChangeMultiCloudResourceDiscoveryCompartmentRequest;
 import * as CreateMultiCloudResourceDiscoveryRequest from "./create-multi-cloud-resource-discovery-request";
@@ -69,6 +120,8 @@ import * as ListOracleDbAzureConnectorsRequest from "./list-oracle-db-azure-conn
 export import ListOracleDbAzureConnectorsRequest = ListOracleDbAzureConnectorsRequest.ListOracleDbAzureConnectorsRequest;
 import * as PatchOracleDbAzureConnectorRequest from "./patch-oracle-db-azure-connector-request";
 export import PatchOracleDbAzureConnectorRequest = PatchOracleDbAzureConnectorRequest.PatchOracleDbAzureConnectorRequest;
+import * as RefreshOracleDbAzureConnectorRequest from "./refresh-oracle-db-azure-connector-request";
+export import RefreshOracleDbAzureConnectorRequest = RefreshOracleDbAzureConnectorRequest.RefreshOracleDbAzureConnectorRequest;
 import * as UpdateOracleDbAzureConnectorRequest from "./update-oracle-db-azure-connector-request";
 export import UpdateOracleDbAzureConnectorRequest = UpdateOracleDbAzureConnectorRequest.UpdateOracleDbAzureConnectorRequest;
 import * as GetOracleDbAzureKeyRequest from "./get-oracle-db-azure-key-request";

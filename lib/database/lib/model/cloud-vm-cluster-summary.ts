@@ -363,6 +363,7 @@ export namespace CloudVmClusterSummary {
   export enum TdeKeyStoreType {
     Azure = "AZURE",
     Oci = "OCI",
+    Gcp = "GCP",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

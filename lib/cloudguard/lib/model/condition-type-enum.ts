@@ -25,7 +25,8 @@ export enum ConditionTypeEnum {
   SecurityCondition = "SecurityCondition",
   CloudGuardCondition = "CloudGuardCondition",
   InstanceSecurityCondition = "InstanceSecurityCondition",
-  ThreatCondition = "ThreatCondition"
+  ThreatCondition = "ThreatCondition",
+  ContainerCondition = "ContainerCondition"
 }
 
 export namespace ConditionTypeEnum {

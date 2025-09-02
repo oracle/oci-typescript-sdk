@@ -1,15 +1,34 @@
 /**
- * Oracle Database MultiCloud Data plane Integration
- * 1. Oracle Azure Connector Resource: This is for installing Azure Arc Server in ExaCS VM Cluster.
-  There are two way to install Azure Arc Server (Azure Identity) in ExaCS VMCluster.
-    a. Using Bearer Access Token or
-    b. By providing Authentication token
+ * Oracle Database MultiCloud Data Plane Integration
+ * <b>Microsoft Azure:</b> <br>
+<b>Oracle Azure Connector Resource:</b>:&nbsp;&nbsp;The Oracle Azure Connector Resource is used to install the Azure Arc Server on an Exadata VM cluster in Oracle Exadata Database Service on Dedicated Infrastructure (ExaDB-D).
+ The supported method to install the Azure Arc Server (Azure Identity) on the Exadata VM cluster:
+<ul>
+ <li>Using a Bearer Access Token</li>
+</ul>
 
-2. Oracle Azure Blob Container Resource: This is for to capture Azure Container details 
-   and same will be used in multiple ExaCS VMCluster to mount the Azure Container.
+<b>Oracle Azure Blob Container Resource:</b>&nbsp;&nbsp;The Oracle Azure Blob Container Resource is used to capture the details of an Azure Blob Container. 
+This resource can then be reused across multiple Exadata VM clusters in Oracle Exadata Database Service on Dedicated Infrastructure (ExaDB-D) to mount the Azure container.
 
-3. Oracle Azure Blob Mount Resource: This is for to mount Azure Container in ExaCS VMCluster 
-   using Oracle Azure Connector and Oracle Azure Blob Container Resource.
+<b>Oracle Azure Blob Mount Resource:</b>&nbsp;&nbsp;The Oracle Azure Blob Mount Resource is used to mount an Azure Blob Container on an Exadata VM cluster in Oracle Exadata Database Service on Dedicated Infrastructure (ExaDB-D).
+It relies on both the Oracle Azure Connector and the Oracle Azure Blob Container Resource to perform the mount operation.
+
+<b>Discover Azure Vaults and Keys Resource:</b>&nbsp;&nbsp;The Discover Oracle Azure Vaults and Azure Keys Resource is used to discover Azure Vaults and the associated encryption keys available in your Azure project.
+
+<b>Oracle Azure Vault:</b>&nbsp;&nbsp;The Oracle Azure Vault Resource is used to manage Azure Vaults within Oracle Cloud Infrastructure (OCI) for use with services such as Oracle Exadata Database Service on Dedicated Infrastructure.
+
+<b>Oracle Azure Key:</b>&nbsp;&nbsp;Oracle Azure Key Resource is used to register and manage a Oracle Azure Key Key within Oracle Cloud Infrastructure (OCI) under an associated Azure Vault.
+
+<br>
+
+<b>Google Cloud:</b><br>
+<b>Oracle Google Cloud Connector Resource:</b>&nbsp;&nbsp;The Oracle Google Cloud Connector Resource is used to install the Google Cloud Identity Connector on an Exadata VM cluster in Oracle Exadata Database Service on Dedicated Infrastructure (ExaDB-D).
+
+<b>Discover Google Key Rings and Keys Resource:</b>&nbsp;&nbsp;The Discover Google Key Rings and Keys Resource is used to discover Google Cloud Key Rings and the associated encryption keys available in your Google Cloud project.
+
+<b>Google Key Rings Resource:</b>&nbsp;&nbsp;The Google Key Rings Resource is used to register and manage Google Cloud Key Rings within Oracle Cloud Infrastructure (OCI) for use with services such as Oracle Exadata Database Service on Dedicated Infrastructure.
+
+<b>Google Key Resource:</b>&nbsp;&nbsp;The Google Key Resource is used to register and manage a Google Cloud Key within Oracle Cloud Infrastructure (OCI) under an associated Google Key Ring.
 
  * OpenAPI spec version: 20240501
  * 
@@ -25,12 +44,12 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Oracle DB Azure Connector Details, this resource is for to create Azure Identity on Database Resource.
+ * Oracle DB Azure Connector resource.
  *
  */
 export interface OracleDbAzureConnector {
   /**
-   * The ID of the Oracle DB Azure Connector resource.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Oracle DB Azure Connector resource.
    */
   "id": string;
   /**
@@ -38,15 +57,15 @@ export interface OracleDbAzureConnector {
    */
   "displayName"?: string;
   /**
-   * The ID of the compartment that contains Oracle DB Azure Connector resource.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment that contains Oracle DB Azure Connector resource.
    */
   "compartmentId": string;
   /**
-   * List of All VMs where Arc Agent is Install under VMCluster.
+   * List of all VMs where Arc Agent is installed under Cloud VM Cluster.
    */
   "arcAgentNodes"?: Array<model.ArcAgentNodes>;
   /**
-   * The ID of the DB Cluster Resource where this Azure Arc Agent identity to configure.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Oracle DB Cloud VM Cluster resource where this Azure Arc Agent identity to configure.
    */
   "dbClusterResourceId": string;
   /**
@@ -58,11 +77,11 @@ export interface OracleDbAzureConnector {
    */
   "azureSubscriptionId": string;
   /**
-   * Azure Resource Group Name.
+   * Azure Resource group name.
    */
   "azureResourceGroup": string;
   /**
-   * Azure bearer access token. If bearer access token is provided then Service Principal detail is not required.
+   * Azure bearer access token.
    */
   "accessToken"?: string;
   /**
@@ -70,15 +89,15 @@ export interface OracleDbAzureConnector {
    */
   "privateEndpointIpAddress"?: string;
   /**
-   * Private endpoint DNS Alias.
+   * Private endpoint's DNS alias.
    */
   "privateEndpointDnsAlias"?: string;
   /**
-   * Azure Identity Mechanism.
+   * Azure Identity mechanism.
    */
   "azureIdentityMechanism"?: OracleDbAzureConnector.AzureIdentityMechanism;
   /**
-   * The current lifecycle state of the Azure Arc Agent Resource.
+   * The current lifecycle state of the Azure Arc Agent resource.
    */
   "lifecycleState"?: OracleDbAzureConnector.LifecycleState;
   /**
@@ -86,17 +105,21 @@ export interface OracleDbAzureConnector {
    */
   "lifecycleStateDetails"?: string;
   /**
-   * Time when the Oracle DB Azure Connector Resource was created expressed in [RFC 3339](https://tools.ietf.org/html/rfc3339) timestamp format, e.g. '2020-05-22T21:10:29.600Z'
+   * The current Connectivity status of Azure Identity Connector resource.
+   */
+  "azureIdentityConnectivityStatus"?: OracleDbAzureConnector.AzureIdentityConnectivityStatus;
+  /**
+   * Time when the Oracle DB Azure Connector resource was created expressed in [RFC 3339](https://tools.ietf.org/html/rfc3339) timestamp format, e.g. '2020-05-22T21:10:29.600Z'
    *
    */
   "timeCreated"?: Date;
   /**
-   * Time when the Oracle DB Azure Connector Resource was last modified expressed in [RFC 3339](https://tools.ietf.org/html/rfc3339) timestamp format, e.g. '2020-05-22T21:10:29.600Z'
+   * Time when the Oracle DB Azure Connector resource was last modified expressed in [RFC 3339](https://tools.ietf.org/html/rfc3339) timestamp format, e.g. '2020-05-22T21:10:29.600Z'
    *
    */
   "timeUpdated"?: Date;
   /**
-   * Description of the latest modification of the Oracle DB Azure Connector Resource.
+   * Description of the latest modification of the Oracle DB Azure Connector resource.
    */
   "lastModification"?: string;
   /**
@@ -142,6 +165,18 @@ export namespace OracleDbAzureConnector {
     Deleting = "DELETING",
     Deleted = "DELETED",
     Failed = "FAILED",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum AzureIdentityConnectivityStatus {
+    Connected = "CONNECTED",
+    Disconnected = "DISCONNECTED",
+    PartiallyConnected = "PARTIALLY_CONNECTED",
+    Unknown = "UNKNOWN",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

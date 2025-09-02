@@ -1,15 +1,34 @@
 /**
- * Oracle Database MultiCloud Data plane Integration
- * 1. Oracle Azure Connector Resource: This is for installing Azure Arc Server in ExaCS VM Cluster.
-  There are two way to install Azure Arc Server (Azure Identity) in ExaCS VMCluster.
-    a. Using Bearer Access Token or
-    b. By providing Authentication token
+ * Oracle Database MultiCloud Data Plane Integration
+ * <b>Microsoft Azure:</b> <br>
+<b>Oracle Azure Connector Resource:</b>:&nbsp;&nbsp;The Oracle Azure Connector Resource is used to install the Azure Arc Server on an Exadata VM cluster in Oracle Exadata Database Service on Dedicated Infrastructure (ExaDB-D).
+ The supported method to install the Azure Arc Server (Azure Identity) on the Exadata VM cluster:
+<ul>
+ <li>Using a Bearer Access Token</li>
+</ul>
 
-2. Oracle Azure Blob Container Resource: This is for to capture Azure Container details 
-   and same will be used in multiple ExaCS VMCluster to mount the Azure Container.
+<b>Oracle Azure Blob Container Resource:</b>&nbsp;&nbsp;The Oracle Azure Blob Container Resource is used to capture the details of an Azure Blob Container. 
+This resource can then be reused across multiple Exadata VM clusters in Oracle Exadata Database Service on Dedicated Infrastructure (ExaDB-D) to mount the Azure container.
 
-3. Oracle Azure Blob Mount Resource: This is for to mount Azure Container in ExaCS VMCluster 
-   using Oracle Azure Connector and Oracle Azure Blob Container Resource.
+<b>Oracle Azure Blob Mount Resource:</b>&nbsp;&nbsp;The Oracle Azure Blob Mount Resource is used to mount an Azure Blob Container on an Exadata VM cluster in Oracle Exadata Database Service on Dedicated Infrastructure (ExaDB-D).
+It relies on both the Oracle Azure Connector and the Oracle Azure Blob Container Resource to perform the mount operation.
+
+<b>Discover Azure Vaults and Keys Resource:</b>&nbsp;&nbsp;The Discover Oracle Azure Vaults and Azure Keys Resource is used to discover Azure Vaults and the associated encryption keys available in your Azure project.
+
+<b>Oracle Azure Vault:</b>&nbsp;&nbsp;The Oracle Azure Vault Resource is used to manage Azure Vaults within Oracle Cloud Infrastructure (OCI) for use with services such as Oracle Exadata Database Service on Dedicated Infrastructure.
+
+<b>Oracle Azure Key:</b>&nbsp;&nbsp;Oracle Azure Key Resource is used to register and manage a Oracle Azure Key Key within Oracle Cloud Infrastructure (OCI) under an associated Azure Vault.
+
+<br>
+
+<b>Google Cloud:</b><br>
+<b>Oracle Google Cloud Connector Resource:</b>&nbsp;&nbsp;The Oracle Google Cloud Connector Resource is used to install the Google Cloud Identity Connector on an Exadata VM cluster in Oracle Exadata Database Service on Dedicated Infrastructure (ExaDB-D).
+
+<b>Discover Google Key Rings and Keys Resource:</b>&nbsp;&nbsp;The Discover Google Key Rings and Keys Resource is used to discover Google Cloud Key Rings and the associated encryption keys available in your Google Cloud project.
+
+<b>Google Key Rings Resource:</b>&nbsp;&nbsp;The Google Key Rings Resource is used to register and manage Google Cloud Key Rings within Oracle Cloud Infrastructure (OCI) for use with services such as Oracle Exadata Database Service on Dedicated Infrastructure.
+
+<b>Google Key Resource:</b>&nbsp;&nbsp;The Google Key Resource is used to register and manage a Google Cloud Key within Oracle Cloud Infrastructure (OCI) under an associated Google Key Ring.
 
  * OpenAPI spec version: 20240501
  * 
@@ -37,6 +56,10 @@ import * as ChangeOracleDbAzureVaultAssociationCompartmentDetails from "./change
 export import ChangeOracleDbAzureVaultAssociationCompartmentDetails = ChangeOracleDbAzureVaultAssociationCompartmentDetails.ChangeOracleDbAzureVaultAssociationCompartmentDetails;
 import * as ChangeOracleDbAzureVaultCompartmentDetails from "./change-oracle-db-azure-vault-compartment-details";
 export import ChangeOracleDbAzureVaultCompartmentDetails = ChangeOracleDbAzureVaultCompartmentDetails.ChangeOracleDbAzureVaultCompartmentDetails;
+import * as ChangeOracleDbGcpIdentityConnectorCompartmentDetails from "./change-oracle-db-gcp-identity-connector-compartment-details";
+export import ChangeOracleDbGcpIdentityConnectorCompartmentDetails = ChangeOracleDbGcpIdentityConnectorCompartmentDetails.ChangeOracleDbGcpIdentityConnectorCompartmentDetails;
+import * as ChangeOracleDbGcpKeyRingCompartmentDetails from "./change-oracle-db-gcp-key-ring-compartment-details";
+export import ChangeOracleDbGcpKeyRingCompartmentDetails = ChangeOracleDbGcpKeyRingCompartmentDetails.ChangeOracleDbGcpKeyRingCompartmentDetails;
 import * as CreateMultiCloudResourceDiscoveryDetails from "./create-multi-cloud-resource-discovery-details";
 export import CreateMultiCloudResourceDiscoveryDetails = CreateMultiCloudResourceDiscoveryDetails.CreateMultiCloudResourceDiscoveryDetails;
 import * as CreateOracleDbAzureBlobContainerDetails from "./create-oracle-db-azure-blob-container-details";
@@ -49,6 +72,12 @@ import * as CreateOracleDbAzureVaultAssociationDetails from "./create-oracle-db-
 export import CreateOracleDbAzureVaultAssociationDetails = CreateOracleDbAzureVaultAssociationDetails.CreateOracleDbAzureVaultAssociationDetails;
 import * as CreateOracleDbAzureVaultDetails from "./create-oracle-db-azure-vault-details";
 export import CreateOracleDbAzureVaultDetails = CreateOracleDbAzureVaultDetails.CreateOracleDbAzureVaultDetails;
+import * as CreateOracleDbGcpIdentityConnectorDetails from "./create-oracle-db-gcp-identity-connector-details";
+export import CreateOracleDbGcpIdentityConnectorDetails = CreateOracleDbGcpIdentityConnectorDetails.CreateOracleDbGcpIdentityConnectorDetails;
+import * as CreateOracleDbGcpKeyRingDetails from "./create-oracle-db-gcp-key-ring-details";
+export import CreateOracleDbGcpKeyRingDetails = CreateOracleDbGcpKeyRingDetails.CreateOracleDbGcpKeyRingDetails;
+import * as GcpNodes from "./gcp-nodes";
+export import GcpNodes = GcpNodes.GcpNodes;
 import * as MultiCloudResourceDiscovery from "./multi-cloud-resource-discovery";
 export import MultiCloudResourceDiscovery = MultiCloudResourceDiscovery.MultiCloudResourceDiscovery;
 import * as MultiCloudResourceDiscoverySummary from "./multi-cloud-resource-discovery-summary";
@@ -95,8 +124,30 @@ import * as OracleDbAzureVaultSummary from "./oracle-db-azure-vault-summary";
 export import OracleDbAzureVaultSummary = OracleDbAzureVaultSummary.OracleDbAzureVaultSummary;
 import * as OracleDbAzureVaultSummaryCollection from "./oracle-db-azure-vault-summary-collection";
 export import OracleDbAzureVaultSummaryCollection = OracleDbAzureVaultSummaryCollection.OracleDbAzureVaultSummaryCollection;
+import * as OracleDbGcpIdentityConnector from "./oracle-db-gcp-identity-connector";
+export import OracleDbGcpIdentityConnector = OracleDbGcpIdentityConnector.OracleDbGcpIdentityConnector;
+import * as OracleDbGcpIdentityConnectorSummary from "./oracle-db-gcp-identity-connector-summary";
+export import OracleDbGcpIdentityConnectorSummary = OracleDbGcpIdentityConnectorSummary.OracleDbGcpIdentityConnectorSummary;
+import * as OracleDbGcpIdentityConnectorSummaryCollection from "./oracle-db-gcp-identity-connector-summary-collection";
+export import OracleDbGcpIdentityConnectorSummaryCollection = OracleDbGcpIdentityConnectorSummaryCollection.OracleDbGcpIdentityConnectorSummaryCollection;
+import * as OracleDbGcpKey from "./oracle-db-gcp-key";
+export import OracleDbGcpKey = OracleDbGcpKey.OracleDbGcpKey;
+import * as OracleDbGcpKeyRing from "./oracle-db-gcp-key-ring";
+export import OracleDbGcpKeyRing = OracleDbGcpKeyRing.OracleDbGcpKeyRing;
+import * as OracleDbGcpKeyRingSummary from "./oracle-db-gcp-key-ring-summary";
+export import OracleDbGcpKeyRingSummary = OracleDbGcpKeyRingSummary.OracleDbGcpKeyRingSummary;
+import * as OracleDbGcpKeyRingSummaryCollection from "./oracle-db-gcp-key-ring-summary-collection";
+export import OracleDbGcpKeyRingSummaryCollection = OracleDbGcpKeyRingSummaryCollection.OracleDbGcpKeyRingSummaryCollection;
+import * as OracleDbGcpKeySummary from "./oracle-db-gcp-key-summary";
+export import OracleDbGcpKeySummary = OracleDbGcpKeySummary.OracleDbGcpKeySummary;
+import * as OracleDbGcpKeySummaryCollection from "./oracle-db-gcp-key-summary-collection";
+export import OracleDbGcpKeySummaryCollection = OracleDbGcpKeySummaryCollection.OracleDbGcpKeySummaryCollection;
 import * as PatchOracleDbAzureConnectorDetails from "./patch-oracle-db-azure-connector-details";
 export import PatchOracleDbAzureConnectorDetails = PatchOracleDbAzureConnectorDetails.PatchOracleDbAzureConnectorDetails;
+import * as RefreshOracleDbAzureVaultDetails from "./refresh-oracle-db-azure-vault-details";
+export import RefreshOracleDbAzureVaultDetails = RefreshOracleDbAzureVaultDetails.RefreshOracleDbAzureVaultDetails;
+import * as RefreshOracleDbGcpKeyRingDetails from "./refresh-oracle-db-gcp-key-ring-details";
+export import RefreshOracleDbGcpKeyRingDetails = RefreshOracleDbGcpKeyRingDetails.RefreshOracleDbGcpKeyRingDetails;
 import * as Resources from "./resources";
 export import Resources = Resources.Resources;
 import * as SortOrder from "./sort-order";
@@ -113,6 +164,10 @@ import * as UpdateOracleDbAzureVaultAssociationDetails from "./update-oracle-db-
 export import UpdateOracleDbAzureVaultAssociationDetails = UpdateOracleDbAzureVaultAssociationDetails.UpdateOracleDbAzureVaultAssociationDetails;
 import * as UpdateOracleDbAzureVaultDetails from "./update-oracle-db-azure-vault-details";
 export import UpdateOracleDbAzureVaultDetails = UpdateOracleDbAzureVaultDetails.UpdateOracleDbAzureVaultDetails;
+import * as UpdateOracleDbGcpIdentityConnectorDetails from "./update-oracle-db-gcp-identity-connector-details";
+export import UpdateOracleDbGcpIdentityConnectorDetails = UpdateOracleDbGcpIdentityConnectorDetails.UpdateOracleDbGcpIdentityConnectorDetails;
+import * as UpdateOracleDbGcpKeyRingDetails from "./update-oracle-db-gcp-key-ring-details";
+export import UpdateOracleDbGcpKeyRingDetails = UpdateOracleDbGcpKeyRingDetails.UpdateOracleDbGcpKeyRingDetails;
 import * as WorkRequest from "./work-request";
 export import WorkRequest = WorkRequest.WorkRequest;
 import * as WorkRequestError from "./work-request-error";

@@ -18,10 +18,14 @@ To learn more about the service, see the [Generative AI documentation](https://d
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as Annotation from "./annotation";
+export import Annotation = Annotation.Annotation;
 import * as ApplyGuardrailsDetails from "./apply-guardrails-details";
 export import ApplyGuardrailsDetails = ApplyGuardrailsDetails.ApplyGuardrailsDetails;
 import * as ApplyGuardrailsResult from "./apply-guardrails-result";
 export import ApplyGuardrailsResult = ApplyGuardrailsResult.ApplyGuardrailsResult;
+import * as ApproximateLocation from "./approximate-location";
+export import ApproximateLocation = ApproximateLocation.ApproximateLocation;
 import * as BaseChatRequest from "./base-chat-request";
 export import BaseChatRequest = BaseChatRequest.BaseChatRequest;
 import * as BaseChatResponse from "./base-chat-response";
@@ -126,8 +130,12 @@ import * as ToolChoice from "./tool-choice";
 export import ToolChoice = ToolChoice.ToolChoice;
 import * as ToolDefinition from "./tool-definition";
 export import ToolDefinition = ToolDefinition.ToolDefinition;
+import * as UrlCitation from "./url-citation";
+export import UrlCitation = UrlCitation.UrlCitation;
 import * as Usage from "./usage";
 export import Usage = Usage.Usage;
+import * as WebSearchOptions from "./web-search-options";
+export import WebSearchOptions = WebSearchOptions.WebSearchOptions;
 
 import * as AssistantMessage from "./assistant-message";
 export import AssistantMessage = AssistantMessage.AssistantMessage;

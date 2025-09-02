@@ -50,6 +50,10 @@ export interface ManagedList {
    */
   "listItems"?: Array<string>;
   /**
+   * Managed list type group
+   */
+  "group"?: string;
+  /**
    * Provider of the managed list feed
    */
   "feedProvider"?: model.FeedProviderType;

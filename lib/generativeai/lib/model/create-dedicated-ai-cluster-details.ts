@@ -68,6 +68,9 @@ Allowed values are:
 * - LARGE_GENERIC_2
 * - LARGE_COHERE_V3
 * - RERANK_COHERE
+* - SMALL_GENERIC_V1
+* - MEDIUM_GENERIC_V1
+* - LARGE_GENERIC_V1
 * 
     */
   "unitShape": string;

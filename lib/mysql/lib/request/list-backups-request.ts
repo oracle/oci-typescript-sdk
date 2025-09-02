@@ -50,6 +50,15 @@ export interface ListBackupsRequest extends common.BaseRequest {
    */
   "softDelete"?: model.SoftDelete;
   /**
+   * Indicates whether the backup has been prepared successfully.
+   *
+   */
+  "backupPreparationStatus"?: string;
+  /**
+   * Backup validation status
+   */
+  "validationStatus"?: string;
+  /**
    * Backup creationType
    */
   "creationType"?: string;
