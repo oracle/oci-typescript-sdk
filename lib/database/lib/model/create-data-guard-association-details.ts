@@ -45,6 +45,7 @@ The password must contain no fewer than nine characters and include:
   "databaseAdminPassword": string;
   "sourceEncryptionKeyLocationDetails"?:
     | model.ExternalHsmEncryptionDetails
+    | model.GoogleCloudProviderEncryptionKeyDetails
     | model.AzureEncryptionKeyDetails;
   /**
    * The protection mode to set up between the primary and standby databases. For more information, see

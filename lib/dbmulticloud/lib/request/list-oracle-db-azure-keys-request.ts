@@ -23,20 +23,19 @@ export interface ListOracleDbAzureKeysRequest extends common.BaseRequest {
    */
   "compartmentId": string;
   /**
-   * A filter to return Azure Vault Keys.
+   * A filter to return Oracle DB Azure Vault Keys resources that match the specified display name.
    */
   "displayName"?: string;
   /**
-   * A filter to return Oracle DB Azure Vault Resources.
+   * A filter to return Oracle DB Azure Vault resources that match the specified [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Oracle DB Azure Vault resource.
    */
   "oracleDbAzureVaultId"?: string;
   /**
-   * A filter to return Oracle DB Azure Vault Key Resources.
+   * A filter to return Oracle DB Azure Vault Keys resource that match the specified Oracle DB Azure Key [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "oracleDbAzureKeyId"?: string;
   /**
-   * A filter to return only resources that match the given lifecycle state. The
-   * state value is case-insensitive.
+   * A filter to return only resources that match the given lifecycle state. The state value is case-insensitive.
    *
    */
   "lifecycleState"?: string;

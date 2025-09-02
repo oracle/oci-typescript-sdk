@@ -122,6 +122,7 @@ export interface Backup {
   "backupDestinationType"?: Backup.BackupDestinationType;
   "encryptionKeyLocationDetails"?:
     | model.ExternalHsmEncryptionDetails
+    | model.GoogleCloudProviderEncryptionKeyDetails
     | model.AzureEncryptionKeyDetails;
 }
 

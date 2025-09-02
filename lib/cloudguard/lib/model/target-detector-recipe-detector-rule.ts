@@ -72,6 +72,14 @@ Or try [Detector Recipe Reference]
 * 
     */
   "resourceType": string;
+  /**
+   * Rule category type
+   */
+  "ruleType"?: Array<model.RuleType>;
+  /**
+   * Is the rule cloneable?
+   */
+  "isCloneable"?: boolean;
   "details"?: model.TargetDetectorDetails;
   /**
    * List of managed list types related to this rule
@@ -123,6 +131,8 @@ export namespace TargetDetectorRecipeDetectorRule {
     Generic = "GENERIC",
     FusionAppsRole = "FUSION_APPS_ROLE",
     FusionAppsPermission = "FUSION_APPS_PERMISSION",
+    NamespaceSelector = "NAMESPACE_SELECTOR",
+    PodResourceSelector = "POD_RESOURCE_SELECTOR",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
@@ -134,6 +144,12 @@ export namespace TargetDetectorRecipeDetectorRule {
     const jsonObj = {
       ...obj,
       ...{
+        "ruleType": obj.ruleType
+          ? obj.ruleType.map(item => {
+              return model.RuleType.getJsonObj(item);
+            })
+          : undefined,
+
         "details": obj.details ? model.TargetDetectorDetails.getJsonObj(obj.details) : undefined,
 
         "entitiesMappings": obj.entitiesMappings
@@ -155,6 +171,12 @@ export namespace TargetDetectorRecipeDetectorRule {
     const jsonObj = {
       ...obj,
       ...{
+        "ruleType": obj.ruleType
+          ? obj.ruleType.map(item => {
+              return model.RuleType.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
         "details": obj.details
           ? model.TargetDetectorDetails.getDeserializedJsonObj(obj.details)
           : undefined,

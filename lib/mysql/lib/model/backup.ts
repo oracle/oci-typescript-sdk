@@ -44,6 +44,7 @@ export interface Backup {
    *
    */
   "softDelete"?: model.SoftDelete;
+  "backupValidationDetails"?: model.BackupValidationDetails;
   /**
    * The OCID of the compartment.
    */
@@ -177,6 +178,10 @@ export namespace Backup {
     const jsonObj = {
       ...obj,
       ...{
+        "backupValidationDetails": obj.backupValidationDetails
+          ? model.BackupValidationDetails.getJsonObj(obj.backupValidationDetails)
+          : undefined,
+
         "dbSystemSnapshot": obj.dbSystemSnapshot
           ? model.DbSystemSnapshot.getJsonObj(obj.dbSystemSnapshot)
           : undefined,
@@ -193,6 +198,10 @@ export namespace Backup {
     const jsonObj = {
       ...obj,
       ...{
+        "backupValidationDetails": obj.backupValidationDetails
+          ? model.BackupValidationDetails.getDeserializedJsonObj(obj.backupValidationDetails)
+          : undefined,
+
         "dbSystemSnapshot": obj.dbSystemSnapshot
           ? model.DbSystemSnapshot.getDeserializedJsonObj(obj.dbSystemSnapshot)
           : undefined,

@@ -50,6 +50,14 @@ export interface DetectorRecipeDetectorRuleSummary {
    */
   "resourceType"?: string;
   /**
+   * Rule type
+   */
+  "ruleType"?: Array<model.RuleType>;
+  /**
+   * Is the rule cloneable?
+   */
+  "isCloneable"?: boolean;
+  /**
    * List of managed list types related to this rule
    */
   "managedListTypes"?: Array<DetectorRecipeDetectorRuleSummary.ManagedListTypes>;
@@ -100,6 +108,8 @@ export namespace DetectorRecipeDetectorRuleSummary {
     Generic = "GENERIC",
     FusionAppsRole = "FUSION_APPS_ROLE",
     FusionAppsPermission = "FUSION_APPS_PERMISSION",
+    NamespaceSelector = "NAMESPACE_SELECTOR",
+    PodResourceSelector = "POD_RESOURCE_SELECTOR",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
@@ -111,6 +121,12 @@ export namespace DetectorRecipeDetectorRuleSummary {
     const jsonObj = {
       ...obj,
       ...{
+        "ruleType": obj.ruleType
+          ? obj.ruleType.map(item => {
+              return model.RuleType.getJsonObj(item);
+            })
+          : undefined,
+
         "candidateResponderRules": obj.candidateResponderRules
           ? obj.candidateResponderRules.map(item => {
               return model.CandidateResponderRule.getJsonObj(item);
@@ -134,6 +150,12 @@ export namespace DetectorRecipeDetectorRuleSummary {
     const jsonObj = {
       ...obj,
       ...{
+        "ruleType": obj.ruleType
+          ? obj.ruleType.map(item => {
+              return model.RuleType.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
         "candidateResponderRules": obj.candidateResponderRules
           ? obj.candidateResponderRules.map(item => {
               return model.CandidateResponderRule.getDeserializedJsonObj(item);

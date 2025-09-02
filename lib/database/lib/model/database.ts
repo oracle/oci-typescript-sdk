@@ -156,6 +156,7 @@ Example: {@code {\"Department\": \"Finance\"}}
   "dataGuardGroup"?: model.DataGuardGroup;
   "encryptionKeyLocationDetails"?:
     | model.ExternalHsmEncryptionDetails
+    | model.GoogleCloudProviderEncryptionKeyDetails
     | model.AzureEncryptionKeyDetails;
   "storageSizeDetails"?: model.DatabaseStorageSizeResponseDetails;
 }

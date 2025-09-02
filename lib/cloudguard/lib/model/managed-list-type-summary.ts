@@ -30,6 +30,10 @@ export interface ManagedListTypeSummary {
    */
   "description"?: string;
   /**
+   * Managed list type group
+   */
+  "group"?: string;
+  /**
    * The current lifecycle state of the resource
    */
   "lifecycleState"?: model.LifecycleState;

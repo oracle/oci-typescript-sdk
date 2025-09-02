@@ -23,25 +23,24 @@ export interface ListOracleDbAzureBlobMountsRequest extends common.BaseRequest {
    */
   "compartmentId": string;
   /**
-   * A filter to return Oracle DB Azure Blob Mount Resources.
+   * A filter to return Oracle DB Azure Blob Mount resources that match the specified display name.
    */
   "displayName"?: string;
   /**
-   * ID of Oracle DB Azure Blob Mount Resource.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Oracle DB Azure Blob Mount resource.
    */
   "oracleDbAzureBlobMountId"?: string;
   /**
-   * A filter to return only resources that match the given lifecycle state. The
-   * state value is case-insensitive.
+   * A filter to return only resources that match the given lifecycle state. The state value is case-insensitive.
    *
    */
   "lifecycleState"?: string;
   /**
-   * A filter to return Oracle DB Azure Blob Mount Resources.
+   * A filter to return Oracle DB Azure Blob Container resource.
    */
   "oracleDbAzureBlobContainerId"?: string;
   /**
-   * A filter to return Oracle DB Azure Blob Mount Resources.
+   * A filter to return Oracle DB Azure Azure Identity Connector resources.
    */
   "oracleDbAzureConnectorId"?: string;
   /**

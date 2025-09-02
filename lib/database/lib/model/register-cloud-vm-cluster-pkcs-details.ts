@@ -29,7 +29,8 @@ export interface RegisterCloudVmClusterPkcsDetails {
 export namespace RegisterCloudVmClusterPkcsDetails {
   export enum TdeKeyStoreType {
     Azure = "AZURE",
-    Oci = "OCI"
+    Oci = "OCI",
+    Gcp = "GCP"
   }
 
   export function getJsonObj(obj: RegisterCloudVmClusterPkcsDetails): object {

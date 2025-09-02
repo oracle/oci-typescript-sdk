@@ -41,6 +41,8 @@ import * as ListBackupsResponse from "./list-backups-response";
 export import ListBackupsResponse = ListBackupsResponse.ListBackupsResponse;
 import * as UpdateBackupResponse from "./update-backup-response";
 export import UpdateBackupResponse = UpdateBackupResponse.UpdateBackupResponse;
+import * as ValidateBackupResponse from "./validate-backup-response";
+export import ValidateBackupResponse = ValidateBackupResponse.ValidateBackupResponse;
 import * as AddHeatWaveClusterResponse from "./add-heat-wave-cluster-response";
 export import AddHeatWaveClusterResponse = AddHeatWaveClusterResponse.AddHeatWaveClusterResponse;
 import * as CreateDbSystemResponse from "./create-db-system-response";

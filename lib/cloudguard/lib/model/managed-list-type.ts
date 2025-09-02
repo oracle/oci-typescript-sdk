@@ -35,6 +35,8 @@ export enum ManagedListType {
   Generic = "GENERIC",
   FusionAppsRole = "FUSION_APPS_ROLE",
   FusionAppsPermission = "FUSION_APPS_PERMISSION",
+  NamespaceSelector = "NAMESPACE_SELECTOR",
+  PodResourceSelector = "POD_RESOURCE_SELECTOR",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

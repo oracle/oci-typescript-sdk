@@ -27,6 +27,7 @@ export interface ChangeEncryptionKeyLocationRequest extends common.BaseRequest {
    */
   "encryptionKeyLocationDetails":
     | model.ExternalHsmEncryptionDetails
+    | model.GoogleCloudProviderEncryptionKeyDetails
     | model.AzureEncryptionKeyDetails;
   /**
    * For optimistic concurrency control. In the PUT or DELETE call for a resource, set the {@code if-match}

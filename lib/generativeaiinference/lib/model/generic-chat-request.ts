@@ -142,6 +142,7 @@ Example: '{\"6395\": 2, \"8134\": 1, \"21943\": 0.5, \"5923\": -100}'
    * A list of tools the model may call. Use this to provide a list of functions the model may generate JSON inputs for. A max of 128 functions are supported.
    */
   "tools"?: Array<model.ToolDefinition>;
+  "webSearchOptions"?: model.WebSearchOptions;
 
   "apiFormat": string;
 }
@@ -184,6 +185,9 @@ export namespace GenericChatRequest {
           ? obj.tools.map(item => {
               return model.ToolDefinition.getJsonObj(item);
             })
+          : undefined,
+        "webSearchOptions": obj.webSearchOptions
+          ? model.WebSearchOptions.getJsonObj(obj.webSearchOptions)
           : undefined
       }
     };
@@ -224,6 +228,9 @@ export namespace GenericChatRequest {
           ? obj.tools.map(item => {
               return model.ToolDefinition.getDeserializedJsonObj(item);
             })
+          : undefined,
+        "webSearchOptions": obj.webSearchOptions
+          ? model.WebSearchOptions.getDeserializedJsonObj(obj.webSearchOptions)
           : undefined
       }
     };

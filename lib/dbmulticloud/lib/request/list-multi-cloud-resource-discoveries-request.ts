@@ -23,27 +23,30 @@ export interface ListMultiCloudResourceDiscoveriesRequest extends common.BaseReq
    */
   "compartmentId": string;
   /**
-   * Display Name of the Multi Cloud Discovery Resource.
+   * A filter to return Oracle DB Multicloud Discovery resources that match the specified display name.
    */
   "displayName"?: string;
   /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Multi Cloud Discovery Resource.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Multicloud Discovery resource.
    */
   "multiCloudResourceDiscoveryId"?: string;
   /**
-   * A filter to return only resources that match the given lifecycle state. The
-   * state value is case-insensitive.
+   * A filter to return only resources that match the specified lifecycle state. The state value is case-insensitive.
    *
    */
   "lifecycleState"?: string;
   /**
-   * A filter to return Oracle DB Azure Blob Mount Resources.
+   * A filter to return Oracle DB Azure Azure Identity Connector resources.
    */
   "oracleDbAzureConnectorId"?: string;
   /**
-   * The type of Multi Cloud Resource.
+   * The type of Multicloud Resource.
    */
   "resourceType"?: string;
+  /**
+   * Specifies the type(s) of resources to discover in the target cloud provider.
+   */
+  "resourcesFilter"?: Array<string>;
   /**
    * The maximum number of items to return.
    */

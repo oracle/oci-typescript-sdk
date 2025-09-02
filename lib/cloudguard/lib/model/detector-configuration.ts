@@ -49,6 +49,10 @@ export interface DetectorConfiguration {
    * Map of possible values for configuration
    */
   "allowedValues"?: Array<model.PropertyTuple>;
+  /**
+   * Map of additional property values for configuration
+   */
+  "additionalProperties"?: Array<model.AdditionalConfigPropertyDefinition>;
 }
 
 export namespace DetectorConfiguration {
@@ -65,6 +69,11 @@ export namespace DetectorConfiguration {
         "allowedValues": obj.allowedValues
           ? obj.allowedValues.map(item => {
               return model.PropertyTuple.getJsonObj(item);
+            })
+          : undefined,
+        "additionalProperties": obj.additionalProperties
+          ? obj.additionalProperties.map(item => {
+              return model.AdditionalConfigPropertyDefinition.getJsonObj(item);
             })
           : undefined
       }
@@ -85,6 +94,11 @@ export namespace DetectorConfiguration {
         "allowedValues": obj.allowedValues
           ? obj.allowedValues.map(item => {
               return model.PropertyTuple.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "additionalProperties": obj.additionalProperties
+          ? obj.additionalProperties.map(item => {
+              return model.AdditionalConfigPropertyDefinition.getDeserializedJsonObj(item);
             })
           : undefined
       }

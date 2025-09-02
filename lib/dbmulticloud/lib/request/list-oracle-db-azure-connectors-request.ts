@@ -23,21 +23,20 @@ export interface ListOracleDbAzureConnectorsRequest extends common.BaseRequest {
    */
   "compartmentId": string;
   /**
-   * A filter to return Oracle DB Azure Connector Resource that match the given display name.
+   * A filter to return Oracle DB Azure Connector resources that match the specified display name.
    */
   "displayName"?: string;
   /**
-   * A filter to return Oracle DB Azure Blob Mount Resources.
+   * A filter to return Oracle DB Azure Azure Identity Connector resources.
    */
   "oracleDbAzureConnectorId"?: string;
   /**
-   * A filter to return only resources that match the given lifecycle state. The
-   * state value is case-insensitive.
+   * A filter to return only resources that match the given lifecycle state. The state value is case-insensitive.
    *
    */
   "lifecycleState"?: string;
   /**
-   * The [ID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Database Resource.
+   * The [ID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Database resource.
    */
   "dbClusterResourceId"?: string;
   /**

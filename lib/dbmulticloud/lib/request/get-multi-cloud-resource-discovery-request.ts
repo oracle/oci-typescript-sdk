@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface GetMultiCloudResourceDiscoveryRequest extends common.BaseRequest {
   /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Multi Cloud Discovery Resource.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Multicloud Discovery Resource.
    */
   "multiCloudResourceDiscoveryId": string;
   /**

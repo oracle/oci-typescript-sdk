@@ -43,6 +43,15 @@ export interface BackupSummary {
    */
   "softDelete"?: model.SoftDelete;
   /**
+   * Indicates whether the backup has been prepared successfully.
+   *
+   */
+  "backupPreparationStatus"?: string;
+  /**
+   * Status of the backup validation.
+   */
+  "validationStatus"?: string;
+  /**
    * The time the backup was created.
    */
   "timeCreated": Date;

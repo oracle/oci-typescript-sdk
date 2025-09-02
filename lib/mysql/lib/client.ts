@@ -1567,6 +1567,8 @@ export class DbBackupsClient {
       "dbSystemId": listBackupsRequest.dbSystemId,
       "displayName": listBackupsRequest.displayName,
       "softDelete": listBackupsRequest.softDelete,
+      "backupPreparationStatus": listBackupsRequest.backupPreparationStatus,
+      "validationStatus": listBackupsRequest.validationStatus,
       "creationType": listBackupsRequest.creationType,
       "sortBy": listBackupsRequest.sortBy,
       "sortOrder": listBackupsRequest.sortOrder,
@@ -1752,6 +1754,95 @@ export class DbBackupsClient {
           {
             value: response.headers.get("etag"),
             key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Request to validate the backup by checking the data consistency.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ValidateBackupRequest
+   * @return ValidateBackupResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/ValidateBackup.ts.html |here} to see how to use ValidateBackup API.
+   */
+  public async validateBackup(
+    validateBackupRequest: requests.ValidateBackupRequest
+  ): Promise<responses.ValidateBackupResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbBackupsClient#validateBackup.");
+    const operationName = "validateBackup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/Backup/ValidateBackup";
+    const pathParams = {
+      "{backupId}": validateBackupRequest.backupId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": validateBackupRequest.ifMatch,
+      "opc-request-id": validateBackupRequest.opcRequestId,
+      "opc-retry-token": validateBackupRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      validateBackupRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/backups/{backupId}/actions/validate",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        validateBackupRequest.validateBackupDetails,
+        "ValidateBackupDetails",
+        model.ValidateBackupDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ValidateBackupResponse>{},
+        body: await response.json(),
+        bodyKey: "backup",
+        bodyModel: model.Backup,
+        type: "model.Backup",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           }
         ]

@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface DeleteOracleDbAzureVaultRequest extends common.BaseRequest {
   /**
-   * The ID of the Oracle DB Azure Vault Resource.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Oracle DB Azure Vault resource.
    */
   "oracleDbAzureVaultId": string;
   /**

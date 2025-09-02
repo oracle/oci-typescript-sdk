@@ -106,6 +106,7 @@ Example: {@code {\"Department\": \"Finance\"}}
   "keyStoreId"?: string;
   "encryptionKeyLocationDetails"?:
     | model.ExternalHsmEncryptionDetails
+    | model.GoogleCloudProviderEncryptionKeyDetails
     | model.AzureEncryptionKeyDetails;
   "storageSizeDetails"?: model.DatabaseStorageSizeDetails;
 }
