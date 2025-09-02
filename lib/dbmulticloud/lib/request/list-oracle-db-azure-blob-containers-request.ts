@@ -23,25 +23,24 @@ export interface ListOracleDbAzureBlobContainersRequest extends common.BaseReque
    */
   "compartmentId": string;
   /**
-   * A filter to return Azure Containers.
+   * A filter to return Oracle DB Azure Blob Container resources that match the specified display name.
    */
   "displayName"?: string;
   /**
-   * A filter to return Oracle DB Azure Blob Mount Resources.
+   * A filter to return Oracle DB Azure Blob Container resource.
    */
   "oracleDbAzureBlobContainerId"?: string;
   /**
-   * A filter to return only resources that match the given lifecycle state. The
-   * state value is case-insensitive.
+   * A filter to return only resources that match the given lifecycle state. The state value is case-insensitive.
    *
    */
   "lifecycleState"?: string;
   /**
-   * A filter to return Azure Blob Containers.
+   * A filter to return Oracle DB Azure Blob Container resources that match the specified Azure Account name.
    */
   "azureStorageAccountName"?: string;
   /**
-   * A filter to return Azure Blob containers.
+   * A filter to return Oracle DB Azure Blob Container resources that match the specified Azure Storage name.
    */
   "azureStorageContainerName"?: string;
   /**

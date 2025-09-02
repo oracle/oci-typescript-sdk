@@ -33,6 +33,11 @@ export namespace EncryptionKeyLocationDetails {
             <model.ExternalHsmEncryptionDetails>(<object>jsonObj),
             true
           );
+        case "GCP":
+          return model.GoogleCloudProviderEncryptionKeyDetails.getJsonObj(
+            <model.GoogleCloudProviderEncryptionKeyDetails>(<object>jsonObj),
+            true
+          );
         case "AZURE":
           return model.AzureEncryptionKeyDetails.getJsonObj(
             <model.AzureEncryptionKeyDetails>(<object>jsonObj),
@@ -52,6 +57,11 @@ export namespace EncryptionKeyLocationDetails {
         case "EXTERNAL":
           return model.ExternalHsmEncryptionDetails.getDeserializedJsonObj(
             <model.ExternalHsmEncryptionDetails>(<object>jsonObj),
+            true
+          );
+        case "GCP":
+          return model.GoogleCloudProviderEncryptionKeyDetails.getDeserializedJsonObj(
+            <model.GoogleCloudProviderEncryptionKeyDetails>(<object>jsonObj),
             true
           );
         case "AZURE":

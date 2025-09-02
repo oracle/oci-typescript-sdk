@@ -46,6 +46,10 @@ export interface ManagedListSummary {
    */
   "listType": model.ManagedListType;
   /**
+   * Managed list type group
+   */
+  "group"?: string;
+  /**
    * Provider of the feed
    */
   "feedProvider": model.FeedProviderType;

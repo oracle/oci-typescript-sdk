@@ -73,6 +73,14 @@ Example: {@code {\"Department\": \"Finance\"}}
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subscription with which resource needs to be associated with.
    */
   "subscriptionId"?: string;
+  /**
+   * Indicates if autoscale feature is enabled for the Database Storage Vault. The default value is {@code FALSE}.
+   */
+  "isAutoscaleEnabled"?: boolean;
+  /**
+   * Maximum limit storage size in gigabytes, that is applicable for the Database Storage Vault. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "autoscaleLimitInGBs"?: number;
 }
 
 export namespace CreateExascaleDbStorageVaultDetails {

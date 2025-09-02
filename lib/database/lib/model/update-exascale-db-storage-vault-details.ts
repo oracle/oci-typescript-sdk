@@ -48,6 +48,14 @@ Example: {@code {\"Department\": \"Finance\"}}
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * Indicates if autoscale feature is enabled for the Database Storage Vault. The default value is {@code FALSE}.
+   */
+  "isAutoscaleEnabled"?: boolean;
+  /**
+   * Maximum limit storage size in gigabytes, that is applicable for the Database Storage Vault. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "autoscaleLimitInGBs"?: number;
 }
 
 export namespace UpdateExascaleDbStorageVaultDetails {

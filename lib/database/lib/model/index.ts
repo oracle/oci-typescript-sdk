@@ -991,6 +991,8 @@ import * as ExternalMacsConnector from "./external-macs-connector";
 export import ExternalMacsConnector = ExternalMacsConnector.ExternalMacsConnector;
 import * as ExternalMacsConnectorSummary from "./external-macs-connector-summary";
 export import ExternalMacsConnectorSummary = ExternalMacsConnectorSummary.ExternalMacsConnectorSummary;
+import * as GoogleCloudProviderEncryptionKeyDetails from "./google-cloud-provider-encryption-key-details";
+export import GoogleCloudProviderEncryptionKeyDetails = GoogleCloudProviderEncryptionKeyDetails.GoogleCloudProviderEncryptionKeyDetails;
 import * as KeyStoreTypeFromOracleKeyVaultDetails from "./key-store-type-from-oracle-key-vault-details";
 export import KeyStoreTypeFromOracleKeyVaultDetails = KeyStoreTypeFromOracleKeyVaultDetails.KeyStoreTypeFromOracleKeyVaultDetails;
 import * as LaunchDbSystemDetails from "./launch-db-system-details";

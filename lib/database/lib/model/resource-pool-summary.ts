@@ -24,6 +24,14 @@ export interface ResourcePoolSummary {
    */
   "poolSize"?: number;
   /**
+   * Resource Pool total capacity, it's currently 4x of pool size Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "totalComputeCapacity"?: number;
+  /**
+   * Available capacity left for new elastic pool members provision Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "availableComputeCapacity"?: number;
+  /**
    * Indicates if the resource pool should be deleted for the Autonomous Database.
    *
    */

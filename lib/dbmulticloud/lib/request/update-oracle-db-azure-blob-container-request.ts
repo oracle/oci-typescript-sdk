@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface UpdateOracleDbAzureBlobContainerRequest extends common.BaseRequest {
   /**
-   * The ID of the Oracle DB Azure Blob Container Resource.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Oracle DB Azure Blob Container resource.
    */
   "oracleDbAzureBlobContainerId": string;
   /**

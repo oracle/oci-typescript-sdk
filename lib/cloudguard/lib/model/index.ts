@@ -24,6 +24,8 @@ import * as ActorType from "./actor-type";
 export import ActorType = ActorType.ActorType;
 import * as AddCompartmentDetails from "./add-compartment-details";
 export import AddCompartmentDetails = AddCompartmentDetails.AddCompartmentDetails;
+import * as AdditionalConfigPropertyDefinition from "./additional-config-property-definition";
+export import AdditionalConfigPropertyDefinition = AdditionalConfigPropertyDefinition.AdditionalConfigPropertyDefinition;
 import * as AdhocQuery from "./adhoc-query";
 export import AdhocQuery = AdhocQuery.AdhocQuery;
 import * as AdhocQueryCollection from "./adhoc-query-collection";
@@ -424,6 +426,8 @@ import * as RiskScoreAggregationCollection from "./risk-score-aggregation-collec
 export import RiskScoreAggregationCollection = RiskScoreAggregationCollection.RiskScoreAggregationCollection;
 import * as RuleSummary from "./rule-summary";
 export import RuleSummary = RuleSummary.RuleSummary;
+import * as RuleType from "./rule-type";
+export import RuleType = RuleType.RuleType;
 import * as SavedQuery from "./saved-query";
 export import SavedQuery = SavedQuery.SavedQuery;
 import * as SavedQueryCollection from "./saved-query-collection";

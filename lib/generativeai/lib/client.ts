@@ -1372,6 +1372,7 @@ You can only delete clusters without attached resources. Before you delete a hos
       "lifecycleState": listEndpointsRequest.lifecycleState,
       "displayName": listEndpointsRequest.displayName,
       "id": listEndpointsRequest.id,
+      "generativeAiPrivateEndpointId": listEndpointsRequest.generativeAiPrivateEndpointId,
       "limit": listEndpointsRequest.limit,
       "page": listEndpointsRequest.page,
       "sortOrder": listEndpointsRequest.sortOrder,

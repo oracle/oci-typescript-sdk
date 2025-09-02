@@ -24,7 +24,9 @@ export enum ProblemDimension {
   ResourceType = "RESOURCE_TYPE",
   Region = "REGION",
   CompartmentId = "COMPARTMENT_ID",
-  RiskLevel = "RISK_LEVEL"
+  RiskLevel = "RISK_LEVEL",
+  DetectorId = "DETECTOR_ID",
+  TargetId = "TARGET_ID"
 }
 
 export namespace ProblemDimension {

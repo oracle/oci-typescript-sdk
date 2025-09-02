@@ -26,6 +26,7 @@ export interface CreateDatabaseFromBackupDetails {
   "backupTDEPassword"?: string;
   "sourceEncryptionKeyLocationDetails"?:
     | model.ExternalHsmEncryptionDetails
+    | model.GoogleCloudProviderEncryptionKeyDetails
     | model.AzureEncryptionKeyDetails;
   /**
    * A strong password for SYS, SYSTEM, PDB Admin and TDE Wallet. The password must be at least nine characters and contain at least two uppercase, two lowercase, two numbers, and two special characters. The special characters must be _, \\#, or -.

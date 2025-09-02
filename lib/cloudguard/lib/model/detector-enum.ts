@@ -26,6 +26,7 @@ export enum DetectorEnum {
   IaasThreatDetector = "IAAS_THREAT_DETECTOR",
   IaasLogInsightDetector = "IAAS_LOG_INSIGHT_DETECTOR",
   IaasInstanceSecurityDetector = "IAAS_INSTANCE_SECURITY_DETECTOR",
+  IaasContainerSecurityDetector = "IAAS_CONTAINER_SECURITY_DETECTOR",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

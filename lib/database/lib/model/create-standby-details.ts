@@ -36,6 +36,7 @@ export interface CreateStandbyDetails {
   "sourceTdeWalletPassword": string;
   "sourceEncryptionKeyLocationDetails"?:
     | model.ExternalHsmEncryptionDetails
+    | model.GoogleCloudProviderEncryptionKeyDetails
     | model.AzureEncryptionKeyDetails;
   /**
    * True if active Data Guard is enabled.

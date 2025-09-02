@@ -38,6 +38,10 @@ Avoid entering confidential information.
    */
   "listItems"?: Array<string>;
   /**
+   * Managed list type group
+   */
+  "group"?: string;
+  /**
     * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
 * Example: {@code {\"bar-key\": \"value\"}}
 * <p>
