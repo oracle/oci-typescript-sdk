@@ -40,6 +40,14 @@ export interface BackupDestination {
    */
   "associatedDatabases"?: Array<model.AssociatedDatabaseDetails>;
   /**
+   * List of long term backups of Autonomous Databases associated with this backup destination.The maximum associated number of long term backup listed here would be 1024.
+   */
+  "associatedLongTermBackups"?: Array<model.AssociatedLongTermBackup>;
+  /**
+   * Indicates the number of long term backups of Autonomous Databases associated with this backup destination. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "associatedLongTermBackupCount"?: number;
+  /**
    * For a RECOVERY_APPLIANCE backup destination, the connection string for connecting to the Recovery Appliance.
    */
   "connectionString"?: string;
@@ -152,6 +160,11 @@ export namespace BackupDestination {
           ? obj.associatedDatabases.map(item => {
               return model.AssociatedDatabaseDetails.getJsonObj(item);
             })
+          : undefined,
+        "associatedLongTermBackups": obj.associatedLongTermBackups
+          ? obj.associatedLongTermBackups.map(item => {
+              return model.AssociatedLongTermBackup.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -165,6 +178,11 @@ export namespace BackupDestination {
         "associatedDatabases": obj.associatedDatabases
           ? obj.associatedDatabases.map(item => {
               return model.AssociatedDatabaseDetails.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "associatedLongTermBackups": obj.associatedLongTermBackups
+          ? obj.associatedLongTermBackups.map(item => {
+              return model.AssociatedLongTermBackup.getDeserializedJsonObj(item);
             })
           : undefined
       }

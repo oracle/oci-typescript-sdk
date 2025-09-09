@@ -58,6 +58,18 @@ export interface ListAutonomousDatabaseBackupsRequest extends common.BaseRequest
    */
   "type"?: string;
   /**
+   * A filter to return only resources that have the given backup destination id.
+   */
+  "backupDestinationId"?: string;
+  /**
+   * A filter to return only resources that have the given key store id.
+   */
+  "keyStoreId"?: string;
+  /**
+   * A filter to return only resources that match the given Infrastructure Type.
+   */
+  "infrastructureType"?: string;
+  /**
    * Unique identifier for the request.
    *
    */

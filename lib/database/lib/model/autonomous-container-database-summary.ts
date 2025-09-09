@@ -193,10 +193,15 @@ Example: {@code {\"Department\": \"Finance\"}}
    */
   "keyStoreWalletName"?: string;
   /**
-   * The amount of memory (in GBs) enabled per ECPU or OCPU in the Autonomous VM Cluster.
+   * The amount of memory (in GBs rounded off to nearest integer value) enabled per ECPU or OCPU in the Autonomous VM Cluster. This is deprecated. Please refer to memoryPerComputeUnitInGBs for accurate value.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "memoryPerOracleComputeUnitInGBs"?: number;
+  /**
+   * The amount of memory (in GBs) to be enabled per OCPU or ECPU.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "memoryPerComputeUnitInGBs"?: number;
   /**
    * Sum of CPUs available on the Autonomous VM Cluster + Sum of reclaimable CPUs available in the Autonomous Container Database.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.

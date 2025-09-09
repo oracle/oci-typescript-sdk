@@ -16,6 +16,12 @@ For more information, see [Overview of the Email Delivery Service](https://docs.
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as AddEmailDomainLockRequest from "./add-email-domain-lock-request";
+export import AddEmailDomainLockRequest = AddEmailDomainLockRequest.AddEmailDomainLockRequest;
+import * as AddReturnPathLockRequest from "./add-return-path-lock-request";
+export import AddReturnPathLockRequest = AddReturnPathLockRequest.AddReturnPathLockRequest;
+import * as AddSenderLockRequest from "./add-sender-lock-request";
+export import AddSenderLockRequest = AddSenderLockRequest.AddSenderLockRequest;
 import * as ChangeEmailDomainCompartmentRequest from "./change-email-domain-compartment-request";
 export import ChangeEmailDomainCompartmentRequest = ChangeEmailDomainCompartmentRequest.ChangeEmailDomainCompartmentRequest;
 import * as ChangeSenderCompartmentRequest from "./change-sender-compartment-request";
@@ -70,6 +76,12 @@ import * as ListWorkRequestLogsRequest from "./list-work-request-logs-request";
 export import ListWorkRequestLogsRequest = ListWorkRequestLogsRequest.ListWorkRequestLogsRequest;
 import * as ListWorkRequestsRequest from "./list-work-requests-request";
 export import ListWorkRequestsRequest = ListWorkRequestsRequest.ListWorkRequestsRequest;
+import * as RemoveEmailDomainLockRequest from "./remove-email-domain-lock-request";
+export import RemoveEmailDomainLockRequest = RemoveEmailDomainLockRequest.RemoveEmailDomainLockRequest;
+import * as RemoveReturnPathLockRequest from "./remove-return-path-lock-request";
+export import RemoveReturnPathLockRequest = RemoveReturnPathLockRequest.RemoveReturnPathLockRequest;
+import * as RemoveSenderLockRequest from "./remove-sender-lock-request";
+export import RemoveSenderLockRequest = RemoveSenderLockRequest.RemoveSenderLockRequest;
 import * as UpdateDkimRequest from "./update-dkim-request";
 export import UpdateDkimRequest = UpdateDkimRequest.UpdateDkimRequest;
 import * as UpdateEmailDomainRequest from "./update-email-domain-request";
