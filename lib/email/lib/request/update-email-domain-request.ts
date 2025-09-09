@@ -37,4 +37,8 @@ export interface UpdateEmailDomainRequest extends common.BaseRequest {
    * The request ID for tracing from the system
    */
   "opcRequestId"?: string;
+  /**
+   * Whether to override locks (if any exist).
+   */
+  "isLockOverride"?: boolean;
 }

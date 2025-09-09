@@ -16,6 +16,12 @@ For more information, see [Overview of the Email Delivery Service](https://docs.
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as AddEmailDomainLockResponse from "./add-email-domain-lock-response";
+export import AddEmailDomainLockResponse = AddEmailDomainLockResponse.AddEmailDomainLockResponse;
+import * as AddReturnPathLockResponse from "./add-return-path-lock-response";
+export import AddReturnPathLockResponse = AddReturnPathLockResponse.AddReturnPathLockResponse;
+import * as AddSenderLockResponse from "./add-sender-lock-response";
+export import AddSenderLockResponse = AddSenderLockResponse.AddSenderLockResponse;
 import * as ChangeEmailDomainCompartmentResponse from "./change-email-domain-compartment-response";
 export import ChangeEmailDomainCompartmentResponse = ChangeEmailDomainCompartmentResponse.ChangeEmailDomainCompartmentResponse;
 import * as ChangeSenderCompartmentResponse from "./change-sender-compartment-response";
@@ -70,6 +76,12 @@ import * as ListWorkRequestLogsResponse from "./list-work-request-logs-response"
 export import ListWorkRequestLogsResponse = ListWorkRequestLogsResponse.ListWorkRequestLogsResponse;
 import * as ListWorkRequestsResponse from "./list-work-requests-response";
 export import ListWorkRequestsResponse = ListWorkRequestsResponse.ListWorkRequestsResponse;
+import * as RemoveEmailDomainLockResponse from "./remove-email-domain-lock-response";
+export import RemoveEmailDomainLockResponse = RemoveEmailDomainLockResponse.RemoveEmailDomainLockResponse;
+import * as RemoveReturnPathLockResponse from "./remove-return-path-lock-response";
+export import RemoveReturnPathLockResponse = RemoveReturnPathLockResponse.RemoveReturnPathLockResponse;
+import * as RemoveSenderLockResponse from "./remove-sender-lock-response";
+export import RemoveSenderLockResponse = RemoveSenderLockResponse.RemoveSenderLockResponse;
 import * as UpdateDkimResponse from "./update-dkim-response";
 export import UpdateDkimResponse = UpdateDkimResponse.UpdateDkimResponse;
 import * as UpdateEmailDomainResponse from "./update-email-domain-response";

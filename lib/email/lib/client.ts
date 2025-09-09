@@ -243,6 +243,252 @@ export class EmailClient {
   }
 
   /**
+   * Adds a lock to a resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param AddEmailDomainLockRequest
+   * @return AddEmailDomainLockResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/AddEmailDomainLock.ts.html |here} to see how to use AddEmailDomainLock API.
+   */
+  public async addEmailDomainLock(
+    addEmailDomainLockRequest: requests.AddEmailDomainLockRequest
+  ): Promise<responses.AddEmailDomainLockResponse> {
+    if (this.logger) this.logger.debug("Calling operation EmailClient#addEmailDomainLock.");
+    const operationName = "addEmailDomainLock";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/emaildelivery/20170907/EmailDomain/AddEmailDomainLock";
+    const pathParams = {
+      "{emailDomainId}": addEmailDomainLockRequest.emailDomainId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": addEmailDomainLockRequest.opcRequestId,
+      "if-match": addEmailDomainLockRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      addEmailDomainLockRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/emailDomains/{emailDomainId}/actions/addLock",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        addEmailDomainLockRequest.addLockDetails,
+        "AddLockDetails",
+        model.AddLockDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AddEmailDomainLockResponse>{},
+        body: await response.json(),
+        bodyKey: "emailDomain",
+        bodyModel: model.EmailDomain,
+        type: "model.EmailDomain",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Adds a lock to a resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param AddReturnPathLockRequest
+   * @return AddReturnPathLockResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/AddReturnPathLock.ts.html |here} to see how to use AddReturnPathLock API.
+   */
+  public async addReturnPathLock(
+    addReturnPathLockRequest: requests.AddReturnPathLockRequest
+  ): Promise<responses.AddReturnPathLockResponse> {
+    if (this.logger) this.logger.debug("Calling operation EmailClient#addReturnPathLock.");
+    const operationName = "addReturnPathLock";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/emaildelivery/20170907/EmailReturnPath/AddReturnPathLock";
+    const pathParams = {
+      "{emailReturnPathId}": addReturnPathLockRequest.emailReturnPathId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": addReturnPathLockRequest.opcRequestId,
+      "if-match": addReturnPathLockRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      addReturnPathLockRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/emailReturnPaths/{emailReturnPathId}/actions/addLock",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        addReturnPathLockRequest.addLockDetails,
+        "AddLockDetails",
+        model.AddLockDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AddReturnPathLockResponse>{},
+        body: await response.json(),
+        bodyKey: "emailReturnPath",
+        bodyModel: model.EmailReturnPath,
+        type: "model.EmailReturnPath",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Adds a lock to a resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param AddSenderLockRequest
+   * @return AddSenderLockResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/AddSenderLock.ts.html |here} to see how to use AddSenderLock API.
+   */
+  public async addSenderLock(
+    addSenderLockRequest: requests.AddSenderLockRequest
+  ): Promise<responses.AddSenderLockResponse> {
+    if (this.logger) this.logger.debug("Calling operation EmailClient#addSenderLock.");
+    const operationName = "addSenderLock";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/emaildelivery/20170907/Sender/AddSenderLock";
+    const pathParams = {
+      "{senderId}": addSenderLockRequest.senderId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": addSenderLockRequest.opcRequestId,
+      "if-match": addSenderLockRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      addSenderLockRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/senders/{senderId}/actions/addLock",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        addSenderLockRequest.addLockDetails,
+        "AddLockDetails",
+        model.AddLockDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AddSenderLockResponse>{},
+        body: await response.json(),
+        bodyKey: "sender",
+        bodyModel: model.Sender,
+        type: "model.Sender",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Moves an email domain into a different compartment.
    * When provided, If-Match is checked against ETag value of the resource.
    * For information about moving resources between compartments, see
@@ -268,7 +514,9 @@ export class EmailClient {
       "{emailDomainId}": changeEmailDomainCompartmentRequest.emailDomainId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": changeEmailDomainCompartmentRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -347,7 +595,9 @@ export class EmailClient {
       "{senderId}": changeSenderCompartmentRequest.senderId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": changeSenderCompartmentRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -946,7 +1196,9 @@ export class EmailClient {
       "{emailDomainId}": deleteEmailDomainRequest.emailDomainId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": deleteEmailDomainRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -1019,7 +1271,9 @@ export class EmailClient {
       "{emailReturnPathId}": deleteEmailReturnPathRequest.emailReturnPathId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": deleteEmailReturnPathRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -1094,7 +1348,9 @@ export class EmailClient {
       "{senderId}": deleteSenderRequest.senderId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": deleteSenderRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -2517,6 +2773,252 @@ export class EmailClient {
   }
 
   /**
+   * Remove a lock to a resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param RemoveEmailDomainLockRequest
+   * @return RemoveEmailDomainLockResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/RemoveEmailDomainLock.ts.html |here} to see how to use RemoveEmailDomainLock API.
+   */
+  public async removeEmailDomainLock(
+    removeEmailDomainLockRequest: requests.RemoveEmailDomainLockRequest
+  ): Promise<responses.RemoveEmailDomainLockResponse> {
+    if (this.logger) this.logger.debug("Calling operation EmailClient#removeEmailDomainLock.");
+    const operationName = "removeEmailDomainLock";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/emaildelivery/20170907/EmailDomain/RemoveEmailDomainLock";
+    const pathParams = {
+      "{emailDomainId}": removeEmailDomainLockRequest.emailDomainId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": removeEmailDomainLockRequest.opcRequestId,
+      "if-match": removeEmailDomainLockRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removeEmailDomainLockRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/emailDomains/{emailDomainId}/actions/removeLock",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        removeEmailDomainLockRequest.removeLockDetails,
+        "RemoveLockDetails",
+        model.RemoveLockDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RemoveEmailDomainLockResponse>{},
+        body: await response.json(),
+        bodyKey: "emailDomain",
+        bodyModel: model.EmailDomain,
+        type: "model.EmailDomain",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Remove a lock to a resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param RemoveReturnPathLockRequest
+   * @return RemoveReturnPathLockResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/RemoveReturnPathLock.ts.html |here} to see how to use RemoveReturnPathLock API.
+   */
+  public async removeReturnPathLock(
+    removeReturnPathLockRequest: requests.RemoveReturnPathLockRequest
+  ): Promise<responses.RemoveReturnPathLockResponse> {
+    if (this.logger) this.logger.debug("Calling operation EmailClient#removeReturnPathLock.");
+    const operationName = "removeReturnPathLock";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/emaildelivery/20170907/EmailReturnPath/RemoveReturnPathLock";
+    const pathParams = {
+      "{emailReturnPathId}": removeReturnPathLockRequest.emailReturnPathId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": removeReturnPathLockRequest.opcRequestId,
+      "if-match": removeReturnPathLockRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removeReturnPathLockRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/emailReturnPaths/{emailReturnPathId}/actions/removeLock",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        removeReturnPathLockRequest.removeLockDetails,
+        "RemoveLockDetails",
+        model.RemoveLockDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RemoveReturnPathLockResponse>{},
+        body: await response.json(),
+        bodyKey: "emailReturnPath",
+        bodyModel: model.EmailReturnPath,
+        type: "model.EmailReturnPath",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Remove a lock to a resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param RemoveSenderLockRequest
+   * @return RemoveSenderLockResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/RemoveSenderLock.ts.html |here} to see how to use RemoveSenderLock API.
+   */
+  public async removeSenderLock(
+    removeSenderLockRequest: requests.RemoveSenderLockRequest
+  ): Promise<responses.RemoveSenderLockResponse> {
+    if (this.logger) this.logger.debug("Calling operation EmailClient#removeSenderLock.");
+    const operationName = "removeSenderLock";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/emaildelivery/20170907/Sender/RemoveSenderLock";
+    const pathParams = {
+      "{senderId}": removeSenderLockRequest.senderId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": removeSenderLockRequest.opcRequestId,
+      "if-match": removeSenderLockRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removeSenderLockRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/senders/{senderId}/actions/removeLock",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        removeSenderLockRequest.removeLockDetails,
+        "RemoveLockDetails",
+        model.RemoveLockDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RemoveSenderLockResponse>{},
+        body: await response.json(),
+        bodyKey: "sender",
+        bodyModel: model.Sender,
+        type: "model.Sender",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Modifies a DKIM.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateDkimRequest
@@ -2613,7 +3115,9 @@ export class EmailClient {
       "{emailDomainId}": updateEmailDomainRequest.emailDomainId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": updateEmailDomainRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -2691,7 +3195,9 @@ export class EmailClient {
       "{emailReturnPathId}": updateEmailReturnPathRequest.emailReturnPathId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": updateEmailReturnPathRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -2773,7 +3279,9 @@ export class EmailClient {
       "{senderId}": updateSenderRequest.senderId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": updateSenderRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,

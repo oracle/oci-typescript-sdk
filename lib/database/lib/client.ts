@@ -8298,7 +8298,10 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       "{autonomousDatabaseId}": deleteAutonomousDatabaseRequest.autonomousDatabaseId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "mustDeleteAssociatedLongTermBackups":
+        deleteAutonomousDatabaseRequest.mustDeleteAssociatedLongTermBackups
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -20507,7 +20510,10 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       "sortOrder": listAutonomousDatabaseBackupsRequest.sortOrder,
       "lifecycleState": listAutonomousDatabaseBackupsRequest.lifecycleState,
       "displayName": listAutonomousDatabaseBackupsRequest.displayName,
-      "type": listAutonomousDatabaseBackupsRequest.type
+      "type": listAutonomousDatabaseBackupsRequest.type,
+      "backupDestinationId": listAutonomousDatabaseBackupsRequest.backupDestinationId,
+      "keyStoreId": listAutonomousDatabaseBackupsRequest.keyStoreId,
+      "infrastructureType": listAutonomousDatabaseBackupsRequest.infrastructureType
     };
 
     let headerParams = {
