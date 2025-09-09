@@ -105,7 +105,8 @@ Example: {@code {\"Department\": \"Finance\"}}
 export namespace AutonomousContainerDatabaseBackup {
   export enum Type {
     Incremental = "INCREMENTAL",
-    Full = "FULL"
+    Full = "FULL",
+    VirtualFull = "VIRTUAL_FULL"
   }
 
   export enum LifecycleState {

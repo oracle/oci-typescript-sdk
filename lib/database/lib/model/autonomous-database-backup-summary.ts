@@ -110,6 +110,15 @@ export interface AutonomousDatabaseBackupSummary {
    */
   "sizeInTBs"?: number;
   "backupDestinationDetails"?: model.BackupDestinationDetails;
+  /**
+   * The infrastructure type this resource belongs to.
+   */
+  "infrastructureType"?: AutonomousDatabaseBackupSummary.InfrastructureType;
+  /**
+   * Name of the region in which backup is taken in.
+   */
+  "region"?: string;
+  "sourceDatabaseDetails"?: model.SourceDatabaseDetails;
 }
 
 export namespace AutonomousDatabaseBackupSummary {
@@ -141,12 +150,26 @@ export namespace AutonomousDatabaseBackupSummary {
     UnknownValue = "UNKNOWN_VALUE"
   }
 
+  export enum InfrastructureType {
+    Cloud = "CLOUD",
+    CloudAtCustomer = "CLOUD_AT_CUSTOMER",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: AutonomousDatabaseBackupSummary): object {
     const jsonObj = {
       ...obj,
       ...{
         "backupDestinationDetails": obj.backupDestinationDetails
           ? model.BackupDestinationDetails.getJsonObj(obj.backupDestinationDetails)
+          : undefined,
+
+        "sourceDatabaseDetails": obj.sourceDatabaseDetails
+          ? model.SourceDatabaseDetails.getJsonObj(obj.sourceDatabaseDetails)
           : undefined
       }
     };
@@ -159,6 +182,10 @@ export namespace AutonomousDatabaseBackupSummary {
       ...{
         "backupDestinationDetails": obj.backupDestinationDetails
           ? model.BackupDestinationDetails.getDeserializedJsonObj(obj.backupDestinationDetails)
+          : undefined,
+
+        "sourceDatabaseDetails": obj.sourceDatabaseDetails
+          ? model.SourceDatabaseDetails.getDeserializedJsonObj(obj.sourceDatabaseDetails)
           : undefined
       }
     };

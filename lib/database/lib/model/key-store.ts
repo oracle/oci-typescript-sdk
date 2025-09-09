@@ -50,6 +50,14 @@ export interface KeyStore {
    */
   "associatedDatabases"?: Array<model.KeyStoreAssociatedDatabaseDetails>;
   /**
+   * List of long term backups of Autonomous Databases associated with this backup destination.The maximum associated number of long term backup listed here would be 1024.
+   */
+  "associatedLongTermBackups"?: Array<model.AssociatedLongTermBackup>;
+  /**
+   * Indicates the number of long term backups of Autonomous Databases associated with this backup destination. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "associatedLongTermBackupCount"?: number;
+  /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
 * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
@@ -94,6 +102,11 @@ export namespace KeyStore {
           ? obj.associatedDatabases.map(item => {
               return model.KeyStoreAssociatedDatabaseDetails.getJsonObj(item);
             })
+          : undefined,
+        "associatedLongTermBackups": obj.associatedLongTermBackups
+          ? obj.associatedLongTermBackups.map(item => {
+              return model.AssociatedLongTermBackup.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -110,6 +123,11 @@ export namespace KeyStore {
         "associatedDatabases": obj.associatedDatabases
           ? obj.associatedDatabases.map(item => {
               return model.KeyStoreAssociatedDatabaseDetails.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "associatedLongTermBackups": obj.associatedLongTermBackups
+          ? obj.associatedLongTermBackups.map(item => {
+              return model.AssociatedLongTermBackup.getDeserializedJsonObj(item);
             })
           : undefined
       }

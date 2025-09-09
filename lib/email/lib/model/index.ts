@@ -18,6 +18,8 @@ For more information, see [Overview of the Email Delivery Service](https://docs.
 
 import * as ActionType from "./action-type";
 export import ActionType = ActionType.ActionType;
+import * as AddLockDetails from "./add-lock-details";
+export import AddLockDetails = AddLockDetails.AddLockDetails;
 import * as ChangeEmailDomainCompartmentDetails from "./change-email-domain-compartment-details";
 export import ChangeEmailDomainCompartmentDetails = ChangeEmailDomainCompartmentDetails.ChangeEmailDomainCompartmentDetails;
 import * as ChangeSenderCompartmentDetails from "./change-sender-compartment-details";
@@ -58,6 +60,10 @@ import * as OperationStatus from "./operation-status";
 export import OperationStatus = OperationStatus.OperationStatus;
 import * as OperationType from "./operation-type";
 export import OperationType = OperationType.OperationType;
+import * as RemoveLockDetails from "./remove-lock-details";
+export import RemoveLockDetails = RemoveLockDetails.RemoveLockDetails;
+import * as ResourceLock from "./resource-lock";
+export import ResourceLock = ResourceLock.ResourceLock;
 import * as Sender from "./sender";
 export import Sender = Sender.Sender;
 import * as SenderSummary from "./sender-summary";

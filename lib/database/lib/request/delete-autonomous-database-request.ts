@@ -35,6 +35,10 @@ export interface DeleteAutonomousDatabaseRequest extends common.BaseRequest {
    */
   "opcRequestId"?: string;
   /**
+   * If set to true, terminating the Autonomous Database also deletes its associated long-term backups if the retention lock is not enabled.
+   */
+  "mustDeleteAssociatedLongTermBackups"?: boolean;
+  /**
    * Indicates that the request is a dry run, if set to \"true\". A dry run request does not actually
    * creating or updating a resource and is used only to perform validation on the submitted data.
    *

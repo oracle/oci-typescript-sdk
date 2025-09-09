@@ -61,6 +61,10 @@ Example: {@code My mount target}
    */
   "privateIpIds": Array<string>;
   /**
+   * The OCIDs of the IPv6 addresses associated with this mount target.
+   */
+  "mountTargetIpv6Ids"?: Array<string>;
+  /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subnet the mount target is in.
    */
   "subnetId": string;

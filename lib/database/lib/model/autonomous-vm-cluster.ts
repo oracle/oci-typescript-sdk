@@ -83,10 +83,15 @@ export interface AutonomousVmCluster {
    */
   "totalContainerDatabases"?: number;
   /**
-   * The amount of memory (in GBs) to be enabled per each CPU core.
+   * The amount of memory (in GBs rounded off to nearest integer value) enabled per ECPU or OCPU. This is deprecated. Please refer to memoryPerComputeUnitInGBs for accurate value.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "memoryPerOracleComputeUnitInGBs"?: number;
+  /**
+   * The amount of memory (in GBs) to be enabled per OCPU or ECPU.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "memoryPerComputeUnitInGBs"?: number;
   /**
    * The number of CPU cores enabled per VM cluster node. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
