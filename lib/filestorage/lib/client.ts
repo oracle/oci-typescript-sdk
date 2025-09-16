@@ -36,8 +36,7 @@ export enum FileStorageApiKeys {}
  * This service client uses {@link common.CircuitBreaker.DefaultConfiguration} for all the operations by default if no circuit breaker configuration is defined by the user.
  */
 export class FileStorageClient {
-  protected static serviceEndpointTemplate =
-    "https://filestorage.{region}.{dualStack?ds.:}oci.{secondLevelDomain}";
+  protected static serviceEndpointTemplate = "https://filestorage.{region}.{secondLevelDomain}";
   protected static endpointServiceName = "filestorage";
   protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
@@ -267,13 +266,6 @@ export class FileStorageClient {
       "opc-request-id": addExportLockRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>(["exportId"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -282,7 +274,7 @@ export class FileStorageClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/exports/{exportId}/actions/addLock",
       method: "POST",
@@ -356,13 +348,6 @@ export class FileStorageClient {
       "opc-request-id": addFileSystemLockRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>(["fileSystemId"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -371,7 +356,7 @@ export class FileStorageClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/fileSystems/{fileSystemId}/actions/addLock",
       method: "POST",
@@ -447,13 +432,6 @@ export class FileStorageClient {
       "opc-request-id": addFilesystemSnapshotPolicyLockRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>(["filesystemSnapshotPolicyId"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -462,7 +440,7 @@ export class FileStorageClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/filesystemSnapshotPolicies/{filesystemSnapshotPolicyId}/actions/addLock",
       method: "POST",
@@ -536,13 +514,6 @@ export class FileStorageClient {
       "opc-request-id": addMountTargetLockRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>(["mountTargetId"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -551,7 +522,7 @@ export class FileStorageClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/mountTargets/{mountTargetId}/actions/addLock",
       method: "POST",
@@ -626,13 +597,6 @@ export class FileStorageClient {
       "opc-request-id": addOutboundConnectorLockRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>(["outboundConnectorId"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -641,7 +605,7 @@ export class FileStorageClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/outboundConnectors/{outboundConnectorId}/actions/addLock",
       method: "POST",
@@ -715,13 +679,6 @@ export class FileStorageClient {
       "opc-request-id": addReplicationLockRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>(["replicationId"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -730,7 +687,7 @@ export class FileStorageClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/replications/{replicationId}/actions/addLock",
       method: "POST",
@@ -804,13 +761,6 @@ export class FileStorageClient {
       "opc-request-id": addSnapshotLockRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>(["snapshotId"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -819,7 +769,7 @@ export class FileStorageClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/snapshots/{snapshotId}/actions/addLock",
       method: "POST",
@@ -895,13 +845,6 @@ export class FileStorageClient {
       "opc-request-id": cancelDowngradeShapeMountTargetRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>(["mountTargetId"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -910,7 +853,7 @@ export class FileStorageClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/mountTargets/{mountTargetId}/actions/cancelShapeDowngrade",
       method: "POST",
@@ -983,13 +926,6 @@ export class FileStorageClient {
       "opc-request-id": changeFileSystemCompartmentRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>(["fileSystemId"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -998,7 +934,7 @@ export class FileStorageClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/fileSystems/{fileSystemId}/actions/changeCompartment",
       method: "POST",
@@ -1070,13 +1006,6 @@ export class FileStorageClient {
       "opc-request-id": changeFilesystemSnapshotPolicyCompartmentRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>(["filesystemSnapshotPolicyId"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -1085,7 +1014,7 @@ export class FileStorageClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/filesystemSnapshotPolicies/{filesystemSnapshotPolicyId}/actions/changeCompartment",
       method: "POST",
@@ -1154,13 +1083,6 @@ export class FileStorageClient {
       "opc-request-id": changeMountTargetCompartmentRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>(["mountTargetId"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -1169,7 +1091,7 @@ export class FileStorageClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/mountTargets/{mountTargetId}/actions/changeCompartment",
       method: "POST",
@@ -1240,13 +1162,6 @@ export class FileStorageClient {
       "opc-request-id": changeOutboundConnectorCompartmentRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>(["outboundConnectorId"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -1255,7 +1170,7 @@ export class FileStorageClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/outboundConnectors/{outboundConnectorId}/actions/changeCompartment",
       method: "POST",
@@ -1325,13 +1240,6 @@ export class FileStorageClient {
       "opc-request-id": changeReplicationCompartmentRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>(["replicationId"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -1340,7 +1248,7 @@ export class FileStorageClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/replications/{replicationId}/actions/changeCompartment",
       method: "POST",
@@ -1405,13 +1313,6 @@ export class FileStorageClient {
       "opc-request-id": createExportRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>([]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -1420,7 +1321,7 @@ export class FileStorageClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/exports",
       method: "POST",
@@ -1521,13 +1422,6 @@ All Oracle Cloud Infrastructure resources, including
       "opc-request-id": createFileSystemRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>([]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -1536,7 +1430,7 @@ All Oracle Cloud Infrastructure resources, including
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/fileSystems",
       method: "POST",
@@ -1614,13 +1508,6 @@ After you create a file system snapshot policy, you can associate it with
       "opc-request-id": createFilesystemSnapshotPolicyRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>([]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -1629,7 +1516,7 @@ After you create a file system snapshot policy, you can associate it with
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/filesystemSnapshotPolicies",
       method: "POST",
@@ -1735,13 +1622,6 @@ All Oracle Cloud Infrastructure Services resources, including
       "opc-request-id": createMountTargetRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>([]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -1750,7 +1630,7 @@ All Oracle Cloud Infrastructure Services resources, including
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/mountTargets",
       method: "POST",
@@ -1843,13 +1723,6 @@ All Oracle Cloud Infrastructure Services resources, including
       "opc-request-id": createOutboundConnectorRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>([]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -1858,7 +1731,7 @@ All Oracle Cloud Infrastructure Services resources, including
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/outboundConnectors",
       method: "POST",
@@ -1935,13 +1808,6 @@ All Oracle Cloud Infrastructure Services resources, including
       "opc-retry-token": createQuotaRuleRequest.opcRetryToken
     };
 
-    const requiredParams = new Set<string>(["fileSystemId"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -1950,7 +1816,7 @@ All Oracle Cloud Infrastructure Services resources, including
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/fileSystems/{fileSystemId}/quotaRules",
       method: "POST",
@@ -2049,13 +1915,6 @@ All Oracle Cloud Infrastructure Services resources, including
       "opc-request-id": createReplicationRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>([]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -2064,7 +1923,7 @@ All Oracle Cloud Infrastructure Services resources, including
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/replications",
       method: "POST",
@@ -2138,13 +1997,6 @@ All Oracle Cloud Infrastructure Services resources, including
       "opc-request-id": createSnapshotRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>([]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -2153,7 +2005,7 @@ All Oracle Cloud Infrastructure Services resources, including
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/snapshots",
       method: "POST",
@@ -2230,13 +2082,6 @@ All Oracle Cloud Infrastructure Services resources, including
       "opc-request-id": deleteExportRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>(["exportId"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -2245,7 +2090,7 @@ All Oracle Cloud Infrastructure Services resources, including
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/exports/{exportId}",
       method: "DELETE",
@@ -2311,13 +2156,6 @@ All Oracle Cloud Infrastructure Services resources, including
       "opc-request-id": deleteFileSystemRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>(["fileSystemId"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -2326,7 +2164,7 @@ All Oracle Cloud Infrastructure Services resources, including
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/fileSystems/{fileSystemId}",
       method: "DELETE",
@@ -2391,13 +2229,6 @@ All Oracle Cloud Infrastructure Services resources, including
       "opc-request-id": deleteFilesystemSnapshotPolicyRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>(["filesystemSnapshotPolicyId"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -2406,7 +2237,7 @@ All Oracle Cloud Infrastructure Services resources, including
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/filesystemSnapshotPolicies/{filesystemSnapshotPolicyId}",
       method: "DELETE",
@@ -2470,13 +2301,6 @@ All Oracle Cloud Infrastructure Services resources, including
       "opc-request-id": deleteMountTargetRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>(["mountTargetId"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -2485,7 +2309,7 @@ All Oracle Cloud Infrastructure Services resources, including
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/mountTargets/{mountTargetId}",
       method: "DELETE",
@@ -2549,13 +2373,6 @@ All Oracle Cloud Infrastructure Services resources, including
       "opc-request-id": deleteOutboundConnectorRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>(["outboundConnectorId"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -2564,7 +2381,7 @@ All Oracle Cloud Infrastructure Services resources, including
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/outboundConnectors/{outboundConnectorId}",
       method: "DELETE",
@@ -2626,13 +2443,6 @@ All Oracle Cloud Infrastructure Services resources, including
       "opc-request-id": deleteQuotaRuleRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>(["fileSystemId", "quotaRuleId"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -2641,7 +2451,7 @@ All Oracle Cloud Infrastructure Services resources, including
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/fileSystems/{fileSystemId}/quotaRules/{quotaRuleId}",
       method: "DELETE",
@@ -2705,13 +2515,6 @@ All Oracle Cloud Infrastructure Services resources, including
       "opc-request-id": deleteReplicationRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>(["replicationId"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -2720,7 +2523,7 @@ All Oracle Cloud Infrastructure Services resources, including
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/replications/{replicationId}",
       method: "DELETE",
@@ -2787,13 +2590,6 @@ All Oracle Cloud Infrastructure Services resources, including
       "opc-request-id": deleteReplicationTargetRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>(["replicationTargetId"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -2802,7 +2598,7 @@ All Oracle Cloud Infrastructure Services resources, including
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/replicationTargets/{replicationTargetId}",
       method: "DELETE",
@@ -2865,13 +2661,6 @@ All Oracle Cloud Infrastructure Services resources, including
       "opc-request-id": deleteSnapshotRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>(["snapshotId"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -2880,7 +2669,7 @@ All Oracle Cloud Infrastructure Services resources, including
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/snapshots/{snapshotId}",
       method: "DELETE",
@@ -2941,13 +2730,6 @@ All Oracle Cloud Infrastructure Services resources, including
       "opc-request-id": detachCloneRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>(["fileSystemId"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -2956,7 +2738,7 @@ All Oracle Cloud Infrastructure Services resources, including
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/fileSystems/{fileSystemId}/actions/detachClone",
       method: "POST",
@@ -3019,13 +2801,6 @@ All Oracle Cloud Infrastructure Services resources, including
       "opc-request-id": estimateReplicationRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>(["fileSystemId"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -3034,7 +2809,7 @@ All Oracle Cloud Infrastructure Services resources, including
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/fileSystems/{fileSystemId}/actions/estimateReplication",
       method: "POST",
@@ -3102,13 +2877,6 @@ All Oracle Cloud Infrastructure Services resources, including
       "opc-request-id": getExportRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>(["exportId"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -3117,7 +2885,7 @@ All Oracle Cloud Infrastructure Services resources, including
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/exports/{exportId}",
       method: "GET",
@@ -3185,13 +2953,6 @@ All Oracle Cloud Infrastructure Services resources, including
       "opc-request-id": getExportSetRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>(["exportSetId"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -3200,7 +2961,7 @@ All Oracle Cloud Infrastructure Services resources, including
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/exportSets/{exportSetId}",
       method: "GET",
@@ -3268,13 +3029,6 @@ All Oracle Cloud Infrastructure Services resources, including
       "opc-request-id": getFileSystemRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>(["fileSystemId"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -3283,7 +3037,7 @@ All Oracle Cloud Infrastructure Services resources, including
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/fileSystems/{fileSystemId}",
       method: "GET",
@@ -3352,13 +3106,6 @@ All Oracle Cloud Infrastructure Services resources, including
       "opc-request-id": getFilesystemSnapshotPolicyRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>(["filesystemSnapshotPolicyId"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -3367,7 +3114,7 @@ All Oracle Cloud Infrastructure Services resources, including
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/filesystemSnapshotPolicies/{filesystemSnapshotPolicyId}",
       method: "GET",
@@ -3435,13 +3182,6 @@ All Oracle Cloud Infrastructure Services resources, including
       "opc-request-id": getMountTargetRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>(["mountTargetId"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -3450,7 +3190,7 @@ All Oracle Cloud Infrastructure Services resources, including
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/mountTargets/{mountTargetId}",
       method: "GET",
@@ -3518,13 +3258,6 @@ All Oracle Cloud Infrastructure Services resources, including
       "opc-request-id": getOutboundConnectorRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>(["outboundConnectorId"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -3533,7 +3266,7 @@ All Oracle Cloud Infrastructure Services resources, including
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/outboundConnectors/{outboundConnectorId}",
       method: "GET",
@@ -3604,13 +3337,6 @@ All Oracle Cloud Infrastructure Services resources, including
       "opc-request-id": getQuotaRuleRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>(["fileSystemId", "quotaRuleId"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -3619,7 +3345,7 @@ All Oracle Cloud Infrastructure Services resources, including
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/fileSystems/{fileSystemId}/quotaRules/{quotaRuleId}",
       method: "GET",
@@ -3687,13 +3413,6 @@ All Oracle Cloud Infrastructure Services resources, including
       "opc-request-id": getReplicationRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>(["replicationId"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -3702,7 +3421,7 @@ All Oracle Cloud Infrastructure Services resources, including
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/replications/{replicationId}",
       method: "GET",
@@ -3770,13 +3489,6 @@ All Oracle Cloud Infrastructure Services resources, including
       "opc-request-id": getReplicationTargetRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>(["replicationTargetId"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -3785,7 +3497,7 @@ All Oracle Cloud Infrastructure Services resources, including
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/replicationTargets/{replicationTargetId}",
       method: "GET",
@@ -3853,13 +3565,6 @@ All Oracle Cloud Infrastructure Services resources, including
       "opc-request-id": getSnapshotRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>(["snapshotId"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -3868,7 +3573,7 @@ All Oracle Cloud Infrastructure Services resources, including
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/snapshots/{snapshotId}",
       method: "GET",
@@ -3945,13 +3650,6 @@ All Oracle Cloud Infrastructure Services resources, including
       "opc-request-id": listExportSetsRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>(["compartmentId", "availabilityDomain"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -3960,7 +3658,7 @@ All Oracle Cloud Infrastructure Services resources, including
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/exportSets",
       method: "GET",
@@ -4091,13 +3789,6 @@ All Oracle Cloud Infrastructure Services resources, including
       "opc-request-id": listExportsRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>([]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -4106,7 +3797,7 @@ All Oracle Cloud Infrastructure Services resources, including
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/exports",
       method: "GET",
@@ -4239,13 +3930,6 @@ All Oracle Cloud Infrastructure Services resources, including
       "opc-request-id": listFileSystemsRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>(["compartmentId", "availabilityDomain"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -4254,7 +3938,7 @@ All Oracle Cloud Infrastructure Services resources, including
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/fileSystems",
       method: "GET",
@@ -4384,13 +4068,6 @@ All Oracle Cloud Infrastructure Services resources, including
       "opc-request-id": listFilesystemSnapshotPoliciesRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>(["compartmentId", "availabilityDomain"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -4399,7 +4076,7 @@ All Oracle Cloud Infrastructure Services resources, including
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/filesystemSnapshotPolicies",
       method: "GET",
@@ -4529,13 +4206,6 @@ All Oracle Cloud Infrastructure Services resources, including
       "opc-request-id": listMountTargetsRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>(["compartmentId", "availabilityDomain"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -4544,7 +4214,7 @@ All Oracle Cloud Infrastructure Services resources, including
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/mountTargets",
       method: "GET",
@@ -4674,13 +4344,6 @@ All Oracle Cloud Infrastructure Services resources, including
       "opc-request-id": listOutboundConnectorsRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>(["compartmentId", "availabilityDomain"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -4689,7 +4352,7 @@ All Oracle Cloud Infrastructure Services resources, including
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/outboundConnectors",
       method: "GET",
@@ -4818,13 +4481,6 @@ All Oracle Cloud Infrastructure Services resources, including
       "opc-request-id": listQuotaRulesRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>(["fileSystemId", "principalType"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -4833,7 +4489,7 @@ All Oracle Cloud Infrastructure Services resources, including
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/fileSystems/{fileSystemId}/quotaRules",
       method: "GET",
@@ -4963,13 +4619,6 @@ All Oracle Cloud Infrastructure Services resources, including
       "opc-request-id": listReplicationTargetsRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>(["compartmentId", "availabilityDomain"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -4978,7 +4627,7 @@ All Oracle Cloud Infrastructure Services resources, including
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/replicationTargets",
       method: "GET",
@@ -5108,13 +4757,6 @@ All Oracle Cloud Infrastructure Services resources, including
       "opc-request-id": listReplicationsRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>(["compartmentId", "availabilityDomain"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -5123,7 +4765,7 @@ All Oracle Cloud Infrastructure Services resources, including
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/replications",
       method: "GET",
@@ -5257,13 +4899,6 @@ Users can only sort by time created when listing snapshots by file system snapsh
       "opc-request-id": listSnapshotsRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>([]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -5272,7 +4907,7 @@ Users can only sort by time created when listing snapshots by file system snapsh
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/snapshots",
       method: "GET",
@@ -5403,13 +5038,6 @@ If the policy is already paused, or in the INACTIVE state, you cannot pause it a
       "opc-request-id": pauseFilesystemSnapshotPolicyRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>(["filesystemSnapshotPolicyId"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -5418,7 +5046,7 @@ If the policy is already paused, or in the INACTIVE state, you cannot pause it a
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/filesystemSnapshotPolicies/{filesystemSnapshotPolicyId}/actions/pause",
       method: "POST",
@@ -5487,13 +5115,6 @@ If the policy is already paused, or in the INACTIVE state, you cannot pause it a
       "opc-request-id": removeExportLockRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>(["exportId"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -5502,7 +5123,7 @@ If the policy is already paused, or in the INACTIVE state, you cannot pause it a
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/exports/{exportId}/actions/removeLock",
       method: "POST",
@@ -5576,13 +5197,6 @@ If the policy is already paused, or in the INACTIVE state, you cannot pause it a
       "opc-request-id": removeFileSystemLockRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>(["fileSystemId"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -5591,7 +5205,7 @@ If the policy is already paused, or in the INACTIVE state, you cannot pause it a
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/fileSystems/{fileSystemId}/actions/removeLock",
       method: "POST",
@@ -5667,13 +5281,6 @@ If the policy is already paused, or in the INACTIVE state, you cannot pause it a
       "opc-request-id": removeFilesystemSnapshotPolicyLockRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>(["filesystemSnapshotPolicyId"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -5682,7 +5289,7 @@ If the policy is already paused, or in the INACTIVE state, you cannot pause it a
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/filesystemSnapshotPolicies/{filesystemSnapshotPolicyId}/actions/removeLock",
       method: "POST",
@@ -5757,13 +5364,6 @@ If the policy is already paused, or in the INACTIVE state, you cannot pause it a
       "opc-request-id": removeMountTargetLockRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>(["mountTargetId"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -5772,7 +5372,7 @@ If the policy is already paused, or in the INACTIVE state, you cannot pause it a
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/mountTargets/{mountTargetId}/actions/removeLock",
       method: "POST",
@@ -5847,13 +5447,6 @@ If the policy is already paused, or in the INACTIVE state, you cannot pause it a
       "opc-request-id": removeOutboundConnectorLockRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>(["outboundConnectorId"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -5862,7 +5455,7 @@ If the policy is already paused, or in the INACTIVE state, you cannot pause it a
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/outboundConnectors/{outboundConnectorId}/actions/removeLock",
       method: "POST",
@@ -5937,13 +5530,6 @@ If the policy is already paused, or in the INACTIVE state, you cannot pause it a
       "opc-request-id": removeReplicationLockRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>(["replicationId"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -5952,7 +5538,7 @@ If the policy is already paused, or in the INACTIVE state, you cannot pause it a
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/replications/{replicationId}/actions/removeLock",
       method: "POST",
@@ -6026,13 +5612,6 @@ If the policy is already paused, or in the INACTIVE state, you cannot pause it a
       "opc-request-id": removeSnapshotLockRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>(["snapshotId"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -6041,7 +5620,7 @@ If the policy is already paused, or in the INACTIVE state, you cannot pause it a
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/snapshots/{snapshotId}/actions/removeLock",
       method: "POST",
@@ -6117,13 +5696,6 @@ If the policy is already paused, or in the INACTIVE state, you cannot pause it a
       "opc-request-id": scheduleDowngradeShapeMountTargetRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>(["mountTargetId"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -6132,7 +5704,7 @@ If the policy is already paused, or in the INACTIVE state, you cannot pause it a
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/mountTargets/{mountTargetId}/actions/scheduleShapeDowngrade",
       method: "POST",
@@ -6210,13 +5782,6 @@ If the policy is already paused, or in the INACTIVE state, you cannot pause it a
       "opc-request-id": toggleQuotaRulesRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>(["fileSystemId"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -6225,7 +5790,7 @@ If the policy is already paused, or in the INACTIVE state, you cannot pause it a
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/fileSystems/{fileSystemId}/actions/toggleQuotaRules",
       method: "POST",
@@ -6264,7 +5829,7 @@ If the policy is already paused, or in the INACTIVE state, you cannot pause it a
   }
 
   /**
-     * This operation unpauses a paused file system snapshot policy and updates the lifecycle state of the file system snapshot policy from 
+     * This operation unpauses a paused file system snapshot policy and updates the lifecycle state of the file system snapshot policy from
 * INACTIVE to ACTIVE. By default, file system snapshot policies are in the ACTIVE state. When a file system snapshot policy is not paused, or in the ACTIVE state, file systems that are associated with the
 * policy will have snapshots created and deleted according to the schedules defined in the policy.
 * <p>
@@ -6299,13 +5864,6 @@ If the policy is already in the ACTIVE state, you cannot unpause it. You can't u
       "opc-request-id": unpauseFilesystemSnapshotPolicyRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>(["filesystemSnapshotPolicyId"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -6314,7 +5872,7 @@ If the policy is already in the ACTIVE state, you cannot unpause it. You can't u
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/filesystemSnapshotPolicies/{filesystemSnapshotPolicyId}/actions/unpause",
       method: "POST",
@@ -6385,13 +5943,6 @@ If the policy is already in the ACTIVE state, you cannot unpause it. You can't u
       "opc-request-id": updateExportRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>(["exportId"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -6400,7 +5951,7 @@ If the policy is already in the ACTIVE state, you cannot unpause it. You can't u
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/exports/{exportId}",
       method: "PUT",
@@ -6474,13 +6025,6 @@ If the policy is already in the ACTIVE state, you cannot unpause it. You can't u
       "opc-request-id": updateExportSetRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>(["exportSetId"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -6489,7 +6033,7 @@ If the policy is already in the ACTIVE state, you cannot unpause it. You can't u
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/exportSets/{exportSetId}",
       method: "PUT",
@@ -6567,13 +6111,6 @@ If the policy is already in the ACTIVE state, you cannot unpause it. You can't u
       "opc-request-id": updateFileSystemRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>(["fileSystemId"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -6582,7 +6119,7 @@ If the policy is already in the ACTIVE state, you cannot unpause it. You can't u
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/fileSystems/{fileSystemId}",
       method: "PUT",
@@ -6660,13 +6197,6 @@ If the policy is already in the ACTIVE state, you cannot unpause it. You can't u
       "opc-request-id": updateFilesystemSnapshotPolicyRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>(["filesystemSnapshotPolicyId"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -6675,7 +6205,7 @@ If the policy is already in the ACTIVE state, you cannot unpause it. You can't u
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/filesystemSnapshotPolicies/{filesystemSnapshotPolicyId}",
       method: "PUT",
@@ -6751,13 +6281,6 @@ If the policy is already in the ACTIVE state, you cannot unpause it. You can't u
       "opc-request-id": updateMountTargetRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>(["mountTargetId"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -6766,7 +6289,7 @@ If the policy is already in the ACTIVE state, you cannot unpause it. You can't u
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/mountTargets/{mountTargetId}",
       method: "PUT",
@@ -6843,13 +6366,6 @@ If the policy is already in the ACTIVE state, you cannot unpause it. You can't u
       "opc-request-id": updateOutboundConnectorRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>(["outboundConnectorId"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -6858,7 +6374,7 @@ If the policy is already in the ACTIVE state, you cannot unpause it. You can't u
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/outboundConnectors/{outboundConnectorId}",
       method: "PUT",
@@ -6934,13 +6450,6 @@ If the policy is already in the ACTIVE state, you cannot unpause it. You can't u
       "opc-request-id": updateQuotaRuleRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>(["fileSystemId", "quotaRuleId"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -6949,7 +6458,7 @@ If the policy is already in the ACTIVE state, you cannot unpause it. You can't u
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/fileSystems/{fileSystemId}/quotaRules/{quotaRuleId}",
       method: "PUT",
@@ -7026,13 +6535,6 @@ If the policy is already in the ACTIVE state, you cannot unpause it. You can't u
       "opc-request-id": updateReplicationRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>(["replicationId"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -7041,7 +6543,7 @@ If the policy is already in the ACTIVE state, you cannot unpause it. You can't u
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/replications/{replicationId}",
       method: "PUT",
@@ -7117,13 +6619,6 @@ If the policy is already in the ACTIVE state, you cannot unpause it. You can't u
       "opc-request-id": updateSnapshotRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>(["snapshotId"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -7132,7 +6627,7 @@ If the policy is already in the ACTIVE state, you cannot unpause it. You can't u
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/snapshots/{snapshotId}",
       method: "PUT",
@@ -7208,13 +6703,6 @@ If the policy is already in the ACTIVE state, you cannot unpause it. You can't u
       "opc-request-id": upgradeShapeMountTargetRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>(["mountTargetId"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -7223,7 +6711,7 @@ If the policy is already in the ACTIVE state, you cannot unpause it. You can't u
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/mountTargets/{mountTargetId}/actions/upgradeShape",
       method: "POST",
@@ -7297,13 +6785,6 @@ If the policy is already in the ACTIVE state, you cannot unpause it. You can't u
       "opc-request-id": validateKeyTabsRequest.opcRequestId
     };
 
-    const requiredParams = new Set<string>([]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
-      pathParams,
-      queryParams,
-      requiredParams
-    );
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -7312,7 +6793,7 @@ If the policy is already in the ACTIVE state, you cannot unpause it. You can't u
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: endpoint,
+      baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/mountTargets/actions/validateKeyTabs",
       method: "POST",

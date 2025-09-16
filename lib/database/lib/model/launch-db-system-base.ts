@@ -216,6 +216,14 @@ Example: {@code {\"Department\": \"Finance\"}}
    *
    */
   "privateIpV6"?: string;
+  /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the cluster placement group of the Exadata Infrastructure or Db System.
+   */
+  "clusterPlacementGroupId"?: string;
+  /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subscription with which resource needs to be associated with.
+   */
+  "subscriptionId"?: string;
   "dataCollectionOptions"?: model.DataCollectionOptions;
   /**
    * The compute model for Base Database Service. This is required if using the {@code computeCount} parameter. If using {@code cpuCoreCount} then it is an error to specify {@code computeModel} to a non-null value. The ECPU compute model is the recommended model, and the OCPU compute model is legacy.
