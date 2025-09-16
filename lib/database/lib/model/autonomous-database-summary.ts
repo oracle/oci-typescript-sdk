@@ -694,6 +694,10 @@ This cannot be updated in parallel with any of the following: licenseModel, dbEd
    * A list of the source Autonomous Database's table space number(s) used to create this partial clone from the backup.
    */
   "cloneTableSpaceList"?: Array<number>;
+  /**
+   * The Autonomous Database clone type.
+   */
+  "cloneType"?: AutonomousDatabaseSummary.CloneType;
 }
 
 export namespace AutonomousDatabaseSummary {
@@ -905,6 +909,17 @@ export namespace AutonomousDatabaseSummary {
   export enum NetServicesArchitecture {
     Dedicated = "DEDICATED",
     Shared = "SHARED",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum CloneType {
+    Full = "FULL",
+    Metadata = "METADATA",
+    Partial = "PARTIAL",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

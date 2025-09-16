@@ -1894,6 +1894,87 @@ export class DatabaseClient {
   }
 
   /**
+   * Associate a cloud DB system with a different subscription.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ChangeCloudDbSystemSubscriptionRequest
+   * @return ChangeCloudDbSystemSubscriptionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeCloudDbSystemSubscription.ts.html |here} to see how to use ChangeCloudDbSystemSubscription API.
+   */
+  public async changeCloudDbSystemSubscription(
+    changeCloudDbSystemSubscriptionRequest: requests.ChangeCloudDbSystemSubscriptionRequest
+  ): Promise<responses.ChangeCloudDbSystemSubscriptionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#changeCloudDbSystemSubscription.");
+    const operationName = "changeCloudDbSystemSubscription";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/DbSystem/ChangeCloudDbSystemSubscription";
+    const pathParams = {
+      "{dbSystemId}": changeCloudDbSystemSubscriptionRequest.dbSystemId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": changeCloudDbSystemSubscriptionRequest.opcRetryToken,
+      "opc-request-id": changeCloudDbSystemSubscriptionRequest.opcRequestId,
+      "if-match": changeCloudDbSystemSubscriptionRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeCloudDbSystemSubscriptionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dbSystems/{dbSystemId}/actions/changeSubscription",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeCloudDbSystemSubscriptionRequest.changeCloudDbSystemSubscriptionDetails,
+        "ChangeCloudDbSystemSubscriptionDetails",
+        model.ChangeCloudDbSystemSubscriptionDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeCloudDbSystemSubscriptionResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Moves a cloud Exadata infrastructure resource and its dependent resources to another compartment. Applies to Exadata Cloud Service instances and Autonomous Database on dedicated Exadata infrastructure only.For more information about moving resources to a different compartment, see [Moving Database Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Database/Concepts/databaseoverview.htm#moveRes).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -19773,7 +19854,8 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-retry-token": launchDbSystemRequest.opcRetryToken
+      "opc-retry-token": launchDbSystemRequest.opcRetryToken,
+      "opc-dry-run": launchDbSystemRequest.opcDryRun
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -37278,7 +37360,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "if-match": updateDbSystemRequest.ifMatch
+      "if-match": updateDbSystemRequest.ifMatch,
+      "opc-dry-run": updateDbSystemRequest.opcDryRun
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;

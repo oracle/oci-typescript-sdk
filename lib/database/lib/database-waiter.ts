@@ -600,6 +600,37 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forChangeCloudDbSystemSubscription
+   *
+   * @param request the request to send
+   * @return response returns ChangeCloudDbSystemSubscriptionResponse, GetWorkRequestResponse tuple
+   */
+  public async forChangeCloudDbSystemSubscription(
+    request: serviceRequests.ChangeCloudDbSystemSubscriptionRequest
+  ): Promise<{
+    response: serviceResponses.ChangeCloudDbSystemSubscriptionResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const changeCloudDbSystemSubscriptionResponse = await this.client.changeCloudDbSystemSubscription(
+      request
+    );
+    if (changeCloudDbSystemSubscriptionResponse.opcWorkRequestId === undefined)
+      return {
+        response: changeCloudDbSystemSubscriptionResponse,
+        workRequestResponse: undefined as any
+      };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      changeCloudDbSystemSubscriptionResponse.opcWorkRequestId
+    );
+    return {
+      response: changeCloudDbSystemSubscriptionResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
    * Waits forChangeCloudExadataInfrastructureCompartment
    *
    * @param request the request to send

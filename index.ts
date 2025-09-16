@@ -234,3 +234,4 @@ export import dbmulticloud = require("oci-dbmulticloud");
 export import apiplatform = require("oci-apiplatform");
 export import multicloud = require("oci-multicloud");
 export import managedkafka = require("oci-managedkafka");
+export import aidataplatform = require("oci-aidataplatform");

@@ -50,6 +50,8 @@ import * as ChangeCloudAutonomousVmClusterCompartmentResponse from "./change-clo
 export import ChangeCloudAutonomousVmClusterCompartmentResponse = ChangeCloudAutonomousVmClusterCompartmentResponse.ChangeCloudAutonomousVmClusterCompartmentResponse;
 import * as ChangeCloudAutonomousVmClusterSubscriptionResponse from "./change-cloud-autonomous-vm-cluster-subscription-response";
 export import ChangeCloudAutonomousVmClusterSubscriptionResponse = ChangeCloudAutonomousVmClusterSubscriptionResponse.ChangeCloudAutonomousVmClusterSubscriptionResponse;
+import * as ChangeCloudDbSystemSubscriptionResponse from "./change-cloud-db-system-subscription-response";
+export import ChangeCloudDbSystemSubscriptionResponse = ChangeCloudDbSystemSubscriptionResponse.ChangeCloudDbSystemSubscriptionResponse;
 import * as ChangeCloudExadataInfrastructureCompartmentResponse from "./change-cloud-exadata-infrastructure-compartment-response";
 export import ChangeCloudExadataInfrastructureCompartmentResponse = ChangeCloudExadataInfrastructureCompartmentResponse.ChangeCloudExadataInfrastructureCompartmentResponse;
 import * as ChangeCloudExadataInfrastructureSubscriptionResponse from "./change-cloud-exadata-infrastructure-subscription-response";

@@ -99,7 +99,7 @@ Example: {@code {\"Department\": \"Finance\"}}
    */
   "additionalFlashCacheInPercent"?: number;
   /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the cluster placement group of the Exadata Infrastructure.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the cluster placement group of the Exadata Infrastructure or Db System.
    */
   "clusterPlacementGroupId"?: string;
   /**

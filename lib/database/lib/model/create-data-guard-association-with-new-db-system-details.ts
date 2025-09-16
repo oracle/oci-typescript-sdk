@@ -173,6 +173,14 @@ Example: {@code {\"Department\": \"Finance\"}}
    */
   "databaseDefinedTags"?: { [key: string]: { [key: string]: any } };
   "dataCollectionOptions"?: model.DataCollectionOptions;
+  /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the cluster placement group of the Exadata Infrastructure or Db System.
+   */
+  "clusterPlacementGroupId"?: string;
+  /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subscription with which resource needs to be associated with.
+   */
+  "subscriptionId"?: string;
 
   "creationType": string;
 }

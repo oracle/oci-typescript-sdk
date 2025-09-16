@@ -172,6 +172,8 @@ import * as ChangeCloudAutonomousVmClusterCompartmentDetails from "./change-clou
 export import ChangeCloudAutonomousVmClusterCompartmentDetails = ChangeCloudAutonomousVmClusterCompartmentDetails.ChangeCloudAutonomousVmClusterCompartmentDetails;
 import * as ChangeCloudAutonomousVmClusterSubscriptionDetails from "./change-cloud-autonomous-vm-cluster-subscription-details";
 export import ChangeCloudAutonomousVmClusterSubscriptionDetails = ChangeCloudAutonomousVmClusterSubscriptionDetails.ChangeCloudAutonomousVmClusterSubscriptionDetails;
+import * as ChangeCloudDbSystemSubscriptionDetails from "./change-cloud-db-system-subscription-details";
+export import ChangeCloudDbSystemSubscriptionDetails = ChangeCloudDbSystemSubscriptionDetails.ChangeCloudDbSystemSubscriptionDetails;
 import * as ChangeCloudExadataInfrastructureCompartmentDetails from "./change-cloud-exadata-infrastructure-compartment-details";
 export import ChangeCloudExadataInfrastructureCompartmentDetails = ChangeCloudExadataInfrastructureCompartmentDetails.ChangeCloudExadataInfrastructureCompartmentDetails;
 import * as ChangeCloudExadataInfrastructureSubscriptionDetails from "./change-cloud-exadata-infrastructure-subscription-details";

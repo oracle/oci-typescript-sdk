@@ -26,6 +26,14 @@ export interface DbSystem {
    */
   "compartmentId": string;
   /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subscription with which resource needs to be associated with.
+   */
+  "subscriptionId"?: string;
+  /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the cluster placement group of the Exadata Infrastructure or Db System.
+   */
+  "clusterPlacementGroupId"?: string;
+  /**
    * The user-friendly name for the DB system. The name does not have to be unique.
    */
   "displayName": string;

@@ -692,6 +692,10 @@ This cannot be updated in parallel with any of the following: licenseModel, dbEd
    * A list of the source Autonomous Database's table space number(s) used to create this partial clone from the backup.
    */
   "cloneTableSpaceList"?: Array<number>;
+  /**
+   * The Autonomous Database clone type.
+   */
+  "cloneType"?: AutonomousDwDatabase.CloneType;
 }
 
 export namespace AutonomousDwDatabase {
@@ -818,6 +822,12 @@ export namespace AutonomousDwDatabase {
   export enum NetServicesArchitecture {
     Dedicated = "DEDICATED",
     Shared = "SHARED"
+  }
+
+  export enum CloneType {
+    Full = "FULL",
+    Metadata = "METADATA",
+    Partial = "PARTIAL"
   }
 
   export function getJsonObj(obj: AutonomousDwDatabase): object {

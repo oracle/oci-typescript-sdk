@@ -48,6 +48,10 @@ This cannot be updated in parallel with any of the following: cpuCoreCount, comp
 * 
     */
   "openMode"?: CreateRefreshableAutonomousDatabaseCloneDetails.OpenMode;
+  /**
+   * The Autonomous Database clone type.
+   */
+  "cloneType"?: CreateRefreshableAutonomousDatabaseCloneDetails.CloneType;
 
   "source": string;
 }
@@ -61,6 +65,12 @@ export namespace CreateRefreshableAutonomousDatabaseCloneDetails {
   export enum OpenMode {
     ReadOnly = "READ_ONLY",
     ReadWrite = "READ_WRITE"
+  }
+
+  export enum CloneType {
+    Full = "FULL",
+    Metadata = "METADATA",
+    Partial = "PARTIAL"
   }
 
   export function getJsonObj(
