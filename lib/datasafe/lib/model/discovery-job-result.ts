@@ -117,6 +117,18 @@ export interface DiscoveryJobResult {
    */
   "discoveryJobId": string;
   "modifiedAttributes"?: model.ModifiedAttributes;
+  /**
+   * The confidence level of the discovery job result associated with the sensitive type.
+   * The confidence level for discovery job results can be either HIGH, MEDIUM or LOW.
+   *
+   */
+  "confidenceLevel"?: model.ConfidenceLevelEnum;
+  /**
+   * List containing maps as values.
+   * Example: {@code {\"Operations\": [ {\"CostCenter\": \"42\"} ] }}
+   *
+   */
+  "confidenceLevelDetails"?: Array<any>;
 }
 
 export namespace DiscoveryJobResult {

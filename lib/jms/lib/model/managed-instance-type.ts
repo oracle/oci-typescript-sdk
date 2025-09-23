@@ -20,6 +20,7 @@ import common = require("oci-common");
 export enum ManagedInstanceType {
   OracleManagementAgent = "ORACLE_MANAGEMENT_AGENT",
   OracleCloudAgent = "ORACLE_CLOUD_AGENT",
+  OracleContainerManagementAgent = "ORACLE_CONTAINER_MANAGEMENT_AGENT",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

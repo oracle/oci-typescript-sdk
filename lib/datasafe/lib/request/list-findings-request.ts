@@ -63,6 +63,10 @@ export interface ListFindingsRequest extends common.BaseRequest {
    */
   "page"?: string;
   /**
+   * A filter to return only resources that match the specified compartment OCID.
+   */
+  "compartmentId"?: string;
+  /**
    * Default is false.
    * When set to true, the hierarchy of compartments is traversed and all compartments and subcompartments in the tenancy are returned. Depends on the 'accessLevel' setting.
    *

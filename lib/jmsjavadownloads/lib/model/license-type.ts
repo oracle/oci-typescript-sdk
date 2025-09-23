@@ -1,6 +1,6 @@
 /**
- * Java Management Service Download API
- * The APIs for the <a href="https://docs.oracle.com/en-us/iaas/jms/doc/java-download.html">Java Download</a> feature of Java Management Service.
+ * Java Management Service Java Download API
+ * The APIs for the [Java Download](https://docs.oracle.com/en-us/iaas/jms/doc/java-download.html) feature of Java Management Service.
  * OpenAPI spec version: 20230601
  *
  *
@@ -20,6 +20,7 @@ import common = require("oci-common");
 export enum LicenseType {
   Otn = "OTN",
   Nftc = "NFTC",
+  Bcl = "BCL",
   Restricted = "RESTRICTED",
 
   /**

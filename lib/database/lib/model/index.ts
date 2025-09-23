@@ -244,6 +244,8 @@ import * as ComputePerformanceSummary from "./compute-performance-summary";
 export import ComputePerformanceSummary = ComputePerformanceSummary.ComputePerformanceSummary;
 import * as ConfigureAutonomousDatabaseVaultKeyDetails from "./configure-autonomous-database-vault-key-details";
 export import ConfigureAutonomousDatabaseVaultKeyDetails = ConfigureAutonomousDatabaseVaultKeyDetails.ConfigureAutonomousDatabaseVaultKeyDetails;
+import * as ConfigureExascaleCloudExadataInfrastructureDetails from "./configure-exascale-cloud-exadata-infrastructure-details";
+export import ConfigureExascaleCloudExadataInfrastructureDetails = ConfigureExascaleCloudExadataInfrastructureDetails.ConfigureExascaleCloudExadataInfrastructureDetails;
 import * as ConfigureExascaleExadataInfrastructureDetails from "./configure-exascale-exadata-infrastructure-details";
 export import ConfigureExascaleExadataInfrastructureDetails = ConfigureExascaleExadataInfrastructureDetails.ConfigureExascaleExadataInfrastructureDetails;
 import * as ConfigureSaasAdminUserDetails from "./configure-saas-admin-user-details";

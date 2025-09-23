@@ -724,6 +724,89 @@ export class MarketplaceClient {
   }
 
   /**
+   * Generates attested marketplace metadata
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateMarketplaceExternalAttestedMetadataRequest
+   * @return CreateMarketplaceExternalAttestedMetadataResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/CreateMarketplaceExternalAttestedMetadata.ts.html |here} to see how to use CreateMarketplaceExternalAttestedMetadata API.
+   */
+  public async createMarketplaceExternalAttestedMetadata(
+    createMarketplaceExternalAttestedMetadataRequest: requests.CreateMarketplaceExternalAttestedMetadataRequest
+  ): Promise<responses.CreateMarketplaceExternalAttestedMetadataResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation MarketplaceClient#createMarketplaceExternalAttestedMetadata."
+      );
+    const operationName = "createMarketplaceExternalAttestedMetadata";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/marketplace/20181001/CreateMarketplaceExternalAttestedMetadataDetails/CreateMarketplaceExternalAttestedMetadata";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createMarketplaceExternalAttestedMetadataRequest.opcRequestId,
+      "opc-retry-token": createMarketplaceExternalAttestedMetadataRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createMarketplaceExternalAttestedMetadataRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/marketplaceExternalAttestedMetadata",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createMarketplaceExternalAttestedMetadataRequest.createMarketplaceExternalAttestedMetadataDetails,
+        "CreateMarketplaceExternalAttestedMetadataDetails",
+        model.CreateMarketplaceExternalAttestedMetadataDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateMarketplaceExternalAttestedMetadataResponse>{},
+        body: await response.json(),
+        bodyKey: "marketplaceExternalAttestedMetadata",
+        bodyModel: model.MarketplaceExternalAttestedMetadata,
+        type: "model.MarketplaceExternalAttestedMetadata",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates a publication of the specified listing type with an optional default package.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreatePublicationRequest
@@ -2158,6 +2241,139 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
     request: requests.ListListingsRequest
   ): AsyncIterableIterator<responses.ListListingsResponse> {
     return paginateResponses(request, req => this.listListings(req));
+  }
+
+  /**
+   * Get public certificates used in JWT signing, in JSON Web Key Sets format
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListMarketplaceMetadataPublicKeysRequest
+   * @return ListMarketplaceMetadataPublicKeysResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/ListMarketplaceMetadataPublicKeys.ts.html |here} to see how to use ListMarketplaceMetadataPublicKeys API.
+   */
+  public async listMarketplaceMetadataPublicKeys(
+    listMarketplaceMetadataPublicKeysRequest: requests.ListMarketplaceMetadataPublicKeysRequest
+  ): Promise<responses.ListMarketplaceMetadataPublicKeysResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation MarketplaceClient#listMarketplaceMetadataPublicKeys.");
+    const operationName = "listMarketplaceMetadataPublicKeys";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/marketplace/20181001/MarketplaceMetadataPublicKeySummary/ListMarketplaceMetadataPublicKeys";
+    const pathParams = {};
+
+    const queryParams = {
+      "limit": listMarketplaceMetadataPublicKeysRequest.limit,
+      "page": listMarketplaceMetadataPublicKeysRequest.page,
+      "sortOrder": listMarketplaceMetadataPublicKeysRequest.sortOrder,
+      "sortBy": listMarketplaceMetadataPublicKeysRequest.sortBy,
+      "compartmentId": listMarketplaceMetadataPublicKeysRequest.compartmentId
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listMarketplaceMetadataPublicKeysRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listMarketplaceMetadataPublicKeysRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/marketplaceMetadataPublicKeys",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListMarketplaceMetadataPublicKeysResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.MarketplaceMetadataPublicKeySummary,
+        type: "Array<model.MarketplaceMetadataPublicKeySummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listMarketplaceMetadataPublicKeysRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.MarketplaceMetadataPublicKeySummary objects
+   * contained in responses from the listMarketplaceMetadataPublicKeys operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllMarketplaceMetadataPublicKeys(
+    request: requests.ListMarketplaceMetadataPublicKeysRequest
+  ): AsyncIterableIterator<model.MarketplaceMetadataPublicKeySummary> {
+    return paginateRecords(request, req => this.listMarketplaceMetadataPublicKeys(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listMarketplaceMetadataPublicKeysResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listMarketplaceMetadataPublicKeys operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllMarketplaceMetadataPublicKeysResponses(
+    request: requests.ListMarketplaceMetadataPublicKeysRequest
+  ): AsyncIterableIterator<responses.ListMarketplaceMetadataPublicKeysResponse> {
+    return paginateResponses(request, req => this.listMarketplaceMetadataPublicKeys(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.MarketplaceMetadataPublicKeySummary objects
+   * contained in responses from the listMarketplaceMetadataPublicKeys operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listMarketplaceMetadataPublicKeysRecordIterator(
+    request: requests.ListMarketplaceMetadataPublicKeysRequest
+  ): AsyncIterableIterator<model.MarketplaceMetadataPublicKeySummary> {
+    return paginateRecords(request, req => this.listMarketplaceMetadataPublicKeys(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listMarketplaceMetadataPublicKeys operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listMarketplaceMetadataPublicKeysResponseIterator(
+    request: requests.ListMarketplaceMetadataPublicKeysRequest
+  ): AsyncIterableIterator<responses.ListMarketplaceMetadataPublicKeysResponse> {
+    return paginateResponses(request, req => this.listMarketplaceMetadataPublicKeys(req));
   }
 
   /**

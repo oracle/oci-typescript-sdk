@@ -104,6 +104,8 @@ import * as CompleteExternalBackupJobResponse from "./complete-external-backup-j
 export import CompleteExternalBackupJobResponse = CompleteExternalBackupJobResponse.CompleteExternalBackupJobResponse;
 import * as ConfigureAutonomousDatabaseVaultKeyResponse from "./configure-autonomous-database-vault-key-response";
 export import ConfigureAutonomousDatabaseVaultKeyResponse = ConfigureAutonomousDatabaseVaultKeyResponse.ConfigureAutonomousDatabaseVaultKeyResponse;
+import * as ConfigureExascaleCloudExadataInfrastructureResponse from "./configure-exascale-cloud-exadata-infrastructure-response";
+export import ConfigureExascaleCloudExadataInfrastructureResponse = ConfigureExascaleCloudExadataInfrastructureResponse.ConfigureExascaleCloudExadataInfrastructureResponse;
 import * as ConfigureExascaleExadataInfrastructureResponse from "./configure-exascale-exadata-infrastructure-response";
 export import ConfigureExascaleExadataInfrastructureResponse = ConfigureExascaleExadataInfrastructureResponse.ConfigureExascaleExadataInfrastructureResponse;
 import * as ConfigureSaasAdminUserResponse from "./configure-saas-admin-user-response";

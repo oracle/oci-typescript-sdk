@@ -46,7 +46,7 @@ export interface ListingSummary {
   /**
    * Summary of the pricing types available across all packages in the listing.
    */
-  "pricingTypes"?: Array<ListingSummary.PricingTypes>;
+  "pricingTypes"?: Array<model.PricingTypeEnum>;
   /**
    * The list of compatible architectures supported by the listing
    */
@@ -76,17 +76,6 @@ export interface ListingSummary {
 }
 
 export namespace ListingSummary {
-  export enum PricingTypes {
-    Free = "FREE",
-    Byol = "BYOL",
-    Paygo = "PAYGO",
-    /**
-     * This value is used if a service returns a value for this enum that is not recognized by this
-     * version of the SDK.
-     */
-    UnknownValue = "UNKNOWN_VALUE"
-  }
-
   export enum CompatibleArchitectures {
     X86 = "X86",
     Arm = "ARM",
@@ -102,6 +91,12 @@ export namespace ListingSummary {
       ...obj,
       ...{
         "icon": obj.icon ? model.UploadData.getJsonObj(obj.icon) : undefined,
+
+        "pricingTypes": obj.pricingTypes
+          ? obj.pricingTypes.map(item => {
+              return model.PricingTypeEnum.getJsonObj(item);
+            })
+          : undefined,
 
         "regions": obj.regions
           ? obj.regions.map(item => {
@@ -125,6 +120,12 @@ export namespace ListingSummary {
       ...obj,
       ...{
         "icon": obj.icon ? model.UploadData.getDeserializedJsonObj(obj.icon) : undefined,
+
+        "pricingTypes": obj.pricingTypes
+          ? obj.pricingTypes.map(item => {
+              return model.PricingTypeEnum.getDeserializedJsonObj(item);
+            })
+          : undefined,
 
         "regions": obj.regions
           ? obj.regions.map(item => {

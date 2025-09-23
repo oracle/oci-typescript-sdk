@@ -193,6 +193,10 @@ Example: {@code {\"Department\": \"Finance\"}}
   "fileSystemConfigurationDetails"?: Array<model.FileSystemConfigurationDetail>;
   "cloudAutomationUpdateDetails"?: model.CloudAutomationUpdateDetails;
   /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Exadata Database Storage Vault.
+   */
+  "exascaleDbStorageVaultId"?: string;
+  /**
    * The vmcluster type for the VM cluster/Cloud VM cluster.
    */
   "vmClusterType"?: CreateCloudVmClusterDetails.VmClusterType;

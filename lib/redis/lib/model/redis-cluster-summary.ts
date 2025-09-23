@@ -64,6 +64,14 @@ export interface RedisClusterSummary {
    */
   "replicasEndpointIpAddress": string;
   /**
+   * The fully qualified domain name (FQDN) of the API endpoint for sharded cluster discovery.
+   */
+  "discoveryFqdn"?: string;
+  /**
+   * The private IP address of the API endpoint for shareded cluster discovery.
+   */
+  "discoveryEndpointIpAddress"?: string;
+  /**
    * The OCI Cache engine version that the cluster is running.
    */
   "softwareVersion": string;

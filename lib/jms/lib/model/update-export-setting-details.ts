@@ -57,16 +57,31 @@ export interface UpdateExportSettingDetails {
    * ExportSetting flag to store enabled or disabled status.
    */
   "isEnabled": boolean;
+  "exportDataFilters"?: model.ExportDataFilters;
 }
 
 export namespace UpdateExportSettingDetails {
   export function getJsonObj(obj: UpdateExportSettingDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "exportDataFilters": obj.exportDataFilters
+          ? model.ExportDataFilters.getJsonObj(obj.exportDataFilters)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: UpdateExportSettingDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "exportDataFilters": obj.exportDataFilters
+          ? model.ExportDataFilters.getDeserializedJsonObj(obj.exportDataFilters)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

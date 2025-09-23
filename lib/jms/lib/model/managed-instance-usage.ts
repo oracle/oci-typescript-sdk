@@ -40,8 +40,21 @@ export interface ManagedInstanceUsage {
    *
    */
   "hostId"?: string;
+  /**
+   * Captured IP addresses of the managed instance.
+   */
+  "ipAddresses"?: Array<string>;
+  /**
+   * Captured hostnames of the managed instance.
+   */
+  "hostnames"?: Array<string>;
+  /**
+   * Captured fully qualify domain names of the managed instance.
+   */
+  "fqdns"?: Array<string>;
   "operatingSystem"?: model.OperatingSystem;
   "agent"?: model.Agent;
+  "clusterDetails"?: model.ClusterDetails;
   /**
    * The approximate count of applications reported by this managed instance. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
@@ -96,7 +109,10 @@ export namespace ManagedInstanceUsage {
         "operatingSystem": obj.operatingSystem
           ? model.OperatingSystem.getJsonObj(obj.operatingSystem)
           : undefined,
-        "agent": obj.agent ? model.Agent.getJsonObj(obj.agent) : undefined
+        "agent": obj.agent ? model.Agent.getJsonObj(obj.agent) : undefined,
+        "clusterDetails": obj.clusterDetails
+          ? model.ClusterDetails.getJsonObj(obj.clusterDetails)
+          : undefined
       }
     };
 
@@ -109,7 +125,10 @@ export namespace ManagedInstanceUsage {
         "operatingSystem": obj.operatingSystem
           ? model.OperatingSystem.getDeserializedJsonObj(obj.operatingSystem)
           : undefined,
-        "agent": obj.agent ? model.Agent.getDeserializedJsonObj(obj.agent) : undefined
+        "agent": obj.agent ? model.Agent.getDeserializedJsonObj(obj.agent) : undefined,
+        "clusterDetails": obj.clusterDetails
+          ? model.ClusterDetails.getDeserializedJsonObj(obj.clusterDetails)
+          : undefined
       }
     };
 

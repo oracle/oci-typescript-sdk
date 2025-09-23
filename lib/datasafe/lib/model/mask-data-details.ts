@@ -66,6 +66,10 @@ export interface MaskDataDetails {
    */
   "seed"?: string;
   /**
+   * The seed value to be used in case of User Defined Function masking format. This is an optional parameter and needs to be passed only if any User Defined Function uses seed.
+   */
+  "userDefinedFunctionSeed"?: string;
+  /**
    * Indicates if the interim DMASK tables should be moved to the user-specified tablespace. As interim tables can be large in size,
    * set it to false if moving them causes performance overhead during masking.
    *

@@ -27,6 +27,7 @@ export enum WorkItemType {
   AdvUsageServerMetadata = "ADV_USAGE_SERVER_METADATA",
   AdvUsageServerLibraries = "ADV_USAGE_SERVER_LIBRARIES",
   AdvUsageJavaLibraries = "ADV_USAGE_JAVA_LIBRARIES",
+  AdvUsageJavaLibrariesDynamic = "ADV_USAGE_JAVA_LIBRARIES_DYNAMIC",
   PerformanceTuning = "PERFORMANCE_TUNING",
   JmigrateAnalysis = "JMIGRATE_ANALYSIS",
   JmigrateCreateReport = "JMIGRATE_CREATE_REPORT",

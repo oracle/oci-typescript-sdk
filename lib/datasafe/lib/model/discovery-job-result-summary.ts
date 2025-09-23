@@ -100,6 +100,12 @@ export interface DiscoveryJobResultSummary {
    * The OCID of the discovery job.
    */
   "discoveryJobId": string;
+  /**
+   * The confidence level of the discovery job result associated with the sensitive type.
+   * The confidence level for discovery job results can be either HIGH, MEDIUM or LOW.
+   *
+   */
+  "confidenceLevel"?: model.ConfidenceLevelEnum;
 }
 
 export namespace DiscoveryJobResultSummary {

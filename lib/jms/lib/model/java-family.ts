@@ -62,6 +62,10 @@ export interface JavaFamily {
    *
    */
   "releaseDate"?: Date;
+  /**
+   * The license type(s) associated with the Java family.
+   */
+  "licenseTypes"?: Array<model.LicenseType>;
 }
 
 export namespace JavaFamily {
@@ -72,6 +76,12 @@ export namespace JavaFamily {
         "latestReleaseArtifacts": obj.latestReleaseArtifacts
           ? obj.latestReleaseArtifacts.map(item => {
               return model.JavaArtifact.getJsonObj(item);
+            })
+          : undefined,
+
+        "licenseTypes": obj.licenseTypes
+          ? obj.licenseTypes.map(item => {
+              return model.LicenseType.getJsonObj(item);
             })
           : undefined
       }
@@ -86,6 +96,12 @@ export namespace JavaFamily {
         "latestReleaseArtifacts": obj.latestReleaseArtifacts
           ? obj.latestReleaseArtifacts.map(item => {
               return model.JavaArtifact.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "licenseTypes": obj.licenseTypes
+          ? obj.licenseTypes.map(item => {
+              return model.LicenseType.getDeserializedJsonObj(item);
             })
           : undefined
       }

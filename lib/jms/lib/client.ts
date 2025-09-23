@@ -795,6 +795,86 @@ export class JavaManagementServiceClient {
   }
 
   /**
+   * Create a task schedule using the information provided.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateTaskScheduleRequest
+   * @return CreateTaskScheduleResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/CreateTaskSchedule.ts.html |here} to see how to use CreateTaskSchedule API.
+   */
+  public async createTaskSchedule(
+    createTaskScheduleRequest: requests.CreateTaskScheduleRequest
+  ): Promise<responses.CreateTaskScheduleResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#createTaskSchedule.");
+    const operationName = "createTaskSchedule";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createTaskScheduleRequest.opcRequestId,
+      "opc-retry-token": createTaskScheduleRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createTaskScheduleRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/taskSchedules",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createTaskScheduleRequest.createTaskScheduleDetails,
+        "CreateTaskScheduleDetails",
+        model.CreateTaskScheduleDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateTaskScheduleResponse>{},
+        body: await response.json(),
+        bodyKey: "taskSchedule",
+        bodyModel: model.TaskSchedule,
+        type: "model.TaskSchedule",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes the blocklist record specified by an identifier.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteBlocklistRequest
@@ -1298,6 +1378,76 @@ export class JavaManagementServiceClient {
             key: "opcWorkRequestId",
             dataType: "string"
           },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the task schedule record specified by an identifier.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteTaskScheduleRequest
+   * @return DeleteTaskScheduleResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/DeleteTaskSchedule.ts.html |here} to see how to use DeleteTaskSchedule API.
+   */
+  public async deleteTaskSchedule(
+    deleteTaskScheduleRequest: requests.DeleteTaskScheduleRequest
+  ): Promise<responses.DeleteTaskScheduleResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#deleteTaskSchedule.");
+    const operationName = "deleteTaskSchedule";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{taskScheduleId}": deleteTaskScheduleRequest.taskScheduleId
+    };
+
+    const queryParams = {
+      "fleetId": deleteTaskScheduleRequest.fleetId
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteTaskScheduleRequest.ifMatch,
+      "opc-request-id": deleteTaskScheduleRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteTaskScheduleRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/taskSchedules/{taskScheduleId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteTaskScheduleResponse>{},
+        responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -2659,6 +2809,85 @@ export class JavaManagementServiceClient {
   }
 
   /**
+   * Returns a task schedule.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetTaskScheduleRequest
+   * @return GetTaskScheduleResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/GetTaskSchedule.ts.html |here} to see how to use GetTaskSchedule API.
+   */
+  public async getTaskSchedule(
+    getTaskScheduleRequest: requests.GetTaskScheduleRequest
+  ): Promise<responses.GetTaskScheduleResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#getTaskSchedule.");
+    const operationName = "getTaskSchedule";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{taskScheduleId}": getTaskScheduleRequest.taskScheduleId
+    };
+
+    const queryParams = {
+      "fleetId": getTaskScheduleRequest.fleetId
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getTaskScheduleRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getTaskScheduleRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/taskSchedules/{taskScheduleId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetTaskScheduleResponse>{},
+        body: await response.json(),
+        bodyKey: "taskSchedule",
+        bodyModel: model.TaskSchedule,
+        type: "model.TaskSchedule",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Retrieve the details of a work request with the specified ID.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetWorkRequestRequest
@@ -2969,6 +3198,94 @@ export class JavaManagementServiceClient {
         bodyKey: "blocklistCollection",
         bodyModel: model.BlocklistCollection,
         type: "model.BlocklistCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * List containers in a fleet filtered by query parameters.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListContainersRequest
+   * @return ListContainersResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/ListContainers.ts.html |here} to see how to use ListContainers API.
+   */
+  public async listContainers(
+    listContainersRequest: requests.ListContainersRequest
+  ): Promise<responses.ListContainersResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#listContainers.");
+    const operationName = "listContainers";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{fleetId}": listContainersRequest.fleetId
+    };
+
+    const queryParams = {
+      "managedInstanceId": listContainersRequest.managedInstanceId,
+      "displayName": listContainersRequest.displayName,
+      "applicationName": listContainersRequest.applicationName,
+      "jreVersion": listContainersRequest.jreVersion,
+      "jreSecurityStatus": listContainersRequest.jreSecurityStatus,
+      "timeStartedGreaterThanOrEqualTo": listContainersRequest.timeStartedGreaterThanOrEqualTo,
+      "timeStartedLessThanOrEqualTo": listContainersRequest.timeStartedLessThanOrEqualTo,
+      "limit": listContainersRequest.limit,
+      "page": listContainersRequest.page,
+      "sortOrder": listContainersRequest.sortOrder,
+      "sortBy": listContainersRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listContainersRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listContainersRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fleets/{fleetId}/containers",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListContainersResponse>{},
+        body: await response.json(),
+        bodyKey: "containerCollection",
+        bodyModel: model.ContainerCollection,
+        type: "model.ContainerCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3937,6 +4254,188 @@ export class JavaManagementServiceClient {
   }
 
   /**
+   * List applications where a library has been detected filtered by query parameters.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListLibraryApplicationUsageRequest
+   * @return ListLibraryApplicationUsageResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/ListLibraryApplicationUsage.ts.html |here} to see how to use ListLibraryApplicationUsage API.
+   */
+  public async listLibraryApplicationUsage(
+    listLibraryApplicationUsageRequest: requests.ListLibraryApplicationUsageRequest
+  ): Promise<responses.ListLibraryApplicationUsageResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation JavaManagementServiceClient#listLibraryApplicationUsage."
+      );
+    const operationName = "listLibraryApplicationUsage";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{fleetId}": listLibraryApplicationUsageRequest.fleetId,
+      "{libraryKey}": listLibraryApplicationUsageRequest.libraryKey
+    };
+
+    const queryParams = {
+      "applicationId": listLibraryApplicationUsageRequest.applicationId,
+      "managedInstanceId": listLibraryApplicationUsageRequest.managedInstanceId,
+      "applicationName": listLibraryApplicationUsageRequest.applicationName,
+      "applicationNameContains": listLibraryApplicationUsageRequest.applicationNameContains,
+      "timeStart": listLibraryApplicationUsageRequest.timeStart,
+      "timeEnd": listLibraryApplicationUsageRequest.timeEnd,
+      "limit": listLibraryApplicationUsageRequest.limit,
+      "page": listLibraryApplicationUsageRequest.page,
+      "sortBy": listLibraryApplicationUsageRequest.sortBy,
+      "sortOrder": listLibraryApplicationUsageRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listLibraryApplicationUsageRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listLibraryApplicationUsageRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fleets/{fleetId}/libraries/{libraryKey}/applications",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListLibraryApplicationUsageResponse>{},
+        body: await response.json(),
+        bodyKey: "libraryApplicationUsageCollection",
+        bodyModel: model.LibraryApplicationUsageCollection,
+        type: "model.LibraryApplicationUsageCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * List managed instances where a library has been detected, filtered by query parameters.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListLibraryManagedInstanceUsageRequest
+   * @return ListLibraryManagedInstanceUsageResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/ListLibraryManagedInstanceUsage.ts.html |here} to see how to use ListLibraryManagedInstanceUsage API.
+   */
+  public async listLibraryManagedInstanceUsage(
+    listLibraryManagedInstanceUsageRequest: requests.ListLibraryManagedInstanceUsageRequest
+  ): Promise<responses.ListLibraryManagedInstanceUsageResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation JavaManagementServiceClient#listLibraryManagedInstanceUsage."
+      );
+    const operationName = "listLibraryManagedInstanceUsage";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{fleetId}": listLibraryManagedInstanceUsageRequest.fleetId,
+      "{libraryKey}": listLibraryManagedInstanceUsageRequest.libraryKey
+    };
+
+    const queryParams = {
+      "applicationId": listLibraryManagedInstanceUsageRequest.applicationId,
+      "managedInstanceId": listLibraryManagedInstanceUsageRequest.managedInstanceId,
+      "hostName": listLibraryManagedInstanceUsageRequest.hostName,
+      "hostnameContains": listLibraryManagedInstanceUsageRequest.hostnameContains,
+      "timeStart": listLibraryManagedInstanceUsageRequest.timeStart,
+      "timeEnd": listLibraryManagedInstanceUsageRequest.timeEnd,
+      "limit": listLibraryManagedInstanceUsageRequest.limit,
+      "page": listLibraryManagedInstanceUsageRequest.page,
+      "sortBy": listLibraryManagedInstanceUsageRequest.sortBy,
+      "sortOrder": listLibraryManagedInstanceUsageRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listLibraryManagedInstanceUsageRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listLibraryManagedInstanceUsageRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fleets/{fleetId}/libraries/{libraryKey}/managedInstances",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListLibraryManagedInstanceUsageResponse>{},
+        body: await response.json(),
+        bodyKey: "libraryManagedInstanceUsageCollection",
+        bodyModel: model.LibraryManagedInstanceUsageCollection,
+        type: "model.LibraryManagedInstanceUsageCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * List Performance Tuning Analysis results.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListPerformanceTuningAnalysisResultsRequest
@@ -4092,6 +4591,358 @@ export class JavaManagementServiceClient {
         bodyKey: "pluginErrorCollection",
         bodyModel: model.PluginErrorCollection,
         type: "model.PluginErrorCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns a list of task schedules.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListTaskSchedulesRequest
+   * @return ListTaskSchedulesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/ListTaskSchedules.ts.html |here} to see how to use ListTaskSchedules API.
+   */
+  public async listTaskSchedules(
+    listTaskSchedulesRequest: requests.ListTaskSchedulesRequest
+  ): Promise<responses.ListTaskSchedulesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#listTaskSchedules.");
+    const operationName = "listTaskSchedules";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "fleetId": listTaskSchedulesRequest.fleetId,
+      "id": listTaskSchedulesRequest.id,
+      "managedInstanceId": listTaskSchedulesRequest.managedInstanceId,
+      "name": listTaskSchedulesRequest.name,
+      "taskScheduleNameContains": listTaskSchedulesRequest.taskScheduleNameContains,
+      "limit": listTaskSchedulesRequest.limit,
+      "page": listTaskSchedulesRequest.page,
+      "sortOrder": listTaskSchedulesRequest.sortOrder,
+      "sortBy": listTaskSchedulesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listTaskSchedulesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listTaskSchedulesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/taskSchedules",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListTaskSchedulesResponse>{},
+        body: await response.json(),
+        bodyKey: "taskScheduleCollection",
+        bodyModel: model.TaskScheduleCollection,
+        type: "model.TaskScheduleCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * List applications where an uncorrelated package has been detected, filtered by query parameters.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListUncorrelatedPackageApplicationUsageRequest
+   * @return ListUncorrelatedPackageApplicationUsageResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/ListUncorrelatedPackageApplicationUsage.ts.html |here} to see how to use ListUncorrelatedPackageApplicationUsage API.
+   */
+  public async listUncorrelatedPackageApplicationUsage(
+    listUncorrelatedPackageApplicationUsageRequest: requests.ListUncorrelatedPackageApplicationUsageRequest
+  ): Promise<responses.ListUncorrelatedPackageApplicationUsageResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation JavaManagementServiceClient#listUncorrelatedPackageApplicationUsage."
+      );
+    const operationName = "listUncorrelatedPackageApplicationUsage";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{fleetId}": listUncorrelatedPackageApplicationUsageRequest.fleetId,
+      "{packageName}": listUncorrelatedPackageApplicationUsageRequest.packageName
+    };
+
+    const queryParams = {
+      "applicationId": listUncorrelatedPackageApplicationUsageRequest.applicationId,
+      "managedInstanceId": listUncorrelatedPackageApplicationUsageRequest.managedInstanceId,
+      "timeStart": listUncorrelatedPackageApplicationUsageRequest.timeStart,
+      "timeEnd": listUncorrelatedPackageApplicationUsageRequest.timeEnd,
+      "limit": listUncorrelatedPackageApplicationUsageRequest.limit,
+      "page": listUncorrelatedPackageApplicationUsageRequest.page,
+      "sortBy": listUncorrelatedPackageApplicationUsageRequest.sortBy,
+      "sortOrder": listUncorrelatedPackageApplicationUsageRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listUncorrelatedPackageApplicationUsageRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listUncorrelatedPackageApplicationUsageRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fleets/{fleetId}/uncorrelatedPackages/{packageName}/applications",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListUncorrelatedPackageApplicationUsageResponse>{},
+        body: await response.json(),
+        bodyKey: "uncorrelatedPackageApplicationUsageCollection",
+        bodyModel: model.UncorrelatedPackageApplicationUsageCollection,
+        type: "model.UncorrelatedPackageApplicationUsageCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * List managed instances where an uncorrelated package has been detected, filtered by query parameters.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListUncorrelatedPackageManagedInstanceUsageRequest
+   * @return ListUncorrelatedPackageManagedInstanceUsageResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/ListUncorrelatedPackageManagedInstanceUsage.ts.html |here} to see how to use ListUncorrelatedPackageManagedInstanceUsage API.
+   */
+  public async listUncorrelatedPackageManagedInstanceUsage(
+    listUncorrelatedPackageManagedInstanceUsageRequest: requests.ListUncorrelatedPackageManagedInstanceUsageRequest
+  ): Promise<responses.ListUncorrelatedPackageManagedInstanceUsageResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation JavaManagementServiceClient#listUncorrelatedPackageManagedInstanceUsage."
+      );
+    const operationName = "listUncorrelatedPackageManagedInstanceUsage";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{fleetId}": listUncorrelatedPackageManagedInstanceUsageRequest.fleetId,
+      "{packageName}": listUncorrelatedPackageManagedInstanceUsageRequest.packageName
+    };
+
+    const queryParams = {
+      "applicationId": listUncorrelatedPackageManagedInstanceUsageRequest.applicationId,
+      "managedInstanceId": listUncorrelatedPackageManagedInstanceUsageRequest.managedInstanceId,
+      "timeStart": listUncorrelatedPackageManagedInstanceUsageRequest.timeStart,
+      "timeEnd": listUncorrelatedPackageManagedInstanceUsageRequest.timeEnd,
+      "limit": listUncorrelatedPackageManagedInstanceUsageRequest.limit,
+      "page": listUncorrelatedPackageManagedInstanceUsageRequest.page,
+      "sortBy": listUncorrelatedPackageManagedInstanceUsageRequest.sortBy,
+      "sortOrder": listUncorrelatedPackageManagedInstanceUsageRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listUncorrelatedPackageManagedInstanceUsageRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listUncorrelatedPackageManagedInstanceUsageRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fleets/{fleetId}/uncorrelatedPackages/{packageName}/managedInstances",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListUncorrelatedPackageManagedInstanceUsageResponse>{},
+        body: await response.json(),
+        bodyKey: "uncorrelatedPackageManagedInstanceUsageCollection",
+        bodyModel: model.UncorrelatedPackageManagedInstanceUsageCollection,
+        type: "model.UncorrelatedPackageManagedInstanceUsageCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * List uncorrelated package summaries in a fleet, filtered by query parameters. Uncorrelated packages are Java packages which can't be accurately correlated to a library during a library scan.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListUncorrelatedPackageUsageRequest
+   * @return ListUncorrelatedPackageUsageResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/ListUncorrelatedPackageUsage.ts.html |here} to see how to use ListUncorrelatedPackageUsage API.
+   */
+  public async listUncorrelatedPackageUsage(
+    listUncorrelatedPackageUsageRequest: requests.ListUncorrelatedPackageUsageRequest
+  ): Promise<responses.ListUncorrelatedPackageUsageResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation JavaManagementServiceClient#listUncorrelatedPackageUsage."
+      );
+    const operationName = "listUncorrelatedPackageUsage";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{fleetId}": listUncorrelatedPackageUsageRequest.fleetId
+    };
+
+    const queryParams = {
+      "packageName": listUncorrelatedPackageUsageRequest.packageName,
+      "managedInstanceId": listUncorrelatedPackageUsageRequest.managedInstanceId,
+      "applicationId": listUncorrelatedPackageUsageRequest.applicationId,
+      "timeStart": listUncorrelatedPackageUsageRequest.timeStart,
+      "timeEnd": listUncorrelatedPackageUsageRequest.timeEnd,
+      "limit": listUncorrelatedPackageUsageRequest.limit,
+      "page": listUncorrelatedPackageUsageRequest.page,
+      "sortOrder": listUncorrelatedPackageUsageRequest.sortOrder,
+      "sortBy": listUncorrelatedPackageUsageRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listUncorrelatedPackageUsageRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listUncorrelatedPackageUsageRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fleets/{fleetId}/uncorrelatedPackages",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListUncorrelatedPackageUsageResponse>{},
+        body: await response.json(),
+        bodyKey: "uncorrelatedPackageUsageCollection",
+        bodyModel: model.UncorrelatedPackageUsageCollection,
+        type: "model.UncorrelatedPackageUsageCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -5909,6 +6760,88 @@ export class JavaManagementServiceClient {
   }
 
   /**
+   * Retrieve the inventory of libraries in the specified fleet: Statically detected library count, Dynamically detected library count, Uncorrelated package count, High, Medium and Low severity library count.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param SummarizeLibraryInventoryRequest
+   * @return SummarizeLibraryInventoryResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/SummarizeLibraryInventory.ts.html |here} to see how to use SummarizeLibraryInventory API.
+   */
+  public async summarizeLibraryInventory(
+    summarizeLibraryInventoryRequest: requests.SummarizeLibraryInventoryRequest
+  ): Promise<responses.SummarizeLibraryInventoryResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#summarizeLibraryInventory.");
+    const operationName = "summarizeLibraryInventory";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{fleetId}": summarizeLibraryInventoryRequest.fleetId
+    };
+
+    const queryParams = {
+      "managedInstanceId": summarizeLibraryInventoryRequest.managedInstanceId,
+      "applicationId": summarizeLibraryInventoryRequest.applicationId,
+      "timeStart": summarizeLibraryInventoryRequest.timeStart,
+      "timeEnd": summarizeLibraryInventoryRequest.timeEnd
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizeLibraryInventoryRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeLibraryInventoryRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fleets/{fleetId}/summarizeLibraryInventory",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SummarizeLibraryInventoryResponse>{},
+        body: await response.json(),
+        bodyKey: "libraryInventory",
+        bodyModel: model.LibraryInventory,
+        type: "model.LibraryInventory",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * List libraries in a fleet filtered by query parameters.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -6731,6 +7664,90 @@ export class JavaManagementServiceClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Update the task schedule for the given task type.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateTaskScheduleRequest
+   * @return UpdateTaskScheduleResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/UpdateTaskSchedule.ts.html |here} to see how to use UpdateTaskSchedule API.
+   */
+  public async updateTaskSchedule(
+    updateTaskScheduleRequest: requests.UpdateTaskScheduleRequest
+  ): Promise<responses.UpdateTaskScheduleResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#updateTaskSchedule.");
+    const operationName = "updateTaskSchedule";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{taskScheduleId}": updateTaskScheduleRequest.taskScheduleId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateTaskScheduleRequest.ifMatch,
+      "opc-request-id": updateTaskScheduleRequest.opcRequestId,
+      "opc-retry-token": updateTaskScheduleRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateTaskScheduleRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/taskSchedules/{taskScheduleId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateTaskScheduleRequest.updateTaskScheduleDetails,
+        "UpdateTaskScheduleDetails",
+        model.UpdateTaskScheduleDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateTaskScheduleResponse>{},
+        body: await response.json(),
+        bodyKey: "taskSchedule",
+        bodyModel: model.TaskSchedule,
+        type: "model.TaskSchedule",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
             dataType: "string"
           }
         ]

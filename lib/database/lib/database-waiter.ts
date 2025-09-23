@@ -1406,6 +1406,37 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forConfigureExascaleCloudExadataInfrastructure
+   *
+   * @param request the request to send
+   * @return response returns ConfigureExascaleCloudExadataInfrastructureResponse, GetWorkRequestResponse tuple
+   */
+  public async forConfigureExascaleCloudExadataInfrastructure(
+    request: serviceRequests.ConfigureExascaleCloudExadataInfrastructureRequest
+  ): Promise<{
+    response: serviceResponses.ConfigureExascaleCloudExadataInfrastructureResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const configureExascaleCloudExadataInfrastructureResponse = await this.client.configureExascaleCloudExadataInfrastructure(
+      request
+    );
+    if (configureExascaleCloudExadataInfrastructureResponse.opcWorkRequestId === undefined)
+      return {
+        response: configureExascaleCloudExadataInfrastructureResponse,
+        workRequestResponse: undefined as any
+      };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      configureExascaleCloudExadataInfrastructureResponse.opcWorkRequestId
+    );
+    return {
+      response: configureExascaleCloudExadataInfrastructureResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
    * Waits forConfigureExascaleExadataInfrastructure
    *
    * @param request the request to send

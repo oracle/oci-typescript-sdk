@@ -62,6 +62,24 @@ export class JavaManagementServiceWaiter {
   }
 
   /**
+   * Waits forTaskSchedule till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetTaskScheduleResponse
+   */
+  public async forTaskSchedule(
+    request: serviceRequests.GetTaskScheduleRequest,
+    ...targetStates: models.TaskSchedule.LifecycleState[]
+  ): Promise<serviceResponses.GetTaskScheduleResponse> {
+    return genericWaiter(
+      this.config,
+      () => this.client.getTaskSchedule(request),
+      response => targetStates.includes(response.taskSchedule.lifecycleState!)
+    );
+  }
+
+  /**
    * Waits forWorkRequest
    *
    * @param request the request to send

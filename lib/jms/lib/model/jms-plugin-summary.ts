@@ -23,7 +23,9 @@ export interface JmsPluginSummary {
    */
   "id": string;
   /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Management Agent (OMA) or the Oracle Cloud Agent (OCA) instance where the JMS plugin is deployed.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Management Agent (OMA), the Oracle Cloud Agent (OCA), or the Oracle Container Management Agent (OCMA)
+   * instance where the JMS plugin is deployed.
+   *
    */
   "agentId": string;
   /**
@@ -44,7 +46,7 @@ export interface JmsPluginSummary {
    */
   "fleetId"?: string;
   /**
-   * The OMA/OCA agent's compartment [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   * The OMA/OCA/OCMA agent's compartment [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    *
    */
   "compartmentId"?: string;

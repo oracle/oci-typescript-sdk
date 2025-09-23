@@ -43,6 +43,10 @@ export interface OperatingSystem {
    * Number of instances running the operating system. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "managedInstanceCount"?: number;
+  /**
+   * Number of containers running the operating system. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "containerCount"?: number;
 }
 
 export namespace OperatingSystem {
