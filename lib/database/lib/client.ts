@@ -4181,6 +4181,99 @@ export class DatabaseClient {
   }
 
   /**
+   * Configures Exascale on Cloud exadata infrastructure resource. Applies to Exadata Cloud Service instances only.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ConfigureExascaleCloudExadataInfrastructureRequest
+   * @return ConfigureExascaleCloudExadataInfrastructureResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ConfigureExascaleCloudExadataInfrastructure.ts.html |here} to see how to use ConfigureExascaleCloudExadataInfrastructure API.
+   */
+  public async configureExascaleCloudExadataInfrastructure(
+    configureExascaleCloudExadataInfrastructureRequest: requests.ConfigureExascaleCloudExadataInfrastructureRequest
+  ): Promise<responses.ConfigureExascaleCloudExadataInfrastructureResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#configureExascaleCloudExadataInfrastructure."
+      );
+    const operationName = "configureExascaleCloudExadataInfrastructure";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/CloudExadataInfrastructure/ConfigureExascaleCloudExadataInfrastructure";
+    const pathParams = {
+      "{cloudExadataInfrastructureId}":
+        configureExascaleCloudExadataInfrastructureRequest.cloudExadataInfrastructureId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": configureExascaleCloudExadataInfrastructureRequest.ifMatch,
+      "opc-request-id": configureExascaleCloudExadataInfrastructureRequest.opcRequestId,
+      "opc-retry-token": configureExascaleCloudExadataInfrastructureRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      configureExascaleCloudExadataInfrastructureRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudExadataInfrastructures/{cloudExadataInfrastructureId}/actions/configureExascale",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        configureExascaleCloudExadataInfrastructureRequest.configureExascaleCloudExadataInfrastructureDetails,
+        "ConfigureExascaleCloudExadataInfrastructureDetails",
+        model.ConfigureExascaleCloudExadataInfrastructureDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ConfigureExascaleCloudExadataInfrastructureResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudExadataInfrastructure",
+        bodyModel: model.CloudExadataInfrastructure,
+        type: "model.CloudExadataInfrastructure",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Configures Exascale on Exadata infrastructure resource. Applies to Exadata Cloud@Customer instances only.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.

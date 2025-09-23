@@ -51,6 +51,13 @@ export interface ListDiscoveryJobResultsRequest extends common.BaseRequest {
    */
   "sortOrder"?: ListDiscoveryJobResultsRequest.SortOrder;
   /**
+   * A filter to return the discovery job results with the specified confidence level.
+   * Confidence level of discovery job result associated with a seeded sensitive type can either be HIGH or LOW.
+   * While the confidence level of discovery job result associated with a user defined sensitive will be NONE.
+   *
+   */
+  "confidenceLevel"?: Array<model.ConfidenceLevelEnum>;
+  /**
    * The field to sort by. You can specify only one sorting parameter (sortOrder). The default order for timeFinished is descending.
    * The default order for discoveryType, schemaName, objectName, columnName and plannedAction is ascending.
    *
@@ -82,6 +89,7 @@ export namespace ListDiscoveryJobResultsRequest {
     SchemaName = "schemaName",
     ObjectName = "objectName",
     ColumnName = "columnName",
-    PlannedAction = "plannedAction"
+    PlannedAction = "plannedAction",
+    ConfidenceLevel = "confidenceLevel"
   }
 }

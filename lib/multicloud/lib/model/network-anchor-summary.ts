@@ -39,6 +39,10 @@ export interface NetworkAnchorSummary {
    */
   "vcnId"?: string;
   /**
+   * The CPG ID in which Network Anchor will be created.
+   */
+  "clusterPlacementGroupId"?: string;
+  /**
     * The date and time the NetworkAnchor was created, in the format defined by [RFC 3339](https://tools.ietf.org/html/rfc3339).
 * <p>
 Example: {@code 2016-08-25T21:10:29.600Z}

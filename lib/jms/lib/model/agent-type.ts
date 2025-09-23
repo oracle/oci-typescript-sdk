@@ -15,11 +15,13 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The agent can be of two type, either Oracle Management Agent(OMA) or Oracle Cloud Agent(OCA).
+ * The agent can be of three types, Oracle Management Agent (OMA), Oracle Cloud Agent (OCA), or Oracle Container Management Agent (OCMA).
+ *
  **/
 export enum AgentType {
   Oma = "OMA",
   Oca = "OCA",
+  Ocma = "OCMA",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

@@ -37,7 +37,9 @@ export interface ListJmsPluginsRequest extends common.BaseRequest {
    */
   "fleetId"?: string;
   /**
-   * The ManagementAgent (OMA) or Instance (OCA) [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) that identifies the Agent.
+   * The ManagementAgent (OMA), Oracle Cloud Agent (OCA), or the Oracle Container Management Agent (OCMA) [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm)
+   * that identifies the Agent.
+   *
    */
   "agentId"?: string;
   /**

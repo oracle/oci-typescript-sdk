@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface GetDataSafeConfigurationRequest extends common.BaseRequest {
   /**
-   * A filter to return only resources that match the specified compartment OCID.
+   * A filter to return the Data Safe configuration for the specified tenancy OCID.
    */
   "compartmentId"?: string;
   /**

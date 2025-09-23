@@ -39,6 +39,8 @@ export interface MaskingErrorSummary {
 
 export namespace MaskingErrorSummary {
   export enum StepName {
+    Validate = "VALIDATE",
+    GenerateScript = "GENERATE_SCRIPT",
     ExecuteMasking = "EXECUTE_MASKING",
     PreMasking = "PRE_MASKING",
     PostMasking = "POST_MASKING",

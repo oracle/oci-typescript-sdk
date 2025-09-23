@@ -34,6 +34,19 @@ export interface ApplicationWorkItemDetails extends model.WorkItemDetails {
    * The full path on which application installation was detected.
    */
   "applicationInstallationPath"?: string;
+  /**
+   * The Object Storage namespace of the JFR upload result.
+   */
+  "namespace"?: string;
+  /**
+   * The Object Storage bucket name of the JFR upload result.
+   */
+  "bucketName"?: string;
+  /**
+   * The Object Storage object name of the JFR upload result.
+   */
+  "objectName"?: string;
+  "containerInfo"?: model.ContainerSummary;
 
   "kind": string;
 }
@@ -44,7 +57,11 @@ export namespace ApplicationWorkItemDetails {
       ...(isParentJsonObj
         ? obj
         : (model.WorkItemDetails.getJsonObj(obj) as ApplicationWorkItemDetails)),
-      ...{}
+      ...{
+        "containerInfo": obj.containerInfo
+          ? model.ContainerSummary.getJsonObj(obj.containerInfo)
+          : undefined
+      }
     };
 
     return jsonObj;
@@ -58,7 +75,11 @@ export namespace ApplicationWorkItemDetails {
       ...(isParentJsonObj
         ? obj
         : (model.WorkItemDetails.getDeserializedJsonObj(obj) as ApplicationWorkItemDetails)),
-      ...{}
+      ...{
+        "containerInfo": obj.containerInfo
+          ? model.ContainerSummary.getDeserializedJsonObj(obj.containerInfo)
+          : undefined
+      }
     };
 
     return jsonObj;

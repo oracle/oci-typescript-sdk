@@ -48,6 +48,16 @@ export interface UpdateFleetAgentConfigurationDetails {
    *
    */
   "isCollectingUsernamesEnabled"?: boolean;
+  /**
+   * Collect network addresses of managed instances in the fleet.
+   *
+   */
+  "isCapturingIpAddressAndFqdnEnabled"?: boolean;
+  /**
+   * Enable libraries scan on all managed instances in the fleet.
+   *
+   */
+  "isLibrariesScanEnabled"?: boolean;
   "linuxConfiguration"?: model.FleetAgentOsConfiguration;
   "windowsConfiguration"?: model.FleetAgentOsConfiguration;
   "macOsConfiguration"?: model.FleetAgentOsConfiguration;

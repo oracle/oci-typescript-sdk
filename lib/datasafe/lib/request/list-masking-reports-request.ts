@@ -39,6 +39,10 @@ export interface ListMaskingReportsRequest extends common.BaseRequest {
    */
   "targetId"?: string;
   /**
+   * A filter to return the target database group that matches the specified OCID.
+   */
+  "targetDatabaseGroupId"?: string;
+  /**
    * The sort order to use, either ascending (ASC) or descending (DESC).
    */
   "sortOrder"?: ListMaskingReportsRequest.SortOrder;

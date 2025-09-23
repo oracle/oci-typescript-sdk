@@ -93,6 +93,10 @@ Example: {@code {\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}}
    *
    */
   "setupMode"?: NetworkAnchor.SetupMode;
+  /**
+   * The CPG ID in which Network Anchor will be created.
+   */
+  "clusterPlacementGroupId"?: string;
   "ociMetadataItem"?: model.OciNetworkMetadata;
   "cloudServiceProviderMetadataItem"?: model.CloudServiceProviderNetworkMetadataItem;
 }

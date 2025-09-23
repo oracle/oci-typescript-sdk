@@ -40,15 +40,35 @@ export interface LibraryUsage {
    */
   "libraryVersion"?: string;
   /**
+   * Deprecated, use {@code vulnerabilities} instead.
    * The Common Vulnerabilities and Exposures (CVE) ID.
    *
    */
   "cveId"?: string;
   /**
-   * The Common Vulnerability Scoring System (CVSS) score.
+   * Deprecated, use {@code highestVulnerabilityScore} instead.
+   * The Common Vulnerability Scoring System (CVSS) score. If {@code cvssScore} is not available, it will be set to -1.0. It is set to 0.0 when {@code cveId} is null.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "cvssScore"?: number;
+  /**
+   * Indicates whether the library was dynamically detected.
+   *
+   */
+  "isDynamicallyDetected": boolean;
+  /**
+   * Highest CVSS score among the all vulnerabilities. If highest CVSS score is not available, it will be set to -1.0. It is set to 0.0 when there is no associated vulnerabilities.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "highestVulnerabilityScore"?: number;
+  /**
+   * The list of library vulnerabilities.
+   */
+  "vulnerabilities"?: Array<model.LibraryVulnerability>;
+  /**
+   * Confidence level of the assessed library's vulnerabilities.
+   */
+  "confidenceLevel"?: model.ConfidenceLevel;
   /**
    * The approximate count of applications using the library.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
@@ -94,6 +114,7 @@ export interface LibraryUsage {
    */
   "timeLastSeen"?: Date;
   /**
+   * Deprecated.
    * The date and time of the last CVEs refresh was completed.
    *
    */
@@ -102,12 +123,30 @@ export interface LibraryUsage {
 
 export namespace LibraryUsage {
   export function getJsonObj(obj: LibraryUsage): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "vulnerabilities": obj.vulnerabilities
+          ? obj.vulnerabilities.map(item => {
+              return model.LibraryVulnerability.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: LibraryUsage): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "vulnerabilities": obj.vulnerabilities
+          ? obj.vulnerabilities.map(item => {
+              return model.LibraryVulnerability.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

@@ -27,7 +27,9 @@ export enum LibrarySortBy {
   LibraryVersion = "libraryVersion",
   ManagedInstanceCount = "managedInstanceCount",
   TimeFirstSeen = "timeFirstSeen",
-  TimeLastSeen = "timeLastSeen"
+  TimeLastSeen = "timeLastSeen",
+  HighestVulnerabilityScore = "highestVulnerabilityScore",
+  ConfidenceLevel = "confidenceLevel"
 }
 
 export namespace LibrarySortBy {
