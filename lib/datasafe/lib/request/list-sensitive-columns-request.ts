@@ -64,6 +64,19 @@ export interface ListSensitiveColumnsRequest extends common.BaseRequest {
    */
   "sensitiveColumnLifecycleState"?: model.SensitiveColumnLifecycleState;
   /**
+   * Filters the sensitive columns with respect to the estimated row count.
+   *
+   */
+  "columnDataCountFilter"?: ListSensitiveColumnsRequest.ColumnDataCountFilter;
+  /**
+   * A filter to return the sensitive columns with the specified confidence level.
+   * Confidence level of sensitive column associated with a seeded sensitive type can either be HIGH or LOW.
+   * While the confidence level of sensitive column associated with a user defined sensitive will be NONE.
+   * For sensitive columns added manually the confidence level will also be NONE.
+   *
+   */
+  "confidenceLevel"?: Array<model.ConfidenceLevelEnum>;
+  /**
    * A filter to return only items related to specific schema name.
    */
   "schemaName"?: Array<string>;
@@ -139,6 +152,12 @@ export interface ListSensitiveColumnsRequest extends common.BaseRequest {
 }
 
 export namespace ListSensitiveColumnsRequest {
+  export enum ColumnDataCountFilter {
+    ShowAllColumns = "SHOW_ALL_COLUMNS",
+    ShowColumnsWithData = "SHOW_COLUMNS_WITH_DATA",
+    ShowColumnsWithoutData = "SHOW_COLUMNS_WITHOUT_DATA"
+  }
+
   export enum ObjectType {
     All = "ALL",
     Table = "TABLE",
@@ -166,6 +185,7 @@ export namespace ListSensitiveColumnsRequest {
     SchemaName = "schemaName",
     ObjectName = "objectName",
     ColumnName = "columnName",
-    DataType = "dataType"
+    DataType = "dataType",
+    ConfidenceLevel = "confidenceLevel"
   }
 }

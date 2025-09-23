@@ -19,6 +19,8 @@ import * as ChangePublicationCompartmentRequest from "./change-publication-compa
 export import ChangePublicationCompartmentRequest = ChangePublicationCompartmentRequest.ChangePublicationCompartmentRequest;
 import * as CreateAcceptedAgreementRequest from "./create-accepted-agreement-request";
 export import CreateAcceptedAgreementRequest = CreateAcceptedAgreementRequest.CreateAcceptedAgreementRequest;
+import * as CreateMarketplaceExternalAttestedMetadataRequest from "./create-marketplace-external-attested-metadata-request";
+export import CreateMarketplaceExternalAttestedMetadataRequest = CreateMarketplaceExternalAttestedMetadataRequest.CreateMarketplaceExternalAttestedMetadataRequest;
 import * as CreatePublicationRequest from "./create-publication-request";
 export import CreatePublicationRequest = CreatePublicationRequest.CreatePublicationRequest;
 import * as DeleteAcceptedAgreementRequest from "./delete-accepted-agreement-request";
@@ -49,6 +51,8 @@ import * as ListCategoriesRequest from "./list-categories-request";
 export import ListCategoriesRequest = ListCategoriesRequest.ListCategoriesRequest;
 import * as ListListingsRequest from "./list-listings-request";
 export import ListListingsRequest = ListListingsRequest.ListListingsRequest;
+import * as ListMarketplaceMetadataPublicKeysRequest from "./list-marketplace-metadata-public-keys-request";
+export import ListMarketplaceMetadataPublicKeysRequest = ListMarketplaceMetadataPublicKeysRequest.ListMarketplaceMetadataPublicKeysRequest;
 import * as ListPackagesRequest from "./list-packages-request";
 export import ListPackagesRequest = ListPackagesRequest.ListPackagesRequest;
 import * as ListPublicationPackagesRequest from "./list-publication-packages-request";

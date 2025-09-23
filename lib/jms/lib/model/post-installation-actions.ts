@@ -30,7 +30,13 @@ export enum PostInstallationActions {
   SetupFtpProxy = "SETUP_FTP_PROXY",
   SetupSocksProxy = "SETUP_SOCKS_PROXY",
   AddFileHandler = "ADD_FILE_HANDLER",
-  LoggingLevel = "LOGGING_LEVEL"
+  LoggingLevel = "LOGGING_LEVEL",
+
+  /**
+   * This value is used if a service returns a value for this enum that is not recognized by this
+   * version of the SDK.
+   */
+  UnknownValue = "UNKNOWN_VALUE"
 }
 
 export namespace PostInstallationActions {

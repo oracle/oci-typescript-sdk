@@ -1,6 +1,6 @@
 {
   "name": "oci-rover",
-  "version": "2.117.1",
+  "version": "2.118.0",
   "description": "OCI NodeJS client for Rover Service",
   "repository": {
     "type": "git",

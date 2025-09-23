@@ -32,6 +32,11 @@ export namespace WorkItemDetails {
 
     if (obj && "kind" in obj && obj.kind) {
       switch (obj.kind) {
+        case "JAVA_MIGRATION_DEPLOYED_APPLICATION":
+          return model.JavaMigrationDeployedApplicationWorkItemDetails.getJsonObj(
+            <model.JavaMigrationDeployedApplicationWorkItemDetails>(<object>jsonObj),
+            true
+          );
         case "DEPLOYED_APPLICATION":
           return model.DeployedApplicationWorkItemDetails.getJsonObj(
             <model.DeployedApplicationWorkItemDetails>(<object>jsonObj),
@@ -52,6 +57,11 @@ export namespace WorkItemDetails {
             <model.ApplicationWorkItemDetails>(<object>jsonObj),
             true
           );
+        case "JAVA_MIGRATION_APPLICATION":
+          return model.JavaMigrationApplicationWorkItemDetails.getJsonObj(
+            <model.JavaMigrationApplicationWorkItemDetails>(<object>jsonObj),
+            true
+          );
         default:
           if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.kind}`);
       }
@@ -63,6 +73,11 @@ export namespace WorkItemDetails {
 
     if (obj && "kind" in obj && obj.kind) {
       switch (obj.kind) {
+        case "JAVA_MIGRATION_DEPLOYED_APPLICATION":
+          return model.JavaMigrationDeployedApplicationWorkItemDetails.getDeserializedJsonObj(
+            <model.JavaMigrationDeployedApplicationWorkItemDetails>(<object>jsonObj),
+            true
+          );
         case "DEPLOYED_APPLICATION":
           return model.DeployedApplicationWorkItemDetails.getDeserializedJsonObj(
             <model.DeployedApplicationWorkItemDetails>(<object>jsonObj),
@@ -81,6 +96,11 @@ export namespace WorkItemDetails {
         case "APPLICATION":
           return model.ApplicationWorkItemDetails.getDeserializedJsonObj(
             <model.ApplicationWorkItemDetails>(<object>jsonObj),
+            true
+          );
+        case "JAVA_MIGRATION_APPLICATION":
+          return model.JavaMigrationApplicationWorkItemDetails.getDeserializedJsonObj(
+            <model.JavaMigrationApplicationWorkItemDetails>(<object>jsonObj),
             true
           );
         default:

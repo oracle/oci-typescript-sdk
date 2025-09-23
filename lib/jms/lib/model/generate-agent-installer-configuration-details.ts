@@ -26,6 +26,10 @@ export interface GenerateAgentInstallerConfigurationDetails {
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the fleet for which to generate the configuration file.
    */
   "fleetId": string;
+  /**
+   * The JMS plugin type.
+   */
+  "agentType"?: model.AgentType;
 }
 
 export namespace GenerateAgentInstallerConfigurationDetails {

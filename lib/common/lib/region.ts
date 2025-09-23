@@ -134,6 +134,7 @@ export class Region {
 
   // OC9
   public static ME_DCC_MUSCAT_1: Region = Region.register("me-dcc-muscat-1", Realm.OC9, "mct");
+    public static ME_IBRI_1: Region = Region.register("me-ibri-1", Realm.OC9, "ibr");
 
   // OC10
   public static AP_DCC_CANBERRA_1: Region = Region.register("ap-dcc-canberra-1", Realm.OC10, "wga");

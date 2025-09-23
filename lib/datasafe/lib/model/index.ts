@@ -253,6 +253,8 @@ import * as CompatibleFormatsForDataTypes from "./compatible-formats-for-data-ty
 export import CompatibleFormatsForDataTypes = CompatibleFormatsForDataTypes.CompatibleFormatsForDataTypes;
 import * as CompatibleFormatsForSensitiveTypes from "./compatible-formats-for-sensitive-types";
 export import CompatibleFormatsForSensitiveTypes = CompatibleFormatsForSensitiveTypes.CompatibleFormatsForSensitiveTypes;
+import * as ConfidenceLevelEnum from "./confidence-level-enum";
+export import ConfidenceLevelEnum = ConfidenceLevelEnum.ConfidenceLevelEnum;
 import * as ConnectionOption from "./connection-option";
 export import ConnectionOption = ConnectionOption.ConnectionOption;
 import * as CreateAlertPolicyDetails from "./create-alert-policy-details";

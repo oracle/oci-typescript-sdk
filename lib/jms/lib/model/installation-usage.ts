@@ -37,6 +37,10 @@ export interface InstallationUsage {
    */
   "jreVersion": string;
   /**
+   * The security status of the Java Runtime.
+   */
+  "securityStatus"?: model.JreSecurityStatus;
+  /**
    * The file system path of the Java installation.
    */
   "path": string;

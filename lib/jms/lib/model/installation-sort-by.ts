@@ -26,7 +26,8 @@ export enum InstallationSortBy {
   TimeLastSeen = "timeLastSeen",
   ApproximateApplicationCount = "approximateApplicationCount",
   ApproximateManagedInstanceCount = "approximateManagedInstanceCount",
-  OsName = "osName"
+  OsName = "osName",
+  SecurityStatus = "securityStatus"
 }
 
 export namespace InstallationSortBy {

@@ -28,10 +28,12 @@ export interface WorkItemSummary {
   "workRequestId": string;
   "installationSite": model.InstallationSite;
   "details":
+    | model.JavaMigrationDeployedApplicationWorkItemDetails
     | model.DeployedApplicationWorkItemDetails
     | model.LcmWorkItemDetails
     | model.BasicWorkItemDetails
-    | model.ApplicationWorkItemDetails;
+    | model.ApplicationWorkItemDetails
+    | model.JavaMigrationApplicationWorkItemDetails;
   /**
    * The status of the work item.
    */

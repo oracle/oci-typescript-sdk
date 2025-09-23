@@ -78,16 +78,31 @@ export interface ExportSetting {
    *
    */
   "timeLastModified"?: Date;
+  "exportDataFilters"?: model.ExportDataFilters;
 }
 
 export namespace ExportSetting {
   export function getJsonObj(obj: ExportSetting): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "exportDataFilters": obj.exportDataFilters
+          ? model.ExportDataFilters.getJsonObj(obj.exportDataFilters)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: ExportSetting): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "exportDataFilters": obj.exportDataFilters
+          ? model.ExportDataFilters.getDeserializedJsonObj(obj.exportDataFilters)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

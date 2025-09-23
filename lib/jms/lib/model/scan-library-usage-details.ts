@@ -24,6 +24,16 @@ export interface ScanLibraryUsageDetails {
    *
    */
   "managedInstanceIds"?: Array<string>;
+  /**
+   * Indicates whether the scan is dynamic or static.
+   *
+   */
+  "isDynamicScan"?: boolean;
+  /**
+   * The duration of the dynamic scan in minutes.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "dynamicScanDurationInMinutes"?: number;
 }
 
 export namespace ScanLibraryUsageDetails {

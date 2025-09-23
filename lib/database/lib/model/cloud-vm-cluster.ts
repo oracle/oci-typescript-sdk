@@ -288,6 +288,14 @@ Example: {@code {\"Department\": \"Finance\"}}
   "fileSystemConfigurationDetails"?: Array<model.FileSystemConfigurationDetail>;
   "cloudAutomationUpdateDetails"?: model.CloudAutomationUpdateDetails;
   /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Exadata Database Storage Vault.
+   */
+  "exascaleDbStorageVaultId"?: string;
+  /**
+   * Specifies the type of storage management for the Cloud VM Cluster if its ASM or Exascale.
+   */
+  "storageManagementType"?: CloudVmCluster.StorageManagementType;
+  /**
    * The vmcluster type for the VM cluster/Cloud VM cluster.
    */
   "vmClusterType"?: CloudVmCluster.VmClusterType;
@@ -334,6 +342,16 @@ export namespace CloudVmCluster {
   export enum DiskRedundancy {
     High = "HIGH",
     Normal = "NORMAL",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum StorageManagementType {
+    Asm = "ASM",
+    Exascale = "EXASCALE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

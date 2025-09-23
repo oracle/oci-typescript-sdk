@@ -56,16 +56,38 @@ export interface JavaFamilySummary {
    *
    */
   "releaseDate"?: Date;
+  /**
+   * The license type(s) associated with the Java family.
+   */
+  "licenseTypes"?: Array<model.LicenseType>;
 }
 
 export namespace JavaFamilySummary {
   export function getJsonObj(obj: JavaFamilySummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "licenseTypes": obj.licenseTypes
+          ? obj.licenseTypes.map(item => {
+              return model.LicenseType.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: JavaFamilySummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "licenseTypes": obj.licenseTypes
+          ? obj.licenseTypes.map(item => {
+              return model.LicenseType.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

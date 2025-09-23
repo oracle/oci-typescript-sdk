@@ -108,6 +108,19 @@ export interface SensitiveColumn {
    */
   "estimatedDataValueCount": number;
   /**
+   * The confidence level of the sensitive column associated with the sensitive type.
+   * The confidence level of the discovered sensitive columns can be either HIGH, MEDIUM or LOW.
+   * The confidence level will be NONE for manually added sensitive columns.
+   *
+   */
+  "confidenceLevel"?: model.ConfidenceLevelEnum;
+  /**
+   * List containing maps as values.
+   * Example: {@code {\"Operations\": [ {\"CostCenter\": \"42\"} ] }}
+   *
+   */
+  "confidenceLevelDetails"?: Array<any>;
+  /**
    * Original data values collected for the sensitive column from the associated database. Sample data helps review
    * the column and ensure that it actually contains sensitive data. Note that sample data is retrieved by a data
    * discovery job only if the isSampleDataCollectionEnabled attribute is set to true. At present, only one data

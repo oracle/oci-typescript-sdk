@@ -19,6 +19,8 @@ import * as ChangePublicationCompartmentResponse from "./change-publication-comp
 export import ChangePublicationCompartmentResponse = ChangePublicationCompartmentResponse.ChangePublicationCompartmentResponse;
 import * as CreateAcceptedAgreementResponse from "./create-accepted-agreement-response";
 export import CreateAcceptedAgreementResponse = CreateAcceptedAgreementResponse.CreateAcceptedAgreementResponse;
+import * as CreateMarketplaceExternalAttestedMetadataResponse from "./create-marketplace-external-attested-metadata-response";
+export import CreateMarketplaceExternalAttestedMetadataResponse = CreateMarketplaceExternalAttestedMetadataResponse.CreateMarketplaceExternalAttestedMetadataResponse;
 import * as CreatePublicationResponse from "./create-publication-response";
 export import CreatePublicationResponse = CreatePublicationResponse.CreatePublicationResponse;
 import * as DeleteAcceptedAgreementResponse from "./delete-accepted-agreement-response";
@@ -49,6 +51,8 @@ import * as ListCategoriesResponse from "./list-categories-response";
 export import ListCategoriesResponse = ListCategoriesResponse.ListCategoriesResponse;
 import * as ListListingsResponse from "./list-listings-response";
 export import ListListingsResponse = ListListingsResponse.ListListingsResponse;
+import * as ListMarketplaceMetadataPublicKeysResponse from "./list-marketplace-metadata-public-keys-response";
+export import ListMarketplaceMetadataPublicKeysResponse = ListMarketplaceMetadataPublicKeysResponse.ListMarketplaceMetadataPublicKeysResponse;
 import * as ListPackagesResponse from "./list-packages-response";
 export import ListPackagesResponse = ListPackagesResponse.ListPackagesResponse;
 import * as ListPublicationPackagesResponse from "./list-publication-packages-response";

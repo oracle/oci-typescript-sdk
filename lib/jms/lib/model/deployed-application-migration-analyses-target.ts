@@ -16,7 +16,8 @@ import common = require("oci-common");
 
 /**
  * The target describes the input data for deployed Java migration analyses.
- * A target contains a managed instance, deployed application installation Key, sourceJdkVersion, targetJdkVersion and optional excludePackagePrefixes.
+ * A target contains a managed instance, deployed application installation Key, sourceJdkVersion, targetJdkVersion, optional excludePackagePrefixes
+ * and optional includePackagePrefixes.
  *
  */
 export interface DeployedApplicationMigrationAnalysesTarget {
@@ -37,9 +38,13 @@ export interface DeployedApplicationMigrationAnalysesTarget {
    */
   "targetJdkVersion": string;
   /**
-   * Excludes the packages that starts with the prefix from the migration analyses result.
+   * Excludes the packages that starts with the prefix from the migration analyses result. Either this or includePackagePrefixes can be specified.
    */
   "excludePackagePrefixes"?: Array<string>;
+  /**
+   * Includes the packages that starts with the prefix from the migration analyses result. Either this or excludePackagePrefixes can be specified.
+   */
+  "includePackagePrefixes"?: Array<string>;
 }
 
 export namespace DeployedApplicationMigrationAnalysesTarget {
