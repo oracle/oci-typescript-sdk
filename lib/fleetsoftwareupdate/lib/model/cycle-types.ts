@@ -17,7 +17,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Possible Exadata Fleet Update Cycle types to specify.
+ * Possible Exadata Fleet Update Cycle types.
  *
  **/
 export enum CycleTypes {

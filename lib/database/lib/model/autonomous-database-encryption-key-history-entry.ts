@@ -24,6 +24,7 @@ export interface AutonomousDatabaseEncryptionKeyHistoryEntry {
     | model.AzureKeyDetails
     | model.AwsKeyDetails
     | model.OciKeyDetails
+    | model.GcpKeyDetails
     | model.OracleManagedKeyDetails;
   /**
    * The date and time the encryption key was activated.

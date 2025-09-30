@@ -46,6 +46,16 @@ export namespace DiscoveryDetails {
             <model.DbDiscoveryDetails>(<object>jsonObj),
             true
           );
+        case "EXADB_STACK":
+          return model.ExadbStackDiscoveryDetails.getJsonObj(
+            <model.ExadbStackDiscoveryDetails>(<object>jsonObj),
+            true
+          );
+        case "GUEST_OS":
+          return model.GuestOsDiscoveryDetails.getJsonObj(
+            <model.GuestOsDiscoveryDetails>(<object>jsonObj),
+            true
+          );
         default:
           if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.type}`);
       }
@@ -65,6 +75,16 @@ export namespace DiscoveryDetails {
         case "DB":
           return model.DbDiscoveryDetails.getDeserializedJsonObj(
             <model.DbDiscoveryDetails>(<object>jsonObj),
+            true
+          );
+        case "EXADB_STACK":
+          return model.ExadbStackDiscoveryDetails.getDeserializedJsonObj(
+            <model.ExadbStackDiscoveryDetails>(<object>jsonObj),
+            true
+          );
+        case "GUEST_OS":
+          return model.GuestOsDiscoveryDetails.getDeserializedJsonObj(
+            <model.GuestOsDiscoveryDetails>(<object>jsonObj),
             true
           );
         default:

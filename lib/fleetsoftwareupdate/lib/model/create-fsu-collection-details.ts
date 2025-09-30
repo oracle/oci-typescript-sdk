@@ -17,12 +17,13 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The information about new Exadata Fleet Update Collection.
+ * Details to create a new Exadata Fleet Update Collection.
+ * Targets belonging to another Exadata Fleet Update Collection of the same type will be rejected.
  *
  */
 export interface CreateFsuCollectionDetails {
   /**
-   * Exadata Fleet Update Collection Identifier.
+   * The user-friendly name for the Exadata Fleet Update Collection.
    *
    */
   "displayName"?: string;
@@ -32,7 +33,7 @@ export interface CreateFsuCollectionDetails {
    */
   "serviceType": model.CollectionServiceTypes;
   /**
-   * Compartment Identifier
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Compartment.
    */
   "compartmentId": string;
   /**
@@ -67,6 +68,16 @@ export namespace CreateFsuCollectionDetails {
             <model.CreateGiFsuCollectionDetails>(<object>jsonObj),
             true
           );
+        case "GUEST_OS":
+          return model.CreateGuestOsFsuCollectionDetails.getJsonObj(
+            <model.CreateGuestOsFsuCollectionDetails>(<object>jsonObj),
+            true
+          );
+        case "EXADB_STACK":
+          return model.CreateExadbStackFsuCollectionDetails.getJsonObj(
+            <model.CreateExadbStackFsuCollectionDetails>(<object>jsonObj),
+            true
+          );
         default:
           if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.type}`);
       }
@@ -86,6 +97,16 @@ export namespace CreateFsuCollectionDetails {
         case "GI":
           return model.CreateGiFsuCollectionDetails.getDeserializedJsonObj(
             <model.CreateGiFsuCollectionDetails>(<object>jsonObj),
+            true
+          );
+        case "GUEST_OS":
+          return model.CreateGuestOsFsuCollectionDetails.getDeserializedJsonObj(
+            <model.CreateGuestOsFsuCollectionDetails>(<object>jsonObj),
+            true
+          );
+        case "EXADB_STACK":
+          return model.CreateExadbStackFsuCollectionDetails.getDeserializedJsonObj(
+            <model.CreateExadbStackFsuCollectionDetails>(<object>jsonObj),
             true
           );
         default:

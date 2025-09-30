@@ -16450,7 +16450,7 @@ To delete instances from a compute cluster, use the {@link #terminateInstance(Te
   }
 
   /**
-   * Customer can update displayName and tags for compute GPU memory fabric record
+   * Customer can update displayName, tags and for compute GPU memory fabric record
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateComputeGpuMemoryFabricRequest

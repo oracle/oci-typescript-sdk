@@ -33,6 +33,10 @@ export interface UpdateEndpointDetails {
    * An optional description of the endpoint.
    */
   "description"?: string;
+  /**
+   * The OCID of the Generative AI private endpoint to which this endpoint will be attached.
+   */
+  "generativeAiPrivateEndpointId"?: string;
   "contentModerationConfig"?: model.ContentModerationConfig;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.

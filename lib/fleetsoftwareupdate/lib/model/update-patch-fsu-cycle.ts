@@ -18,28 +18,30 @@ import common = require("oci-common");
 
 /**
  * Update Patch Exadata Fleet Update Cycle resource details.
+ * If automated maintenance is enabled for the associated Exadata Fleet Update Collection, updating Exadata Fleet Update Cycle will not affect the Exadata Fleet Update Collection.
  *
  */
 export interface UpdatePatchFsuCycle extends model.UpdateFsuCycleDetails {
   /**
-   * Ignore all patches between the source and target homes during patching.
+   * Ignore patch conflicts or missing patches between the source and goal homes.
+   * This attribute will be ignored for Exadata Image (Guest OS) maintenance update.
    *
    */
   "isIgnorePatches"?: boolean;
   /**
-   * List of patch IDs to ignore.
-   * An empty array removes the previously stored patch IDs in the Maintenance Cycle properties.
+   * List of identifiers of patches to ignore.
+   * Specify an empty array to unset the field.
+   * This attribute will be ignored for Exadata Image (Guest OS) maintenance update.
    *
    */
   "isIgnoreMissingPatches"?: Array<string>;
   /**
-   * Service drain timeout specified in seconds.
+   * Timeout for session draining for database services specified in seconds.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maxDrainTimeoutInSeconds"?: number;
   /**
-   * Ensure that services of administrator-managed Oracle RAC or Oracle RAC One databases are running on the same
-   * instances before and after the move operation.
+   * Ensure that database services are online on the same VMs before and after the maintenance update.
    *
    */
   "isKeepPlacement"?: boolean;

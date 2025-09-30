@@ -729,6 +729,25 @@ export class ComputeWaiter {
   }
 
   /**
+   * Waits forComputeImageCapabilitySchema till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetComputeImageCapabilitySchemaResponse | null (null in case of 404 response)
+   */
+  public async forComputeImageCapabilitySchema(
+    request: serviceRequests.GetComputeImageCapabilitySchemaRequest,
+    ...targetStates: models.ComputeImageCapabilitySchema.LifecycleState[]
+  ): Promise<serviceResponses.GetComputeImageCapabilitySchemaResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getComputeImageCapabilitySchema(request),
+      response => targetStates.includes(response.computeImageCapabilitySchema.lifecycleState!),
+      targetStates.includes(models.ComputeImageCapabilitySchema.LifecycleState.Deleted)
+    );
+  }
+
+  /**
    * Waits forConsoleHistory till it reaches any of the provided states
    *
    * @param request the request to send

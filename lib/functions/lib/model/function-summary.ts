@@ -75,6 +75,20 @@ export interface FunctionSummary {
   "provisionedConcurrencyConfig"?:
     | model.NoneProvisionedConcurrencyConfig
     | model.ConstantProvisionedConcurrencyConfig;
+  /**
+   * Timeout for detached function invocations. Value in seconds. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "detachedModeTimeoutInSeconds"?: number;
+  "failureDestination"?:
+    | model.StreamFailureDestinationDetails
+    | model.QueueFailureDestinationDetails
+    | model.NotificationFailureDestinationDetails
+    | model.NoneFailureDestinationDetails;
+  "successDestination"?:
+    | model.StreamSuccessDestinationDetails
+    | model.NotificationSuccessDestinationDetails
+    | model.QueueSuccessDestinationDetails
+    | model.NoneSuccessDestinationDetails;
   "traceConfig"?: model.FunctionTraceConfig;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
@@ -137,6 +151,13 @@ export namespace FunctionSummary {
         "provisionedConcurrencyConfig": obj.provisionedConcurrencyConfig
           ? model.FunctionProvisionedConcurrencyConfig.getJsonObj(obj.provisionedConcurrencyConfig)
           : undefined,
+
+        "failureDestination": obj.failureDestination
+          ? model.FailureDestinationDetails.getJsonObj(obj.failureDestination)
+          : undefined,
+        "successDestination": obj.successDestination
+          ? model.SuccessDestinationDetails.getJsonObj(obj.successDestination)
+          : undefined,
         "traceConfig": obj.traceConfig
           ? model.FunctionTraceConfig.getJsonObj(obj.traceConfig)
           : undefined
@@ -157,6 +178,13 @@ export namespace FunctionSummary {
           ? model.FunctionProvisionedConcurrencyConfig.getDeserializedJsonObj(
               obj.provisionedConcurrencyConfig
             )
+          : undefined,
+
+        "failureDestination": obj.failureDestination
+          ? model.FailureDestinationDetails.getDeserializedJsonObj(obj.failureDestination)
+          : undefined,
+        "successDestination": obj.successDestination
+          ? model.SuccessDestinationDetails.getDeserializedJsonObj(obj.successDestination)
           : undefined,
         "traceConfig": obj.traceConfig
           ? model.FunctionTraceConfig.getDeserializedJsonObj(obj.traceConfig)

@@ -52,6 +52,10 @@ export interface ComputeImageCapabilitySchema {
    */
   "imageId": string;
   /**
+   * The ComputeImageCapabilitySchema current lifecycle state.
+   */
+  "lifecycleState"?: ComputeImageCapabilitySchema.LifecycleState;
+  /**
     * Defined tags for this resource. Each key is predefined and scoped to a
 * namespace. For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
@@ -88,6 +92,17 @@ Example: {@code 2016-08-25T21:10:29.600Z}
 }
 
 export namespace ComputeImageCapabilitySchema {
+  export enum LifecycleState {
+    Creating = "CREATING",
+    Active = "ACTIVE",
+    Deleted = "DELETED",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: ComputeImageCapabilitySchema): object {
     const jsonObj = {
       ...obj,

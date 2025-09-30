@@ -34,8 +34,12 @@ export namespace ChatContent {
 
     if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
+        case "VIDEO":
+          return model.VideoContent.getJsonObj(<model.VideoContent>(<object>jsonObj), true);
         case "IMAGE":
           return model.ImageContent.getJsonObj(<model.ImageContent>(<object>jsonObj), true);
+        case "AUDIO":
+          return model.AudioContent.getJsonObj(<model.AudioContent>(<object>jsonObj), true);
         case "TEXT":
           return model.TextContent.getJsonObj(<model.TextContent>(<object>jsonObj), true);
         default:
@@ -49,9 +53,19 @@ export namespace ChatContent {
 
     if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
+        case "VIDEO":
+          return model.VideoContent.getDeserializedJsonObj(
+            <model.VideoContent>(<object>jsonObj),
+            true
+          );
         case "IMAGE":
           return model.ImageContent.getDeserializedJsonObj(
             <model.ImageContent>(<object>jsonObj),
+            true
+          );
+        case "AUDIO":
+          return model.AudioContent.getDeserializedJsonObj(
+            <model.AudioContent>(<object>jsonObj),
             true
           );
         case "TEXT":

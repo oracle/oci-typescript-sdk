@@ -18,6 +18,7 @@ import common = require("oci-common");
 
 /**
  * Details to create a 'DB' type Exadata Fleet Update Collection.
+ * Targets belonging to another 'DB' type Exadata Fleet Update Collection will be rejected.
  *
  */
 export interface CreateDbFsuCollectionDetails extends model.CreateFsuCollectionDetails {

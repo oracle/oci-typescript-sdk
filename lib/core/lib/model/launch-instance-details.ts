@@ -265,6 +265,11 @@ You can enumerate all available shapes by calling {@link #listShapes(ListShapesR
     | model.HostGroupPlacementConstraintDetails
     | model.ComputeBareMetalHostPlacementConstraintDetails;
   /**
+   * Whether to enable AI enterprise on the instance.
+   *
+   */
+  "isAIEnterpriseEnabled"?: boolean;
+  /**
    * The OCID of the Instance Configuration containing instance launch details. Any other fields supplied in this instance launch request will override the details stored in the Instance Configuration for this instance launch.
    */
   "instanceConfigurationId"?: string;

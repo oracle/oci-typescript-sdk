@@ -36,6 +36,8 @@ export namespace AutonomousDatabaseEncryptionKeyDetails {
           return model.AwsKeyDetails.getJsonObj(<model.AwsKeyDetails>(<object>jsonObj), true);
         case "OCI":
           return model.OciKeyDetails.getJsonObj(<model.OciKeyDetails>(<object>jsonObj), true);
+        case "GCP":
+          return model.GcpKeyDetails.getJsonObj(<model.GcpKeyDetails>(<object>jsonObj), true);
         case "ORACLE_MANAGED":
           return model.OracleManagedKeyDetails.getJsonObj(
             <model.OracleManagedKeyDetails>(<object>jsonObj),
@@ -70,6 +72,11 @@ export namespace AutonomousDatabaseEncryptionKeyDetails {
         case "OCI":
           return model.OciKeyDetails.getDeserializedJsonObj(
             <model.OciKeyDetails>(<object>jsonObj),
+            true
+          );
+        case "GCP":
+          return model.GcpKeyDetails.getDeserializedJsonObj(
+            <model.GcpKeyDetails>(<object>jsonObj),
             true
           );
         case "ORACLE_MANAGED":

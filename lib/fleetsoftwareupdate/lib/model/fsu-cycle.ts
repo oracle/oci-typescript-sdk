@@ -22,37 +22,37 @@ import common = require("oci-common");
  */
 export interface FsuCycle {
   /**
-   * OCID identifier for the Exadata Fleet Update Cycle.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Exadata Fleet Update Cycle.
    *
    */
   "id": string;
   /**
-   * Exadata Fleet Update Cycle display name.
+   * The user-friendly name for the Exadata Fleet Update Cycle.
    *
    */
   "displayName"?: string;
   /**
-   * Compartment Identifier.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Compartment.
    *
    */
   "compartmentId": string;
   /**
-   * OCID identifier for the Collection ID the Exadata Fleet Update Cycle is assigned to.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Exadata Fleet Update Collection being updated by this Exadata Fleet Update Cycle.
    *
    */
   "fsuCollectionId": string;
   /**
-   * Type of Collection this Exadata Fleet Update Cycle belongs to.
+   * Type of the Exadata Fleet Update Collection being updated by this Exadata Fleet Update Cycle.
    *
    */
   "collectionType"?: model.CollectionTypes;
   /**
-   * OCID identifier for the Action that is currently in execution, if applicable.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Exadata Fleet Update Action that is currently in progress, if applicable.
    *
    */
   "executingFsuActionId"?: string;
   /**
-   * In this array all the possible actions will be listed. The first element is the suggested Action.
+   * All possible Exadata Fleet Update Actions will be listed. The first element is the suggested Exadata Fleet Update Action.
    *
    */
   "nextActionToExecute"?: Array<model.NextActionToExecuteDetails>;
@@ -74,7 +74,10 @@ export interface FsuCycle {
    *
    */
   "lastCompletedAction"?: model.DetailedActionTypes;
-  "goalVersionDetails"?: model.VersionFsuTargetDetails | model.ImageIdFsuTargetDetails;
+  "goalVersionDetails"?:
+    | model.ExadbStackFsuGoalVersionDetails
+    | model.VersionFsuTargetDetails
+    | model.ImageIdFsuTargetDetails;
   "batchingStrategy"?:
     | model.NonRollingBatchingStrategyDetails
     | model.ServiceAvailabilityFactorBatchingStrategyDetails

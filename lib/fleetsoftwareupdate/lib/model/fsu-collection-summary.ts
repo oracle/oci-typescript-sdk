@@ -22,12 +22,12 @@ import common = require("oci-common");
  */
 export interface FsuCollectionSummary {
   /**
-   * OCID identifier for the Exadata Fleet Update Collection.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Exadata Fleet Update Collection.
    *
    */
   "id": string;
   /**
-   * Exadata Fleet Update Collection resource display name.
+   * The user-friendly name for the Exadata Fleet Update Collection.
    *
    */
   "displayName": string;
@@ -37,7 +37,7 @@ export interface FsuCollectionSummary {
    */
   "serviceType": model.CollectionServiceTypes;
   /**
-   * Compartment Identifier
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Compartment.
    *
    */
   "compartmentId": string;
@@ -113,9 +113,19 @@ export namespace FsuCollectionSummary {
             <model.GiFsuCollectionSummary>(<object>jsonObj),
             true
           );
+        case "EXADB_STACK":
+          return model.ExadbStackFsuCollectionSummary.getJsonObj(
+            <model.ExadbStackFsuCollectionSummary>(<object>jsonObj),
+            true
+          );
         case "DB":
           return model.DbFsuCollectionSummary.getJsonObj(
             <model.DbFsuCollectionSummary>(<object>jsonObj),
+            true
+          );
+        case "GUEST_OS":
+          return model.GuestOsFsuCollectionSummary.getJsonObj(
+            <model.GuestOsFsuCollectionSummary>(<object>jsonObj),
             true
           );
         default:
@@ -141,9 +151,19 @@ export namespace FsuCollectionSummary {
             <model.GiFsuCollectionSummary>(<object>jsonObj),
             true
           );
+        case "EXADB_STACK":
+          return model.ExadbStackFsuCollectionSummary.getDeserializedJsonObj(
+            <model.ExadbStackFsuCollectionSummary>(<object>jsonObj),
+            true
+          );
         case "DB":
           return model.DbFsuCollectionSummary.getDeserializedJsonObj(
             <model.DbFsuCollectionSummary>(<object>jsonObj),
+            true
+          );
+        case "GUEST_OS":
+          return model.GuestOsFsuCollectionSummary.getDeserializedJsonObj(
+            <model.GuestOsFsuCollectionSummary>(<object>jsonObj),
             true
           );
         default:

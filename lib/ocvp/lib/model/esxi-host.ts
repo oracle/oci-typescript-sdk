@@ -205,16 +205,43 @@ Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
    *
    */
   "systemTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * A list of datastore clusters.
+   *
+   */
+  "datastoreClusterIds"?: Array<string>;
+  /**
+   * List of DatastoreAttachment objects containing information about attachment details
+   */
+  "datastoreAttachments"?: Array<model.DatastoreAttachment>;
 }
 
 export namespace EsxiHost {
   export function getJsonObj(obj: EsxiHost): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "datastoreAttachments": obj.datastoreAttachments
+          ? obj.datastoreAttachments.map(item => {
+              return model.DatastoreAttachment.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: EsxiHost): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "datastoreAttachments": obj.datastoreAttachments
+          ? obj.datastoreAttachments.map(item => {
+              return model.DatastoreAttachment.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
