@@ -17,7 +17,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Progress details of the executing job for a Database target.
+ * Progress details of the executing job for a target.
  *
  */
 export interface TargetProgressSummary {

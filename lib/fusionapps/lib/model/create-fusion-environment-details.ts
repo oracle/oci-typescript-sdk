@@ -48,6 +48,10 @@ export interface CreateFusionEnvironmentDetails {
    */
   "additionalLanguagePacks"?: Array<string>;
   /**
+   * Enable IPv4/IPv6 dual stack support for the environment.  Setting to true will assign an IPv6 address to the environment in addition to an IPv4 address. Default value will be false if not set
+   */
+  "isIPv6DualStackEnabled"?: boolean;
+  /**
    * Rules.
    */
   "rules"?: Array<model.Rule>;

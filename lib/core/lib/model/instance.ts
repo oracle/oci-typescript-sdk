@@ -69,6 +69,11 @@ Example: {@code Uocm:PHX-AD-1}
     | model.HostGroupPlacementConstraintDetails
     | model.ComputeBareMetalHostPlacementConstraintDetails;
   /**
+   * Whether AI enterprise is enabled on the instance.
+   *
+   */
+  "isAIEnterpriseEnabled"?: boolean;
+  /**
    * The OCID of the cluster placement group of the instance.
    */
   "clusterPlacementGroupId"?: string;

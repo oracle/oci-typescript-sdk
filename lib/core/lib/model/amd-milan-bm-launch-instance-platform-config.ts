@@ -85,7 +85,8 @@ export namespace AmdMilanBmLaunchInstancePlatformConfig {
     Nps0 = "NPS0",
     Nps1 = "NPS1",
     Nps2 = "NPS2",
-    Nps4 = "NPS4"
+    Nps4 = "NPS4",
+    Nps6 = "NPS6"
   }
 
   export function getJsonObj(

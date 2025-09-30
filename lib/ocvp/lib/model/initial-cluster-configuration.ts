@@ -32,7 +32,7 @@ export interface InitialClusterConfiguration {
   "computeAvailabilityDomain": string;
   /**
    * A descriptive name for the Cluster.
-   * Cluster name requirements are 1-16 character length limit, Must start with a letter, Must be English letters, numbers, - only, No repeating hyphens, Must be unique within the region.
+   * Cluster name requirements are 1-22 character length limit, Must start with a letter, Must be English letters, numbers, - only, No repeating hyphens, Must be unique within the region.
    * Avoid entering confidential information.
    *
    */
@@ -98,6 +98,11 @@ For example, if the value is {@code myCluster}, the ESXi hosts are named {@code 
    *
    */
   "datastores"?: Array<model.DatastoreInfo>;
+  /**
+   * A list of datastore clusters.
+   *
+   */
+  "datastoreClusterIds"?: Array<string>;
 }
 
 export namespace InitialClusterConfiguration {

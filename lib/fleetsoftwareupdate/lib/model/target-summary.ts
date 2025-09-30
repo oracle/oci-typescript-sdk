@@ -46,6 +46,11 @@ export interface TargetSummary {
    */
   "activeFsuCycleId"?: string;
   "progress"?: model.TargetProgressSummary;
+  /**
+   * List of Exadata Fleet Update Collections containing this target.
+   *
+   */
+  "memberships"?: Array<model.MembershipSummary>;
 }
 
 export namespace TargetSummary {
@@ -66,7 +71,12 @@ export namespace TargetSummary {
       ...{
         "target": obj.target ? model.TargetDetails.getJsonObj(obj.target) : undefined,
 
-        "progress": obj.progress ? model.TargetProgressSummary.getJsonObj(obj.progress) : undefined
+        "progress": obj.progress ? model.TargetProgressSummary.getJsonObj(obj.progress) : undefined,
+        "memberships": obj.memberships
+          ? obj.memberships.map(item => {
+              return model.MembershipSummary.getJsonObj(item);
+            })
+          : undefined
       }
     };
 
@@ -80,6 +90,11 @@ export namespace TargetSummary {
 
         "progress": obj.progress
           ? model.TargetProgressSummary.getDeserializedJsonObj(obj.progress)
+          : undefined,
+        "memberships": obj.memberships
+          ? obj.memberships.map(item => {
+              return model.MembershipSummary.getDeserializedJsonObj(item);
+            })
           : undefined
       }
     };

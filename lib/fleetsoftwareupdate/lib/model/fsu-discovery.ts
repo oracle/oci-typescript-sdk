@@ -36,7 +36,11 @@ export interface FsuDiscovery {
    *
    */
   "compartmentId": string;
-  "details": model.GiDiscoveryDetails | model.DbDiscoveryDetails;
+  "details":
+    | model.GiDiscoveryDetails
+    | model.DbDiscoveryDetails
+    | model.ExadbStackDiscoveryDetails
+    | model.GuestOsDiscoveryDetails;
   /**
    * The date and time the Exadata Fleet Update Discovery was created, as described in
    * [RFC 3339](https://tools.ietf.org/rfc/rfc3339), section 14.29.

@@ -139,6 +139,7 @@ This cannot be updated in parallel with any of the following: licenseModel, dbEd
     | model.AzureKeyDetails
     | model.AwsKeyDetails
     | model.OciKeyDetails
+    | model.GcpKeyDetails
     | model.OracleManagedKeyDetails;
   /**
     * **Important** The {@code adminPassword} or {@code secretId} must be specified for all Autonomous Databases except for refreshable clones. The password must be between 12 and 30 characters long, and must contain at least 1 uppercase, 1 lowercase, and 1 numeric character. It cannot contain the double quote symbol (\") or the username \"admin\", regardless of casing.

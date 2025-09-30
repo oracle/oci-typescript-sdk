@@ -25,7 +25,7 @@ import common = require("oci-common");
  */
 export interface ImageIdFsuTargetDetails extends model.FsuGoalVersionDetails {
   /**
-   * Target database software image OCID.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the goal database software image.
    *
    */
   "softwareImageId": string;

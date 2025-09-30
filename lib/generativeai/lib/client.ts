@@ -395,6 +395,90 @@ export class GenerativeAiClient {
   }
 
   /**
+   * Moves a Generative AI private endpoint into a different compartment. When provided, If-Match is checked against ETag values of the resource.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ChangeGenerativeAiPrivateEndpointCompartmentRequest
+   * @return ChangeGenerativeAiPrivateEndpointCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/ChangeGenerativeAiPrivateEndpointCompartment.ts.html |here} to see how to use ChangeGenerativeAiPrivateEndpointCompartment API.
+   */
+  public async changeGenerativeAiPrivateEndpointCompartment(
+    changeGenerativeAiPrivateEndpointCompartmentRequest: requests.ChangeGenerativeAiPrivateEndpointCompartmentRequest
+  ): Promise<responses.ChangeGenerativeAiPrivateEndpointCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation GenerativeAiClient#changeGenerativeAiPrivateEndpointCompartment."
+      );
+    const operationName = "changeGenerativeAiPrivateEndpointCompartment";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{generativeAiPrivateEndpointId}":
+        changeGenerativeAiPrivateEndpointCompartmentRequest.generativeAiPrivateEndpointId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": changeGenerativeAiPrivateEndpointCompartmentRequest.opcRequestId,
+      "if-match": changeGenerativeAiPrivateEndpointCompartmentRequest.ifMatch,
+      "opc-retry-token": changeGenerativeAiPrivateEndpointCompartmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeGenerativeAiPrivateEndpointCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/generativeAiPrivateEndpoints/{generativeAiPrivateEndpointId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeGenerativeAiPrivateEndpointCompartmentRequest.changeGenerativeAiPrivateEndpointCompartmentDetails,
+        "ChangeGenerativeAiPrivateEndpointCompartmentDetails",
+        model.ChangeGenerativeAiPrivateEndpointCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeGenerativeAiPrivateEndpointCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Moves a custom model into a different compartment. For information about moving resources between compartments, see [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeModelCompartmentRequest
@@ -651,6 +735,92 @@ The header contains an opc-work-request-id, which is the id for the WorkRequest 
   }
 
   /**
+   * Creates a Generative AI private endpoint.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateGenerativeAiPrivateEndpointRequest
+   * @return CreateGenerativeAiPrivateEndpointResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/CreateGenerativeAiPrivateEndpoint.ts.html |here} to see how to use CreateGenerativeAiPrivateEndpoint API.
+   */
+  public async createGenerativeAiPrivateEndpoint(
+    createGenerativeAiPrivateEndpointRequest: requests.CreateGenerativeAiPrivateEndpointRequest
+  ): Promise<responses.CreateGenerativeAiPrivateEndpointResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GenerativeAiClient#createGenerativeAiPrivateEndpoint.");
+    const operationName = "createGenerativeAiPrivateEndpoint";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createGenerativeAiPrivateEndpointRequest.opcRetryToken,
+      "opc-request-id": createGenerativeAiPrivateEndpointRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createGenerativeAiPrivateEndpointRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/generativeAiPrivateEndpoints",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createGenerativeAiPrivateEndpointRequest.createGenerativeAiPrivateEndpointDetails,
+        "CreateGenerativeAiPrivateEndpointDetails",
+        model.CreateGenerativeAiPrivateEndpointDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateGenerativeAiPrivateEndpointResponse>{},
+        body: await response.json(),
+        bodyKey: "generativeAiPrivateEndpoint",
+        bodyModel: model.GenerativeAiPrivateEndpoint,
+        type: "model.GenerativeAiPrivateEndpoint",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
      * Creates a custom model by fine-tuning a base model with your own dataset. You can create a new custom models or create a new version of existing custom model..
 * <p>
 The header contains an opc-work-request-id, which is the id for the WorkRequest that tracks the model creation progress.
@@ -891,6 +1061,81 @@ You can only delete clusters without attached resources. Before you delete a hos
   }
 
   /**
+   * Deletes a Generative AI  private endpoint using `privateEndpointId`.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteGenerativeAiPrivateEndpointRequest
+   * @return DeleteGenerativeAiPrivateEndpointResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/DeleteGenerativeAiPrivateEndpoint.ts.html |here} to see how to use DeleteGenerativeAiPrivateEndpoint API.
+   */
+  public async deleteGenerativeAiPrivateEndpoint(
+    deleteGenerativeAiPrivateEndpointRequest: requests.DeleteGenerativeAiPrivateEndpointRequest
+  ): Promise<responses.DeleteGenerativeAiPrivateEndpointResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GenerativeAiClient#deleteGenerativeAiPrivateEndpoint.");
+    const operationName = "deleteGenerativeAiPrivateEndpoint";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{generativeAiPrivateEndpointId}":
+        deleteGenerativeAiPrivateEndpointRequest.generativeAiPrivateEndpointId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": deleteGenerativeAiPrivateEndpointRequest.opcRequestId,
+      "if-match": deleteGenerativeAiPrivateEndpointRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteGenerativeAiPrivateEndpointRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/generativeAiPrivateEndpoints/{generativeAiPrivateEndpointId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteGenerativeAiPrivateEndpointResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes a custom model. A model shouldn't be deleted if there's one or more active endpoints associated with that model.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteModelRequest
@@ -1093,6 +1338,84 @@ You can only delete clusters without attached resources. Before you delete a hos
         bodyKey: "endpoint",
         bodyModel: model.Endpoint,
         type: "model.Endpoint",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Retrieves an Generative AI private endpoint using a `privateEndpointId`.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetGenerativeAiPrivateEndpointRequest
+   * @return GetGenerativeAiPrivateEndpointResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/GetGenerativeAiPrivateEndpoint.ts.html |here} to see how to use GetGenerativeAiPrivateEndpoint API.
+   */
+  public async getGenerativeAiPrivateEndpoint(
+    getGenerativeAiPrivateEndpointRequest: requests.GetGenerativeAiPrivateEndpointRequest
+  ): Promise<responses.GetGenerativeAiPrivateEndpointResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GenerativeAiClient#getGenerativeAiPrivateEndpoint.");
+    const operationName = "getGenerativeAiPrivateEndpoint";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{generativeAiPrivateEndpointId}":
+        getGenerativeAiPrivateEndpointRequest.generativeAiPrivateEndpointId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getGenerativeAiPrivateEndpointRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getGenerativeAiPrivateEndpointRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/generativeAiPrivateEndpoints/{generativeAiPrivateEndpointId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetGenerativeAiPrivateEndpointResponse>{},
+        body: await response.json(),
+        bodyKey: "generativeAiPrivateEndpoint",
+        bodyModel: model.GenerativeAiPrivateEndpoint,
+        type: "model.GenerativeAiPrivateEndpoint",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1414,6 +1737,90 @@ You can only delete clusters without attached resources. Before you delete a hos
         bodyKey: "endpointCollection",
         bodyModel: model.EndpointCollection,
         type: "model.EndpointCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists all Generative AI private endpoints in the specified compartment.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListGenerativeAiPrivateEndpointsRequest
+   * @return ListGenerativeAiPrivateEndpointsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/ListGenerativeAiPrivateEndpoints.ts.html |here} to see how to use ListGenerativeAiPrivateEndpoints API.
+   */
+  public async listGenerativeAiPrivateEndpoints(
+    listGenerativeAiPrivateEndpointsRequest: requests.ListGenerativeAiPrivateEndpointsRequest
+  ): Promise<responses.ListGenerativeAiPrivateEndpointsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GenerativeAiClient#listGenerativeAiPrivateEndpoints.");
+    const operationName = "listGenerativeAiPrivateEndpoints";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "id": listGenerativeAiPrivateEndpointsRequest.id,
+      "compartmentId": listGenerativeAiPrivateEndpointsRequest.compartmentId,
+      "lifecycleState": listGenerativeAiPrivateEndpointsRequest.lifecycleState,
+      "sortBy": listGenerativeAiPrivateEndpointsRequest.sortBy,
+      "displayName": listGenerativeAiPrivateEndpointsRequest.displayName,
+      "limit": listGenerativeAiPrivateEndpointsRequest.limit,
+      "page": listGenerativeAiPrivateEndpointsRequest.page,
+      "sortOrder": listGenerativeAiPrivateEndpointsRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listGenerativeAiPrivateEndpointsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listGenerativeAiPrivateEndpointsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/generativeAiPrivateEndpoints",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListGenerativeAiPrivateEndpointsResponse>{},
+        body: await response.json(),
+        bodyKey: "generativeAiPrivateEndpointCollection",
+        bodyModel: model.GenerativeAiPrivateEndpointCollection,
+        type: "model.GenerativeAiPrivateEndpointCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1918,6 +2325,95 @@ You can only delete clusters without attached resources. Before you delete a hos
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates a Generative AI private endpoint using a `privateEndpointId`.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateGenerativeAiPrivateEndpointRequest
+   * @return UpdateGenerativeAiPrivateEndpointResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/UpdateGenerativeAiPrivateEndpoint.ts.html |here} to see how to use UpdateGenerativeAiPrivateEndpoint API.
+   */
+  public async updateGenerativeAiPrivateEndpoint(
+    updateGenerativeAiPrivateEndpointRequest: requests.UpdateGenerativeAiPrivateEndpointRequest
+  ): Promise<responses.UpdateGenerativeAiPrivateEndpointResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GenerativeAiClient#updateGenerativeAiPrivateEndpoint.");
+    const operationName = "updateGenerativeAiPrivateEndpoint";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{generativeAiPrivateEndpointId}":
+        updateGenerativeAiPrivateEndpointRequest.generativeAiPrivateEndpointId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateGenerativeAiPrivateEndpointRequest.opcRequestId,
+      "if-match": updateGenerativeAiPrivateEndpointRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateGenerativeAiPrivateEndpointRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/generativeAiPrivateEndpoints/{generativeAiPrivateEndpointId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateGenerativeAiPrivateEndpointRequest.updateGenerativeAiPrivateEndpointDetails,
+        "UpdateGenerativeAiPrivateEndpointDetails",
+        model.UpdateGenerativeAiPrivateEndpointDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateGenerativeAiPrivateEndpointResponse>{},
+        body: await response.json(),
+        bodyKey: "generativeAiPrivateEndpoint",
+        bodyModel: model.GenerativeAiPrivateEndpoint,
+        type: "model.GenerativeAiPrivateEndpoint",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           },
           {

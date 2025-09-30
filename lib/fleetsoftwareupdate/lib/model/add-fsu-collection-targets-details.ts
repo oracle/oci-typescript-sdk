@@ -17,7 +17,9 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Add Targets to a Exadata Fleet Update Collection.
+ * Add Targets to an Exadata Fleet Update Collection.
+ * Targets belonging to another Exadata Fleet Update Collection of the same type will be rejected.
+ * If automated maintenance is enabled for the Exadata Fleet Update Collection, then ensure that the scheduling policy and window can accommodate the targets being added.
  *
  */
 export interface AddFsuCollectionTargetsDetails {

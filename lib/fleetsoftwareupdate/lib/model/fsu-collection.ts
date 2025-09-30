@@ -22,12 +22,12 @@ import common = require("oci-common");
  */
 export interface FsuCollection {
   /**
-   * OCID identifier for the Exadata Fleet Update Collection.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Exadata Fleet Update Collection.
    *
    */
   "id": string;
   /**
-   * Exadata Fleet Update Collection resource display name.
+   * The user-friendly name for the Exadata Fleet Update Collection.
    *
    */
   "displayName": string;
@@ -37,7 +37,7 @@ export interface FsuCollection {
    */
   "serviceType": model.CollectionServiceTypes;
   /**
-   * Compartment Identifier
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Compartment.
    *
    */
   "compartmentId": string;
@@ -107,6 +107,16 @@ export namespace FsuCollection {
 
     if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
+        case "GUEST_OS":
+          return model.GuestOsCollection.getJsonObj(
+            <model.GuestOsCollection>(<object>jsonObj),
+            true
+          );
+        case "EXADB_STACK":
+          return model.ExadbStackCollection.getJsonObj(
+            <model.ExadbStackCollection>(<object>jsonObj),
+            true
+          );
         case "GI":
           return model.GiCollection.getJsonObj(<model.GiCollection>(<object>jsonObj), true);
         case "DB":
@@ -129,6 +139,16 @@ export namespace FsuCollection {
 
     if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
+        case "GUEST_OS":
+          return model.GuestOsCollection.getDeserializedJsonObj(
+            <model.GuestOsCollection>(<object>jsonObj),
+            true
+          );
+        case "EXADB_STACK":
+          return model.ExadbStackCollection.getDeserializedJsonObj(
+            <model.ExadbStackCollection>(<object>jsonObj),
+            true
+          );
         case "GI":
           return model.GiCollection.getDeserializedJsonObj(
             <model.GiCollection>(<object>jsonObj),

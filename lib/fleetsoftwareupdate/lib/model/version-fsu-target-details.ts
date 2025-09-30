@@ -17,12 +17,13 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Exadata Fleet Update Cycle Target version string details.
+ * Exadata Fleet Update Cycle goal version string details.
  *
  */
 export interface VersionFsuTargetDetails extends model.FsuGoalVersionDetails {
   /**
-   * Target DB or GI version string for the Exadata Fleet Update Cycle.
+   * Goal version string for the Exadata Fleet Update Cycle.
+   * Applicable to Database, Grid Infrastructure, or Exadata Image software updates.
    *
    */
   "version": string;

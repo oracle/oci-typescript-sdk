@@ -18,6 +18,7 @@ import common = require("oci-common");
 
 /**
  * Update Exadata Fleet Update Cycle resource details.
+ * If automated maintenance is enabled for the associated Exadata Fleet Update Collection, updating Exadata Fleet Update Cycle will not affect the Exadata Fleet Update Collection.
  *
  */
 export interface UpdateFsuCycleDetails {
@@ -26,7 +27,10 @@ export interface UpdateFsuCycleDetails {
    *
    */
   "displayName"?: string;
-  "goalVersionDetails"?: model.VersionFsuTargetDetails | model.ImageIdFsuTargetDetails;
+  "goalVersionDetails"?:
+    | model.ExadbStackFsuGoalVersionDetails
+    | model.VersionFsuTargetDetails
+    | model.ImageIdFsuTargetDetails;
   "batchingStrategy"?:
     | model.UpdateSequentialBatchingStrategyDetails
     | model.UpdateNonRollingBatchingStrategyDetails

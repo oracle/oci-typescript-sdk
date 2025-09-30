@@ -17,7 +17,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details to specify a target to add or remove from a Exadata Fleet Update Collection.
+ * Details to specify a target to add or remove from an Exadata Fleet Update Collection.
  *
  */
 export interface TargetEntry {

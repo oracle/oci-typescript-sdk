@@ -22,23 +22,24 @@ import common = require("oci-common");
  */
 export interface PatchFsuCycle extends model.FsuCycle {
   /**
-   * Ignore all patches between the source and target homes during patching.
+   * Ignore patch conflicts or missing patches between the source and goal homes.
+   * This attribute will be ignored for Exadata Image (Guest OS) maintenance update.
    *
    */
   "isIgnorePatches"?: boolean;
   /**
-   * List of bug numbers to ignore.
+   * List of identifiers of patches to ignore.
+   * This attribute will be ignored for Exadata Image (Guest OS) maintenance update.
    *
    */
   "isIgnoreMissingPatches"?: Array<string>;
   /**
-   * Service drain timeout specified in seconds.
+   * Timeout for session draining for database services specified in seconds.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maxDrainTimeoutInSeconds"?: number;
   /**
-   * Ensure that services of administrator-managed Oracle RAC or Oracle RAC One databases are running on the same
-   * instances before and after the move operation.
+   * Ensure that database services are online on the same VMs before and after the maintenance update.
    *
    */
   "isKeepPlacement"?: boolean;

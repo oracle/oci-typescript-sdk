@@ -17,26 +17,29 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Exadata Fleet Update Cycle resource creation details.
+ * Details to create an Exadata Fleet Update Cycle.
  *
  */
 export interface CreateFsuCycleDetails {
   /**
-   * Exadata Fleet Update Cycle display name.
+   * The user-friendly name for the Exadata Fleet Update Cycle.
    *
    */
   "displayName"?: string;
   /**
-   * Compartment Identifier.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Compartment.
    *
    */
   "compartmentId": string;
   /**
-   * OCID identifier for the Collection ID the Exadata Fleet Update Cycle will be assigned to.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Exadata Fleet Update Collection which will be updated by the Exadata Fleet Update Cycle being created.
    *
    */
   "fsuCollectionId": string;
-  "goalVersionDetails": model.VersionFsuTargetDetails | model.ImageIdFsuTargetDetails;
+  "goalVersionDetails":
+    | model.ExadbStackFsuGoalVersionDetails
+    | model.VersionFsuTargetDetails
+    | model.ImageIdFsuTargetDetails;
   "batchingStrategy"?:
     | model.CreateSequentialBatchingStrategyDetails
     | model.CreateFiftyFiftyBatchingStrategyDetails

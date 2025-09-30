@@ -18,6 +18,8 @@ import * as requests from "./request";
 import * as model from "./model";
 import * as responses from "./response";
 import { ClusterWaiter } from "./cluster-waiter";
+import { DatastoreWaiter } from "./datastore-waiter";
+import { DatastoreClusterWaiter } from "./datastorecluster-waiter";
 import { EsxiHostWaiter } from "./esxihost-waiter";
 import { SddcWaiter } from "./sddc-waiter";
 import { WorkRequestWaiter } from "./workrequest-waiter";
@@ -633,6 +635,1968 @@ Use the {@link WorkRequest} operations to track the
           {
             value: response.headers.get("etag"),
             key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+}
+export enum DatastoreApiKeys {}
+/**
+ * This service client uses {@link common.CircuitBreaker.DefaultConfiguration} for all the operations by default if no circuit breaker configuration is defined by the user.
+ */
+export class DatastoreClient {
+  protected static serviceEndpointTemplate = "https://ocvps.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
+  protected "_endpoint": string = "";
+  protected "_defaultHeaders": any = {};
+  protected "_waiters": DatastoreWaiter;
+  protected "_clientConfiguration": common.ClientConfiguration;
+  protected _circuitBreaker: typeof Breaker | null = null;
+  protected _httpOptions: any = undefined;
+  protected _bodyDuplexMode: any = undefined;
+  public targetService = "Datastore";
+  protected _regionId: string = "";
+  protected "_region": common.Region;
+  protected _lastSetRegionOrRegionId: string = "";
+
+  protected _httpClient: common.HttpClient;
+  protected _authProvider: common.AuthenticationDetailsProvider | undefined;
+
+  constructor(params: common.AuthParams, clientConfiguration?: common.ClientConfiguration) {
+    const requestSigner = params.authenticationDetailsProvider
+      ? new common.DefaultRequestSigner(params.authenticationDetailsProvider)
+      : null;
+    this._authProvider = params.authenticationDetailsProvider;
+    if (clientConfiguration) {
+      this._clientConfiguration = clientConfiguration;
+      this._circuitBreaker = clientConfiguration.circuitBreaker
+        ? clientConfiguration.circuitBreaker!.circuit
+        : null;
+      this._httpOptions = clientConfiguration.httpOptions
+        ? clientConfiguration.httpOptions
+        : undefined;
+      this._bodyDuplexMode = clientConfiguration.bodyDuplexMode
+        ? clientConfiguration.bodyDuplexMode
+        : undefined;
+    }
+
+    if (!developerToolConfiguration.isServiceEnabled("ocvp")) {
+      let errmsg =
+        "The developerToolConfiguration configuration disabled this service, this behavior is controlled by developerToolConfiguration.ociEnabledServiceSet variable. Please check if your local developer_tool_configuration file has configured the service you're targeting or contact the cloud provider on the availability of this service : ";
+      throw errmsg.concat("ocvp");
+    }
+
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = true;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
+    }
+    this._httpClient =
+      params.httpClient ||
+      new common.FetchHttpClient(
+        requestSigner,
+        this._circuitBreaker,
+        this._httpOptions,
+        this._bodyDuplexMode
+      );
+
+    if (
+      params.authenticationDetailsProvider &&
+      common.isRegionProvider(params.authenticationDetailsProvider)
+    ) {
+      const provider: common.RegionProvider = params.authenticationDetailsProvider;
+      if (provider.getRegion()) {
+        this.region = provider.getRegion();
+      }
+    }
+  }
+
+  /**
+   * Get the endpoint that is being used to call (ex, https://www.example.com).
+   */
+  public get endpoint() {
+    return this._endpoint;
+  }
+
+  /**
+   * Sets the endpoint to call (ex, https://www.example.com).
+   * @param endpoint The endpoint of the service.
+   */
+  public set endpoint(endpoint: string) {
+    this._endpoint = endpoint;
+    this._endpoint = this._endpoint + "/20230701";
+    if (this.logger) this.logger.info(`DatastoreClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
+  }
+
+  /**
+   * Determines whether realm specific endpoint should be used or not.
+   * Set realmSpecificEndpointTemplateEnabled to "true" if the user wants to enable use of realm specific endpoint template, otherwise set it to "false"
+   * @param realmSpecificEndpointTemplateEnabled flag to enable the use of realm specific endpoint template
+   */
+  public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
+    this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
+    if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
+      this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
+        DatastoreClient.serviceEndpointTemplate,
+        this._region,
+        DatastoreClient.endpointServiceName
+      );
+    } else if (this._lastSetRegionOrRegionId === common.Region.REGION_ID_STRING) {
+      this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
+        DatastoreClient.serviceEndpointTemplate,
+        this._regionId,
+        DatastoreClient.endpointServiceName
+      );
+    }
+  }
+
+  /**
+   * Sets the region to call (ex, Region.US_PHOENIX_1).
+   * Note, this will call {@link #endpoint(String) endpoint} after resolving the endpoint.
+   * @param region The region of the service.
+   */
+  public set region(region: common.Region) {
+    this._region = region;
+    this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
+      DatastoreClient.serviceEndpointTemplate,
+      region,
+      DatastoreClient.endpointServiceName
+    );
+    this._lastSetRegionOrRegionId = common.Region.REGION_STRING;
+  }
+
+  /**
+   * Sets the regionId to call (ex, 'us-phoenix-1').
+   *
+   * Note, this will first try to map the region ID to a known Region and call {@link #region(Region) region}.
+   * If no known Region could be determined, it will create an endpoint assuming its in default Realm OC1
+   * and then call {@link #endpoint(String) endpoint}.
+   * @param regionId The public region ID.
+   */
+  public set regionId(regionId: string) {
+    this._regionId = regionId;
+    this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
+      DatastoreClient.serviceEndpointTemplate,
+      regionId,
+      DatastoreClient.endpointServiceName
+    );
+    this._lastSetRegionOrRegionId = common.Region.REGION_ID_STRING;
+  }
+
+  /**
+   * Creates a new DatastoreWaiter for resources for this service.
+   *
+   * @param config The waiter configuration for termination and delay strategy
+   * @return The service waiters.
+   */
+  public createWaiters(config?: common.WaiterConfiguration): DatastoreWaiter {
+    this._waiters = new DatastoreWaiter(this, config);
+    return this._waiters;
+  }
+
+  /**
+   * Gets the waiters available for resources for this service.
+   *
+   * @return The service waiters.
+   */
+  public getWaiters(): DatastoreWaiter {
+    if (this._waiters) {
+      return this._waiters;
+    }
+    throw Error("Waiters do not exist. Please create waiters.");
+  }
+
+  /**
+   * Shutdown the circuit breaker used by the client when it is no longer needed
+   */
+  public shutdownCircuitBreaker() {
+    if (this._circuitBreaker) {
+      this._circuitBreaker.shutdown();
+    }
+  }
+
+  /**
+   * Close the provider if possible which in turn shuts down any associated circuit breaker
+   */
+  public closeProvider() {
+    if (this._authProvider) {
+      if (this._authProvider instanceof common.AbstractRequestingAuthenticationDetailsProvider)
+        (<common.AbstractRequestingAuthenticationDetailsProvider>(
+          this._authProvider
+        )).closeProvider();
+    }
+  }
+
+  /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+    this.closeProvider();
+  }
+
+  /**
+     * Add the specified Block Volume to the provided Datastore.
+* <p>
+Use the {@link WorkRequest} operations to track the
+* addition of the block volume to the Datastore.
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param AddBlockVolumeToDatastoreRequest
+     * @return AddBlockVolumeToDatastoreResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/AddBlockVolumeToDatastore.ts.html |here} to see how to use AddBlockVolumeToDatastore API.
+     */
+  public async addBlockVolumeToDatastore(
+    addBlockVolumeToDatastoreRequest: requests.AddBlockVolumeToDatastoreRequest
+  ): Promise<responses.AddBlockVolumeToDatastoreResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatastoreClient#addBlockVolumeToDatastore.");
+    const operationName = "addBlockVolumeToDatastore";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vmware/20230701/Datastore/AddBlockVolumeToDatastore";
+    const pathParams = {
+      "{datastoreId}": addBlockVolumeToDatastoreRequest.datastoreId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": addBlockVolumeToDatastoreRequest.ifMatch,
+      "opc-retry-token": addBlockVolumeToDatastoreRequest.opcRetryToken,
+      "opc-request-id": addBlockVolumeToDatastoreRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      addBlockVolumeToDatastoreRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/datastores/{datastoreId}/actions/addBlockVolume",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        addBlockVolumeToDatastoreRequest.addBlockVolumeToDatastoreDetails,
+        "AddBlockVolumeToDatastoreDetails",
+        model.AddBlockVolumeToDatastoreDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AddBlockVolumeToDatastoreResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Moves an Datastore into a different compartment within the same tenancy. For information
+   * about moving resources between compartments, see
+   * [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ChangeDatastoreCompartmentRequest
+   * @return ChangeDatastoreCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/ChangeDatastoreCompartment.ts.html |here} to see how to use ChangeDatastoreCompartment API.
+   */
+  public async changeDatastoreCompartment(
+    changeDatastoreCompartmentRequest: requests.ChangeDatastoreCompartmentRequest
+  ): Promise<responses.ChangeDatastoreCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatastoreClient#changeDatastoreCompartment.");
+    const operationName = "changeDatastoreCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vmware/20230701/Datastore/ChangeDatastoreCompartment";
+    const pathParams = {
+      "{datastoreId}": changeDatastoreCompartmentRequest.datastoreId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeDatastoreCompartmentRequest.ifMatch,
+      "opc-request-id": changeDatastoreCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeDatastoreCompartmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeDatastoreCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/datastores/{datastoreId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeDatastoreCompartmentRequest.changeDatastoreCompartmentDetails,
+        "ChangeDatastoreCompartmentDetails",
+        model.ChangeDatastoreCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeDatastoreCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+     * Creates a Oracle Cloud VMware Solution Datastore.
+* <p>
+Use the {@link WorkRequest} operations to track the
+* creation of the Datastore.
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param CreateDatastoreRequest
+     * @return CreateDatastoreResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/CreateDatastore.ts.html |here} to see how to use CreateDatastore API.
+     */
+  public async createDatastore(
+    createDatastoreRequest: requests.CreateDatastoreRequest
+  ): Promise<responses.CreateDatastoreResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatastoreClient#createDatastore.");
+    const operationName = "createDatastore";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vmware/20230701/Datastore/CreateDatastore";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createDatastoreRequest.opcRetryToken,
+      "opc-request-id": createDatastoreRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createDatastoreRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/datastores",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createDatastoreRequest.createDatastoreDetails,
+        "CreateDatastoreDetails",
+        model.CreateDatastoreDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateDatastoreResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+     * Deletes the specified Datastore.
+* <p>
+Use the {@link WorkRequest} operations to track the
+* deletion of the Datastore.
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param DeleteDatastoreRequest
+     * @return DeleteDatastoreResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/DeleteDatastore.ts.html |here} to see how to use DeleteDatastore API.
+     */
+  public async deleteDatastore(
+    deleteDatastoreRequest: requests.DeleteDatastoreRequest
+  ): Promise<responses.DeleteDatastoreResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatastoreClient#deleteDatastore.");
+    const operationName = "deleteDatastore";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vmware/20230701/Datastore/DeleteDatastore";
+    const pathParams = {
+      "{datastoreId}": deleteDatastoreRequest.datastoreId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteDatastoreRequest.ifMatch,
+      "opc-request-id": deleteDatastoreRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteDatastoreRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/datastores/{datastoreId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteDatastoreResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get the specified Datastore's information.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetDatastoreRequest
+   * @return GetDatastoreResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/GetDatastore.ts.html |here} to see how to use GetDatastore API.
+   */
+  public async getDatastore(
+    getDatastoreRequest: requests.GetDatastoreRequest
+  ): Promise<responses.GetDatastoreResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatastoreClient#getDatastore.");
+    const operationName = "getDatastore";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vmware/20230701/Datastore/GetDatastore";
+    const pathParams = {
+      "{datastoreId}": getDatastoreRequest.datastoreId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getDatastoreRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDatastoreRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/datastores/{datastoreId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetDatastoreResponse>{},
+        body: await response.json(),
+        bodyKey: "datastore",
+        bodyModel: model.Datastore,
+        type: "model.Datastore",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * List the Datastores in the specified compartment. The list can be filtered
+   * by compartment, datastore id, display name and lifecycle state.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListDatastoresRequest
+   * @return ListDatastoresResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/ListDatastores.ts.html |here} to see how to use ListDatastores API.
+   */
+  public async listDatastores(
+    listDatastoresRequest: requests.ListDatastoresRequest
+  ): Promise<responses.ListDatastoresResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatastoreClient#listDatastores.");
+    const operationName = "listDatastores";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vmware/20230701/Datastore/ListDatastores";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listDatastoresRequest.compartmentId,
+      "displayName": listDatastoresRequest.displayName,
+      "clusterId": listDatastoresRequest.clusterId,
+      "datastoreId": listDatastoresRequest.datastoreId,
+      "limit": listDatastoresRequest.limit,
+      "page": listDatastoresRequest.page,
+      "sortOrder": listDatastoresRequest.sortOrder,
+      "sortBy": listDatastoresRequest.sortBy,
+      "lifecycleState": listDatastoresRequest.lifecycleState
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listDatastoresRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDatastoresRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/datastores",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListDatastoresResponse>{},
+        body: await response.json(),
+        bodyKey: "datastoreCollection",
+        bodyModel: model.DatastoreCollection,
+        type: "model.DatastoreCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the specified Datastore.
+   * <p>
+   **Important:** Updating a Datastore affects only certain attributes in the `Datastore`
+   * object and does not affect the VMware environment currently running.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateDatastoreRequest
+   * @return UpdateDatastoreResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/UpdateDatastore.ts.html |here} to see how to use UpdateDatastore API.
+   */
+  public async updateDatastore(
+    updateDatastoreRequest: requests.UpdateDatastoreRequest
+  ): Promise<responses.UpdateDatastoreResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatastoreClient#updateDatastore.");
+    const operationName = "updateDatastore";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vmware/20230701/Datastore/UpdateDatastore";
+    const pathParams = {
+      "{datastoreId}": updateDatastoreRequest.datastoreId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateDatastoreRequest.ifMatch,
+      "opc-request-id": updateDatastoreRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateDatastoreRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/datastores/{datastoreId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateDatastoreRequest.updateDatastoreDetails,
+        "UpdateDatastoreDetails",
+        model.UpdateDatastoreDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateDatastoreResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+}
+export enum DatastoreClusterApiKeys {}
+/**
+ * This service client uses {@link common.CircuitBreaker.DefaultConfiguration} for all the operations by default if no circuit breaker configuration is defined by the user.
+ */
+export class DatastoreClusterClient {
+  protected static serviceEndpointTemplate = "https://ocvps.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
+  protected "_endpoint": string = "";
+  protected "_defaultHeaders": any = {};
+  protected "_waiters": DatastoreClusterWaiter;
+  protected "_clientConfiguration": common.ClientConfiguration;
+  protected _circuitBreaker: typeof Breaker | null = null;
+  protected _httpOptions: any = undefined;
+  protected _bodyDuplexMode: any = undefined;
+  public targetService = "DatastoreCluster";
+  protected _regionId: string = "";
+  protected "_region": common.Region;
+  protected _lastSetRegionOrRegionId: string = "";
+
+  protected _httpClient: common.HttpClient;
+  protected _authProvider: common.AuthenticationDetailsProvider | undefined;
+
+  constructor(params: common.AuthParams, clientConfiguration?: common.ClientConfiguration) {
+    const requestSigner = params.authenticationDetailsProvider
+      ? new common.DefaultRequestSigner(params.authenticationDetailsProvider)
+      : null;
+    this._authProvider = params.authenticationDetailsProvider;
+    if (clientConfiguration) {
+      this._clientConfiguration = clientConfiguration;
+      this._circuitBreaker = clientConfiguration.circuitBreaker
+        ? clientConfiguration.circuitBreaker!.circuit
+        : null;
+      this._httpOptions = clientConfiguration.httpOptions
+        ? clientConfiguration.httpOptions
+        : undefined;
+      this._bodyDuplexMode = clientConfiguration.bodyDuplexMode
+        ? clientConfiguration.bodyDuplexMode
+        : undefined;
+    }
+
+    if (!developerToolConfiguration.isServiceEnabled("ocvp")) {
+      let errmsg =
+        "The developerToolConfiguration configuration disabled this service, this behavior is controlled by developerToolConfiguration.ociEnabledServiceSet variable. Please check if your local developer_tool_configuration file has configured the service you're targeting or contact the cloud provider on the availability of this service : ";
+      throw errmsg.concat("ocvp");
+    }
+
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = true;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
+    }
+    this._httpClient =
+      params.httpClient ||
+      new common.FetchHttpClient(
+        requestSigner,
+        this._circuitBreaker,
+        this._httpOptions,
+        this._bodyDuplexMode
+      );
+
+    if (
+      params.authenticationDetailsProvider &&
+      common.isRegionProvider(params.authenticationDetailsProvider)
+    ) {
+      const provider: common.RegionProvider = params.authenticationDetailsProvider;
+      if (provider.getRegion()) {
+        this.region = provider.getRegion();
+      }
+    }
+  }
+
+  /**
+   * Get the endpoint that is being used to call (ex, https://www.example.com).
+   */
+  public get endpoint() {
+    return this._endpoint;
+  }
+
+  /**
+   * Sets the endpoint to call (ex, https://www.example.com).
+   * @param endpoint The endpoint of the service.
+   */
+  public set endpoint(endpoint: string) {
+    this._endpoint = endpoint;
+    this._endpoint = this._endpoint + "/20230701";
+    if (this.logger) this.logger.info(`DatastoreClusterClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
+  }
+
+  /**
+   * Determines whether realm specific endpoint should be used or not.
+   * Set realmSpecificEndpointTemplateEnabled to "true" if the user wants to enable use of realm specific endpoint template, otherwise set it to "false"
+   * @param realmSpecificEndpointTemplateEnabled flag to enable the use of realm specific endpoint template
+   */
+  public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
+    this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
+    if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
+      this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
+        DatastoreClusterClient.serviceEndpointTemplate,
+        this._region,
+        DatastoreClusterClient.endpointServiceName
+      );
+    } else if (this._lastSetRegionOrRegionId === common.Region.REGION_ID_STRING) {
+      this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
+        DatastoreClusterClient.serviceEndpointTemplate,
+        this._regionId,
+        DatastoreClusterClient.endpointServiceName
+      );
+    }
+  }
+
+  /**
+   * Sets the region to call (ex, Region.US_PHOENIX_1).
+   * Note, this will call {@link #endpoint(String) endpoint} after resolving the endpoint.
+   * @param region The region of the service.
+   */
+  public set region(region: common.Region) {
+    this._region = region;
+    this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
+      DatastoreClusterClient.serviceEndpointTemplate,
+      region,
+      DatastoreClusterClient.endpointServiceName
+    );
+    this._lastSetRegionOrRegionId = common.Region.REGION_STRING;
+  }
+
+  /**
+   * Sets the regionId to call (ex, 'us-phoenix-1').
+   *
+   * Note, this will first try to map the region ID to a known Region and call {@link #region(Region) region}.
+   * If no known Region could be determined, it will create an endpoint assuming its in default Realm OC1
+   * and then call {@link #endpoint(String) endpoint}.
+   * @param regionId The public region ID.
+   */
+  public set regionId(regionId: string) {
+    this._regionId = regionId;
+    this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
+      DatastoreClusterClient.serviceEndpointTemplate,
+      regionId,
+      DatastoreClusterClient.endpointServiceName
+    );
+    this._lastSetRegionOrRegionId = common.Region.REGION_ID_STRING;
+  }
+
+  /**
+   * Creates a new DatastoreClusterWaiter for resources for this service.
+   *
+   * @param config The waiter configuration for termination and delay strategy
+   * @return The service waiters.
+   */
+  public createWaiters(config?: common.WaiterConfiguration): DatastoreClusterWaiter {
+    this._waiters = new DatastoreClusterWaiter(this, config);
+    return this._waiters;
+  }
+
+  /**
+   * Gets the waiters available for resources for this service.
+   *
+   * @return The service waiters.
+   */
+  public getWaiters(): DatastoreClusterWaiter {
+    if (this._waiters) {
+      return this._waiters;
+    }
+    throw Error("Waiters do not exist. Please create waiters.");
+  }
+
+  /**
+   * Shutdown the circuit breaker used by the client when it is no longer needed
+   */
+  public shutdownCircuitBreaker() {
+    if (this._circuitBreaker) {
+      this._circuitBreaker.shutdown();
+    }
+  }
+
+  /**
+   * Close the provider if possible which in turn shuts down any associated circuit breaker
+   */
+  public closeProvider() {
+    if (this._authProvider) {
+      if (this._authProvider instanceof common.AbstractRequestingAuthenticationDetailsProvider)
+        (<common.AbstractRequestingAuthenticationDetailsProvider>(
+          this._authProvider
+        )).closeProvider();
+    }
+  }
+
+  /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+    this.closeProvider();
+  }
+
+  /**
+   * Add the specified Datastore to the provided Datastore Cluster.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param AddDatastoreToDatastoreClusterRequest
+   * @return AddDatastoreToDatastoreClusterResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/AddDatastoreToDatastoreCluster.ts.html |here} to see how to use AddDatastoreToDatastoreCluster API.
+   */
+  public async addDatastoreToDatastoreCluster(
+    addDatastoreToDatastoreClusterRequest: requests.AddDatastoreToDatastoreClusterRequest
+  ): Promise<responses.AddDatastoreToDatastoreClusterResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatastoreClusterClient#addDatastoreToDatastoreCluster.");
+    const operationName = "addDatastoreToDatastoreCluster";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vmware/20230701/DatastoreCluster/AddDatastoreToDatastoreCluster";
+    const pathParams = {
+      "{datastoreClusterId}": addDatastoreToDatastoreClusterRequest.datastoreClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": addDatastoreToDatastoreClusterRequest.ifMatch,
+      "opc-retry-token": addDatastoreToDatastoreClusterRequest.opcRetryToken,
+      "opc-request-id": addDatastoreToDatastoreClusterRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      addDatastoreToDatastoreClusterRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/datastoreClusters/{datastoreClusterId}/actions/addDatastore",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        addDatastoreToDatastoreClusterRequest.addDatastoreToDatastoreClusterDetails,
+        "AddDatastoreToDatastoreClusterDetails",
+        model.AddDatastoreToDatastoreClusterDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AddDatastoreToDatastoreClusterResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+     * Attach the specified Datastore Cluster to the provided Vmware Cluster.
+* <p>
+Use the {@link WorkRequest} operations to track the
+* attachment of the Datastore.
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param AttachDatastoreClusterToClusterRequest
+     * @return AttachDatastoreClusterToClusterResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/AttachDatastoreClusterToCluster.ts.html |here} to see how to use AttachDatastoreClusterToCluster API.
+     */
+  public async attachDatastoreClusterToCluster(
+    attachDatastoreClusterToClusterRequest: requests.AttachDatastoreClusterToClusterRequest
+  ): Promise<responses.AttachDatastoreClusterToClusterResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatastoreClusterClient#attachDatastoreClusterToCluster."
+      );
+    const operationName = "attachDatastoreClusterToCluster";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vmware/20230701/DatastoreCluster/AttachDatastoreClusterToCluster";
+    const pathParams = {
+      "{datastoreClusterId}": attachDatastoreClusterToClusterRequest.datastoreClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": attachDatastoreClusterToClusterRequest.ifMatch,
+      "opc-retry-token": attachDatastoreClusterToClusterRequest.opcRetryToken,
+      "opc-request-id": attachDatastoreClusterToClusterRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      attachDatastoreClusterToClusterRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/datastoreClusters/{datastoreClusterId}/actions/attachToCluster",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        attachDatastoreClusterToClusterRequest.attachDatastoreClusterToClusterDetails,
+        "AttachDatastoreClusterToClusterDetails",
+        model.AttachDatastoreClusterToClusterDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AttachDatastoreClusterToClusterResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+     * Attach the specified Datastore Cluster to the provided ESXi Hosts.
+* <p>
+Use the {@link WorkRequest} operations to track the
+* attachment of the Datastore.
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param AttachDatastoreClusterToEsxiHostRequest
+     * @return AttachDatastoreClusterToEsxiHostResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/AttachDatastoreClusterToEsxiHost.ts.html |here} to see how to use AttachDatastoreClusterToEsxiHost API.
+     */
+  public async attachDatastoreClusterToEsxiHost(
+    attachDatastoreClusterToEsxiHostRequest: requests.AttachDatastoreClusterToEsxiHostRequest
+  ): Promise<responses.AttachDatastoreClusterToEsxiHostResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatastoreClusterClient#attachDatastoreClusterToEsxiHost."
+      );
+    const operationName = "attachDatastoreClusterToEsxiHost";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vmware/20230701/DatastoreCluster/AttachDatastoreClusterToEsxiHost";
+    const pathParams = {
+      "{datastoreClusterId}": attachDatastoreClusterToEsxiHostRequest.datastoreClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": attachDatastoreClusterToEsxiHostRequest.ifMatch,
+      "opc-retry-token": attachDatastoreClusterToEsxiHostRequest.opcRetryToken,
+      "opc-request-id": attachDatastoreClusterToEsxiHostRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      attachDatastoreClusterToEsxiHostRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/datastoreClusters/{datastoreClusterId}/actions/attachToEsxiHost",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        attachDatastoreClusterToEsxiHostRequest.attachDatastoreClusterToEsxiHostDetails,
+        "AttachDatastoreClusterToEsxiHostDetails",
+        model.AttachDatastoreClusterToEsxiHostDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AttachDatastoreClusterToEsxiHostResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Moves an Datastore Cluster into a different compartment within the same tenancy. For information
+   * about moving resources between compartments, see
+   * [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ChangeDatastoreClusterCompartmentRequest
+   * @return ChangeDatastoreClusterCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/ChangeDatastoreClusterCompartment.ts.html |here} to see how to use ChangeDatastoreClusterCompartment API.
+   */
+  public async changeDatastoreClusterCompartment(
+    changeDatastoreClusterCompartmentRequest: requests.ChangeDatastoreClusterCompartmentRequest
+  ): Promise<responses.ChangeDatastoreClusterCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatastoreClusterClient#changeDatastoreClusterCompartment."
+      );
+    const operationName = "changeDatastoreClusterCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vmware/20230701/DatastoreCluster/ChangeDatastoreClusterCompartment";
+    const pathParams = {
+      "{datastoreClusterId}": changeDatastoreClusterCompartmentRequest.datastoreClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeDatastoreClusterCompartmentRequest.ifMatch,
+      "opc-request-id": changeDatastoreClusterCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeDatastoreClusterCompartmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeDatastoreClusterCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/datastoreClusters/{datastoreClusterId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeDatastoreClusterCompartmentRequest.changeDatastoreClusterCompartmentDetails,
+        "ChangeDatastoreClusterCompartmentDetails",
+        model.ChangeDatastoreClusterCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeDatastoreClusterCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a Oracle Cloud VMware Solution Datastore Cluster.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateDatastoreClusterRequest
+   * @return CreateDatastoreClusterResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/CreateDatastoreCluster.ts.html |here} to see how to use CreateDatastoreCluster API.
+   */
+  public async createDatastoreCluster(
+    createDatastoreClusterRequest: requests.CreateDatastoreClusterRequest
+  ): Promise<responses.CreateDatastoreClusterResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatastoreClusterClient#createDatastoreCluster.");
+    const operationName = "createDatastoreCluster";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vmware/20230701/DatastoreCluster/CreateDatastoreCluster";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createDatastoreClusterRequest.opcRetryToken,
+      "opc-request-id": createDatastoreClusterRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createDatastoreClusterRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/datastoreClusters",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createDatastoreClusterRequest.createDatastoreClusterDetails,
+        "CreateDatastoreClusterDetails",
+        model.CreateDatastoreClusterDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateDatastoreClusterResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the specified Datastore Cluster.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteDatastoreClusterRequest
+   * @return DeleteDatastoreClusterResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/DeleteDatastoreCluster.ts.html |here} to see how to use DeleteDatastoreCluster API.
+   */
+  public async deleteDatastoreCluster(
+    deleteDatastoreClusterRequest: requests.DeleteDatastoreClusterRequest
+  ): Promise<responses.DeleteDatastoreClusterResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatastoreClusterClient#deleteDatastoreCluster.");
+    const operationName = "deleteDatastoreCluster";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vmware/20230701/DatastoreCluster/DeleteDatastoreCluster";
+    const pathParams = {
+      "{datastoreClusterId}": deleteDatastoreClusterRequest.datastoreClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteDatastoreClusterRequest.ifMatch,
+      "opc-request-id": deleteDatastoreClusterRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteDatastoreClusterRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/datastoreClusters/{datastoreClusterId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteDatastoreClusterResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+     * Detach the specified Datastore Cluster from the provided Vmware Cluster.
+* <p>
+Use the {@link WorkRequest} operations to track the
+* detachment of the Datastore.
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param DetachDatastoreClusterFromClusterRequest
+     * @return DetachDatastoreClusterFromClusterResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/DetachDatastoreClusterFromCluster.ts.html |here} to see how to use DetachDatastoreClusterFromCluster API.
+     */
+  public async detachDatastoreClusterFromCluster(
+    detachDatastoreClusterFromClusterRequest: requests.DetachDatastoreClusterFromClusterRequest
+  ): Promise<responses.DetachDatastoreClusterFromClusterResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatastoreClusterClient#detachDatastoreClusterFromCluster."
+      );
+    const operationName = "detachDatastoreClusterFromCluster";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vmware/20230701/DatastoreCluster/DetachDatastoreClusterFromCluster";
+    const pathParams = {
+      "{datastoreClusterId}": detachDatastoreClusterFromClusterRequest.datastoreClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": detachDatastoreClusterFromClusterRequest.ifMatch,
+      "opc-retry-token": detachDatastoreClusterFromClusterRequest.opcRetryToken,
+      "opc-request-id": detachDatastoreClusterFromClusterRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      detachDatastoreClusterFromClusterRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/datastoreClusters/{datastoreClusterId}/actions/detachFromCluster",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DetachDatastoreClusterFromClusterResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+     * Detach the specified Datastore Cluster from the provided ESXi Hosts.
+* <p>
+Use the {@link WorkRequest} operations to track the
+* detachment of the Datastore.
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param DetachDatastoreClusterFromEsxiHostRequest
+     * @return DetachDatastoreClusterFromEsxiHostResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/DetachDatastoreClusterFromEsxiHost.ts.html |here} to see how to use DetachDatastoreClusterFromEsxiHost API.
+     */
+  public async detachDatastoreClusterFromEsxiHost(
+    detachDatastoreClusterFromEsxiHostRequest: requests.DetachDatastoreClusterFromEsxiHostRequest
+  ): Promise<responses.DetachDatastoreClusterFromEsxiHostResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatastoreClusterClient#detachDatastoreClusterFromEsxiHost."
+      );
+    const operationName = "detachDatastoreClusterFromEsxiHost";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vmware/20230701/DatastoreCluster/DetachDatastoreClusterFromEsxiHost";
+    const pathParams = {
+      "{datastoreClusterId}": detachDatastoreClusterFromEsxiHostRequest.datastoreClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": detachDatastoreClusterFromEsxiHostRequest.ifMatch,
+      "opc-retry-token": detachDatastoreClusterFromEsxiHostRequest.opcRetryToken,
+      "opc-request-id": detachDatastoreClusterFromEsxiHostRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      detachDatastoreClusterFromEsxiHostRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/datastoreClusters/{datastoreClusterId}/actions/detachFromEsxiHost",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        detachDatastoreClusterFromEsxiHostRequest.detachDatastoreClusterFromEsxiHostDetails,
+        "DetachDatastoreClusterFromEsxiHostDetails",
+        model.DetachDatastoreClusterFromEsxiHostDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DetachDatastoreClusterFromEsxiHostResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get the specified Datastore Cluster information.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetDatastoreClusterRequest
+   * @return GetDatastoreClusterResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/GetDatastoreCluster.ts.html |here} to see how to use GetDatastoreCluster API.
+   */
+  public async getDatastoreCluster(
+    getDatastoreClusterRequest: requests.GetDatastoreClusterRequest
+  ): Promise<responses.GetDatastoreClusterResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatastoreClusterClient#getDatastoreCluster.");
+    const operationName = "getDatastoreCluster";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vmware/20230701/DatastoreCluster/GetDatastoreCluster";
+    const pathParams = {
+      "{datastoreClusterId}": getDatastoreClusterRequest.datastoreClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getDatastoreClusterRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDatastoreClusterRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/datastoreClusters/{datastoreClusterId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetDatastoreClusterResponse>{},
+        body: await response.json(),
+        bodyKey: "datastoreCluster",
+        bodyModel: model.DatastoreCluster,
+        type: "model.DatastoreCluster",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * List the Datastore Clusters in the specified compartment. The list can be filtered
+   * by compartment, Datastore Cluster, Display name and Lifecycle state
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListDatastoreClustersRequest
+   * @return ListDatastoreClustersResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/ListDatastoreClusters.ts.html |here} to see how to use ListDatastoreClusters API.
+   */
+  public async listDatastoreClusters(
+    listDatastoreClustersRequest: requests.ListDatastoreClustersRequest
+  ): Promise<responses.ListDatastoreClustersResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatastoreClusterClient#listDatastoreClusters.");
+    const operationName = "listDatastoreClusters";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vmware/20230701/DatastoreCluster/ListDatastoreClusters";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listDatastoreClustersRequest.compartmentId,
+      "displayName": listDatastoreClustersRequest.displayName,
+      "datastoreClusterId": listDatastoreClustersRequest.datastoreClusterId,
+      "clusterId": listDatastoreClustersRequest.clusterId,
+      "limit": listDatastoreClustersRequest.limit,
+      "page": listDatastoreClustersRequest.page,
+      "sortOrder": listDatastoreClustersRequest.sortOrder,
+      "sortBy": listDatastoreClustersRequest.sortBy,
+      "lifecycleState": listDatastoreClustersRequest.lifecycleState
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listDatastoreClustersRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDatastoreClustersRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/datastoreClusters",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListDatastoreClustersResponse>{},
+        body: await response.json(),
+        bodyKey: "datastoreClusterCollection",
+        bodyModel: model.DatastoreClusterCollection,
+        type: "model.DatastoreClusterCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Remove the specified Datastore from the provided Datastore Cluster.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param RemoveDatastoreFromDatastoreClusterRequest
+   * @return RemoveDatastoreFromDatastoreClusterResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/RemoveDatastoreFromDatastoreCluster.ts.html |here} to see how to use RemoveDatastoreFromDatastoreCluster API.
+   */
+  public async removeDatastoreFromDatastoreCluster(
+    removeDatastoreFromDatastoreClusterRequest: requests.RemoveDatastoreFromDatastoreClusterRequest
+  ): Promise<responses.RemoveDatastoreFromDatastoreClusterResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatastoreClusterClient#removeDatastoreFromDatastoreCluster."
+      );
+    const operationName = "removeDatastoreFromDatastoreCluster";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vmware/20230701/DatastoreCluster/RemoveDatastoreFromDatastoreCluster";
+    const pathParams = {
+      "{datastoreClusterId}": removeDatastoreFromDatastoreClusterRequest.datastoreClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": removeDatastoreFromDatastoreClusterRequest.ifMatch,
+      "opc-retry-token": removeDatastoreFromDatastoreClusterRequest.opcRetryToken,
+      "opc-request-id": removeDatastoreFromDatastoreClusterRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removeDatastoreFromDatastoreClusterRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/datastoreClusters/{datastoreClusterId}/actions/removeDatastore",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        removeDatastoreFromDatastoreClusterRequest.removeDatastoreFromDatastoreClusterDetails,
+        "RemoveDatastoreFromDatastoreClusterDetails",
+        model.RemoveDatastoreFromDatastoreClusterDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RemoveDatastoreFromDatastoreClusterResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the specified Datastore Cluster.
+   * <p>
+   **Important:** Updating a Datastore Cluster affects only certain attributes in the `Datastore Cluster`
+   * object and does not affect the VMware environment currently running.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateDatastoreClusterRequest
+   * @return UpdateDatastoreClusterResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/UpdateDatastoreCluster.ts.html |here} to see how to use UpdateDatastoreCluster API.
+   */
+  public async updateDatastoreCluster(
+    updateDatastoreClusterRequest: requests.UpdateDatastoreClusterRequest
+  ): Promise<responses.UpdateDatastoreClusterResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatastoreClusterClient#updateDatastoreCluster.");
+    const operationName = "updateDatastoreCluster";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vmware/20230701/DatastoreCluster/UpdateDatastoreCluster";
+    const pathParams = {
+      "{datastoreClusterId}": updateDatastoreClusterRequest.datastoreClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateDatastoreClusterRequest.ifMatch,
+      "opc-request-id": updateDatastoreClusterRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateDatastoreClusterRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/datastoreClusters/{datastoreClusterId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateDatastoreClusterRequest.updateDatastoreClusterDetails,
+        "UpdateDatastoreClusterDetails",
+        model.UpdateDatastoreClusterDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateDatastoreClusterResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           },
           {

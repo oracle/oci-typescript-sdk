@@ -44,6 +44,7 @@ Stops if the model hits a natural stop point or a provided stop sequence. Return
   "finishReason": string;
   "logprobs"?: model.Logprobs;
   "usage"?: model.Usage;
+  "groundingMetadata"?: model.GroundingMetadata;
 }
 
 export namespace ChatChoice {
@@ -54,7 +55,10 @@ export namespace ChatChoice {
         "message": obj.message ? model.Message.getJsonObj(obj.message) : undefined,
 
         "logprobs": obj.logprobs ? model.Logprobs.getJsonObj(obj.logprobs) : undefined,
-        "usage": obj.usage ? model.Usage.getJsonObj(obj.usage) : undefined
+        "usage": obj.usage ? model.Usage.getJsonObj(obj.usage) : undefined,
+        "groundingMetadata": obj.groundingMetadata
+          ? model.GroundingMetadata.getJsonObj(obj.groundingMetadata)
+          : undefined
       }
     };
 
@@ -67,7 +71,10 @@ export namespace ChatChoice {
         "message": obj.message ? model.Message.getDeserializedJsonObj(obj.message) : undefined,
 
         "logprobs": obj.logprobs ? model.Logprobs.getDeserializedJsonObj(obj.logprobs) : undefined,
-        "usage": obj.usage ? model.Usage.getDeserializedJsonObj(obj.usage) : undefined
+        "usage": obj.usage ? model.Usage.getDeserializedJsonObj(obj.usage) : undefined,
+        "groundingMetadata": obj.groundingMetadata
+          ? model.GroundingMetadata.getDeserializedJsonObj(obj.groundingMetadata)
+          : undefined
       }
     };
 
