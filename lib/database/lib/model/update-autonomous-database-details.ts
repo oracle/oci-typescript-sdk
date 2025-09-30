@@ -429,6 +429,7 @@ This cannot be updated in parallel with any of the following: licenseModel, dbEd
     | model.AzureKeyDetails
     | model.AwsKeyDetails
     | model.OciKeyDetails
+    | model.GcpKeyDetails
     | model.OracleManagedKeyDetails;
   /**
     * If true, this will disconnect the Autonomous Database from its peer and the Autonomous Database can work permanently as a standalone database.

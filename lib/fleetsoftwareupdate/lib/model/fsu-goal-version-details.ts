@@ -58,6 +58,11 @@ export namespace FsuGoalVersionDetails {
 
     if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
+        case "EXADB_STACK":
+          return model.ExadbStackFsuGoalVersionDetails.getJsonObj(
+            <model.ExadbStackFsuGoalVersionDetails>(<object>jsonObj),
+            true
+          );
         case "VERSION":
           return model.VersionFsuTargetDetails.getJsonObj(
             <model.VersionFsuTargetDetails>(<object>jsonObj),
@@ -79,6 +84,11 @@ export namespace FsuGoalVersionDetails {
 
     if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
+        case "EXADB_STACK":
+          return model.ExadbStackFsuGoalVersionDetails.getDeserializedJsonObj(
+            <model.ExadbStackFsuGoalVersionDetails>(<object>jsonObj),
+            true
+          );
         case "VERSION":
           return model.VersionFsuTargetDetails.getDeserializedJsonObj(
             <model.VersionFsuTargetDetails>(<object>jsonObj),

@@ -22,17 +22,25 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Provide a base64 encoded image.
+ * Provide a base64 encoded image or an image uri if it's supported.
  */
 export interface ImageUrl {
   /**
-    * The base64 encoded image data.
+    * The base64 encoded image data or an image uri if it's supported.
 * <p>
 Example for a png image:
 *   {@code {
 *     \"type\": \"IMAGE\",
 *     \"imageUrl\": {
 *       \"url\": \"data:image/png;base64,<base64 encoded image content>\"
+*     }
+*   }}
+* <p>
+Example with an image uri:
+*   {@code {
+*     \"type\": \"IMAGE\",
+*     \"imageUrl\": {
+*       \"url\": \"data:image/png;uri,<image uri>\"
 *     }
 *   }}
 * 

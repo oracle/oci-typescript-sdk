@@ -45,6 +45,10 @@ export interface CreateEndpointDetails {
    * The OCID of the dedicated AI cluster on which a model will be deployed to.
    */
   "dedicatedAiClusterId": string;
+  /**
+   * The OCID of the Generative AI private endpoint to which this endpoint is attached to.
+   */
+  "generativeAiPrivateEndpointId"?: string;
   "contentModerationConfig"?: model.ContentModerationConfig;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.

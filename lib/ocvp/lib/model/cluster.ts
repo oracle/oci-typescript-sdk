@@ -178,6 +178,11 @@ Example: {@code 2016-08-25T21:10:29.600Z}
    */
   "datastores"?: Array<model.DatastoreDetails>;
   /**
+   * A list of datastore clusters.
+   *
+   */
+  "datastoreClusterIds"?: Array<string>;
+  /**
    * vSphere Cluster types.
    *
    */

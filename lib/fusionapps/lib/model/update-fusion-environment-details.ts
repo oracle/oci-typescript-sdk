@@ -32,6 +32,10 @@ export interface UpdateFusionEnvironmentDetails {
    */
   "additionalLanguagePacks"?: Array<string>;
   /**
+   * Enable IPv4/IPv6 dual stack support for the environment.  Setting to true will assign an IPv6 address to the environment in addition to an IPv4 address.
+   */
+  "isIPv6DualStackEnabled"?: boolean;
+  /**
    * Network access control rules to limit internet traffic that can access the environment. For more information, see {@link #allowRule(AllowRuleRequest) allowRule}.
    */
   "rules"?: Array<model.Rule>;

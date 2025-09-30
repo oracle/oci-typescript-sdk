@@ -59,6 +59,7 @@ export interface AutonomousDatabaseSummary {
     | model.AzureKeyDetails
     | model.AwsKeyDetails
     | model.OciKeyDetails
+    | model.GcpKeyDetails
     | model.OracleManagedKeyDetails;
   /**
    * The OCID of the key container version that is used in database transparent data encryption (TDE) operations KMS Key can have multiple key versions. If none is specified, the current key version (latest) of the Key Id is used for the operation. Autonomous Database Serverless does not use key versions, hence is not applicable for Autonomous Database Serverless instances.
@@ -698,6 +699,12 @@ This cannot be updated in parallel with any of the following: licenseModel, dbEd
    * The Autonomous Database clone type.
    */
   "cloneType"?: AutonomousDatabaseSummary.CloneType;
+  /**
+   * Additional attributes for this resource. Each attribute is a simple key-value pair with no predefined name, type, or namespace.
+   * Example: {@code { \"gcpAccountName\": \"gcpName\" }}
+   *
+   */
+  "additionalAttributes"?: { [key: string]: string };
 }
 
 export namespace AutonomousDatabaseSummary {

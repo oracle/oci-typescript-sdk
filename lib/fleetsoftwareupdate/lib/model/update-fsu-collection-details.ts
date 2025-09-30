@@ -17,12 +17,13 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The information to Update Exadata Fleet Update Collection.
+ * Updates specified fields for the specified Exadata Fleet Update Collection.
+ * Fields that are not specified in the request will not be updated.
  *
  */
 export interface UpdateFsuCollectionDetails {
   /**
-   * Exadata Fleet Update Collection display name.
+   * The user-friendly name for the Exadata Fleet Update Collection.
    *
    */
   "displayName"?: string;

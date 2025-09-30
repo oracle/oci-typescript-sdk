@@ -85,6 +85,7 @@ export namespace GenericBmPlatformConfig {
     Nps1 = "NPS1",
     Nps2 = "NPS2",
     Nps4 = "NPS4",
+    Nps6 = "NPS6",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

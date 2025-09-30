@@ -30,7 +30,11 @@ export interface CreateFsuDiscoveryDetails {
    * Compartment Identifier.
    */
   "compartmentId": string;
-  "details": model.GiDiscoveryDetails | model.DbDiscoveryDetails;
+  "details":
+    | model.GiDiscoveryDetails
+    | model.DbDiscoveryDetails
+    | model.ExadbStackDiscoveryDetails
+    | model.GuestOsDiscoveryDetails;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
    * Example: {@code {\"bar-key\": \"value\"}}

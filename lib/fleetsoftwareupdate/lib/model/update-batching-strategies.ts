@@ -17,7 +17,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Possible Batching Strategy types to specify during an update Exadata Fleet Update Cycle operation.
+ * Possible strategies for rolling or non-rolling update.
  *
  **/
 export enum UpdateBatchingStrategies {

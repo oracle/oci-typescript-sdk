@@ -1,6 +1,6 @@
 {
   "name": "oci-nosql",
-  "version": "2.118.0",
+  "version": "2.118.1",
   "description": "OCI NodeJS client for Nosql Service",
   "repository": {
     "type": "git",

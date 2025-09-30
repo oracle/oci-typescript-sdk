@@ -21,7 +21,13 @@ import common = require("oci-common");
  **/
 export enum DatastoreClusterTypes {
   Management = "MANAGEMENT",
-  Workload = "WORKLOAD"
+  Workload = "WORKLOAD",
+
+  /**
+   * This value is used if a service returns a value for this enum that is not recognized by this
+   * version of the SDK.
+   */
+  UnknownValue = "UNKNOWN_VALUE"
 }
 
 export namespace DatastoreClusterTypes {

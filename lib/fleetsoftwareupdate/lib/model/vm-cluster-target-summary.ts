@@ -33,6 +33,11 @@ export interface VmClusterTargetSummary extends model.TargetDetails {
    *
    */
   "softwareImageId"?: string;
+  /**
+   * Exadata Image (Guest OS) version.
+   *
+   */
+  "systemVersion"?: string;
 
   "entityType": string;
 }

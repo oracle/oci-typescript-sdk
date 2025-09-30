@@ -22,22 +22,25 @@ import common = require("oci-common");
  */
 export interface CloneFsuCycleDetails {
   /**
-   * Exadata Fleet Update Cycle display name.
+   * The user-friendly name for the Exadata Fleet Update Cycle.
    *
    */
   "displayName"?: string;
   /**
-   * Compartment Identifier.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Compartment.
    *
    */
   "compartmentId"?: string;
   /**
-   * OCID identifier for the Collection ID the Exadata Fleet Update Cycle will be assigned to.
-   * If not specified, it will be assigned to the same Collection as the source Exadata Fleet Update Cycle.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Exadata Fleet Update Collection which will be updated by the Exadata Fleet Update Cycle being created.
+   * If not specified, the cloned Exadata Fleet Update Cycle will be assigned to the same Exadata Fleet Update Collection as the source Exadata Fleet Update Cycle.
    *
    */
   "fsuCollectionId"?: string;
-  "goalVersionDetails": model.VersionFsuTargetDetails | model.ImageIdFsuTargetDetails;
+  "goalVersionDetails":
+    | model.ExadbStackFsuGoalVersionDetails
+    | model.VersionFsuTargetDetails
+    | model.ImageIdFsuTargetDetails;
   "batchingStrategy"?:
     | model.CreateSequentialBatchingStrategyDetails
     | model.CreateFiftyFiftyBatchingStrategyDetails

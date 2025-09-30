@@ -54,6 +54,10 @@ export interface Endpoint {
    */
   "dedicatedAiClusterId": string;
   /**
+   * The OCID of the Generative AI private endpoint to which this endpoint is attached to.
+   */
+  "generativeAiPrivateEndpointId"?: string;
+  /**
    * The date and time that the endpoint was created in the format of an RFC3339 datetime string.
    */
   "timeCreated": Date;

@@ -36,6 +36,10 @@ export enum OperationType {
   DeleteEndpoint = "DELETE_ENDPOINT",
   UpdateEndpoint = "UPDATE_ENDPOINT",
   MoveEndpoint = "MOVE_ENDPOINT",
+  CreatePrivateEndpoint = "CREATE_PRIVATE_ENDPOINT",
+  DeletePrivateEndpoint = "DELETE_PRIVATE_ENDPOINT",
+  UpdatePrivateEndpoint = "UPDATE_PRIVATE_ENDPOINT",
+  MovePrivateEndpoint = "MOVE_PRIVATE_ENDPOINT",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

@@ -23,6 +23,11 @@ import common = require("oci-common");
 
 export interface UpdateInstanceDetails {
   /**
+   * Whether to enable AI enterprise on the instance.
+   *
+   */
+  "isAIEnterpriseEnabled"?: boolean;
+  /**
    * The OCID of the compute capacity reservation this instance is launched under.
    * You can remove the instance from a reservation by specifying an empty string as input for this field.
    * For more information, see [Capacity Reservations](https://docs.oracle.com/iaas/Content/Compute/Tasks/reserve-capacity.htm#default).

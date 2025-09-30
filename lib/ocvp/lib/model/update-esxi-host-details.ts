@@ -22,7 +22,7 @@ import common = require("oci-common");
 export interface UpdateEsxiHostDetails {
   /**
     * A descriptive name for the ESXi host. It's changeable.
-* Esxi Host name requirements are 1-16 character length limit, Must start with a letter, Must be English letters, numbers, - only, No repeating hyphens, Must be unique within the Cluster.
+* Esxi Host name requirements are 1-25 character length limit, Must start with a letter, Must be English letters, numbers, - only, No repeating hyphens, Must be unique within the Cluster.
 * <p>
 Avoid entering confidential information.
 * 
@@ -36,7 +36,10 @@ Avoid entering confidential information.
    */
   "nextCommitment"?: model.Commitment;
   /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the deleted ESXi Host with LeftOver billing cycle.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the deleted ESXi Host with leftover billing cycle.
+   * <p>
+   **Note:** This option also requires the {@code nextCommitment} parameter to be populated with a value other than {@code HOUR}. Otherwise,
+   * any update request fails with the error \u201CNext SKU can\u2019t be NULL or Hourly.\u201D
    *
    */
   "billingDonorHostId"?: string;
