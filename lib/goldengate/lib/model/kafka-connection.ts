@@ -31,6 +31,12 @@ export interface KafkaConnection extends model.Connection {
    */
   "streamPoolId"?: string;
   /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Kafka cluster
+   * being referenced from OCI Streaming with Apache Kafka.
+   *
+   */
+  "clusterId"?: string;
+  /**
    * Kafka bootstrap. Equivalent of bootstrap.servers configuration property in Kafka:
    * list of KafkaBootstrapServer objects specified by host/port.
    * Used for establishing the initial connection to the Kafka cluster.
@@ -99,6 +105,15 @@ export interface KafkaConnection extends model.Connection {
    *
    */
   "producerProperties"?: string;
+  /**
+   * Specifies that the user intends to authenticate to the instance using a resource principal.
+   * Applicable only for OCI Streaming connections.
+   * Only available from 23.9.0.0.0 GoldenGate versions.
+   * Note: When specified, 'username'/'password'/'passwordSecretId' fields must not be provided.
+   * Default: false
+   *
+   */
+  "shouldUseResourcePrincipal"?: boolean;
 
   "connectionType": string;
 }
@@ -109,6 +124,7 @@ export namespace KafkaConnection {
     AzureEventHubs = "AZURE_EVENT_HUBS",
     ConfluentKafka = "CONFLUENT_KAFKA",
     OciStreaming = "OCI_STREAMING",
+    OciStreamingWithApacheKafka = "OCI_STREAMING_WITH_APACHE_KAFKA",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

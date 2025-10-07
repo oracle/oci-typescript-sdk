@@ -24,7 +24,8 @@ import common = require("oci-common");
  */
 export interface UpdateTemplateDetails {
   /**
-   * The template's display name. Avoid entering confidential information.
+   * A user-friendly name. Does not have to be unique, and it's changeable. Avoid entering confidential information.
+   *
    */
   "displayName"?: string;
   /**

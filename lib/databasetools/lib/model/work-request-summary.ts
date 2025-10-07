@@ -58,6 +58,12 @@ export interface WorkRequestSummary {
    *
    */
   "timeFinished"?: Date;
+  /**
+   * The date and time the work request was last updated,
+   * in the format defined by RFC3339.
+   *
+   */
+  "timeUpdated"?: Date;
 }
 
 export namespace WorkRequestSummary {

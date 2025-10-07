@@ -114,6 +114,8 @@ import * as ConfirmKeyStoreDetailsAreCorrectResponse from "./confirm-key-store-d
 export import ConfirmKeyStoreDetailsAreCorrectResponse = ConfirmKeyStoreDetailsAreCorrectResponse.ConfirmKeyStoreDetailsAreCorrectResponse;
 import * as ConvertStandbyAutonomousContainerDatabaseResponse from "./convert-standby-autonomous-container-database-response";
 export import ConvertStandbyAutonomousContainerDatabaseResponse = ConvertStandbyAutonomousContainerDatabaseResponse.ConvertStandbyAutonomousContainerDatabaseResponse;
+import * as ConvertStandbyDatabaseTypeResponse from "./convert-standby-database-type-response";
+export import ConvertStandbyDatabaseTypeResponse = ConvertStandbyDatabaseTypeResponse.ConvertStandbyDatabaseTypeResponse;
 import * as ConvertToPdbResponse from "./convert-to-pdb-response";
 export import ConvertToPdbResponse = ConvertToPdbResponse.ConvertToPdbResponse;
 import * as ConvertToRegularPluggableDatabaseResponse from "./convert-to-regular-pluggable-database-response";

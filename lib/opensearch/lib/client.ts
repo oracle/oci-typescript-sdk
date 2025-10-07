@@ -715,7 +715,9 @@ export class OpensearchClusterClient {
     const apiReferenceLink = "";
     const pathParams = {};
 
-    const queryParams = {};
+    const queryParams = {
+      "compartmentId": listOpensearchClusterShapesRequest.compartmentId
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON

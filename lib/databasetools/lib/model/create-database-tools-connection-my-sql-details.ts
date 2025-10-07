@@ -25,7 +25,7 @@ export interface CreateDatabaseToolsConnectionMySqlDetails
    */
   "connectionString": string;
   /**
-   * The user name.
+   * The database user name.
    */
   "userName": string;
   "userPassword": model.DatabaseToolsUserPasswordSecretIdDetails;

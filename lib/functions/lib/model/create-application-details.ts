@@ -85,6 +85,14 @@ Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
     */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   "imagePolicyConfig"?: model.ImagePolicyConfig;
+  /**
+    * Security attributes for this resource. Each key is predefined and scoped to a namespace.
+* For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
+* <p>
+Example: {@code {\"Oracle-ZPR\": {\"MaxEgressCount\": {\"value\": \"42\", \"mode\": \"enforce\"}}}}
+* 
+    */
+  "securityAttributes"?: { [key: string]: { [key: string]: any } };
 }
 
 export namespace CreateApplicationDetails {

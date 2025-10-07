@@ -40,18 +40,10 @@ export interface ListJobsRequest extends common.BaseRequest {
    */
   "id"?: string;
   /**
- * A filter that returns all resources that match the specified lifecycle state.
-* The state value is case-insensitive.
-* <p>
-Allowable values:
-* - ACCEPTED
-* - IN_PROGRESS
-* - FAILED
-* - SUCCEEDED
-* - CANCELING
-* - CANCELED
-* 
- */
+   * A filter that returns all resources that match the specified lifecycle state.
+   * The state value is case-insensitive.
+   *
+   */
   "lifecycleState"?: string;
   /**
    * A filter to return only resources that match the given display name exactly.

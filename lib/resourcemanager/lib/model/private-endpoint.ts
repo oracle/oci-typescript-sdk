@@ -19,7 +19,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A private endpoint allowing Resource Manager to access nonpublic cloud resources. For more information about private endpoints, see [Private Endpoint Management](https://docs.oracle.com/iaas/Content/ResourceManager/Tasks/private-endpoints.htm).
+ * A private endpoint allowing Resource Manager to access nonpublic cloud resources. For more information about private endpoints, see [Managing Private Endpoints](https://docs.oracle.com/iaas/Content/ResourceManager/Tasks/private-endpoints.htm).
  *
  */
 export interface PrivateEndpoint {
@@ -33,6 +33,7 @@ export interface PrivateEndpoint {
   "compartmentId": string;
   /**
    * A user-friendly name. Does not have to be unique, and it's changeable. Avoid entering confidential information.
+   *
    */
   "displayName"?: string;
   /**
@@ -99,6 +100,20 @@ export interface PrivateEndpoint {
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * The system tags associated with this resource, if any. The system tags are set by Oracle cloud infrastructure services. Each key is predefined and scoped to namespaces.
+   * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
+   * Example: {@code {orcl-cloud: {free-tier-retain: true}}}
+   *
+   */
+  "systemTags"?: { [key: string]: { [key: string]: any } };
+  /**
+    * [Security attributes](https://docs.oracle.com/iaas/Content/zero-trust-packet-routing/zpr-artifacts.htm) are labels for a resource that can be referenced in a [Zero Trust Packet Routing](https://docs.oracle.com/iaas/Content/zero-trust-packet-routing/overview.htm) (ZPR) policy to control access to ZPR-supported resources.
+* <p>
+Example: {@code {\"Oracle-ZPR\": {\"MaxEgressCount\": {\"value\": \"42\", \"mode\": \"enforce\"}}}}
+* 
+    */
+  "securityAttributes"?: { [key: string]: { [key: string]: any } };
 }
 
 export namespace PrivateEndpoint {

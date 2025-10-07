@@ -895,6 +895,87 @@ export class GoldenGateClient {
   }
 
   /**
+   * Associate a GoldanGate connection with a different subscription.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ChangeConnectionSubscriptionRequest
+   * @return ChangeConnectionSubscriptionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ChangeConnectionSubscription.ts.html |here} to see how to use ChangeConnectionSubscription API.
+   */
+  public async changeConnectionSubscription(
+    changeConnectionSubscriptionRequest: requests.ChangeConnectionSubscriptionRequest
+  ): Promise<responses.ChangeConnectionSubscriptionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GoldenGateClient#changeConnectionSubscription.");
+    const operationName = "changeConnectionSubscription";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/Connection/ChangeConnectionSubscription";
+    const pathParams = {
+      "{connectionId}": changeConnectionSubscriptionRequest.connectionId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": changeConnectionSubscriptionRequest.opcRetryToken,
+      "opc-request-id": changeConnectionSubscriptionRequest.opcRequestId,
+      "if-match": changeConnectionSubscriptionRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeConnectionSubscriptionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/connections/{connectionId}/actions/changeSubscription",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeConnectionSubscriptionRequest.changeConnectionSubscriptionDetails,
+        "ChangeConnectionSubscriptionDetails",
+        model.ChangeConnectionSubscriptionDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeConnectionSubscriptionResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Note: Deprecated. Use the /connections API instead.
    * Moves the DatabaseRegistration into a different compartment within the same tenancy. When
    * provided, If-Match is checked against ETag values of the resource.  For information about
@@ -1134,6 +1215,87 @@ export class GoldenGateClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeDeploymentCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Associate a GoldanGate deployment with a different subscription.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ChangeDeploymentSubscriptionRequest
+   * @return ChangeDeploymentSubscriptionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ChangeDeploymentSubscription.ts.html |here} to see how to use ChangeDeploymentSubscription API.
+   */
+  public async changeDeploymentSubscription(
+    changeDeploymentSubscriptionRequest: requests.ChangeDeploymentSubscriptionRequest
+  ): Promise<responses.ChangeDeploymentSubscriptionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GoldenGateClient#changeDeploymentSubscription.");
+    const operationName = "changeDeploymentSubscription";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/Deployment/ChangeDeploymentSubscription";
+    const pathParams = {
+      "{deploymentId}": changeDeploymentSubscriptionRequest.deploymentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": changeDeploymentSubscriptionRequest.opcRetryToken,
+      "opc-request-id": changeDeploymentSubscriptionRequest.opcRequestId,
+      "if-match": changeDeploymentSubscriptionRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeDeploymentSubscriptionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/deployments/{deploymentId}/actions/changeSubscription",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeDeploymentSubscriptionRequest.changeDeploymentSubscriptionDetails,
+        "ChangeDeploymentSubscriptionDetails",
+        model.ChangeDeploymentSubscriptionDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeDeploymentSubscriptionResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),

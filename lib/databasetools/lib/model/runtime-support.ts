@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Specifies whether a connection is supported by the Database Tools Runtime.
+ * The runtime support status. Must be set to UNSUPPORTED for Generic JDBC and PostgreSQL connections.
  **/
 export enum RuntimeSupport {
   Supported = "SUPPORTED",

@@ -33,7 +33,7 @@ export interface IntegrationInstance {
   /**
    * Standard or Enterprise type,
    * Oracle Integration Generation 2 uses ENTERPRISE and STANDARD,
-   * Oracle Integration 3 uses ENTERPRISEX and STANDARDX
+   * Oracle Integration 3 uses ENTERPRISEX, STANDARDX and HEALTHCARE
    *
    */
   "integrationInstanceType": IntegrationInstance.IntegrationInstanceType;
@@ -77,6 +77,14 @@ export interface IntegrationInstance {
    *
    */
   "systemTags"?: { [key: string]: { [key: string]: any } };
+  /**
+    * Security attributes for this resource. Each key is predefined and scoped to a namespace.
+* For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
+* <p>
+Example: {@code {\"Oracle-ZPR\": {\"MaxEgressCount\": {\"value\": \"42\", \"mode\": \"enforce\"}}}}
+* 
+    */
+  "securityAttributes"?: { [key: string]: { [key: string]: any } };
   /**
    * Bring your own license.
    */

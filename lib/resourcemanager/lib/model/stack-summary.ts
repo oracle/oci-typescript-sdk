@@ -32,7 +32,8 @@ export interface StackSummary {
    */
   "compartmentId"?: string;
   /**
-   * Human-readable display name for the stack.
+   * A user-friendly name. Does not have to be unique, and it's changeable. Avoid entering confidential information.
+   *
    */
   "displayName"?: string;
   /**
@@ -47,26 +48,19 @@ export interface StackSummary {
    */
   "timeCreated"?: Date;
   /**
-    * The current lifecycle state of the stack.
-* For more information about stack lifecycle states in Resource Manager, see
-* [Key Concepts](https://docs.oracle.com/iaas/Content/ResourceManager/Concepts/resourcemanager.htm#concepts__StackStates).
-* <p>
-Allowable values:
-* - CREATING
-* - ACTIVE
-* - DELETING
-* - DELETED
-* - FAILED
-* 
-    */
+   * The current lifecycle state of the stack.
+   * For more information about stack lifecycle states in Resource Manager, see
+   * [Key Concepts](https://docs.oracle.com/iaas/Content/ResourceManager/Concepts/resourcemanager.htm#concepts__StackStates).
+   *
+   */
   "lifecycleState"?: string;
   /**
-   * The version of Terraform specified for the stack. Example: {@code 0.12.x}
+   * The version of Terraform specified for the stack. Example: {@code 1.5.x}
    *
    */
   "terraformVersion"?: string;
   /**
-   * Free-form tags associated with this resource. Each tag is a key-value pair with no predefined name, type, or namespace.
+   * Free-form tags associated with the resource. Each tag is a key-value pair with no predefined name, type, or namespace.
    * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
    * Example: {@code {\"Department\": \"Finance\"}}
    *
@@ -79,6 +73,13 @@ Allowable values:
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * The system tags associated with this resource, if any. The system tags are set by Oracle cloud infrastructure services. Each key is predefined and scoped to namespaces.
+   * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
+   * Example: {@code {orcl-cloud: {free-tier-retain: true}}}
+   *
+   */
+  "systemTags"?: { [key: string]: { [key: string]: any } };
 }
 
 export namespace StackSummary {

@@ -17,4 +17,9 @@ import common = require("oci-common");
 /**
  * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opensearch/ListOpensearchClusterShapes.ts.html |here} to see how to use ListOpensearchClusterShapesRequest.
  */
-export interface ListOpensearchClusterShapesRequest extends common.BaseRequest {}
+export interface ListOpensearchClusterShapesRequest extends common.BaseRequest {
+  /**
+   * The ID of the compartment in which to list resources.
+   */
+  "compartmentId": string;
+}

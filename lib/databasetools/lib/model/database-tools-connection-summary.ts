@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface DatabaseToolsConnectionSummary {
   /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the {@code DatabaseToolsConnection}.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Database Tools connection.
    */
   "id": string;
   /**

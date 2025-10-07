@@ -27,6 +27,10 @@ export interface ValidateDatabaseToolsConnectionOracleDatabaseResult
    * The database version.
    */
   "databaseVersion": string;
+  /**
+   * The DBMS_CLOUD package installation status.
+   */
+  "dbmsCloudStatus": model.DbmsCloudStatus;
 
   "type": string;
 }

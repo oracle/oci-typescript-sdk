@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ListWorkRequestsRequest extends common.BaseRequest {
   /**
-   * The ID of the compartment in which to list resources.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment in which to list resources.
    */
   "compartmentId": string;
   /**
@@ -51,6 +51,7 @@ export interface ListWorkRequestsRequest extends common.BaseRequest {
 
 export namespace ListWorkRequestsRequest {
   export enum SortBy {
-    TimeAccepted = "timeAccepted"
+    TimeAccepted = "timeAccepted",
+    TimeUpdated = "timeUpdated"
   }
 }

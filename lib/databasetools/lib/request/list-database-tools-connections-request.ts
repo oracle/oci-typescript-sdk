@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ListDatabaseToolsConnectionsRequest extends common.BaseRequest {
   /**
-   * The ID of the compartment in which to list resources.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment in which to list resources.
    */
   "compartmentId": string;
   /**
@@ -35,11 +35,11 @@ export interface ListDatabaseToolsConnectionsRequest extends common.BaseRequest 
    */
   "type"?: Array<model.ConnectionType>;
   /**
-   * A filter to return only resources with one of the specified runtimeSupport values.
+   * A filter to return only resources with one of the specified type values.
    */
   "runtimeSupport"?: Array<model.RuntimeSupport>;
   /**
-   * A filter to return only resources associated to the related resource identifier OCID passed in the query string.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the related resource.
    */
   "relatedResourceIdentifier"?: string;
   /**

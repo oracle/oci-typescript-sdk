@@ -40,6 +40,7 @@ export interface CreateConnectionRequest extends common.BaseRequest {
     | model.CreateGoogleBigQueryConnectionDetails
     | model.CreateSnowflakeConnectionDetails
     | model.CreateMongoDbConnectionDetails
+    | model.CreateOracleAiDataPlatformConnectionDetails
     | model.CreateAmazonS3ConnectionDetails
     | model.CreateDatabricksConnectionDetails
     | model.CreateDb2ConnectionDetails

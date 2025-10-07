@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Contains the details for the compartment to move the {@code DatabaseToolsConnection} to.
+ * Contains the details for the compartment to move the Database Tools connection to.
  */
 export interface ChangeDatabaseToolsConnectionCompartmentDetails {
   /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment to move the {@code DatabaseToolsConnection} to.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment to move the Database Tools connection to.
    */
   "compartmentId": string;
 }

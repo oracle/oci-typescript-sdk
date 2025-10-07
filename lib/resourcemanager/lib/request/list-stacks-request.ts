@@ -35,19 +35,12 @@ export interface ListStacksRequest extends common.BaseRequest {
    */
   "id"?: string;
   /**
- * A filter that returns only those resources that match the specified
-* lifecycle state. The state value is case-insensitive.
-* For more information about stack lifecycle states, see
-* [Key Concepts](https://docs.oracle.com/iaas/Content/ResourceManager/Concepts/resourcemanager.htm#concepts__StackStates).
-* <p>
-Allowable values:
-* - CREATING
-* - ACTIVE
-* - DELETING
-* - DELETED
-* - FAILED
-* 
- */
+   * A filter that returns only those resources that match the specified
+   * lifecycle state. The state value is case-insensitive.
+   * For more information about stack lifecycle states, see
+   * [Key Concepts](https://docs.oracle.com/iaas/Content/ResourceManager/Concepts/resourcemanager.htm#concepts__StackStates).
+   *
+   */
   "lifecycleState"?: string;
   /**
    * A filter to return only resources that match the given display name exactly.

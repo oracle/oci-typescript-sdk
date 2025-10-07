@@ -23,7 +23,7 @@ export interface ChangeDatabaseToolsPrivateEndpointCompartmentRequest extends co
    */
   "databaseToolsPrivateEndpointId": string;
   /**
-   * Request to change the compartment of the DatabaseToolsPrivateEndpoint.
+   * Request to change the compartment of the Database Tools private endpoint.
    */
   "changeDatabaseToolsPrivateEndpointCompartmentDetails": model.ChangeDatabaseToolsPrivateEndpointCompartmentDetails;
   /**

@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * DatabaseToolsConnectionSummary of a Generic JDBC database system.
+ * Database Tools connection summary of a Generic JDBC database system.
  */
 export interface DatabaseToolsConnectionGenericJdbcSummary
   extends model.DatabaseToolsConnectionSummary {
@@ -24,7 +24,7 @@ export interface DatabaseToolsConnectionGenericJdbcSummary
    */
   "url": string;
   /**
-   * The user name.
+   * The database user name.
    */
   "userName"?: string;
   "userPassword"?: model.DatabaseToolsUserPasswordSecretIdSummary;

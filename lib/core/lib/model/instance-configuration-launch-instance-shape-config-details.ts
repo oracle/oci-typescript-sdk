@@ -67,6 +67,11 @@ The following values are supported:
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "nvmes"?: number;
+  /**
+   * This field is reserved for internal use.
+   *
+   */
+  "resourceManagement"?: InstanceConfigurationLaunchInstanceShapeConfigDetails.ResourceManagement;
 }
 
 export namespace InstanceConfigurationLaunchInstanceShapeConfigDetails {
@@ -74,6 +79,16 @@ export namespace InstanceConfigurationLaunchInstanceShapeConfigDetails {
     Baseline18 = "BASELINE_1_8",
     Baseline12 = "BASELINE_1_2",
     Baseline11 = "BASELINE_1_1",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum ResourceManagement {
+    Dynamic = "DYNAMIC",
+    Static = "STATIC",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

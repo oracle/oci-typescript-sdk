@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface CreateDatabaseToolsPrivateEndpointRequest extends common.BaseRequest {
   /**
-   * Details for the new DatabaseToolsPrivateEndpoint.
+   * Details for the new Database Tools private endpoint.
    */
   "createDatabaseToolsPrivateEndpointDetails": model.CreateDatabaseToolsPrivateEndpointDetails;
   /**

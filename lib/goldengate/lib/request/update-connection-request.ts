@@ -36,6 +36,7 @@ export interface UpdateConnectionRequest extends common.BaseRequest {
     | model.UpdateRedisConnectionDetails
     | model.UpdateMongoDbConnectionDetails
     | model.UpdateGoogleCloudStorageConnectionDetails
+    | model.UpdateOracleAiDataPlatformConnectionDetails
     | model.UpdateMicrosoftFabricConnectionDetails
     | model.UpdatePostgresqlConnectionDetails
     | model.UpdateMicrosoftSqlserverConnectionDetails

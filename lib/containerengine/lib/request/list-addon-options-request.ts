@@ -53,6 +53,10 @@ export interface ListAddonOptionsRequest extends common.BaseRequest {
    * The optional field to sort the results by.
    */
   "sortBy"?: ListAddonOptionsRequest.SortBy;
+  /**
+   * Whether to show all add-on versions
+   */
+  "shouldShowAllVersions"?: boolean;
 }
 
 export namespace ListAddonOptionsRequest {

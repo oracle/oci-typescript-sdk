@@ -23,7 +23,7 @@ export interface ChangeDatabaseToolsConnectionCompartmentRequest extends common.
    */
   "databaseToolsConnectionId": string;
   /**
-   * Request to change the compartment of the DatabaseToolsConnection.
+   * Request to change the compartment of the Database Tools connection.
    */
   "changeDatabaseToolsConnectionCompartmentDetails": model.ChangeDatabaseToolsConnectionCompartmentDetails;
   /**

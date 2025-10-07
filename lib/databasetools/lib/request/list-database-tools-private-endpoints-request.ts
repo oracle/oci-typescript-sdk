@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ListDatabaseToolsPrivateEndpointsRequest extends common.BaseRequest {
   /**
-   * The ID of the compartment in which to list resources.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment in which to list resources.
    */
   "compartmentId": string;
   /**

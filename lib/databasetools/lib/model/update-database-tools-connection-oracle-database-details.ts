@@ -40,7 +40,7 @@ export interface UpdateDatabaseToolsConnectionOracleDatabaseDetails
    */
   "keyStores"?: Array<model.DatabaseToolsKeyStoreDetails>;
   /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the DatabaseToolsPrivateEndpoint used to access the database in the Customer VCN.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Database Tools private endpoint used to access the database in the Customer VCN.
    */
   "privateEndpointId"?: string;
   "proxyClient"?:

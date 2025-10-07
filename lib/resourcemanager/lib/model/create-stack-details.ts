@@ -28,7 +28,8 @@ export interface CreateStackDetails {
    */
   "compartmentId": string;
   /**
-   * The stack's display name.
+   * A user-friendly name. Does not have to be unique, and it's changeable. Avoid entering confidential information.
+   *
    */
   "displayName"?: string;
   /**
@@ -54,7 +55,7 @@ export interface CreateStackDetails {
    */
   "variables"?: { [key: string]: string };
   /**
-   * The version of Terraform to use with the stack. Example: {@code 0.12.x}
+   * The version of Terraform to use with the stack. Example: {@code 1.5.x}
    *
    */
   "terraformVersion"?: string;

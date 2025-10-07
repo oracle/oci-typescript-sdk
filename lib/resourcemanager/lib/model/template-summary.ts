@@ -32,7 +32,8 @@ export interface TemplateSummary {
    */
   "compartmentId"?: string;
   /**
-   * Human-readable display name for the template.
+   * A user-friendly name. Does not have to be unique, and it's changeable. Avoid entering confidential information.
+   *
    */
   "displayName"?: string;
   /**
@@ -52,11 +53,30 @@ export interface TemplateSummary {
   "timeCreated"?: Date;
   /**
    * The current lifecycle state of the template.
-   * Allowable values:
-   * - ACTIVE
    *
    */
   "lifecycleState"?: string;
+  /**
+   * Free-form tags associated with the resource. Each tag is a key-value pair with no predefined name, type, or namespace.
+   * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
+   * Example: {@code {\"Department\": \"Finance\"}}
+   *
+   */
+  "freeformTags"?: { [key: string]: string };
+  /**
+   * Defined tags for this resource. Each key is predefined and scoped to a namespace.
+   * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
+   * Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
+   *
+   */
+  "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * The system tags associated with this resource, if any. The system tags are set by Oracle cloud infrastructure services. Each key is predefined and scoped to namespaces.
+   * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
+   * Example: {@code {orcl-cloud: {free-tier-retain: true}}}
+   *
+   */
+  "systemTags"?: { [key: string]: { [key: string]: any } };
 }
 
 export namespace TemplateSummary {

@@ -45,6 +45,7 @@ export interface UpdateOpensearchClusterDetails {
   "reverseConnectionEndpointCustomerIps"?: Array<string>;
   "outboundClusterConfig"?: model.OutboundClusterConfig;
   "maintenanceDetails"?: model.UpdateMaintenanceDetails;
+  "certificateConfig"?: model.CertificateConfig;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
    * Example: {@code {\"bar-key\": \"value\"}}
@@ -57,6 +58,14 @@ export interface UpdateOpensearchClusterDetails {
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+    * Security attributes for this resource. Each key is predefined and scoped to a namespace.
+* For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
+* <p>
+Example: {@code {\"Oracle-ZPR\": {\"MaxEgressCount\": {\"value\": \"42\", \"mode\": \"enforce\"}}}}
+* 
+    */
+  "securityAttributes"?: { [key: string]: { [key: string]: any } };
 }
 
 export namespace UpdateOpensearchClusterDetails {
@@ -76,6 +85,9 @@ export namespace UpdateOpensearchClusterDetails {
           : undefined,
         "maintenanceDetails": obj.maintenanceDetails
           ? model.UpdateMaintenanceDetails.getJsonObj(obj.maintenanceDetails)
+          : undefined,
+        "certificateConfig": obj.certificateConfig
+          ? model.CertificateConfig.getJsonObj(obj.certificateConfig)
           : undefined
       }
     };
@@ -98,6 +110,9 @@ export namespace UpdateOpensearchClusterDetails {
           : undefined,
         "maintenanceDetails": obj.maintenanceDetails
           ? model.UpdateMaintenanceDetails.getDeserializedJsonObj(obj.maintenanceDetails)
+          : undefined,
+        "certificateConfig": obj.certificateConfig
+          ? model.CertificateConfig.getDeserializedJsonObj(obj.certificateConfig)
           : undefined
       }
     };

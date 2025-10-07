@@ -66,6 +66,11 @@ The following values are supported:
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "nvmes"?: number;
+  /**
+   * This field is reserved for internal use.
+   *
+   */
+  "resourceManagement"?: LaunchInstanceShapeConfigDetails.ResourceManagement;
 }
 
 export namespace LaunchInstanceShapeConfigDetails {
@@ -73,6 +78,11 @@ export namespace LaunchInstanceShapeConfigDetails {
     Baseline18 = "BASELINE_1_8",
     Baseline12 = "BASELINE_1_2",
     Baseline11 = "BASELINE_1_1"
+  }
+
+  export enum ResourceManagement {
+    Dynamic = "DYNAMIC",
+    Static = "STATIC"
   }
 
   export function getJsonObj(obj: LaunchInstanceShapeConfigDetails): object {

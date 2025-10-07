@@ -52,7 +52,7 @@ export interface VirtualNodePoolSummary {
   /**
    * The number of Virtual Nodes that should be in the Virtual Node Pool. The placement configurations determine where these virtual nodes are placed. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
-  "size"?: number;
+  "size": number;
   /**
    * The list of placement configurations which determines where Virtual Nodes will be provisioned across as it relates to the subnet and availability domains. The size attribute determines how many we evenly spread across these placement configurations
    */

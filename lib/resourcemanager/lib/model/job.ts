@@ -41,7 +41,8 @@ export interface Job {
    */
   "compartmentId"?: string;
   /**
-   * The job's display name.
+   * A user-friendly name. Does not have to be unique, and it's changeable. Avoid entering confidential information.
+   *
    */
   "displayName"?: string;
   /**
@@ -127,7 +128,7 @@ export interface Job {
     | model.BitbucketServerConfigSourceRecord
     | model.ObjectStorageConfigSourceRecord;
   /**
-   * Free-form tags associated with this resource. Each tag is a key-value pair with no predefined name, type, or namespace.
+   * Free-form tags associated with the resource. Each tag is a key-value pair with no predefined name, type, or namespace.
    * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
    * Example: {@code {\"Department\": \"Finance\"}}
    *
@@ -140,6 +141,13 @@ export interface Job {
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * The system tags associated with this resource, if any. The system tags are set by Oracle cloud infrastructure services. Each key is predefined and scoped to namespaces.
+   * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
+   * Example: {@code {orcl-cloud: {free-tier-retain: true}}}
+   *
+   */
+  "systemTags"?: { [key: string]: { [key: string]: any } };
 }
 
 export namespace Job {
