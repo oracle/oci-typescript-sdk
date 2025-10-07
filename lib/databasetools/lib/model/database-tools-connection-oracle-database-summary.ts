@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * DatabaseToolsConnectionSummary of an Oracle Database.
+ * Database Tools connection summary of an Oracle Database.
  */
 export interface DatabaseToolsConnectionOracleDatabaseSummary
   extends model.DatabaseToolsConnectionSummary {
@@ -40,7 +40,7 @@ export interface DatabaseToolsConnectionOracleDatabaseSummary
    */
   "keyStores"?: Array<model.DatabaseToolsKeyStoreSummary>;
   /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the {@code DatabaseToolsPrivateEndpoint} used to access the database in the customer VCN.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Database Tools private endpoint used to access the database in the customer VCN.
    */
   "privateEndpointId"?: string;
   "proxyClient"?:

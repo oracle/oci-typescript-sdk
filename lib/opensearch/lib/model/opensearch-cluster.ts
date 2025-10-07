@@ -71,6 +71,14 @@ export interface OpensearchCluster {
    */
   "systemTags"?: { [key: string]: { [key: string]: any } };
   /**
+    * Security attributes for this resource. Each key is predefined and scoped to a namespace.
+* For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
+* <p>
+Example: {@code {\"Oracle-ZPR\": {\"MaxEgressCount\": {\"value\": \"42\", \"mode\": \"enforce\"}}}}
+* 
+    */
+  "securityAttributes"?: { [key: string]: { [key: string]: any } };
+  /**
    * The software version the cluster is running.
    */
   "softwareVersion": string;
@@ -225,6 +233,10 @@ export interface OpensearchCluster {
   "securitySamlConfig"?: model.SecuritySamlConfig;
   "backupPolicy"?: model.BackupPolicy;
   /**
+   * The OCID of the NSG where the private endpoint vnic will be attached.
+   */
+  "nsgId"?: string;
+  /**
    * The customer IP addresses of the endpoint in customer VCN
    */
   "reverseConnectionEndpointCustomerIps"?: Array<string>;
@@ -238,6 +250,7 @@ export interface OpensearchCluster {
    */
   "inboundClusterIds"?: Array<string>;
   "maintenanceDetails"?: model.MaintenanceDetails;
+  "certificateConfig"?: model.CertificateConfig;
 }
 
 export namespace OpensearchCluster {
@@ -277,6 +290,9 @@ export namespace OpensearchCluster {
 
         "maintenanceDetails": obj.maintenanceDetails
           ? model.MaintenanceDetails.getJsonObj(obj.maintenanceDetails)
+          : undefined,
+        "certificateConfig": obj.certificateConfig
+          ? model.CertificateConfig.getJsonObj(obj.certificateConfig)
           : undefined
       }
     };
@@ -305,6 +321,9 @@ export namespace OpensearchCluster {
 
         "maintenanceDetails": obj.maintenanceDetails
           ? model.MaintenanceDetails.getDeserializedJsonObj(obj.maintenanceDetails)
+          : undefined,
+        "certificateConfig": obj.certificateConfig
+          ? model.CertificateConfig.getDeserializedJsonObj(obj.certificateConfig)
           : undefined
       }
     };

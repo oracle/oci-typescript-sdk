@@ -1,6 +1,6 @@
 {
   "name": "oci-apiplatform",
-  "version": "2.118.1",
+  "version": "2.119.0",
   "description": "OCI NodeJS client for Api Platform Service",
   "repository": {
     "type": "git",

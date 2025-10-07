@@ -28,12 +28,16 @@ import * as CancelSnoozeDeploymentUpgradeResponse from "./cancel-snooze-deployme
 export import CancelSnoozeDeploymentUpgradeResponse = CancelSnoozeDeploymentUpgradeResponse.CancelSnoozeDeploymentUpgradeResponse;
 import * as ChangeConnectionCompartmentResponse from "./change-connection-compartment-response";
 export import ChangeConnectionCompartmentResponse = ChangeConnectionCompartmentResponse.ChangeConnectionCompartmentResponse;
+import * as ChangeConnectionSubscriptionResponse from "./change-connection-subscription-response";
+export import ChangeConnectionSubscriptionResponse = ChangeConnectionSubscriptionResponse.ChangeConnectionSubscriptionResponse;
 import * as ChangeDatabaseRegistrationCompartmentResponse from "./change-database-registration-compartment-response";
 export import ChangeDatabaseRegistrationCompartmentResponse = ChangeDatabaseRegistrationCompartmentResponse.ChangeDatabaseRegistrationCompartmentResponse;
 import * as ChangeDeploymentBackupCompartmentResponse from "./change-deployment-backup-compartment-response";
 export import ChangeDeploymentBackupCompartmentResponse = ChangeDeploymentBackupCompartmentResponse.ChangeDeploymentBackupCompartmentResponse;
 import * as ChangeDeploymentCompartmentResponse from "./change-deployment-compartment-response";
 export import ChangeDeploymentCompartmentResponse = ChangeDeploymentCompartmentResponse.ChangeDeploymentCompartmentResponse;
+import * as ChangeDeploymentSubscriptionResponse from "./change-deployment-subscription-response";
+export import ChangeDeploymentSubscriptionResponse = ChangeDeploymentSubscriptionResponse.ChangeDeploymentSubscriptionResponse;
 import * as ChangePipelineCompartmentResponse from "./change-pipeline-compartment-response";
 export import ChangePipelineCompartmentResponse = ChangePipelineCompartmentResponse.ChangePipelineCompartmentResponse;
 import * as CollectDeploymentDiagnosticResponse from "./collect-deployment-diagnostic-response";

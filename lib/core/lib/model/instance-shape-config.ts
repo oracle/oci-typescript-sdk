@@ -101,6 +101,11 @@ If the instance does not have any local disks, this field is {@code null}.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "vcpus"?: number;
+  /**
+   * This field is reserved for internal use.
+   *
+   */
+  "resourceManagement"?: InstanceShapeConfig.ResourceManagement;
 }
 
 export namespace InstanceShapeConfig {
@@ -108,6 +113,16 @@ export namespace InstanceShapeConfig {
     Baseline18 = "BASELINE_1_8",
     Baseline12 = "BASELINE_1_2",
     Baseline11 = "BASELINE_1_1",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum ResourceManagement {
+    Dynamic = "DYNAMIC",
+    Static = "STATIC",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

@@ -33,7 +33,7 @@ export interface TemplateCategorySummary {
    */
   "id"?: string;
   /**
-   * The name of the template category.
+   * The name of the template category. Not changeable.
    */
   "displayName"?: string;
 }

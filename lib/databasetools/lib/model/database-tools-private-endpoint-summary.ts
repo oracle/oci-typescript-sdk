@@ -41,6 +41,13 @@ export interface DatabaseToolsPrivateEndpointSummary {
    */
   "systemTags"?: { [key: string]: { [key: string]: any } };
   /**
+   * Zero trust Packet Routing (ZPR) Security Attributes for this resource. Each key is predefined and scoped to a namespace.
+   * For more information, see [ZPR Artifacts](https://docs.oracle.com/en-us/iaas/Content/zero-trust-packet-routing/zpr-artifacts.htm).
+   * Example: {@code {\"Oracle-ZPR\": {\"MaxEgressCount\": {\"value\": \"42\", \"mode\": \"audit\"}}}}
+   *
+   */
+  "securityAttributes"?: { [key: string]: { [key: string]: any } };
+  /**
    * Locks associated with this resource.
    */
   "locks"?: Array<model.ResourceLock>;

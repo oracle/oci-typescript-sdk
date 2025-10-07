@@ -34,6 +34,7 @@ export enum ConnectionType {
   Snowflake = "SNOWFLAKE",
   AmazonS3 = "AMAZON_S3",
   Hdfs = "HDFS",
+  OracleAiDataPlatform = "ORACLE_AI_DATA_PLATFORM",
   OracleNosql = "ORACLE_NOSQL",
   Mongodb = "MONGODB",
   AmazonKinesis = "AMAZON_KINESIS",

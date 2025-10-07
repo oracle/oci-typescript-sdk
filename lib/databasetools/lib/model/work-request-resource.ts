@@ -31,7 +31,7 @@ export interface WorkRequestResource {
    */
   "actionType": model.ActionType;
   /**
-   * The identifier of the resource the work request affects.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the resource the work request affects.
    */
   "identifier": string;
   /**

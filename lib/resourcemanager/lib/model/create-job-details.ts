@@ -28,7 +28,8 @@ export interface CreateJobDetails {
    */
   "stackId": string;
   /**
-   * Description of the job.
+   * A user-friendly name. Does not have to be unique, and it's changeable. Avoid entering confidential information.
+   *
    */
   "displayName"?: string;
   /**

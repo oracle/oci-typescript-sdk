@@ -37,6 +37,13 @@ export interface UpdateDbSystemDetails {
    */
   "nsgIds"?: Array<string>;
   /**
+   * Security Attributes for this resource. Each key is predefined and scoped to a namespace.
+   * For more information, see [ZPR Artifacts](https://docs.oracle.com/en-us/iaas/Content/zero-trust-packet-routing/zpr-artifacts.htm).
+   * Example: {@code {\"Oracle-ZPR\": {\"MaxEgressCount\": {\"value\": \"42\", \"mode\": \"audit\"}}}}
+   *
+   */
+  "securityAttributes"?: { [key: string]: { [key: string]: any } };
+  /**
    * The database mode indicating the types of statements that will be allowed to run in the DB system.
    * This mode will apply only to statements run by user connections. Replicated write statements will continue
    * to be allowed regardless of the DatabaseMode.

@@ -28,12 +28,16 @@ import * as CancelSnoozeDeploymentUpgradeRequest from "./cancel-snooze-deploymen
 export import CancelSnoozeDeploymentUpgradeRequest = CancelSnoozeDeploymentUpgradeRequest.CancelSnoozeDeploymentUpgradeRequest;
 import * as ChangeConnectionCompartmentRequest from "./change-connection-compartment-request";
 export import ChangeConnectionCompartmentRequest = ChangeConnectionCompartmentRequest.ChangeConnectionCompartmentRequest;
+import * as ChangeConnectionSubscriptionRequest from "./change-connection-subscription-request";
+export import ChangeConnectionSubscriptionRequest = ChangeConnectionSubscriptionRequest.ChangeConnectionSubscriptionRequest;
 import * as ChangeDatabaseRegistrationCompartmentRequest from "./change-database-registration-compartment-request";
 export import ChangeDatabaseRegistrationCompartmentRequest = ChangeDatabaseRegistrationCompartmentRequest.ChangeDatabaseRegistrationCompartmentRequest;
 import * as ChangeDeploymentBackupCompartmentRequest from "./change-deployment-backup-compartment-request";
 export import ChangeDeploymentBackupCompartmentRequest = ChangeDeploymentBackupCompartmentRequest.ChangeDeploymentBackupCompartmentRequest;
 import * as ChangeDeploymentCompartmentRequest from "./change-deployment-compartment-request";
 export import ChangeDeploymentCompartmentRequest = ChangeDeploymentCompartmentRequest.ChangeDeploymentCompartmentRequest;
+import * as ChangeDeploymentSubscriptionRequest from "./change-deployment-subscription-request";
+export import ChangeDeploymentSubscriptionRequest = ChangeDeploymentSubscriptionRequest.ChangeDeploymentSubscriptionRequest;
 import * as ChangePipelineCompartmentRequest from "./change-pipeline-compartment-request";
 export import ChangePipelineCompartmentRequest = ChangePipelineCompartmentRequest.ChangePipelineCompartmentRequest;
 import * as CollectDeploymentDiagnosticRequest from "./collect-deployment-diagnostic-request";

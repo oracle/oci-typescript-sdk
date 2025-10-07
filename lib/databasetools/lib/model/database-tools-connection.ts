@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Description of the Database Tools connection.
+ * Provides connectivity details required to establish a connection to a database.
  */
 export interface DatabaseToolsConnection {
   /**
@@ -43,7 +43,7 @@ export interface DatabaseToolsConnection {
    */
   "timeCreated": Date;
   /**
-   * The time the DatabaseToolsConnection was updated. An RFC3339 formatted datetime string.
+   * The time the Database Tools connection was updated. An RFC3339 formatted datetime string.
    */
   "timeUpdated": Date;
   /**
