@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface CreateDatabaseToolsConnectionRequest extends common.BaseRequest {
   /**
-   * Details for the new {@code DatabaseToolsConnection}.
+   * Details for the new Database Tools connection.
    */
   "createDatabaseToolsConnectionDetails":
     | model.CreateDatabaseToolsConnectionGenericJdbcDetails

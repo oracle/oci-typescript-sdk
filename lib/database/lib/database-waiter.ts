@@ -1556,6 +1556,37 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forConvertStandbyDatabaseType
+   *
+   * @param request the request to send
+   * @return response returns ConvertStandbyDatabaseTypeResponse, GetWorkRequestResponse tuple
+   */
+  public async forConvertStandbyDatabaseType(
+    request: serviceRequests.ConvertStandbyDatabaseTypeRequest
+  ): Promise<{
+    response: serviceResponses.ConvertStandbyDatabaseTypeResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const convertStandbyDatabaseTypeResponse = await this.client.convertStandbyDatabaseType(
+      request
+    );
+    if (convertStandbyDatabaseTypeResponse.opcWorkRequestId === undefined)
+      return {
+        response: convertStandbyDatabaseTypeResponse,
+        workRequestResponse: undefined as any
+      };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      convertStandbyDatabaseTypeResponse.opcWorkRequestId
+    );
+    return {
+      response: convertStandbyDatabaseTypeResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
    * Waits forConvertToPdb
    *
    * @param request the request to send

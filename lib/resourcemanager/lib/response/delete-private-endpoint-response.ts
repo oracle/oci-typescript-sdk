@@ -19,4 +19,8 @@ export interface DeletePrivateEndpointResponse {
    * Unique identifier for the request.
    */
   "opcRequestId": string;
+  /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the work request.
+   */
+  "opcWorkRequestId": string;
 }

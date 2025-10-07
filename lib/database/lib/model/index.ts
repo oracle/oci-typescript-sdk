@@ -262,6 +262,8 @@ import * as ConsoleHistorySummary from "./console-history-summary";
 export import ConsoleHistorySummary = ConsoleHistorySummary.ConsoleHistorySummary;
 import * as ConvertStandbyAutonomousContainerDatabaseDetails from "./convert-standby-autonomous-container-database-details";
 export import ConvertStandbyAutonomousContainerDatabaseDetails = ConvertStandbyAutonomousContainerDatabaseDetails.ConvertStandbyAutonomousContainerDatabaseDetails;
+import * as ConvertStandbyDatabaseTypeDetails from "./convert-standby-database-type-details";
+export import ConvertStandbyDatabaseTypeDetails = ConvertStandbyDatabaseTypeDetails.ConvertStandbyDatabaseTypeDetails;
 import * as ConvertToPdbDetails from "./convert-to-pdb-details";
 export import ConvertToPdbDetails = ConvertToPdbDetails.ConvertToPdbDetails;
 import * as ConvertToPdbTargetBase from "./convert-to-pdb-target-base";

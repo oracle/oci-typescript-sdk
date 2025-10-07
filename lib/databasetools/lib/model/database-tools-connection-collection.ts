@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * List of {@code DatabaseToolsConnectionSummary} items.
+ * List of Database Tools connection summary items.
  */
 export interface DatabaseToolsConnectionCollection {
   /**
-   * Array of {@code DatabaseToolsConnectionSummary} items.
+   * Array of Database Tools connection summary items.
    */
   "items": Array<model.DatabaseToolsConnectionSummary>;
 }

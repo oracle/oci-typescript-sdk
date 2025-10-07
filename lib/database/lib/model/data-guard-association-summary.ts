@@ -116,6 +116,7 @@ export namespace DataGuardAssociationSummary {
     Primary = "PRIMARY",
     Standby = "STANDBY",
     DisabledStandby = "DISABLED_STANDBY",
+    SnapshotStandby = "SNAPSHOT_STANDBY",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
@@ -142,6 +143,7 @@ export namespace DataGuardAssociationSummary {
     Primary = "PRIMARY",
     Standby = "STANDBY",
     DisabledStandby = "DISABLED_STANDBY",
+    SnapshotStandby = "SNAPSHOT_STANDBY",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

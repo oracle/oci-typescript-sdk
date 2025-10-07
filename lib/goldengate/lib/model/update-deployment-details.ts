@@ -111,6 +111,14 @@ Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
    *
    */
   "placements"?: Array<model.DeploymentPlacementDetails>;
+  /**
+    * Security attributes for this resource. Each key is predefined and scoped to a namespace.
+* For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
+* <p>
+Example: {@code {\"Oracle-ZPR\": {\"MaxEgressCount\": {\"value\": \"42\", \"mode\": \"enforce\"}}}}
+* 
+    */
+  "securityAttributes"?: { [key: string]: { [key: string]: any } };
   "oggData"?: model.UpdateOggDeploymentDetails;
   "maintenanceWindow"?: model.UpdateMaintenanceWindowDetails;
   "maintenanceConfiguration"?: model.UpdateMaintenanceConfigurationDetails;
@@ -127,6 +135,7 @@ export namespace UpdateDeploymentDetails {
               return model.DeploymentPlacementDetails.getJsonObj(item);
             })
           : undefined,
+
         "oggData": obj.oggData
           ? model.UpdateOggDeploymentDetails.getJsonObj(obj.oggData)
           : undefined,
@@ -153,6 +162,7 @@ export namespace UpdateDeploymentDetails {
               return model.DeploymentPlacementDetails.getDeserializedJsonObj(item);
             })
           : undefined,
+
         "oggData": obj.oggData
           ? model.UpdateOggDeploymentDetails.getDeserializedJsonObj(obj.oggData)
           : undefined,

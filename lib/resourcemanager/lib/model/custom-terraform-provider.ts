@@ -20,10 +20,10 @@ import common = require("oci-common");
 
 /**
  * Location information about custom Terraform providers for a stack.
- * For more information, see [Custom Providers](https://docs.oracle.com/iaas/Content/ResourceManager/Concepts/resourcemanager.htm#features__custom-providers).
+ * For more information, see [Using Custom Providers with a Stack](https://docs.oracle.com/iaas/Content/ResourceManager/Tasks/update-stack-custom-providers.htm).
  * Note: Older stacks must be explicitly updated to use Terraform Registry ({@code isThirdPartyProviderExperienceEnabled=true}).
  * See {@link #updateStack(UpdateStackRequest) updateStack}. For more information, see
- * [Using Terraform Registry with Older Stacks](https://docs.oracle.com/iaas/Content/ResourceManager/Tasks/update-stack-tf-reg.htm).
+ * [Using Terraform Registry with an Older Stack](https://docs.oracle.com/iaas/Content/ResourceManager/Tasks/update-stack-tf-reg.htm).
  *
  */
 export interface CustomTerraformProvider {

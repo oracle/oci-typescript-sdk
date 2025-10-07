@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The user password.
+ * The database user password.
  */
 export interface DatabaseToolsUserPassword {
   "valueType": string;

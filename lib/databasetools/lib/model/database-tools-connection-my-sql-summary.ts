@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * DatabaseToolsConnectionSummary of a MySQL Server.
+ * Database Tools connection summary of a MySQL Server.
  */
 export interface DatabaseToolsConnectionMySqlSummary extends model.DatabaseToolsConnectionSummary {
   "relatedResource"?: model.DatabaseToolsRelatedResourceMySql;
@@ -24,7 +24,7 @@ export interface DatabaseToolsConnectionMySqlSummary extends model.DatabaseTools
    */
   "connectionString": string;
   /**
-   * The user name.
+   * The database user name.
    */
   "userName"?: string;
   "userPassword"?: model.DatabaseToolsUserPasswordSecretIdSummary;
@@ -39,7 +39,7 @@ export interface DatabaseToolsConnectionMySqlSummary extends model.DatabaseTools
    */
   "keyStores"?: Array<model.DatabaseToolsKeyStoreMySqlSummary>;
   /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the {@code DatabaseToolsPrivateEndpoint} used to access the database in the customer VCN.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Database Tools private endpoint used to access the database in the customer VCN.
    */
   "privateEndpointId"?: string;
 

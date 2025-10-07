@@ -2229,7 +2229,8 @@ export class ContainerEngineClient {
       "limit": listAddonOptionsRequest.limit,
       "page": listAddonOptionsRequest.page,
       "sortOrder": listAddonOptionsRequest.sortOrder,
-      "sortBy": listAddonOptionsRequest.sortBy
+      "sortBy": listAddonOptionsRequest.sortBy,
+      "shouldShowAllVersions": listAddonOptionsRequest.shouldShowAllVersions
     };
 
     let headerParams = {

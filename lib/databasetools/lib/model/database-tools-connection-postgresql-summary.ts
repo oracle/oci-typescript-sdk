@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * DatabaseToolsConnectionSummary of a PostgreSQL Server.
+ * Database Tools connection summary of a PostgreSQL Server.
  */
 export interface DatabaseToolsConnectionPostgresqlSummary
   extends model.DatabaseToolsConnectionSummary {
@@ -25,7 +25,7 @@ export interface DatabaseToolsConnectionPostgresqlSummary
    */
   "connectionString": string;
   /**
-   * The user name.
+   * The database user name.
    */
   "userName"?: string;
   "userPassword"?: model.DatabaseToolsUserPasswordSecretIdSummary;
@@ -40,7 +40,7 @@ export interface DatabaseToolsConnectionPostgresqlSummary
    */
   "keyStores"?: Array<model.DatabaseToolsKeyStorePostgresqlSummary>;
   /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the {@code DatabaseToolsPrivateEndpoint} used to access the database in the customer VCN.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Database Tools private endpoint used to access the database in the customer VCN.
    */
   "privateEndpointId"?: string;
 

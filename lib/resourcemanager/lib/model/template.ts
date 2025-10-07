@@ -38,7 +38,8 @@ export interface Template {
    */
   "categoryId"?: string;
   /**
-   * Human-readable name of the template.
+   * A user-friendly name. Does not have to be unique, and it's changeable. Avoid entering confidential information.
+   *
    */
   "displayName"?: string;
   /**
@@ -80,6 +81,13 @@ export interface Template {
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * The system tags associated with this resource, if any. The system tags are set by Oracle cloud infrastructure services. Each key is predefined and scoped to namespaces.
+   * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
+   * Example: {@code {orcl-cloud: {free-tier-retain: true}}}
+   *
+   */
+  "systemTags"?: { [key: string]: { [key: string]: any } };
 }
 
 export namespace Template {

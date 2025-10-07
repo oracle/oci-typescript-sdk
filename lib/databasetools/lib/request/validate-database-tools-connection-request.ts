@@ -23,7 +23,7 @@ export interface ValidateDatabaseToolsConnectionRequest extends common.BaseReque
    */
   "databaseToolsConnectionId": string;
   /**
-   * Request to validate a DatabaseToolsConnection.
+   * Request to validate a Database Tools connection.
    */
   "validateDatabaseToolsConnectionDetails":
     | model.ValidateDatabaseToolsConnectionPostgresqlDetails

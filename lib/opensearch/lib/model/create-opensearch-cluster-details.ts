@@ -153,6 +153,10 @@ export interface CreateOpensearchClusterDetails {
   "securitySamlConfig"?: model.SecuritySamlConfig;
   "backupPolicy"?: model.BackupPolicy;
   /**
+   * The OCID of the NSG where the private endpoint vnic will be attached.
+   */
+  "nsgId"?: string;
+  /**
    * The customer IP addresses of the endpoint in customer VCN
    */
   "reverseConnectionEndpointCustomerIps"?: Array<string>;
@@ -162,6 +166,7 @@ export interface CreateOpensearchClusterDetails {
   "inboundClusterIds"?: Array<string>;
   "outboundClusterConfig"?: model.OutboundClusterConfig;
   "maintenanceDetails"?: model.CreateMaintenanceDetails;
+  "certificateConfig"?: model.CertificateConfig;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
    * Example: {@code {\"bar-key\": \"value\"}}
@@ -180,6 +185,14 @@ export interface CreateOpensearchClusterDetails {
    *
    */
   "systemTags"?: { [key: string]: { [key: string]: any } };
+  /**
+    * Security attributes for this resource. Each key is predefined and scoped to a namespace.
+* For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
+* <p>
+Example: {@code {\"Oracle-ZPR\": {\"MaxEgressCount\": {\"value\": \"42\", \"mode\": \"enforce\"}}}}
+* 
+    */
+  "securityAttributes"?: { [key: string]: { [key: string]: any } };
 }
 
 export namespace CreateOpensearchClusterDetails {
@@ -199,6 +212,9 @@ export namespace CreateOpensearchClusterDetails {
           : undefined,
         "maintenanceDetails": obj.maintenanceDetails
           ? model.CreateMaintenanceDetails.getJsonObj(obj.maintenanceDetails)
+          : undefined,
+        "certificateConfig": obj.certificateConfig
+          ? model.CertificateConfig.getJsonObj(obj.certificateConfig)
           : undefined
       }
     };
@@ -221,6 +237,9 @@ export namespace CreateOpensearchClusterDetails {
           : undefined,
         "maintenanceDetails": obj.maintenanceDetails
           ? model.CreateMaintenanceDetails.getDeserializedJsonObj(obj.maintenanceDetails)
+          : undefined,
+        "certificateConfig": obj.certificateConfig
+          ? model.CertificateConfig.getDeserializedJsonObj(obj.certificateConfig)
           : undefined
       }
     };

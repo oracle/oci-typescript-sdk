@@ -81,6 +81,14 @@ Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
    *
    */
   "doesUseSecretIds"?: boolean;
+  /**
+    * Security attributes for this resource. Each key is predefined and scoped to a namespace.
+* For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
+* <p>
+Example: {@code {\"Oracle-ZPR\": {\"MaxEgressCount\": {\"value\": \"42\", \"mode\": \"enforce\"}}}}
+* 
+    */
+  "securityAttributes"?: { [key: string]: { [key: string]: any } };
 
   "connectionType": string;
 }
@@ -129,6 +137,11 @@ export namespace UpdateConnectionDetails {
         case "GOOGLE_CLOUD_STORAGE":
           return model.UpdateGoogleCloudStorageConnectionDetails.getJsonObj(
             <model.UpdateGoogleCloudStorageConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_AI_DATA_PLATFORM":
+          return model.UpdateOracleAiDataPlatformConnectionDetails.getJsonObj(
+            <model.UpdateOracleAiDataPlatformConnectionDetails>(<object>jsonObj),
             true
           );
         case "MICROSOFT_FABRIC":
@@ -280,6 +293,11 @@ export namespace UpdateConnectionDetails {
         case "GOOGLE_CLOUD_STORAGE":
           return model.UpdateGoogleCloudStorageConnectionDetails.getDeserializedJsonObj(
             <model.UpdateGoogleCloudStorageConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_AI_DATA_PLATFORM":
+          return model.UpdateOracleAiDataPlatformConnectionDetails.getDeserializedJsonObj(
+            <model.UpdateOracleAiDataPlatformConnectionDetails>(<object>jsonObj),
             true
           );
         case "MICROSOFT_FABRIC":

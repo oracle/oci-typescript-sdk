@@ -211,6 +211,25 @@ Example: {@code {orcl-cloud: {free-tier-retain: true}}}
    */
   "isStorageUtilizationLimitExceeded"?: boolean;
   /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subscription with which resource needs to be associated with.
+   */
+  "subscriptionId"?: string;
+  /**
+   * The OCID(/Content/General/Concepts/identifiers.htm) of the cluster placement group for the resource.
+   * Only applicable for multicloud subscriptions. The cluster placement group id must be provided when a multicloud
+   * subscription id is provided. Otherwise the cluster placement group must not be provided.
+   *
+   */
+  "clusterPlacementGroupId"?: string;
+  /**
+    * Security attributes for this resource. Each key is predefined and scoped to a namespace.
+* For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
+* <p>
+Example: {@code {\"Oracle-ZPR\": {\"MaxEgressCount\": {\"value\": \"42\", \"mode\": \"enforce\"}}}}
+* 
+    */
+  "securityAttributes"?: { [key: string]: { [key: string]: any } };
+  /**
    * Locks associated with this resource.
    */
   "locks"?: Array<model.ResourceLock>;

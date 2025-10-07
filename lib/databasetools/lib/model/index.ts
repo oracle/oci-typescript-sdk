@@ -143,6 +143,10 @@ import * as DatabaseToolsUserPasswordDetails from "./database-tools-user-passwor
 export import DatabaseToolsUserPasswordDetails = DatabaseToolsUserPasswordDetails.DatabaseToolsUserPasswordDetails;
 import * as DatabaseToolsUserPasswordSummary from "./database-tools-user-password-summary";
 export import DatabaseToolsUserPasswordSummary = DatabaseToolsUserPasswordSummary.DatabaseToolsUserPasswordSummary;
+import * as DbmsCloudStatus from "./dbms-cloud-status";
+export import DbmsCloudStatus = DbmsCloudStatus.DbmsCloudStatus;
+import * as IdentityType from "./identity-type";
+export import IdentityType = IdentityType.IdentityType;
 import * as KeyStoreType from "./key-store-type";
 export import KeyStoreType = KeyStoreType.KeyStoreType;
 import * as KeyStoreTypeGenericJdbc from "./key-store-type-generic-jdbc";

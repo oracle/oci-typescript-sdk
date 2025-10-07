@@ -34,11 +34,6 @@ export interface ListStackResourceDriftDetailsRequest extends common.BaseRequest
   "workRequestId"?: string;
   /**
    * A filter that returns only resources that match the given drift status. The value is case-insensitive.
-   * Allowable values -
-   *   - NOT_CHECKED
-   *   - MODIFIED
-   *   - IN_SYNC
-   *   - DELETED
    *
    */
   "resourceDriftStatus"?: Array<model.StackResourceDriftSummary.ResourceDriftStatus>;

@@ -4624,6 +4624,99 @@ export class DatabaseClient {
   }
 
   /**
+     * Performs transition from standby database into a snapshot standby and vice versa.
+* The transition performed based on the current role of the database, if the current role is standby then this operation will convert it to snapshot standby and if the current role is snapshot standby then this operation will convert it to standby.
+* <p>
+This operation should be performed on respective standby/snapshot standby database.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param ConvertStandbyDatabaseTypeRequest
+     * @return ConvertStandbyDatabaseTypeResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ConvertStandbyDatabaseType.ts.html |here} to see how to use ConvertStandbyDatabaseType API.
+     */
+  public async convertStandbyDatabaseType(
+    convertStandbyDatabaseTypeRequest: requests.ConvertStandbyDatabaseTypeRequest
+  ): Promise<responses.ConvertStandbyDatabaseTypeResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#convertStandbyDatabaseType.");
+    const operationName = "convertStandbyDatabaseType";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/Database/ConvertStandbyDatabaseType";
+    const pathParams = {
+      "{databaseId}": convertStandbyDatabaseTypeRequest.databaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": convertStandbyDatabaseTypeRequest.opcRetryToken,
+      "opc-request-id": convertStandbyDatabaseTypeRequest.opcRequestId,
+      "if-match": convertStandbyDatabaseTypeRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      convertStandbyDatabaseTypeRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databases/{databaseId}/dataGuard/actions/convertStandbyDatabaseType",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        convertStandbyDatabaseTypeRequest.convertStandbyDatabaseTypeDetails,
+        "ConvertStandbyDatabaseTypeDetails",
+        model.ConvertStandbyDatabaseTypeDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ConvertStandbyDatabaseTypeResponse>{},
+        body: await response.json(),
+        bodyKey: "database",
+        bodyModel: model.Database,
+        type: "model.Database",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Converts a non-container database to a pluggable database.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
