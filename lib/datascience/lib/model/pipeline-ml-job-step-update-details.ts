@@ -19,6 +19,12 @@ import common = require("oci-common");
  * The type of step where the job is pre-created by the user.
  */
 export interface PipelineMLJobStepUpdateDetails extends model.PipelineStepUpdateDetails {
+  /**
+   * Name used when creating the steprun.
+   */
+  "stepRunName"?: string;
+  "stepParameters"?: model.PipelineDefaultStepParameterDetails;
+
   "stepType": string;
 }
 
@@ -31,7 +37,11 @@ export namespace PipelineMLJobStepUpdateDetails {
       ...(isParentJsonObj
         ? obj
         : (model.PipelineStepUpdateDetails.getJsonObj(obj) as PipelineMLJobStepUpdateDetails)),
-      ...{}
+      ...{
+        "stepParameters": obj.stepParameters
+          ? model.PipelineStepParameterDetails.getJsonObj(obj.stepParameters)
+          : undefined
+      }
     };
 
     return jsonObj;
@@ -47,7 +57,11 @@ export namespace PipelineMLJobStepUpdateDetails {
         : (model.PipelineStepUpdateDetails.getDeserializedJsonObj(
             obj
           ) as PipelineMLJobStepUpdateDetails)),
-      ...{}
+      ...{
+        "stepParameters": obj.stepParameters
+          ? model.PipelineStepParameterDetails.getDeserializedJsonObj(obj.stepParameters)
+          : undefined
+      }
     };
 
     return jsonObj;

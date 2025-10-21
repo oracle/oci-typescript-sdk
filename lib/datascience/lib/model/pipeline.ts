@@ -63,6 +63,10 @@ export interface Pipeline {
    */
   "storageMountConfigurationDetailsList"?: Array<model.StorageMountConfigurationDetails>;
   /**
+   * Parameters used in the pipeline.
+   */
+  "parameters"?: { [key: string]: string };
+  /**
    * Array of step details for each step.
    */
   "stepDetails": Array<model.PipelineStepDetails>;
@@ -115,6 +119,7 @@ export namespace Pipeline {
               return model.StorageMountConfigurationDetails.getJsonObj(item);
             })
           : undefined,
+
         "stepDetails": obj.stepDetails
           ? obj.stepDetails.map(item => {
               return model.PipelineStepDetails.getJsonObj(item);
@@ -147,6 +152,7 @@ export namespace Pipeline {
               return model.StorageMountConfigurationDetails.getDeserializedJsonObj(item);
             })
           : undefined,
+
         "stepDetails": obj.stepDetails
           ? obj.stepDetails.map(item => {
               return model.PipelineStepDetails.getDeserializedJsonObj(item);

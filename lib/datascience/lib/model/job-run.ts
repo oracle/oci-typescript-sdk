@@ -69,6 +69,10 @@ export interface JobRun {
    * Collection of JobStorageMountConfigurationDetails.
    */
   "jobStorageMountConfigurationDetailsList"?: Array<model.StorageMountConfigurationDetails>;
+  /**
+   * Collection of JobStorageMountConfigurationDetails.
+   */
+  "jobStorageMountConfigurationOverrideDetailsList"?: Array<model.StorageMountConfigurationDetails>;
   "logDetails"?: model.JobRunLogDetails;
   "jobInfrastructureConfigurationOverrideDetails"?:
     | model.MultiNodeJobInfrastructureConfigurationDetails
@@ -128,6 +132,11 @@ export namespace JobRun {
               return model.StorageMountConfigurationDetails.getJsonObj(item);
             })
           : undefined,
+        "jobStorageMountConfigurationOverrideDetailsList": obj.jobStorageMountConfigurationOverrideDetailsList
+          ? obj.jobStorageMountConfigurationOverrideDetailsList.map(item => {
+              return model.StorageMountConfigurationDetails.getJsonObj(item);
+            })
+          : undefined,
         "logDetails": obj.logDetails
           ? model.JobRunLogDetails.getJsonObj(obj.logDetails)
           : undefined,
@@ -175,6 +184,11 @@ export namespace JobRun {
           : undefined,
         "jobStorageMountConfigurationDetailsList": obj.jobStorageMountConfigurationDetailsList
           ? obj.jobStorageMountConfigurationDetailsList.map(item => {
+              return model.StorageMountConfigurationDetails.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "jobStorageMountConfigurationOverrideDetailsList": obj.jobStorageMountConfigurationOverrideDetailsList
+          ? obj.jobStorageMountConfigurationOverrideDetailsList.map(item => {
               return model.StorageMountConfigurationDetails.getDeserializedJsonObj(item);
             })
           : undefined,

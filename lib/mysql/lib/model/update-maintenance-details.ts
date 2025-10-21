@@ -33,6 +33,30 @@ If you set the read replica maintenance window to \"\", the read replica is set 
 * 
     */
   "windowStartTime"?: string;
+  /**
+    * The preferred version to target when performing an automatic MySQL upgrade. Defaults to OLDEST.
+* <p>
+OLDEST: Choose the oldest available MySQL version based on the current version of the DB System.
+* SECOND_NEWEST: Choose the MySQL version before the newest for auto-upgrade.
+* NEWEST: Choose the latest and greatest MySQL version available for auto-upgrade.
+* 
+    */
+  "versionPreference"?: model.VersionPreference;
+  /**
+   * The preferred version track to target when performing an automatic MySQL upgrade. Defaults to FOLLOW.
+   * LONG_TERM_SUPPORT: No MySQL database behavior changes.
+   * INNOVATION:        Provides access to the latest features and all bug fixes.
+   * FOLLOW:            Follows the track of the current MySQL version.
+   *
+   */
+  "versionTrackPreference"?: model.VersionTrackPreference;
+  /**
+   * The maintenance schedule type of the DB system. Defaults to REGULAR.
+   * EARLY:   Maintenance schedule follows a cycle where upgrades are performed when versions become deprecated.
+   * REGULAR: Maintenance schedule follows the normal cycle where upgrades are performed when versions become unavailable.
+   *
+   */
+  "maintenanceScheduleType"?: model.MaintenanceScheduleType;
 }
 
 export namespace UpdateMaintenanceDetails {
