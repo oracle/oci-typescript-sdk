@@ -23,6 +23,11 @@ export interface PipelineMLJobStepDetails extends model.PipelineStepDetails {
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the job to be used as a step.
    */
   "jobId": string;
+  /**
+   * Name used when creating the steprun.
+   */
+  "stepRunName"?: string;
+  "stepParameters"?: model.PipelineDefaultStepParameterDetails;
 
   "stepType": string;
 }
@@ -33,7 +38,11 @@ export namespace PipelineMLJobStepDetails {
       ...(isParentJsonObj
         ? obj
         : (model.PipelineStepDetails.getJsonObj(obj) as PipelineMLJobStepDetails)),
-      ...{}
+      ...{
+        "stepParameters": obj.stepParameters
+          ? model.PipelineStepParameterDetails.getJsonObj(obj.stepParameters)
+          : undefined
+      }
     };
 
     return jsonObj;
@@ -47,7 +56,11 @@ export namespace PipelineMLJobStepDetails {
       ...(isParentJsonObj
         ? obj
         : (model.PipelineStepDetails.getDeserializedJsonObj(obj) as PipelineMLJobStepDetails)),
-      ...{}
+      ...{
+        "stepParameters": obj.stepParameters
+          ? model.PipelineStepParameterDetails.getDeserializedJsonObj(obj.stepParameters)
+          : undefined
+      }
     };
 
     return jsonObj;

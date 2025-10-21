@@ -63,7 +63,8 @@ Example: {@code CN=Group,DC=domain,DC=com}
 
 export namespace CreateLdapIdmapDetails {
   export enum SchemaType {
-    Rfc2307 = "RFC2307"
+    Rfc2307 = "RFC2307",
+    Rfc2307Bis = "RFC2307BIS"
   }
 
   export function getJsonObj(obj: CreateLdapIdmapDetails): object {

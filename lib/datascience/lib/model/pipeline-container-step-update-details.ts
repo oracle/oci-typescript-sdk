@@ -24,6 +24,7 @@ export interface PipelineContainerStepUpdateDetails extends model.PipelineStepUp
    * The storage mount details to mount to the instance running the pipeline step.
    */
   "stepStorageMountConfigurationDetailsList"?: Array<model.StorageMountConfigurationDetails>;
+  "stepParameters"?: model.PipelineDefaultStepParameterDetails;
 
   "stepType": string;
 }
@@ -47,6 +48,9 @@ export namespace PipelineContainerStepUpdateDetails {
           ? obj.stepStorageMountConfigurationDetailsList.map(item => {
               return model.StorageMountConfigurationDetails.getJsonObj(item);
             })
+          : undefined,
+        "stepParameters": obj.stepParameters
+          ? model.PipelineStepParameterDetails.getJsonObj(obj.stepParameters)
           : undefined
       }
     };
@@ -74,6 +78,9 @@ export namespace PipelineContainerStepUpdateDetails {
           ? obj.stepStorageMountConfigurationDetailsList.map(item => {
               return model.StorageMountConfigurationDetails.getDeserializedJsonObj(item);
             })
+          : undefined,
+        "stepParameters": obj.stepParameters
+          ? model.PipelineStepParameterDetails.getDeserializedJsonObj(obj.stepParameters)
           : undefined
       }
     };

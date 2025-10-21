@@ -360,8 +360,12 @@ import * as PipelineStepConfigurationDetails from "./pipeline-step-configuration
 export import PipelineStepConfigurationDetails = PipelineStepConfigurationDetails.PipelineStepConfigurationDetails;
 import * as PipelineStepDetails from "./pipeline-step-details";
 export import PipelineStepDetails = PipelineStepDetails.PipelineStepDetails;
+import * as PipelineStepOutputParameterDetails from "./pipeline-step-output-parameter-details";
+export import PipelineStepOutputParameterDetails = PipelineStepOutputParameterDetails.PipelineStepOutputParameterDetails;
 import * as PipelineStepOverrideDetails from "./pipeline-step-override-details";
 export import PipelineStepOverrideDetails = PipelineStepOverrideDetails.PipelineStepOverrideDetails;
+import * as PipelineStepParameterDetails from "./pipeline-step-parameter-details";
+export import PipelineStepParameterDetails = PipelineStepParameterDetails.PipelineStepParameterDetails;
 import * as PipelineStepRun from "./pipeline-step-run";
 export import PipelineStepRun = PipelineStepRun.PipelineStepRun;
 import * as PipelineStepUpdateDetails from "./pipeline-step-update-details";
@@ -609,6 +613,10 @@ import * as PipelineDataflowStepUpdateDetails from "./pipeline-dataflow-step-upd
 export import PipelineDataflowStepUpdateDetails = PipelineDataflowStepUpdateDetails.PipelineDataflowStepUpdateDetails;
 import * as PipelineDefaultConfigurationDetails from "./pipeline-default-configuration-details";
 export import PipelineDefaultConfigurationDetails = PipelineDefaultConfigurationDetails.PipelineDefaultConfigurationDetails;
+import * as PipelineDefaultStepParameterDetails from "./pipeline-default-step-parameter-details";
+export import PipelineDefaultStepParameterDetails = PipelineDefaultStepParameterDetails.PipelineDefaultStepParameterDetails;
+import * as PipelineJsonStepOutputParameterDetails from "./pipeline-json-step-output-parameter-details";
+export import PipelineJsonStepOutputParameterDetails = PipelineJsonStepOutputParameterDetails.PipelineJsonStepOutputParameterDetails;
 import * as PipelineMLJobStepDetails from "./pipeline-ml-job-step-details";
 export import PipelineMLJobStepDetails = PipelineMLJobStepDetails.PipelineMLJobStepDetails;
 import * as PipelineMLJobStepRun from "./pipeline-ml-job-step-run";

@@ -48,6 +48,10 @@ export interface CreateJobRunDetails {
     | model.StandaloneJobInfrastructureConfigurationDetails;
   "jobNodeConfigurationOverrideDetails"?: model.MultiNodeJobNodeConfigurationDetails;
   /**
+   * Collection of JobStorageMountConfigurationDetails.
+   */
+  "jobStorageMountConfigurationOverrideDetailsList"?: Array<model.StorageMountConfigurationDetails>;
+  /**
    * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace. See [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
    * Example: {@code {\"Department\": \"Finance\"}}
    *
@@ -84,6 +88,11 @@ export namespace CreateJobRunDetails {
           : undefined,
         "jobNodeConfigurationOverrideDetails": obj.jobNodeConfigurationOverrideDetails
           ? model.JobNodeConfigurationDetails.getJsonObj(obj.jobNodeConfigurationOverrideDetails)
+          : undefined,
+        "jobStorageMountConfigurationOverrideDetailsList": obj.jobStorageMountConfigurationOverrideDetailsList
+          ? obj.jobStorageMountConfigurationOverrideDetailsList.map(item => {
+              return model.StorageMountConfigurationDetails.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -118,6 +127,11 @@ export namespace CreateJobRunDetails {
           ? model.JobNodeConfigurationDetails.getDeserializedJsonObj(
               obj.jobNodeConfigurationOverrideDetails
             )
+          : undefined,
+        "jobStorageMountConfigurationOverrideDetailsList": obj.jobStorageMountConfigurationOverrideDetailsList
+          ? obj.jobStorageMountConfigurationOverrideDetailsList.map(item => {
+              return model.StorageMountConfigurationDetails.getDeserializedJsonObj(item);
+            })
           : undefined
       }
     };

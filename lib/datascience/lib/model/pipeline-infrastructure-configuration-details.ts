@@ -34,6 +34,12 @@ export interface PipelineInfrastructureConfigurationDetails {
    */
   "subnetId"?: string;
   "shapeConfigDetails"?: model.PipelineShapeConfigDetails;
+  /**
+   * The size of the block storage volume to attach to the pipeline step run instance specified as a parameter. This overrides the blockStorageSizeInGBs value.
+   * The request will fail if the parameters used are null or invalid.
+   *
+   */
+  "blockStorageSizeInGBsParameterized"?: string;
 }
 
 export namespace PipelineInfrastructureConfigurationDetails {

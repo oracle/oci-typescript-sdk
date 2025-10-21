@@ -23,6 +23,10 @@ export interface PipelineMLJobStepRun extends model.PipelineStepRun {
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the job run triggered for this step run.
    */
   "jobRunId"?: string;
+  /**
+   * Name used when creating the steprun.
+   */
+  "stepRunName"?: string;
 
   "stepType": string;
 }

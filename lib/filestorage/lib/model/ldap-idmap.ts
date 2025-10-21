@@ -64,6 +64,7 @@ Example: {@code CN=Group,DC=domain,DC=com}
 export namespace LdapIdmap {
   export enum SchemaType {
     Rfc2307 = "RFC2307",
+    Rfc2307Bis = "RFC2307BIS",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

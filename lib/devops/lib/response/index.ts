@@ -253,6 +253,8 @@ import * as SummarizeRepositoryAnalyticsResponse from "./summarize-repository-an
 export import SummarizeRepositoryAnalyticsResponse = SummarizeRepositoryAnalyticsResponse.SummarizeRepositoryAnalyticsResponse;
 import * as SyncRepositoryResponse from "./sync-repository-response";
 export import SyncRepositoryResponse = SyncRepositoryResponse.SyncRepositoryResponse;
+import * as TriggerDeploymentDryRunResponse from "./trigger-deployment-dry-run-response";
+export import TriggerDeploymentDryRunResponse = TriggerDeploymentDryRunResponse.TriggerDeploymentDryRunResponse;
 import * as UnlikePullRequestCommentResponse from "./unlike-pull-request-comment-response";
 export import UnlikePullRequestCommentResponse = UnlikePullRequestCommentResponse.UnlikePullRequestCommentResponse;
 import * as UnsubscribePullRequestResponse from "./unsubscribe-pull-request-response";
