@@ -29,6 +29,7 @@ export interface PipelineContainerStepDetails extends model.PipelineStepDetails 
    * A flag to indicate whether the artifact has been uploaded for this step or not.
    */
   "isArtifactUploaded"?: boolean;
+  "stepParameters"?: model.PipelineDefaultStepParameterDetails;
 
   "stepType": string;
 }
@@ -54,6 +55,10 @@ export namespace PipelineContainerStepDetails {
           ? obj.stepStorageMountConfigurationDetailsList.map(item => {
               return model.StorageMountConfigurationDetails.getJsonObj(item);
             })
+          : undefined,
+
+        "stepParameters": obj.stepParameters
+          ? model.PipelineStepParameterDetails.getJsonObj(obj.stepParameters)
           : undefined
       }
     };
@@ -84,6 +89,10 @@ export namespace PipelineContainerStepDetails {
           ? obj.stepStorageMountConfigurationDetailsList.map(item => {
               return model.StorageMountConfigurationDetails.getDeserializedJsonObj(item);
             })
+          : undefined,
+
+        "stepParameters": obj.stepParameters
+          ? model.PipelineStepParameterDetails.getDeserializedJsonObj(obj.stepParameters)
           : undefined
       }
     };

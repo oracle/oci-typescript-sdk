@@ -10078,6 +10078,81 @@ export class DevopsClient {
   }
 
   /**
+   * Sends a request to trigger a dry run, passing a HelmDiffArgumentCollection This is an internal-only endpoint, access to this endpoint is restricted.  Any request from non-internal tenancies will receive 403 Forbidden response.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param TriggerDeploymentDryRunRequest
+   * @return TriggerDeploymentDryRunResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/TriggerDeploymentDryRun.ts.html |here} to see how to use TriggerDeploymentDryRun API.
+   */
+  public async triggerDeploymentDryRun(
+    triggerDeploymentDryRunRequest: requests.TriggerDeploymentDryRunRequest
+  ): Promise<responses.TriggerDeploymentDryRunResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#triggerDeploymentDryRun.");
+    const operationName = "triggerDeploymentDryRun";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/TriggerDryRunResult/TriggerDeploymentDryRun";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": triggerDeploymentDryRunRequest.opcRetryToken,
+      "opc-request-id": triggerDeploymentDryRunRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      triggerDeploymentDryRunRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/deployments/actions/triggerDryRun",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        triggerDeploymentDryRunRequest.triggerDeploymentDryRunDetails,
+        "TriggerDeploymentDryRunDetails",
+        model.TriggerDeploymentDryRunDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.TriggerDeploymentDryRunResponse>{},
+        body: await response.json(),
+        bodyKey: "triggerDryRunResult",
+        bodyModel: model.TriggerDryRunResult,
+        type: "model.TriggerDryRunResult",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Unlike a PullRequest comment
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.

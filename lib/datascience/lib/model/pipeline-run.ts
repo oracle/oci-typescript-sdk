@@ -64,6 +64,14 @@ export interface PipelineRun {
   "logConfigurationOverrideDetails"?: model.PipelineLogConfigurationDetails;
   "infrastructureConfigurationOverrideDetails"?: model.PipelineInfrastructureConfigurationDetails;
   /**
+   * The storage mount override details to mount to the instance running the pipeline step.
+   */
+  "storageMountConfigurationOverrideDetailsList"?: Array<model.StorageMountConfigurationDetails>;
+  /**
+   * Parameters override used in the pipeline run.
+   */
+  "parametersOverride"?: { [key: string]: string };
+  /**
    * Array of step override details. Only Step Configuration is allowed to be overridden.
    */
   "stepOverrideDetails"?: Array<model.PipelineStepOverrideDetails>;
@@ -119,6 +127,12 @@ export namespace PipelineRun {
               obj.infrastructureConfigurationOverrideDetails
             )
           : undefined,
+        "storageMountConfigurationOverrideDetailsList": obj.storageMountConfigurationOverrideDetailsList
+          ? obj.storageMountConfigurationOverrideDetailsList.map(item => {
+              return model.StorageMountConfigurationDetails.getJsonObj(item);
+            })
+          : undefined,
+
         "stepOverrideDetails": obj.stepOverrideDetails
           ? obj.stepOverrideDetails.map(item => {
               return model.PipelineStepOverrideDetails.getJsonObj(item);
@@ -159,6 +173,12 @@ export namespace PipelineRun {
               obj.infrastructureConfigurationOverrideDetails
             )
           : undefined,
+        "storageMountConfigurationOverrideDetailsList": obj.storageMountConfigurationOverrideDetailsList
+          ? obj.storageMountConfigurationOverrideDetailsList.map(item => {
+              return model.StorageMountConfigurationDetails.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
         "stepOverrideDetails": obj.stepOverrideDetails
           ? obj.stepOverrideDetails.map(item => {
               return model.PipelineStepOverrideDetails.getDeserializedJsonObj(item);
