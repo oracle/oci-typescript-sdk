@@ -16,11 +16,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Result of List Autonomous Database Software Images.
+ * Result of List Autonomous AI Database Software Images.
  */
 export interface AutonomousDatabaseSoftwareImageCollection {
   /**
-   * List of Autonomous Database Software Images.
+   * List of Autonomous AI Database Software Images.
    */
   "items": Array<model.AutonomousDatabaseSoftwareImageSummary>;
 }

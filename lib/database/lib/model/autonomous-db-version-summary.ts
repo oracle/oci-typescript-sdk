@@ -16,23 +16,24 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The supported Autonomous Database version.
+ * The supported Autonomous AI Database version.
  *
  */
 export interface AutonomousDbVersionSummary {
   /**
-   * A valid Oracle Database version for Autonomous Database.
+   * A valid Oracle AI Database version for Autonomous AI Database.
    */
   "version": string;
   /**
-    * The Autonomous Database workload type. The following values are valid:
+    * The Autonomous AI Database workload type. The following values are valid:
+* - OLTP - indicates an Autonomous AI Transaction Processing database
+* - DW - indicates an Autonomous AI Lakehouse database
+* - AJD - indicates an Autonomous AI JSON Database
+* - APEX - indicates an Autonomous AI Database with the Oracle APEX AI Application Development workload type.
+* - LH - indicates an Oracle Autonomous AI Lakehouse database
 * <p>
-- OLTP - indicates an Autonomous Transaction Processing database
-* - DW - indicates an Autonomous Data Warehouse database
-* - AJD - indicates an Autonomous JSON Database
-* - APEX - indicates an Autonomous Database with the Oracle APEX Application Development workload type.
-* <p>
-This cannot be updated in parallel with any of the following: licenseModel, dbEdition, cpuCoreCount, computeCount, computeModel, adminPassword, whitelistedIps, isMTLSConnectionRequired, privateEndpointLabel, nsgIds, dbVersion, isRefreshable, dbName, scheduledOperations, dbToolsDetails, isLocalDataGuardEnabled, or isFreeTier.
+
+* This cannot be updated in parallel with any of the following: licenseModel, dbEdition, cpuCoreCount, computeCount, computeModel, adminPassword, whitelistedIps, isMTLSConnectionRequired, privateEndpointLabel, nsgIds, dbVersion, isRefreshable, dbName, scheduledOperations, dbToolsDetails, isLocalDataGuardEnabled, or isFreeTier.
 * 
     */
   "dbWorkload"?: AutonomousDbVersionSummary.DbWorkload;
@@ -42,27 +43,27 @@ This cannot be updated in parallel with any of the following: licenseModel, dbEd
    */
   "isDedicated"?: boolean;
   /**
-   * A URL that points to a detailed description of the Autonomous Database version.
+   * A URL that points to a detailed description of the Autonomous AI Database version.
    */
   "details"?: string;
   /**
-   * True if this version of the Oracle Database software can be used for Always-Free Autonomous Databases.
+   * True if this version of the Oracle AI Database software can be used for Always-Free Autonomous AI Databases.
    */
   "isFreeTierEnabled"?: boolean;
   /**
-   * True if this Oracle Database software version can be used for Autonomous Databases for Developers.
+   * True if this Oracle AI Database software version can be used for Autonomous AI Databases for Developers.
    */
   "isDevTierEnabled"?: boolean;
   /**
-   * True if this version of the Oracle Database software has payments enabled.
+   * True if this version of the Oracle AI Database software has payments enabled.
    */
   "isPaidEnabled"?: boolean;
   /**
-   * True if this version of the Oracle Database software's default is free.
+   * True if this version of the Oracle AI Database software's default is free.
    */
   "isDefaultForFree"?: boolean;
   /**
-   * True if this version of the Oracle Database software's default is paid.
+   * True if this version of the Oracle AI Database software's default is paid.
    */
   "isDefaultForPaid"?: boolean;
 }
@@ -73,6 +74,7 @@ export namespace AutonomousDbVersionSummary {
     Dw = "DW",
     Ajd = "AJD",
     Apex = "APEX",
+    Lh = "LH",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ChangeAutonomousDatabaseCompartmentRequest extends common.BaseRequest {
   /**
-   * Request to move Autonomous Database to a different compartment
+   * Request to move Autonomous AI Database to a different compartment
    */
   "changeCompartmentDetails": model.ChangeCompartmentDetails;
   /**

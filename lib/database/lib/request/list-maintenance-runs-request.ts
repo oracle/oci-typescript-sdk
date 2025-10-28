@@ -43,7 +43,7 @@ export interface ListMaintenanceRunsRequest extends common.BaseRequest {
    */
   "page"?: string;
   /**
-   * A filter to return the maintenance history results for the local standby Autonomous Database Serverless only.
+   * A filter to return the maintenance history results for the local standby Autonomous AI Database Serverless only.
    */
   "isLocalAdg"?: boolean;
   /**

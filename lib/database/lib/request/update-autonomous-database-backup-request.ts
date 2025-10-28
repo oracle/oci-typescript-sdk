@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface UpdateAutonomousDatabaseBackupRequest extends common.BaseRequest {
   /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Autonomous Database backup.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Autonomous AI Database backup.
    */
   "autonomousDatabaseBackupId": string;
   /**
-   * Request to update an existing Autonomous Database backup.
+   * Request to update an existing Autonomous AI Database backup.
    */
   "updateAutonomousDatabaseBackupDetails": model.UpdateAutonomousDatabaseBackupDetails;
   /**

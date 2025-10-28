@@ -62,6 +62,25 @@ export class DatabaseToolsWaiter {
   }
 
   /**
+   * Waits forDatabaseToolsIdentity till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetDatabaseToolsIdentityResponse | null (null in case of 404 response)
+   */
+  public async forDatabaseToolsIdentity(
+    request: serviceRequests.GetDatabaseToolsIdentityRequest,
+    ...targetStates: models.DatabaseToolsIdentityLifecycleState[]
+  ): Promise<serviceResponses.GetDatabaseToolsIdentityResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getDatabaseToolsIdentity(request),
+      response => targetStates.includes(response.databaseToolsIdentity.lifecycleState!),
+      targetStates.includes(models.DatabaseToolsIdentityLifecycleState.Deleted)
+    );
+  }
+
+  /**
    * Waits forDatabaseToolsPrivateEndpoint till it reaches any of the provided states
    *
    * @param request the request to send

@@ -103,6 +103,17 @@ Example: {@code {\"Oracle-DataSecurity-ZPR\": {\"MaxEgressCount\": {\"value\":\"
    */
   "nsgIds"?: Array<string>;
   /**
+   * One of the IPv4 CIDR blocks allocated to the subnet. Represents the IP range
+   * from which the VNIC's private IP address will be assigned if {@code privateIp} or
+   * {@code privateIpId} is not specified.
+   * Either this field or the {@code privateIp} (or {@code privateIpId}, if applicable) field
+   * must be provided, but not both simultaneously.
+   * Example: {@code 192.168.1.0/28}
+   * See the {@code subnetCidr} attribute of {@link CreateVnicDetails} for more information.
+   *
+   */
+  "subnetCidr"?: string;
+  /**
    * A private IP address of your choice to assign to the VNIC.
    * See the {@code privateIp} attribute of {@link CreateVnicDetails} for more information.
    *

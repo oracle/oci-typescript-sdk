@@ -16,12 +16,12 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The supported Autonomous Database version.
+ * The supported Autonomous AI Database version.
  *
  */
 export interface AutonomousContainerDatabaseVersionSummary {
   /**
-   * A valid Oracle Database version for provisioning an Autonomous Container Database.
+   * A valid Oracle AI Database version for provisioning an Autonomous Container Database.
    */
   "version": string;
   /**

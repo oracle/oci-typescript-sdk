@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface UpdateAutonomousDatabaseRegionalWalletRequest extends common.BaseRequest {
   /**
-   * Request to update the properties of Autonomous Database regional wallet.
+   * Request to update the properties of Autonomous AI Database regional wallet.
    */
   "updateAutonomousDatabaseWalletDetails": model.UpdateAutonomousDatabaseWalletDetails;
   /**

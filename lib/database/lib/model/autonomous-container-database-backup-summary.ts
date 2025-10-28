@@ -24,7 +24,7 @@ import common = require("oci-common");
  */
 export interface AutonomousContainerDatabaseBackupSummary {
   /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Autonomous Database backup.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Autonomous AI Database backup.
    */
   "id": string;
   /**
@@ -100,7 +100,7 @@ Example: {@code {\"Department\": \"Finance\"}}
    */
   "systemTags"?: { [key: string]: { [key: string]: any } };
   /**
-   * List of Autonomous Databases that is part of this Autonomous Container Database Backup
+   * List of Autonomous AI Databases that is part of this Autonomous Container Database Backup
    */
   "autonomousDatabases"?: Array<model.AutonomousDatabaseInBackup>;
 }

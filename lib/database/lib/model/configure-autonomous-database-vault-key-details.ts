@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Configuration details for the Autonomous Database [vault](https://docs.oracle.com/iaas/Content/KeyManagement/Concepts/keyoverview.htm#concepts) key.
+ * Configuration details for the Autonomous AI Database [vault](https://docs.oracle.com/iaas/Content/KeyManagement/Concepts/keyoverview.htm#concepts) key.
  */
 export interface ConfigureAutonomousDatabaseVaultKeyDetails {
   /**

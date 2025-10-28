@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
-* Connection strings to connect to an Oracle Autonomous Database.
+* Connection strings to connect to an Oracle Autonomous AI Database.
 * <p>
 Example output for connection strings. See {@link #databaseConnectionStringProfile(DatabaseConnectionStringProfileRequest) databaseConnectionStringProfile} for additional details:
 * <p>
@@ -83,8 +83,8 @@ export interface AutonomousDatabaseConnectionStrings {
    */
   "dedicated"?: string;
   /**
-   * Returns all connection strings that can be used to connect to the Autonomous Database.
-   * For more information, please see [Predefined Database Service Names for Autonomous Transaction Processing](https://docs.oracle.com/en/cloud/paas/atp-cloud/atpug/connect-predefined.html#GUID-9747539B-FD46-44F1-8FF8-F5AC650F15BE)
+   * Returns all connection strings that can be used to connect to the Autonomous AI Database.
+   * For more information, please see [Predefined Database Service Names for Autonomous AI Transaction Processing](https://docs.oracle.com/en/cloud/paas/atp-cloud/atpug/connect-predefined.html#GUID-9747539B-FD46-44F1-8FF8-F5AC650F15BE)
    *
    */
   "allConnectionStrings"?: { [key: string]: string };

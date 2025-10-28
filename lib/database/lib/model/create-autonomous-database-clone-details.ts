@@ -16,16 +16,16 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details to create an Oracle Autonomous Database by cloning an existing Autonomous Database.
+ * Details to create an Oracle Autonomous AI Database by cloning an existing Autonomous AI Database.
  *
  */
 export interface CreateAutonomousDatabaseCloneDetails extends model.CreateAutonomousDatabaseBase {
   /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the source Autonomous Database that you will clone to create a new Autonomous Database.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the source Autonomous AI Database that you will clone to create a new Autonomous AI Database.
    */
   "sourceId": string;
   /**
-   * The Autonomous Database clone type.
+   * The Autonomous AI Database clone type.
    */
   "cloneType": CreateAutonomousDatabaseCloneDetails.CloneType;
 

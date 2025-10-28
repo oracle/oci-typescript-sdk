@@ -48,7 +48,15 @@ a. The CIDR block is valid and correctly formatted.
 Example: {@code 10.0.1.0/24}
 * 
     */
-  "cidrBlock": string;
+  "cidrBlock"?: string;
+  /**
+   * The list of all IPv4 CIDR blocks for the subnet that meets the following criteria:
+   * - Ipv4 CIDR blocks must be valid.
+   * - Multiple Ipv4 CIDR blocks must not overlap each other or the on-premises network CIDR block.
+   * - The number of prefixes must not exceed the limit of IPv4 prefixes allowed to a subnet.
+   *
+   */
+  "ipv4CidrBlocks"?: Array<string>;
   /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment to contain the subnet.
    */

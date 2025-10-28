@@ -16,23 +16,23 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The properties that define dataguard association between two different Autonomous Databases.
- * Note that Autonomous Databases inherit DataGuard association from parent Autonomous Container Database.
+ * The properties that define dataguard association between two different Autonomous AI Databases.
+ * Note that Autonomous AI Databases inherit DataGuard association from parent Autonomous Container Database.
  * No actions can be taken on AutonomousDatabaseDataguardAssociation, usage is strictly informational.
  *
  */
 export interface AutonomousDatabaseDataguardAssociation {
   /**
-   * The OCID of the Autonomous Dataguard created for Autonomous Container Database where given Autonomous Database resides in.
+   * The OCID of the Autonomous Dataguard created for Autonomous Container Database where given Autonomous AI Database resides in.
    */
   "id": string;
   /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Autonomous Database that has a relationship with the peer Autonomous Database.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Autonomous AI Database that has a relationship with the peer Autonomous AI Database.
    *
    */
   "autonomousDatabaseId": string;
   /**
-   * The Data Guard role of the Autonomous Container Database or Autonomous Database, if Autonomous Data Guard is enabled.
+   * The Data Guard role of the Autonomous Container Database or Autonomous AI Database, if Autonomous Data Guard is enabled.
    *
    */
   "role": AutonomousDatabaseDataguardAssociation.Role;
@@ -46,17 +46,17 @@ export interface AutonomousDatabaseDataguardAssociation {
    */
   "lifecycleDetails"?: string;
   /**
-   * The Data Guard role of the Autonomous Container Database or Autonomous Database, if Autonomous Data Guard is enabled.
+   * The Data Guard role of the Autonomous Container Database or Autonomous AI Database, if Autonomous Data Guard is enabled.
    *
    */
   "peerRole": AutonomousDatabaseDataguardAssociation.PeerRole;
   /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the peer Autonomous Database.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the peer Autonomous AI Database.
    *
    */
   "peerAutonomousDatabaseId"?: string;
   /**
-   * The current state of the Autonomous Database.
+   * The current state of the Autonomous AI Database.
    */
   "peerAutonomousDatabaseLifeCycleState"?: AutonomousDatabaseDataguardAssociation.PeerAutonomousDatabaseLifeCycleState;
   /**

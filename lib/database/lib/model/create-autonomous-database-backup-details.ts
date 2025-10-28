@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details to create an Oracle Autonomous Database backup.
+ * Details to create an Oracle Autonomous AI Database backup.
  * <p>
  **Warning:** Oracle recommends that you avoid using any confidential information when you supply string values using the API.
  *
@@ -27,7 +27,7 @@ export interface CreateAutonomousDatabaseBackupDetails {
    */
   "displayName"?: string;
   /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Autonomous Database backup.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Autonomous AI Database backup.
    */
   "autonomousDatabaseId": string;
   /**

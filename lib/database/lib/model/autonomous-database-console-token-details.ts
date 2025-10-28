@@ -16,15 +16,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The token that allows the OCI Console to access the Autonomous Database Service Console.
+ * The token that allows the OCI Console to access the Autonomous AI Database Service Console.
  */
 export interface AutonomousDatabaseConsoleTokenDetails {
   /**
-   * The token that allows the OCI Console to access the Autonomous Transaction Processing Service Console.
+   * The token that allows the OCI Console to access the Autonomous AI Transaction Processing Service Console.
    */
   "token"?: string;
   /**
-   * The login URL that allows the OCI Console to access the Autonomous Transaction Processing Service Console.
+   * The login URL that allows the OCI Console to access the Autonomous AI Transaction Processing Service Console.
    */
   "loginUrl"?: string;
 }

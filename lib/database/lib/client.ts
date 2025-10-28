@@ -425,7 +425,7 @@ export class DatabaseClient {
   }
 
   /**
-   * Makes the storage capacity from additional storage servers available for Cloud VM Cluster consumption. Applies to Exadata Cloud Service instances and Autonomous Database on dedicated Exadata infrastructure only.
+   * Makes the storage capacity from additional storage servers available for Cloud VM Cluster consumption. Applies to Exadata Cloud Service instances and Autonomous AI Database on dedicated Exadata infrastructure only.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param AddStorageCapacityCloudExadataInfrastructureRequest
@@ -782,7 +782,7 @@ export class DatabaseClient {
   }
 
   /**
-   * Initiates a data refresh for an Autonomous Database refreshable clone. Data is refreshed from the source database to the point of a specified timestamp.
+   * Initiates a data refresh for an Autonomous AI Database refreshable clone. Data is refreshed from the source database to the point of a specified timestamp.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param AutonomousDatabaseManualRefreshRequest
@@ -1204,8 +1204,8 @@ export class DatabaseClient {
   }
 
   /**
-   * Move the Autonomous Database and its dependent resources to the specified compartment.
-   * For more information about moving Autonomous Databases, see
+   * Move the Autonomous AI Database and its dependent resources to the specified compartment.
+   * For more information about moving Autonomous AI Databases, see
    * [Moving Database Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Database/Concepts/databaseoverview.htm#moveRes).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -1293,7 +1293,7 @@ export class DatabaseClient {
   }
 
   /**
-   * Move the Autonomous Database Software Image and its dependent resources to the specified compartment.
+   * Move the Autonomous AI Database Software Image and its dependent resources to the specified compartment.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeAutonomousDatabaseSoftwareImageCompartmentRequest
@@ -1383,7 +1383,7 @@ export class DatabaseClient {
   }
 
   /**
-   * Associate an Autonomous Database with a different subscription.
+   * Associate an Autonomous AI Database with a different subscription.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeAutonomousDatabaseSubscriptionRequest
@@ -1975,7 +1975,7 @@ export class DatabaseClient {
   }
 
   /**
-   * Moves a cloud Exadata infrastructure resource and its dependent resources to another compartment. Applies to Exadata Cloud Service instances and Autonomous Database on dedicated Exadata infrastructure only.For more information about moving resources to a different compartment, see [Moving Database Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Database/Concepts/databaseoverview.htm#moveRes).
+   * Moves a cloud Exadata infrastructure resource and its dependent resources to another compartment. Applies to Exadata Cloud Service instances and Autonomous AI Database on dedicated Exadata infrastructure only.For more information about moving resources to a different compartment, see [Moving Database Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Database/Concepts/databaseoverview.htm#moveRes).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeCloudExadataInfrastructureCompartmentRequest
@@ -2575,7 +2575,7 @@ export class DatabaseClient {
   }
 
   /**
-   * This operation updates the cross-region disaster recovery (DR) details of the standby Autonomous Database Serverless database, and must be run on the standby side.
+   * This operation updates the cross-region disaster recovery (DR) details of the standby Autonomous AI Database Serverless database, and must be run on the standby side.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeDisasterRecoveryConfigurationRequest
    * @return ChangeDisasterRecoveryConfigurationResponse
@@ -4098,7 +4098,7 @@ export class DatabaseClient {
   }
 
   /**
-   * Configures the Autonomous Database Vault service [key](https://docs.oracle.com/iaas/Content/KeyManagement/Concepts/keyoverview.htm#concepts).
+   * Configures the Autonomous AI Database Vault service [key](https://docs.oracle.com/iaas/Content/KeyManagement/Concepts/keyoverview.htm#concepts).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ConfigureAutonomousDatabaseVaultKeyRequest
@@ -4365,7 +4365,7 @@ export class DatabaseClient {
   }
 
   /**
-   * This operation updates SaaS administrative user configuration of the Autonomous Database.
+   * This operation updates SaaS administrative user configuration of the Autonomous AI Database.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ConfigureSaasAdminUserRequest
    * @return ConfigureSaasAdminUserResponse
@@ -5254,7 +5254,7 @@ This operation should be performed on respective standby database.
   }
 
   /**
-   * Creates a new Autonomous Database.
+   * Creates a new Autonomous AI Database.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateAutonomousDatabaseRequest
@@ -5342,7 +5342,7 @@ This operation should be performed on respective standby database.
   }
 
   /**
-   * Creates a new Autonomous Database backup for the specified database based on the provided request parameters.
+   * Creates a new Autonomous AI Database backup for the specified database based on the provided request parameters.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateAutonomousDatabaseBackupRequest
@@ -5430,7 +5430,7 @@ This operation should be performed on respective standby database.
   }
 
   /**
-   * create Autonomous Database Software Image in the specified compartment.
+   * create Autonomous AI Database Software Image in the specified compartment.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateAutonomousDatabaseSoftwareImageRequest
@@ -5858,7 +5858,7 @@ This operation should be performed on respective standby database.
   }
 
   /**
-   * Creates a cloud Exadata infrastructure resource. This resource is used to create either an [Exadata Cloud Service](https://docs.oracle.com/iaas/Content/Database/Concepts/exaoverview.htm) instance or an Autonomous Database on dedicated Exadata infrastructure.
+   * Creates a cloud Exadata infrastructure resource. This resource is used to create either an [Exadata Cloud Service](https://docs.oracle.com/iaas/Content/Database/Concepts/exaoverview.htm) instance or an Autonomous AI Database on dedicated Exadata infrastructure.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateCloudExadataInfrastructureRequest
@@ -8545,7 +8545,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   }
 
   /**
-   * Deletes the specified Autonomous Database.
+   * Deletes the specified Autonomous AI Database.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteAutonomousDatabaseRequest
@@ -8700,7 +8700,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   }
 
   /**
-   * Delete an Autonomous Database Software Image
+   * Delete an Autonomous AI Database Software Image
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteAutonomousDatabaseSoftwareImageRequest
    * @return DeleteAutonomousDatabaseSoftwareImageResponse
@@ -9067,7 +9067,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   }
 
   /**
-   * Deletes the cloud Exadata infrastructure resource. Applies to Exadata Cloud Service instances and Autonomous Database on dedicated Exadata infrastructure only.
+   * Deletes the cloud Exadata infrastructure resource. Applies to Exadata Cloud Service instances and Autonomous AI Database on dedicated Exadata infrastructure only.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteCloudExadataInfrastructureRequest
@@ -11001,7 +11001,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   }
 
   /**
-   * Asynchronously deregisters this Autonomous Database with Data Safe.
+   * Asynchronously deregisters this Autonomous AI Database with Data Safe.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeregisterAutonomousDatabaseDataSafeRequest
@@ -11081,7 +11081,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   }
 
   /**
-   * Disables Database Management for the Autonomous Database resource.
+   * Disables Database Management for the Autonomous AI Database resource.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DisableAutonomousDatabaseManagementRequest
@@ -11156,7 +11156,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   }
 
   /**
-   * Disables Operations Insights for the Autonomous Database resource.
+   * Disables Operations Insights for the Autonomous AI Database resource.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DisableAutonomousDatabaseOperationsInsightsRequest
@@ -12521,7 +12521,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   }
 
   /**
-   * Enables Database Management for Autonomous Database.
+   * Enables Database Management for Autonomous AI Database.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param EnableAutonomousDatabaseManagementRequest
@@ -12596,7 +12596,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   }
 
   /**
-   * Enables the specified Autonomous Database with Operations Insights.
+   * Enables the specified Autonomous AI Database with Operations Insights.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param EnableAutonomousDatabaseOperationsInsightsRequest
@@ -13563,7 +13563,7 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   }
 
   /**
-   * Initiates a failover of the specified Autonomous Database to the associated peer database. Applicable only to databases with Disaster Recovery enabled.
+   * Initiates a failover of the specified Autonomous AI Database to the associated peer database. Applicable only to databases with Disaster Recovery enabled.
    * This API should be called in the remote region where the peer database resides.
    * Below parameter is optional:
    *   - `peerDbId`
@@ -14026,7 +14026,7 @@ A failover might result in data loss depending on the protection mode in effect 
   }
 
   /**
-   * Creates and downloads a wallet for the specified Autonomous Database.
+   * Creates and downloads a wallet for the specified Autonomous AI Database.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GenerateAutonomousDatabaseWalletRequest
@@ -14524,7 +14524,7 @@ A failover might result in data loss depending on the protection mode in effect 
   }
 
   /**
-   * Gets the details of the specified Autonomous Database.
+   * Gets the details of the specified Autonomous AI Database.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetAutonomousDatabaseRequest
@@ -14601,7 +14601,7 @@ A failover might result in data loss depending on the protection mode in effect 
   }
 
   /**
-   * Gets information about the specified Autonomous Database backup.
+   * Gets information about the specified Autonomous AI Database backup.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetAutonomousDatabaseBackupRequest
    * @return GetAutonomousDatabaseBackupResponse
@@ -14678,7 +14678,7 @@ A failover might result in data loss depending on the protection mode in effect 
   }
 
   /**
-   * *Deprecated.* Use the {@link #getAutonomousContainerDatabase(GetAutonomousContainerDatabaseRequest) getAutonomousContainerDatabase} operation to gets an Autonomous Data Guard-enabled database associated with the specified Autonomous Database.
+   * *Deprecated.* Use the {@link #getAutonomousContainerDatabase(GetAutonomousContainerDatabaseRequest) getAutonomousContainerDatabase} operation to gets an Autonomous Data Guard-enabled database associated with the specified Autonomous AI Database.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetAutonomousDatabaseDataguardAssociationRequest
@@ -14762,7 +14762,7 @@ A failover might result in data loss depending on the protection mode in effect 
   }
 
   /**
-   * Gets the Autonomous Database regional wallet details.
+   * Gets the Autonomous AI Database regional wallet details.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetAutonomousDatabaseRegionalWalletRequest
@@ -14833,7 +14833,7 @@ A failover might result in data loss depending on the protection mode in effect 
   }
 
   /**
-   * Gets information about the specified Autonomous Database Software Image.
+   * Gets information about the specified Autonomous AI Database Software Image.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetAutonomousDatabaseSoftwareImageRequest
    * @return GetAutonomousDatabaseSoftwareImageResponse
@@ -14911,7 +14911,7 @@ A failover might result in data loss depending on the protection mode in effect 
   }
 
   /**
-   * Gets the wallet details for the specified Autonomous Database.
+   * Gets the wallet details for the specified Autonomous AI Database.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetAutonomousDatabaseWalletRequest
@@ -15681,7 +15681,7 @@ A failover might result in data loss depending on the protection mode in effect 
   }
 
   /**
-   * Gets information about the specified cloud Exadata infrastructure resource. Applies to Exadata Cloud Service instances and Autonomous Database on dedicated Exadata infrastructure only.
+   * Gets information about the specified cloud Exadata infrastructure resource. Applies to Exadata Cloud Service instances and Autonomous AI Database on dedicated Exadata infrastructure only.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetCloudExadataInfrastructureRequest
@@ -19923,7 +19923,7 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
   }
 
   /**
-   * **Deprecated** To create a new Autonomous Database system on dedicated Exadata Infrastructure, use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructureRequest) createCloudExadataInfrastructure} and {@link #createCloudAutonomousVmCluster(CreateCloudAutonomousVmClusterRequest) createCloudAutonomousVmCluster} operations instead. Note that to create an Autonomous VM cluster, you must have an existing Exadata Infrastructure resource to contain the VM cluster.
+   * **Deprecated** To create a new Autonomous AI Database system on dedicated Exadata Infrastructure, use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructureRequest) createCloudExadataInfrastructure} and {@link #createCloudAutonomousVmCluster(CreateCloudAutonomousVmClusterRequest) createCloudAutonomousVmCluster} operations instead. Note that to create an Autonomous VM cluster, you must have an existing Exadata Infrastructure resource to contain the VM cluster.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param LaunchAutonomousExadataInfrastructureRequest
@@ -20751,7 +20751,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   }
 
   /**
-   * Gets a list of Autonomous Database backups based on either the `autonomousDatabaseId` or `compartmentId` specified as a query parameter.
+   * Gets a list of Autonomous AI Database backups based on either the `autonomousDatabaseId` or `compartmentId` specified as a query parameter.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListAutonomousDatabaseBackupsRequest
@@ -20971,7 +20971,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   }
 
   /**
-   * Lists the Autonomous Database clones for the specified Autonomous Database.
+   * Lists the Autonomous AI Database clones for the specified Autonomous AI Database.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListAutonomousDatabaseClonesRequest
@@ -21110,7 +21110,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   }
 
   /**
-   * *Deprecated.* Use the {@link #getAutonomousContainerDatabase(GetAutonomousContainerDatabaseRequest) getAutonomousContainerDatabase} operation to get a list of the Autonomous Data Guard-enabled databases associated with the specified Autonomous Database.
+   * *Deprecated.* Use the {@link #getAutonomousContainerDatabase(GetAutonomousContainerDatabaseRequest) getAutonomousContainerDatabase} operation to get a list of the Autonomous Data Guard-enabled databases associated with the specified Autonomous AI Database.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListAutonomousDatabaseDataguardAssociationsRequest
@@ -21245,7 +21245,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   }
 
   /**
-   * Lists the Autonomous Database peers for the specified Autonomous Database.
+   * Lists the Autonomous AI Database peers for the specified Autonomous AI Database.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListAutonomousDatabasePeersRequest
@@ -21326,7 +21326,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   }
 
   /**
-   * Lists the OCIDs of the Autonomous Database local and connected remote refreshable clones with the region where they exist for the specified source database.
+   * Lists the OCIDs of the Autonomous AI Database local and connected remote refreshable clones with the region where they exist for the specified source database.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListAutonomousDatabaseRefreshableClonesRequest
@@ -21409,7 +21409,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   }
 
   /**
-   * Gets a list of the Autonomous Database Software Images in the specified compartment.
+   * Gets a list of the Autonomous AI Database Software Images in the specified compartment.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListAutonomousDatabaseSoftwareImagesRequest
@@ -21494,7 +21494,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   }
 
   /**
-   * Gets a list of Autonomous Databases based on the query parameters specified.
+   * Gets a list of Autonomous AI Databases based on the query parameters specified.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListAutonomousDatabasesRequest
@@ -21639,8 +21639,8 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   }
 
   /**
-   * Gets a list of supported Autonomous Database versions. Note that preview version software is only available for
-   * Autonomous Database Serverless (https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html) databases.
+   * Gets a list of supported Autonomous AI Database versions. Note that preview version software is only available for
+   * Autonomous AI Database Serverless (https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html) databases.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListAutonomousDbPreviewVersionsRequest
@@ -21774,7 +21774,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   }
 
   /**
-   * Gets a list of supported Autonomous Database versions.
+   * Gets a list of supported Autonomous AI Database versions.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListAutonomousDbVersionsRequest
    * @return ListAutonomousDbVersionsResponse
@@ -23143,7 +23143,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   }
 
   /**
-   * Gets a list of the cloud Exadata infrastructure resources in the specified compartment. Applies to Exadata Cloud Service instances and Autonomous Database on dedicated Exadata infrastructure only.
+   * Gets a list of the cloud Exadata infrastructure resources in the specified compartment. Applies to Exadata Cloud Service instances and Autonomous AI Database on dedicated Exadata infrastructure only.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListCloudExadataInfrastructuresRequest
@@ -29275,7 +29275,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
-   * Lists the OCIDs of the Autonomous Database resource pool members for the specified Autonomous Database leader.
+   * Lists the OCIDs of the Autonomous AI Database resource pool members for the specified Autonomous AI Database leader.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListResourcePoolMembersRequest
@@ -31577,7 +31577,7 @@ This operation should always be performed on primary.
   }
 
   /**
-   * Asynchronously registers this Autonomous Database with Data Safe.
+   * Asynchronously registers this Autonomous AI Database with Data Safe.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param RegisterAutonomousDatabaseDataSafeRequest
@@ -32904,7 +32904,7 @@ This operation should be performed on disabled standby database.
   }
 
   /**
-   * Restarts the specified Autonomous Database.
+   * Restarts the specified Autonomous AI Database.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param RestartAutonomousDatabaseRequest
@@ -32988,7 +32988,7 @@ This operation should be performed on disabled standby database.
   }
 
   /**
-   * Restores an Autonomous Database based on the provided request parameters.
+   * Restores an Autonomous AI Database based on the provided request parameters.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param RestoreAutonomousDatabaseRequest
@@ -33984,7 +33984,7 @@ This operation should be performed on disabled standby database.
   }
 
   /**
-   * This operation gets SaaS administrative user status of the Autonomous Database.
+   * This operation gets SaaS administrative user status of the Autonomous AI Database.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SaasAdminUserStatusRequest
    * @return SaasAdminUserStatusResponse
@@ -34403,7 +34403,7 @@ This operation should be performed on disabled standby database.
   }
 
   /**
-   * Starts the specified Autonomous Database.
+   * Starts the specified Autonomous AI Database.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param StartAutonomousDatabaseRequest
@@ -34569,7 +34569,7 @@ This operation should be performed on disabled standby database.
   }
 
   /**
-   * Stops the specified Autonomous Database.
+   * Stops the specified Autonomous AI Database.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param StopAutonomousDatabaseRequest
@@ -35011,7 +35011,7 @@ A switchover incurs no data loss.
   }
 
   /**
-   * Initiates a switchover of the specified Autonomous Database to the associated peer database. Applicable only to databases with Disaster Recovery enabled.
+   * Initiates a switchover of the specified Autonomous AI Database to the associated peer database. Applicable only to databases with Disaster Recovery enabled.
    * This API should be called in the remote region where the peer database resides.
    * Below parameter is optional:
    *   - `peerDbId`
@@ -35689,7 +35689,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
-   * Updates one or more attributes of the specified Autonomous Database. See the UpdateAutonomousDatabaseDetails resource for a full list of attributes that can be updated.
+   * Updates one or more attributes of the specified Autonomous AI Database. See the UpdateAutonomousDatabaseDetails resource for a full list of attributes that can be updated.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateAutonomousDatabaseRequest
@@ -35779,7 +35779,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
-   * Updates the Autonomous Database backup of the specified database based on the request parameters.
+   * Updates the Autonomous AI Database backup of the specified database based on the request parameters.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateAutonomousDatabaseBackupRequest
@@ -35870,7 +35870,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
-   * Updates the Autonomous Database regional wallet.
+   * Updates the Autonomous AI Database regional wallet.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateAutonomousDatabaseRegionalWalletRequest
@@ -35948,7 +35948,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
-   * Updates the properties of an Autonomous Database Software Image, like add tags
+   * Updates the properties of an Autonomous AI Database Software Image, like add tags
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateAutonomousDatabaseSoftwareImageRequest
    * @return UpdateAutonomousDatabaseSoftwareImageResponse
@@ -36032,7 +36032,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
-   * Updates the wallet for the specified Autonomous Database.
+   * Updates the wallet for the specified Autonomous AI Database.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateAutonomousDatabaseWalletRequest
@@ -36553,7 +36553,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
-   * Updates the Cloud Exadata infrastructure resource. Applies to Exadata Cloud Service instances and Autonomous Database on dedicated Exadata infrastructure only.
+   * Updates the Cloud Exadata infrastructure resource. Applies to Exadata Cloud Service instances and Autonomous AI Database on dedicated Exadata infrastructure only.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateCloudExadataInfrastructureRequest

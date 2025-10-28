@@ -43,6 +43,18 @@ Example: {@code example_load_balancer}
     */
   "ipMode"?: UpdateLoadBalancerDetails.IpMode;
   /**
+    * Used to disambiguate which subnet prefix should be used to create an IPv6 LB.
+* <p>
+Example: \"2002::1234:abcd:ffff:c0a8:101/64\"
+* 
+    */
+  "ipv6SubnetCidr"?: string;
+  /**
+   * An array of reserved Ips.
+   *
+   */
+  "reservedIps"?: Array<model.ReservedIP>;
+  /**
     * Whether or not the load balancer has delete protection enabled.
 * <p>
 If \"true\", the loadbalancer will be protected against deletion if configured to accept traffic.
@@ -122,12 +134,30 @@ export namespace UpdateLoadBalancerDetails {
   }
 
   export function getJsonObj(obj: UpdateLoadBalancerDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "reservedIps": obj.reservedIps
+          ? obj.reservedIps.map(item => {
+              return model.ReservedIP.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: UpdateLoadBalancerDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "reservedIps": obj.reservedIps
+          ? obj.reservedIps.map(item => {
+              return model.ReservedIP.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

@@ -50,11 +50,11 @@ export interface KeyStore {
    */
   "associatedDatabases"?: Array<model.KeyStoreAssociatedDatabaseDetails>;
   /**
-   * List of long term backups of Autonomous Databases associated with this backup destination.The maximum associated number of long term backup listed here would be 1024.
+   * List of long term backups of Autonomous AI Databases associated with this backup destination.The maximum associated number of long term backup listed here would be 1024.
    */
   "associatedLongTermBackups"?: Array<model.AssociatedLongTermBackup>;
   /**
-   * Indicates the number of long term backups of Autonomous Databases associated with this backup destination. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Indicates the number of long term backups of Autonomous AI Databases associated with this backup destination. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "associatedLongTermBackupCount"?: number;
   /**

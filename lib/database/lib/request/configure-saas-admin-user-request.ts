@@ -23,7 +23,7 @@ export interface ConfigureSaasAdminUserRequest extends common.BaseRequest {
    */
   "autonomousDatabaseId": string;
   /**
-   * Request to update SaaS administrative user configuration of the Autonomous Database.
+   * Request to update SaaS administrative user configuration of the Autonomous AI Database.
    */
   "configureSaasAdminUserDetails": model.ConfigureSaasAdminUserDetails;
   /**

@@ -28,7 +28,7 @@ export interface AcdAvmResourceStats {
    */
   "displayName"?: string;
   /**
-   * CPUs/cores assigned to Autonomous Databases for the ACD instance in given Autonomus VM. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * CPUs/cores assigned to Autonomous AI Databases for the ACD instance in given Autonomus VM. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "provisionedCpus"?: number;
   /**
@@ -46,7 +46,7 @@ export interface AcdAvmResourceStats {
   /**
    * CPUs/cores that continue to be included in the count of OCPUs available to the
    * Autonomous Container Database in given Autonomous VM, even after one of its
-   * Autonomous Database is terminated or scaled down. You can release them to the available
+   * Autonomous AI Database is terminated or scaled down. You can release them to the available
    * OCPUs at its parent AVMC level by restarting the Autonomous Container Database.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */

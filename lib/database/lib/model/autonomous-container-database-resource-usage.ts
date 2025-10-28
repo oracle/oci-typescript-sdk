@@ -32,7 +32,7 @@ export interface AutonomousContainerDatabaseResourceUsage {
    */
   "reclaimableCpus"?: number;
   /**
-   * CPUs available for provisioning or scaling an Autonomous Database in the Autonomous Container Database. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * CPUs available for provisioning or scaling an Autonomous AI Database in the Autonomous Container Database. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "availableCpus"?: number;
   /**
@@ -56,7 +56,7 @@ export interface AutonomousContainerDatabaseResourceUsage {
    */
   "usedCpus"?: number;
   /**
-   * Valid list of provisionable CPUs for Autonomous Database.
+   * Valid list of provisionable CPUs for Autonomous AI Database.
    */
   "provisionableCpus"?: Array<number>;
   /**

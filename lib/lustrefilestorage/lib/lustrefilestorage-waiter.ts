@@ -43,6 +43,43 @@ export class LustreFileStorageWaiter {
   }
 
   /**
+   * Waits forObjectStorageLink till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetObjectStorageLinkResponse | null (null in case of 404 response)
+   */
+  public async forObjectStorageLink(
+    request: serviceRequests.GetObjectStorageLinkRequest,
+    ...targetStates: models.ObjectStorageLink.LifecycleState[]
+  ): Promise<serviceResponses.GetObjectStorageLinkResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getObjectStorageLink(request),
+      response => targetStates.includes(response.objectStorageLink.lifecycleState!),
+      targetStates.includes(models.ObjectStorageLink.LifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forSyncJob till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetSyncJobResponse
+   */
+  public async forSyncJob(
+    request: serviceRequests.GetSyncJobRequest,
+    ...targetStates: models.SyncJob.LifecycleState[]
+  ): Promise<serviceResponses.GetSyncJobResponse> {
+    return genericWaiter(
+      this.config,
+      () => this.client.getSyncJob(request),
+      response => targetStates.includes(response.syncJob.lifecycleState!)
+    );
+  }
+
+  /**
    * Waits forWorkRequest
    *
    * @param request the request to send
