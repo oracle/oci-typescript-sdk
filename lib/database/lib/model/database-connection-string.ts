@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The Oracle Database connection string.
+ * The Oracle AI Database connection string.
  *
  */
 export interface DatabaseConnectionString {

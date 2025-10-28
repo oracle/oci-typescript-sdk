@@ -142,6 +142,15 @@ Example: {@code 2016-08-25T21:10:29.600Z}
    *
    */
   "systemTags"?: { [key: string]: { [key: string]: any } };
+  /**
+    * [Security attributes](https://docs.oracle.com/iaas/Content/zero-trust-packet-routing/zpr-artifacts.htm#security-attributes) are labels
+* for a resource that can be referenced in a [Zero Trust Packet Routing](https://docs.oracle.com/iaas/Content/zero-trust-packet-routing/overview.htm)
+* (ZPR) policy to control access to ZPR-supported resources.
+* <p>
+Example: {@code {\"Oracle-ZPR\": {\"MaxEgressCount\": {\"value\": \"42\", \"mode\": \"enforce\"}}}}
+* 
+    */
+  "securityAttributes"?: { [key: string]: { [key: string]: any } };
 }
 
 export namespace MountTarget {

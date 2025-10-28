@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Parameters for creating a Autonomous Database Software Image
+ * Parameters for creating a Autonomous AI Database Software Image
  *
  */
 export interface CreateAutonomousDatabaseSoftwareImageDetails {
@@ -25,11 +25,11 @@ export interface CreateAutonomousDatabaseSoftwareImageDetails {
    */
   "compartmentId": string;
   /**
-   * The user-friendly name for the Autonomous Database Software Image. The name does not have to be unique.
+   * The user-friendly name for the Autonomous AI Database Software Image. The name does not have to be unique.
    */
   "displayName": string;
   /**
-   * The source Autonomous Container Database [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) from which to create Autonomous Database Software Image.
+   * The source Autonomous Container Database [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) from which to create Autonomous AI Database Software Image.
    */
   "sourceCdbId": string;
   /**

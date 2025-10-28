@@ -31,6 +31,14 @@ export interface ValidateDatabaseToolsConnectionOracleDatabaseResult
    * The DBMS_CLOUD package installation status.
    */
   "dbmsCloudStatus": model.DbmsCloudStatus;
+  /**
+   * Displays the CLOUD_SERVICE value within the USERENV context
+   */
+  "cloudService"?: string;
+  /**
+   * Status on whether a Database Tools identity type can be used with this connection or not.
+   */
+  "databaseToolsIdentityStatuses"?: Array<model.ValidationIdentityStatus>;
 
   "type": string;
 }
@@ -46,7 +54,13 @@ export namespace ValidateDatabaseToolsConnectionOracleDatabaseResult {
         : (model.ValidateDatabaseToolsConnectionResult.getJsonObj(
             obj
           ) as ValidateDatabaseToolsConnectionOracleDatabaseResult)),
-      ...{}
+      ...{
+        "databaseToolsIdentityStatuses": obj.databaseToolsIdentityStatuses
+          ? obj.databaseToolsIdentityStatuses.map(item => {
+              return model.ValidationIdentityStatus.getJsonObj(item);
+            })
+          : undefined
+      }
     };
 
     return jsonObj;
@@ -62,7 +76,13 @@ export namespace ValidateDatabaseToolsConnectionOracleDatabaseResult {
         : (model.ValidateDatabaseToolsConnectionResult.getDeserializedJsonObj(
             obj
           ) as ValidateDatabaseToolsConnectionOracleDatabaseResult)),
-      ...{}
+      ...{
+        "databaseToolsIdentityStatuses": obj.databaseToolsIdentityStatuses
+          ? obj.databaseToolsIdentityStatuses.map(item => {
+              return model.ValidationIdentityStatus.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
     };
 
     return jsonObj;

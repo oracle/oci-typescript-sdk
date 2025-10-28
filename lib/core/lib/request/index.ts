@@ -456,6 +456,8 @@ import * as AddDrgRouteDistributionStatementsRequest from "./add-drg-route-distr
 export import AddDrgRouteDistributionStatementsRequest = AddDrgRouteDistributionStatementsRequest.AddDrgRouteDistributionStatementsRequest;
 import * as AddDrgRouteRulesRequest from "./add-drg-route-rules-request";
 export import AddDrgRouteRulesRequest = AddDrgRouteRulesRequest.AddDrgRouteRulesRequest;
+import * as AddIpv4SubnetCidrRequest from "./add-ipv4-subnet-cidr-request";
+export import AddIpv4SubnetCidrRequest = AddIpv4SubnetCidrRequest.AddIpv4SubnetCidrRequest;
 import * as AddIpv6SubnetCidrRequest from "./add-ipv6-subnet-cidr-request";
 export import AddIpv6SubnetCidrRequest = AddIpv6SubnetCidrRequest.AddIpv6SubnetCidrRequest;
 import * as AddIpv6VcnCidrRequest from "./add-ipv6-vcn-cidr-request";
@@ -862,6 +864,8 @@ import * as ListVlansRequest from "./list-vlans-request";
 export import ListVlansRequest = ListVlansRequest.ListVlansRequest;
 import * as ListVtapsRequest from "./list-vtaps-request";
 export import ListVtapsRequest = ListVtapsRequest.ListVtapsRequest;
+import * as ModifyIpv4SubnetCidrRequest from "./modify-ipv4-subnet-cidr-request";
+export import ModifyIpv4SubnetCidrRequest = ModifyIpv4SubnetCidrRequest.ModifyIpv4SubnetCidrRequest;
 import * as ModifyVcnCidrRequest from "./modify-vcn-cidr-request";
 export import ModifyVcnCidrRequest = ModifyVcnCidrRequest.ModifyVcnCidrRequest;
 import * as PrivateIpVnicDetachRequest from "./private-ip-vnic-detach-request";
@@ -874,6 +878,8 @@ import * as RemoveExportDrgRouteDistributionRequest from "./remove-export-drg-ro
 export import RemoveExportDrgRouteDistributionRequest = RemoveExportDrgRouteDistributionRequest.RemoveExportDrgRouteDistributionRequest;
 import * as RemoveImportDrgRouteDistributionRequest from "./remove-import-drg-route-distribution-request";
 export import RemoveImportDrgRouteDistributionRequest = RemoveImportDrgRouteDistributionRequest.RemoveImportDrgRouteDistributionRequest;
+import * as RemoveIpv4SubnetCidrRequest from "./remove-ipv4-subnet-cidr-request";
+export import RemoveIpv4SubnetCidrRequest = RemoveIpv4SubnetCidrRequest.RemoveIpv4SubnetCidrRequest;
 import * as RemoveIpv6SubnetCidrRequest from "./remove-ipv6-subnet-cidr-request";
 export import RemoveIpv6SubnetCidrRequest = RemoveIpv6SubnetCidrRequest.RemoveIpv6SubnetCidrRequest;
 import * as RemoveIpv6VcnCidrRequest from "./remove-ipv6-vcn-cidr-request";

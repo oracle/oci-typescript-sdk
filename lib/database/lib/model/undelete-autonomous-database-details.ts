@@ -16,12 +16,12 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details to undelete an Oracle Autonomous Database.
+ * Details to undelete an Oracle Autonomous AI Database.
  *
  */
 export interface UndeleteAutonomousDatabaseDetails extends model.CreateAutonomousDatabaseBase {
   /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Autonomous Database that you want to undelete.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Autonomous AI Database that you want to undelete.
    */
   "sourceId": string;
 

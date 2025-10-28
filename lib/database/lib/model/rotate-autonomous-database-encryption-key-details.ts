@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Key details provided by the user for rotate key operation for Autonomous Database.
+ * Key details provided by the user for rotate key operation for Autonomous AI Database.
  */
 export interface RotateAutonomousDatabaseEncryptionKeyDetails {
   /**

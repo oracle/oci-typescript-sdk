@@ -21,11 +21,11 @@ import common = require("oci-common");
  */
 export interface WorkloadType {
   /**
-   * The total number of OCPU cores in use for Autonomous Transaction Processing databases in the infrastructure instance. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The total number of OCPU cores in use for Autonomous AI Transaction Processing databases in the infrastructure instance. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "atp"?: number;
   /**
-   * The total number of OCPU cores in use for Autonomous Data Warehouse databases in the infrastructure instance. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The total number of OCPU cores in use for Autonomous AI Lakehouse databases in the infrastructure instance. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "adw"?: number;
 }

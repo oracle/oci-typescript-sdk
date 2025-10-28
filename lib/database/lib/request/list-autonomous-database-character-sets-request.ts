@@ -24,12 +24,12 @@ export interface ListAutonomousDatabaseCharacterSetsRequest extends common.BaseR
    */
   "opcRequestId"?: string;
   /**
-   * Specifies whether this request is for an Autonomous Database Serverless instance. By default, this request will be for Autonomous Database on Dedicated Exadata Infrastructure.
+   * Specifies whether this request is for an Autonomous AI Database Serverless instance. By default, this request will be for Autonomous AI Database on Dedicated Exadata Infrastructure.
    *
    */
   "isShared"?: boolean;
   /**
-   * Specifies if the request is for an Autonomous Database Dedicated instance. The default request is for an Autonomous Database Dedicated instance.
+   * Specifies if the request is for an Autonomous AI Database Dedicated instance. The default request is for an Autonomous AI Database Dedicated instance.
    *
    */
   "isDedicated"?: boolean;

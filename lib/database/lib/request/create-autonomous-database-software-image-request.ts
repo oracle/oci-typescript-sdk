@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface CreateAutonomousDatabaseSoftwareImageRequest extends common.BaseRequest {
   /**
-   * Request to create Autonomous Database Software Image.
+   * Request to create Autonomous AI Database Software Image.
    */
   "createAutonomousDatabaseSoftwareImageDetails": model.CreateAutonomousDatabaseSoftwareImageDetails;
   /**

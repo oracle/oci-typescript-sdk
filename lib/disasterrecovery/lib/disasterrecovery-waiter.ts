@@ -28,6 +28,25 @@ export class DisasterRecoveryWaiter {
   ) {}
 
   /**
+   * Waits forAutomaticDrConfiguration till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetAutomaticDrConfigurationResponse | null (null in case of 404 response)
+   */
+  public async forAutomaticDrConfiguration(
+    request: serviceRequests.GetAutomaticDrConfigurationRequest,
+    ...targetStates: models.AutomaticDrConfigurationLifecycleState[]
+  ): Promise<serviceResponses.GetAutomaticDrConfigurationResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getAutomaticDrConfiguration(request),
+      response => targetStates.includes(response.automaticDrConfiguration.lifecycleState!),
+      targetStates.includes(models.AutomaticDrConfigurationLifecycleState.Deleted)
+    );
+  }
+
+  /**
    * Waits forDrPlan till it reaches any of the provided states
    *
    * @param request the request to send

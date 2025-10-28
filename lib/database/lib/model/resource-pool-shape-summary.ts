@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * An Autonomous Database Resource Pool. This object provides all the information related to the resource pool.
+ * An Autonomous AI Database Resource Pool. This object provides all the information related to the resource pool.
  *
  */
 export interface ResourcePoolShapeSummary {

@@ -23,7 +23,7 @@ import common = require("oci-common");
  */
 export interface UpdateDrPlanExecutionDetails {
   /**
-    * The display name of the DR protection group to update.
+    * The display name of the DR plan execution to update.
 * <p>
 Example: {@code EBS IAD Group}
 * 

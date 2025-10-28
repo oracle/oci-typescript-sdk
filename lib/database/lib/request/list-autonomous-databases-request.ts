@@ -58,11 +58,11 @@ export interface ListAutonomousDatabasesRequest extends common.BaseRequest {
    */
   "lifecycleStateNotEqualTo"?: string;
   /**
-   * A filter to return only autonomous database resources that match the specified workload type.
+   * A filter to return only Autonomous AI Database resources that match the specified workload type.
    */
   "dbWorkload"?: string;
   /**
-   * A filter to return only autonomous database resources that match the specified dbVersion.
+   * A filter to return only Autonomous AI Database resources that match the specified dbVersion.
    */
   "dbVersion"?: string;
   /**
@@ -96,7 +96,7 @@ export interface ListAutonomousDatabasesRequest extends common.BaseRequest {
    */
   "isResourcePoolLeader"?: boolean;
   /**
-   * The database [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the resourcepool Leader Autonomous Database.
+   * The database [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the resourcepool Leader Autonomous AI Database.
    */
   "resourcePoolLeaderId"?: string;
 }

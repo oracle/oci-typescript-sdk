@@ -894,6 +894,8 @@ import * as UpgradeDatabaseDetails from "./upgrade-database-details";
 export import UpgradeDatabaseDetails = UpgradeDatabaseDetails.UpgradeDatabaseDetails;
 import * as UpgradeDbSystemDetails from "./upgrade-db-system-details";
 export import UpgradeDbSystemDetails = UpgradeDbSystemDetails.UpgradeDbSystemDetails;
+import * as VanityUrlDetails from "./vanity-url-details";
+export import VanityUrlDetails = VanityUrlDetails.VanityUrlDetails;
 import * as VmCluster from "./vm-cluster";
 export import VmCluster = VmCluster.VmCluster;
 import * as VmClusterNetwork from "./vm-cluster-network";

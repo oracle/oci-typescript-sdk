@@ -23,7 +23,7 @@ export interface UpdateAutonomousDatabaseWalletRequest extends common.BaseReques
    */
   "autonomousDatabaseId": string;
   /**
-   * Request to update the properties of an Autonomous Database wallet.
+   * Request to update the properties of an Autonomous AI Database wallet.
    */
   "updateAutonomousDatabaseWalletDetails": model.UpdateAutonomousDatabaseWalletDetails;
   /**

@@ -69,6 +69,17 @@ Example: {@code 10.0.3.3}
     */
   "ipAddress"?: string;
   /**
+    * An optional field that when combined with the ipAddress field, will be used to allocate secondary IPv4 CIDRs.
+* The CIDR range created by this combination must be within the subnet's CIDR 
+* and the CIDR range should not collide with any existing IPv4 address allocation.
+* The VNIC ID specified in the request object should not already been assigned more than the max IPv4 addresses.
+* If you don't specify a value, this option will be ignored.
+* <p>
+Example: 18
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+    */
+  "cidrPrefixLength"?: number;
+  /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the VNIC to assign the private IP to. The VNIC and private IP
    * must be in the same subnet.
    *
@@ -88,6 +99,11 @@ The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm
    *
    */
   "subnetId"?: string;
+  /**
+   * Any one of the IPv4 CIDRs allocated to the subnet.
+   *
+   */
+  "ipv4SubnetCidrAtCreation"?: string;
   /**
    * Lifetime of the IP address.
    * There are two types of IPs:

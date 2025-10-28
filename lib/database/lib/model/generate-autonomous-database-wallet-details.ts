@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details to create and download an Oracle Autonomous Database wallet.
+ * Details to create and download an Oracle Autonomous AI Database wallet.
  *
  */
 export interface GenerateAutonomousDatabaseWalletDetails {
