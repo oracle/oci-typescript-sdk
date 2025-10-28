@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * An Autonomous Database backup.
+ * An Autonomous AI Database backup.
  * To use any of the API operations, you must be authorized in an IAM policy. If you're not authorized, talk to an administrator. If you're an administrator who needs to write policies to give users access, see [Getting Started with Policies](https://docs.oracle.com/iaas/Content/Identity/Concepts/policygetstarted.htm).
  *
  * **Warning:** Oracle recommends that you avoid using any confidential information when you supply string values using the API.
@@ -24,7 +24,7 @@ import common = require("oci-common");
  */
 export interface AutonomousDatabaseBackupSummary {
   /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Autonomous Database backup.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Autonomous AI Database backup.
    */
   "id": string;
   /**
@@ -32,7 +32,7 @@ export interface AutonomousDatabaseBackupSummary {
    */
   "compartmentId": string;
   /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Autonomous Database.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Autonomous AI Database.
    */
   "autonomousDatabaseId": string;
   /**
@@ -69,7 +69,7 @@ export interface AutonomousDatabaseBackupSummary {
    */
   "lifecycleState": AutonomousDatabaseBackupSummary.LifecycleState;
   /**
-   * Indicates whether the backup can be used to restore the associated Autonomous Database.
+   * Indicates whether the backup can be used to restore the associated Autonomous AI Database.
    */
   "isRestorable"?: boolean;
   /**
@@ -89,7 +89,7 @@ export interface AutonomousDatabaseBackupSummary {
    */
   "vaultId"?: string;
   /**
-   * The OCID of the key container version that is used in database transparent data encryption (TDE) operations KMS Key can have multiple key versions. If none is specified, the current key version (latest) of the Key Id is used for the operation. Autonomous Database Serverless does not use key versions, hence is not applicable for Autonomous Database Serverless instances.
+   * The OCID of the key container version that is used in database transparent data encryption (TDE) operations KMS Key can have multiple key versions. If none is specified, the current key version (latest) of the Key Id is used for the operation. Autonomous AI Database Serverless does not use key versions, hence is not applicable for Autonomous AI Database Serverless instances.
    *
    */
   "kmsKeyVersionId"?: string;
@@ -102,7 +102,7 @@ export interface AutonomousDatabaseBackupSummary {
    */
   "timeAvailableTill"?: Date;
   /**
-   * A valid Oracle Database version for Autonomous Database.
+   * A valid Oracle AI Database version for Autonomous AI Database.
    */
   "dbVersion"?: string;
   /**

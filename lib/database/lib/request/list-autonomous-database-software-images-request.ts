@@ -39,7 +39,7 @@ export interface ListAutonomousDatabaseSoftwareImagesRequest extends common.Base
    */
   "sortOrder"?: ListAutonomousDatabaseSoftwareImagesRequest.SortOrder;
   /**
-   * parameter according to which Autonomous Database Software Images will be sorted.
+   * parameter according to which Autonomous AI Database Software Images will be sorted.
    *
    */
   "sortBy"?: ListAutonomousDatabaseSoftwareImagesRequest.SortBy;

@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Describes the parameters for updating the Autonomous Database Software Image
+ * Describes the parameters for updating the Autonomous AI Database Software Image
  *
  */
 export interface UpdateAutonomousDatabaseSoftwareImageDetails {

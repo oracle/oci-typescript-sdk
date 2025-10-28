@@ -456,6 +456,8 @@ import * as AddDrgRouteDistributionStatementsResponse from "./add-drg-route-dist
 export import AddDrgRouteDistributionStatementsResponse = AddDrgRouteDistributionStatementsResponse.AddDrgRouteDistributionStatementsResponse;
 import * as AddDrgRouteRulesResponse from "./add-drg-route-rules-response";
 export import AddDrgRouteRulesResponse = AddDrgRouteRulesResponse.AddDrgRouteRulesResponse;
+import * as AddIpv4SubnetCidrResponse from "./add-ipv4-subnet-cidr-response";
+export import AddIpv4SubnetCidrResponse = AddIpv4SubnetCidrResponse.AddIpv4SubnetCidrResponse;
 import * as AddIpv6SubnetCidrResponse from "./add-ipv6-subnet-cidr-response";
 export import AddIpv6SubnetCidrResponse = AddIpv6SubnetCidrResponse.AddIpv6SubnetCidrResponse;
 import * as AddIpv6VcnCidrResponse from "./add-ipv6-vcn-cidr-response";
@@ -862,6 +864,8 @@ import * as ListVlansResponse from "./list-vlans-response";
 export import ListVlansResponse = ListVlansResponse.ListVlansResponse;
 import * as ListVtapsResponse from "./list-vtaps-response";
 export import ListVtapsResponse = ListVtapsResponse.ListVtapsResponse;
+import * as ModifyIpv4SubnetCidrResponse from "./modify-ipv4-subnet-cidr-response";
+export import ModifyIpv4SubnetCidrResponse = ModifyIpv4SubnetCidrResponse.ModifyIpv4SubnetCidrResponse;
 import * as ModifyVcnCidrResponse from "./modify-vcn-cidr-response";
 export import ModifyVcnCidrResponse = ModifyVcnCidrResponse.ModifyVcnCidrResponse;
 import * as PrivateIpVnicDetachResponse from "./private-ip-vnic-detach-response";
@@ -874,6 +878,8 @@ import * as RemoveExportDrgRouteDistributionResponse from "./remove-export-drg-r
 export import RemoveExportDrgRouteDistributionResponse = RemoveExportDrgRouteDistributionResponse.RemoveExportDrgRouteDistributionResponse;
 import * as RemoveImportDrgRouteDistributionResponse from "./remove-import-drg-route-distribution-response";
 export import RemoveImportDrgRouteDistributionResponse = RemoveImportDrgRouteDistributionResponse.RemoveImportDrgRouteDistributionResponse;
+import * as RemoveIpv4SubnetCidrResponse from "./remove-ipv4-subnet-cidr-response";
+export import RemoveIpv4SubnetCidrResponse = RemoveIpv4SubnetCidrResponse.RemoveIpv4SubnetCidrResponse;
 import * as RemoveIpv6SubnetCidrResponse from "./remove-ipv6-subnet-cidr-response";
 export import RemoveIpv6SubnetCidrResponse = RemoveIpv6SubnetCidrResponse.RemoveIpv6SubnetCidrResponse;
 import * as RemoveIpv6VcnCidrResponse from "./remove-ipv6-vcn-cidr-response";

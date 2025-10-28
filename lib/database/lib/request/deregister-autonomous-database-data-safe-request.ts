@@ -34,7 +34,7 @@ export interface DeregisterAutonomousDatabaseDataSafeRequest extends common.Base
    */
   "opcDryRun"?: boolean;
   /**
-   * Details for deregistering an Autonomous Database with Data Safe.
+   * Details for deregistering an Autonomous AI Database with Data Safe.
    */
   "deregisterAutonomousDatabaseDataSafeDetails"?: model.DeregisterAutonomousDatabaseDataSafeDetails;
 }

@@ -30,10 +30,6 @@ export interface Endpoint {
    */
   "alias"?: string;
   /**
-   * Compute infra type for endpoint.
-   */
-  "computeType"?: Endpoint.ComputeType;
-  /**
    * A user-friendly display name for the resource. It should be unique and can be modified. Avoid entering confidential information.
    */
   "displayName": string;
@@ -94,16 +90,6 @@ export interface Endpoint {
 }
 
 export namespace Endpoint {
-  export enum ComputeType {
-    Cpu = "CPU",
-    Gpu = "GPU",
-    /**
-     * This value is used if a service returns a value for this enum that is not recognized by this
-     * version of the SDK.
-     */
-    UnknownValue = "UNKNOWN_VALUE"
-  }
-
   export enum LifecycleState {
     Deleting = "DELETING",
     Deleted = "DELETED",

@@ -388,6 +388,93 @@ export class LustreFileStorageClient {
   }
 
   /**
+   * Moves an Object Storage link into a different compartment within the same tenancy. For information about moving resources between
+   * compartments, see [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ChangeObjectStorageLinkCompartmentRequest
+   * @return ChangeObjectStorageLinkCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/lustrefilestorage/ChangeObjectStorageLinkCompartment.ts.html |here} to see how to use ChangeObjectStorageLinkCompartment API.
+   */
+  public async changeObjectStorageLinkCompartment(
+    changeObjectStorageLinkCompartmentRequest: requests.ChangeObjectStorageLinkCompartmentRequest
+  ): Promise<responses.ChangeObjectStorageLinkCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation LustreFileStorageClient#changeObjectStorageLinkCompartment."
+      );
+    const operationName = "changeObjectStorageLinkCompartment";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{objectStorageLinkId}": changeObjectStorageLinkCompartmentRequest.objectStorageLinkId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeObjectStorageLinkCompartmentRequest.ifMatch,
+      "opc-request-id": changeObjectStorageLinkCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeObjectStorageLinkCompartmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeObjectStorageLinkCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/objectStorageLinks/{objectStorageLinkId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeObjectStorageLinkCompartmentRequest.changeObjectStorageLinkCompartmentDetails,
+        "ChangeObjectStorageLinkCompartmentDetails",
+        model.ChangeObjectStorageLinkCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeObjectStorageLinkCompartmentResponse>{},
+        body: await response.json(),
+        bodyKey: "objectStorageLink",
+        bodyModel: model.ObjectStorageLink,
+        type: "model.ObjectStorageLink",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates a Lustre file system.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -484,6 +571,97 @@ export class LustreFileStorageClient {
   }
 
   /**
+   * Creates an Object Storage link.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateObjectStorageLinkRequest
+   * @return CreateObjectStorageLinkResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/lustrefilestorage/CreateObjectStorageLink.ts.html |here} to see how to use CreateObjectStorageLink API.
+   */
+  public async createObjectStorageLink(
+    createObjectStorageLinkRequest: requests.CreateObjectStorageLinkRequest
+  ): Promise<responses.CreateObjectStorageLinkResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation LustreFileStorageClient#createObjectStorageLink.");
+    const operationName = "createObjectStorageLink";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createObjectStorageLinkRequest.opcRetryToken,
+      "opc-request-id": createObjectStorageLinkRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createObjectStorageLinkRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/objectStorageLinks",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createObjectStorageLinkRequest.createObjectStorageLinkDetails,
+        "CreateObjectStorageLinkDetails",
+        model.CreateObjectStorageLinkDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateObjectStorageLinkResponse>{},
+        body: await response.json(),
+        bodyKey: "objectStorageLink",
+        bodyModel: model.ObjectStorageLink,
+        type: "model.ObjectStorageLink",
+        responseHeaders: [
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-location"),
+            key: "contentLocation",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes a Lustre file system.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteLustreFileSystemRequest
@@ -557,6 +735,79 @@ export class LustreFileStorageClient {
   }
 
   /**
+   * Deletes an Object Storage link.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteObjectStorageLinkRequest
+   * @return DeleteObjectStorageLinkResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/lustrefilestorage/DeleteObjectStorageLink.ts.html |here} to see how to use DeleteObjectStorageLink API.
+   */
+  public async deleteObjectStorageLink(
+    deleteObjectStorageLinkRequest: requests.DeleteObjectStorageLinkRequest
+  ): Promise<responses.DeleteObjectStorageLinkResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation LustreFileStorageClient#deleteObjectStorageLink.");
+    const operationName = "deleteObjectStorageLink";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{objectStorageLinkId}": deleteObjectStorageLinkRequest.objectStorageLinkId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteObjectStorageLinkRequest.ifMatch,
+      "opc-request-id": deleteObjectStorageLinkRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteObjectStorageLinkRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/objectStorageLinks/{objectStorageLinkId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteObjectStorageLinkResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets information about a Lustre file system.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetLustreFileSystemRequest
@@ -612,6 +863,160 @@ export class LustreFileStorageClient {
         bodyKey: "lustreFileSystem",
         bodyModel: model.LustreFileSystem,
         type: "model.LustreFileSystem",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets information about an Object Storage link.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetObjectStorageLinkRequest
+   * @return GetObjectStorageLinkResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/lustrefilestorage/GetObjectStorageLink.ts.html |here} to see how to use GetObjectStorageLink API.
+   */
+  public async getObjectStorageLink(
+    getObjectStorageLinkRequest: requests.GetObjectStorageLinkRequest
+  ): Promise<responses.GetObjectStorageLinkResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation LustreFileStorageClient#getObjectStorageLink.");
+    const operationName = "getObjectStorageLink";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{objectStorageLinkId}": getObjectStorageLinkRequest.objectStorageLinkId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getObjectStorageLinkRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getObjectStorageLinkRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/objectStorageLinks/{objectStorageLinkId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetObjectStorageLinkResponse>{},
+        body: await response.json(),
+        bodyKey: "objectStorageLink",
+        bodyModel: model.ObjectStorageLink,
+        type: "model.ObjectStorageLink",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets details of a sync job associated with an Object Storage link when `objectStorageLink` and a unique ID are provided.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetSyncJobRequest
+   * @return GetSyncJobResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/lustrefilestorage/GetSyncJob.ts.html |here} to see how to use GetSyncJob API.
+   */
+  public async getSyncJob(
+    getSyncJobRequest: requests.GetSyncJobRequest
+  ): Promise<responses.GetSyncJobResponse> {
+    if (this.logger) this.logger.debug("Calling operation LustreFileStorageClient#getSyncJob.");
+    const operationName = "getSyncJob";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{objectStorageLinkId}": getSyncJobRequest.objectStorageLinkId,
+      "{syncJobId}": getSyncJobRequest.syncJobId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": getSyncJobRequest.ifMatch,
+      "opc-request-id": getSyncJobRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getSyncJobRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/objectStorageLinks/{objectStorageLinkId}/syncJobs/{syncJobId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetSyncJobResponse>{},
+        body: await response.json(),
+        bodyKey: "syncJob",
+        bodyModel: model.SyncJob,
+        type: "model.SyncJob",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -786,6 +1191,175 @@ export class LustreFileStorageClient {
           {
             value: response.headers.get("opc-next-page"),
             key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a list of Object Storage links.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListObjectStorageLinksRequest
+   * @return ListObjectStorageLinksResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/lustrefilestorage/ListObjectStorageLinks.ts.html |here} to see how to use ListObjectStorageLinks API.
+   */
+  public async listObjectStorageLinks(
+    listObjectStorageLinksRequest: requests.ListObjectStorageLinksRequest
+  ): Promise<responses.ListObjectStorageLinksResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation LustreFileStorageClient#listObjectStorageLinks.");
+    const operationName = "listObjectStorageLinks";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listObjectStorageLinksRequest.compartmentId,
+      "availabilityDomain": listObjectStorageLinksRequest.availabilityDomain,
+      "lifecycleState": listObjectStorageLinksRequest.lifecycleState,
+      "displayName": listObjectStorageLinksRequest.displayName,
+      "id": listObjectStorageLinksRequest.id,
+      "limit": listObjectStorageLinksRequest.limit,
+      "page": listObjectStorageLinksRequest.page,
+      "sortOrder": listObjectStorageLinksRequest.sortOrder,
+      "sortBy": listObjectStorageLinksRequest.sortBy,
+      "lustreFileSystemId": listObjectStorageLinksRequest.lustreFileSystemId
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listObjectStorageLinksRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listObjectStorageLinksRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/objectStorageLinks",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListObjectStorageLinksResponse>{},
+        body: await response.json(),
+        bodyKey: "objectStorageLinkCollection",
+        bodyModel: model.ObjectStorageLinkCollection,
+        type: "model.ObjectStorageLinkCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists all sync jobs associated with the Object Storage link. Contains a unique ID for each sync job.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListSyncJobsRequest
+   * @return ListSyncJobsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/lustrefilestorage/ListSyncJobs.ts.html |here} to see how to use ListSyncJobs API.
+   */
+  public async listSyncJobs(
+    listSyncJobsRequest: requests.ListSyncJobsRequest
+  ): Promise<responses.ListSyncJobsResponse> {
+    if (this.logger) this.logger.debug("Calling operation LustreFileStorageClient#listSyncJobs.");
+    const operationName = "listSyncJobs";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{objectStorageLinkId}": listSyncJobsRequest.objectStorageLinkId
+    };
+
+    const queryParams = {
+      "limit": listSyncJobsRequest.limit,
+      "page": listSyncJobsRequest.page,
+      "sortOrder": listSyncJobsRequest.sortOrder,
+      "lifecycleState": listSyncJobsRequest.lifecycleState,
+      "sortBy": listSyncJobsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": listSyncJobsRequest.ifMatch,
+      "opc-request-id": listSyncJobsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSyncJobsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/objectStorageLinks/{objectStorageLinkId}/syncJobs",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListSyncJobsResponse>{},
+        body: await response.json(),
+        bodyKey: "syncJobCollection",
+        bodyModel: model.SyncJobCollection,
+        type: "model.SyncJobCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           }
         ]
@@ -1046,6 +1620,308 @@ export class LustreFileStorageClient {
   }
 
   /**
+   * Starts the export of data from the Lustre file system to Object Storage.
+   * The Lustre file system path and Object Storage object prefix are defined in the Object Storage link resource.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param StartExportToObjectRequest
+   * @return StartExportToObjectResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/lustrefilestorage/StartExportToObject.ts.html |here} to see how to use StartExportToObject API.
+   */
+  public async startExportToObject(
+    startExportToObjectRequest: requests.StartExportToObjectRequest
+  ): Promise<responses.StartExportToObjectResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation LustreFileStorageClient#startExportToObject.");
+    const operationName = "startExportToObject";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{objectStorageLinkId}": startExportToObjectRequest.objectStorageLinkId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": startExportToObjectRequest.ifMatch,
+      "opc-request-id": startExportToObjectRequest.opcRequestId,
+      "opc-retry-token": startExportToObjectRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      startExportToObjectRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/objectStorageLinks/{objectStorageLinkId}/actions/startExportToObject",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.StartExportToObjectResponse>{},
+        body: await response.json(),
+        bodyKey: "syncJob",
+        bodyModel: model.SyncJob,
+        type: "model.SyncJob",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Starts the import of data from Object Storage to the Lustre file system.
+   * The Lustre file system path and Object Storage object prefix are defined in the Object Storage link resource.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param StartImportFromObjectRequest
+   * @return StartImportFromObjectResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/lustrefilestorage/StartImportFromObject.ts.html |here} to see how to use StartImportFromObject API.
+   */
+  public async startImportFromObject(
+    startImportFromObjectRequest: requests.StartImportFromObjectRequest
+  ): Promise<responses.StartImportFromObjectResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation LustreFileStorageClient#startImportFromObject.");
+    const operationName = "startImportFromObject";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{objectStorageLinkId}": startImportFromObjectRequest.objectStorageLinkId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": startImportFromObjectRequest.ifMatch,
+      "opc-request-id": startImportFromObjectRequest.opcRequestId,
+      "opc-retry-token": startImportFromObjectRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      startImportFromObjectRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/objectStorageLinks/{objectStorageLinkId}/actions/startImportFromObject",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.StartImportFromObjectResponse>{},
+        body: await response.json(),
+        bodyKey: "syncJob",
+        bodyModel: model.SyncJob,
+        type: "model.SyncJob",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Stops the export of data from the Lustre file system to Object Storage.
+   * The Lustre file system path and Object Storage object prefix are defined in the Object Storage link resource.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param StopExportToObjectRequest
+   * @return StopExportToObjectResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/lustrefilestorage/StopExportToObject.ts.html |here} to see how to use StopExportToObject API.
+   */
+  public async stopExportToObject(
+    stopExportToObjectRequest: requests.StopExportToObjectRequest
+  ): Promise<responses.StopExportToObjectResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation LustreFileStorageClient#stopExportToObject.");
+    const operationName = "stopExportToObject";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{objectStorageLinkId}": stopExportToObjectRequest.objectStorageLinkId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": stopExportToObjectRequest.ifMatch,
+      "opc-request-id": stopExportToObjectRequest.opcRequestId,
+      "opc-retry-token": stopExportToObjectRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      stopExportToObjectRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/objectStorageLinks/{objectStorageLinkId}/actions/stopExportToObject",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.StopExportToObjectResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Stops the import of data from Object Storage to the Lustre file system.
+   * The Lustre file system path and Object Storage object prefix are defined in the Object Storage link resource.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param StopImportFromObjectRequest
+   * @return StopImportFromObjectResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/lustrefilestorage/StopImportFromObject.ts.html |here} to see how to use StopImportFromObject API.
+   */
+  public async stopImportFromObject(
+    stopImportFromObjectRequest: requests.StopImportFromObjectRequest
+  ): Promise<responses.StopImportFromObjectResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation LustreFileStorageClient#stopImportFromObject.");
+    const operationName = "stopImportFromObject";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{objectStorageLinkId}": stopImportFromObjectRequest.objectStorageLinkId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": stopImportFromObjectRequest.ifMatch,
+      "opc-request-id": stopImportFromObjectRequest.opcRequestId,
+      "opc-retry-token": stopImportFromObjectRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      stopImportFromObjectRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/objectStorageLinks/{objectStorageLinkId}/actions/stopImportFromObject",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.StopImportFromObjectResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Updates a Lustre file system.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateLustreFileSystemRequest
@@ -1107,6 +1983,88 @@ export class LustreFileStorageClient {
           {
             value: response.headers.get("opc-work-request-id"),
             key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates an Object Storage link.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateObjectStorageLinkRequest
+   * @return UpdateObjectStorageLinkResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/lustrefilestorage/UpdateObjectStorageLink.ts.html |here} to see how to use UpdateObjectStorageLink API.
+   */
+  public async updateObjectStorageLink(
+    updateObjectStorageLinkRequest: requests.UpdateObjectStorageLinkRequest
+  ): Promise<responses.UpdateObjectStorageLinkResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation LustreFileStorageClient#updateObjectStorageLink.");
+    const operationName = "updateObjectStorageLink";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{objectStorageLinkId}": updateObjectStorageLinkRequest.objectStorageLinkId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateObjectStorageLinkRequest.ifMatch,
+      "opc-request-id": updateObjectStorageLinkRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateObjectStorageLinkRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/objectStorageLinks/{objectStorageLinkId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateObjectStorageLinkRequest.updateObjectStorageLinkDetails,
+        "UpdateObjectStorageLinkDetails",
+        model.UpdateObjectStorageLinkDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateObjectStorageLinkResponse>{},
+        body: await response.json(),
+        bodyKey: "objectStorageLink",
+        bodyModel: model.ObjectStorageLink,
+        type: "model.ObjectStorageLink",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
             dataType: "string"
           },
           {

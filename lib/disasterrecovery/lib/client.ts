@@ -551,6 +551,96 @@ export class DisasterRecoveryClient {
   }
 
   /**
+   * Create a Automatic DR configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateAutomaticDrConfigurationRequest
+   * @return CreateAutomaticDrConfigurationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/disasterrecovery/CreateAutomaticDrConfiguration.ts.html |here} to see how to use CreateAutomaticDrConfiguration API.
+   */
+  public async createAutomaticDrConfiguration(
+    createAutomaticDrConfigurationRequest: requests.CreateAutomaticDrConfigurationRequest
+  ): Promise<responses.CreateAutomaticDrConfigurationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DisasterRecoveryClient#createAutomaticDrConfiguration.");
+    const operationName = "createAutomaticDrConfiguration";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createAutomaticDrConfigurationRequest.opcRetryToken,
+      "opc-request-id": createAutomaticDrConfigurationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createAutomaticDrConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/automaticDrConfigurations",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createAutomaticDrConfigurationRequest.createAutomaticDrConfigurationDetails,
+        "CreateAutomaticDrConfigurationDetails",
+        model.CreateAutomaticDrConfigurationDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateAutomaticDrConfigurationResponse>{},
+        body: await response.json(),
+        bodyKey: "automaticDrConfiguration",
+        bodyModel: model.AutomaticDrConfiguration,
+        type: "model.AutomaticDrConfiguration",
+        responseHeaders: [
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Create a DR plan of the specified DR plan type.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateDrPlanRequest
@@ -805,6 +895,75 @@ export class DisasterRecoveryClient {
             key: "opcWorkRequestId",
             dataType: "string"
           },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Delete the automatic DR configuration identified by *automaticDrConfigurationId*.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteAutomaticDrConfigurationRequest
+   * @return DeleteAutomaticDrConfigurationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/disasterrecovery/DeleteAutomaticDrConfiguration.ts.html |here} to see how to use DeleteAutomaticDrConfiguration API.
+   */
+  public async deleteAutomaticDrConfiguration(
+    deleteAutomaticDrConfigurationRequest: requests.DeleteAutomaticDrConfigurationRequest
+  ): Promise<responses.DeleteAutomaticDrConfigurationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DisasterRecoveryClient#deleteAutomaticDrConfiguration.");
+    const operationName = "deleteAutomaticDrConfiguration";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{automaticDrConfigurationId}":
+        deleteAutomaticDrConfigurationRequest.automaticDrConfigurationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteAutomaticDrConfigurationRequest.ifMatch,
+      "opc-request-id": deleteAutomaticDrConfigurationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteAutomaticDrConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/automaticDrConfigurations/{automaticDrConfigurationId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteAutomaticDrConfigurationResponse>{},
+        responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -1097,6 +1256,82 @@ export class DisasterRecoveryClient {
           {
             value: response.headers.get("opc-work-request-id"),
             key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get details for the Automatic DR configuration identified by *automaticDrConfigurationId*.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetAutomaticDrConfigurationRequest
+   * @return GetAutomaticDrConfigurationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/disasterrecovery/GetAutomaticDrConfiguration.ts.html |here} to see how to use GetAutomaticDrConfiguration API.
+   */
+  public async getAutomaticDrConfiguration(
+    getAutomaticDrConfigurationRequest: requests.GetAutomaticDrConfigurationRequest
+  ): Promise<responses.GetAutomaticDrConfigurationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DisasterRecoveryClient#getAutomaticDrConfiguration.");
+    const operationName = "getAutomaticDrConfiguration";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{automaticDrConfigurationId}": getAutomaticDrConfigurationRequest.automaticDrConfigurationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getAutomaticDrConfigurationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getAutomaticDrConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/automaticDrConfigurations/{automaticDrConfigurationId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetAutomaticDrConfigurationResponse>{},
+        body: await response.json(),
+        bodyKey: "automaticDrConfiguration",
+        bodyModel: model.AutomaticDrConfiguration,
+        type: "model.AutomaticDrConfiguration",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
             dataType: "string"
           },
           {
@@ -1488,6 +1723,90 @@ export class DisasterRecoveryClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get a summary list of automatic DR configurations for a DR protection group.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListAutomaticDrConfigurationsRequest
+   * @return ListAutomaticDrConfigurationsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/disasterrecovery/ListAutomaticDrConfigurations.ts.html |here} to see how to use ListAutomaticDrConfigurations API.
+   */
+  public async listAutomaticDrConfigurations(
+    listAutomaticDrConfigurationsRequest: requests.ListAutomaticDrConfigurationsRequest
+  ): Promise<responses.ListAutomaticDrConfigurationsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DisasterRecoveryClient#listAutomaticDrConfigurations.");
+    const operationName = "listAutomaticDrConfigurations";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "drProtectionGroupId": listAutomaticDrConfigurationsRequest.drProtectionGroupId,
+      "automaticDrConfigurationId": listAutomaticDrConfigurationsRequest.automaticDrConfigurationId,
+      "lifecycleState": listAutomaticDrConfigurationsRequest.lifecycleState,
+      "lifecycleStateNotEqualTo": listAutomaticDrConfigurationsRequest.lifecycleStateNotEqualTo,
+      "displayName": listAutomaticDrConfigurationsRequest.displayName,
+      "limit": listAutomaticDrConfigurationsRequest.limit,
+      "page": listAutomaticDrConfigurationsRequest.page,
+      "sortOrder": listAutomaticDrConfigurationsRequest.sortOrder,
+      "sortBy": listAutomaticDrConfigurationsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listAutomaticDrConfigurationsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAutomaticDrConfigurationsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/automaticDrConfigurations",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListAutomaticDrConfigurationsResponse>{},
+        body: await response.json(),
+        bodyKey: "automaticDrConfigurationCollection",
+        bodyModel: model.AutomaticDrConfigurationCollection,
+        type: "model.AutomaticDrConfigurationCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
             dataType: "string"
           }
         ]
@@ -2294,6 +2613,85 @@ export class DisasterRecoveryClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.RetryDrPlanExecutionResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Update the Automatic DR configuration identified by *automaticDrConfigurationId*.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateAutomaticDrConfigurationRequest
+   * @return UpdateAutomaticDrConfigurationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/disasterrecovery/UpdateAutomaticDrConfiguration.ts.html |here} to see how to use UpdateAutomaticDrConfiguration API.
+   */
+  public async updateAutomaticDrConfiguration(
+    updateAutomaticDrConfigurationRequest: requests.UpdateAutomaticDrConfigurationRequest
+  ): Promise<responses.UpdateAutomaticDrConfigurationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DisasterRecoveryClient#updateAutomaticDrConfiguration.");
+    const operationName = "updateAutomaticDrConfiguration";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{automaticDrConfigurationId}":
+        updateAutomaticDrConfigurationRequest.automaticDrConfigurationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateAutomaticDrConfigurationRequest.ifMatch,
+      "opc-request-id": updateAutomaticDrConfigurationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateAutomaticDrConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/automaticDrConfigurations/{automaticDrConfigurationId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateAutomaticDrConfigurationRequest.updateAutomaticDrConfigurationDetails,
+        "UpdateAutomaticDrConfigurationDetails",
+        model.UpdateAutomaticDrConfigurationDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateAutomaticDrConfigurationResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),

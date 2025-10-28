@@ -125,6 +125,10 @@ Example: {@code 10.0.3.3}
     */
   "ipAddress"?: string;
   /**
+   * The secondary IPv4 CIDR prefix length. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "cidrPrefixLength"?: number;
+  /**
     * Whether this private IP is the primary one on the VNIC. Primary private IPs
 * are unassigned and deleted automatically when the VNIC is terminated.
 * <p>
@@ -181,6 +185,11 @@ Example: {@code 2016-08-25T21:10:29.600Z}
    *
    */
   "routeTableId"?: string;
+  /**
+   * Ipv4 Subnet CIDR specified whn creating the PrivateIP.
+   *
+   */
+  "ipv4SubnetCidrAtCreation"?: string;
 }
 
 export namespace PrivateIp {

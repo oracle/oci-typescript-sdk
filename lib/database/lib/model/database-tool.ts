@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Summary of database tools of autonomous database.
+ * Summary of database tools of Autonomous AI Database.
  */
 export interface DatabaseTool {
   /**

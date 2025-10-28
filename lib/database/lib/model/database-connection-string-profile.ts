@@ -50,7 +50,7 @@ export interface DatabaseConnectionStringProfile {
   "sessionMode": DatabaseConnectionStringProfile.SessionMode;
   /**
    * Specifies whether the connection string is using the long ({@code LONG}), Easy Connect ({@code EZCONNECT}), or Easy Connect Plus ({@code EZCONNECTPLUS}) format.
-   * Autonomous Database Serverless instances always use the long format.
+   * Autonomous AI Database Serverless instances always use the long format.
    *
    */
   "syntaxFormat": DatabaseConnectionStringProfile.SyntaxFormat;

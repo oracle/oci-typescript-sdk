@@ -16,11 +16,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * An Autonomous Database resource pool member summary.
+ * An Autonomous AI Database resource pool member summary.
  */
 export interface ResourcePoolMemberSummary {
   /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Autonomous Database.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Autonomous AI Database.
    */
   "id": string;
 }

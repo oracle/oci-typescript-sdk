@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A list of Autonomous Database resource pool member OCIDs.
+ * A list of Autonomous AI Database resource pool member OCIDs.
  */
 export interface ResourcePoolMemberCollection {
   /**

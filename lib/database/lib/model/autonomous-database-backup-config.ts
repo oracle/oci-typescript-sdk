@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Autonomous Database configuration details for storing [manual backups](https://docs.oracle.com/en/cloud/paas/autonomous-database/adbsa/backup-restore.html#GUID-9035DFB8-4702-4CEB-8281-C2A303820809) in the [Object Storage](https://docs.oracle.com/iaas/Content/Object/Concepts/objectstorageoverview.htm) service.
+ * Autonomous AI Database configuration details for storing [manual backups](https://docs.oracle.com/en/cloud/paas/autonomous-database/adbsa/backup-restore.html#GUID-9035DFB8-4702-4CEB-8281-C2A303820809) in the [Object Storage](https://docs.oracle.com/iaas/Content/Object/Concepts/objectstorageoverview.htm) service.
  *
  */
 export interface AutonomousDatabaseBackupConfig {

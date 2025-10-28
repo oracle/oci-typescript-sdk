@@ -23,7 +23,7 @@ export interface UpdateAutonomousDatabaseRequest extends common.BaseRequest {
    */
   "autonomousDatabaseId": string;
   /**
-   * Request to update the properties of an Autonomous Database.
+   * Request to update the properties of an Autonomous AI Database.
    */
   "updateAutonomousDatabaseDetails": model.UpdateAutonomousDatabaseDetails;
   /**

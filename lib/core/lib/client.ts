@@ -13846,7 +13846,8 @@ You can limit the list by specifying a compute capacity reservation display name
       "sortOrder": listComputeHostsRequest.sortOrder,
       "computeHostLifecycleState": listComputeHostsRequest.computeHostLifecycleState,
       "computeHostHealth": listComputeHostsRequest.computeHostHealth,
-      "computeHostGroupId": listComputeHostsRequest.computeHostGroupId
+      "computeHostGroupId": listComputeHostsRequest.computeHostGroupId,
+      "computeHostInSubtree": listComputeHostsRequest.computeHostInSubtree
     };
 
     let headerParams = {
@@ -20870,6 +20871,86 @@ export class VirtualNetworkClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Add an IPv4 prefix to a subnet.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param AddIpv4SubnetCidrRequest
+   * @return AddIpv4SubnetCidrResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/AddIpv4SubnetCidr.ts.html |here} to see how to use AddIpv4SubnetCidr API.
+   */
+  public async addIpv4SubnetCidr(
+    addIpv4SubnetCidrRequest: requests.AddIpv4SubnetCidrRequest
+  ): Promise<responses.AddIpv4SubnetCidrResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#addIpv4SubnetCidr.");
+    const operationName = "addIpv4SubnetCidr";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Subnet/AddIpv4SubnetCidr";
+    const pathParams = {
+      "{subnetId}": addIpv4SubnetCidrRequest.subnetId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": addIpv4SubnetCidrRequest.opcRetryToken,
+      "if-match": addIpv4SubnetCidrRequest.ifMatch,
+      "opc-request-id": addIpv4SubnetCidrRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      addIpv4SubnetCidrRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/subnets/{subnetId}/actions/addIpv4Cidr",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        addIpv4SubnetCidrRequest.addIpv4SubnetCidrDetails,
+        "AddIpv4SubnetCidrDetails",
+        model.AddIpv4SubnetCidrDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AddIpv4SubnetCidrResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           }
         ]
@@ -39557,6 +39638,93 @@ To list the ephemeral public IPs assigned to private IPs:
   }
 
   /**
+     * Updates the specified Ipv4 CIDR block of a Subnet. The new Ipv4 CIDR IP range must meet the following criteria:
+* <p>
+- Must be valid.
+* - Must not overlap with another Ipv4 CIDR block in the Subnet or the on-premises network CIDR block.
+* - Must not exceed the limit of Ipv4 CIDR blocks allowed per Subnet.
+* - Must include IP addresses from the original CIDR block that are used in the VCN's existing route rules.
+* - No IP address in an existing subnet should be outside of the new CIDR block range.
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param ModifyIpv4SubnetCidrRequest
+     * @return ModifyIpv4SubnetCidrResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ModifyIpv4SubnetCidr.ts.html |here} to see how to use ModifyIpv4SubnetCidr API.
+     */
+  public async modifyIpv4SubnetCidr(
+    modifyIpv4SubnetCidrRequest: requests.ModifyIpv4SubnetCidrRequest
+  ): Promise<responses.ModifyIpv4SubnetCidrResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#modifyIpv4SubnetCidr.");
+    const operationName = "modifyIpv4SubnetCidr";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Subnet/ModifyIpv4SubnetCidr";
+    const pathParams = {
+      "{subnetId}": modifyIpv4SubnetCidrRequest.subnetId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": modifyIpv4SubnetCidrRequest.opcRetryToken,
+      "if-match": modifyIpv4SubnetCidrRequest.ifMatch,
+      "opc-request-id": modifyIpv4SubnetCidrRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      modifyIpv4SubnetCidrRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/subnets/{subnetId}/actions/modifyIpv4Cidr",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        modifyIpv4SubnetCidrRequest.modifyIpv4SubnetCidrDetails,
+        "ModifyIpv4SubnetCidrDetails",
+        model.ModifyIpv4SubnetCidrDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ModifyIpv4SubnetCidrResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
      * Updates the specified CIDR block of a VCN. The new CIDR IP range must meet the following criteria:
 * <p>
 - Must be valid.
@@ -40021,6 +40189,87 @@ To list the ephemeral public IPs assigned to private IPs:
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Remove an IPv4 prefix from a subnet
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param RemoveIpv4SubnetCidrRequest
+   * @return RemoveIpv4SubnetCidrResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/RemoveIpv4SubnetCidr.ts.html |here} to see how to use RemoveIpv4SubnetCidr API.
+   */
+  public async removeIpv4SubnetCidr(
+    removeIpv4SubnetCidrRequest: requests.RemoveIpv4SubnetCidrRequest
+  ): Promise<responses.RemoveIpv4SubnetCidrResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#removeIpv4SubnetCidr.");
+    const operationName = "removeIpv4SubnetCidr";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Subnet/RemoveIpv4SubnetCidr";
+    const pathParams = {
+      "{subnetId}": removeIpv4SubnetCidrRequest.subnetId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": removeIpv4SubnetCidrRequest.opcRetryToken,
+      "if-match": removeIpv4SubnetCidrRequest.ifMatch,
+      "opc-request-id": removeIpv4SubnetCidrRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removeIpv4SubnetCidrRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/subnets/{subnetId}/actions/removeIpv4Cidr",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        removeIpv4SubnetCidrRequest.removeIpv4SubnetCidrDetails,
+        "RemoveIpv4SubnetCidrDetails",
+        model.RemoveIpv4SubnetCidrDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RemoveIpv4SubnetCidrResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           }
         ]

@@ -440,6 +440,38 @@ export interface SocialIdentityProvider {
    */
   "consumerSecret": string;
   /**
+   * Apple Developer ID
+   * <p>
+   **Added In:** 2311180004
+   * <p>
+   **SCIM++ Properties:**
+   *  - caseExact: true
+   *  - idcsSearchable: false
+   *  - multiValued: false
+   *  - mutability: readWrite
+   *  - required: false
+   *  - returned: default
+   *  - type: string
+   *  - uniqueness: none
+   */
+  "appleDevId"?: string;
+  /**
+   * Apple Private Key ID
+   * <p>
+   **Added In:** 2311180004
+   * <p>
+   **SCIM++ Properties:**
+   *  - caseExact: true
+   *  - idcsSearchable: false
+   *  - multiValued: false
+   *  - mutability: readWrite
+   *  - required: false
+   *  - returned: default
+   *  - type: string
+   *  - uniqueness: none
+   */
+  "appleKeyId"?: string;
+  /**
    * Service Provider Name
    * <p>
    **SCIM++ Properties:**

@@ -39,6 +39,10 @@ export interface ListDatabaseToolsConnectionsRequest extends common.BaseRequest 
    */
   "runtimeSupport"?: Array<model.RuntimeSupport>;
   /**
+   * A filter to return only resources with one of the specified runtimeIdentity values.
+   */
+  "runtimeIdentity"?: Array<model.RuntimeIdentity>;
+  /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the related resource.
    */
   "relatedResourceIdentifier"?: string;

@@ -16,14 +16,14 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The following are the details necessary to create a disaster recovery (DR) association for an existing Autonomous Database with a standby in a remote region.
+ * The following are the details necessary to create a disaster recovery (DR) association for an existing Autonomous AI Database with a standby in a remote region.
  * *IMPORTANT*
  * For creating a standby databases in a cross-region DR association:
  *   - To create the standby database in a remote region, use the API endpoint in the region where the standby is located. For example, if the primary database is in the IAD region and the standby is in the PHX region, make the API call using the PHX endpoint (https://database.us-phoenix-1.oraclecloud.com). See API Endpoints for the list of Database Service API endpoints.
  *   - To create the request in the standby database, the sourceId value must be the OCID of the primary database.
- * The following parameters are required for the cross-region standby database and must contain the same values as the source Autonomous Database:
+ * The following parameters are required for the cross-region standby database and must contain the same values as the source Autonomous AI Database:
  *   - remoteDisasterRecoveryType
- * The following parameters are optional for the cross-region standby database. If included in the request, these parameters must contain the same values as the source Autonomous Database:
+ * The following parameters are optional for the cross-region standby database. If included in the request, these parameters must contain the same values as the source Autonomous AI Database:
  *   - dbName
  *   - dbVersion
  *   - ecpuCount
@@ -41,11 +41,11 @@ import common = require("oci-common");
 export interface CreateCrossRegionDisasterRecoveryDetails
   extends model.CreateAutonomousDatabaseBase {
   /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the source Autonomous Database that will be used to create a new peer database for the DR association.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the source Autonomous AI Database that will be used to create a new peer database for the DR association.
    */
   "sourceId": string;
   /**
-   * Indicates the cross-region disaster recovery (DR) type of the standby Autonomous Database Serverless instance.
+   * Indicates the cross-region disaster recovery (DR) type of the standby Autonomous AI Database Serverless instance.
    * Autonomous Data Guard (ADG) DR type provides business critical DR with a faster recovery time objective (RTO) during failover or switchover.
    * Backup-based DR type provides lower cost DR with a slower RTO during failover or switchover.
    *
