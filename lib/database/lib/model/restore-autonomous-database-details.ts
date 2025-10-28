@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details to restore an Oracle Autonomous Database.
+ * Details to restore an Oracle Autonomous AI Database.
  *
  */
 export interface RestoreAutonomousDatabaseDetails {

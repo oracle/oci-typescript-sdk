@@ -36,7 +36,7 @@ export interface SaasAdminUserConfiguration {
    */
   "duration"?: number;
   /**
-   * Indicates if the SaaS administrative user is enabled for the Autonomous Database.
+   * Indicates if the SaaS administrative user is enabled for the Autonomous AI Database.
    */
   "isEnabled"?: boolean;
   /**
@@ -44,7 +44,7 @@ export interface SaasAdminUserConfiguration {
    */
   "accessType"?: SaasAdminUserConfiguration.AccessType;
   /**
-   * The date and time the SaaS administrative user was enabled at, for the Autonomous Database.
+   * The date and time the SaaS administrative user was enabled at, for the Autonomous AI Database.
    */
   "timeSaasAdminUserEnabled"?: Date;
 }

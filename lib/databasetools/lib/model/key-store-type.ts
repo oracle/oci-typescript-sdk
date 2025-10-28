@@ -20,6 +20,7 @@ import common = require("oci-common");
 export enum KeyStoreType {
   JavaKeyStore = "JAVA_KEY_STORE",
   JavaTrustStore = "JAVA_TRUST_STORE",
+  Pem = "PEM",
   Pkcs12 = "PKCS12",
   Sso = "SSO",
 

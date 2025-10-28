@@ -16,21 +16,21 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details to create a point-in-time clone of an Oracle Autonomous Database by specifying a timestamp. Point-in-time clones use backups as the source of the data for the clone.
+ * Details to create a point-in-time clone of an Oracle Autonomous AI Database by specifying a timestamp. Point-in-time clones use backups as the source of the data for the clone.
  *
  */
 export interface CreateAutonomousDatabaseFromBackupTimestampDetails
   extends model.CreateAutonomousDatabaseBase {
   /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the source Autonomous Database that you will clone to create a new Autonomous Database.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the source Autonomous AI Database that you will clone to create a new Autonomous AI Database.
    */
   "autonomousDatabaseId": string;
   /**
-   * The timestamp specified for the point-in-time clone of the source Autonomous Database. The timestamp must be in the past.
+   * The timestamp specified for the point-in-time clone of the source Autonomous AI Database. The timestamp must be in the past.
    */
   "timestamp"?: Date;
   /**
-   * The Autonomous Database clone type.
+   * The Autonomous AI Database clone type.
    */
   "cloneType": CreateAutonomousDatabaseFromBackupTimestampDetails.CloneType;
   /**
@@ -39,7 +39,7 @@ export interface CreateAutonomousDatabaseFromBackupTimestampDetails
    */
   "useLatestAvailableBackupTimeStamp"?: boolean;
   /**
-   * A list of the source Autonomous Database's table space number(s) used to create this partial clone from the backup.
+   * A list of the source Autonomous AI Database's table space number(s) used to create this partial clone from the backup.
    */
   "cloneTableSpaceList"?: Array<number>;
 

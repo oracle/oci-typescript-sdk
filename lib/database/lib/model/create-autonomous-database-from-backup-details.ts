@@ -16,21 +16,21 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details to create an Oracle Autonomous Database by cloning from a backup of an existing Autonomous Database.
+ * Details to create an Oracle Autonomous AI Database by cloning from a backup of an existing Autonomous AI Database.
  *
  */
 export interface CreateAutonomousDatabaseFromBackupDetails
   extends model.CreateAutonomousDatabaseBase {
   /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the source Autonomous Database Backup that you will clone to create a new Autonomous Database.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the source Autonomous AI Database Backup that you will clone to create a new Autonomous AI Database.
    */
   "autonomousDatabaseBackupId": string;
   /**
-   * The Autonomous Database clone type.
+   * The Autonomous AI Database clone type.
    */
   "cloneType": CreateAutonomousDatabaseFromBackupDetails.CloneType;
   /**
-   * A list of the source Autonomous Database's table space number(s) used to create this partial clone from the backup.
+   * A list of the source Autonomous AI Database's table space number(s) used to create this partial clone from the backup.
    */
   "cloneTableSpaceList"?: Array<number>;
 

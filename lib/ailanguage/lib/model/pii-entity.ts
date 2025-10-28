@@ -38,6 +38,10 @@ export interface PiiEntity {
    */
   "text": string;
   /**
+   * Redacted entity text
+   */
+  "relexifyText"?: string;
+  /**
    * Entity type supported
    * PERSON
    * ADDRESS

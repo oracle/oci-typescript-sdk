@@ -108,6 +108,15 @@ Example: {@code 10.0.3.3}
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
+    * [Security attributes](https://docs.oracle.com/iaas/Content/zero-trust-packet-routing/zpr-artifacts.htm#security-attributes) are labels
+* for a resource that can be referenced in a [Zero Trust Packet Routing](https://docs.oracle.com/iaas/Content/zero-trust-packet-routing/overview.htm)
+* (ZPR) policy to control access to ZPR-supported resources.
+* <p>
+Example: {@code {\"Oracle-ZPR\": {\"MaxEgressCount\": {\"value\": \"42\", \"mode\": \"enforce\"}}}}
+* 
+    */
+  "securityAttributes"?: { [key: string]: { [key: string]: any } };
+  /**
    * Locks associated with this resource.
    */
   "locks"?: Array<model.ResourceLock>;

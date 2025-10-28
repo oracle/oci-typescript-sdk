@@ -28,6 +28,8 @@ import * as AddDrgRouteRulesDetails from "./add-drg-route-rules-details";
 export import AddDrgRouteRulesDetails = AddDrgRouteRulesDetails.AddDrgRouteRulesDetails;
 import * as AddImageShapeCompatibilityEntryDetails from "./add-image-shape-compatibility-entry-details";
 export import AddImageShapeCompatibilityEntryDetails = AddImageShapeCompatibilityEntryDetails.AddImageShapeCompatibilityEntryDetails;
+import * as AddIpv4SubnetCidrDetails from "./add-ipv4-subnet-cidr-details";
+export import AddIpv4SubnetCidrDetails = AddIpv4SubnetCidrDetails.AddIpv4SubnetCidrDetails;
 import * as AddNetworkSecurityGroupSecurityRulesDetails from "./add-network-security-group-security-rules-details";
 export import AddNetworkSecurityGroupSecurityRulesDetails = AddNetworkSecurityGroupSecurityRulesDetails.AddNetworkSecurityGroupSecurityRulesDetails;
 import * as AddPublicIpPoolCapacityDetails from "./add-public-ip-pool-capacity-details";
@@ -786,6 +788,8 @@ import * as MeasuredBootReportMeasurements from "./measured-boot-report-measurem
 export import MeasuredBootReportMeasurements = MeasuredBootReportMeasurements.MeasuredBootReportMeasurements;
 import * as MemberReplica from "./member-replica";
 export import MemberReplica = MemberReplica.MemberReplica;
+import * as ModifyIpv4SubnetCidrDetails from "./modify-ipv4-subnet-cidr-details";
+export import ModifyIpv4SubnetCidrDetails = ModifyIpv4SubnetCidrDetails.ModifyIpv4SubnetCidrDetails;
 import * as ModifyVcnCidrDetails from "./modify-vcn-cidr-details";
 export import ModifyVcnCidrDetails = ModifyVcnCidrDetails.ModifyVcnCidrDetails;
 import * as MultipathDevice from "./multipath-device";
@@ -832,6 +836,8 @@ import * as RemoveDrgRouteDistributionStatementsDetails from "./remove-drg-route
 export import RemoveDrgRouteDistributionStatementsDetails = RemoveDrgRouteDistributionStatementsDetails.RemoveDrgRouteDistributionStatementsDetails;
 import * as RemoveDrgRouteRulesDetails from "./remove-drg-route-rules-details";
 export import RemoveDrgRouteRulesDetails = RemoveDrgRouteRulesDetails.RemoveDrgRouteRulesDetails;
+import * as RemoveIpv4SubnetCidrDetails from "./remove-ipv4-subnet-cidr-details";
+export import RemoveIpv4SubnetCidrDetails = RemoveIpv4SubnetCidrDetails.RemoveIpv4SubnetCidrDetails;
 import * as RemoveNetworkSecurityGroupSecurityRulesDetails from "./remove-network-security-group-security-rules-details";
 export import RemoveNetworkSecurityGroupSecurityRulesDetails = RemoveNetworkSecurityGroupSecurityRulesDetails.RemoveNetworkSecurityGroupSecurityRulesDetails;
 import * as RemovePublicIpPoolCapacityDetails from "./remove-public-ip-pool-capacity-details";

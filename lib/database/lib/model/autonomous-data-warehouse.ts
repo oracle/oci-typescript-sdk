@@ -16,12 +16,12 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * **Deprecated.** See {@link AutonomousDatabase} for reference information about Autonomous Databases with the warehouse workload type.
+ * **Deprecated.** See {@link AutonomousDatabase} for reference information about Autonomous AI Databases with the warehouse workload type.
  *
  */
 export interface AutonomousDataWarehouse {
   /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Autonomous Data Warehouse.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Autonomous AI Lakehouse.
    */
   "id": string;
   /**
@@ -53,19 +53,19 @@ export interface AutonomousDataWarehouse {
    */
   "timeCreated"?: Date;
   /**
-   * The user-friendly name for the Autonomous Data Warehouse. The name does not have to be unique.
+   * The user-friendly name for the Autonomous AI Lakehouse. The name does not have to be unique.
    */
   "displayName"?: string;
   /**
-   * The URL of the Service Console for the Data Warehouse.
+   * The URL of the Service Console for the AI Lakehouse.
    */
   "serviceConsoleUrl"?: string;
   /**
-   * The connection string used to connect to the Data Warehouse. The username for the Service Console is ADMIN. Use the password you entered when creating the Autonomous Data Warehouse for the password value.
+   * The connection string used to connect to the AI Lakehouse. The username for the Service Console is ADMIN. Use the password you entered when creating the Autonomous AI Lakehouse for the password value.
    */
   "connectionStrings"?: model.AutonomousDataWarehouseConnectionStrings;
   /**
-   * The Oracle license model that applies to the Oracle Autonomous Data Warehouse. The default is BRING_YOUR_OWN_LICENSE.
+   * The Oracle license model that applies to the Oracle Autonomous AI Lakehouse. The default is BRING_YOUR_OWN_LICENSE.
    *
    */
   "licenseModel"?: AutonomousDataWarehouse.LicenseModel;
@@ -84,7 +84,7 @@ Example: {@code {\"Department\": \"Finance\"}}
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
-   * A valid Oracle Database version for Autonomous Data Warehouse.
+   * A valid Oracle AI Database version for Autonomous AI Lakehouse.
    */
   "dbVersion"?: string;
 }

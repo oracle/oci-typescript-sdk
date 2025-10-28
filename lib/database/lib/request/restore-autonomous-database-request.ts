@@ -23,7 +23,7 @@ export interface RestoreAutonomousDatabaseRequest extends common.BaseRequest {
    */
   "autonomousDatabaseId": string;
   /**
-   * Request to perform an Autonomous Database restore.
+   * Request to perform an Autonomous AI Database restore.
    */
   "restoreAutonomousDatabaseDetails": model.RestoreAutonomousDatabaseDetails;
   /**

@@ -23,7 +23,7 @@ export interface GenerateAutonomousDatabaseWalletRequest extends common.BaseRequ
    */
   "autonomousDatabaseId": string;
   /**
-   * Request to create a new Autonomous Database wallet.
+   * Request to create a new Autonomous AI Database wallet.
    */
   "generateAutonomousDatabaseWalletDetails": model.GenerateAutonomousDatabaseWalletDetails;
   /**

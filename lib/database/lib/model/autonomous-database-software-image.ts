@@ -16,12 +16,12 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Autonomous Database Software Images created from Autonomous Container Database
+ * Autonomous AI Database Software Images created from Autonomous Container Database
  *
  */
 export interface AutonomousDatabaseSoftwareImage {
   /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Autonomous Database Software Image.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Autonomous AI Database Software Image.
    */
   "id": string;
   /**
@@ -29,15 +29,15 @@ export interface AutonomousDatabaseSoftwareImage {
    */
   "compartmentId": string;
   /**
-   * The database version with which the Autonomous Database Software Image is to be built.
+   * The database version with which the Autonomous AI Database Software Image is to be built.
    */
   "databaseVersion": string;
   /**
-   * The user-friendly name for the Autonomous Database Software Image. The name does not have to be unique.
+   * The user-friendly name for the Autonomous AI Database Software Image. The name does not have to be unique.
    */
   "displayName": string;
   /**
-   * The current state of the Autonomous Database Software Image.
+   * The current state of the Autonomous AI Database Software Image.
    */
   "lifecycleState": AutonomousDatabaseSoftwareImage.LifecycleState;
   /**
@@ -45,7 +45,7 @@ export interface AutonomousDatabaseSoftwareImage {
    */
   "lifecycleDetails"?: string;
   /**
-   * The date and time the Autonomous Database Software Image was created.
+   * The date and time the Autonomous AI Database Software Image was created.
    */
   "timeCreated": Date;
   /**
@@ -73,7 +73,7 @@ Example: {@code {\"Department\": \"Finance\"}}
    */
   "systemTags"?: { [key: string]: { [key: string]: any } };
   /**
-   * One-off patches included in the Autonomous Database Software Image
+   * One-off patches included in the Autonomous AI Database Software Image
    */
   "autonomousDsiOneOffPatches"?: Array<string>;
   /**

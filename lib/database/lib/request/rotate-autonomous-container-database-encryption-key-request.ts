@@ -44,7 +44,7 @@ export interface RotateAutonomousContainerDatabaseEncryptionKeyRequest extends c
    */
   "opcRequestId"?: string;
   /**
-   * Key details provided by the user for rotate key operation for Autonomous Database.
+   * Key details provided by the user for rotate key operation for Autonomous AI Database.
    */
   "rotateAutonomousContainerDatabaseEncryptionKeyDetails"?: model.RotateAutonomousContainerDatabaseEncryptionKeyDetails;
 }

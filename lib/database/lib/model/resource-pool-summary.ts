@@ -32,7 +32,7 @@ export interface ResourcePoolSummary {
    */
   "availableComputeCapacity"?: number;
   /**
-   * Indicates if the resource pool should be deleted for the Autonomous Database.
+   * Indicates if the resource pool should be deleted for the Autonomous AI Database.
    *
    */
   "isDisabled"?: boolean;

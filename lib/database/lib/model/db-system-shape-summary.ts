@@ -107,7 +107,7 @@ export interface DbSystemShapeSummary {
    */
   "displayName"?: string;
   /**
-   * The compute model of the Autonomous Database. This is required if using the {@code computeCount} parameter. If using {@code cpuCoreCount} then it is an error to specify {@code computeModel} to a non-null value. ECPU compute model is the recommended model and OCPU compute model is legacy.
+   * The compute model of the Autonomous AI Database. This is required if using the {@code computeCount} parameter. If using {@code cpuCoreCount} then it is an error to specify {@code computeModel} to a non-null value. ECPU compute model is the recommended model and OCPU compute model is legacy.
    */
   "computeModel"?: DbSystemShapeSummary.ComputeModel;
   /**

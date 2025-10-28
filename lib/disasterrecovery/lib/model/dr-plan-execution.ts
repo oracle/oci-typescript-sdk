@@ -140,6 +140,14 @@ Example: {@code 750}
    */
   "lifeCycleDetails"?: string;
   /**
+    * A flag indicating whether execution was submitted automatically by Automatic DR Configuration.
+* <p>
+Example: {@code false}
+* 
+    */
+  "isAutomatic": boolean;
+  "automaticExecutionDetails"?: model.AutomaticExecutionDetails;
+  /**
     * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
 * <p>
 Example: {@code {\"Department\": \"Finance\"}}
@@ -179,6 +187,10 @@ export namespace DrPlanExecution {
           ? obj.groupExecutions.map(item => {
               return model.DrPlanGroupExecution.getJsonObj(item);
             })
+          : undefined,
+
+        "automaticExecutionDetails": obj.automaticExecutionDetails
+          ? model.AutomaticExecutionDetails.getJsonObj(obj.automaticExecutionDetails)
           : undefined
       }
     };
@@ -201,6 +213,10 @@ export namespace DrPlanExecution {
           ? obj.groupExecutions.map(item => {
               return model.DrPlanGroupExecution.getDeserializedJsonObj(item);
             })
+          : undefined,
+
+        "automaticExecutionDetails": obj.automaticExecutionDetails
+          ? model.AutomaticExecutionDetails.getDeserializedJsonObj(obj.automaticExecutionDetails)
           : undefined
       }
     };

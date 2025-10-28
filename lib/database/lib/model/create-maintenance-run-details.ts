@@ -49,7 +49,7 @@ export interface CreateMaintenanceRunDetails {
    */
   "compartmentId"?: string;
   /**
-   * The Autonomous Database Software Image [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm)
+   * The Autonomous AI Database Software Image [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm)
    */
   "databaseSoftwareImageId"?: string;
 }

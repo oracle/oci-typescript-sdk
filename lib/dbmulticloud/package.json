@@ -1,6 +1,6 @@
 {
   "name": "oci-dbmulticloud",
-  "version": "2.119.1",
+  "version": "2.120.0",
   "description": "OCI NodeJS client for Dbmulticloud Service",
   "repository": {
     "type": "git",

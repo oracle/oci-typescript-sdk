@@ -35,7 +35,7 @@ export interface DeleteAutonomousDatabaseRequest extends common.BaseRequest {
    */
   "opcRequestId"?: string;
   /**
-   * If set to true, terminating the Autonomous Database also deletes its associated long-term backups if the retention lock is not enabled.
+   * If set to true, terminating the Autonomous AI Database also deletes its associated long-term backups if the retention lock is not enabled.
    */
   "mustDeleteAssociatedLongTermBackups"?: boolean;
   /**

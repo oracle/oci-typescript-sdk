@@ -34,7 +34,7 @@ export interface RegisterAutonomousDatabaseDataSafeRequest extends common.BaseRe
    */
   "opcDryRun"?: boolean;
   /**
-   * Request to register an Autonomous Database with Data Safe.
+   * Request to register an Autonomous AI Database with Data Safe.
    */
   "registerAutonomousDatabaseDataSafeDetails"?: model.RegisterAutonomousDatabaseDataSafeDetails;
 }

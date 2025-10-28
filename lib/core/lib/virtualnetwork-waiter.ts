@@ -33,6 +33,29 @@ export class VirtualNetworkWaiter {
   ) {}
 
   /**
+   * Waits forAddIpv4SubnetCidr
+   *
+   * @param request the request to send
+   * @return response returns AddIpv4SubnetCidrResponse, GetWorkRequestResponse tuple
+   */
+  public async forAddIpv4SubnetCidr(
+    request: serviceRequests.AddIpv4SubnetCidrRequest
+  ): Promise<{
+    response: serviceResponses.AddIpv4SubnetCidrResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const addIpv4SubnetCidrResponse = await this.client.addIpv4SubnetCidr(request);
+    if (addIpv4SubnetCidrResponse.opcWorkRequestId === undefined)
+      return { response: addIpv4SubnetCidrResponse, workRequestResponse: undefined as any };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      addIpv4SubnetCidrResponse.opcWorkRequestId
+    );
+    return { response: addIpv4SubnetCidrResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
    * Waits forAddIpv6SubnetCidr
    *
    * @param request the request to send
@@ -950,6 +973,29 @@ export class VirtualNetworkWaiter {
   }
 
   /**
+   * Waits forModifyIpv4SubnetCidr
+   *
+   * @param request the request to send
+   * @return response returns ModifyIpv4SubnetCidrResponse, GetWorkRequestResponse tuple
+   */
+  public async forModifyIpv4SubnetCidr(
+    request: serviceRequests.ModifyIpv4SubnetCidrRequest
+  ): Promise<{
+    response: serviceResponses.ModifyIpv4SubnetCidrResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const modifyIpv4SubnetCidrResponse = await this.client.modifyIpv4SubnetCidr(request);
+    if (modifyIpv4SubnetCidrResponse.opcWorkRequestId === undefined)
+      return { response: modifyIpv4SubnetCidrResponse, workRequestResponse: undefined as any };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      modifyIpv4SubnetCidrResponse.opcWorkRequestId
+    );
+    return { response: modifyIpv4SubnetCidrResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
    * Waits forModifyVcnCidr
    *
    * @param request the request to send
@@ -970,6 +1016,29 @@ export class VirtualNetworkWaiter {
       modifyVcnCidrResponse.opcWorkRequestId
     );
     return { response: modifyVcnCidrResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forRemoveIpv4SubnetCidr
+   *
+   * @param request the request to send
+   * @return response returns RemoveIpv4SubnetCidrResponse, GetWorkRequestResponse tuple
+   */
+  public async forRemoveIpv4SubnetCidr(
+    request: serviceRequests.RemoveIpv4SubnetCidrRequest
+  ): Promise<{
+    response: serviceResponses.RemoveIpv4SubnetCidrResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const removeIpv4SubnetCidrResponse = await this.client.removeIpv4SubnetCidr(request);
+    if (removeIpv4SubnetCidrResponse.opcWorkRequestId === undefined)
+      return { response: removeIpv4SubnetCidrResponse, workRequestResponse: undefined as any };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      removeIpv4SubnetCidrResponse.opcWorkRequestId
+    );
+    return { response: removeIpv4SubnetCidrResponse, workRequestResponse: getWorkRequestResponse };
   }
 
   /**

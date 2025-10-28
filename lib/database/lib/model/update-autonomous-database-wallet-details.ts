@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details to update an Autonomous Database wallet.
+ * Details to update an Autonomous AI Database wallet.
  *
  */
 export interface UpdateAutonomousDatabaseWalletDetails {

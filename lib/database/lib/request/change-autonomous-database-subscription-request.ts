@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ChangeAutonomousDatabaseSubscriptionRequest extends common.BaseRequest {
   /**
-   * Associate an Autonomous Database with a different subscription.
+   * Associate an Autonomous AI Database with a different subscription.
    */
   "changeAutonomousDatabaseSubscriptionDetails": model.ChangeAutonomousDatabaseSubscriptionDetails;
   /**

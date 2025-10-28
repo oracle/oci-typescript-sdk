@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details to create an Oracle Autonomous Database.
+ * Details to create an Oracle Autonomous AI Database.
  *
  */
 export interface CreateAutonomousDatabaseDetails extends model.CreateAutonomousDatabaseBase {

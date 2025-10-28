@@ -97,6 +97,13 @@ Example: {@code 50}
    *
    */
   "computeHostGroupId"?: string;
+  /**
+   * When set to true, all the compartments in the tenancy are traversed
+   * and the hosts in the specified tenancy and its compartments are fetched.
+   * Default is false.
+   *
+   */
+  "computeHostInSubtree"?: boolean;
 }
 
 export namespace ListComputeHostsRequest {

@@ -36,7 +36,7 @@ export interface ListAutonomousDbVersionsRequest extends common.BaseRequest {
    */
   "opcRequestId"?: string;
   /**
-   * A filter to return only autonomous database resources that match the specified workload type.
+   * A filter to return only Autonomous AI Database resources that match the specified workload type.
    */
   "dbWorkload"?: string;
   /**

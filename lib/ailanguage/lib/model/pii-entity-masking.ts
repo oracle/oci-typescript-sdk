@@ -39,6 +39,11 @@ export namespace PiiEntityMasking {
 
     if (obj && "mode" in obj && obj.mode) {
       switch (obj.mode) {
+        case "RELEXIFY":
+          return model.PiiEntityRelexify.getJsonObj(
+            <model.PiiEntityRelexify>(<object>jsonObj),
+            true
+          );
         case "REPLACE":
           return model.PiiEntityReplace.getJsonObj(<model.PiiEntityReplace>(<object>jsonObj), true);
         case "REMOVE":
@@ -56,6 +61,11 @@ export namespace PiiEntityMasking {
 
     if (obj && "mode" in obj && obj.mode) {
       switch (obj.mode) {
+        case "RELEXIFY":
+          return model.PiiEntityRelexify.getDeserializedJsonObj(
+            <model.PiiEntityRelexify>(<object>jsonObj),
+            true
+          );
         case "REPLACE":
           return model.PiiEntityReplace.getDeserializedJsonObj(
             <model.PiiEntityReplace>(<object>jsonObj),

@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The configuration details for associating the Autonomous Database with a different subscription.
+ * The configuration details for associating the Autonomous AI Database with a different subscription.
  *
  */
 export interface ChangeAutonomousDatabaseSubscriptionDetails {

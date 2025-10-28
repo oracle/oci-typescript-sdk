@@ -16,17 +16,17 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details to create an Oracle Autonomous Database refreshable clone.
+ * Details to create an Oracle Autonomous AI Database refreshable clone.
  *
  */
 export interface CreateRefreshableAutonomousDatabaseCloneDetails
   extends model.CreateAutonomousDatabaseBase {
   /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the source Autonomous Database that you will clone to create a new Autonomous Database.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the source Autonomous AI Database that you will clone to create a new Autonomous AI Database.
    */
   "sourceId": string;
   /**
-   * The refresh mode of the clone. AUTOMATIC indicates that the clone is automatically being refreshed with data from the source Autonomous Database.
+   * The refresh mode of the clone. AUTOMATIC indicates that the clone is automatically being refreshed with data from the source Autonomous AI Database.
    */
   "refreshableMode"?: CreateRefreshableAutonomousDatabaseCloneDetails.RefreshableMode;
   /**
@@ -38,18 +38,18 @@ export interface CreateRefreshableAutonomousDatabaseCloneDetails
    */
   "autoRefreshPointLagInSeconds"?: number;
   /**
-   * The the date and time that auto-refreshing will begin for an Autonomous Database refreshable clone. This value controls only the start time for the first refresh operation. Subsequent (ongoing) refresh operations have start times controlled by the value of the {@code autoRefreshFrequencyInSeconds} parameter.
+   * The the date and time that auto-refreshing will begin for an Autonomous AI Database refreshable clone. This value controls only the start time for the first refresh operation. Subsequent (ongoing) refresh operations have start times controlled by the value of the {@code autoRefreshFrequencyInSeconds} parameter.
    */
   "timeOfAutoRefreshStart"?: Date;
   /**
-    * Indicates the Autonomous Database mode. The database can be opened in {@code READ_ONLY} or {@code READ_WRITE} mode.
+    * Indicates the Autonomous AI Database mode. The database can be opened in {@code READ_ONLY} or {@code READ_WRITE} mode.
 * <p>
 This cannot be updated in parallel with any of the following: cpuCoreCount, computeCount, computeModel, adminPassword, whitelistedIps, isMTLSConnectionRequired, dbVersion, isRefreshable, dbName, scheduledOperations, dbToolsDetails, or isFreeTier.
 * 
     */
   "openMode"?: CreateRefreshableAutonomousDatabaseCloneDetails.OpenMode;
   /**
-   * The Autonomous Database clone type.
+   * The Autonomous AI Database clone type.
    */
   "cloneType"?: CreateRefreshableAutonomousDatabaseCloneDetails.CloneType;
 
