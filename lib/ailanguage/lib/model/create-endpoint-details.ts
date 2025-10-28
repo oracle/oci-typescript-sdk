@@ -26,10 +26,6 @@ export interface CreateEndpointDetails {
    */
   "displayName"?: string;
   /**
-   * Compute infra type for endpoint.
-   */
-  "computeType"?: CreateEndpointDetails.ComputeType;
-  /**
    * Unique name across user tenancy in a region to identify an endpoint to be used for inferencing.
    */
   "alias"?: string;
@@ -64,11 +60,6 @@ export interface CreateEndpointDetails {
 }
 
 export namespace CreateEndpointDetails {
-  export enum ComputeType {
-    Cpu = "CPU",
-    Gpu = "GPU"
-  }
-
   export function getJsonObj(obj: CreateEndpointDetails): object {
     const jsonObj = { ...obj, ...{} };
 

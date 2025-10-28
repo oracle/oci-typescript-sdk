@@ -38,7 +38,7 @@ export interface AutonomousVmResourceUsage {
   "availableCpus"?: number;
   /**
    * CPU cores that continue to be included in the count of OCPUs available to the
-   * Autonomous Container Database even after one of its Autonomous Database is
+   * Autonomous Container Database even after one of its Autonomous AI Database is
    * terminated or scaled down. You can release them to the available OCPUs at its
    * parent AVMC level by restarting the Autonomous Container Database.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.

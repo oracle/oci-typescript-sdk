@@ -20,11 +20,11 @@ import common = require("oci-common");
 export interface ChangeAutonomousDatabaseSoftwareImageCompartmentRequest
   extends common.BaseRequest {
   /**
-   * Request to move Autonomous Database Software Image to a different compartment
+   * Request to move Autonomous AI Database Software Image to a different compartment
    */
   "changeAutonomousDatabaseSoftwareImageCompartmentDetails": model.ChangeAutonomousDatabaseSoftwareImageCompartmentDetails;
   /**
-   * The Autonomous Database Software Image [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   * The Autonomous AI Database Software Image [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "autonomousDatabaseSoftwareImageId": string;
   /**

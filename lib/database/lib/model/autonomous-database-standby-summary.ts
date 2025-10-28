@@ -25,7 +25,7 @@ export interface AutonomousDatabaseStandbySummary {
    */
   "lagTimeInSeconds"?: number;
   /**
-   * The current state of the Autonomous Database.
+   * The current state of the Autonomous AI Database.
    */
   "lifecycleState"?: AutonomousDatabaseStandbySummary.LifecycleState;
   /**
@@ -33,11 +33,11 @@ export interface AutonomousDatabaseStandbySummary {
    */
   "lifecycleDetails"?: string;
   /**
-   * The date and time the Autonomous Data Guard role was switched for the standby Autonomous Database.
+   * The date and time the Autonomous Data Guard role was switched for the standby Autonomous AI Database.
    */
   "timeDataGuardRoleChanged"?: Date;
   /**
-   * The date and time the Disaster Recovery role was switched for the standby Autonomous Database.
+   * The date and time the Disaster Recovery role was switched for the standby Autonomous AI Database.
    */
   "timeDisasterRecoveryRoleChanged"?: Date;
   /**
@@ -53,7 +53,7 @@ export interface AutonomousDatabaseStandbySummary {
    */
   "maintenanceTargetComponent"?: string;
   /**
-   * The availability domain of a local Autonomous Data Guard standby database of an Autonomous Database Serverless instance.
+   * The availability domain of a local Autonomous Data Guard standby database of an Autonomous AI Database Serverless instance.
    */
   "availabilityDomain"?: string;
 }

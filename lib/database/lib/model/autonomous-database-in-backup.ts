@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details of Autonomous Database in Autonomous Container Database
+ * Details of Autonomous AI Database in Autonomous Container Database
  *
  */
 export interface AutonomousDatabaseInBackup {
@@ -25,7 +25,7 @@ export interface AutonomousDatabaseInBackup {
    */
   "compartmentId": string;
   /**
-   * The user-friendly name for the Autonomous Database. The name does not have to be unique.
+   * The user-friendly name for the Autonomous AI Database. The name does not have to be unique.
    */
   "displayName": string;
 }

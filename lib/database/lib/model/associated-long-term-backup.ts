@@ -20,11 +20,11 @@ import common = require("oci-common");
  */
 export interface AssociatedLongTermBackup {
   /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Autonomous Database backup.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Autonomous AI Database backup.
    */
   "id"?: string;
   /**
-   * The display name for the long term backup for the autonomous database.
+   * The display name for the long term backup for the Autonomous AI Database.
    */
   "displayName"?: string;
 }

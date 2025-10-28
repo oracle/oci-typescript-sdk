@@ -46,6 +46,10 @@ export interface CreateDatabaseToolsConnectionDetails {
    * Specifies whether this connection is supported by the Database Tools Runtime.
    */
   "runtimeSupport"?: model.RuntimeSupport;
+  /**
+   * Specifies the identity used by the Database Tools service to issue requests to other OCI services (e.g., Secrets in Vault).
+   */
+  "runtimeIdentity"?: model.RuntimeIdentity;
 
   "type": string;
 }

@@ -29,7 +29,7 @@ export interface CloudAutonomousVmClusterResourceUsage {
    */
   "id"?: string;
   /**
-   * The data disk group size allocated for Autonomous Databases, in TBs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The data disk group size allocated for Autonomous AI Databases, in TBs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "autonomousDataStorageSizeInTBs"?: number;
   /**
@@ -45,11 +45,11 @@ export interface CloudAutonomousVmClusterResourceUsage {
    */
   "totalContainerDatabases"?: number;
   /**
-   * The data disk group size available for Autonomous Databases, in TBs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The data disk group size available for Autonomous AI Databases, in TBs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "availableAutonomousDataStorageSizeInTBs"?: number;
   /**
-   * The data disk group size used for Autonomous Databases, in TBs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The data disk group size used for Autonomous AI Databases, in TBs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "usedAutonomousDataStorageSizeInTBs"?: number;
   /**
@@ -82,7 +82,7 @@ export interface CloudAutonomousVmClusterResourceUsage {
   "availableCpus"?: number;
   /**
    * CPU cores that continue to be included in the count of OCPUs available
-   * to the Autonomous Container Database even after one of its Autonomous Database is
+   * to the Autonomous Container Database even after one of its Autonomous AI Database is
    * terminated or scaled down. You can release them to the available OCPUs at its parent
    * AVMC level by restarting the Autonomous Container Database.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.

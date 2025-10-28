@@ -16,12 +16,12 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The Autonomous Database wallet details.
+ * The Autonomous AI Database wallet details.
  *
  */
 export interface AutonomousDatabaseWallet {
   /**
-   * The current lifecycle state of the Autonomous Database wallet.
+   * The current lifecycle state of the Autonomous AI Database wallet.
    */
   "lifecycleState"?: AutonomousDatabaseWallet.LifecycleState;
   /**

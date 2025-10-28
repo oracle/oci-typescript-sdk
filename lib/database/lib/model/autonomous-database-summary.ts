@@ -16,14 +16,14 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * An Oracle Autonomous Database.
+ * An Oracle Autonomous AI Database.
  *
  * **Warning:** Oracle recommends that you avoid using any confidential information when you supply string values using the API.
  *
  */
 export interface AutonomousDatabaseSummary {
   /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Autonomous Database.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Autonomous AI Database.
    */
   "id": string;
   /**
@@ -35,7 +35,7 @@ export interface AutonomousDatabaseSummary {
    */
   "subscriptionId"?: string;
   /**
-   * The current state of the Autonomous Database.
+   * The current state of the Autonomous AI Database.
    */
   "lifecycleState": AutonomousDatabaseSummary.LifecycleState;
   /**
@@ -62,7 +62,7 @@ export interface AutonomousDatabaseSummary {
     | model.GcpKeyDetails
     | model.OracleManagedKeyDetails;
   /**
-   * The OCID of the key container version that is used in database transparent data encryption (TDE) operations KMS Key can have multiple key versions. If none is specified, the current key version (latest) of the Key Id is used for the operation. Autonomous Database Serverless does not use key versions, hence is not applicable for Autonomous Database Serverless instances.
+   * The OCID of the key container version that is used in database transparent data encryption (TDE) operations KMS Key can have multiple key versions. If none is specified, the current key version (latest) of the Key Id is used for the operation. Autonomous AI Database Serverless does not use key versions, hence is not applicable for Autonomous AI Database Serverless instances.
    *
    */
   "kmsKeyVersionId"?: string;
@@ -71,24 +71,24 @@ export interface AutonomousDatabaseSummary {
    */
   "dbName": string;
   /**
-    * The character set for the autonomous database.  The default is AL32UTF8. Allowed values are:
+    * The character set for the Autonomous AI Database.  The default is AL32UTF8. Allowed values are:
 * <p>
 AL32UTF8, AR8ADOS710, AR8ADOS720, AR8APTEC715, AR8ARABICMACS, AR8ASMO8X, AR8ISO8859P6, AR8MSWIN1256, AR8MUSSAD768, AR8NAFITHA711, AR8NAFITHA721, AR8SAKHR706, AR8SAKHR707, AZ8ISO8859P9E, BG8MSWIN, BG8PC437S, BLT8CP921, BLT8ISO8859P13, BLT8MSWIN1257, BLT8PC775, BN8BSCII, CDN8PC863, CEL8ISO8859P14, CL8ISO8859P5, CL8ISOIR111, CL8KOI8R, CL8KOI8U, CL8MACCYRILLICS, CL8MSWIN1251, EE8ISO8859P2, EE8MACCES, EE8MACCROATIANS, EE8MSWIN1250, EE8PC852, EL8DEC, EL8ISO8859P7, EL8MACGREEKS, EL8MSWIN1253, EL8PC437S, EL8PC851, EL8PC869, ET8MSWIN923, HU8ABMOD, HU8CWI2, IN8ISCII, IS8PC861, IW8ISO8859P8, IW8MACHEBREWS, IW8MSWIN1255, IW8PC1507, JA16EUC, JA16EUCTILDE, JA16SJIS, JA16SJISTILDE, JA16VMS, KO16KSC5601, KO16KSCCS, KO16MSWIN949, LA8ISO6937, LA8PASSPORT, LT8MSWIN921, LT8PC772, LT8PC774, LV8PC1117, LV8PC8LR, LV8RST104090, N8PC865, NE8ISO8859P10, NEE8ISO8859P4, RU8BESTA, RU8PC855, RU8PC866, SE8ISO8859P3, TH8MACTHAIS, TH8TISASCII, TR8DEC, TR8MACTURKISHS, TR8MSWIN1254, TR8PC857, US7ASCII, US8PC437, UTF8, VN8MSWIN1258, VN8VN3, WE8DEC, WE8DG, WE8ISO8859P1, WE8ISO8859P15, WE8ISO8859P9, WE8MACROMAN8S, WE8MSWIN1252, WE8NCR4970, WE8NEXTSTEP, WE8PC850, WE8PC858, WE8PC860, WE8ROMAN8, ZHS16CGB231280, ZHS16GBK, ZHT16BIG5, ZHT16CCDC, ZHT16DBT, ZHT16HKSCS, ZHT16MSWIN950, ZHT32EUC, ZHT32SOPS, ZHT32TRIS
 * 
     */
   "characterSet"?: string;
   /**
-   * The national character set for the autonomous database.  The default is AL16UTF16. Allowed values are:
+   * The national character set for the Autonomous AI Database.  The default is AL16UTF16. Allowed values are:
    * AL16UTF16 or UTF8.
    *
    */
   "ncharacterSet"?: string;
   /**
-   * The percentage of the System Global Area(SGA) assigned to In-Memory tables in Autonomous Database. This property is applicable only to Autonomous Databases on the Exadata Cloud@Customer platform. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The percentage of the System Global Area(SGA) assigned to In-Memory tables in Autonomous AI Database. This property is applicable only to Autonomous AI Databases on the Exadata Cloud@Customer platform. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "inMemoryPercentage"?: number;
   /**
-   * The area assigned to In-Memory tables in Autonomous Database. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The area assigned to In-Memory tables in Autonomous AI Database. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "inMemoryAreaInGBs"?: number;
   /**
@@ -97,7 +97,7 @@ AL32UTF8, AR8ADOS710, AR8ADOS720, AR8APTEC715, AR8ARABICMACS, AR8ASMO8X, AR8ISO8
   "nextLongTermBackupTimeStamp"?: Date;
   "longTermBackupSchedule"?: model.LongTermBackUpScheduleDetails;
   /**
-    * Indicates if this is an Always Free resource. The default value is false. Note that Always Free Autonomous Databases have 1 CPU and 20GB of memory. For Always Free databases, memory and CPU cannot be scaled.
+    * Indicates if this is an Always Free resource. The default value is false. Note that Always Free Autonomous AI Databases have 1 CPU and 20GB of memory. For Always Free databases, memory and CPU cannot be scaled.
 * <p>
 This cannot be updated in parallel with any of the following: licenseModel, dbEdition, cpuCoreCount, computeCount, computeModel, adminPassword, whitelistedIps, isMTLSConnectionRequired, openMode, permissionLevel, privateEndpointLabel, nsgIds, dbVersion, isRefreshable, dbName, scheduledOperations, dbToolsDetails, or isLocalDataGuardEnabled
 * 
@@ -129,7 +129,7 @@ This cannot be updated in parallel with any of the following: licenseModel, dbEd
    */
   "encryptionKeyHistoryEntry"?: Array<model.AutonomousDatabaseEncryptionKeyHistoryEntry>;
   /**
-   * The number of CPU cores to be made available to the database. When the ECPU is selected, the value for cpuCoreCount is 0. For Autonomous Database on Dedicated Exadata infrastructure, the maximum number of cores is determined by the infrastructure shape. See [Characteristics of Infrastructure Shapes](https://www.oracle.com/pls/topic/lookup?ctx=en/cloud/paas/autonomous-database&id=ATPFG-GUID-B0F033C1-CC5A-42F0-B2E7-3CECFEDA1FD1) for shape details.
+   * The number of CPU cores to be made available to the database. When the ECPU is selected, the value for cpuCoreCount is 0. For Autonomous AI Database on Dedicated Exadata infrastructure, the maximum number of cores is determined by the infrastructure shape. See [Characteristics of Infrastructure Shapes](https://docs.oracle.com/en/cloud/paas/autonomous-database/dedicated/adbde/) for shape details.
    * <p>
    **Note:** This parameter cannot be used with the {@code ocpuCount} parameter.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
@@ -140,11 +140,11 @@ This cannot be updated in parallel with any of the following: licenseModel, dbEd
    */
   "localAdgAutoFailoverMaxDataLossLimit"?: number;
   /**
-   * The compute model of the Autonomous Database. This is required if using the {@code computeCount} parameter. If using {@code cpuCoreCount} then it is an error to specify {@code computeModel} to a non-null value. ECPU compute model is the recommended model and OCPU compute model is legacy.
+   * The compute model of the Autonomous AI Database. This is required if using the {@code computeCount} parameter. If using {@code cpuCoreCount} then it is an error to specify {@code computeModel} to a non-null value. ECPU compute model is the recommended model and OCPU compute model is legacy.
    */
   "computeModel"?: AutonomousDatabaseSummary.ComputeModel;
   /**
-   * The compute amount (CPUs) available to the database. Minimum and maximum values depend on the compute model and whether the database is an Autonomous Database Serverless instance or an Autonomous Database on Dedicated Exadata Infrastructure.
+   * The compute amount (CPUs) available to the database. Minimum and maximum values depend on the compute model and whether the database is an Autonomous AI Database Serverless instance or an Autonomous AI Database on Dedicated Exadata Infrastructure.
    * The 'ECPU' compute model requires a minimum value of one, for databases in the elastic resource pool and minimum value of two, otherwise. Required when using the {@code computeModel} parameter. When using {@code cpuCoreCount} parameter, it is an error to specify computeCount to a non-null value. Providing {@code computeModel} and {@code computeCount} is the preferred method for both OCPU and ECPU.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
@@ -161,26 +161,26 @@ This cannot be updated in parallel with any of the following: licenseModel, dbEd
     * The number of OCPU cores to be made available to the database.
 * <p>
 The following points apply:
-* - For Autonomous Databases on Dedicated Exadata Infrastructure, to provision less than 1 core, enter a fractional value in an increment of 0.1. For example, you can provision 0.3 or 0.4 cores, but not 0.35 cores. (Note that fractional OCPU values are not supported for Autonomous Database Serverless instances.)
-* - To provision cores, enter an integer between 1 and the maximum number of cores available for the infrastructure shape. For example, you can provision 2 cores or 3 cores, but not 2.5 cores. This applies to Autonomous Databases on both serverless and dedicated Exadata infrastructure.
-* - For Autonomous Database Serverless instances, this parameter is not used.
+* - For Autonomous AI Databases on Dedicated Exadata Infrastructure, to provision less than 1 core, enter a fractional value in an increment of 0.1. For example, you can provision 0.3 or 0.4 cores, but not 0.35 cores. (Note that fractional OCPU values are not supported for Autonomous AI Database Serverless instances.)
+* - To provision cores, enter an integer between 1 and the maximum number of cores available for the infrastructure shape. For example, you can provision 2 cores or 3 cores, but not 2.5 cores. This applies to Autonomous AI Databases on both serverless and dedicated Exadata infrastructure.
+* - For Autonomous AI Database Serverless instances, this parameter is not used.
 * <p>
-For Autonomous Databases on Dedicated Exadata Infrastructure, the maximum number of cores is determined by the infrastructure shape. See [Characteristics of Infrastructure Shapes](https://docs.oracle.com/en/cloud/paas/autonomous-database/dedicated/adbde/index.html) for shape details.
+For Autonomous AI Databases on Dedicated Exadata Infrastructure, the maximum number of cores is determined by the infrastructure shape. See [Characteristics of Infrastructure Shapes](https://docs.oracle.com/en/cloud/paas/autonomous-database/dedicated/adbde/index.html) for shape details.
 * <p>
 **Note:** This parameter cannot be used with the {@code cpuCoreCount} parameter.
 *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "ocpuCount"?: number;
   /**
-   * An array of CPU values that an Autonomous Database can be scaled to.
+   * An array of CPU values that an Autonomous AI Database can be scaled to.
    */
   "provisionableCpus"?: Array<number>;
   /**
     * The quantity of data in the database, in terabytes.
 * <p>
-The following points apply to Autonomous Databases on Serverless Infrastructure:
+The following points apply to Autonomous AI Databases on Serverless Infrastructure:
 * - This is an integer field whose value remains null when the data size is in GBs and cannot be converted to TBs (by dividing the GB value by 1024) without rounding error.
-* - To get the exact value of data storage size without rounding error, please see {@code dataStorageSizeInGBs} of Autonomous Database.
+* - To get the exact value of data storage size without rounding error, please see {@code dataStorageSizeInGBs} of Autonomous AI Database.
 *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "dataStorageSizeInTBs": number;
@@ -197,12 +197,12 @@ The following points apply to Autonomous Databases on Serverless Infrastructure:
   /**
     * The quantity of data in the database, in gigabytes.
 * <p>
-For Autonomous Transaction Processing databases using ECPUs on Serverless Infrastructure, this value is always populated. In all the other cases, this value will be null and {@code dataStorageSizeInTBs} will be populated instead.
+For Autonomous AI Transaction Processing databases using ECPUs on Serverless Infrastructure, this value is always populated. In all the other cases, this value will be null and {@code dataStorageSizeInTBs} will be populated instead.
 *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "dataStorageSizeInGBs"?: number;
   /**
-   * The storage space consumed by Autonomous Database in GBs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The storage space consumed by Autonomous AI Database in GBs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "usedDataStorageSizeInGBs"?: number;
   /**
@@ -216,47 +216,47 @@ For Autonomous Transaction Processing databases using ECPUs on Serverless Infras
    */
   "isDedicated"?: boolean;
   /**
-   * The Autonomous Container Database [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm). Used only by Autonomous Database on Dedicated Exadata Infrastructure.
+   * The Autonomous Container Database [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm). Used only by Autonomous AI Database on Dedicated Exadata Infrastructure.
    */
   "autonomousContainerDatabaseId"?: string;
   /**
-   * Indicates if the Autonomous Database is backup retention locked.
+   * Indicates if the Autonomous AI Database is backup retention locked.
    */
   "isBackupRetentionLocked"?: boolean;
   /**
-   * The date and time the Autonomous Database was most recently undeleted.
+   * The date and time the Autonomous AI Database was most recently undeleted.
    *
    */
   "timeUndeleted"?: Date;
   /**
-   * The earliest(min) date and time the Autonomous Database can be scheduled to upgrade to 23ai.
+   * The earliest(min) date and time the Autonomous AI Database can be scheduled to upgrade to 26ai.
    *
    */
   "timeEarliestAvailableDbVersionUpgrade"?: Date;
   /**
-   * The max date and time the Autonomous Database can be scheduled to upgrade to 23ai.
+   * The max date and time the Autonomous AI Database can be scheduled to upgrade to 26ai.
    *
    */
   "timeLatestAvailableDbVersionUpgrade"?: Date;
   /**
-   * The date and time the Autonomous Database scheduled to upgrade to 23ai.
+   * The date and time the Autonomous AI Database scheduled to upgrade to 26ai.
    *
    */
   "timeScheduledDbVersionUpgrade"?: Date;
   /**
-   * The date and time the Autonomous Database was created.
+   * The date and time the Autonomous AI Database was created.
    */
   "timeCreated"?: Date;
   /**
-   * The user-friendly name for the Autonomous Database. The name does not have to be unique.
+   * The user-friendly name for the Autonomous AI Database. The name does not have to be unique.
    */
   "displayName"?: string;
   /**
-   * The URL of the Service Console for the Autonomous Database.
+   * The URL of the Service Console for the Autonomous AI Database.
    */
   "serviceConsoleUrl"?: string;
   /**
-   * The connection string used to connect to the Autonomous Database. The username for the Service Console is ADMIN. Use the password you entered when creating the Autonomous Database for the password value.
+   * The connection string used to connect to the Autonomous AI Database. The username for the Service Console is ADMIN. Use the password you entered when creating the Autonomous AI Database for the password value.
    */
   "connectionStrings"?: model.AutonomousDatabaseConnectionStrings;
   "connectionUrls"?: model.AutonomousDatabaseConnectionUrls;
@@ -264,11 +264,12 @@ For Autonomous Transaction Processing databases using ECPUs on Serverless Infras
    * The Public URLs of Private Endpoint database for accessing Oracle Application Express (APEX) and SQL Developer Web with a browser from a Compute instance within your VCN or that has a direct connection to your VCN.
    */
   "publicConnectionUrls"?: model.AutonomousDatabaseConnectionUrls;
+  "vanityConnectionUrls"?: model.AutonomousDatabaseConnectionUrls;
   /**
-    * The Oracle license model that applies to the Oracle Autonomous Database. Bring your own license (BYOL) allows you to apply your current on-premises Oracle software licenses to equivalent, highly automated Oracle services in the cloud.
-* License Included allows you to subscribe to new Oracle Database software licenses and the Oracle Database service.
-* Note that when provisioning an [Autonomous Database on dedicated Exadata infrastructure](https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html), this attribute must be null. It is already set at the
-* Autonomous Exadata Infrastructure level. When provisioning an [Autonomous Database Serverless] (https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html) database, if a value is not specified, the system defaults the value to {@code BRING_YOUR_OWN_LICENSE}. Bring your own license (BYOL) also allows you to select the DB edition using the optional parameter.
+    * The Oracle license model that applies to the Oracle Autonomous AI Database. Bring your own license (BYOL) allows you to apply your current on-premises Oracle software licenses to equivalent, highly automated Oracle services in the cloud.
+* License Included allows you to subscribe to new Oracle AI Database software licenses and the Oracle AI Database service.
+* Note that when provisioning an [Autonomous AI Database on dedicated Exadata infrastructure](https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html), this attribute must be null. It is already set at the
+* Autonomous Exadata Infrastructure level. When provisioning an [Autonomous AI Database Serverless] (https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html) database, if a value is not specified, the system defaults the value to {@code BRING_YOUR_OWN_LICENSE}. Bring your own license (BYOL) also allows you to select the DB edition using the optional parameter.
 * <p>
 This cannot be updated in parallel with any of the following: cpuCoreCount, computeCount, dataStorageSizeInTBs, adminPassword, isMTLSConnectionRequired, dbWorkload, privateEndpointLabel, nsgIds, dbVersion, dbName, scheduledOperations, dbToolsDetails, or isFreeTier.
 * 
@@ -279,7 +280,7 @@ This cannot be updated in parallel with any of the following: cpuCoreCount, comp
    */
   "byolComputeCountLimit"?: number;
   /**
-   * The amount of storage that has been used for Autonomous Databases in dedicated infrastructure, in terabytes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The amount of storage that has been used for Autonomous AI Databases in dedicated infrastructure, in terabytes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "usedDataStorageSizeInTBs"?: number;
   /**
@@ -309,7 +310,7 @@ Example: {@code {\"Department\": \"Finance\"}}
 **Subnet Restrictions:**
 * - For bare metal DB systems and for single node virtual machine DB systems, do not use a subnet that overlaps with 192.168.16.16/28.
 * - For Exadata and virtual machine 2-node RAC systems, do not use a subnet that overlaps with 192.168.128.0/20.
-* - For Autonomous Database, setting this will disable public secure access to the database.
+* - For Autonomous AI Database, setting this will disable public secure access to the database.
 * <p>
 These subnets are used by the Oracle Clusterware private interconnect on the database instance.
 * Specifying an overlapping subnet will cause the private interconnect to malfunction.
@@ -320,7 +321,7 @@ These subnets are used by the Oracle Clusterware private interconnect on the dat
   /**
    * The list of [OCIDs](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) for the network security groups (NSGs) to which this resource belongs. Setting this to an empty list removes all resources from all NSGs. For more information about NSGs, see [Security Rules](https://docs.oracle.com/iaas/Content/Network/Concepts/securityrules.htm).
    * **NsgIds restrictions:**
-   * - A network security group (NSG) is optional for Autonomous Databases with private access. The nsgIds list can be empty.
+   * - A network security group (NSG) is optional for Autonomous AI Databases with private access. The nsgIds list can be empty.
    *
    */
   "nsgIds"?: Array<string>;
@@ -347,27 +348,28 @@ This setting cannot be updated in parallel with any of the following: licenseMod
    */
   "privateEndpointIp"?: string;
   /**
-   * A valid Oracle Database version for Autonomous Database.
+   * A valid Oracle AI Database version for Autonomous AI Database.
    */
   "dbVersion"?: string;
   /**
-   * Indicates if the Autonomous Database version is a preview version.
+   * Indicates if the Autonomous AI Database version is a preview version.
    */
   "isPreview"?: boolean;
   /**
-    * The Autonomous Database workload type. The following values are valid:
+    * The Autonomous AI Database workload type. The following values are valid:
+* - OLTP - indicates an Autonomous AI Transaction Processing database
+* - DW - indicates an Autonomous AI Lakehouse database
+* - AJD - indicates an Autonomous AI JSON Database
+* - APEX - indicates an Autonomous AI Database with the Oracle APEX AI Application Development workload type.
+* - LH - indicates an Oracle Autonomous AI Lakehouse database
 * <p>
-- OLTP - indicates an Autonomous Transaction Processing database
-* - DW - indicates an Autonomous Data Warehouse database
-* - AJD - indicates an Autonomous JSON Database
-* - APEX - indicates an Autonomous Database with the Oracle APEX Application Development workload type.
-* <p>
-This cannot be updated in parallel with any of the following: licenseModel, dbEdition, cpuCoreCount, computeCount, computeModel, adminPassword, whitelistedIps, isMTLSConnectionRequired, privateEndpointLabel, nsgIds, dbVersion, isRefreshable, dbName, scheduledOperations, dbToolsDetails, isLocalDataGuardEnabled, or isFreeTier.
+
+* This cannot be updated in parallel with any of the following: licenseModel, dbEdition, cpuCoreCount, computeCount, computeModel, adminPassword, whitelistedIps, isMTLSConnectionRequired, privateEndpointLabel, nsgIds, dbVersion, isRefreshable, dbName, scheduledOperations, dbToolsDetails, isLocalDataGuardEnabled, or isFreeTier.
 * 
     */
   "dbWorkload"?: AutonomousDatabaseSummary.DbWorkload;
   /**
-   * Autonomous Database for Developers are fixed-shape Autonomous Databases that developers can use to build and test new applications. On Serverless, these are low-cost and billed per instance, on Dedicated and Cloud@Customer there is no additional cost to create Developer databases. Developer databases come with limited resources and is not intended for large-scale testing and production deployments. When you need more compute or storage resources, you may upgrade to a full paid production database.
+   * Autonomous AI Database for Developers are fixed-shape Autonomous AI Databases that developers can use to build and test new applications. On Serverless, these are low-cost and billed per instance, on Dedicated and Cloud@Customer there is no additional cost to create Developer databases. Developer databases come with limited resources and is not intended for large-scale testing and production deployments. When you need more compute or storage resources, you may upgrade to a full paid production database.
    *
    */
   "isDevTier"?: boolean;
@@ -378,16 +380,16 @@ This cannot be updated in parallel with any of the following: licenseModel, dbEd
 *  if database-level access control is enabled and no rules are specified, the database will become inaccessible. The rules can be added later using the {@code UpdateAutonomousDatabase} API operation or edit option in console.
 * When creating a database clone, the desired access control setting should be specified. By default, database-level access control will be disabled for the clone.
 * <p>
-This property is applicable only to Autonomous Databases on the Exadata Cloud@Customer platform. For Autonomous Database Serverless instances, {@code whitelistedIps} is used.
+This property is applicable only to Autonomous AI Databases on the Exadata Cloud@Customer platform. For Autonomous AI Database Serverless instances, {@code whitelistedIps} is used.
 * 
     */
   "isAccessControlEnabled"?: boolean;
   /**
-    * The client IP access control list (ACL). This feature is available for [Autonomous Database Serverless] (https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html) and on Exadata Cloud@Customer.
-* Only clients connecting from an IP address included in the ACL may access the Autonomous Database instance.
-* If {@code arePrimaryWhitelistedIpsUsed} is 'TRUE' then Autonomous Database uses this primary's IP access control list (ACL) for the disaster recovery peer called {@code standbywhitelistedips}.
+    * The client IP access control list (ACL). This feature is available for [Autonomous AI Database Serverless] (https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html) and on Exadata Cloud@Customer.
+* Only clients connecting from an IP address included in the ACL may access the Autonomous AI Database instance.
+* If {@code arePrimaryWhitelistedIpsUsed} is 'TRUE' then Autonomous AI Database uses this primary's IP access control list (ACL) for the disaster recovery peer called {@code standbywhitelistedips}.
 * <p>
-For Autonomous Database Serverless, this is an array of CIDR (classless inter-domain routing) notations for a subnet or VCN OCID (virtual cloud network Oracle Cloud ID).
+For Autonomous AI Database Serverless, this is an array of CIDR (classless inter-domain routing) notations for a subnet or VCN OCID (virtual cloud network Oracle Cloud ID).
 * Multiple IPs and VCN OCIDs should be separate strings separated by commas, but if it\u2019s other configurations that need multiple pieces of information then its each piece is connected with semicolon (;) as a delimiter.
 * Example: {@code [\"1.1.1.1\",\"1.1.1.0/24\",\"ocid1.vcn.oc1.sea.<unique_id>\",\"ocid1.vcn.oc1.sea.<unique_id1>;1.1.1.1\",\"ocid1.vcn.oc1.sea.<unique_id2>;1.1.0.0/16\"]}
 * For Exadata Cloud@Customer, this is an array of IP addresses or CIDR notations.
@@ -400,18 +402,18 @@ This cannot be updated in parallel with any of the following: licenseModel, dbEd
     */
   "whitelistedIps"?: Array<string>;
   /**
-   * This field will be null if the Autonomous Database is not Data Guard enabled or Access Control is disabled.
-   * It's value would be {@code TRUE} if Autonomous Database is Data Guard enabled and Access Control is enabled and if the Autonomous Database uses primary IP access control list (ACL) for standby.
-   * It's value would be {@code FALSE} if Autonomous Database is Data Guard enabled and Access Control is enabled and if the Autonomous Database uses different IP access control list (ACL) for standby compared to primary.
+   * This field will be null if the Autonomous AI Database is not Data Guard enabled or Access Control is disabled.
+   * It's value would be {@code TRUE} if Autonomous AI Database is Data Guard enabled and Access Control is enabled and if the Autonomous AI Database uses primary IP access control list (ACL) for standby.
+   * It's value would be {@code FALSE} if Autonomous AI Database is Data Guard enabled and Access Control is enabled and if the Autonomous AI Database uses different IP access control list (ACL) for standby compared to primary.
    *
    */
   "arePrimaryWhitelistedIpsUsed"?: boolean;
   /**
-    * The client IP access control list (ACL). This feature is available for [Autonomous Database Serverless] (https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html) and on Exadata Cloud@Customer.
-* Only clients connecting from an IP address included in the ACL may access the Autonomous Database instance.
-* If {@code arePrimaryWhitelistedIpsUsed} is 'TRUE' then Autonomous Database uses this primary's IP access control list (ACL) for the disaster recovery peer called {@code standbywhitelistedips}.
+    * The client IP access control list (ACL). This feature is available for [Autonomous AI Database Serverless] (https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html) and on Exadata Cloud@Customer.
+* Only clients connecting from an IP address included in the ACL may access the Autonomous AI Database instance.
+* If {@code arePrimaryWhitelistedIpsUsed} is 'TRUE' then Autonomous AI Database uses this primary's IP access control list (ACL) for the disaster recovery peer called {@code standbywhitelistedips}.
 * <p>
-For Autonomous Database Serverless, this is an array of CIDR (classless inter-domain routing) notations for a subnet or VCN OCID (virtual cloud network Oracle Cloud ID).
+For Autonomous AI Database Serverless, this is an array of CIDR (classless inter-domain routing) notations for a subnet or VCN OCID (virtual cloud network Oracle Cloud ID).
 * Multiple IPs and VCN OCIDs should be separate strings separated by commas, but if it\u2019s other configurations that need multiple pieces of information then its each piece is connected with semicolon (;) as a delimiter.
 * Example: {@code [\"1.1.1.1\",\"1.1.1.0/24\",\"ocid1.vcn.oc1.sea.<unique_id>\",\"ocid1.vcn.oc1.sea.<unique_id1>;1.1.1.1\",\"ocid1.vcn.oc1.sea.<unique_id2>;1.1.0.0/16\"]}
 * For Exadata Cloud@Customer, this is an array of IP addresses or CIDR notations.
@@ -424,24 +426,24 @@ This cannot be updated in parallel with any of the following: licenseModel, dbEd
     */
   "standbyWhitelistedIps"?: Array<string>;
   /**
-   * Information about Oracle APEX Application Development.
+   * Information about Oracle APEX AI Application Development.
    */
   "apexDetails"?: model.AutonomousDatabaseApex;
   /**
-   * Indicates if auto scaling is enabled for the Autonomous Database CPU core count. The default value is {@code TRUE}.
+   * Indicates if auto scaling is enabled for the Autonomous AI Database CPU core count. The default value is {@code TRUE}.
    *
    */
   "isAutoScalingEnabled"?: boolean;
   /**
-   * Status of the Data Safe registration for this Autonomous Database.
+   * Status of the Data Safe registration for this Autonomous AI Database.
    */
   "dataSafeStatus"?: AutonomousDatabaseSummary.DataSafeStatus;
   /**
-   * Status of Operations Insights for this Autonomous Database.
+   * Status of Operations Insights for this Autonomous AI Database.
    */
   "operationsInsightsStatus"?: AutonomousDatabaseSummary.OperationsInsightsStatus;
   /**
-   * Status of Database Management for this Autonomous Database.
+   * Status of Database Management for this Autonomous AI Database.
    */
   "databaseManagementStatus"?: AutonomousDatabaseSummary.DatabaseManagementStatus;
   /**
@@ -457,7 +459,7 @@ This cannot be updated in parallel with any of the following: licenseModel, dbEd
    */
   "maintenanceTargetComponent"?: string;
   /**
-    * Indicates if the Autonomous Database is a refreshable clone.
+    * Indicates if the Autonomous AI Database is a refreshable clone.
 * <p>
 This cannot be updated in parallel with any of the following: cpuCoreCount, computeCount, computeModel, adminPassword, whitelistedIps, openMode, permissionLevel, dbWorkload, privateEndpointLabel, nsgIds, dbVersion, dbName, scheduledOperations, dbToolsDetails, isLocalDataGuardEnabled, or isFreeTier.
 * 
@@ -476,33 +478,33 @@ This cannot be updated in parallel with any of the following: cpuCoreCount, comp
    */
   "timeOfNextRefresh"?: Date;
   /**
-    * Indicates the Autonomous Database mode. The database can be opened in {@code READ_ONLY} or {@code READ_WRITE} mode.
+    * Indicates the Autonomous AI Database mode. The database can be opened in {@code READ_ONLY} or {@code READ_WRITE} mode.
 * <p>
 This cannot be updated in parallel with any of the following: cpuCoreCount, computeCount, computeModel, adminPassword, whitelistedIps, isMTLSConnectionRequired, dbVersion, isRefreshable, dbName, scheduledOperations, dbToolsDetails, or isFreeTier.
 * 
     */
   "openMode"?: AutonomousDatabaseSummary.OpenMode;
   /**
-   * The refresh status of the clone. REFRESHING indicates that the clone is currently being refreshed with data from the source Autonomous Database.
+   * The refresh status of the clone. REFRESHING indicates that the clone is currently being refreshed with data from the source Autonomous AI Database.
    */
   "refreshableStatus"?: AutonomousDatabaseSummary.RefreshableStatus;
   /**
-   * The refresh mode of the clone. AUTOMATIC indicates that the clone is automatically being refreshed with data from the source Autonomous Database.
+   * The refresh mode of the clone. AUTOMATIC indicates that the clone is automatically being refreshed with data from the source Autonomous AI Database.
    */
   "refreshableMode"?: AutonomousDatabaseSummary.RefreshableMode;
   /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the source Autonomous Database that was cloned to create the current Autonomous Database.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the source Autonomous AI Database that was cloned to create the current Autonomous AI Database.
    */
   "sourceId"?: string;
   /**
-    * The Autonomous Database permission level. Restricted mode allows access only by admin users.
+    * The Autonomous AI Database permission level. Restricted mode allows access only by admin users.
 * <p>
 This cannot be updated in parallel with any of the following: cpuCoreCount, computeCount, computeModel, adminPassword, whitelistedIps, isMTLSConnectionRequired, nsgIds, dbVersion, isRefreshable, dbName, scheduledOperations, dbToolsDetails, or isFreeTier.
 * 
     */
   "permissionLevel"?: AutonomousDatabaseSummary.PermissionLevel;
   /**
-   * The timestamp of the last switchover operation for the Autonomous Database.
+   * The timestamp of the last switchover operation for the Autonomous AI Database.
    */
   "timeOfLastSwitchover"?: Date;
   /**
@@ -510,7 +512,7 @@ This cannot be updated in parallel with any of the following: cpuCoreCount, comp
    */
   "timeOfLastFailover"?: Date;
   /**
-   * **Deprecated.** Indicates whether the Autonomous Database has local (in-region) Data Guard enabled. Not applicable to cross-region Autonomous Data Guard associations, or to Autonomous Databases using dedicated Exadata infrastructure or Exadata Cloud@Customer infrastructure.
+   * **Deprecated.** Indicates whether the Autonomous AI Database has local (in-region) Data Guard enabled. Not applicable to cross-region Autonomous Data Guard associations, or to Autonomous AI Databases using dedicated Exadata infrastructure or Exadata Cloud@Customer infrastructure.
    *
    */
   "isDataGuardEnabled"?: boolean;
@@ -524,21 +526,21 @@ This cannot be updated in parallel with any of the following: cpuCoreCount, comp
    */
   "standbyDb"?: model.AutonomousDatabaseStandbySummary;
   /**
-   * Indicates whether the Autonomous Database has local (in-region) Data Guard enabled. Not applicable to cross-region Autonomous Data Guard associations, or to Autonomous Databases using dedicated Exadata infrastructure or Exadata Cloud@Customer infrastructure.
+   * Indicates whether the Autonomous AI Database has local (in-region) Data Guard enabled. Not applicable to cross-region Autonomous Data Guard associations, or to Autonomous AI Databases using dedicated Exadata infrastructure or Exadata Cloud@Customer infrastructure.
    */
   "isLocalDataGuardEnabled"?: boolean;
   /**
-   * Indicates whether the Autonomous Database has Cross Region Data Guard enabled. Not applicable to Autonomous Databases using dedicated Exadata infrastructure or Exadata Cloud@Customer infrastructure.
+   * Indicates whether the Autonomous AI Database has Cross Region Data Guard enabled. Not applicable to Autonomous AI Databases using dedicated Exadata infrastructure or Exadata Cloud@Customer infrastructure.
    */
   "isRemoteDataGuardEnabled"?: boolean;
   "localStandbyDb"?: model.AutonomousDatabaseStandbySummary;
   /**
-   * The Data Guard role of the Autonomous Container Database or Autonomous Database, if Autonomous Data Guard is enabled.
+   * The Data Guard role of the Autonomous Container Database or Autonomous AI Database, if Autonomous Data Guard is enabled.
    *
    */
   "role"?: AutonomousDatabaseSummary.Role;
   /**
-   * List of Oracle Database versions available for a database upgrade. If there are no version upgrades available, this list is empty.
+   * List of Oracle AI Database versions available for a database upgrade. If there are no version upgrades available, this list is empty.
    */
   "availableUpgradeVersions"?: Array<string>;
   /**
@@ -558,11 +560,11 @@ This cannot be updated in parallel with any of the following: cpuCoreCount, comp
    */
   "autoRefreshPointLagInSeconds"?: number;
   /**
-   * The the date and time that auto-refreshing will begin for an Autonomous Database refreshable clone. This value controls only the start time for the first refresh operation. Subsequent (ongoing) refresh operations have start times controlled by the value of the {@code autoRefreshFrequencyInSeconds} parameter.
+   * The the date and time that auto-refreshing will begin for an Autonomous AI Database refreshable clone. This value controls only the start time for the first refresh operation. Subsequent (ongoing) refresh operations have start times controlled by the value of the {@code autoRefreshFrequencyInSeconds} parameter.
    */
   "timeOfAutoRefreshStart"?: Date;
   /**
-   * The list of regions that support the creation of an Autonomous Database clone or an Autonomous Data Guard standby database.
+   * The list of regions that support the creation of an Autonomous AI Database clone or an Autonomous Data Guard standby database.
    *
    */
   "supportedRegionsToCloneTo"?: Array<string>;
@@ -571,24 +573,24 @@ This cannot be updated in parallel with any of the following: cpuCoreCount, comp
    */
   "customerContacts"?: Array<model.CustomerContact>;
   /**
-   * The date and time that Autonomous Data Guard was enabled for an Autonomous Database where the standby was provisioned in the same region as the primary database.
+   * The date and time that Autonomous Data Guard was enabled for an Autonomous AI Database where the standby was provisioned in the same region as the primary database.
    */
   "timeLocalDataGuardEnabled"?: Date;
   /**
-   * **Deprecated.** The Autonomous Data Guard region type of the Autonomous Database. For Autonomous Database Serverless, Autonomous Data Guard associations have designated primary and standby regions, and these region types do not change when the database changes roles. The standby regions in Autonomous Data Guard associations can be the same region designated as the primary region, or they can be remote regions. Certain database administrative operations may be available only in the primary region of the Autonomous Data Guard association, and cannot be performed when the database using the primary role is operating in a remote Autonomous Data Guard standby region.
+   * **Deprecated.** The Autonomous Data Guard region type of the Autonomous AI Database. For Autonomous AI Database Serverless, Autonomous Data Guard associations have designated primary and standby regions, and these region types do not change when the database changes roles. The standby regions in Autonomous Data Guard associations can be the same region designated as the primary region, or they can be remote regions. Certain database administrative operations may be available only in the primary region of the Autonomous Data Guard association, and cannot be performed when the database using the primary role is operating in a remote Autonomous Data Guard standby region.
    *
    */
   "dataguardRegionType"?: AutonomousDatabaseSummary.DataguardRegionType;
   /**
-   * The date and time the Autonomous Data Guard role was switched for the Autonomous Database. For databases that have standbys in both the primary Data Guard region and a remote Data Guard standby region, this is the latest timestamp of either the database using the \"primary\" role in the primary Data Guard region, or database located in the remote Data Guard standby region.
+   * The date and time the Autonomous Data Guard role was switched for the Autonomous AI Database. For databases that have standbys in both the primary Data Guard region and a remote Data Guard standby region, this is the latest timestamp of either the database using the \"primary\" role in the primary Data Guard region, or database located in the remote Data Guard standby region.
    */
   "timeDataGuardRoleChanged"?: Date;
   /**
-   * The list of [OCIDs](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of standby databases located in Autonomous Data Guard remote regions that are associated with the source database. Note that for Autonomous Database Serverless instances, standby databases located in the same region as the source primary database do not have OCIDs.
+   * The list of [OCIDs](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of standby databases located in Autonomous Data Guard remote regions that are associated with the source database. Note that for Autonomous AI Database Serverless instances, standby databases located in the same region as the source primary database do not have OCIDs.
    */
   "peerDbIds"?: Array<string>;
   /**
-    * Specifies if the Autonomous Database requires mTLS connections.
+    * Specifies if the Autonomous AI Database requires mTLS connections.
 * <p>
 This may not be updated in parallel with any of the following: licenseModel, databaseEdition, cpuCoreCount, computeCount, dataStorageSizeInTBs, whitelistedIps, openMode, permissionLevel, db-workload, privateEndpointLabel, nsgIds, customerContacts, dbVersion, scheduledOperations, dbToolsDetails, isLocalDataGuardEnabled, or isFreeTier.
 * <p>
@@ -596,7 +598,7 @@ Service Change: The default value of the isMTLSConnectionRequired attribute will
 * - CreateAutonomousDatabase
 * - GetAutonomousDatabase
 * - UpdateAutonomousDatabase
-* Details: Prior to the July 1, 2023 change, the isMTLSConnectionRequired attribute default value was true. This applies to Autonomous Database Serverless.
+* Details: Prior to the July 1, 2023 change, the isMTLSConnectionRequired attribute default value was true. This applies to Autonomous AI Database Serverless.
 * Does this impact me? If you use or maintain custom scripts or Terraform scripts referencing the CreateAutonomousDatabase, GetAutonomousDatabase, or UpdateAutonomousDatabase APIs, you want to check, and possibly modify, the scripts for the changed default value of the attribute. Should you choose not to leave your scripts unchanged, the API calls containing this attribute will continue to work, but the default value will switch from true to false.
 * How do I make this change? Using either OCI SDKs or command line tools, update your custom scripts to explicitly set the isMTLSConnectionRequired attribute to true.
 * 
@@ -607,7 +609,7 @@ Service Change: The default value of the isMTLSConnectionRequired attribute will
    */
   "timeOfJoiningResourcePool"?: Date;
   /**
-   * The unique identifier for leader autonomous database OCID [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   * The unique identifier for leader Autonomous AI Database OCID [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "resourcePoolLeaderId"?: string;
   "resourcePoolSummary"?: model.ResourcePoolSummary;
@@ -620,7 +622,7 @@ Service Change: The default value of the isMTLSConnectionRequired attribute will
    */
   "timeUntilReconnectCloneEnabled"?: Date;
   /**
-   * The maintenance schedule type of the Autonomous Database Serverless. An EARLY maintenance schedule
+   * The maintenance schedule type of the Autonomous AI Database Serverless. An EARLY maintenance schedule
    * follows a schedule applying patches prior to the REGULAR schedule. A REGULAR maintenance schedule follows the normal cycle
    *
    */
@@ -633,7 +635,7 @@ This cannot be updated in parallel with any of the following: licenseModel, dbEd
     */
   "scheduledOperations"?: Array<model.ScheduledOperationDetails>;
   /**
-   * Indicates if auto scaling is enabled for the Autonomous Database storage. The default value is {@code FALSE}.
+   * Indicates if auto scaling is enabled for the Autonomous AI Database storage. The default value is {@code FALSE}.
    *
    */
   "isAutoScalingForStorageEnabled"?: boolean;
@@ -650,7 +652,7 @@ This cannot be updated in parallel with any of the following: licenseModel, dbEd
    */
   "actualUsedDataStorageSizeInTBs"?: number;
   /**
-   * The Oracle Database Edition that applies to the Autonomous databases.
+   * The Oracle AI Database Edition that applies to the Autonomous AI Databases.
    *
    */
   "databaseEdition"?: AutonomousDatabaseSummary.DatabaseEdition;
@@ -661,20 +663,21 @@ This cannot be updated in parallel with any of the following: licenseModel, dbEd
 * 
     */
   "dbToolsDetails"?: Array<model.DatabaseTool>;
+  "vanityUrlDetails"?: model.VanityUrlDetails;
   /**
-   * Indicates the local disaster recovery (DR) type of the Autonomous Database Serverless instance.
+   * Indicates the local disaster recovery (DR) type of the Autonomous AI Database Serverless instance.
    * Autonomous Data Guard (ADG) DR type provides business critical DR with a faster recovery time objective (RTO) during failover or switchover.
    * Backup-based DR type provides lower cost DR with a slower RTO during failover or switchover.
    *
    */
   "localDisasterRecoveryType"?: string;
   /**
-   * **Deprecated.** The disaster recovery (DR) region type of the Autonomous Database. For Autonomous Database Serverless instances, DR associations have designated primary and standby regions. These region types do not change when the database changes roles. The standby region in DR associations can be the same region as the primary region, or they can be in a remote regions. Some database administration operations may be available only in the primary region of the DR association, and cannot be performed when the database using the primary role is operating in a remote region.
+   * **Deprecated.** The disaster recovery (DR) region type of the Autonomous AI Database. For Autonomous AI Database Serverless instances, DR associations have designated primary and standby regions. These region types do not change when the database changes roles. The standby region in DR associations can be the same region as the primary region, or they can be in a remote regions. Some database administration operations may be available only in the primary region of the DR association, and cannot be performed when the database using the primary role is operating in a remote region.
    *
    */
   "disasterRecoveryRegionType"?: AutonomousDatabaseSummary.DisasterRecoveryRegionType;
   /**
-   * The date and time the Disaster Recovery role was switched for the standby Autonomous Database.
+   * The date and time the Disaster Recovery role was switched for the standby Autonomous AI Database.
    */
   "timeDisasterRecoveryRoleChanged"?: Date;
   "remoteDisasterRecoveryConfiguration"?: model.DisasterRecoveryConfiguration;
@@ -684,7 +687,7 @@ This cannot be updated in parallel with any of the following: licenseModel, dbEd
    */
   "netServicesArchitecture"?: AutonomousDatabaseSummary.NetServicesArchitecture;
   /**
-   * The availability domain where the Autonomous Database Serverless instance is located.
+   * The availability domain where the Autonomous AI Database Serverless instance is located.
    */
   "availabilityDomain"?: string;
   /**
@@ -692,11 +695,11 @@ This cannot be updated in parallel with any of the following: licenseModel, dbEd
    */
   "clusterPlacementGroupId"?: string;
   /**
-   * A list of the source Autonomous Database's table space number(s) used to create this partial clone from the backup.
+   * A list of the source Autonomous AI Database's table space number(s) used to create this partial clone from the backup.
    */
   "cloneTableSpaceList"?: Array<number>;
   /**
-   * The Autonomous Database clone type.
+   * The Autonomous AI Database clone type.
    */
   "cloneType"?: AutonomousDatabaseSummary.CloneType;
   /**
@@ -772,6 +775,7 @@ export namespace AutonomousDatabaseSummary {
     Dw = "DW",
     Ajd = "AJD",
     Apex = "APEX",
+    Lh = "LH",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
@@ -969,6 +973,9 @@ export namespace AutonomousDatabaseSummary {
         "publicConnectionUrls": obj.publicConnectionUrls
           ? model.AutonomousDatabaseConnectionUrls.getJsonObj(obj.publicConnectionUrls)
           : undefined,
+        "vanityConnectionUrls": obj.vanityConnectionUrls
+          ? model.AutonomousDatabaseConnectionUrls.getJsonObj(obj.vanityConnectionUrls)
+          : undefined,
 
         "apexDetails": obj.apexDetails
           ? model.AutonomousDatabaseApex.getJsonObj(obj.apexDetails)
@@ -1002,6 +1009,9 @@ export namespace AutonomousDatabaseSummary {
           ? obj.dbToolsDetails.map(item => {
               return model.DatabaseTool.getJsonObj(item);
             })
+          : undefined,
+        "vanityUrlDetails": obj.vanityUrlDetails
+          ? model.VanityUrlDetails.getJsonObj(obj.vanityUrlDetails)
           : undefined,
 
         "remoteDisasterRecoveryConfiguration": obj.remoteDisasterRecoveryConfiguration
@@ -1047,6 +1057,9 @@ export namespace AutonomousDatabaseSummary {
         "publicConnectionUrls": obj.publicConnectionUrls
           ? model.AutonomousDatabaseConnectionUrls.getDeserializedJsonObj(obj.publicConnectionUrls)
           : undefined,
+        "vanityConnectionUrls": obj.vanityConnectionUrls
+          ? model.AutonomousDatabaseConnectionUrls.getDeserializedJsonObj(obj.vanityConnectionUrls)
+          : undefined,
 
         "apexDetails": obj.apexDetails
           ? model.AutonomousDatabaseApex.getDeserializedJsonObj(obj.apexDetails)
@@ -1080,6 +1093,9 @@ export namespace AutonomousDatabaseSummary {
           ? obj.dbToolsDetails.map(item => {
               return model.DatabaseTool.getDeserializedJsonObj(item);
             })
+          : undefined,
+        "vanityUrlDetails": obj.vanityUrlDetails
+          ? model.VanityUrlDetails.getDeserializedJsonObj(obj.vanityUrlDetails)
           : undefined,
 
         "remoteDisasterRecoveryConfiguration": obj.remoteDisasterRecoveryConfiguration

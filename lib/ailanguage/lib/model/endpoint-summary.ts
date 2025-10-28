@@ -30,10 +30,6 @@ export interface EndpointSummary {
    */
   "alias"?: string;
   /**
-   * Compute infra type for endpoint.
-   */
-  "computeType"?: EndpointSummary.ComputeType;
-  /**
    * A user-friendly display name for the resource. It should be unique and can be modified. Avoid entering confidential information.
    */
   "displayName": string;
@@ -90,16 +86,6 @@ export interface EndpointSummary {
 }
 
 export namespace EndpointSummary {
-  export enum ComputeType {
-    Cpu = "CPU",
-    Gpu = "GPU",
-    /**
-     * This value is used if a service returns a value for this enum that is not recognized by this
-     * version of the SDK.
-     */
-    UnknownValue = "UNKNOWN_VALUE"
-  }
-
   export function getJsonObj(obj: EndpointSummary): object {
     const jsonObj = { ...obj, ...{} };
 

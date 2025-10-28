@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A list of Autonomous Database RefreshableClone containing RefreshableCloneSummary items.
+ * A list of Autonomous AI Database RefreshableClone containing RefreshableCloneSummary items.
  */
 export interface RefreshableCloneCollection {
   "items": Array<model.RefreshableCloneSummary>;

@@ -20,7 +20,7 @@ import common = require("oci-common");
  */
 export interface SaasAdminUserStatus {
   /**
-   * Indicates if the SaaS administrative user is enabled for the Autonomous Database.
+   * Indicates if the SaaS administrative user is enabled for the Autonomous AI Database.
    */
   "isEnabled"?: boolean;
   /**
@@ -28,7 +28,7 @@ export interface SaasAdminUserStatus {
    */
   "accessType"?: SaasAdminUserStatus.AccessType;
   /**
-   * The date and time the SaaS administrative user was enabled at, for the Autonomous Database.
+   * The date and time the SaaS administrative user was enabled at, for the Autonomous AI Database.
    */
   "timeSaasAdminUserEnabled"?: Date;
 }

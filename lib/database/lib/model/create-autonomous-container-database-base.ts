@@ -48,7 +48,7 @@ export interface CreateAutonomousContainerDatabaseBase {
    */
   "serviceLevelAgreementType"?: CreateAutonomousContainerDatabaseBase.ServiceLevelAgreementType;
   /**
-   * **No longer used.** This parameter is no longer used for Autonomous Database on dedicated Exadata infrasture. Specify a {@code cloudAutonomousVmClusterId} instead. Using this parameter will cause the operation to fail.
+   * **No longer used.** This parameter is no longer used for Autonomous AI Database on dedicated Exadata infrasture. Specify a {@code cloudAutonomousVmClusterId} instead. Using this parameter will cause the operation to fail.
    *
    */
   "autonomousExadataInfrastructureId"?: string;
@@ -57,11 +57,11 @@ export interface CreateAutonomousContainerDatabaseBase {
    */
   "dbVersion"?: string;
   /**
-   * The Autonomous Database Software Image [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   * The Autonomous AI Database Software Image [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "databaseSoftwareImageId"?: string;
   /**
-   * *No longer used.* This parameter is no longer used for Autonomous Database on dedicated Exadata infrasture. Specify a {@code peerCloudAutonomousVmClusterId} instead. Using this parameter will cause the operation to fail.
+   * *No longer used.* This parameter is no longer used for Autonomous AI Database on dedicated Exadata infrasture. Specify a {@code peerCloudAutonomousVmClusterId} instead. Using this parameter will cause the operation to fail.
    *
    */
   "peerAutonomousExadataInfrastructureId"?: string;
@@ -158,7 +158,7 @@ Example: {@code {\"Department\": \"Finance\"}}
    */
   "kmsKeyId"?: string;
   /**
-   * The OCID of the key container version that is used in database transparent data encryption (TDE) operations KMS Key can have multiple key versions. If none is specified, the current key version (latest) of the Key Id is used for the operation. Autonomous Database Serverless does not use key versions, hence is not applicable for Autonomous Database Serverless instances.
+   * The OCID of the key container version that is used in database transparent data encryption (TDE) operations KMS Key can have multiple key versions. If none is specified, the current key version (latest) of the Key Id is used for the operation. Autonomous AI Database Serverless does not use key versions, hence is not applicable for Autonomous AI Database Serverless instances.
    *
    */
   "kmsKeyVersionId"?: string;
@@ -171,7 +171,7 @@ Example: {@code {\"Department\": \"Finance\"}}
    */
   "keyStoreId"?: string;
   /**
-   * The CPU value beyond which an Autonomous Database will be opened across multiple nodes. The default value of this attribute is 16 for OCPUs and 64 for ECPUs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The CPU value beyond which an Autonomous AI Database will be opened across multiple nodes. The default value of this attribute is 16 for OCPUs and 64 for ECPUs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "dbSplitThreshold"?: number;
   /**
@@ -179,7 +179,7 @@ Example: {@code {\"Department\": \"Finance\"}}
    */
   "vmFailoverReservation"?: number;
   /**
-   * Determines whether an Autonomous Database must be opened across a minimum or maximum of nodes. By default, Minimum nodes is selected.
+   * Determines whether an Autonomous AI Database must be opened across a minimum or maximum of nodes. By default, Minimum nodes is selected.
    */
   "distributionAffinity"?: CreateAutonomousContainerDatabaseBase.DistributionAffinity;
   /**

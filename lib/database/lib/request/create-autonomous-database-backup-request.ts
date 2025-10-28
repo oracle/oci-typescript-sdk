@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface CreateAutonomousDatabaseBackupRequest extends common.BaseRequest {
   /**
-   * Request to create a new Autonomous Database backup.
+   * Request to create a new Autonomous AI Database backup.
    */
   "createAutonomousDatabaseBackupDetails": model.CreateAutonomousDatabaseBackupDetails;
   /**

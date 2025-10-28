@@ -141,6 +141,16 @@ If you specify a {@code vlanId}, the {@code hostnameLabel} cannot be specified. 
    */
   "ipv6AddressIpv6SubnetCidrPairDetails"?: Array<model.Ipv6AddressIpv6SubnetCidrPairDetails>;
   /**
+   * One of the IPv4 CIDR blocks allocated to the subnet. Represents the IP range
+   * from which the VNIC's private IP address will be assigned if {@code privateIp} or
+   * {@code privateIpId} is not specified.
+   * Either this field or the {@code privateIp} (or {@code privateIpId}, if applicable) field
+   * must be provided, but not both simultaneously.
+   * Example: {@code 192.168.1.0/28}
+   *
+   */
+  "subnetCidr"?: string;
+  /**
     * A list of the OCIDs of the network security groups (NSGs) to add the VNIC to. For more
 * information about NSGs, see
 * {@link NetworkSecurityGroup}.

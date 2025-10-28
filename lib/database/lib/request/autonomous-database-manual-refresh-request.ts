@@ -23,7 +23,7 @@ export interface AutonomousDatabaseManualRefreshRequest extends common.BaseReque
    */
   "autonomousDatabaseId": string;
   /**
-   * Request details for manually refreshing an Autonomous Database refreshable clone.
+   * Request details for manually refreshing an Autonomous AI Database refreshable clone.
    */
   "autonomousDatabaseManualRefreshDetails": model.AutonomousDatabaseManualRefreshDetails;
   /**

@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface GetAutonomousDatabaseSoftwareImageRequest extends common.BaseRequest {
   /**
-   * The Autonomous Database Software Image [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   * The Autonomous AI Database Software Image [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "autonomousDatabaseSoftwareImageId": string;
   /**

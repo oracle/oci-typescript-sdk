@@ -320,6 +320,89 @@ export class DatabaseToolsClient {
   }
 
   /**
+   * Adds a lock to a DatabaseToolsIdentity resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param AddDatabaseToolsIdentityLockRequest
+   * @return AddDatabaseToolsIdentityLockResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/AddDatabaseToolsIdentityLock.ts.html |here} to see how to use AddDatabaseToolsIdentityLock API.
+   */
+  public async addDatabaseToolsIdentityLock(
+    addDatabaseToolsIdentityLockRequest: requests.AddDatabaseToolsIdentityLockRequest
+  ): Promise<responses.AddDatabaseToolsIdentityLockResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseToolsClient#addDatabaseToolsIdentityLock.");
+    const operationName = "addDatabaseToolsIdentityLock";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-tools/20201005/DatabaseToolsIdentity/AddDatabaseToolsIdentityLock";
+    const pathParams = {
+      "{databaseToolsIdentityId}": addDatabaseToolsIdentityLockRequest.databaseToolsIdentityId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": addDatabaseToolsIdentityLockRequest.opcRequestId,
+      "if-match": addDatabaseToolsIdentityLockRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      addDatabaseToolsIdentityLockRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseToolsIdentities/{databaseToolsIdentityId}/actions/addLock",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        addDatabaseToolsIdentityLockRequest.addResourceLockDetails,
+        "AddResourceLockDetails",
+        model.AddResourceLockDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AddDatabaseToolsIdentityLockResponse>{},
+        body: await response.json(),
+        bodyKey: "databaseToolsIdentity",
+        bodyModel: model.DatabaseToolsIdentity,
+        type: "model.DatabaseToolsIdentity",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Adds a lock to a DatabaseToolsPrivateEndpoint resource.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param AddDatabaseToolsPrivateEndpointLockRequest
@@ -472,6 +555,93 @@ export class DatabaseToolsClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeDatabaseToolsConnectionCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Moves the specified Database Tools identity to a different compartment in the same tenancy.
+   * For information about moving resources between compartments, see
+   * [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ChangeDatabaseToolsIdentityCompartmentRequest
+   * @return ChangeDatabaseToolsIdentityCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/ChangeDatabaseToolsIdentityCompartment.ts.html |here} to see how to use ChangeDatabaseToolsIdentityCompartment API.
+   */
+  public async changeDatabaseToolsIdentityCompartment(
+    changeDatabaseToolsIdentityCompartmentRequest: requests.ChangeDatabaseToolsIdentityCompartmentRequest
+  ): Promise<responses.ChangeDatabaseToolsIdentityCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseToolsClient#changeDatabaseToolsIdentityCompartment."
+      );
+    const operationName = "changeDatabaseToolsIdentityCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-tools/20201005/DatabaseToolsIdentity/ChangeDatabaseToolsIdentityCompartment";
+    const pathParams = {
+      "{databaseToolsIdentityId}":
+        changeDatabaseToolsIdentityCompartmentRequest.databaseToolsIdentityId
+    };
+
+    const queryParams = {
+      "isLockOverride": changeDatabaseToolsIdentityCompartmentRequest.isLockOverride
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeDatabaseToolsIdentityCompartmentRequest.ifMatch,
+      "opc-request-id": changeDatabaseToolsIdentityCompartmentRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeDatabaseToolsIdentityCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseToolsIdentities/{databaseToolsIdentityId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeDatabaseToolsIdentityCompartmentRequest.changeDatabaseToolsIdentityCompartmentDetails,
+        "ChangeDatabaseToolsIdentityCompartmentDetails",
+        model.ChangeDatabaseToolsIdentityCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeDatabaseToolsIdentityCompartmentResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -672,6 +842,97 @@ export class DatabaseToolsClient {
   }
 
   /**
+   * Creates a new Database Tools identity.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateDatabaseToolsIdentityRequest
+   * @return CreateDatabaseToolsIdentityResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/CreateDatabaseToolsIdentity.ts.html |here} to see how to use CreateDatabaseToolsIdentity API.
+   */
+  public async createDatabaseToolsIdentity(
+    createDatabaseToolsIdentityRequest: requests.CreateDatabaseToolsIdentityRequest
+  ): Promise<responses.CreateDatabaseToolsIdentityResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseToolsClient#createDatabaseToolsIdentity.");
+    const operationName = "createDatabaseToolsIdentity";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createDatabaseToolsIdentityRequest.opcRetryToken,
+      "opc-request-id": createDatabaseToolsIdentityRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createDatabaseToolsIdentityRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseToolsIdentities",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createDatabaseToolsIdentityRequest.createDatabaseToolsIdentityDetails,
+        "CreateDatabaseToolsIdentityDetails",
+        model.CreateDatabaseToolsIdentityDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateDatabaseToolsIdentityResponse>{},
+        body: await response.json(),
+        bodyKey: "databaseToolsIdentity",
+        bodyModel: model.DatabaseToolsIdentity,
+        type: "model.DatabaseToolsIdentity",
+        responseHeaders: [
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates a new Database Tools private endpoint.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -820,6 +1081,82 @@ export class DatabaseToolsClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteDatabaseToolsConnectionResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the specified Database Tools identity resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteDatabaseToolsIdentityRequest
+   * @return DeleteDatabaseToolsIdentityResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/DeleteDatabaseToolsIdentity.ts.html |here} to see how to use DeleteDatabaseToolsIdentity API.
+   */
+  public async deleteDatabaseToolsIdentity(
+    deleteDatabaseToolsIdentityRequest: requests.DeleteDatabaseToolsIdentityRequest
+  ): Promise<responses.DeleteDatabaseToolsIdentityResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseToolsClient#deleteDatabaseToolsIdentity.");
+    const operationName = "deleteDatabaseToolsIdentity";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-tools/20201005/DatabaseToolsIdentity/DeleteDatabaseToolsIdentity";
+    const pathParams = {
+      "{databaseToolsIdentityId}": deleteDatabaseToolsIdentityRequest.databaseToolsIdentityId
+    };
+
+    const queryParams = {
+      "isLockOverride": deleteDatabaseToolsIdentityRequest.isLockOverride
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteDatabaseToolsIdentityRequest.ifMatch,
+      "opc-request-id": deleteDatabaseToolsIdentityRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteDatabaseToolsIdentityRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseToolsIdentities/{databaseToolsIdentityId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteDatabaseToolsIdentityResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -1075,6 +1412,83 @@ export class DatabaseToolsClient {
   }
 
   /**
+   * Gets details of the specified Database Tools identity.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetDatabaseToolsIdentityRequest
+   * @return GetDatabaseToolsIdentityResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/GetDatabaseToolsIdentity.ts.html |here} to see how to use GetDatabaseToolsIdentity API.
+   */
+  public async getDatabaseToolsIdentity(
+    getDatabaseToolsIdentityRequest: requests.GetDatabaseToolsIdentityRequest
+  ): Promise<responses.GetDatabaseToolsIdentityResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseToolsClient#getDatabaseToolsIdentity.");
+    const operationName = "getDatabaseToolsIdentity";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-tools/20201005/DatabaseToolsIdentity/GetDatabaseToolsIdentity";
+    const pathParams = {
+      "{databaseToolsIdentityId}": getDatabaseToolsIdentityRequest.databaseToolsIdentityId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getDatabaseToolsIdentityRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDatabaseToolsIdentityRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseToolsIdentities/{databaseToolsIdentityId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetDatabaseToolsIdentityResponse>{},
+        body: await response.json(),
+        bodyKey: "databaseToolsIdentity",
+        bodyModel: model.DatabaseToolsIdentity,
+        type: "model.DatabaseToolsIdentity",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets details of a specified Database Tools private endpoint.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetDatabaseToolsPrivateEndpointRequest
@@ -1253,6 +1667,7 @@ export class DatabaseToolsClient {
       "displayName": listDatabaseToolsConnectionsRequest.displayName,
       "type": listDatabaseToolsConnectionsRequest.type,
       "runtimeSupport": listDatabaseToolsConnectionsRequest.runtimeSupport,
+      "runtimeIdentity": listDatabaseToolsConnectionsRequest.runtimeIdentity,
       "relatedResourceIdentifier": listDatabaseToolsConnectionsRequest.relatedResourceIdentifier,
       "limit": listDatabaseToolsConnectionsRequest.limit,
       "page": listDatabaseToolsConnectionsRequest.page,
@@ -1380,6 +1795,91 @@ export class DatabaseToolsClient {
         bodyKey: "databaseToolsEndpointServiceCollection",
         bodyModel: model.DatabaseToolsEndpointServiceCollection,
         type: "model.DatabaseToolsEndpointServiceCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns a list of Database Tools identities.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListDatabaseToolsIdentitiesRequest
+   * @return ListDatabaseToolsIdentitiesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/ListDatabaseToolsIdentities.ts.html |here} to see how to use ListDatabaseToolsIdentities API.
+   */
+  public async listDatabaseToolsIdentities(
+    listDatabaseToolsIdentitiesRequest: requests.ListDatabaseToolsIdentitiesRequest
+  ): Promise<responses.ListDatabaseToolsIdentitiesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseToolsClient#listDatabaseToolsIdentities.");
+    const operationName = "listDatabaseToolsIdentities";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-tools/20201005/DatabaseToolsIdentity/ListDatabaseToolsIdentities";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listDatabaseToolsIdentitiesRequest.compartmentId,
+      "lifecycleState": listDatabaseToolsIdentitiesRequest.lifecycleState,
+      "displayName": listDatabaseToolsIdentitiesRequest.displayName,
+      "databaseToolsConnectionId": listDatabaseToolsIdentitiesRequest.databaseToolsConnectionId,
+      "limit": listDatabaseToolsIdentitiesRequest.limit,
+      "page": listDatabaseToolsIdentitiesRequest.page,
+      "sortOrder": listDatabaseToolsIdentitiesRequest.sortOrder,
+      "sortBy": listDatabaseToolsIdentitiesRequest.sortBy,
+      "type": listDatabaseToolsIdentitiesRequest.type
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listDatabaseToolsIdentitiesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDatabaseToolsIdentitiesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseToolsIdentities",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListDatabaseToolsIdentitiesResponse>{},
+        body: await response.json(),
+        bodyKey: "databaseToolsIdentityCollection",
+        bodyModel: model.DatabaseToolsIdentityCollection,
+        type: "model.DatabaseToolsIdentityCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1735,6 +2235,89 @@ export class DatabaseToolsClient {
   }
 
   /**
+   * Refresh Database Tools identity credential.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param RefreshDatabaseToolsIdentityCredentialRequest
+   * @return RefreshDatabaseToolsIdentityCredentialResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/RefreshDatabaseToolsIdentityCredential.ts.html |here} to see how to use RefreshDatabaseToolsIdentityCredential API.
+   */
+  public async refreshDatabaseToolsIdentityCredential(
+    refreshDatabaseToolsIdentityCredentialRequest: requests.RefreshDatabaseToolsIdentityCredentialRequest
+  ): Promise<responses.RefreshDatabaseToolsIdentityCredentialResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseToolsClient#refreshDatabaseToolsIdentityCredential."
+      );
+    const operationName = "refreshDatabaseToolsIdentityCredential";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-tools/20201005/DatabaseToolsIdentity/RefreshDatabaseToolsIdentityCredential";
+    const pathParams = {
+      "{databaseToolsIdentityId}":
+        refreshDatabaseToolsIdentityCredentialRequest.databaseToolsIdentityId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": refreshDatabaseToolsIdentityCredentialRequest.ifMatch,
+      "opc-request-id": refreshDatabaseToolsIdentityCredentialRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      refreshDatabaseToolsIdentityCredentialRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseToolsIdentities/{databaseToolsIdentityId}/actions/refreshCredential",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        refreshDatabaseToolsIdentityCredentialRequest.refreshDatabaseToolsIdentityCredentialDetails,
+        "RefreshDatabaseToolsIdentityCredentialDetails",
+        model.RefreshDatabaseToolsIdentityCredentialDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RefreshDatabaseToolsIdentityCredentialResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Removes a lock from a DatabaseToolsConnection resource.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param RemoveDatabaseToolsConnectionLockRequest
@@ -1798,6 +2381,89 @@ export class DatabaseToolsClient {
         bodyKey: "databaseToolsConnection",
         bodyModel: model.DatabaseToolsConnection,
         type: "model.DatabaseToolsConnection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Removes a lock from a DatabaseToolsIdentity resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param RemoveDatabaseToolsIdentityLockRequest
+   * @return RemoveDatabaseToolsIdentityLockResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/RemoveDatabaseToolsIdentityLock.ts.html |here} to see how to use RemoveDatabaseToolsIdentityLock API.
+   */
+  public async removeDatabaseToolsIdentityLock(
+    removeDatabaseToolsIdentityLockRequest: requests.RemoveDatabaseToolsIdentityLockRequest
+  ): Promise<responses.RemoveDatabaseToolsIdentityLockResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseToolsClient#removeDatabaseToolsIdentityLock.");
+    const operationName = "removeDatabaseToolsIdentityLock";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-tools/20201005/DatabaseToolsIdentity/RemoveDatabaseToolsIdentityLock";
+    const pathParams = {
+      "{databaseToolsIdentityId}": removeDatabaseToolsIdentityLockRequest.databaseToolsIdentityId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": removeDatabaseToolsIdentityLockRequest.opcRequestId,
+      "if-match": removeDatabaseToolsIdentityLockRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removeDatabaseToolsIdentityLockRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseToolsIdentities/{databaseToolsIdentityId}/actions/removeLock",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        removeDatabaseToolsIdentityLockRequest.removeResourceLockDetails,
+        "RemoveResourceLockDetails",
+        model.RemoveResourceLockDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RemoveDatabaseToolsIdentityLockResponse>{},
+        body: await response.json(),
+        bodyKey: "databaseToolsIdentity",
+        bodyModel: model.DatabaseToolsIdentity,
+        type: "model.DatabaseToolsIdentity",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1986,6 +2652,87 @@ export class DatabaseToolsClient {
   }
 
   /**
+   * Updates the specified Database Tools identity.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateDatabaseToolsIdentityRequest
+   * @return UpdateDatabaseToolsIdentityResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/UpdateDatabaseToolsIdentity.ts.html |here} to see how to use UpdateDatabaseToolsIdentity API.
+   */
+  public async updateDatabaseToolsIdentity(
+    updateDatabaseToolsIdentityRequest: requests.UpdateDatabaseToolsIdentityRequest
+  ): Promise<responses.UpdateDatabaseToolsIdentityResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseToolsClient#updateDatabaseToolsIdentity.");
+    const operationName = "updateDatabaseToolsIdentity";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-tools/20201005/DatabaseToolsIdentity/UpdateDatabaseToolsIdentity";
+    const pathParams = {
+      "{databaseToolsIdentityId}": updateDatabaseToolsIdentityRequest.databaseToolsIdentityId
+    };
+
+    const queryParams = {
+      "isLockOverride": updateDatabaseToolsIdentityRequest.isLockOverride
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateDatabaseToolsIdentityRequest.ifMatch,
+      "opc-request-id": updateDatabaseToolsIdentityRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateDatabaseToolsIdentityRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseToolsIdentities/{databaseToolsIdentityId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateDatabaseToolsIdentityRequest.updateDatabaseToolsIdentityDetails,
+        "UpdateDatabaseToolsIdentityDetails",
+        model.UpdateDatabaseToolsIdentityDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateDatabaseToolsIdentityResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Updates the specified Database Tools private endpoint.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateDatabaseToolsPrivateEndpointRequest
@@ -2134,6 +2881,89 @@ export class DatabaseToolsClient {
         bodyKey: "validateDatabaseToolsConnectionResult",
         bodyModel: model.ValidateDatabaseToolsConnectionResult,
         type: "model.ValidateDatabaseToolsConnectionResult",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Validates the Database Tools identity credentials by establishing a connection to the customer database
+   * and executing the dbms_cloud.send_request to validate the credential.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ValidateDatabaseToolsIdentityCredentialRequest
+   * @return ValidateDatabaseToolsIdentityCredentialResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/ValidateDatabaseToolsIdentityCredential.ts.html |here} to see how to use ValidateDatabaseToolsIdentityCredential API.
+   */
+  public async validateDatabaseToolsIdentityCredential(
+    validateDatabaseToolsIdentityCredentialRequest: requests.ValidateDatabaseToolsIdentityCredentialRequest
+  ): Promise<responses.ValidateDatabaseToolsIdentityCredentialResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseToolsClient#validateDatabaseToolsIdentityCredential."
+      );
+    const operationName = "validateDatabaseToolsIdentityCredential";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-tools/20201005/DatabaseToolsIdentity/ValidateDatabaseToolsIdentityCredential";
+    const pathParams = {
+      "{databaseToolsIdentityId}":
+        validateDatabaseToolsIdentityCredentialRequest.databaseToolsIdentityId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": validateDatabaseToolsIdentityCredentialRequest.ifMatch,
+      "opc-request-id": validateDatabaseToolsIdentityCredentialRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      validateDatabaseToolsIdentityCredentialRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseToolsIdentities/{databaseToolsIdentityId}/actions/validateCredential",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        validateDatabaseToolsIdentityCredentialRequest.validateDatabaseToolsIdentityCredentialDetails,
+        "ValidateDatabaseToolsIdentityCredentialDetails",
+        model.ValidateDatabaseToolsIdentityCredentialDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ValidateDatabaseToolsIdentityCredentialResponse>{},
+        body: await response.json(),
+        bodyKey: "validateDatabaseToolsIdentityCredentialResult",
+        bodyModel: model.ValidateDatabaseToolsIdentityCredentialResult,
+        type: "model.ValidateDatabaseToolsIdentityCredentialResult",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),

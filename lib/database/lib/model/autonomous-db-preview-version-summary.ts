@@ -16,12 +16,12 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The Autonomous Database preview version. Note that preview version software is only available for [Autonomous Database Serverless instances](https://docs.oracle.com/en/cloud/paas/autonomous-database/serverless/).
+ * The Autonomous AI Database preview version. Note that preview version software is only available for [Autonomous AI Database Serverless instances](https://docs.oracle.com/en/cloud/paas/autonomous-database/serverless/).
  *
  */
 export interface AutonomousDbPreviewVersionSummary {
   /**
-   * A valid Autonomous Database preview version.
+   * A valid Autonomous AI Database preview version.
    */
   "version": string;
   /**
@@ -33,14 +33,15 @@ export interface AutonomousDbPreviewVersionSummary {
    */
   "timePreviewEnd"?: Date;
   /**
-    * The Autonomous Database workload type. The following values are valid:
+    * The Autonomous AI Database workload type. The following values are valid:
+* - OLTP - indicates an Autonomous AI Transaction Processing database
+* - DW - indicates an Autonomous AI Lakehouse database
+* - AJD - indicates an Autonomous AI JSON Database
+* - APEX - indicates an Autonomous AI Database with the Oracle APEX AI Application Development workload type.
+* - LH - indicates an Oracle Autonomous AI Lakehouse database
 * <p>
-- OLTP - indicates an Autonomous Transaction Processing database
-* - DW - indicates an Autonomous Data Warehouse database
-* - AJD - indicates an Autonomous JSON Database
-* - APEX - indicates an Autonomous Database with the Oracle APEX Application Development workload type.
-* <p>
-This cannot be updated in parallel with any of the following: licenseModel, dbEdition, cpuCoreCount, computeCount, computeModel, adminPassword, whitelistedIps, isMTLSConnectionRequired, privateEndpointLabel, nsgIds, dbVersion, isRefreshable, dbName, scheduledOperations, dbToolsDetails, isLocalDataGuardEnabled, or isFreeTier.
+
+* This cannot be updated in parallel with any of the following: licenseModel, dbEdition, cpuCoreCount, computeCount, computeModel, adminPassword, whitelistedIps, isMTLSConnectionRequired, privateEndpointLabel, nsgIds, dbVersion, isRefreshable, dbName, scheduledOperations, dbToolsDetails, isLocalDataGuardEnabled, or isFreeTier.
 * 
     */
   "dbWorkload"?: AutonomousDbPreviewVersionSummary.DbWorkload;
@@ -56,6 +57,7 @@ export namespace AutonomousDbPreviewVersionSummary {
     Dw = "DW",
     Ajd = "AJD",
     Apex = "APEX",
+    Lh = "LH",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

@@ -35,23 +35,23 @@ export interface AutonomousDatabaseConnectionUrls {
    */
   "machineLearningUserManagementUrl"?: string;
   /**
-   * The URL of the Graph Studio for the Autonomous Database.
+   * The URL of the Graph Studio for the Autonomous AI Database.
    */
   "graphStudioUrl"?: string;
   /**
-   * The URL of the MongoDB API for the Autonomous Database.
+   * The URL of the MongoDB API for the Autonomous AI Database.
    */
   "mongoDbUrl"?: string;
   /**
-   * The URL of the Oracle Machine Learning (OML) Notebook for the Autonomous Database.
+   * The URL of the Oracle Machine Learning (OML) Notebook for the Autonomous AI Database.
    */
   "machineLearningNotebookUrl"?: string;
   /**
-   * The Oracle REST Data Services (ORDS) URL of the Web Access for the Autonomous Database.
+   * The Oracle REST Data Services (ORDS) URL of the Web Access for the Autonomous AI Database.
    */
   "ordsUrl"?: string;
   /**
-   * The URL of the Database Transforms for the Autonomous Database.
+   * The URL of the Database Transforms for the Autonomous AI Database.
    */
   "databaseTransformsUrl"?: string;
 }

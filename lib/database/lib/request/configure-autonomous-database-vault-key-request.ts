@@ -23,7 +23,7 @@ export interface ConfigureAutonomousDatabaseVaultKeyRequest extends common.BaseR
    */
   "autonomousDatabaseId": string;
   /**
-   * Configuration details for the Autonomous Database Vault service [key](https://docs.oracle.com/iaas/Content/KeyManagement/Concepts/keyoverview.htm#concepts).
+   * Configuration details for the Autonomous AI Database Vault service [key](https://docs.oracle.com/iaas/Content/KeyManagement/Concepts/keyoverview.htm#concepts).
    */
   "configureAutonomousDatabaseVaultKeyDetails": model.ConfigureAutonomousDatabaseVaultKeyDetails;
   /**

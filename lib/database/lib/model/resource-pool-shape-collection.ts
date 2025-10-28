@@ -16,11 +16,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Results of an Autonomous Database resouce pool shape collection that contains ResourcePoolShapeSummary items.
+ * Results of an Autonomous AI Database resouce pool shape collection that contains ResourcePoolShapeSummary items.
  */
 export interface ResourcePoolShapeCollection {
   /**
-   * List of Autonomous Database resource pools Shapes.
+   * List of Autonomous AI Database resource pools Shapes.
    */
   "items"?: Array<model.ResourcePoolShapeSummary>;
 }

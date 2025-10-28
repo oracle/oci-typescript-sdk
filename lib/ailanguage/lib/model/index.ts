@@ -273,6 +273,8 @@ import * as ObjectStoragePrefixLocation from "./object-storage-prefix-location";
 export import ObjectStoragePrefixLocation = ObjectStoragePrefixLocation.ObjectStoragePrefixLocation;
 import * as PiiEntityMask from "./pii-entity-mask";
 export import PiiEntityMask = PiiEntityMask.PiiEntityMask;
+import * as PiiEntityRelexify from "./pii-entity-relexify";
+export import PiiEntityRelexify = PiiEntityRelexify.PiiEntityRelexify;
 import * as PiiEntityRemove from "./pii-entity-remove";
 export import PiiEntityRemove = PiiEntityRemove.PiiEntityRemove;
 import * as PiiEntityReplace from "./pii-entity-replace";

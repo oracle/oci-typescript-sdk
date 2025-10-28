@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The Autonomous Database encryption key history entry.
+ * The Autonomous AI Database encryption key history entry.
  */
 export interface AutonomousDatabaseEncryptionKeyHistoryEntry {
   "encryptionKey"?:

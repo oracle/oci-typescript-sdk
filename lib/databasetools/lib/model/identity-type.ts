@@ -18,7 +18,13 @@ import common = require("oci-common");
  * The Database Tools Identity type.
  **/
 export enum IdentityType {
-  OracleDatabaseResourcePrincipal = "ORACLE_DATABASE_RESOURCE_PRINCIPAL"
+  OracleDatabaseResourcePrincipal = "ORACLE_DATABASE_RESOURCE_PRINCIPAL",
+
+  /**
+   * This value is used if a service returns a value for this enum that is not recognized by this
+   * version of the SDK.
+   */
+  UnknownValue = "UNKNOWN_VALUE"
 }
 
 export namespace IdentityType {
