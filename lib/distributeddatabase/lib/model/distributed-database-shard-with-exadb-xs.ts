@@ -50,7 +50,7 @@ export interface DistributedDatabaseShardWithExadbXs extends model.DistributedDa
    */
   "kmsKeyVersionId"?: string;
   /**
-   * Status of shard based on exadbxs for the Globally ditributed database.
+   * Status of EXADB_XS based shard.
    */
   "status": DistributedDatabaseShardWithExadbXs.Status;
   /**

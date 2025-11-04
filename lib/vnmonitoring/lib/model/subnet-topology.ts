@@ -18,6 +18,9 @@ import common = require("oci-common");
 
 /**
  * Defines the visualization of a subnet in a VCN.
+ * See [Network Visualizer Documentation](https://docs.oracle.com/iaas/Content/Network/Concepts/network_visualizer.htm) for more information, including
+ * conventions and pictures of symbols.
+ *
  */
 export interface SubnetTopology extends model.Topology {
   /**

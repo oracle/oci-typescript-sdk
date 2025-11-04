@@ -47,9 +47,15 @@ export interface CreateDistributedAutonomousDatabaseShardWithDedicatedInfraDetai
    */
   "cloudAutonomousVmClusterId": string;
   /**
-   * The collection of [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the peer cloudAutonomousExadataVMClusters.
+   * This field is deprecated. This should not be used while creation of new distributed autonomous database. To set the peers
+   * on new shards of distributed autonomous database please use peerDetails.
+   *
    */
   "peerCloudAutonomousVmClusterIds"?: Array<string>;
+  /**
+   * The details required for creation of the peer for the autonomous dedicated infrastructure based shard.
+   */
+  "peerDetails"?: Array<model.CreateShardPeerWithDedicatedInfraDetails>;
   /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Oracle Cloud Infrastructure [vault](https://docs.oracle.com/iaas/Content/KeyManagement/Concepts/keyoverview.htm#concepts). This parameter and {@code kmsKeyId} are required for Customer Managed Keys.
    */
@@ -78,7 +84,13 @@ export namespace CreateDistributedAutonomousDatabaseShardWithDedicatedInfraDetai
         : (model.CreateDistributedAutonomousDatabaseShardDetails.getJsonObj(
             obj
           ) as CreateDistributedAutonomousDatabaseShardWithDedicatedInfraDetails)),
-      ...{}
+      ...{
+        "peerDetails": obj.peerDetails
+          ? obj.peerDetails.map(item => {
+              return model.CreateShardPeerWithDedicatedInfraDetails.getJsonObj(item);
+            })
+          : undefined
+      }
     };
 
     return jsonObj;
@@ -94,7 +106,13 @@ export namespace CreateDistributedAutonomousDatabaseShardWithDedicatedInfraDetai
         : (model.CreateDistributedAutonomousDatabaseShardDetails.getDeserializedJsonObj(
             obj
           ) as CreateDistributedAutonomousDatabaseShardWithDedicatedInfraDetails)),
-      ...{}
+      ...{
+        "peerDetails": obj.peerDetails
+          ? obj.peerDetails.map(item => {
+              return model.CreateShardPeerWithDedicatedInfraDetails.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
     };
 
     return jsonObj;

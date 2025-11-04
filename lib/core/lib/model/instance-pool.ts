@@ -101,6 +101,7 @@ Example: {@code {\"Department\": \"Finance\"}}
    *
    */
   "instanceHostnameFormatter"?: string;
+  "lifecycleManagement"?: model.InstancePoolLifecycleManagementDetails;
 }
 
 export namespace InstancePool {
@@ -134,6 +135,10 @@ export namespace InstancePool {
           ? obj.loadBalancers.map(item => {
               return model.InstancePoolLoadBalancerAttachment.getJsonObj(item);
             })
+          : undefined,
+
+        "lifecycleManagement": obj.lifecycleManagement
+          ? model.InstancePoolLifecycleManagementDetails.getJsonObj(obj.lifecycleManagement)
           : undefined
       }
     };
@@ -154,6 +159,12 @@ export namespace InstancePool {
           ? obj.loadBalancers.map(item => {
               return model.InstancePoolLoadBalancerAttachment.getDeserializedJsonObj(item);
             })
+          : undefined,
+
+        "lifecycleManagement": obj.lifecycleManagement
+          ? model.InstancePoolLifecycleManagementDetails.getDeserializedJsonObj(
+              obj.lifecycleManagement
+            )
           : undefined
       }
     };

@@ -42,10 +42,6 @@ Who specifies the BGP peering information in the case of customer connection via
 * goes from Oracle to the customer's edge router, then the customer specifies the BGP
 * peering information. There's one exception: for a public virtual circuit, Oracle
 * specifies the BGP IPv4 addresses.
-* <p>
-Every {@code CrossConnectMapping} must have BGP IPv4 peering addresses. BGP IPv6 peering
-* addresses are optional. If BGP IPv6 addresses are provided, the customer can
-* exchange IPv6 routes with Oracle.
 * 
 */
 export interface CrossConnectMapping {
@@ -89,37 +85,6 @@ Example: {@code 10.0.0.19/31}
 * 
     */
   "oracleBgpPeeringIp"?: string;
-  /**
-    * The BGP IPv6 address for the router on the other end of the BGP session from
-* Oracle. Specified by the owner of that router. If the session goes from Oracle
-* to a customer, this is the BGP IPv6 address of the customer's edge router. If the
-* session goes from Oracle to a provider, this is the BGP IPv6 address of the
-* provider's edge router. Only subnet masks from /64 up to /127 are allowed.
-* <p>
-There's one exception: for a public virtual circuit, Oracle specifies the BGP IPv6 addresses.
-* <p>
-IPv6 addressing is supported for all commercial and government regions. See
-* [IPv6 Addresses](https://docs.oracle.com/iaas/Content/Network/Concepts/ipv6.htm).
-* <p>
-Example: {@code 2001:db8::1/64}
-* 
-    */
-  "customerBgpPeeringIpv6"?: string;
-  /**
-    * The IPv6 address for Oracle's end of the BGP session. Only subnet masks from /64 up to /127 are allowed.
-* If the session goes from Oracle to a customer's edge router,
-* the customer specifies this information. If the session goes from Oracle to
-* a provider's edge router, the provider specifies this.
-* <p>
-There's one exception: for a public virtual circuit, Oracle specifies the BGP IPv6 addresses.
-* <p>
-Note that IPv6 addressing is currently supported only in certain regions. See
-* [IPv6 Addresses](https://docs.oracle.com/iaas/Content/Network/Concepts/ipv6.htm).
-* <p>
-Example: {@code 2001:db8::2/64}
-* 
-    */
-  "oracleBgpPeeringIpv6"?: string;
   /**
     * The number of the specific VLAN (on the cross-connect or cross-connect group)
 * that is assigned to this virtual circuit. Specified by the owner of the cross-connect

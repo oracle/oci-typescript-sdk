@@ -34,8 +34,15 @@ export namespace AllowedSecurityConfiguration {
             <model.StatefulEgressSecurityListConfiguration>(<object>jsonObj),
             true
           );
+        case "STATEFUL_ZPR":
+          return model.StatefulZprConfiguration.getJsonObj(
+            <model.StatefulZprConfiguration>(<object>jsonObj),
+            true
+          );
         case "NSG":
           return model.NsgConfiguration.getJsonObj(<model.NsgConfiguration>(<object>jsonObj), true);
+        case "ZPR":
+          return model.ZprConfiguration.getJsonObj(<model.ZprConfiguration>(<object>jsonObj), true);
         case "INGRESS_SECURITY_LIST":
           return model.IngressSecurityListConfiguration.getJsonObj(
             <model.IngressSecurityListConfiguration>(<object>jsonObj),
@@ -72,9 +79,19 @@ export namespace AllowedSecurityConfiguration {
             <model.StatefulEgressSecurityListConfiguration>(<object>jsonObj),
             true
           );
+        case "STATEFUL_ZPR":
+          return model.StatefulZprConfiguration.getDeserializedJsonObj(
+            <model.StatefulZprConfiguration>(<object>jsonObj),
+            true
+          );
         case "NSG":
           return model.NsgConfiguration.getDeserializedJsonObj(
             <model.NsgConfiguration>(<object>jsonObj),
+            true
+          );
+        case "ZPR":
+          return model.ZprConfiguration.getDeserializedJsonObj(
+            <model.ZprConfiguration>(<object>jsonObj),
             true
           );
         case "INGRESS_SECURITY_LIST":

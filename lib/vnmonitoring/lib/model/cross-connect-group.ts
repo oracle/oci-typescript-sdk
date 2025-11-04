@@ -38,23 +38,11 @@ export interface CrossConnectGroup {
    */
   "compartmentId"?: string;
   /**
-   * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
-   *
-   */
-  "definedTags"?: { [key: string]: { [key: string]: any } };
-  /**
    * A user-friendly name. Does not have to be unique, and it's changeable.
    * Avoid entering confidential information.
    *
    */
   "displayName"?: string;
-  /**
-   * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
-   * Example: {@code {\"bar-key\": \"value\"}}
-   *
-   */
-  "freeformTags"?: { [key: string]: string };
   /**
    * The cross-connect group's Oracle ID (OCID).
    */
@@ -64,30 +52,12 @@ export interface CrossConnectGroup {
    */
   "lifecycleState"?: CrossConnectGroup.LifecycleState;
   /**
-   * A reference name or identifier for the physical fiber connection that this cross-connect
-   * group uses.
-   *
-   */
-  "customerReferenceName"?: string;
-  /**
     * The date and time the cross-connect group was created, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
 * <p>
 Example: {@code 2016-08-25T21:10:29.600Z}
 * 
     */
   "timeCreated"?: Date;
-  "macsecProperties"?: model.MacsecProperties;
-  /**
-   * The FastConnect device that terminates the physical connection.
-   *
-   */
-  "ociPhysicalDeviceName"?: string;
-  /**
-   * The FastConnect device that terminates the logical connection.
-   * This device might be different than the device that terminates the physical connection.
-   *
-   */
-  "ociLogicalDeviceName"?: string;
 }
 
 export namespace CrossConnectGroup {
@@ -105,26 +75,12 @@ export namespace CrossConnectGroup {
   }
 
   export function getJsonObj(obj: CrossConnectGroup): object {
-    const jsonObj = {
-      ...obj,
-      ...{
-        "macsecProperties": obj.macsecProperties
-          ? model.MacsecProperties.getJsonObj(obj.macsecProperties)
-          : undefined
-      }
-    };
+    const jsonObj = { ...obj, ...{} };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: CrossConnectGroup): object {
-    const jsonObj = {
-      ...obj,
-      ...{
-        "macsecProperties": obj.macsecProperties
-          ? model.MacsecProperties.getDeserializedJsonObj(obj.macsecProperties)
-          : undefined
-      }
-    };
+    const jsonObj = { ...obj, ...{} };
 
     return jsonObj;
   }

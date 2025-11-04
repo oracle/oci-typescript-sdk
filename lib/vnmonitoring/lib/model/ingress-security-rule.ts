@@ -67,11 +67,6 @@ Allowed values:
   "sourceType"?: IngressSecurityRule.SourceType;
   "tcpOptions"?: model.TcpOptions;
   "udpOptions"?: model.UdpOptions;
-  /**
-   * An optional description of your choice for the rule.
-   *
-   */
-  "description"?: string;
 }
 
 export namespace IngressSecurityRule {

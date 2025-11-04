@@ -238,3 +238,5 @@ export import jmsutils = require("oci-jmsutils");
 export import multicloud = require("oci-multicloud");
 export import resourceanalytics = require("oci-resourceanalytics");
 export import iot = require("oci-iot");
+export import dif = require("oci-dif");
+export import psa = require("oci-psa");

@@ -47,19 +47,9 @@ export interface CreateDhcpDetails {
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the VCN the set of DHCP options belongs to.
    */
   "vcnId": string;
-  /**
-   * The search domain name type of DHCP options
-   */
-  "domainNameType"?: CreateDhcpDetails.DomainNameType;
 }
 
 export namespace CreateDhcpDetails {
-  export enum DomainNameType {
-    SubnetDomain = "SUBNET_DOMAIN",
-    VcnDomain = "VCN_DOMAIN",
-    CustomDomain = "CUSTOM_DOMAIN"
-  }
-
   export function getJsonObj(obj: CreateDhcpDetails): object {
     const jsonObj = {
       ...obj,

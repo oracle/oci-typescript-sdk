@@ -48,93 +48,25 @@ export interface CreateIPSecConnectionDetails {
    */
   "freeformTags"?: { [key: string]: string };
   /**
-    * Your identifier for your CPE device. Can be either an IP address or a hostname (specifically, the
-* fully qualified domain name (FQDN)). The type of identifier you provide here must correspond
-* to the value for {@code cpeLocalIdentifierType}.
-* <p>
-If you don't provide a value, the {@code ipAddress} attribute for the {@link Cpe}
-* object specified by {@code cpeId} is used as the {@code cpeLocalIdentifier}.
-* <p>
-For information about why you'd provide this value, see
-* [If Your CPE Is Behind a NAT Device](https://docs.oracle.com/iaas/Content/Network/Tasks/overviewIPsec.htm#nat).
-* <p>
-Example IP address: {@code 10.0.3.3}
-* <p>
-Example hostname: {@code cpe.example.com}
-* 
-    */
-  "cpeLocalIdentifier"?: string;
-  /**
-   * The type of identifier for your CPE device. The value you provide here must correspond to the value
-   * for {@code cpeLocalIdentifier}.
-   *
-   */
-  "cpeLocalIdentifierType"?: CreateIPSecConnectionDetails.CpeLocalIdentifierType;
-  /**
     * Static routes to the CPE. A static route's CIDR must not be a
 * multicast address or class E address.
 * <p>
-Used for routing a given IPSec tunnel's traffic only if the tunnel
-* is using static routing. If you configure at least one tunnel to use static routing, then
-* you must provide at least one valid static route. If you configure both
-* tunnels to use BGP dynamic routing, you can provide an empty list for the static routes.
-* For more information, see the important note in {@link IPSecConnection}.
-* <p>
-The CIDR can be either IPv4 or IPv6. IPv6 addressing is supported for all commercial and government regions.
-* See [IPv6 Addresses](https://docs.oracle.com/iaas/Content/Network/Concepts/ipv6.htm).
+
 * <p>
 Example: {@code 10.0.1.0/24}
-* <p>
-Example: {@code 2001:db8::/32}
 * 
     */
-  "staticRoutes": Array<string>;
-  /**
-   * Information for creating the individual tunnels in the IPSec connection. You can provide a
-   * maximum of 2 {@code tunnelConfiguration} objects in the array (one for each of the
-   * two tunnels).
-   *
-   */
-  "tunnelConfiguration"?: Array<model.CreateIPSecConnectionTunnelDetails>;
-  /**
-   * The count of tunnels in the IPsec connection. This value should be equal to the number of
-   * {@code tunnelConfiguration} objects specified in the {@code CreateIPSecConnection} request.
-   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
-   */
-  "tunnelCount"?: number;
+  "staticRoutes"?: Array<string>;
 }
 
 export namespace CreateIPSecConnectionDetails {
-  export enum CpeLocalIdentifierType {
-    IpAddress = "IP_ADDRESS",
-    Hostname = "HOSTNAME"
-  }
-
   export function getJsonObj(obj: CreateIPSecConnectionDetails): object {
-    const jsonObj = {
-      ...obj,
-      ...{
-        "tunnelConfiguration": obj.tunnelConfiguration
-          ? obj.tunnelConfiguration.map(item => {
-              return model.CreateIPSecConnectionTunnelDetails.getJsonObj(item);
-            })
-          : undefined
-      }
-    };
+    const jsonObj = { ...obj, ...{} };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: CreateIPSecConnectionDetails): object {
-    const jsonObj = {
-      ...obj,
-      ...{
-        "tunnelConfiguration": obj.tunnelConfiguration
-          ? obj.tunnelConfiguration.map(item => {
-              return model.CreateIPSecConnectionTunnelDetails.getDeserializedJsonObj(item);
-            })
-          : undefined
-      }
-    };
+    const jsonObj = { ...obj, ...{} };
 
     return jsonObj;
   }

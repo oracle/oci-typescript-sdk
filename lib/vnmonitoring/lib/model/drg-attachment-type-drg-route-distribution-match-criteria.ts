@@ -39,6 +39,8 @@ export namespace DrgAttachmentTypeDrgRouteDistributionMatchCriteria {
     VirtualCircuit = "VIRTUAL_CIRCUIT",
     RemotePeeringConnection = "REMOTE_PEERING_CONNECTION",
     IpsecTunnel = "IPSEC_TUNNEL",
+    FlexTunnel = "FLEX_TUNNEL",
+    Loopback = "LOOPBACK",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

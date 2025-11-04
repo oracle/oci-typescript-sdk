@@ -17,9 +17,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Deprecated. For tunnel information, instead see
- * {@link IPSecConnectionTunnel}.
- *
+ * Status of the IPSec connection.
  */
 export interface IPSecConnectionDeviceStatus {
   /**

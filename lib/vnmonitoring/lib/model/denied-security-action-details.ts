@@ -26,7 +26,7 @@ export interface DeniedSecurityActionDetails {
    */
   "isRestrictedOrPartial": boolean;
   /**
-   * The list of [OCIDs](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of evaluated security lists associcated
+   * The list of [OCIDs](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of evaluated security lists associated
    * with the OCI resource's subnet.
    *
    */

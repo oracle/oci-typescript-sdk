@@ -20260,6 +20260,82 @@ If an autoscaling configuration applies to the instance pool, the autoscaling co
   }
 
   /**
+   * Marks an instance in an instance pool to be ready for termination.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param TerminationProceedInstancePoolInstanceRequest
+   * @return TerminationProceedInstancePoolInstanceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/TerminationProceedInstancePoolInstance.ts.html |here} to see how to use TerminationProceedInstancePoolInstance API.
+   */
+  public async terminationProceedInstancePoolInstance(
+    terminationProceedInstancePoolInstanceRequest: requests.TerminationProceedInstancePoolInstanceRequest
+  ): Promise<responses.TerminationProceedInstancePoolInstanceResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ComputeManagementClient#terminationProceedInstancePoolInstance."
+      );
+    const operationName = "terminationProceedInstancePoolInstance";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/InstancePoolInstance/TerminationProceedInstancePoolInstance";
+    const pathParams = {
+      "{instancePoolId}": terminationProceedInstancePoolInstanceRequest.instancePoolId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": terminationProceedInstancePoolInstanceRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      terminationProceedInstancePoolInstanceRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/instancePools/{instancePoolId}/actions/terminationProceed",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        terminationProceedInstancePoolInstanceRequest.terminationProceedInstancePoolInstanceDetails,
+        "TerminationProceedInstancePoolInstanceDetails",
+        model.TerminationProceedInstancePoolInstanceDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.TerminationProceedInstancePoolInstanceResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Updates a [cluster network with instance pools](https://docs.oracle.com/iaas/Content/Compute/Tasks/managingclusternetworks.htm).
    * The OCID of the cluster network remains the same.
    *

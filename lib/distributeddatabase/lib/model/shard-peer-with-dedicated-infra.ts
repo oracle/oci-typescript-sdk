@@ -46,6 +46,25 @@ export interface ShardPeerWithDedicatedInfra {
    * The time the shard peer was last updated. An RFC3339 formatted datetime string
    */
   "timeUpdated": Date;
+  /**
+   * The protectionMode for the shard peer.
+   */
+  "protectionMode"?: model.DistributedAutonomousDbProtectionMode;
+  /**
+   * The lag time for my preference based on data loss tolerance in seconds. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "fastStartFailOverLagLimitInSeconds"?: number;
+  /**
+   * Indicates whether Automatic Failover is enabled for Autonomous Container Database Dataguard Association
+   *
+   */
+  "isAutomaticFailoverEnabled"?: boolean;
+  /**
+   * The scheduling detail for the quarterly maintenance window of the standby Autonomous Container Database.
+   * This value represents the number of days before schedlued maintenance of the primary database.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "standbyMaintenanceBufferInDays"?: number;
   "metadata"?: model.DistributedAutonomousDbMetadata;
 }
 

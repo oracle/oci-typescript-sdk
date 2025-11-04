@@ -30,13 +30,12 @@ To use any of the API operations, you must be authorized in an IAM policy. If yo
 */
 export interface Subnet {
   /**
-    * The subnet's availability domain. This attribute will be null if this is a regional subnet
-* instead of an AD-specific subnet. Oracle recommends creating regional subnets.
+    * The subnet's availability domain.
 * <p>
 Example: {@code Uocm:PHX-AD-1}
 * 
     */
-  "availabilityDomain"?: string;
+  "availabilityDomain": string;
   /**
     * The subnet's CIDR block.
 * <p>
@@ -93,18 +92,24 @@ Example: {@code subnet123}
    */
   "id": string;
   /**
-    * For an IPv6-enabled subnet, this is the IPv6 CIDR block for the subnet's IP address space.
-* The subnet size is always /64. See [IPv6 Addresses](https://docs.oracle.com/iaas/Content/Network/Concepts/ipv6.htm).
+    * For an IPv6-enabled subnet, this is the IPv6 prefix for the subnet's private IP address
+* space. The subnet size is always /64. IPv6 addressing is supported for all commercial and government regions.
+* See [IPv6 Addresses](https://docs.oracle.com/iaas/Content/Network/Concepts/ipv6.htm).
 * <p>
 Example: {@code 2001:0db8:0123:1111::/64}
 * 
     */
   "ipv6CidrBlock"?: string;
   /**
-   * The list of all IPv6 CIDR blocks (Oracle allocated IPv6 GUA, ULA or private IPv6 CIDR blocks, BYOIPv6 CIDR blocks) for the subnet.
-   *
-   */
-  "ipv6CidrBlocks"?: Array<string>;
+    * For an IPv6-enabled subnet, this is the IPv6 prefix for the subnet's public IP address
+* space. The subnet size is always /64. The left 48 bits are inherited from the
+* {@code ipv6PublicCidrBlock} of the {@link Vcn},
+* and the remaining 16 bits are from the subnet's {@code ipv6CidrBlock}.
+* <p>
+Example: {@code 2001:0db8:0123:1111::/64}
+* 
+    */
+  "ipv6PublicCidrBlock"?: string;
   /**
     * For an IPv6-enabled subnet, this is the IPv6 address of the virtual router.
 * <p>
@@ -116,23 +121,6 @@ Example: {@code 2001:0db8:0123:1111:89ab:cdef:1234:5678}
    * The subnet's current state.
    */
   "lifecycleState": Subnet.LifecycleState;
-  /**
-    * Whether to disallow ingress internet traffic to VNICs within this subnet. Defaults to false.
-* <p>
-For IPV4, {@code prohibitInternetIngress} behaves similarly to {@code prohibitPublicIpOnVnic}.
-* If it is set to false, VNICs created in this subnet will automatically be assigned public IP
-* addresses unless specified otherwise during instance launch or VNIC creation (with the {@code assignPublicIp}
-* flag in {@link CreateVnicDetails}).
-* If {@code prohibitInternetIngress} is set to true, VNICs created in this subnet cannot have public IP addresses
-* (that is, it's a privatesubnet).
-* <p>
-For IPv6, if {@code prohibitInternetIngress} is set to {@code true}, internet access is not allowed for any
-* IPv6s assigned to VNICs in the subnet. Otherwise, ingress internet traffic is allowed by default.
-* <p>
-Example: {@code true}
-* 
-    */
-  "prohibitInternetIngress"?: boolean;
   /**
     * Whether VNICs within this subnet can have public IP addresses.
 * Defaults to false, which means VNICs created in this subnet will
@@ -203,7 +191,6 @@ export namespace Subnet {
     Available = "AVAILABLE",
     Terminating = "TERMINATING",
     Terminated = "TERMINATED",
-    Updating = "UPDATING",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

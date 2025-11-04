@@ -58,6 +58,37 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forAddDbnodeSnapshotsForExadbVmCluster
+   *
+   * @param request the request to send
+   * @return response returns AddDbnodeSnapshotsForExadbVmClusterResponse, GetWorkRequestResponse tuple
+   */
+  public async forAddDbnodeSnapshotsForExadbVmCluster(
+    request: serviceRequests.AddDbnodeSnapshotsForExadbVmClusterRequest
+  ): Promise<{
+    response: serviceResponses.AddDbnodeSnapshotsForExadbVmClusterResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const addDbnodeSnapshotsForExadbVmClusterResponse = await this.client.addDbnodeSnapshotsForExadbVmCluster(
+      request
+    );
+    if (addDbnodeSnapshotsForExadbVmClusterResponse.opcWorkRequestId === undefined)
+      return {
+        response: addDbnodeSnapshotsForExadbVmClusterResponse,
+        workRequestResponse: undefined as any
+      };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      addDbnodeSnapshotsForExadbVmClusterResponse.opcWorkRequestId
+    );
+    return {
+      response: addDbnodeSnapshotsForExadbVmClusterResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
    * Waits forAddStandbyAutonomousContainerDatabase
    *
    * @param request the request to send
@@ -3032,6 +3063,29 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forDeleteDbnodeSnapshot
+   *
+   * @param request the request to send
+   * @return response returns DeleteDbnodeSnapshotResponse, GetWorkRequestResponse tuple
+   */
+  public async forDeleteDbnodeSnapshot(
+    request: serviceRequests.DeleteDbnodeSnapshotRequest
+  ): Promise<{
+    response: serviceResponses.DeleteDbnodeSnapshotResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const deleteDbnodeSnapshotResponse = await this.client.deleteDbnodeSnapshot(request);
+    if (deleteDbnodeSnapshotResponse.opcWorkRequestId === undefined)
+      return { response: deleteDbnodeSnapshotResponse, workRequestResponse: undefined as any };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      deleteDbnodeSnapshotResponse.opcWorkRequestId
+    );
+    return { response: deleteDbnodeSnapshotResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
    * Waits forDeleteExadataInfrastructure
    *
    * @param request the request to send
@@ -4922,6 +4976,25 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forDbnodeSnapshot till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetDbnodeSnapshotResponse | null (null in case of 404 response)
+   */
+  public async forDbnodeSnapshot(
+    request: serviceRequests.GetDbnodeSnapshotRequest,
+    ...targetStates: models.DbnodeSnapshot.LifecycleState[]
+  ): Promise<serviceResponses.GetDbnodeSnapshotResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getDbnodeSnapshot(request),
+      response => targetStates.includes(response.dbnodeSnapshot.lifecycleState!),
+      targetStates.includes(models.DbnodeSnapshot.LifecycleState.Terminated)
+    );
+  }
+
+  /**
    * Waits forExadataInfrastructure till it reaches any of the provided states
    *
    * @param request the request to send
@@ -5667,6 +5740,29 @@ export class DatabaseWaiter {
       response: modifyPluggableDatabaseManagementResponse,
       workRequestResponse: getWorkRequestResponse
     };
+  }
+
+  /**
+   * Waits forMountDbnodeSnapshot
+   *
+   * @param request the request to send
+   * @return response returns MountDbnodeSnapshotResponse, GetWorkRequestResponse tuple
+   */
+  public async forMountDbnodeSnapshot(
+    request: serviceRequests.MountDbnodeSnapshotRequest
+  ): Promise<{
+    response: serviceResponses.MountDbnodeSnapshotResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const mountDbnodeSnapshotResponse = await this.client.mountDbnodeSnapshot(request);
+    if (mountDbnodeSnapshotResponse.opcWorkRequestId === undefined)
+      return { response: mountDbnodeSnapshotResponse, workRequestResponse: undefined as any };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      mountDbnodeSnapshotResponse.opcWorkRequestId
+    );
+    return { response: mountDbnodeSnapshotResponse, workRequestResponse: getWorkRequestResponse };
   }
 
   /**
@@ -6933,6 +7029,29 @@ export class DatabaseWaiter {
       terminateDbSystemResponse.opcWorkRequestId
     );
     return { response: terminateDbSystemResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forUnmountDbnodeSnapshot
+   *
+   * @param request the request to send
+   * @return response returns UnmountDbnodeSnapshotResponse, GetWorkRequestResponse tuple
+   */
+  public async forUnmountDbnodeSnapshot(
+    request: serviceRequests.UnmountDbnodeSnapshotRequest
+  ): Promise<{
+    response: serviceResponses.UnmountDbnodeSnapshotResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const unmountDbnodeSnapshotResponse = await this.client.unmountDbnodeSnapshot(request);
+    if (unmountDbnodeSnapshotResponse.opcWorkRequestId === undefined)
+      return { response: unmountDbnodeSnapshotResponse, workRequestResponse: undefined as any };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      unmountDbnodeSnapshotResponse.opcWorkRequestId
+    );
+    return { response: unmountDbnodeSnapshotResponse, workRequestResponse: getWorkRequestResponse };
   }
 
   /**
