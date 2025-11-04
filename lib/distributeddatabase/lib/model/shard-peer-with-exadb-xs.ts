@@ -27,7 +27,7 @@ export interface ShardPeerWithExadbXs {
    */
   "shardGroup": string;
   /**
-   * Status of catalog with VmCluster for the Globally ditributed database.
+   * Status of EXADB_XS based shard peer.
    */
   "status": ShardPeerWithExadbXs.Status;
   /**
@@ -46,6 +46,14 @@ export interface ShardPeerWithExadbXs {
    * The time the shard peer was last updated. An RFC3339 formatted datetime string
    */
   "timeUpdated": Date;
+  /**
+   * The protectionMode for the shard peer.
+   */
+  "protectionMode"?: model.DistributedDbProtectionMode;
+  /**
+   * The redo transport type to use for this Data Guard association.
+   */
+  "transportType"?: model.DistributedDbTransportType;
   "metadata"?: model.DistributedDbMetadata;
 }
 

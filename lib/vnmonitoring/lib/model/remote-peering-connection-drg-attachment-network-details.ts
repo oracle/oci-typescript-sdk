@@ -21,6 +21,41 @@ import common = require("oci-common");
  */
 export interface RemotePeeringConnectionDrgAttachmentNetworkDetails
   extends model.DrgAttachmentNetworkDetails {
+  /**
+   * The remote Oracle Cloud Infrastructure region name.
+   *
+   */
+  "peerRegionName"?: string;
+  /**
+   * The attachment route target.
+   */
+  "peerAttachmentRouteTarget"?: string;
+  /**
+   * Routes which may be imported from the attachment (subject to import policy) appear in the route reflectors
+   * tagged with the attachment's import route target.
+   *
+   */
+  "importRouteTarget"?: string;
+  /**
+   * Routes which are exported to the attachment are exported to the route reflectors
+   * with the route target set to the value of the attachment's export route target.
+   *
+   */
+  "exportRouteTarget"?: string;
+  /**
+   * The MPLS label of the DRG attachment. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "mplsLabel"?: number;
+  /**
+   * The BGP ASN to use for the IPSec connection's route target.
+   *
+   */
+  "regionalOciAsn"?: string;
+  /**
+   * IPv4 address used to encapsulate ingress traffic to the DRG through this attachment
+   */
+  "ingressVip"?: string;
+
   "type": string;
 }
 

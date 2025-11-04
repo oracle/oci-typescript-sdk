@@ -25,6 +25,57 @@ export interface IpsecTunnelDrgAttachmentNetworkDetails extends model.DrgAttachm
    */
   "ipsecConnectionId"?: string;
   /**
+   * Routes which may be imported from the attachment (subject to import policy) appear in the route reflectors
+   * tagged with the attachment's import route target.
+   *
+   */
+  "importRouteTarget"?: string;
+  /**
+   * Routes which are exported to the attachment are exported to the route reflectors
+   * with the route target set to the value of the attachment's export route target.
+   *
+   */
+  "exportRouteTarget"?: string;
+  /**
+   * The MPLS label of the DRG attachment. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "mplsLabel"?: number;
+  /**
+   * The BGP ASN to use for the IPSec connection's route target.
+   *
+   */
+  "regionalOciAsn"?: string;
+  /**
+   * IPv4 address used to encapsulate ingress traffic to the DRG through this attachment
+   */
+  "ingressVip"?: string;
+  /**
+   * Whether traffic from this network is forwarded to the El Paso Gamma VIPs (or not)
+   *
+   */
+  "isGammaDrg"?: boolean;
+  /**
+   * Common Export route target to use for the DRG Attachment instead of per-attachment route target.
+   * This is applicable to DRG attachments that are assigned to a DRG route table which is whitelisted for
+   * route unification.
+   *
+   */
+  "commonExportRT"?: string;
+  /**
+   * Common Import route target to use for the DRG attachment instead of per-attachment import route target.
+   * This is applicable to DRG attachments that are assigned to a DRG route table which is whitelisted for
+   * route unification.
+   *
+   */
+  "commonImportRT"?: string;
+  /**
+    * This indicates whether the DRG route table associated with the DRG attachment is whitelisted for route unification.
+* <p>
+Example: {@code true}
+* 
+    */
+  "isRouteUnificationEnabled"?: boolean;
+  /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the virtual circuit's DRG attachment.
    */
   "transportAttachmentId"?: string;

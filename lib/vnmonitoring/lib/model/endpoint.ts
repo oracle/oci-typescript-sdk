@@ -47,6 +47,11 @@ export namespace Endpoint {
           );
         case "ON_PREM":
           return model.OnPremEndpoint.getJsonObj(<model.OnPremEndpoint>(<object>jsonObj), true);
+        case "PRIVATE_SERVICE_ACCESS":
+          return model.PrivateServiceAccessEndpoint.getJsonObj(
+            <model.PrivateServiceAccessEndpoint>(<object>jsonObj),
+            true
+          );
         case "LOAD_BALANCER":
           return model.LoadBalancerEndpoint.getJsonObj(
             <model.LoadBalancerEndpoint>(<object>jsonObj),
@@ -97,6 +102,11 @@ export namespace Endpoint {
         case "ON_PREM":
           return model.OnPremEndpoint.getDeserializedJsonObj(
             <model.OnPremEndpoint>(<object>jsonObj),
+            true
+          );
+        case "PRIVATE_SERVICE_ACCESS":
+          return model.PrivateServiceAccessEndpoint.getDeserializedJsonObj(
+            <model.PrivateServiceAccessEndpoint>(<object>jsonObj),
             true
           );
         case "LOAD_BALANCER":

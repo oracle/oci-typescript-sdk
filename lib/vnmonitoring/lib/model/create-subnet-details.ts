@@ -18,22 +18,12 @@ import common = require("oci-common");
 
 export interface CreateSubnetDetails {
   /**
-    * Controls whether the subnet is regional or specific to an availability domain. Oracle
-* recommends creating regional subnets because they're more flexible and make it easier to
-* implement failover across availability domains. Originally, AD-specific subnets were the
-* only kind available to use.
-* <p>
-To create a regional subnet, omit this attribute. Then any resources later created in this
-* subnet (such as a Compute instance) can be created in any availability domain in the region.
-* <p>
-To instead create an AD-specific subnet, set this attribute to the availability domain you
-* want this subnet to be in. Then any resources later created in this subnet can only be
-* created in that availability domain.
+    * The availability domain to contain the subnet.
 * <p>
 Example: {@code Uocm:PHX-AD-1}
 * 
     */
-  "availabilityDomain"?: string;
+  "availabilityDomain": string;
   /**
     * The CIDR IP address range of the subnet. The CIDR must maintain the following rules -
 * <p>
@@ -102,27 +92,6 @@ Example: {@code 2001:0db8:0123:1111::/64}
     */
   "ipv6CidrBlock"?: string;
   /**
-   * The list of all IPv6 CIDR blocks (Oracle allocated IPv6 GUA, ULA or private IPv6 CIDR blocks, BYOIPv6 CIDR blocks) for the subnet that meets the following criteria:
-   * - The CIDR blocks must be valid.
-   * - Multiple CIDR blocks must not overlap each other or the on-premises network CIDR block.
-   * - The number of CIDR blocks must not exceed the limit of IPv6 CIDR blocks allowed to a subnet.
-   *
-   */
-  "ipv6CidrBlocks"?: Array<string>;
-  /**
-    * Whether to disallow ingress internet traffic to VNICs within this subnet. Defaults to false.
-* <p>
-For IPv6, if {@code prohibitInternetIngress} is set to {@code true}, internet access is not allowed for any
-* IPv6s assigned to VNICs in the subnet. Otherwise, ingress internet traffic is allowed by default.
-* <p>
-{@code prohibitPublicIpOnVnic} will be set to the value of {@code prohibitInternetIngress} to dictate IPv4
-* behavior in this subnet. Only one or the other flag should be specified.
-* <p>
-Example: {@code true}
-* 
-    */
-  "prohibitInternetIngress"?: boolean;
-  /**
     * Whether VNICs within this subnet can have public IP addresses.
 * Defaults to false, which means VNICs created in this subnet will
 * automatically be assigned public IP addresses unless specified
@@ -132,8 +101,8 @@ Example: {@code true}
 * subnet cannot have public IP addresses (that is, it's a private
 * subnet).
 * <p>
-If you intend to use an IPv6 CIDR block, you should use the flag {@code prohibitInternetIngress} to
-* specify ingress internet traffic behavior of the subnet.
+For IPv6, if {@code prohibitPublicIpOnVnic} is set to {@code true}, internet access is not allowed for any
+* IPv6s assigned to VNICs in the subnet.
 * <p>
 Example: {@code true}
 * 

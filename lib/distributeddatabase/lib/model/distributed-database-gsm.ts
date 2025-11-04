@@ -39,7 +39,7 @@ export interface DistributedDatabaseGsm {
    */
   "timeUpdated": Date;
   /**
-   * Status of the gsm for the Globally ditributed database.
+   * Status of the gsm.
    */
   "status": DistributedDatabaseGsm.Status;
   /**

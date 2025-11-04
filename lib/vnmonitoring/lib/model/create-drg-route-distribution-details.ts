@@ -17,7 +17,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details used to create a route distribution.
+ * Details used to create an import route distribution. You can't create a new export route distribution.
  *
  */
 export interface CreateDrgRouteDistributionDetails {
@@ -45,7 +45,7 @@ export interface CreateDrgRouteDistributionDetails {
    */
   "drgId": string;
   /**
-   * Whether this distribution defines how routes get imported into route tables or exported through DRG Attachments
+   * States that this distribution defines how routes get imported into route tables.
    *
    */
   "distributionType": CreateDrgRouteDistributionDetails.DistributionType;

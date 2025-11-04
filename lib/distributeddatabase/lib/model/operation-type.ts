@@ -50,6 +50,8 @@ export enum OperationType {
   DeleteDistributedDbGsm = "DELETE_DISTRIBUTED_DB_GSM",
   AddGdscontrolNode = "ADD_GDSCONTROL_NODE",
   ChangeDistributedDbBackupConfig = "CHANGE_DISTRIBUTED_DB_BACKUP_CONFIG",
+  AddDistributedDbDg = "ADD_DISTRIBUTED_DB_DG",
+  RemoveDistributedDbDg = "REMOVE_DISTRIBUTED_DB_DG",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

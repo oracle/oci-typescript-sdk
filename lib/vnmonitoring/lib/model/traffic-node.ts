@@ -26,8 +26,46 @@ export interface TrafficNode {
     | model.NoRouteRoutingAction
     | model.IndeterminateRoutingAction
     | model.ForwardedRoutingAction;
-  "egressSecurityAction"?: model.AllowedSecurityAction | model.DeniedSecurityAction;
-  "ingressSecurityAction"?: model.AllowedSecurityAction | model.DeniedSecurityAction;
+  "egressSecurityAction"?:
+    | model.AllowedSecurityAction
+    | model.ZprMissingPolicySecurityAction
+    | model.ZprDeniedSecurityAction
+    | model.ZprPolicyNotEvaluatedMissingRouteSecurityAction
+    | model.ZprNsgUnsupportedSecurityAction
+    | model.ZprAllowedSecurityAction
+    | model.DeniedSecurityAction
+    | model.ZprCidrUnsupportedSecurityAction
+    | model.ZprPolicyNotEvaluatedSlNsgDeniedSecurityAction;
+  "ingressSecurityAction"?:
+    | model.AllowedSecurityAction
+    | model.ZprMissingPolicySecurityAction
+    | model.ZprDeniedSecurityAction
+    | model.ZprPolicyNotEvaluatedMissingRouteSecurityAction
+    | model.ZprNsgUnsupportedSecurityAction
+    | model.ZprAllowedSecurityAction
+    | model.DeniedSecurityAction
+    | model.ZprCidrUnsupportedSecurityAction
+    | model.ZprPolicyNotEvaluatedSlNsgDeniedSecurityAction;
+  "zprEgressSecurityAction"?:
+    | model.AllowedSecurityAction
+    | model.ZprMissingPolicySecurityAction
+    | model.ZprDeniedSecurityAction
+    | model.ZprPolicyNotEvaluatedMissingRouteSecurityAction
+    | model.ZprNsgUnsupportedSecurityAction
+    | model.ZprAllowedSecurityAction
+    | model.DeniedSecurityAction
+    | model.ZprCidrUnsupportedSecurityAction
+    | model.ZprPolicyNotEvaluatedSlNsgDeniedSecurityAction;
+  "zprIngressSecurityAction"?:
+    | model.AllowedSecurityAction
+    | model.ZprMissingPolicySecurityAction
+    | model.ZprDeniedSecurityAction
+    | model.ZprPolicyNotEvaluatedMissingRouteSecurityAction
+    | model.ZprNsgUnsupportedSecurityAction
+    | model.ZprAllowedSecurityAction
+    | model.DeniedSecurityAction
+    | model.ZprCidrUnsupportedSecurityAction
+    | model.ZprPolicyNotEvaluatedSlNsgDeniedSecurityAction;
 
   "type": string;
 }
@@ -48,6 +86,12 @@ export namespace TrafficNode {
           : undefined,
         "ingressSecurityAction": obj.ingressSecurityAction
           ? model.SecurityAction.getJsonObj(obj.ingressSecurityAction)
+          : undefined,
+        "zprEgressSecurityAction": obj.zprEgressSecurityAction
+          ? model.SecurityAction.getJsonObj(obj.zprEgressSecurityAction)
+          : undefined,
+        "zprIngressSecurityAction": obj.zprIngressSecurityAction
+          ? model.SecurityAction.getJsonObj(obj.zprIngressSecurityAction)
           : undefined
       }
     };
@@ -85,6 +129,12 @@ export namespace TrafficNode {
           : undefined,
         "ingressSecurityAction": obj.ingressSecurityAction
           ? model.SecurityAction.getDeserializedJsonObj(obj.ingressSecurityAction)
+          : undefined,
+        "zprEgressSecurityAction": obj.zprEgressSecurityAction
+          ? model.SecurityAction.getDeserializedJsonObj(obj.zprEgressSecurityAction)
+          : undefined,
+        "zprIngressSecurityAction": obj.zprIngressSecurityAction
+          ? model.SecurityAction.getDeserializedJsonObj(obj.zprIngressSecurityAction)
           : undefined
       }
     };

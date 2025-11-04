@@ -40,9 +40,15 @@ export interface CreateDistributedAutonomousDatabaseCatalogWithDedicatedInfraDet
    */
   "cloudAutonomousVmClusterId": string;
   /**
-   * The collection of [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the peer cloud Autonomous VM Clusters.
+   * This field is deprecated. This should not be used while creation of new distributed autonomous database. To set the peers
+   * on catalog of distributed autonomous database please use peerDetails.
+   *
    */
   "peerCloudAutonomousVmClusterIds"?: Array<string>;
+  /**
+   * The details required for creation of the peer for the autonomous dedicated infrastructure based catalog.
+   */
+  "peerDetails"?: Array<model.CreateCatalogPeerWithDedicatedInfraDetails>;
   /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Oracle Cloud Infrastructure [vault](https://docs.oracle.com/iaas/Content/KeyManagement/Concepts/keyoverview.htm#concepts). This parameter and {@code kmsKeyId} are required for Customer Managed Keys.
    */
@@ -71,7 +77,13 @@ export namespace CreateDistributedAutonomousDatabaseCatalogWithDedicatedInfraDet
         : (model.CreateDistributedAutonomousDatabaseCatalogDetails.getJsonObj(
             obj
           ) as CreateDistributedAutonomousDatabaseCatalogWithDedicatedInfraDetails)),
-      ...{}
+      ...{
+        "peerDetails": obj.peerDetails
+          ? obj.peerDetails.map(item => {
+              return model.CreateCatalogPeerWithDedicatedInfraDetails.getJsonObj(item);
+            })
+          : undefined
+      }
     };
 
     return jsonObj;
@@ -87,7 +99,13 @@ export namespace CreateDistributedAutonomousDatabaseCatalogWithDedicatedInfraDet
         : (model.CreateDistributedAutonomousDatabaseCatalogDetails.getDeserializedJsonObj(
             obj
           ) as CreateDistributedAutonomousDatabaseCatalogWithDedicatedInfraDetails)),
-      ...{}
+      ...{
+        "peerDetails": obj.peerDetails
+          ? obj.peerDetails.map(item => {
+              return model.CreateCatalogPeerWithDedicatedInfraDetails.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
     };
 
     return jsonObj;

@@ -44,6 +44,7 @@ export interface PathAnalyzerTestSummary {
     | model.ComputeInstanceEndpoint
     | model.NetworkLoadBalancerEndpoint
     | model.OnPremEndpoint
+    | model.PrivateServiceAccessEndpoint
     | model.LoadBalancerEndpoint
     | model.VnicEndpoint
     | model.IpAddressEndpoint
@@ -55,6 +56,7 @@ export interface PathAnalyzerTestSummary {
     | model.ComputeInstanceEndpoint
     | model.NetworkLoadBalancerEndpoint
     | model.OnPremEndpoint
+    | model.PrivateServiceAccessEndpoint
     | model.LoadBalancerEndpoint
     | model.VnicEndpoint
     | model.IpAddressEndpoint

@@ -69,11 +69,6 @@ Allowed values:
   "protocol": string;
   "tcpOptions"?: model.TcpOptions;
   "udpOptions"?: model.UdpOptions;
-  /**
-   * An optional description of your choice for the rule.
-   *
-   */
-  "description"?: string;
 }
 
 export namespace EgressSecurityRule {

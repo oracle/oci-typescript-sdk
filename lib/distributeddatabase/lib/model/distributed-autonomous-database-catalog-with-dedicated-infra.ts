@@ -40,7 +40,7 @@ export interface DistributedAutonomousDatabaseCatalogWithDedicatedInfra
    */
   "cloudAutonomousVmClusterId": string;
   /**
-   * The collection of [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the peer cloudAutonomousVmClusters.
+   * This field is deprecated. For catalog peer details please refer peerDetails attribute.
    */
   "peerCloudAutonomousVmClusterIds"?: Array<string>;
   /**

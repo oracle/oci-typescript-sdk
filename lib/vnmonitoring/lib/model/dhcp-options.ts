@@ -80,10 +80,6 @@ Example: {@code 2016-08-25T21:10:29.600Z}
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the VCN the set of DHCP options belongs to.
    */
   "vcnId": string;
-  /**
-   * The search domain name type of DHCP options
-   */
-  "domainNameType"?: DhcpOptions.DomainNameType;
 }
 
 export namespace DhcpOptions {
@@ -92,17 +88,6 @@ export namespace DhcpOptions {
     Available = "AVAILABLE",
     Terminating = "TERMINATING",
     Terminated = "TERMINATED",
-    /**
-     * This value is used if a service returns a value for this enum that is not recognized by this
-     * version of the SDK.
-     */
-    UnknownValue = "UNKNOWN_VALUE"
-  }
-
-  export enum DomainNameType {
-    SubnetDomain = "SUBNET_DOMAIN",
-    VcnDomain = "VCN_DOMAIN",
-    CustomDomain = "CUSTOM_DOMAIN",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

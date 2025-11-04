@@ -62,9 +62,11 @@ The DRG route table manages traffic inside the DRG.
   "drgRouteTableId"?: string;
   "networkDetails"?:
     | model.VcnDrgAttachmentNetworkDetails
+    | model.InternetDrgAttachmentNetworkDetails
     | model.LoopBackDrgAttachmentNetworkDetails
     | model.IpsecTunnelDrgAttachmentNetworkDetails
     | model.VirtualCircuitDrgAttachmentNetworkDetails
+    | model.FlexTunnelDrgAttachmentNetworkDetails
     | model.RemotePeeringConnectionDrgAttachmentNetworkDetails;
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
@@ -78,18 +80,6 @@ The DRG route table manages traffic inside the DRG.
    *
    */
   "freeformTags"?: { [key: string]: string };
-  /**
-    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the route table the DRG attachment is using.
-* <p>
-For information about why you would associate a route table with a DRG attachment, see:
-* <p>
-  * [Transit Routing: Access to Multiple VCNs in Same Region](https://docs.oracle.com/iaas/Content/Network/Tasks/transitrouting.htm)
-*   * [Transit Routing: Private Access to Oracle Services](https://docs.oracle.com/iaas/Content/Network/Tasks/transitroutingoracleservices.htm)
-* <p>
-This field is deprecated. Instead, use the {@code networkDetails} field to view the [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the attached resource.
-* 
-    */
-  "routeTableId"?: string;
   /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the VCN.
    * This field is deprecated. Instead, use the {@code networkDetails} field to view the [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the attached resource.

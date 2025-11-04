@@ -19,10 +19,10 @@ import common = require("oci-common");
 /**
 * Represents a router that lets your VCN privately access specific Oracle services such as Object
 * Storage without exposing the VCN to the public internet. Traffic leaving the VCN and destined
-* for a supported Oracle service (see {@link #listServices(ListServicesRequest) listServices}) is
-* routed through the service gateway and does not traverse the internet. The instances in the VCN
-* do not need to have public IP addresses nor be in a public subnet. The VCN does not need an internet gateway
-* for this traffic. For more information, see
+* for a supported Oracle service (use the {@link #listServices(ListServicesRequest) listServices} operation to
+* find available service CIDR labels) is routed through the service gateway and does not traverse the internet.
+* The instances in the VCN do not need to have public IP addresses nor be in a public subnet. The VCN does not
+* need an internet gateway for this traffic. For more information, see
 * [Access to Oracle Services: Service Gateway](https://docs.oracle.com/iaas/Content/Network/Tasks/servicegateway.htm).
 * <p>
 To use any of the API operations, you must be authorized in an IAM policy. If you're not authorized,
@@ -72,13 +72,6 @@ Example: {@code true}
    * The service gateway's current state.
    */
   "lifecycleState": ServiceGateway.LifecycleState;
-  /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the route table the service gateway is using.
-   * For information about why you would associate a route table with a service gateway, see
-   * [Transit Routing: Private Access to Oracle Services](https://docs.oracle.com/iaas/Content/Network/Tasks/transitroutingoracleservices.htm).
-   *
-   */
-  "routeTableId"?: string;
   /**
    * List of the {@link Service} objects enabled for this service gateway.
    * The list can be empty. You can enable a particular {@code Service} by using

@@ -37,6 +37,11 @@ export namespace DrgAttachmentNetworkDetails {
             <model.VcnDrgAttachmentNetworkDetails>(<object>jsonObj),
             true
           );
+        case "INTERNET":
+          return model.InternetDrgAttachmentNetworkDetails.getJsonObj(
+            <model.InternetDrgAttachmentNetworkDetails>(<object>jsonObj),
+            true
+          );
         case "LOOPBACK":
           return model.LoopBackDrgAttachmentNetworkDetails.getJsonObj(
             <model.LoopBackDrgAttachmentNetworkDetails>(<object>jsonObj),
@@ -50,6 +55,11 @@ export namespace DrgAttachmentNetworkDetails {
         case "VIRTUAL_CIRCUIT":
           return model.VirtualCircuitDrgAttachmentNetworkDetails.getJsonObj(
             <model.VirtualCircuitDrgAttachmentNetworkDetails>(<object>jsonObj),
+            true
+          );
+        case "FLEX_TUNNEL":
+          return model.FlexTunnelDrgAttachmentNetworkDetails.getJsonObj(
+            <model.FlexTunnelDrgAttachmentNetworkDetails>(<object>jsonObj),
             true
           );
         case "REMOTE_PEERING_CONNECTION":
@@ -73,6 +83,11 @@ export namespace DrgAttachmentNetworkDetails {
             <model.VcnDrgAttachmentNetworkDetails>(<object>jsonObj),
             true
           );
+        case "INTERNET":
+          return model.InternetDrgAttachmentNetworkDetails.getDeserializedJsonObj(
+            <model.InternetDrgAttachmentNetworkDetails>(<object>jsonObj),
+            true
+          );
         case "LOOPBACK":
           return model.LoopBackDrgAttachmentNetworkDetails.getDeserializedJsonObj(
             <model.LoopBackDrgAttachmentNetworkDetails>(<object>jsonObj),
@@ -86,6 +101,11 @@ export namespace DrgAttachmentNetworkDetails {
         case "VIRTUAL_CIRCUIT":
           return model.VirtualCircuitDrgAttachmentNetworkDetails.getDeserializedJsonObj(
             <model.VirtualCircuitDrgAttachmentNetworkDetails>(<object>jsonObj),
+            true
+          );
+        case "FLEX_TUNNEL":
+          return model.FlexTunnelDrgAttachmentNetworkDetails.getDeserializedJsonObj(
+            <model.FlexTunnelDrgAttachmentNetworkDetails>(<object>jsonObj),
             true
           );
         case "REMOTE_PEERING_CONNECTION":

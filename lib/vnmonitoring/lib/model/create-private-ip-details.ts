@@ -64,15 +64,7 @@ Example: {@code 10.0.3.3}
    * must be in the same subnet.
    *
    */
-  "vnicId"?: string;
-  /**
-    * Use this attribute only with the Oracle Cloud VMware Solution.
-* <p>
-The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the VLAN from which the private IP is to be drawn. The IP address,
-* *if supplied*, must be valid for the given VLAN. See {@link Vlan}.
-* 
-    */
-  "vlanId"?: string;
+  "vnicId": string;
 }
 
 export namespace CreatePrivateIpDetails {

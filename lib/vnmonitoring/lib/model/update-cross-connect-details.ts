@@ -22,23 +22,11 @@ import common = require("oci-common");
  */
 export interface UpdateCrossConnectDetails {
   /**
-   * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
-   *
-   */
-  "definedTags"?: { [key: string]: { [key: string]: any } };
-  /**
    * A user-friendly name. Does not have to be unique, and it's changeable.
    * Avoid entering confidential information.
    *
    */
   "displayName"?: string;
-  /**
-   * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
-   * Example: {@code {\"bar-key\": \"value\"}}
-   *
-   */
-  "freeformTags"?: { [key: string]: string };
   /**
     * Set to true to activate the cross-connect. You activate it after the physical cabling
 * is complete, and you've confirmed the cross-connect's light levels are good and your side
@@ -48,36 +36,16 @@ Example: {@code true}
 * 
     */
   "isActive"?: boolean;
-  /**
-   * A reference name or identifier for the physical fiber connection this cross-connect uses.
-   *
-   */
-  "customerReferenceName"?: string;
-  "macsecProperties"?: model.UpdateMacsecProperties;
 }
 
 export namespace UpdateCrossConnectDetails {
   export function getJsonObj(obj: UpdateCrossConnectDetails): object {
-    const jsonObj = {
-      ...obj,
-      ...{
-        "macsecProperties": obj.macsecProperties
-          ? model.UpdateMacsecProperties.getJsonObj(obj.macsecProperties)
-          : undefined
-      }
-    };
+    const jsonObj = { ...obj, ...{} };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: UpdateCrossConnectDetails): object {
-    const jsonObj = {
-      ...obj,
-      ...{
-        "macsecProperties": obj.macsecProperties
-          ? model.UpdateMacsecProperties.getDeserializedJsonObj(obj.macsecProperties)
-          : undefined
-      }
-    };
+    const jsonObj = { ...obj, ...{} };
 
     return jsonObj;
   }

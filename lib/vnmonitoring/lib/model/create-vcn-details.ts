@@ -18,46 +18,39 @@ import common = require("oci-common");
 
 export interface CreateVcnDetails {
   /**
-   * **Deprecated.** Do *not* set this value. Use {@code cidrBlocks} instead.
+   * The CIDR IP address block of the VCN.
    * Example: {@code 10.0.0.0/16}
    *
    */
-  "cidrBlock"?: string;
-  /**
-   * The list of one or more IPv4 CIDR blocks for the VCN that meet the following criteria:
-   * - The CIDR blocks must be valid.
-   * - They must not overlap with each other or with the on-premises network CIDR block.
-   * - The number of CIDR blocks must not exceed the limit of CIDR blocks allowed per VCN.
-   * <p>
-   **Important:** Do *not* specify a value for {@code cidrBlock}. Use this parameter instead.
-   *
-   */
-  "cidrBlocks"?: Array<string>;
+  "cidrBlock": string;
   /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment to contain the VCN.
    */
   "compartmentId": string;
   /**
-   * The list of one or more ULA or Private IPv6 CIDR blocks for the vcn that meets the following criteria:
-   * - The CIDR blocks must be valid.
-   * - Multiple CIDR blocks must not overlap each other or the on-premises network CIDR block.
-   * - The number of CIDR blocks must not exceed the limit of IPv6 CIDR blocks allowed to a vcn.
-   * <p>
-   **Important:** Do *not* specify a value for {@code ipv6CidrBlock}. Use this parameter instead.
-   *
-   */
-  "ipv6PrivateCidrBlocks"?: Array<string>;
-  /**
-   * Specifies whether to skip Oracle allocated IPv6 GUA. By default, Oracle will allocate one GUA of /56
-   * size for an IPv6 enabled VCN.
-   *
-   */
-  "isOracleGuaAllocationEnabled"?: boolean;
-  /**
-   * The list of BYOIPv6 OCIDs and BYOIPv6 CIDR blocks required to create a VCN that uses BYOIPv6 ranges.
-   *
-   */
-  "byoipv6CidrDetails"?: Array<model.Byoipv6CidrDetails>;
+    * If you enable IPv6 for the VCN (see {@code isIpv6Enabled}), you may optionally provide an IPv6
+* /56 prefix from the supported ranges (see [IPv6 Addresses](https://docs.oracle.com/iaas/Content/Network/Concepts/ipv6.htm).
+* The addresses in this block will be considered private and cannot be accessed
+* from the internet. The documentation refers to this as a *custom CIDR* for the VCN.
+* <p>
+If you don't provide a custom CIDR for the VCN, Oracle assigns the VCN's IPv6 /56 prefix.
+* <p>
+Regardless of whether you or Oracle assigns the {@code ipv6CidrBlock},
+* Oracle *also* assigns the VCN an IPv6 prefix for the VCN's public IP address space
+* (see the {@code ipv6PublicCidrBlock} of the {@link Vcn} object). If you do
+* not assign a custom prefix, Oracle uses the *same* Oracle-assigned prefix for both the private
+* IP address space ({@code ipv6CidrBlock} in the {@code Vcn} object) and the public IP addreses space
+* ({@code ipv6PublicCidrBlock} in the {@code Vcn} object). This means that a given VNIC might use the same
+* IPv6 IP address for both private and public (internet) communication. You control whether
+* an IPv6 address can be used for internet communication by using the {@code isInternetAccessAllowed}
+* attribute in the {@link Ipv6} object.
+* <p>
+For important details about IPv6 addressing in a VCN, see [IPv6 Addresses](https://docs.oracle.com/iaas/Content/Network/Concepts/ipv6.htm).
+* <p>
+Example: {@code 2001:0db8:0123::/48}
+* 
+    */
+  "ipv6CidrBlock"?: string;
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
    * Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
@@ -98,7 +91,6 @@ Example: {@code vcn1}
   /**
     * Whether IPv6 is enabled for the VCN. Default is {@code false}.
 * If enabled, Oracle will assign the VCN a IPv6 /56 CIDR block.
-* You may skip having Oracle allocate the VCN a IPv6 /56 CIDR block by setting isOracleGuaAllocationEnabled to {@code false}.
 * For important details about IPv6 addressing in a VCN, see [IPv6 Addresses](https://docs.oracle.com/iaas/Content/Network/Concepts/ipv6.htm).
 * <p>
 Example: {@code true}
@@ -109,30 +101,12 @@ Example: {@code true}
 
 export namespace CreateVcnDetails {
   export function getJsonObj(obj: CreateVcnDetails): object {
-    const jsonObj = {
-      ...obj,
-      ...{
-        "byoipv6CidrDetails": obj.byoipv6CidrDetails
-          ? obj.byoipv6CidrDetails.map(item => {
-              return model.Byoipv6CidrDetails.getJsonObj(item);
-            })
-          : undefined
-      }
-    };
+    const jsonObj = { ...obj, ...{} };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: CreateVcnDetails): object {
-    const jsonObj = {
-      ...obj,
-      ...{
-        "byoipv6CidrDetails": obj.byoipv6CidrDetails
-          ? obj.byoipv6CidrDetails.map(item => {
-              return model.Byoipv6CidrDetails.getDeserializedJsonObj(item);
-            })
-          : undefined
-      }
-    };
+    const jsonObj = { ...obj, ...{} };
 
     return jsonObj;
   }

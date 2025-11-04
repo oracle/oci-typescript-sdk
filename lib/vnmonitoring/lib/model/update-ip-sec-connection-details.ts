@@ -35,47 +35,9 @@ export interface UpdateIPSecConnectionDetails {
    *
    */
   "freeformTags"?: { [key: string]: string };
-  /**
-    * Your identifier for your CPE device. Can be either an IP address or a hostname (specifically, the
-* fully qualified domain name (FQDN)). The type of identifier you provide here must correspond
-* to the value for {@code cpeLocalIdentifierType}.
-* <p>
-For information about why you'd provide this value, see
-* [If Your CPE Is Behind a NAT Device](https://docs.oracle.com/iaas/Content/Network/Tasks/overviewIPsec.htm#nat).
-* <p>
-Example IP address: {@code 10.0.3.3}
-* <p>
-Example hostname: {@code cpe.example.com}
-* 
-    */
-  "cpeLocalIdentifier"?: string;
-  /**
-   * The type of identifier for your CPE device. The value you provide here must correspond to the value
-   * for {@code cpeLocalIdentifier}.
-   *
-   */
-  "cpeLocalIdentifierType"?: UpdateIPSecConnectionDetails.CpeLocalIdentifierType;
-  /**
-    * Static routes to the CPE. If you provide this attribute, it replaces the entire current set of
-* static routes. A static route's CIDR must not be a multicast address or class E address.
-* The CIDR can be either IPv4 or IPv6.
-* IPv6 addressing is supported for all commercial and government regions.
-* See [IPv6 Addresses](https://docs.oracle.com/iaas/Content/Network/Concepts/ipv6.htm).
-* <p>
-Example: {@code 10.0.1.0/24}
-* <p>
-Example: {@code 2001:db8::/32}
-* 
-    */
-  "staticRoutes"?: Array<string>;
 }
 
 export namespace UpdateIPSecConnectionDetails {
-  export enum CpeLocalIdentifierType {
-    IpAddress = "IP_ADDRESS",
-    Hostname = "HOSTNAME"
-  }
-
   export function getJsonObj(obj: UpdateIPSecConnectionDetails): object {
     const jsonObj = { ...obj, ...{} };
 

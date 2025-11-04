@@ -24,6 +24,22 @@ export interface LoopBackDrgAttachmentNetworkDetails extends model.DrgAttachment
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the target IPSec tunnel attachment.
    */
   "ids"?: Array<string>;
+  /**
+   * The MPLS label of the DRG attachment. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "mplsLabel"?: number;
+  /**
+   * Routes which may be imported from the attachment (subject to import policy) appear in the route reflectors
+   * tagged with the attachment's import route target.
+   *
+   */
+  "importRouteTarget"?: string;
+  /**
+   * Routes which are exported to the attachment are exported to the route reflectors
+   * with the route target set to the value of the attachment's export route target.
+   *
+   */
+  "exportRouteTarget"?: string;
 
   "type": string;
 }
