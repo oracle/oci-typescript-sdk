@@ -27,7 +27,9 @@ export interface AllowedSecurityActionDetails {
   "isRestrictedOrPartial": boolean;
   "allowedSecurityConfiguration"?:
     | model.StatefulEgressSecurityListConfiguration
+    | model.StatefulZprConfiguration
     | model.NsgConfiguration
+    | model.ZprConfiguration
     | model.IngressSecurityListConfiguration
     | model.StatefulIngressSecurityListConfiguration
     | model.EgressSecurityListConfiguration

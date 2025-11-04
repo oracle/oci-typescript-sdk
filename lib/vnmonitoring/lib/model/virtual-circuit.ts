@@ -49,19 +49,14 @@ Example: {@code 10 Gbps}
     */
   "bandwidthShapeName"?: string;
   /**
-   * Deprecated. Instead use the information in
-   * {@link FastConnectProviderService}.
+   * BGP management option.
    *
    */
   "bgpManagement"?: VirtualCircuit.BgpManagement;
   /**
-   * The state of the Ipv4 BGP session associated with the virtual circuit.
+   * The state of the BGP session associated with the virtual circuit.
    */
   "bgpSessionState"?: VirtualCircuit.BgpSessionState;
-  /**
-   * The state of the Ipv6 BGP session associated with the virtual circuit.
-   */
-  "bgpIpv6SessionState"?: VirtualCircuit.BgpIpv6SessionState;
   /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment containing the virtual circuit.
    */
@@ -74,62 +69,25 @@ Example: {@code 10 Gbps}
    */
   "crossConnectMappings"?: Array<model.CrossConnectMapping>;
   /**
-   * The routing policy sets how routing information about the Oracle cloud is shared over a public virtual circuit.
-   * Policies available are: {@code ORACLE_SERVICE_NETWORK}, {@code REGIONAL}, {@code MARKET_LEVEL}, and {@code GLOBAL}.
-   * See [Route Filtering](https://docs.oracle.com/iaas/Content/Network/Concepts/routingonprem.htm#route_filtering) for details.
-   * By default, routing information is shared for all routes in the same market.
-   *
-   */
-  "routingPolicy"?: Array<VirtualCircuit.RoutingPolicy>;
-  /**
-   * Set to {@code ENABLED} (the default) to activate the BGP session of the virtual circuit, set to {@code DISABLED} to deactivate the virtual circuit.
-   *
-   */
-  "bgpAdminState"?: VirtualCircuit.BgpAdminState;
-  /**
-   * Set to {@code true} to enable BFD for IPv4 BGP peering, or set to {@code false} to disable BFD. If this is not set, the default is {@code false}.
-   *
-   */
-  "isBfdEnabled"?: boolean;
-  /**
    * Set to {@code true} for the virtual circuit to carry only encrypted traffic, or set to {@code false} for the virtual circuit to carry unencrypted traffic. If this is not set, the default is {@code false}.
    *
    */
   "isTransportMode"?: boolean;
-  /**
-   * Deprecated. Instead use {@code customerAsn}.
-   * If you specify values for both, the request will be rejected.
-   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
-   */
-  "customerBgpAsn"?: number;
   /**
    * The BGP ASN of the network at the other end of the BGP
    * session from Oracle. If the session is between the customer's
    * edge router and Oracle, the value is the customer's ASN. If the BGP
    * session is between the provider's edge router and Oracle, the value
    * is the provider's ASN.
-   * Can be a 2-byte or 4-byte ASN. Uses \"asplain\" format.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
-  "customerAsn"?: number;
-  /**
-   * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
-   *
-   */
-  "definedTags"?: { [key: string]: { [key: string]: any } };
+  "customerBgpAsn"?: number;
   /**
    * A user-friendly name. Does not have to be unique, and it's changeable.
    * Avoid entering confidential information.
    *
    */
   "displayName"?: string;
-  /**
-   * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
-   * Example: {@code {\"bar-key\": \"value\"}}
-   *
-   */
-  "freeformTags"?: { [key: string]: string };
   /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the customer's {@link Drg}
    * that this virtual circuit uses. Applicable only to private virtual circuits.
@@ -161,11 +119,6 @@ Example: {@code 10 Gbps}
    *
    */
   "providerServiceId"?: string;
-  /**
-   * The service key name offered by the provider (if the customer is connecting via a provider).
-   *
-   */
-  "providerServiceKeyName"?: string;
   /**
    * Deprecated. Instead use {@code providerServiceId}.
    *
@@ -217,10 +170,6 @@ Example: {@code 2016-08-25T21:10:29.600Z}
    *
    */
   "type"?: VirtualCircuit.Type;
-  /**
-   * The layer 3 IP MTU to use on this virtual circuit.
-   */
-  "ipMtu"?: model.VirtualCircuitIpMtu;
 }
 
 export namespace VirtualCircuit {
@@ -238,38 +187,6 @@ export namespace VirtualCircuit {
   export enum BgpSessionState {
     Up = "UP",
     Down = "DOWN",
-    /**
-     * This value is used if a service returns a value for this enum that is not recognized by this
-     * version of the SDK.
-     */
-    UnknownValue = "UNKNOWN_VALUE"
-  }
-
-  export enum BgpIpv6SessionState {
-    Up = "UP",
-    Down = "DOWN",
-    /**
-     * This value is used if a service returns a value for this enum that is not recognized by this
-     * version of the SDK.
-     */
-    UnknownValue = "UNKNOWN_VALUE"
-  }
-
-  export enum RoutingPolicy {
-    OracleServiceNetwork = "ORACLE_SERVICE_NETWORK",
-    Regional = "REGIONAL",
-    MarketLevel = "MARKET_LEVEL",
-    Global = "GLOBAL",
-    /**
-     * This value is used if a service returns a value for this enum that is not recognized by this
-     * version of the SDK.
-     */
-    UnknownValue = "UNKNOWN_VALUE"
-  }
-
-  export enum BgpAdminState {
-    Enabled = "ENABLED",
-    Disabled = "DISABLED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

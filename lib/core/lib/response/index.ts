@@ -446,6 +446,8 @@ import * as TerminateClusterNetworkResponse from "./terminate-cluster-network-re
 export import TerminateClusterNetworkResponse = TerminateClusterNetworkResponse.TerminateClusterNetworkResponse;
 import * as TerminateInstancePoolResponse from "./terminate-instance-pool-response";
 export import TerminateInstancePoolResponse = TerminateInstancePoolResponse.TerminateInstancePoolResponse;
+import * as TerminationProceedInstancePoolInstanceResponse from "./termination-proceed-instance-pool-instance-response";
+export import TerminationProceedInstancePoolInstanceResponse = TerminationProceedInstancePoolInstanceResponse.TerminationProceedInstancePoolInstanceResponse;
 import * as UpdateClusterNetworkResponse from "./update-cluster-network-response";
 export import UpdateClusterNetworkResponse = UpdateClusterNetworkResponse.UpdateClusterNetworkResponse;
 import * as UpdateInstanceConfigurationResponse from "./update-instance-configuration-response";

@@ -35,21 +35,6 @@ export interface UpdateCpeDetails {
    *
    */
   "freeformTags"?: { [key: string]: string };
-  /**
-    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the CPE device type. You can provide
-* a value if you want to generate CPE device configuration content for IPSec connections
-* that use this CPE. For a list of possible values, see
-* {@link #listCpeDeviceShapes(ListCpeDeviceShapesRequest) listCpeDeviceShapes}.
-* <p>
-For more information about generating CPE device configuration content, see:
-* <p>
-  * {@link #getCpeDeviceConfigContent(GetCpeDeviceConfigContentRequest) getCpeDeviceConfigContent}
-*   * {@link #getIpsecCpeDeviceConfigContent(GetIpsecCpeDeviceConfigContentRequest) getIpsecCpeDeviceConfigContent}
-*   * {@link #getTunnelCpeDeviceConfigContent(GetTunnelCpeDeviceConfigContentRequest) getTunnelCpeDeviceConfigContent}
-*   * {@link #getTunnelCpeDeviceConfig(GetTunnelCpeDeviceConfigRequest) getTunnelCpeDeviceConfig}
-* 
-    */
-  "cpeDeviceShapeId"?: string;
 }
 
 export namespace UpdateCpeDetails {

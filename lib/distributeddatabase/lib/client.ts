@@ -409,6 +409,90 @@ export class DistributedAutonomousDbServiceClient {
   }
 
   /**
+   * Change the DbBackupConfig for the Globally distributed autonomous database.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ChangeDistributedAutonomousDbBackupConfigRequest
+   * @return ChangeDistributedAutonomousDbBackupConfigResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/distributeddatabase/ChangeDistributedAutonomousDbBackupConfig.ts.html |here} to see how to use ChangeDistributedAutonomousDbBackupConfig API.
+   */
+  public async changeDistributedAutonomousDbBackupConfig(
+    changeDistributedAutonomousDbBackupConfigRequest: requests.ChangeDistributedAutonomousDbBackupConfigRequest
+  ): Promise<responses.ChangeDistributedAutonomousDbBackupConfigResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DistributedAutonomousDbServiceClient#changeDistributedAutonomousDbBackupConfig."
+      );
+    const operationName = "changeDistributedAutonomousDbBackupConfig";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{distributedAutonomousDatabaseId}":
+        changeDistributedAutonomousDbBackupConfigRequest.distributedAutonomousDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": changeDistributedAutonomousDbBackupConfigRequest.opcRequestId,
+      "if-match": changeDistributedAutonomousDbBackupConfigRequest.ifMatch,
+      "opc-retry-token": changeDistributedAutonomousDbBackupConfigRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeDistributedAutonomousDbBackupConfigRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/distributedAutonomousDatabases/{distributedAutonomousDatabaseId}/actions/changeDbBackupConfig",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeDistributedAutonomousDbBackupConfigRequest.changeDistributedAutonomousDbBackupConfigDetails,
+        "ChangeDistributedAutonomousDbBackupConfigDetails",
+        model.ChangeDistributedAutonomousDbBackupConfigDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeDistributedAutonomousDbBackupConfigResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Configure new Global Service Manager(GSM aka shard manager) instances for the Globally distributed autonomous database.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -1286,7 +1370,7 @@ export class DistributedAutonomousDbServiceClient {
   }
 
   /**
-   * Rotate passwords for different components of the Globally distributed autonomous database.
+   * Rotate the gsmuser and gsmcatuser passwords for shards and catalog of the Globally distributed autonomous database. This operation will also remove GdsCtlNodes if present.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param RotateDistributedAutonomousDatabasePasswordsRequest
    * @return RotateDistributedAutonomousDatabasePasswordsResponse
@@ -3887,7 +3971,7 @@ export class DistributedDbServiceClient {
   }
 
   /**
-   * Rotate passwords for different components of the Globally distributed database.
+   * Rotate the gsmuser and gsmcatuser passwords for shards and catalog of the Globally distributed database.  This operation will also remove GdsCtlNodes if present.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param RotateDistributedDatabasePasswordsRequest
    * @return RotateDistributedDatabasePasswordsResponse

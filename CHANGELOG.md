@@ -3,6 +3,43 @@
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
+## 2.121.0 - 2025-11-04
+### Added 
+- Support for Data Intelligence Foundation service 
+- Support for Private Service Access (PSA) service 
+- Support for pluggable database snapshots for exadata databases in the Database service 
+- Support for backup configurations for globally distributed databases in the Database service 
+- Support for fine grained configurations for data guards in globally distributed databases in the Database service 
+- Support for Zero trust Packet Routing (ZPR) policy analysis in the Network Monitoring service 
+- Support for instance pool pre-termination action in the Compute service   
+
+### Breaking Changes 
+- The models `AddPublicIpPoolCapacityDetails`, `AddSubnetIpv6CidrDetails`, `AddVcnCidrDetails`, `AddVcnIpv6CidrDetails`, `AllowedIkeIpSecParameters`, `AllowedPhaseOneParameters`, `AllowedPhaseTwoParameters`, `BgpSessionInfo`, `ByoipAllocatedRangeCollection`, `ByoipAllocatedRangeSummary`, `ByoipRange`, `ByoipRangeCollection`, `ByoipRangeSummary`, `ByoipRangeVcnIpv6AllocationSummary`, `Byoipv6CidrDetails`, `CaptureFilter`, `ChangeByoipRangeCompartmentDetails`, `ChangeCaptureFilterCompartmentDetails`, `ChangeCpeCompartmentDetails`, `ChangeCrossConnectCompartmentDetails`, `ChangeCrossConnectGroupCompartmentDetails`, `ChangeDhcpOptionsCompartmentDetails`, `ChangeDrgCompartmentDetails`, `ChangeInternetGatewayCompartmentDetails`, `ChangeIpSecConnectionCompartmentDetails`, `ChangeLocalPeeringGatewayCompartmentDetails`, `ChangeNatGatewayCompartmentDetails`, `ChangeNetworkSecurityGroupCompartmentDetails`, `ChangePublicIpCompartmentDetails`, `ChangePublicIpPoolCompartmentDetails`, `ChangeRemotePeeringConnectionCompartmentDetails`, `ChangeRouteTableCompartmentDetails`, `ChangeSecurityListCompartmentDetails`, `ChangeServiceGatewayCompartmentDetails`, `ChangeSubnetCompartmentDetails`, `ChangeVcnCompartmentDetails`, `ChangeVirtualCircuitCompartmentDetails`, `ChangeVlanCompartmentDetails`, `ChangeVtapCompartmentDetails`, `CreateByoipRangeDetails`, `CreateCaptureFilterDetails`, `CreateIpSecConnectionTunnelDetails`, `CreateIpSecTunnelBgpSessionDetails`, `CreateIpSecTunnelEncryptionDomainDetails`, `CreateMacsecKey`, `CreateMacsecProperties`, `CreateNatGatewayDetails`, `CreatePublicIpPoolDetails`, `CreateVlanDetails`, `CreateVnicDetails`, `CreateVtapDetails`, `CpeDeviceConfigAnswer`, `CpeDeviceConfigQuestion`, `CpeDeviceInfo`, `CpeDeviceShapeDetail`, `CpeDeviceShapeSummary`, `CrossConnectMappingDetails`, `CrossConnectMappingDetailsCollection`, `DefaultPhaseOneParameters`, `DefaultPhaseTwoParameters`, `DpdConfig`, `DrgAttachmentMatchAllDrgRouteDistributionMatchCriteria`, `DrgRedundancyStatus`, `EncryptionDomainConfig`, `FastConnectProviderServiceKey`, `FlowLogCaptureFilterRuleDetails`, `IpSecConnectionTunnel`, `IpSecConnectionTunnelErrorDetails`, `IpSecConnectionTunnelSharedSecret`, `MacsecKey`, `MacsecProperties`, `ModifyVcnCidrDetails`, `NatGateway`, `PhaseOneConfigDetails`, `PhaseTwoConfigDetails`, `PublicIpPool`, `PublicIpPoolCollection`, `PublicIpPoolSummary`, `RemovePublicIpPoolCapacityDetails`, `RemoveSubnetIpv6CidrDetails`, `RemoveVcnCidrDetails`, `RemoveVcnIpv6CidrDetails`, `TunnelCpeDeviceConfig`, `TunnelPhaseOneDetails`, `TunnelPhaseTwoDetails`, `TunnelRouteSummary`, `TunnelSecurityAssociationSummary`, `UpdateByoipRangeDetails`, `UpdateCaptureFilterDetails`, `UpdateIpSecConnectionTunnelDetails`, `UpdateIpSecConnectionTunnelEncryptionDomainDetails`, `UpdateIpSecConnectionTunnelSharedSecretDetails`, `UpdateIpSecTunnelBgpSessionDetails`, `UpdateMacsecKey`, `UpdateMacsecProperties`, `UpdateNatGatewayDetails`, `UpdatePublicIpPoolDetails`, `UpdateTunnelCpeDeviceConfigDetails`, `UpdateVlanDetails`, `UpdateVtapDetails`, `VcnDnsResolverAssociation`, `Vlan`, `Vtap`, and `VtapCaptureFilterRuleDetails` have been removed in the Network Monitoring service 
+- The field `cpeDeviceShapeId` was removed from the models `Cpe` and `UpdateCpeDetails`  
+- The fields `definedTags`, `freeformTags`, `customerReferenceName` and macsecProperties` were removed from the model `CreateCrossConnectDetails` in the Network Monitoring service 
+- The field `domainNameType` was removed from the model `CreateDhcpDetails` in the Network Monitoring service 
+- The field `routeTableId` was removed from the models `CreateDrgAttachmentDetails`, `UpdateLocalPeeringGatewayDetails`, `ServiceGateway`, `DrgAttachment`, `InternetGateway`, `CreateLocalPeeringGatewayDetails` and `CreateInternetGatewayDetails` in the Network Monitoring service 
+- The fields `staticRoutes`, `cpeLocalIdentifier`, `tunnelConfiguration` and `tunnelCount` were removed from the model `CreateIpSecConnectionDetails` in the Network Monitoring service 
+- The fields `ipv6CidrBlocks` and  `prohibitInternetIngress` were removed from the model `CreateSubnetDetails` in the Network Monitoring service 
+- The field `ipv6PrivateCidrBlocks`, `cidrBlocks`, `isOracleGuaAllocationEnabled`, and `byoipv6CidrDetails` were removed from the model `CreateVcnDetails` in the Network Monitoring service 
+- The fields `cefinedTags`, `freeformTags`, `customerReferenceName`, `macsecProperties`, `ociPhysicalDeviceName` and `ociLogicalDeviceName` were removed from the models `CrossConnectGroup` and `CrossConnect` in the Network Monitoring service 
+- The fields `customerBgpPeeringIpv6` and `oracleBgpPeeringIpv6` were removed from the model `crossConnectMapping` in the Network Monitoring service 
+- The field `domainNameType` was removed from the model `DhcpOptions` in the Network Monitoring service 
+- The fields `customerAsnManagement`, `providerServiceKeyManagement`, `bandwithShapeManagement`, and `rrequiredTotalCrossConnects` were removed from the model `FastConnectProviderService` in the Network Monitoring service 
+- The field `description` was removed from the model `IngressSecurityRule` in the Network Monitoring service 
+- The fields `peerId`, `peerAdvertisedCidr`, `peerAdvertisedCidrDetails`, and `routeTableId` were removed from the model `LocalPeeringGateway` in the Network Monitoring service 
+- The field `vlanId` was removed from the model `PrivateIp` in the Network Monitoring service 
+- The fields `assignedEntityId`, `assignedEntityType`, and `publicIpPoolId` were removed from the model `PublicIp` in the Network Monitoring service 
+- The fields `freeformTags` and `definedTags` were removed from the models `RemotePeeringConnection` and `UpdateRemotePeeringConnectionDetails` in the Network Monitoring service 
+- The fields `description` and `routeType` were removed from the model `RouteRule` in the Network Monitoring service 
+- The fields `prohibitInternetIngress` and `availabilityDomain` were removed from the model `Subnet` in the Network Monitoring service 
+- The fields `definedTags`, `freeformTags`, `customerReferenceName` and `macsecProperties` were removed from the models `UpdateCrossConnectDetails` and `UpdateCrossConnectGroupDetails` in the Network Monitoring service 
+- The fields `cpeLocalIdentifier`, `cpeLocalIdentifierType`, and `staticRoutes` were removed from the model `UpdateIpSecConnectionDetails` in the Network Monitoring service 
+- The fields `routingPolicy`, `bgpAdminState`, `isBfdEnabled`, and `customerBgpAsn` were removed from the model `UpdateVirtualCircuitDetails` and `VirtualCircuit` in the Network Monitoring service 
+- The field `vcnRouteType` was removed from the models `VcnDrgAttachmentNetworkCreateDetails`, `VcnDrgAttachmentNetworkDetails` and `VcnDrgAttachmentNetworkUpdateDetails` in the Network Monitoring service 
+- The fields `cidrBlocks`, `byoipv6CidrBlocks`, and `ipv6PrivateCidrBlocks` were removed from the model `Vcn` in the Network Monitoring service 
+- The fields `vlanId` and `subnetId` were removed from the model `Vnic` in the Network Monitoring service
+
 ## 2.120.0 - 2025-10-28
 ### Added 
 - Support for calling Oracle Cloud Infrastructure services in the eu-madrid-3 region 

@@ -74,10 +74,6 @@ Example: {@code 2016-08-25T21:10:29.600Z}
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the VCN the Internet Gateway belongs to.
    */
   "vcnId": string;
-  /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the route table the Internet Gateway is using.
-   */
-  "routeTableId"?: string;
 }
 
 export namespace InternetGateway {

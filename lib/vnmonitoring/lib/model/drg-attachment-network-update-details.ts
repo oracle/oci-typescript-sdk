@@ -26,6 +26,21 @@ export namespace DrgAttachmentNetworkUpdateDetails {
 
     if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
+        case "INTERNET":
+          return model.InternetDrgAttachmentNetworkUpdateDetails.getJsonObj(
+            <model.InternetDrgAttachmentNetworkUpdateDetails>(<object>jsonObj),
+            true
+          );
+        case "VIRTUAL_CIRCUIT":
+          return model.VirtualCircuitDrgAttachmentNetworkUpdateDetails.getJsonObj(
+            <model.VirtualCircuitDrgAttachmentNetworkUpdateDetails>(<object>jsonObj),
+            true
+          );
+        case "LOOPBACK":
+          return model.LoopbackDrgAttachmentNetworkUpdateDetails.getJsonObj(
+            <model.LoopbackDrgAttachmentNetworkUpdateDetails>(<object>jsonObj),
+            true
+          );
         case "VCN":
           return model.VcnDrgAttachmentNetworkUpdateDetails.getJsonObj(
             <model.VcnDrgAttachmentNetworkUpdateDetails>(<object>jsonObj),
@@ -42,6 +57,21 @@ export namespace DrgAttachmentNetworkUpdateDetails {
 
     if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
+        case "INTERNET":
+          return model.InternetDrgAttachmentNetworkUpdateDetails.getDeserializedJsonObj(
+            <model.InternetDrgAttachmentNetworkUpdateDetails>(<object>jsonObj),
+            true
+          );
+        case "VIRTUAL_CIRCUIT":
+          return model.VirtualCircuitDrgAttachmentNetworkUpdateDetails.getDeserializedJsonObj(
+            <model.VirtualCircuitDrgAttachmentNetworkUpdateDetails>(<object>jsonObj),
+            true
+          );
+        case "LOOPBACK":
+          return model.LoopbackDrgAttachmentNetworkUpdateDetails.getDeserializedJsonObj(
+            <model.LoopbackDrgAttachmentNetworkUpdateDetails>(<object>jsonObj),
+            true
+          );
         case "VCN":
           return model.VcnDrgAttachmentNetworkUpdateDetails.getDeserializedJsonObj(
             <model.VcnDrgAttachmentNetworkUpdateDetails>(<object>jsonObj),

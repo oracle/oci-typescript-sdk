@@ -49,9 +49,44 @@ export namespace SecurityAction {
             <model.AllowedSecurityAction>(<object>jsonObj),
             true
           );
+        case "ZPR_MISSING_POLICY":
+          return model.ZprMissingPolicySecurityAction.getJsonObj(
+            <model.ZprMissingPolicySecurityAction>(<object>jsonObj),
+            true
+          );
+        case "ZPR_DENIED":
+          return model.ZprDeniedSecurityAction.getJsonObj(
+            <model.ZprDeniedSecurityAction>(<object>jsonObj),
+            true
+          );
+        case "ZPR_POLICY_NOT_EVALUATED_MISSING_ROUTE":
+          return model.ZprPolicyNotEvaluatedMissingRouteSecurityAction.getJsonObj(
+            <model.ZprPolicyNotEvaluatedMissingRouteSecurityAction>(<object>jsonObj),
+            true
+          );
+        case "ZPR_NSG_UNSUPPORTED":
+          return model.ZprNsgUnsupportedSecurityAction.getJsonObj(
+            <model.ZprNsgUnsupportedSecurityAction>(<object>jsonObj),
+            true
+          );
+        case "ZPR_ALLOWED":
+          return model.ZprAllowedSecurityAction.getJsonObj(
+            <model.ZprAllowedSecurityAction>(<object>jsonObj),
+            true
+          );
         case "DENIED":
           return model.DeniedSecurityAction.getJsonObj(
             <model.DeniedSecurityAction>(<object>jsonObj),
+            true
+          );
+        case "ZPR_CIDR_UNSUPPORTED":
+          return model.ZprCidrUnsupportedSecurityAction.getJsonObj(
+            <model.ZprCidrUnsupportedSecurityAction>(<object>jsonObj),
+            true
+          );
+        case "ZPR_POLICY_NOT_EVALUATED_SL_NSG_DENIED":
+          return model.ZprPolicyNotEvaluatedSlNsgDeniedSecurityAction.getJsonObj(
+            <model.ZprPolicyNotEvaluatedSlNsgDeniedSecurityAction>(<object>jsonObj),
             true
           );
         default:
@@ -70,9 +105,44 @@ export namespace SecurityAction {
             <model.AllowedSecurityAction>(<object>jsonObj),
             true
           );
+        case "ZPR_MISSING_POLICY":
+          return model.ZprMissingPolicySecurityAction.getDeserializedJsonObj(
+            <model.ZprMissingPolicySecurityAction>(<object>jsonObj),
+            true
+          );
+        case "ZPR_DENIED":
+          return model.ZprDeniedSecurityAction.getDeserializedJsonObj(
+            <model.ZprDeniedSecurityAction>(<object>jsonObj),
+            true
+          );
+        case "ZPR_POLICY_NOT_EVALUATED_MISSING_ROUTE":
+          return model.ZprPolicyNotEvaluatedMissingRouteSecurityAction.getDeserializedJsonObj(
+            <model.ZprPolicyNotEvaluatedMissingRouteSecurityAction>(<object>jsonObj),
+            true
+          );
+        case "ZPR_NSG_UNSUPPORTED":
+          return model.ZprNsgUnsupportedSecurityAction.getDeserializedJsonObj(
+            <model.ZprNsgUnsupportedSecurityAction>(<object>jsonObj),
+            true
+          );
+        case "ZPR_ALLOWED":
+          return model.ZprAllowedSecurityAction.getDeserializedJsonObj(
+            <model.ZprAllowedSecurityAction>(<object>jsonObj),
+            true
+          );
         case "DENIED":
           return model.DeniedSecurityAction.getDeserializedJsonObj(
             <model.DeniedSecurityAction>(<object>jsonObj),
+            true
+          );
+        case "ZPR_CIDR_UNSUPPORTED":
+          return model.ZprCidrUnsupportedSecurityAction.getDeserializedJsonObj(
+            <model.ZprCidrUnsupportedSecurityAction>(<object>jsonObj),
+            true
+          );
+        case "ZPR_POLICY_NOT_EVALUATED_SL_NSG_DENIED":
+          return model.ZprPolicyNotEvaluatedSlNsgDeniedSecurityAction.getDeserializedJsonObj(
+            <model.ZprPolicyNotEvaluatedSlNsgDeniedSecurityAction>(<object>jsonObj),
             true
           );
         default:

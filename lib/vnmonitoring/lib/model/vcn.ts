@@ -27,27 +27,12 @@ To use any of the API operations, you must be authorized in an IAM policy. If yo
 */
 export interface Vcn {
   /**
-   * The list of BYOIPv6 CIDR blocks required to create a VCN that uses BYOIPv6 ranges.
-   *
-   */
-  "byoipv6CidrBlocks"?: Array<string>;
-  /**
-   * For an IPv6-enabled VCN, this is the list of Private IPv6 CIDR blocks for the VCN's IP address space.
-   *
-   */
-  "ipv6PrivateCidrBlocks"?: Array<string>;
-  /**
-    * Deprecated. The first CIDR IP address from cidrBlocks.
+    * The CIDR block IP address of the VCN.
 * <p>
 Example: {@code 172.16.0.0/16}
 * 
     */
   "cidrBlock": string;
-  /**
-   * The list of IPv4 CIDR blocks the VCN will use.
-   *
-   */
-  "cidrBlocks": Array<string>;
   /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment containing the VCN.
    */
@@ -105,11 +90,26 @@ Example: {@code vcn1}
    */
   "id": string;
   /**
-   * For an IPv6-enabled VCN, this is the list of IPv6 CIDR blocks for the VCN's IP address space.
-   * The CIDRs are provided by Oracle and the sizes are always /56.
+   * For an IPv6-enabled VCN, this is the IPv6 prefix for the VCN's private IP address space.
+   * The VCN size is always /56. Oracle
+   * provides the IPv6 prefix to use as the *same* CIDR for the {@code ipv6PublicCidrBlock}.
+   * When creating a subnet, specify the last 8 bits, 00 to FF.
+   * See [IPv6 Addresses](https://docs.oracle.com/iaas/Content/Network/Concepts/ipv6.htm).
+   * Example: {@code 2001:0db8:0123::/56}
    *
    */
-  "ipv6CidrBlocks"?: Array<string>;
+  "ipv6CidrBlock"?: string;
+  /**
+    * For an IPv6-enabled VCN, this is the IPv6 prefix for the VCN's public IP address space.
+* The VCN size is always /56. This prefix is always provided by Oracle. If you don't provide a
+* custom prefix for the {@code ipv6CidrBlock} when creating the VCN, Oracle assigns that value and also
+* uses it for {@code ipv6PublicCidrBlock}. Oracle uses addresses from this block for the {@code publicIpAddress}
+* attribute of an {@link Ipv6} that has internet access allowed.
+* <p>
+Example: {@code 2001:0db8:0123::/48}
+* 
+    */
+  "ipv6PublicCidrBlock"?: string;
   /**
    * The VCN's current state.
    */
@@ -140,7 +140,6 @@ export namespace Vcn {
     Available = "AVAILABLE",
     Terminating = "TERMINATING",
     Terminated = "TERMINATED",
-    Updating = "UPDATING",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

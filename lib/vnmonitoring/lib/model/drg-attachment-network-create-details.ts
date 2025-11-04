@@ -32,9 +32,39 @@ export namespace DrgAttachmentNetworkCreateDetails {
 
     if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
+        case "IPSEC_TUNNEL":
+          return model.IpsecTunnelDrgAttachmentNetworkCreateDetails.getJsonObj(
+            <model.IpsecTunnelDrgAttachmentNetworkCreateDetails>(<object>jsonObj),
+            true
+          );
+        case "LOOPBACK":
+          return model.LoopBackDrgAttachmentNetworkCreateDetails.getJsonObj(
+            <model.LoopBackDrgAttachmentNetworkCreateDetails>(<object>jsonObj),
+            true
+          );
+        case "VIRTUAL_CIRCUIT":
+          return model.VirtualCircuitDrgAttachmentNetworkCreateDetails.getJsonObj(
+            <model.VirtualCircuitDrgAttachmentNetworkCreateDetails>(<object>jsonObj),
+            true
+          );
+        case "REMOTE_PEERING_CONNECTION":
+          return model.RemotePeeringConnectionDrgAttachmentNetworkCreateDetails.getJsonObj(
+            <model.RemotePeeringConnectionDrgAttachmentNetworkCreateDetails>(<object>jsonObj),
+            true
+          );
+        case "INTERNET":
+          return model.InternetDrgAttachmentNetworkCreateDetails.getJsonObj(
+            <model.InternetDrgAttachmentNetworkCreateDetails>(<object>jsonObj),
+            true
+          );
         case "VCN":
           return model.VcnDrgAttachmentNetworkCreateDetails.getJsonObj(
             <model.VcnDrgAttachmentNetworkCreateDetails>(<object>jsonObj),
+            true
+          );
+        case "FLEX_TUNNEL":
+          return model.FlexTunnelDrgAttachmentNetworkCreateDetails.getJsonObj(
+            <model.FlexTunnelDrgAttachmentNetworkCreateDetails>(<object>jsonObj),
             true
           );
         default:
@@ -48,9 +78,39 @@ export namespace DrgAttachmentNetworkCreateDetails {
 
     if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
+        case "IPSEC_TUNNEL":
+          return model.IpsecTunnelDrgAttachmentNetworkCreateDetails.getDeserializedJsonObj(
+            <model.IpsecTunnelDrgAttachmentNetworkCreateDetails>(<object>jsonObj),
+            true
+          );
+        case "LOOPBACK":
+          return model.LoopBackDrgAttachmentNetworkCreateDetails.getDeserializedJsonObj(
+            <model.LoopBackDrgAttachmentNetworkCreateDetails>(<object>jsonObj),
+            true
+          );
+        case "VIRTUAL_CIRCUIT":
+          return model.VirtualCircuitDrgAttachmentNetworkCreateDetails.getDeserializedJsonObj(
+            <model.VirtualCircuitDrgAttachmentNetworkCreateDetails>(<object>jsonObj),
+            true
+          );
+        case "REMOTE_PEERING_CONNECTION":
+          return model.RemotePeeringConnectionDrgAttachmentNetworkCreateDetails.getDeserializedJsonObj(
+            <model.RemotePeeringConnectionDrgAttachmentNetworkCreateDetails>(<object>jsonObj),
+            true
+          );
+        case "INTERNET":
+          return model.InternetDrgAttachmentNetworkCreateDetails.getDeserializedJsonObj(
+            <model.InternetDrgAttachmentNetworkCreateDetails>(<object>jsonObj),
+            true
+          );
         case "VCN":
           return model.VcnDrgAttachmentNetworkCreateDetails.getDeserializedJsonObj(
             <model.VcnDrgAttachmentNetworkCreateDetails>(<object>jsonObj),
+            true
+          );
+        case "FLEX_TUNNEL":
+          return model.FlexTunnelDrgAttachmentNetworkCreateDetails.getDeserializedJsonObj(
+            <model.FlexTunnelDrgAttachmentNetworkCreateDetails>(<object>jsonObj),
             true
           );
         default:

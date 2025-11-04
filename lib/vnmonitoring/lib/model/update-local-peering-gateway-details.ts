@@ -35,14 +35,6 @@ export interface UpdateLocalPeeringGatewayDetails {
    *
    */
   "freeformTags"?: { [key: string]: string };
-  /**
-    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the route table the LPG will use.
-* <p>
-For information about why you would associate a route table with an LPG, see
-* [Transit Routing: Access to Multiple VCNs in Same Region](https://docs.oracle.com/iaas/Content/Network/Tasks/transitrouting.htm).
-* 
-    */
-  "routeTableId"?: string;
 }
 
 export namespace UpdateLocalPeeringGatewayDetails {

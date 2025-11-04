@@ -14,6 +14,8 @@
 
 import * as ActivateExadataInfrastructureResponse from "./activate-exadata-infrastructure-response";
 export import ActivateExadataInfrastructureResponse = ActivateExadataInfrastructureResponse.ActivateExadataInfrastructureResponse;
+import * as AddDbnodeSnapshotsForExadbVmClusterResponse from "./add-dbnode-snapshots-for-exadb-vm-cluster-response";
+export import AddDbnodeSnapshotsForExadbVmClusterResponse = AddDbnodeSnapshotsForExadbVmClusterResponse.AddDbnodeSnapshotsForExadbVmClusterResponse;
 import * as AddStandbyAutonomousContainerDatabaseResponse from "./add-standby-autonomous-container-database-response";
 export import AddStandbyAutonomousContainerDatabaseResponse = AddStandbyAutonomousContainerDatabaseResponse.AddStandbyAutonomousContainerDatabaseResponse;
 import * as AddStorageCapacityCloudExadataInfrastructureResponse from "./add-storage-capacity-cloud-exadata-infrastructure-response";
@@ -232,6 +234,8 @@ import * as DeleteDatabaseSoftwareImageResponse from "./delete-database-software
 export import DeleteDatabaseSoftwareImageResponse = DeleteDatabaseSoftwareImageResponse.DeleteDatabaseSoftwareImageResponse;
 import * as DeleteDbHomeResponse from "./delete-db-home-response";
 export import DeleteDbHomeResponse = DeleteDbHomeResponse.DeleteDbHomeResponse;
+import * as DeleteDbnodeSnapshotResponse from "./delete-dbnode-snapshot-response";
+export import DeleteDbnodeSnapshotResponse = DeleteDbnodeSnapshotResponse.DeleteDbnodeSnapshotResponse;
 import * as DeleteExadataInfrastructureResponse from "./delete-exadata-infrastructure-response";
 export import DeleteExadataInfrastructureResponse = DeleteExadataInfrastructureResponse.DeleteExadataInfrastructureResponse;
 import * as DeleteExadbVmClusterResponse from "./delete-exadb-vm-cluster-response";
@@ -426,6 +430,8 @@ import * as GetDbSystemPatchHistoryEntryResponse from "./get-db-system-patch-his
 export import GetDbSystemPatchHistoryEntryResponse = GetDbSystemPatchHistoryEntryResponse.GetDbSystemPatchHistoryEntryResponse;
 import * as GetDbSystemUpgradeHistoryEntryResponse from "./get-db-system-upgrade-history-entry-response";
 export import GetDbSystemUpgradeHistoryEntryResponse = GetDbSystemUpgradeHistoryEntryResponse.GetDbSystemUpgradeHistoryEntryResponse;
+import * as GetDbnodeSnapshotResponse from "./get-dbnode-snapshot-response";
+export import GetDbnodeSnapshotResponse = GetDbnodeSnapshotResponse.GetDbnodeSnapshotResponse;
 import * as GetExadataInfrastructureResponse from "./get-exadata-infrastructure-response";
 export import GetExadataInfrastructureResponse = GetExadataInfrastructureResponse.GetExadataInfrastructureResponse;
 import * as GetExadataInfrastructureOcpusResponse from "./get-exadata-infrastructure-ocpus-response";
@@ -594,6 +600,8 @@ import * as ListDbSystemsResponse from "./list-db-systems-response";
 export import ListDbSystemsResponse = ListDbSystemsResponse.ListDbSystemsResponse;
 import * as ListDbVersionsResponse from "./list-db-versions-response";
 export import ListDbVersionsResponse = ListDbVersionsResponse.ListDbVersionsResponse;
+import * as ListDbnodeSnapshotsResponse from "./list-dbnode-snapshots-response";
+export import ListDbnodeSnapshotsResponse = ListDbnodeSnapshotsResponse.ListDbnodeSnapshotsResponse;
 import * as ListExadataInfrastructuresResponse from "./list-exadata-infrastructures-response";
 export import ListExadataInfrastructuresResponse = ListExadataInfrastructuresResponse.ListExadataInfrastructuresResponse;
 import * as ListExadbVmClusterUpdateHistoryEntriesResponse from "./list-exadb-vm-cluster-update-history-entries-response";
@@ -680,6 +688,8 @@ import * as ModifyDatabaseManagementResponse from "./modify-database-management-
 export import ModifyDatabaseManagementResponse = ModifyDatabaseManagementResponse.ModifyDatabaseManagementResponse;
 import * as ModifyPluggableDatabaseManagementResponse from "./modify-pluggable-database-management-response";
 export import ModifyPluggableDatabaseManagementResponse = ModifyPluggableDatabaseManagementResponse.ModifyPluggableDatabaseManagementResponse;
+import * as MountDbnodeSnapshotResponse from "./mount-dbnode-snapshot-response";
+export import MountDbnodeSnapshotResponse = MountDbnodeSnapshotResponse.MountDbnodeSnapshotResponse;
 import * as MoveExecutionActionMemberResponse from "./move-execution-action-member-response";
 export import MoveExecutionActionMemberResponse = MoveExecutionActionMemberResponse.MoveExecutionActionMemberResponse;
 import * as RefreshPluggableDatabaseResponse from "./refresh-pluggable-database-response";
@@ -774,6 +784,8 @@ import * as TerminateAutonomousExadataInfrastructureResponse from "./terminate-a
 export import TerminateAutonomousExadataInfrastructureResponse = TerminateAutonomousExadataInfrastructureResponse.TerminateAutonomousExadataInfrastructureResponse;
 import * as TerminateDbSystemResponse from "./terminate-db-system-response";
 export import TerminateDbSystemResponse = TerminateDbSystemResponse.TerminateDbSystemResponse;
+import * as UnmountDbnodeSnapshotResponse from "./unmount-dbnode-snapshot-response";
+export import UnmountDbnodeSnapshotResponse = UnmountDbnodeSnapshotResponse.UnmountDbnodeSnapshotResponse;
 import * as UnregisterCloudVmClusterPkcsResponse from "./unregister-cloud-vm-cluster-pkcs-response";
 export import UnregisterCloudVmClusterPkcsResponse = UnregisterCloudVmClusterPkcsResponse.UnregisterCloudVmClusterPkcsResponse;
 import * as UpdateAutonomousContainerDatabaseResponse from "./update-autonomous-container-database-response";

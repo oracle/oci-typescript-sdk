@@ -28,9 +28,15 @@ export interface CreateDistributedDatabaseCatalogWithExadbXsDetails
    */
   "adminPassword": string;
   /**
-   * The collection of [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the peer VmClusterIds.
+   * This field is deprecated. This should not be used while creation of new distributed database. To set the peers
+   * on catalog of distributed database please use peerDetails.
+   *
    */
   "peerVmClusterIds"?: Array<string>;
+  /**
+   * The details required for creation of the peer for the ExadbXs infrastructure based catalog.
+   */
+  "peerDetails"?: Array<model.CreateCatalogPeerWithExadbXsDetails>;
   /**
    * The shard space name for the Globally distributed database. Shard space for existing shard cannot be changed, once shard is created.
    * Shard space name shall be used while creation of new shards.
@@ -65,7 +71,13 @@ export namespace CreateDistributedDatabaseCatalogWithExadbXsDetails {
         : (model.CreateDistributedDatabaseCatalogDetails.getJsonObj(
             obj
           ) as CreateDistributedDatabaseCatalogWithExadbXsDetails)),
-      ...{}
+      ...{
+        "peerDetails": obj.peerDetails
+          ? obj.peerDetails.map(item => {
+              return model.CreateCatalogPeerWithExadbXsDetails.getJsonObj(item);
+            })
+          : undefined
+      }
     };
 
     return jsonObj;
@@ -81,7 +93,13 @@ export namespace CreateDistributedDatabaseCatalogWithExadbXsDetails {
         : (model.CreateDistributedDatabaseCatalogDetails.getDeserializedJsonObj(
             obj
           ) as CreateDistributedDatabaseCatalogWithExadbXsDetails)),
-      ...{}
+      ...{
+        "peerDetails": obj.peerDetails
+          ? obj.peerDetails.map(item => {
+              return model.CreateCatalogPeerWithExadbXsDetails.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
     };
 
     return jsonObj;

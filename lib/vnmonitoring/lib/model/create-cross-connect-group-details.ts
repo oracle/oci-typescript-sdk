@@ -22,54 +22,21 @@ export interface CreateCrossConnectGroupDetails {
    */
   "compartmentId": string;
   /**
-   * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
-   *
-   */
-  "definedTags"?: { [key: string]: { [key: string]: any } };
-  /**
    * A user-friendly name. Does not have to be unique, and it's changeable.
    * Avoid entering confidential information.
    *
    */
   "displayName"?: string;
-  /**
-   * A reference name or identifier for the physical fiber connection that this cross-connect
-   * group uses.
-   *
-   */
-  "customerReferenceName"?: string;
-  /**
-   * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
-   * Example: {@code {\"bar-key\": \"value\"}}
-   *
-   */
-  "freeformTags"?: { [key: string]: string };
-  "macsecProperties"?: model.CreateMacsecProperties;
 }
 
 export namespace CreateCrossConnectGroupDetails {
   export function getJsonObj(obj: CreateCrossConnectGroupDetails): object {
-    const jsonObj = {
-      ...obj,
-      ...{
-        "macsecProperties": obj.macsecProperties
-          ? model.CreateMacsecProperties.getJsonObj(obj.macsecProperties)
-          : undefined
-      }
-    };
+    const jsonObj = { ...obj, ...{} };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: CreateCrossConnectGroupDetails): object {
-    const jsonObj = {
-      ...obj,
-      ...{
-        "macsecProperties": obj.macsecProperties
-          ? model.CreateMacsecProperties.getDeserializedJsonObj(obj.macsecProperties)
-          : undefined
-      }
-    };
+    const jsonObj = { ...obj, ...{} };
 
     return jsonObj;
   }

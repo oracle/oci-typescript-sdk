@@ -14,6 +14,8 @@
 
 import * as ActivateExadataInfrastructureRequest from "./activate-exadata-infrastructure-request";
 export import ActivateExadataInfrastructureRequest = ActivateExadataInfrastructureRequest.ActivateExadataInfrastructureRequest;
+import * as AddDbnodeSnapshotsForExadbVmClusterRequest from "./add-dbnode-snapshots-for-exadb-vm-cluster-request";
+export import AddDbnodeSnapshotsForExadbVmClusterRequest = AddDbnodeSnapshotsForExadbVmClusterRequest.AddDbnodeSnapshotsForExadbVmClusterRequest;
 import * as AddStandbyAutonomousContainerDatabaseRequest from "./add-standby-autonomous-container-database-request";
 export import AddStandbyAutonomousContainerDatabaseRequest = AddStandbyAutonomousContainerDatabaseRequest.AddStandbyAutonomousContainerDatabaseRequest;
 import * as AddStorageCapacityCloudExadataInfrastructureRequest from "./add-storage-capacity-cloud-exadata-infrastructure-request";
@@ -232,6 +234,8 @@ import * as DeleteDatabaseSoftwareImageRequest from "./delete-database-software-
 export import DeleteDatabaseSoftwareImageRequest = DeleteDatabaseSoftwareImageRequest.DeleteDatabaseSoftwareImageRequest;
 import * as DeleteDbHomeRequest from "./delete-db-home-request";
 export import DeleteDbHomeRequest = DeleteDbHomeRequest.DeleteDbHomeRequest;
+import * as DeleteDbnodeSnapshotRequest from "./delete-dbnode-snapshot-request";
+export import DeleteDbnodeSnapshotRequest = DeleteDbnodeSnapshotRequest.DeleteDbnodeSnapshotRequest;
 import * as DeleteExadataInfrastructureRequest from "./delete-exadata-infrastructure-request";
 export import DeleteExadataInfrastructureRequest = DeleteExadataInfrastructureRequest.DeleteExadataInfrastructureRequest;
 import * as DeleteExadbVmClusterRequest from "./delete-exadb-vm-cluster-request";
@@ -426,6 +430,8 @@ import * as GetDbSystemPatchHistoryEntryRequest from "./get-db-system-patch-hist
 export import GetDbSystemPatchHistoryEntryRequest = GetDbSystemPatchHistoryEntryRequest.GetDbSystemPatchHistoryEntryRequest;
 import * as GetDbSystemUpgradeHistoryEntryRequest from "./get-db-system-upgrade-history-entry-request";
 export import GetDbSystemUpgradeHistoryEntryRequest = GetDbSystemUpgradeHistoryEntryRequest.GetDbSystemUpgradeHistoryEntryRequest;
+import * as GetDbnodeSnapshotRequest from "./get-dbnode-snapshot-request";
+export import GetDbnodeSnapshotRequest = GetDbnodeSnapshotRequest.GetDbnodeSnapshotRequest;
 import * as GetExadataInfrastructureRequest from "./get-exadata-infrastructure-request";
 export import GetExadataInfrastructureRequest = GetExadataInfrastructureRequest.GetExadataInfrastructureRequest;
 import * as GetExadataInfrastructureOcpusRequest from "./get-exadata-infrastructure-ocpus-request";
@@ -594,6 +600,8 @@ import * as ListDbSystemsRequest from "./list-db-systems-request";
 export import ListDbSystemsRequest = ListDbSystemsRequest.ListDbSystemsRequest;
 import * as ListDbVersionsRequest from "./list-db-versions-request";
 export import ListDbVersionsRequest = ListDbVersionsRequest.ListDbVersionsRequest;
+import * as ListDbnodeSnapshotsRequest from "./list-dbnode-snapshots-request";
+export import ListDbnodeSnapshotsRequest = ListDbnodeSnapshotsRequest.ListDbnodeSnapshotsRequest;
 import * as ListExadataInfrastructuresRequest from "./list-exadata-infrastructures-request";
 export import ListExadataInfrastructuresRequest = ListExadataInfrastructuresRequest.ListExadataInfrastructuresRequest;
 import * as ListExadbVmClusterUpdateHistoryEntriesRequest from "./list-exadb-vm-cluster-update-history-entries-request";
@@ -680,6 +688,8 @@ import * as ModifyDatabaseManagementRequest from "./modify-database-management-r
 export import ModifyDatabaseManagementRequest = ModifyDatabaseManagementRequest.ModifyDatabaseManagementRequest;
 import * as ModifyPluggableDatabaseManagementRequest from "./modify-pluggable-database-management-request";
 export import ModifyPluggableDatabaseManagementRequest = ModifyPluggableDatabaseManagementRequest.ModifyPluggableDatabaseManagementRequest;
+import * as MountDbnodeSnapshotRequest from "./mount-dbnode-snapshot-request";
+export import MountDbnodeSnapshotRequest = MountDbnodeSnapshotRequest.MountDbnodeSnapshotRequest;
 import * as MoveExecutionActionMemberRequest from "./move-execution-action-member-request";
 export import MoveExecutionActionMemberRequest = MoveExecutionActionMemberRequest.MoveExecutionActionMemberRequest;
 import * as RefreshPluggableDatabaseRequest from "./refresh-pluggable-database-request";
@@ -774,6 +784,8 @@ import * as TerminateAutonomousExadataInfrastructureRequest from "./terminate-au
 export import TerminateAutonomousExadataInfrastructureRequest = TerminateAutonomousExadataInfrastructureRequest.TerminateAutonomousExadataInfrastructureRequest;
 import * as TerminateDbSystemRequest from "./terminate-db-system-request";
 export import TerminateDbSystemRequest = TerminateDbSystemRequest.TerminateDbSystemRequest;
+import * as UnmountDbnodeSnapshotRequest from "./unmount-dbnode-snapshot-request";
+export import UnmountDbnodeSnapshotRequest = UnmountDbnodeSnapshotRequest.UnmountDbnodeSnapshotRequest;
 import * as UnregisterCloudVmClusterPkcsRequest from "./unregister-cloud-vm-cluster-pkcs-request";
 export import UnregisterCloudVmClusterPkcsRequest = UnregisterCloudVmClusterPkcsRequest.UnregisterCloudVmClusterPkcsRequest;
 import * as UpdateAutonomousContainerDatabaseRequest from "./update-autonomous-container-database-request";

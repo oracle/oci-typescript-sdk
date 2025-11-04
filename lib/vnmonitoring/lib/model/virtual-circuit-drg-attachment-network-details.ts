@@ -22,6 +22,74 @@ import common = require("oci-common");
 export interface VirtualCircuitDrgAttachmentNetworkDetails
   extends model.DrgAttachmentNetworkDetails {
   /**
+    * Whether the Fast Connect is an FFAB VirtualCircuit.
+* <p>
+Example: {@code true}
+* 
+    */
+  "isFFAB"?: boolean;
+  /**
+    * This indicates whether FastConnect extends through an edge POP region.
+* <p>
+Example: {@code true}
+* 
+    */
+  "isEdgePop"?: boolean;
+  /**
+   * Routes which may be imported from the attachment (subject to import policy) appear in the route reflectors
+   * tagged with the attachment's import route target.
+   *
+   */
+  "importRouteTarget"?: string;
+  /**
+   * Routes which are exported to the attachment are exported to the route reflectors
+   * with the route target set to the value of the attachment's export route target.
+   *
+   */
+  "exportRouteTarget"?: string;
+  /**
+   * The MPLS label of the DRG attachment. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "mplsLabel"?: number;
+  /**
+   * The BGP ASN to use for the IPSec connection's route target.
+   *
+   */
+  "regionalOciAsn"?: string;
+  /**
+   * The Oracle Cloud Infrastructure region name.
+   *
+   */
+  "regionName"?: string;
+  /**
+   * Common Export route target to use for the DRG Attachment instead of per-attachment route target.
+   * This is applicable to DRG attachments that are assigned to a DRG route table which is whitelisted for high
+   * throughput mode.
+   *
+   */
+  "commonExportRT"?: string;
+  /**
+   * Common Import route target to use for the DRG attachment instead of per-attachment import route target.
+   * This is applicable to DRG attachments that are assigned to a DRG route table which is whitelisted for high
+   * throughput mode.
+   *
+   */
+  "commonImportRT"?: string;
+  /**
+    * This indicates whether the DRG route table associated with the DRG attachment is whitelisted for High Throughput mode.
+* <p>
+Example: {@code true}
+* 
+    */
+  "isIngressDisintermediationEnabled"?: boolean;
+  /**
+    * This indicates whether the DRG route table associated with the DRG attachment is whitelisted for route unification.
+* <p>
+Example: {@code true}
+* 
+    */
+  "isRouteUnificationEnabled"?: boolean;
+  /**
     * Boolean flag that determines wether all traffic over the virtual circuits is encrypted.
 * <p>
 Example: {@code true}

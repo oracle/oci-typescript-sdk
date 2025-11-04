@@ -84,6 +84,7 @@ To determine whether capacity is available for a specific shape before you resiz
    *
    */
   "instanceHostnameFormatter"?: string;
+  "lifecycleManagement"?: model.InstancePoolLifecycleManagementDetails;
 }
 
 export namespace UpdateInstancePoolDetails {
@@ -95,6 +96,10 @@ export namespace UpdateInstancePoolDetails {
           ? obj.placementConfigurations.map(item => {
               return model.UpdateInstancePoolPlacementConfigurationDetails.getJsonObj(item);
             })
+          : undefined,
+
+        "lifecycleManagement": obj.lifecycleManagement
+          ? model.InstancePoolLifecycleManagementDetails.getJsonObj(obj.lifecycleManagement)
           : undefined
       }
     };
@@ -111,6 +116,12 @@ export namespace UpdateInstancePoolDetails {
                 item
               );
             })
+          : undefined,
+
+        "lifecycleManagement": obj.lifecycleManagement
+          ? model.InstancePoolLifecycleManagementDetails.getDeserializedJsonObj(
+              obj.lifecycleManagement
+            )
           : undefined
       }
     };

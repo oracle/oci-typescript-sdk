@@ -46,16 +46,23 @@ Example: {@code 2001:DB8::}
     */
   "ipAddress"?: string;
   /**
+    * Whether the IPv6 can be used for internet communication. Allowed by default for an IPv6 in
+* a public subnet. Never allowed for an IPv6 in a private subnet. If the value is {@code true}, the
+* IPv6 uses its public IP address for internet communication.
+* <p>
+If {@code isInternetAccessAllowed} is set to {@code false}, the resulting {@code publicIpAddress} attribute
+* for the {@code Ipv6} is null.
+* <p>
+Example: {@code true}
+* 
+    */
+  "isInternetAccessAllowed"?: boolean;
+  /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the VNIC to assign the IPv6 to. The
    * IPv6 will be in the VNIC's subnet.
    *
    */
   "vnicId": string;
-  /**
-   * The IPv6 CIDR allocated to the subnet. This is required if more than one IPv6 CIDR exists on the subnet.
-   *
-   */
-  "ipv6SubnetCidr"?: string;
 }
 
 export namespace CreateIpv6Details {

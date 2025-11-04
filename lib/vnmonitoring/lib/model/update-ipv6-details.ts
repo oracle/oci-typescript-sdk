@@ -36,6 +36,18 @@ export interface UpdateIpv6Details {
    */
   "freeformTags"?: { [key: string]: string };
   /**
+    * Whether the IPv6 can be used for internet communication. Allowed by default for an IPv6 in
+* a public subnet. Never allowed for an IPv6 in a private subnet. If the value is {@code true}, the
+* IPv6 uses its public IP address for internet communication.
+* <p>
+If you switch this from {@code true} to {@code false}, the {@code publicIpAddress} attribute for the IPv6
+* becomes null.
+* <p>
+Example: {@code false}
+* 
+    */
+  "isInternetAccessAllowed"?: boolean;
+  /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the VNIC to reassign the IPv6 to.
    * The VNIC must be in the same subnet as the current VNIC.
    *

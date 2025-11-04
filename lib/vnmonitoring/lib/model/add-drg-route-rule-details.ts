@@ -33,7 +33,7 @@ export interface AddDrgRouteRuleDetails {
 * traffic. Only CIDR_BLOCK values are allowed.
 * <p>
 Potential values:
-*   * IP address range in CIDR notation. This can be an IPv4 or IPv6 CIDR. For example: {@code 192.168.1.0/24}
+*   * IP address range in CIDR notation. This can be an IPv4 CIDR block or IPv6 prefix. For example: {@code 192.168.1.0/24}
 *   or {@code 2001:0db8:0123:45::/56}.
 * 
     */

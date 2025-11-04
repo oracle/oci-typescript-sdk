@@ -66,7 +66,7 @@ export interface DistributedAutonomousDatabase {
    */
   "shardingMethod": DistributedAutonomousDatabase.ShardingMethod;
   /**
-   * Possible workload types.
+   * Possible workload types. Currently only OLTP workload type is supported.
    */
   "dbWorkload": DistributedAutonomousDatabase.DbWorkload;
   /**
@@ -111,7 +111,9 @@ export interface DistributedAutonomousDatabase {
    */
   "replicationFactor"?: number;
   /**
-   * For RAFT replication based Globally distributed autonomous database, the value should be atleast twice the number of shards. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The replication unit count for RAFT based distributed autonomous database. For RAFT replication based
+   * Globally distributed autonomous database, the value should be at least twice the number of shards.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "replicationUnit"?: number;
   "latestGsmImage"?: model.DistributedAutonomousDatabaseGsmImage;
@@ -132,6 +134,7 @@ export interface DistributedAutonomousDatabase {
    * Collection of catalogs associated with the Globally distributed autonomous database.
    */
   "gsmDetails"?: Array<model.DistributedAutonomousDatabaseGsm>;
+  "dbBackupConfig"?: model.DistributedAutonomousDbBackupConfig;
   "metadata"?: model.DistributedAutonomousDbMetadata;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
@@ -236,6 +239,9 @@ export namespace DistributedAutonomousDatabase {
               return model.DistributedAutonomousDatabaseGsm.getJsonObj(item);
             })
           : undefined,
+        "dbBackupConfig": obj.dbBackupConfig
+          ? model.DistributedAutonomousDbBackupConfig.getJsonObj(obj.dbBackupConfig)
+          : undefined,
         "metadata": obj.metadata
           ? model.DistributedAutonomousDbMetadata.getJsonObj(obj.metadata)
           : undefined
@@ -272,6 +278,9 @@ export namespace DistributedAutonomousDatabase {
           ? obj.gsmDetails.map(item => {
               return model.DistributedAutonomousDatabaseGsm.getDeserializedJsonObj(item);
             })
+          : undefined,
+        "dbBackupConfig": obj.dbBackupConfig
+          ? model.DistributedAutonomousDbBackupConfig.getDeserializedJsonObj(obj.dbBackupConfig)
           : undefined,
         "metadata": obj.metadata
           ? model.DistributedAutonomousDbMetadata.getDeserializedJsonObj(obj.metadata)

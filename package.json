@@ -1,6 +1,6 @@
 {
   "name": "oci-sdk",
-  "version": "2.120.0",
+  "version": "2.121.0",
   "author": {
     "name": "Oracle Cloud Infrastructure",
     "email": ""
@@ -180,7 +180,9 @@
     "oci-jmsutils": "file:lib/jmsutils",
     "oci-multicloud": "file:lib/multicloud",
     "oci-resourceanalytics": "file:lib/resourceanalytics",
-    "oci-iot": "file:lib/iot"
+    "oci-iot": "file:lib/iot",
+    "oci-dif": "file:lib/dif",
+    "oci-psa": "file:lib/psa"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"

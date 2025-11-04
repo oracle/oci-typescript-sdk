@@ -60,10 +60,6 @@ Optional for a reserved public IP. If you don't provide it, the public IP is cre
 * 
     */
   "privateIpId"?: string;
-  /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the public IP pool.
-   */
-  "publicIpPoolId"?: string;
 }
 
 export namespace CreatePublicIpDetails {

@@ -111,7 +111,9 @@ export interface DistributedAutonomousDatabaseSummary {
    */
   "replicationFactor"?: number;
   /**
-   * For RAFT replication based Globally distributed autonomous database, the value should be atleast twice the number of shards. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The replication unit count for RAFT based distributed autonomous database. For RAFT replication based
+   * Globally distributed autonomous database, the value should be at least twice the number of shards.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "replicationUnit"?: number;
   /**

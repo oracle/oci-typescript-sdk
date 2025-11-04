@@ -44,7 +44,7 @@ export interface DistributedDatabaseCatalogWithExadbXs extends model.Distributed
    */
   "kmsKeyVersionId"?: string;
   /**
-   * Status of catalog with VmCluster for the Globally ditributed database.
+   * Status of EXADB_XS based catalog.
    */
   "status": DistributedDatabaseCatalogWithExadbXs.Status;
   /**

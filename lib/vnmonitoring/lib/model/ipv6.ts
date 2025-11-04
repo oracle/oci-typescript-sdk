@@ -57,17 +57,47 @@ export interface Ipv6 {
    */
   "id": string;
   /**
-    * The IPv6 address of the {@code IPv6} object. The address is within the IPv6 CIDR block of the VNIC's subnet
-* (see the {@code ipv6CidrBlock} attribute for the {@link Subnet} object.
+    * The IPv6 address of the {@code IPv6} object. The address is within the IPv6 prefix
+* of the VNIC's subnet (see the {@code ipv6CidrBlock} attribute for the {@link Subnet}
+* object.
 * <p>
 Example: {@code 2001:0db8:0123:1111:abcd:ef01:2345:6789}
 * 
     */
   "ipAddress": string;
   /**
+    * Whether the IPv6 can be used for internet communication. Allowed by default for an IPv6 in
+* a public subnet. Never allowed for an IPv6 in a private subnet. If the value is {@code true}, the
+* IPv6 uses its public IP address for internet communication.
+* <p>
+Example: {@code true}
+* 
+    */
+  "isInternetAccessAllowed"?: boolean;
+  /**
    * The IPv6's current state.
    */
   "lifecycleState": Ipv6.LifecycleState;
+  /**
+    * The IPv6 address to be used for internet communication. The address is within the
+* IPv6 prefix of the VNIC's subnet (see the {@code ipv6PublicCidrBlock} attribute for the
+* {@link Subnet} object).
+* <p>
+If your organization did NOT assign a custom IPv6 prefix to the VCN for the private address
+* space, Oracle provides the IPv6 prefix and uses that same prefix for the private and public
+* address space. Therefore the {@code publicIpAddress} would be the same as the {@code ipAddress}.
+* <p>
+If your organization assigned a custom IPv6 prefix to the VCN for the address space,
+* the right 80 bits of the IPv6 IP (the subnet and address bits) are the same as for
+* the {@code ipAddress}. But the left 48 bits are from the IPv6 prefix that Oracle assigned
+* to the VCN.
+* <p>
+This is null if the IPv6 is created with {@code isInternetAccessAllowed} set to {@code false}.
+* <p>
+Example: {@code 2001:0db8:0123:1111:abcd:ef01:2345:6789}
+* 
+    */
+  "publicIpAddress"?: string;
   /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subnet the VNIC is in.
    */

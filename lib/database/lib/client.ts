@@ -333,6 +333,96 @@ export class DatabaseClient {
   }
 
   /**
+   * Add a database node snapshots to the Exadb VM cluster..
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param AddDbnodeSnapshotsForExadbVmClusterRequest
+   * @return AddDbnodeSnapshotsForExadbVmClusterResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/AddDbnodeSnapshotsForExadbVmCluster.ts.html |here} to see how to use AddDbnodeSnapshotsForExadbVmCluster API.
+   */
+  public async addDbnodeSnapshotsForExadbVmCluster(
+    addDbnodeSnapshotsForExadbVmClusterRequest: requests.AddDbnodeSnapshotsForExadbVmClusterRequest
+  ): Promise<responses.AddDbnodeSnapshotsForExadbVmClusterResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#addDbnodeSnapshotsForExadbVmCluster.");
+    const operationName = "addDbnodeSnapshotsForExadbVmCluster";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExadbVmCluster/AddDbnodeSnapshotsForExadbVmCluster";
+    const pathParams = {
+      "{exadbVmClusterId}": addDbnodeSnapshotsForExadbVmClusterRequest.exadbVmClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": addDbnodeSnapshotsForExadbVmClusterRequest.opcRetryToken,
+      "opc-request-id": addDbnodeSnapshotsForExadbVmClusterRequest.opcRequestId,
+      "if-match": addDbnodeSnapshotsForExadbVmClusterRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      addDbnodeSnapshotsForExadbVmClusterRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/exadbVmClusters/{exadbVmClusterId}/actions/addDbNodeSnapshots",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        addDbnodeSnapshotsForExadbVmClusterRequest.addDbnodeSnapshotsForExadbVmClusterDetails,
+        "AddDbnodeSnapshotsForExadbVmClusterDetails",
+        model.AddDbnodeSnapshotsForExadbVmClusterDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AddDbnodeSnapshotsForExadbVmClusterResponse>{},
+        body: await response.json(),
+        bodyKey: "dbnodeSnapshots",
+        bodyModel: model.DbnodeSnapshots,
+        type: "model.DbnodeSnapshots",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Add a standby Autonomous Container Database. For more information about Autonomous Data Guard,see
    * [Protect Critical Databases from Failures and Disasters Using Autonomous Data Guard](https://docs.oracle.com/en/cloud/paas/autonomous-database/dedicated/adbau/GUID-C57B9A6E-7471-4CDC-8F10-B8386538E31C).
    *
@@ -9595,6 +9685,80 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   }
 
   /**
+   * Deletes the specified Exadata Database Node Snapshot.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteDbnodeSnapshotRequest
+   * @return DeleteDbnodeSnapshotResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteDbnodeSnapshot.ts.html |here} to see how to use DeleteDbnodeSnapshot API.
+   */
+  public async deleteDbnodeSnapshot(
+    deleteDbnodeSnapshotRequest: requests.DeleteDbnodeSnapshotRequest
+  ): Promise<responses.DeleteDbnodeSnapshotResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#deleteDbnodeSnapshot.");
+    const operationName = "deleteDbnodeSnapshot";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/DbnodeSnapshot/DeleteDbnodeSnapshot";
+    const pathParams = {
+      "{dbnodeSnapshotId}": deleteDbnodeSnapshotRequest.dbnodeSnapshotId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteDbnodeSnapshotRequest.ifMatch,
+      "opc-request-id": deleteDbnodeSnapshotRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteDbnodeSnapshotRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dbnodeSnapshots/{dbnodeSnapshotId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteDbnodeSnapshotResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes the Exadata Cloud@Customer infrastructure.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -17354,6 +17518,83 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
         bodyModel: model.DbSystemUpgradeHistoryEntry,
         type: "model.DbSystemUpgradeHistoryEntry",
         responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets information about the specified Exadata Database Node Snapshot in the specified compartment.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetDbnodeSnapshotRequest
+   * @return GetDbnodeSnapshotResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetDbnodeSnapshot.ts.html |here} to see how to use GetDbnodeSnapshot API.
+   */
+  public async getDbnodeSnapshot(
+    getDbnodeSnapshotRequest: requests.GetDbnodeSnapshotRequest
+  ): Promise<responses.GetDbnodeSnapshotResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#getDbnodeSnapshot.");
+    const operationName = "getDbnodeSnapshot";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/DbnodeSnapshot/GetDbnodeSnapshot";
+    const pathParams = {
+      "{dbnodeSnapshotId}": getDbnodeSnapshotRequest.dbnodeSnapshotId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getDbnodeSnapshotRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDbnodeSnapshotRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dbnodeSnapshots/{dbnodeSnapshotId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetDbnodeSnapshotResponse>{},
+        body: await response.json(),
+        bodyKey: "dbnodeSnapshot",
+        bodyModel: model.DbnodeSnapshot,
+        type: "model.DbnodeSnapshot",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -26295,6 +26536,143 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
+   * Gets a list of the Exadata Database Node Snapshots in the specified compartment.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListDbnodeSnapshotsRequest
+   * @return ListDbnodeSnapshotsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListDbnodeSnapshots.ts.html |here} to see how to use ListDbnodeSnapshots API.
+   */
+  public async listDbnodeSnapshots(
+    listDbnodeSnapshotsRequest: requests.ListDbnodeSnapshotsRequest
+  ): Promise<responses.ListDbnodeSnapshotsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#listDbnodeSnapshots.");
+    const operationName = "listDbnodeSnapshots";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/DbnodeSnapshot/ListDbnodeSnapshots";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listDbnodeSnapshotsRequest.compartmentId,
+      "limit": listDbnodeSnapshotsRequest.limit,
+      "page": listDbnodeSnapshotsRequest.page,
+      "sortBy": listDbnodeSnapshotsRequest.sortBy,
+      "name": listDbnodeSnapshotsRequest.name,
+      "sortOrder": listDbnodeSnapshotsRequest.sortOrder,
+      "lifecycleState": listDbnodeSnapshotsRequest.lifecycleState,
+      "clusterId": listDbnodeSnapshotsRequest.clusterId,
+      "sourceDbnodeId": listDbnodeSnapshotsRequest.sourceDbnodeId
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listDbnodeSnapshotsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDbnodeSnapshotsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dbnodeSnapshots",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListDbnodeSnapshotsResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.DbnodeSnapshotSummary,
+        type: "Array<model.DbnodeSnapshotSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listDbnodeSnapshotsRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.DbnodeSnapshotSummary objects
+   * contained in responses from the listDbnodeSnapshots operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllDbnodeSnapshots(
+    request: requests.ListDbnodeSnapshotsRequest
+  ): AsyncIterableIterator<model.DbnodeSnapshotSummary> {
+    return paginateRecords(request, req => this.listDbnodeSnapshots(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listDbnodeSnapshotsResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listDbnodeSnapshots operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllDbnodeSnapshotsResponses(
+    request: requests.ListDbnodeSnapshotsRequest
+  ): AsyncIterableIterator<responses.ListDbnodeSnapshotsResponse> {
+    return paginateResponses(request, req => this.listDbnodeSnapshots(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.DbnodeSnapshotSummary objects
+   * contained in responses from the listDbnodeSnapshots operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listDbnodeSnapshotsRecordIterator(
+    request: requests.ListDbnodeSnapshotsRequest
+  ): AsyncIterableIterator<model.DbnodeSnapshotSummary> {
+    return paginateRecords(request, req => this.listDbnodeSnapshots(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listDbnodeSnapshots operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listDbnodeSnapshotsResponseIterator(
+    request: requests.ListDbnodeSnapshotsRequest
+  ): AsyncIterableIterator<responses.ListDbnodeSnapshotsResponse> {
+    return paginateResponses(request, req => this.listDbnodeSnapshots(req));
+  }
+
+  /**
    * Lists the Exadata infrastructure resources in the specified compartment. Applies to Exadata Cloud@Customer instances only.
    * To list the Exadata Cloud Service infrastructure resources in a compartment, use the  {@link #listCloudExadataInfrastructures(ListCloudExadataInfrastructuresRequest) listCloudExadataInfrastructures} operation.
    *
@@ -31402,6 +31780,95 @@ This operation should always be performed on primary.
   }
 
   /**
+   * Mounts the snapshot for the provided dbNode.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param MountDbnodeSnapshotRequest
+   * @return MountDbnodeSnapshotResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/MountDbnodeSnapshot.ts.html |here} to see how to use MountDbnodeSnapshot API.
+   */
+  public async mountDbnodeSnapshot(
+    mountDbnodeSnapshotRequest: requests.MountDbnodeSnapshotRequest
+  ): Promise<responses.MountDbnodeSnapshotResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#mountDbnodeSnapshot.");
+    const operationName = "mountDbnodeSnapshot";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/DbnodeSnapshot/MountDbnodeSnapshot";
+    const pathParams = {
+      "{dbnodeSnapshotId}": mountDbnodeSnapshotRequest.dbnodeSnapshotId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": mountDbnodeSnapshotRequest.opcRetryToken,
+      "opc-request-id": mountDbnodeSnapshotRequest.opcRequestId,
+      "if-match": mountDbnodeSnapshotRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      mountDbnodeSnapshotRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dbnodeSnapshots/{dbnodeSnapshotId}/actions/mount",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        mountDbnodeSnapshotRequest.mountDbnodeSnapshotDetails,
+        "MountDbnodeSnapshotDetails",
+        model.MountDbnodeSnapshotDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.MountDbnodeSnapshotResponse>{},
+        body: await response.json(),
+        bodyKey: "dbnodeSnapshot",
+        bodyModel: model.DbnodeSnapshot,
+        type: "model.DbnodeSnapshot",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Moves an execution action member to this execution action resource from another.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -35413,6 +35880,95 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Unmounts the snapshot for the provided dbNode.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UnmountDbnodeSnapshotRequest
+   * @return UnmountDbnodeSnapshotResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UnmountDbnodeSnapshot.ts.html |here} to see how to use UnmountDbnodeSnapshot API.
+   */
+  public async unmountDbnodeSnapshot(
+    unmountDbnodeSnapshotRequest: requests.UnmountDbnodeSnapshotRequest
+  ): Promise<responses.UnmountDbnodeSnapshotResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#unmountDbnodeSnapshot.");
+    const operationName = "unmountDbnodeSnapshot";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/DbnodeSnapshot/UnmountDbnodeSnapshot";
+    const pathParams = {
+      "{dbnodeSnapshotId}": unmountDbnodeSnapshotRequest.dbnodeSnapshotId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": unmountDbnodeSnapshotRequest.opcRetryToken,
+      "opc-request-id": unmountDbnodeSnapshotRequest.opcRequestId,
+      "if-match": unmountDbnodeSnapshotRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      unmountDbnodeSnapshotRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dbnodeSnapshots/{dbnodeSnapshotId}/actions/unmount",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        unmountDbnodeSnapshotRequest.unmountDbnodeSnapshotDetails,
+        "UnmountDbnodeSnapshotDetails",
+        model.UnmountDbnodeSnapshotDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UnmountDbnodeSnapshotResponse>{},
+        body: await response.json(),
+        bodyKey: "dbnodeSnapshot",
+        bodyModel: model.DbnodeSnapshot,
+        type: "model.DbnodeSnapshot",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
             dataType: "string"
           }
         ]

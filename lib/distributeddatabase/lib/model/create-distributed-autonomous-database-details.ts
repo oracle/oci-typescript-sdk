@@ -45,7 +45,7 @@ export interface CreateDistributedAutonomousDatabaseDetails {
    */
   "shardingMethod": CreateDistributedAutonomousDatabaseDetails.ShardingMethod;
   /**
-   * Possible workload types.
+   * Possible workload types. Currently only OLTP workload type is supported.
    */
   "dbWorkload": CreateDistributedAutonomousDatabaseDetails.DbWorkload;
   /**
@@ -57,30 +57,47 @@ export interface CreateDistributedAutonomousDatabaseDetails {
    */
   "ncharacterSet": string;
   /**
-   * The default number of unique chunks in a shardspace. The value of chunks must be
-   * greater than 2 times the size of the largest shardgroup in any shardspace.
+   * Number of chunks in a shardspace. The value of chunks must be
+   * greater than 2 times the size of the largest shardgroup in any shardspace. Chunks is
+   * required to be provided for distributed autonomous databases being created with
+   * SYSTEM shardingMethod. For USER shardingMethod, chunks should not be set in create payload.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "chunks"?: number;
   /**
-   * The listener port number for the Globally distributed autonomous database. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The listener port number for the Globally distributed autonomous database. The listener port number
+   * has to be unique for a customer tenancy across all distributed autonomous databases. Same port number
+   * should not be re-used for any other distributed autonomous database.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "listenerPort": number;
   /**
-   * The TLS listener port number for Globally distributed autonomous database. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The TLS listener port number for Globally distributed autonomous database. The TLS listener port number
+   * has to be unique for a customer tenancy across all distributed autonomous databases. Same port number
+   * should not be re-used for any other distributed autonomous database. The listenerPortTls is mandatory
+   * for dedicated infrastructure based distributed autonomous databases.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "listenerPortTls"?: number;
   /**
-   * Ons local port number. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Ons local port number for Globally distributed autonomous database. The onsPortLocal has to be unique for
+   * a customer tenancy across all distributed autonomous databases. Same port number should not be re-used for
+   * any other distributed autonomous database.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "onsPortLocal": number;
   /**
-   * Ons remote port number. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Ons remote port number for Globally distributed autonomous database. The onsPortRemote has to be unique for
+   * a customer tenancy across all distributed autonomous databases. Same port number should not be re-used for
+   * any other distributed autonomous database.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "onsPortRemote": number;
   /**
-   * The Replication method for Globally distributed autonomous database. Use RAFT for Raft replication, and DG for
-   * DataGuard. If replicationMethod is not provided, it defaults to DG.
+   * The Replication method for Globally distributed autonomous database. Use RAFT for Raft based replication.
+   * With RAFT replication, shards cannot have peers details set on them. In case shards need to
+   * have peers, please do not set RAFT replicationMethod. For all non RAFT replication cases (with or
+   * without peers), please set replicationMethod as DG or do not set any value for replicationMethod.
    *
    */
   "replicationMethod"?: CreateDistributedAutonomousDatabaseDetails.ReplicationMethod;
@@ -90,7 +107,9 @@ export interface CreateDistributedAutonomousDatabaseDetails {
    */
   "replicationFactor"?: number;
   /**
-   * For RAFT replication based Globally distributed autonomous database, the value should be atleast twice the number of shards. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The replication unit count for RAFT based distributed autonomous database. For RAFT replication based
+   * Globally distributed autonomous database, the value should be at least twice the number of shards.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "replicationUnit"?: number;
   /**
@@ -106,6 +125,7 @@ export interface CreateDistributedAutonomousDatabaseDetails {
    * Collection of catalog for the Globally distributed autonomous database.
    */
   "catalogDetails": Array<model.CreateDistributedAutonomousDatabaseCatalogDetails>;
+  "dbBackupConfig"?: model.DistributedAutonomousDbBackupConfig;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
    * Example: {@code {\"bar-key\": \"value\"}}
@@ -153,6 +173,9 @@ export namespace CreateDistributedAutonomousDatabaseDetails {
           ? obj.catalogDetails.map(item => {
               return model.CreateDistributedAutonomousDatabaseCatalogDetails.getJsonObj(item);
             })
+          : undefined,
+        "dbBackupConfig": obj.dbBackupConfig
+          ? model.DistributedAutonomousDbBackupConfig.getJsonObj(obj.dbBackupConfig)
           : undefined
       }
     };
@@ -176,6 +199,9 @@ export namespace CreateDistributedAutonomousDatabaseDetails {
                 item
               );
             })
+          : undefined,
+        "dbBackupConfig": obj.dbBackupConfig
+          ? model.DistributedAutonomousDbBackupConfig.getDeserializedJsonObj(obj.dbBackupConfig)
           : undefined
       }
     };

@@ -89,6 +89,7 @@ To use the instance pool with a regional subnet, provide a placement configurati
    *
    */
   "instanceHostnameFormatter"?: string;
+  "lifecycleManagement"?: model.InstancePoolLifecycleManagementDetails;
 }
 
 export namespace CreateInstancePoolDetails {
@@ -106,6 +107,10 @@ export namespace CreateInstancePoolDetails {
           ? obj.loadBalancers.map(item => {
               return model.AttachLoadBalancerDetails.getJsonObj(item);
             })
+          : undefined,
+
+        "lifecycleManagement": obj.lifecycleManagement
+          ? model.InstancePoolLifecycleManagementDetails.getJsonObj(obj.lifecycleManagement)
           : undefined
       }
     };
@@ -128,6 +133,12 @@ export namespace CreateInstancePoolDetails {
           ? obj.loadBalancers.map(item => {
               return model.AttachLoadBalancerDetails.getDeserializedJsonObj(item);
             })
+          : undefined,
+
+        "lifecycleManagement": obj.lifecycleManagement
+          ? model.InstancePoolLifecycleManagementDetails.getDeserializedJsonObj(
+              obj.lifecycleManagement
+            )
           : undefined
       }
     };
