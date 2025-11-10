@@ -72,6 +72,10 @@ Example: {@code My new resource}
    */
   "hasDraftVersion"?: boolean;
   /**
+   * Original runbook version. This version belongs to original runbook using which new runbook was exported.
+   */
+  "originalVersion"?: string;
+  /**
    * The current state of the Runbook.
    */
   "lifecycleState": string;

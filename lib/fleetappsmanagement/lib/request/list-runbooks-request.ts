@@ -63,11 +63,9 @@ export interface ListRunbooksRequest extends common.BaseRequest {
    */
   "sortOrder"?: model.SortOrder;
   /**
- * The field to sort by. Only one sort order may be provided. Default order for timeCreated is descending. Default order for displayName is ascending.
-* <p>
-  
-* 
- */
+   * The field to sort by. Only one sort order may be provided. Default order for timeCreated is descending. Default order for displayName is ascending.
+   *
+   */
   "sortBy"?: model.RunbookSortBy;
   /**
    * The client request ID for tracing.

@@ -1230,6 +1230,82 @@ export class FleetAppsManagementClient {
   }
 
   /**
+   * Retrieve compliance for a fleet.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetComplianceRequest
+   * @return GetComplianceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/GetCompliance.ts.html |here} to see how to use GetCompliance API.
+   */
+  public async getCompliance(
+    getComplianceRequest: requests.GetComplianceRequest
+  ): Promise<responses.GetComplianceResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FleetAppsManagementClient#getCompliance.");
+    const operationName = "getCompliance";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{fleetId}": getComplianceRequest.fleetId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getComplianceRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getComplianceRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fleets/{fleetId}/compliance",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetComplianceResponse>{},
+        body: await response.json(),
+        bodyKey: "compliance",
+        bodyModel: model.Compliance,
+        type: "model.Compliance",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Retrieve compliance report for a fleet.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetComplianceReportRequest
@@ -2067,7 +2143,8 @@ export class FleetAppsManagementClient {
       "limit": listFleetTargetsRequest.limit,
       "page": listFleetTargetsRequest.page,
       "sortOrder": listFleetTargetsRequest.sortOrder,
-      "sortBy": listFleetTargetsRequest.sortBy
+      "sortBy": listFleetTargetsRequest.sortBy,
+      "lifecycleState": listFleetTargetsRequest.lifecycleState
     };
 
     let headerParams = {
@@ -2333,7 +2410,8 @@ export class FleetAppsManagementClient {
       "limit": listTargetsRequest.limit,
       "page": listTargetsRequest.page,
       "sortOrder": listTargetsRequest.sortOrder,
-      "sortBy": listTargetsRequest.sortBy
+      "sortBy": listTargetsRequest.sortBy,
+      "isConfirmedTargets": listTargetsRequest.isConfirmedTargets
     };
 
     let headerParams = {
@@ -5673,6 +5751,105 @@ export class FleetAppsManagementCatalogClient {
   }
 
   /**
+   * Configures a CatalogItem. Creating new Catalog Item.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ConfigureCatalogItemRequest
+   * @return ConfigureCatalogItemResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ConfigureCatalogItem.ts.html |here} to see how to use ConfigureCatalogItem API.
+   */
+  public async configureCatalogItem(
+    configureCatalogItemRequest: requests.ConfigureCatalogItemRequest
+  ): Promise<responses.ConfigureCatalogItemResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FleetAppsManagementCatalogClient#configureCatalogItem.");
+    const operationName = "configureCatalogItem";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{catalogItemId}": configureCatalogItemRequest.catalogItemId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": configureCatalogItemRequest.ifMatch,
+      "opc-request-id": configureCatalogItemRequest.opcRequestId,
+      "opc-retry-token": configureCatalogItemRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      configureCatalogItemRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/catalogItems/{catalogItemId}/actions/configure",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        configureCatalogItemRequest.configureCatalogItemDetails,
+        "ConfigureCatalogItemDetails",
+        model.ConfigureCatalogItemDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ConfigureCatalogItemResponse>{},
+        body: await response.json(),
+        bodyKey: "catalogItem",
+        bodyModel: model.CatalogItem,
+        type: "model.CatalogItem",
+        responseHeaders: [
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-location"),
+            key: "contentLocation",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates a CatalogItem.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -5918,6 +6095,84 @@ export class FleetAppsManagementCatalogClient {
   }
 
   /**
+   * Gets information about a CatalogItem Variables.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetCatalogItemVariablesDefinitionRequest
+   * @return GetCatalogItemVariablesDefinitionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/GetCatalogItemVariablesDefinition.ts.html |here} to see how to use GetCatalogItemVariablesDefinition API.
+   */
+  public async getCatalogItemVariablesDefinition(
+    getCatalogItemVariablesDefinitionRequest: requests.GetCatalogItemVariablesDefinitionRequest
+  ): Promise<responses.GetCatalogItemVariablesDefinitionResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation FleetAppsManagementCatalogClient#getCatalogItemVariablesDefinition."
+      );
+    const operationName = "getCatalogItemVariablesDefinition";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{catalogItemId}": getCatalogItemVariablesDefinitionRequest.catalogItemId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getCatalogItemVariablesDefinitionRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getCatalogItemVariablesDefinitionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/catalogItems/{catalogItemId}/variablesDefinitions",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetCatalogItemVariablesDefinitionResponse>{},
+        body: await response.json(),
+        bodyKey: "catalogItemVariablesDefinition",
+        bodyModel: model.CatalogItemVariablesDefinition,
+        type: "model.CatalogItemVariablesDefinition",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets a list of Catalog Items in a compartment.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -5946,6 +6201,7 @@ export class FleetAppsManagementCatalogClient {
       "page": listCatalogItemsRequest.page,
       "catalogListingId": listCatalogItemsRequest.catalogListingId,
       "catalogListingVersionCriteria": listCatalogItemsRequest.catalogListingVersionCriteria,
+      "packageType": listCatalogItemsRequest.packageType,
       "shouldListPublicItems": listCatalogItemsRequest.shouldListPublicItems
     };
 
@@ -7583,7 +7839,9 @@ export class FleetAppsManagementOperationsClient {
       "{jobActivityId}": getJobActivityRequest.jobActivityId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isDetailsRequired": getJobActivityRequest.isDetailsRequired
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -8049,6 +8307,95 @@ export class FleetAppsManagementOperationsClient {
   }
 
   /**
+   * Gets a list of installed patches.
+   * CompartmentId should be the compartmentId of resource(Containing the target).
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListInstalledPatchesRequest
+   * @return ListInstalledPatchesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ListInstalledPatches.ts.html |here} to see how to use ListInstalledPatches API.
+   */
+  public async listInstalledPatches(
+    listInstalledPatchesRequest: requests.ListInstalledPatchesRequest
+  ): Promise<responses.ListInstalledPatchesResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation FleetAppsManagementOperationsClient#listInstalledPatches."
+      );
+    const operationName = "listInstalledPatches";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listInstalledPatchesRequest.compartmentId,
+      "targetId": listInstalledPatchesRequest.targetId,
+      "targetName": listInstalledPatchesRequest.targetName,
+      "severity": listInstalledPatchesRequest.severity,
+      "patchLevel": listInstalledPatchesRequest.patchLevel,
+      "patchType": listInstalledPatchesRequest.patchType,
+      "limit": listInstalledPatchesRequest.limit,
+      "page": listInstalledPatchesRequest.page,
+      "sortOrder": listInstalledPatchesRequest.sortOrder,
+      "sortBy": listInstalledPatchesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listInstalledPatchesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listInstalledPatchesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/installedPatches",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListInstalledPatchesResponse>{},
+        body: await response.json(),
+        bodyKey: "installedPatchCollection",
+        bodyModel: model.InstalledPatchCollection,
+        type: "model.InstalledPatchCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets a list of inventoryDetails.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -8076,6 +8423,7 @@ export class FleetAppsManagementOperationsClient {
       "limit": listInventoryRecordsRequest.limit,
       "page": listInventoryRecordsRequest.page,
       "sortOrder": listInventoryRecordsRequest.sortOrder,
+      "isDetailsRequired": listInventoryRecordsRequest.isDetailsRequired,
       "sortBy": listInventoryRecordsRequest.sortBy
     };
 
@@ -8207,6 +8555,179 @@ export class FleetAppsManagementOperationsClient {
         bodyKey: "patchCollection",
         bodyModel: model.PatchCollection,
         type: "model.PatchCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a list of recommended patches.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListRecommendedPatchesRequest
+   * @return ListRecommendedPatchesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ListRecommendedPatches.ts.html |here} to see how to use ListRecommendedPatches API.
+   */
+  public async listRecommendedPatches(
+    listRecommendedPatchesRequest: requests.ListRecommendedPatchesRequest
+  ): Promise<responses.ListRecommendedPatchesResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation FleetAppsManagementOperationsClient#listRecommendedPatches."
+      );
+    const operationName = "listRecommendedPatches";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listRecommendedPatchesRequest.compartmentId,
+      "targetId": listRecommendedPatchesRequest.targetId,
+      "targetName": listRecommendedPatchesRequest.targetName,
+      "patchLevel": listRecommendedPatchesRequest.patchLevel,
+      "severity": listRecommendedPatchesRequest.severity,
+      "patchType": listRecommendedPatchesRequest.patchType,
+      "patchId": listRecommendedPatchesRequest.patchId,
+      "limit": listRecommendedPatchesRequest.limit,
+      "page": listRecommendedPatchesRequest.page,
+      "sortOrder": listRecommendedPatchesRequest.sortOrder,
+      "sortBy": listRecommendedPatchesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listRecommendedPatchesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listRecommendedPatchesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/recommendedPatches",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListRecommendedPatchesResponse>{},
+        body: await response.json(),
+        bodyKey: "recommendedPatchCollection",
+        bodyModel: model.RecommendedPatchCollection,
+        type: "model.RecommendedPatchCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns a list of all the report metadata.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListReportMetadataRequest
+   * @return ListReportMetadataResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ListReportMetadata.ts.html |here} to see how to use ListReportMetadata API.
+   */
+  public async listReportMetadata(
+    listReportMetadataRequest: requests.ListReportMetadataRequest
+  ): Promise<responses.ListReportMetadataResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation FleetAppsManagementOperationsClient#listReportMetadata."
+      );
+    const operationName = "listReportMetadata";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listReportMetadataRequest.compartmentId,
+      "reportName": listReportMetadataRequest.reportName,
+      "limit": listReportMetadataRequest.limit,
+      "page": listReportMetadataRequest.page,
+      "sortOrder": listReportMetadataRequest.sortOrder,
+      "sortBy": listReportMetadataRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listReportMetadataRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listReportMetadataRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/reports/metadata",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListReportMetadataResponse>{},
+        body: await response.json(),
+        bodyKey: "reportMetadataCollection",
+        bodyModel: model.ReportMetadataCollection,
+        type: "model.ReportMetadataCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -8499,7 +9020,7 @@ export class FleetAppsManagementOperationsClient {
   }
 
   /**
-   * Returns a list of all Fleets that are scheduled.
+   * Returns a list of all executions that are scheduled.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListSchedulerExecutionsRequest
@@ -8530,6 +9051,8 @@ export class FleetAppsManagementOperationsClient {
       "runbookId": listSchedulerExecutionsRequest.runbookId,
       "runbookVersionName": listSchedulerExecutionsRequest.runbookVersionName,
       "substate": listSchedulerExecutionsRequest.substate,
+      "lifecycleOperation": listSchedulerExecutionsRequest.lifecycleOperation,
+      "compartmentIdInSubtree": listSchedulerExecutionsRequest.compartmentIdInSubtree,
       "limit": listSchedulerExecutionsRequest.limit,
       "page": listSchedulerExecutionsRequest.page,
       "sortOrder": listSchedulerExecutionsRequest.sortOrder,
@@ -8771,6 +9294,179 @@ export class FleetAppsManagementOperationsClient {
   }
 
   /**
+   * Gets a list of target component.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListTargetComponentsRequest
+   * @return ListTargetComponentsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ListTargetComponents.ts.html |here} to see how to use ListTargetComponents API.
+   */
+  public async listTargetComponents(
+    listTargetComponentsRequest: requests.ListTargetComponentsRequest
+  ): Promise<responses.ListTargetComponentsResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation FleetAppsManagementOperationsClient#listTargetComponents."
+      );
+    const operationName = "listTargetComponents";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listTargetComponentsRequest.compartmentId,
+      "targetId": listTargetComponentsRequest.targetId,
+      "targetName": listTargetComponentsRequest.targetName,
+      "severity": listTargetComponentsRequest.severity,
+      "name": listTargetComponentsRequest.name,
+      "limit": listTargetComponentsRequest.limit,
+      "page": listTargetComponentsRequest.page,
+      "sortOrder": listTargetComponentsRequest.sortOrder,
+      "sortBy": listTargetComponentsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listTargetComponentsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listTargetComponentsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/targetComponents",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListTargetComponentsResponse>{},
+        body: await response.json(),
+        bodyKey: "targetComponentCollection",
+        bodyModel: model.TargetComponentCollection,
+        type: "model.TargetComponentCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a list of target properties.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListTargetPropertiesRequest
+   * @return ListTargetPropertiesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ListTargetProperties.ts.html |here} to see how to use ListTargetProperties API.
+   */
+  public async listTargetProperties(
+    listTargetPropertiesRequest: requests.ListTargetPropertiesRequest
+  ): Promise<responses.ListTargetPropertiesResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation FleetAppsManagementOperationsClient#listTargetProperties."
+      );
+    const operationName = "listTargetProperties";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listTargetPropertiesRequest.compartmentId,
+      "targetId": listTargetPropertiesRequest.targetId,
+      "targetName": listTargetPropertiesRequest.targetName,
+      "severity": listTargetPropertiesRequest.severity,
+      "limit": listTargetPropertiesRequest.limit,
+      "page": listTargetPropertiesRequest.page,
+      "sortOrder": listTargetPropertiesRequest.sortOrder,
+      "sortBy": listTargetPropertiesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listTargetPropertiesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listTargetPropertiesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/targetProperties",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListTargetPropertiesResponse>{},
+        body: await response.json(),
+        bodyKey: "targetPropertyCollection",
+        bodyModel: model.TargetPropertyCollection,
+        type: "model.TargetPropertyCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Manage execution actions for a Job like retrying or pausing a task.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -8842,6 +9538,96 @@ export class FleetAppsManagementOperationsClient {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
             dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Report
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ReportRequest
+   * @return ReportResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/Report.ts.html |here} to see how to use Report API.
+   */
+  public async report(reportRequest: requests.ReportRequest): Promise<responses.ReportResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FleetAppsManagementOperationsClient#report.");
+    const operationName = "report";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": reportRequest.compartmentId,
+      "limit": reportRequest.limit,
+      "page": reportRequest.page,
+      "compartmentIdInSubtree": reportRequest.compartmentIdInSubtree
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": reportRequest.opcRetryToken,
+      "if-match": reportRequest.ifMatch,
+      "opc-request-id": reportRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      reportRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/reports/actions/summarize",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        reportRequest.reportDetails,
+        "ReportDetails",
+        model.ReportDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ReportResponse>{},
+        body: await response.json(),
+        bodyKey: "reportCollection",
+        bodyModel: model.ReportCollection,
+        type: "model.ReportCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-total-items"),
+            key: "opcTotalItems",
+            dataType: "number"
           }
         ]
       });
@@ -10515,7 +11301,7 @@ export class FleetAppsManagementRunbooksClient {
   }
 
   /**
-   * Add RunbookVersion in\u00A0Fleet Application Management.
+   * Add RunbookVersion in Fleet Application Management.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateRunbookVersionRequest
@@ -10915,6 +11701,348 @@ export class FleetAppsManagementRunbooksClient {
   }
 
   /**
+   * Export the specified version of the runbook.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ExportRunbookRequest
+   * @return ExportRunbookResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ExportRunbook.ts.html |here} to see how to use ExportRunbook API.
+   */
+  public async exportRunbook(
+    exportRunbookRequest: requests.ExportRunbookRequest
+  ): Promise<responses.ExportRunbookResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FleetAppsManagementRunbooksClient#exportRunbook.");
+    const operationName = "exportRunbook";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{runbookId}": exportRunbookRequest.runbookId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": exportRunbookRequest.opcRetryToken,
+      "if-match": exportRunbookRequest.ifMatch,
+      "opc-request-id": exportRunbookRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      exportRunbookRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/runbooks/{runbookId}/actions/export",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        exportRunbookRequest.exportRunbookDetails,
+        "ExportRunbookDetails",
+        model.ExportRunbookDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ExportRunbookResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Export the specified version of the runbook.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ExportRunbookVersionRequest
+   * @return ExportRunbookVersionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ExportRunbookVersion.ts.html |here} to see how to use ExportRunbookVersion API.
+   */
+  public async exportRunbookVersion(
+    exportRunbookVersionRequest: requests.ExportRunbookVersionRequest
+  ): Promise<responses.ExportRunbookVersionResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation FleetAppsManagementRunbooksClient#exportRunbookVersion."
+      );
+    const operationName = "exportRunbookVersion";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{runbookVersionId}": exportRunbookVersionRequest.runbookVersionId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": exportRunbookVersionRequest.opcRetryToken,
+      "if-match": exportRunbookVersionRequest.ifMatch,
+      "opc-request-id": exportRunbookVersionRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      exportRunbookVersionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/runbookVersions/{runbookVersionId}/actions/export",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        exportRunbookVersionRequest.exportRunbookVersionDetails,
+        "ExportRunbookVersionDetails",
+        model.ExportRunbookVersionDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ExportRunbookVersionResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Find runbook export Dependencies
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param FindRunbookExportDependencyRequest
+   * @return FindRunbookExportDependencyResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/FindRunbookExportDependency.ts.html |here} to see how to use FindRunbookExportDependency API.
+   */
+  public async findRunbookExportDependency(
+    findRunbookExportDependencyRequest: requests.FindRunbookExportDependencyRequest
+  ): Promise<responses.FindRunbookExportDependencyResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation FleetAppsManagementRunbooksClient#findRunbookExportDependency."
+      );
+    const operationName = "findRunbookExportDependency";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "limit": findRunbookExportDependencyRequest.limit,
+      "page": findRunbookExportDependencyRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": findRunbookExportDependencyRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      findRunbookExportDependencyRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/runbooks/actions/findExportDependencies",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        findRunbookExportDependencyRequest.findRunbookExportDependencyDetails,
+        "FindRunbookExportDependencyDetails",
+        model.FindRunbookExportDependencyDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.FindRunbookExportDependencyResponse>{},
+        body: await response.json(),
+        bodyKey: "runbookExportDependencyCollection",
+        bodyModel: model.RunbookExportDependencyCollection,
+        type: "model.RunbookExportDependencyCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-total-items"),
+            key: "opcTotalItems",
+            dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Find runbook import Dependencies
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param FindRunbookImportDependencyRequest
+   * @return FindRunbookImportDependencyResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/FindRunbookImportDependency.ts.html |here} to see how to use FindRunbookImportDependency API.
+   */
+  public async findRunbookImportDependency(
+    findRunbookImportDependencyRequest: requests.FindRunbookImportDependencyRequest
+  ): Promise<responses.FindRunbookImportDependencyResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation FleetAppsManagementRunbooksClient#findRunbookImportDependency."
+      );
+    const operationName = "findRunbookImportDependency";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "limit": findRunbookImportDependencyRequest.limit,
+      "page": findRunbookImportDependencyRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": findRunbookImportDependencyRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      findRunbookImportDependencyRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/runbooks/actions/findImportDependencies",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        findRunbookImportDependencyRequest.findRunbookImportDependencyDetails,
+        "FindRunbookImportDependencyDetails",
+        model.FindRunbookImportDependencyDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.FindRunbookImportDependencyResponse>{},
+        body: await response.json(),
+        bodyKey: "runbookImportDependencyCollection",
+        bodyModel: model.RunbookImportDependencyCollection,
+        type: "model.RunbookImportDependencyCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-total-items"),
+            key: "opcTotalItems",
+            dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Get the details of a runbook in Fleet Application Management.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetRunbookRequest
@@ -10970,6 +12098,160 @@ export class FleetAppsManagementRunbooksClient {
         bodyKey: "runbook",
         bodyModel: model.Runbook,
         type: "model.Runbook",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get the runbook export status for provided runbook and exportId.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetRunbookExportRequest
+   * @return GetRunbookExportResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/GetRunbookExport.ts.html |here} to see how to use GetRunbookExport API.
+   */
+  public async getRunbookExport(
+    getRunbookExportRequest: requests.GetRunbookExportRequest
+  ): Promise<responses.GetRunbookExportResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FleetAppsManagementRunbooksClient#getRunbookExport.");
+    const operationName = "getRunbookExport";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{runbookId}": getRunbookExportRequest.runbookId,
+      "{exportId}": getRunbookExportRequest.exportId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getRunbookExportRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getRunbookExportRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/runbooks/{runbookId}/exports/{exportId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetRunbookExportResponse>{},
+        body: await response.json(),
+        bodyKey: "runbookExport",
+        bodyModel: model.RunbookExport,
+        type: "model.RunbookExport",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get the runbook import status for provided runbook and importId.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetRunbookImportRequest
+   * @return GetRunbookImportResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/GetRunbookImport.ts.html |here} to see how to use GetRunbookImport API.
+   */
+  public async getRunbookImport(
+    getRunbookImportRequest: requests.GetRunbookImportRequest
+  ): Promise<responses.GetRunbookImportResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FleetAppsManagementRunbooksClient#getRunbookImport.");
+    const operationName = "getRunbookImport";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{runbookId}": getRunbookImportRequest.runbookId,
+      "{importId}": getRunbookImportRequest.importId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getRunbookImportRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getRunbookImportRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/runbooks/{runbookId}/imports/{importId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetRunbookImportResponse>{},
+        body: await response.json(),
+        bodyKey: "runbookImport",
+        bodyModel: model.RunbookImport,
+        type: "model.RunbookImport",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -11131,6 +12413,414 @@ export class FleetAppsManagementRunbooksClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Import the specified version of the runbook.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ImportRunbookRequest
+   * @return ImportRunbookResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ImportRunbook.ts.html |here} to see how to use ImportRunbook API.
+   */
+  public async importRunbook(
+    importRunbookRequest: requests.ImportRunbookRequest
+  ): Promise<responses.ImportRunbookResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FleetAppsManagementRunbooksClient#importRunbook.");
+    const operationName = "importRunbook";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": importRunbookRequest.opcRetryToken,
+      "if-match": importRunbookRequest.ifMatch,
+      "opc-request-id": importRunbookRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      importRunbookRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/runbooks/actions/import",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        importRunbookRequest.importRunbookDetails,
+        "ImportRunbookDetails",
+        model.ImportRunbookDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ImportRunbookResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Precheck for import runbook.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ImportRunbookPrecheckRequest
+   * @return ImportRunbookPrecheckResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ImportRunbookPrecheck.ts.html |here} to see how to use ImportRunbookPrecheck API.
+   */
+  public async importRunbookPrecheck(
+    importRunbookPrecheckRequest: requests.ImportRunbookPrecheckRequest
+  ): Promise<responses.ImportRunbookPrecheckResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation FleetAppsManagementRunbooksClient#importRunbookPrecheck."
+      );
+    const operationName = "importRunbookPrecheck";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": importRunbookPrecheckRequest.opcRetryToken,
+      "if-match": importRunbookPrecheckRequest.ifMatch,
+      "opc-request-id": importRunbookPrecheckRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      importRunbookPrecheckRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/runbooks/actions/importPrecheck",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        importRunbookPrecheckRequest.importRunbookPrecheckDetails,
+        "ImportRunbookPrecheckDetails",
+        model.ImportRunbookPrecheckDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ImportRunbookPrecheckResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Export the specified version of the runbook.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ImportRunbookVersionRequest
+   * @return ImportRunbookVersionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ImportRunbookVersion.ts.html |here} to see how to use ImportRunbookVersion API.
+   */
+  public async importRunbookVersion(
+    importRunbookVersionRequest: requests.ImportRunbookVersionRequest
+  ): Promise<responses.ImportRunbookVersionResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation FleetAppsManagementRunbooksClient#importRunbookVersion."
+      );
+    const operationName = "importRunbookVersion";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": importRunbookVersionRequest.opcRetryToken,
+      "if-match": importRunbookVersionRequest.ifMatch,
+      "opc-request-id": importRunbookVersionRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      importRunbookVersionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/runbookVersions/actions/import",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        importRunbookVersionRequest.importRunbookVersionDetails,
+        "ImportRunbookVersionDetails",
+        model.ImportRunbookVersionDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ImportRunbookVersionResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns a list of all the Runbook export status in the specified compartment.
+   * The query parameter `compartmentId` is required.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListRunbookExportStatusesRequest
+   * @return ListRunbookExportStatusesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ListRunbookExportStatuses.ts.html |here} to see how to use ListRunbookExportStatuses API.
+   */
+  public async listRunbookExportStatuses(
+    listRunbookExportStatusesRequest: requests.ListRunbookExportStatusesRequest
+  ): Promise<responses.ListRunbookExportStatusesResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation FleetAppsManagementRunbooksClient#listRunbookExportStatuses."
+      );
+    const operationName = "listRunbookExportStatuses";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listRunbookExportStatusesRequest.compartmentId,
+      "id": listRunbookExportStatusesRequest.id,
+      "limit": listRunbookExportStatusesRequest.limit,
+      "page": listRunbookExportStatusesRequest.page,
+      "sortOrder": listRunbookExportStatusesRequest.sortOrder,
+      "sortBy": listRunbookExportStatusesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listRunbookExportStatusesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listRunbookExportStatusesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/runbooks/exportStatus",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListRunbookExportStatusesResponse>{},
+        body: await response.json(),
+        bodyKey: "runbookExportStatusCollection",
+        bodyModel: model.RunbookExportStatusCollection,
+        type: "model.RunbookExportStatusCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns a list of all the Runbook import status in the specified compartment.
+   * The query parameter `compartmentId` is required.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListRunbookImportStatusesRequest
+   * @return ListRunbookImportStatusesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetappsmanagement/ListRunbookImportStatuses.ts.html |here} to see how to use ListRunbookImportStatuses API.
+   */
+  public async listRunbookImportStatuses(
+    listRunbookImportStatusesRequest: requests.ListRunbookImportStatusesRequest
+  ): Promise<responses.ListRunbookImportStatusesResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation FleetAppsManagementRunbooksClient#listRunbookImportStatuses."
+      );
+    const operationName = "listRunbookImportStatuses";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listRunbookImportStatusesRequest.compartmentId,
+      "id": listRunbookImportStatusesRequest.id,
+      "limit": listRunbookImportStatusesRequest.limit,
+      "page": listRunbookImportStatusesRequest.page,
+      "sortOrder": listRunbookImportStatusesRequest.sortOrder,
+      "sortBy": listRunbookImportStatusesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listRunbookImportStatusesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listRunbookImportStatusesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/runbooks/importStatus",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListRunbookImportStatusesResponse>{},
+        body: await response.json(),
+        bodyKey: "runbookImportStatusCollection",
+        bodyModel: model.RunbookImportStatusCollection,
+        type: "model.RunbookImportStatusCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
             dataType: "string"
           }
         ]

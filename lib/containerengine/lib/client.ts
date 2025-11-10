@@ -1543,7 +1543,8 @@ export class ContainerEngineClient {
     };
 
     const queryParams = {
-      "compartmentId": getClusterOptionsRequest.compartmentId
+      "compartmentId": getClusterOptionsRequest.compartmentId,
+      "shouldListAllPatchVersions": getClusterOptionsRequest.shouldListAllPatchVersions
     };
 
     let headerParams = {
@@ -1767,7 +1768,11 @@ export class ContainerEngineClient {
     };
 
     const queryParams = {
-      "compartmentId": getNodePoolOptionsRequest.compartmentId
+      "compartmentId": getNodePoolOptionsRequest.compartmentId,
+      "shouldListAllPatchVersions": getNodePoolOptionsRequest.shouldListAllPatchVersions,
+      "nodePoolOsType": getNodePoolOptionsRequest.nodePoolOsType,
+      "nodePoolOsArch": getNodePoolOptionsRequest.nodePoolOsArch,
+      "nodePoolK8sVersion": getNodePoolOptionsRequest.nodePoolK8sVersion
     };
 
     let headerParams = {

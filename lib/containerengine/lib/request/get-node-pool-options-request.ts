@@ -27,9 +27,38 @@ export interface GetNodePoolOptionsRequest extends common.BaseRequest {
    */
   "compartmentId"?: string;
   /**
+   * Option to show all kubernetes patch versions
+   */
+  "shouldListAllPatchVersions"?: boolean;
+  /**
+   * Filter node pool options by OS type.
+   */
+  "nodePoolOsType"?: GetNodePoolOptionsRequest.NodePoolOsType;
+  /**
+   * Filter node pool options by OS architecture.
+   */
+  "nodePoolOsArch"?: GetNodePoolOptionsRequest.NodePoolOsArch;
+  /**
+   * Filter node pool options by Kubernetes version.
+   */
+  "nodePoolK8sVersion"?: string;
+  /**
    * Unique Oracle-assigned identifier for the request. If you need to contact
    * Oracle about a particular request, please provide the request ID.
    *
    */
   "opcRequestId"?: string;
+}
+
+export namespace GetNodePoolOptionsRequest {
+  export enum NodePoolOsType {
+    Ol7 = "OL7",
+    Ol8 = "OL8",
+    Ubuntu = "UBUNTU"
+  }
+
+  export enum NodePoolOsArch {
+    X8664 = "X86_64",
+    Aarch64 = "AARCH64"
+  }
 }

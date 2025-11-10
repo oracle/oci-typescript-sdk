@@ -47,4 +47,9 @@ export interface ListTargetsRequest extends common.BaseRequest {
    * The client request ID for tracing.
    */
   "opcRequestId"?: string;
+  /**
+   * If set to true, confirmed targets will be returned.
+   *
+   */
+  "isConfirmedTargets"?: boolean;
 }

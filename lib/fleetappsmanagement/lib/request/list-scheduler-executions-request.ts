@@ -61,6 +61,16 @@ export interface ListSchedulerExecutionsRequest extends common.BaseRequest {
    */
   "substate"?: string;
   /**
+   * A filter to return only resources their lifecycleOperation matches the given lifecycleOperation.
+   */
+  "lifecycleOperation"?: string;
+  /**
+   * If set to true, resources will be returned for not only the provided compartment, but all compartments which
+   * descend from it. Which resources are returned and their field contents depends on the value of accessLevel.
+   *
+   */
+  "compartmentIdInSubtree"?: boolean;
+  /**
    * The maximum number of items to return.
    */
   "limit"?: number;

@@ -102,6 +102,10 @@ export interface CatalogItemSummary {
    */
   "timeReleased": Date;
   /**
+   * Indicates if the CatalogItem is immutable or not.
+   */
+  "isItemLocked"?: boolean;
+  /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
    * Example: {@code {\"bar-key\": \"value\"}}
    *

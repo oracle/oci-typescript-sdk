@@ -48,6 +48,8 @@ Example: {@code My new resource}
   "resourceSelection"?: model.DynamicResourceSelection | model.ManualResourceSelection;
   /**
    * Products associated with the Fleet.
+   * Provide PlatformConfiguration Ids corresponding to all the Products that need to be managed.
+   *
    */
   "products"?: Array<string>;
   /**
@@ -62,6 +64,12 @@ Example: {@code My new resource}
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * Environment Type associated with the Fleet.
+   * Applicable for ENVIRONMENT fleet types.
+   *
+   */
+  "environmentType"?: string;
 }
 
 export namespace UpdateFleetDetails {

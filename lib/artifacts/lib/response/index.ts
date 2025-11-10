@@ -1,7 +1,12 @@
 /**
  * Artifacts and Container Images API
- * API covering the Artifacts and [Registry](https://docs.oracle.com/iaas/Content/Registry/Concepts/registryoverview.htm) services.
-Use this API to manage resources such as generic artifacts and container images.
+ * Use the Artifacts and Container Images API to manage container images and non-container generic artifacts. 
+
+- For container images such as Docker images, use the {@link ContainerImage} resource. Save the images in a {@link ContainerRepository}.
+
+- For non-container generic artifacts or blobs, use the {@link GenericArtifact} resource. Save the artifacts in an {@link Repository}.
+- To upload and download non-container generic artifacts, instead of the Artifacts and Container Images API, use the Generic Artifacts Content API.
+For more information, see the user guides for [Container Registry](https://docs.oracle.com/iaas/Content/Registry/home.htm) and [Artifact Registry](https://docs.oracle.com/iaas/Content/artifacts/home.htm).
 
  * OpenAPI spec version: 20160918
  * 
@@ -59,6 +64,8 @@ import * as ListGenericArtifactsResponse from "./list-generic-artifacts-response
 export import ListGenericArtifactsResponse = ListGenericArtifactsResponse.ListGenericArtifactsResponse;
 import * as ListRepositoriesResponse from "./list-repositories-response";
 export import ListRepositoriesResponse = ListRepositoriesResponse.ListRepositoriesResponse;
+import * as LookupContainerImageByUriResponse from "./lookup-container-image-by-uri-response";
+export import LookupContainerImageByUriResponse = LookupContainerImageByUriResponse.LookupContainerImageByUriResponse;
 import * as RemoveContainerVersionResponse from "./remove-container-version-response";
 export import RemoveContainerVersionResponse = RemoveContainerVersionResponse.RemoveContainerVersionResponse;
 import * as RestoreContainerImageResponse from "./restore-container-image-response";

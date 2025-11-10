@@ -23,6 +23,10 @@ export interface ApiBasedExecutionDetails extends model.ExecutionDetails {
    * Endpoint to be invoked.
    */
   "endpoint": string;
+  /**
+   * The list of system variables.
+   */
+  "systemVariables"?: Array<string>;
 
   "executionType": string;
 }

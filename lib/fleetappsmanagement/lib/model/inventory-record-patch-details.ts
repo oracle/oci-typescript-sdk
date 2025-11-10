@@ -39,6 +39,14 @@ export interface InventoryRecordPatchDetails {
    * Type of patch applied
    */
   "patchType": string;
+  /**
+   * The date on which patch was released.
+   */
+  "timeReleased"?: Date;
+  /**
+   * Patch Level.
+   */
+  "patchLevel"?: string;
 }
 
 export namespace InventoryRecordPatchDetails {

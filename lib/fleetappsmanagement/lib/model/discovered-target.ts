@@ -40,9 +40,21 @@ export interface DiscoveredTarget {
    * Current version of the target.
    */
   "version"?: string;
+  /**
+   * Type of operation to be done against given target.
+   * ADD - Add target.
+   * REMOVE - Delete target.
+   *
+   */
+  "operation"?: DiscoveredTarget.Operation;
 }
 
 export namespace DiscoveredTarget {
+  export enum Operation {
+    Add = "ADD",
+    Remove = "REMOVE"
+  }
+
   export function getJsonObj(obj: DiscoveredTarget): object {
     const jsonObj = { ...obj, ...{} };
 

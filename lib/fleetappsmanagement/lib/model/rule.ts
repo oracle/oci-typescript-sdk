@@ -43,9 +43,33 @@ export interface Rule {
    * Rule Conditions
    */
   "conditions": Array<model.Condition>;
+  /**
+   * Match condition for the rule selection.
+   * Include resources that match all rules or any of the rules.
+   * Default value for {@code matchCondition} is ANY
+   *
+   */
+  "matchCondition"?: Rule.MatchCondition;
+  /**
+   * If set to true, resources will be returned for not only the provided compartment, but all compartments which
+   * descend from it. Which resources are returned and their field contents depends on the value of accessLevel.
+   * Default value for {@code compartmentIdInSubtree} is false
+   *
+   */
+  "compartmentIdInSubtree"?: boolean;
 }
 
 export namespace Rule {
+  export enum MatchCondition {
+    MatchAll = "MATCH_ALL",
+    Any = "ANY",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: Rule): object {
     const jsonObj = {
       ...obj,

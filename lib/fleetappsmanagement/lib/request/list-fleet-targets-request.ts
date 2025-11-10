@@ -59,4 +59,8 @@ export interface ListFleetTargetsRequest extends common.BaseRequest {
    * The client request ID for tracing.
    */
   "opcRequestId"?: string;
+  /**
+   * A filter to return fleets whose lifecycleState matches the given lifecycleState.
+   */
+  "lifecycleState"?: string;
 }

@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The details of the task
+ * The details of the task.
  */
 export interface Task {
   /**

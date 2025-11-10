@@ -44,6 +44,11 @@ Example: {@code Uocm:PHX-AD-1}
    */
   "instanceId": string;
   /**
+   * Specifies whether the VM instance is confidential.
+   *
+   */
+  "isMemoryEncryptionEnabled"?: boolean;
+  /**
    * The shape of the VM instance.
    *
    */

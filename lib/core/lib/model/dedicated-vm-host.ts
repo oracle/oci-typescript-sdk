@@ -87,6 +87,17 @@ Example: {@code {\"Department\": \"Finance\"}}
    */
   "id": string;
   /**
+   * The capacity configuration selected to be configured for the Dedicated Virtual Machine host.
+   * Run {@link #listDedicatedVmHostShapes(ListDedicatedVmHostShapesRequest) listDedicatedVmHostShapes} API to see details of this capacity configuration.
+   *
+   */
+  "capacityConfig"?: string;
+  /**
+   * Specifies if the Dedicated Virtual Machine Host (DVMH) is restricted to running only Confidential VMs. If {@code true}, only Confidential VMs can be launched. If {@code false}, Confidential VMs cannot be launched.
+   *
+   */
+  "isMemoryEncryptionEnabled"?: boolean;
+  /**
    * The current state of the dedicated VM host.
    *
    */
@@ -119,7 +130,7 @@ Example: {@code 2016-08-25T21:10:29.600Z}
    */
   "remainingMemoryInGBs"?: number;
   /**
-   * A list of total and remaining CPU & memory per capacity bucket.
+   * A list of total and remaining CPU and memory per capacity bucket.
    *
    */
   "capacityBins"?: Array<model.CapacityBin>;

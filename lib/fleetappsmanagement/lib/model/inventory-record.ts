@@ -21,7 +21,7 @@ import common = require("oci-common");
  */
 export interface InventoryRecord {
   /**
-   * The OCID of the Inventory target.
+   * The id of the Inventory target.
    */
   "targetId": string;
   /**

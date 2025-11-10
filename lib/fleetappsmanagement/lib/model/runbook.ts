@@ -71,7 +71,7 @@ Example: {@code My new resource}
    */
   "estimatedTime"?: string;
   /**
-   * Latest runbook version
+   * Latest runbook version.
    */
   "latestVersion"?: string;
   /**

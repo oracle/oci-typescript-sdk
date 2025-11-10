@@ -22,7 +22,8 @@ export interface ComponentProperties {
   "runOn"?:
     | model.SelfHostedInstanceRunOnDetails
     | model.ScheduleInstanceRunOnDetails
-    | model.PreviousTaskInstanceRunOnDetails;
+    | model.PreviousTaskInstanceRunOnDetails
+    | model.ScheduleInstanceTargetRunOnDetails;
   /**
    * Build control flow conditions that determine the relevance of the task execution.
    *

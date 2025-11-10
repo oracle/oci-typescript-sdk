@@ -48,6 +48,22 @@ export interface Preferences {
    * Enables or disables notification when a newer version of runbook associated with a fleet is available
    */
   "onRunbookNewerVersion"?: boolean;
+  /**
+   * Enables or disables notification on job success.
+   */
+  "onJobSuccess"?: boolean;
+  /**
+   * Enables or disables notification on job start.
+   */
+  "onJobStart"?: boolean;
+  /**
+   * Enables or disables notification on job canceled.
+   */
+  "onJobCanceled"?: boolean;
+  /**
+   * Enables or disables notification on job schedule change.
+   */
+  "onJobScheduleChange"?: boolean;
 }
 
 export namespace Preferences {
