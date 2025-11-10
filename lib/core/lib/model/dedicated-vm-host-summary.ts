@@ -68,6 +68,11 @@ Example: {@code FAULT-DOMAIN-1}
    */
   "id": string;
   /**
+   * Specifies if the Dedicated Virtual Machine Host is restricted to running only Confidential VMs. If {@code true}, only Confidential VMs can be launched. If {@code false}, Confidential VMs cannot be launched.
+   *
+   */
+  "isMemoryEncryptionEnabled"?: boolean;
+  /**
    * The current state of the dedicated VM host.
    *
    */

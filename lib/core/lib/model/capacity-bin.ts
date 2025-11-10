@@ -22,7 +22,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Total and remaining CPU & memory capacity for each capacity bucket.
+ * Total and remaining CPU and memory capacity for each capacity bucket.
  *
  */
 export interface CapacityBin {

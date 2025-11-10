@@ -44,6 +44,8 @@ Example: {@code My new resource}
     | model.EnvironmentFleetDetails;
   /**
    * Products associated with the Fleet.
+   * Provide PlatformConfiguration Ids corresponding to all the Products that need to be managed.
+   *
    */
   "products"?: Array<string>;
   /**

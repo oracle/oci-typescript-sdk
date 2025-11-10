@@ -88,6 +88,25 @@ export class GenerativeAiWaiter {
   }
 
   /**
+   * Waits forImportedModel till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetImportedModelResponse | null (null in case of 404 response)
+   */
+  public async forImportedModel(
+    request: serviceRequests.GetImportedModelRequest,
+    ...targetStates: models.ImportedModel.LifecycleState[]
+  ): Promise<serviceResponses.GetImportedModelResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getImportedModel(request),
+      response => targetStates.includes(response.importedModel.lifecycleState!),
+      targetStates.includes(models.ImportedModel.LifecycleState.Deleted)
+    );
+  }
+
+  /**
    * Waits forModel till it reaches any of the provided states
    *
    * @param request the request to send

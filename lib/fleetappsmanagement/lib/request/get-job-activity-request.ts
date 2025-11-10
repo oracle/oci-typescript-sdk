@@ -27,6 +27,11 @@ export interface GetJobActivityRequest extends common.BaseRequest {
    */
   "jobActivityId": string;
   /**
+   * If set to true, inventory details will be returned.
+   *
+   */
+  "isDetailsRequired"?: boolean;
+  /**
    * The client request ID for tracing.
    */
   "opcRequestId"?: string;

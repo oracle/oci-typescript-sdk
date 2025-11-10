@@ -1,7 +1,12 @@
 /**
  * Artifacts and Container Images API
- * API covering the Artifacts and [Registry](https://docs.oracle.com/iaas/Content/Registry/Concepts/registryoverview.htm) services.
-Use this API to manage resources such as generic artifacts and container images.
+ * Use the Artifacts and Container Images API to manage container images and non-container generic artifacts. 
+
+- For container images such as Docker images, use the {@link ContainerImage} resource. Save the images in a {@link ContainerRepository}.
+
+- For non-container generic artifacts or blobs, use the {@link GenericArtifact} resource. Save the artifacts in an {@link Repository}.
+- To upload and download non-container generic artifacts, instead of the Artifacts and Container Images API, use the Generic Artifacts Content API.
+For more information, see the user guides for [Container Registry](https://docs.oracle.com/iaas/Content/Registry/home.htm) and [Artifact Registry](https://docs.oracle.com/iaas/Content/artifacts/home.htm).
 
  * OpenAPI spec version: 20160918
  * 
@@ -1704,6 +1709,7 @@ export class ArtifactsClient {
       "repositoryName": listContainerImagesRequest.repositoryName,
       "version": listContainerImagesRequest.version,
       "lifecycleState": listContainerImagesRequest.lifecycleState,
+      "imageDigest": listContainerImagesRequest.imageDigest,
       "limit": listContainerImagesRequest.limit,
       "page": listContainerImagesRequest.page,
       "sortBy": listContainerImagesRequest.sortBy,
@@ -2006,6 +2012,86 @@ export class ArtifactsClient {
           {
             value: response.headers.get("opc-next-page"),
             key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get container image metadata by URI.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param LookupContainerImageByUriRequest
+   * @return LookupContainerImageByUriResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/LookupContainerImageByUri.ts.html |here} to see how to use LookupContainerImageByUri API.
+   */
+  public async lookupContainerImageByUri(
+    lookupContainerImageByUriRequest: requests.LookupContainerImageByUriRequest
+  ): Promise<responses.LookupContainerImageByUriResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ArtifactsClient#lookupContainerImageByUri.");
+    const operationName = "lookupContainerImageByUri";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/registry/20160918/ContainerImage/LookupContainerImageByUri";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": lookupContainerImageByUriRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      lookupContainerImageByUriRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/container/images/actions/lookupImageByUri",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        lookupContainerImageByUriRequest.lookupContainerImageByUriDetails,
+        "LookupContainerImageByUriDetails",
+        model.LookupContainerImageByUriDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.LookupContainerImageByUriResponse>{},
+        body: await response.json(),
+        bodyKey: "containerImage",
+        bodyModel: model.ContainerImage,
+        type: "model.ContainerImage",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
             dataType: "string"
           },
           {

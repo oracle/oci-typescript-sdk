@@ -40,6 +40,10 @@ export interface ScriptBasedExecutionDetails extends model.ExecutionDetails {
    * Is the Content an executable file?
    */
   "isExecutableContent"?: boolean;
+  /**
+   * The list of system variables.
+   */
+  "systemVariables"?: Array<string>;
 
   "executionType": string;
 }

@@ -43,6 +43,11 @@ export namespace RunOnDetails {
             <model.PreviousTaskInstanceRunOnDetails>(<object>jsonObj),
             true
           );
+        case "SCHEDULE_INSTANCE_TARGETS":
+          return model.ScheduleInstanceTargetRunOnDetails.getJsonObj(
+            <model.ScheduleInstanceTargetRunOnDetails>(<object>jsonObj),
+            true
+          );
         default:
           if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.kind}`);
       }
@@ -67,6 +72,11 @@ export namespace RunOnDetails {
         case "PREVIOUS_TASK_INSTANCES":
           return model.PreviousTaskInstanceRunOnDetails.getDeserializedJsonObj(
             <model.PreviousTaskInstanceRunOnDetails>(<object>jsonObj),
+            true
+          );
+        case "SCHEDULE_INSTANCE_TARGETS":
+          return model.ScheduleInstanceTargetRunOnDetails.getDeserializedJsonObj(
+            <model.ScheduleInstanceTargetRunOnDetails>(<object>jsonObj),
             true
           );
         default:
