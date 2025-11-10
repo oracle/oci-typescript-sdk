@@ -36,7 +36,7 @@ export interface OciVcnIpNativeNodePoolPodNetworkOptionDetails
    * The OCIDs of the subnets in which to place pods for this node pool. This can be one of the node pool subnet IDs
    *
    */
-  "podSubnetIds": Array<string>;
+  "podSubnetIds"?: Array<string>;
 
   "cniType": string;
 }

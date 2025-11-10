@@ -68,6 +68,12 @@ export interface ListCatalogItemsRequest extends common.BaseRequest {
    */
   "catalogListingVersionCriteria"?: model.CatalogListingVersionCriteriaEnum;
   /**
+   * A filter to return only resources that match the given package type. The
+   * state value is case-insensitive.
+   *
+   */
+  "packageType"?: string;
+  /**
    * The indicator to append Public Items from the root compartment to any query, when set to TRUE.
    */
   "shouldListPublicItems"?: boolean;

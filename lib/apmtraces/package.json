@@ -1,6 +1,6 @@
 {
   "name": "oci-apmtraces",
-  "version": "2.121.0",
+  "version": "2.121.1",
   "description": "OCI NodeJS client for Apm Traces Service",
   "repository": {
     "type": "git",

@@ -63,7 +63,12 @@ export interface LimitDefinitionSummary {
    */
   "isDynamic"?: boolean;
   /**
-   * An array of subscription types supported by the limit. e,g The type of subscription, such as 'SAAS', 'ERP', 'CRM'.
+   * An array of subscription types that support ExternalLocations.
+   *
+   */
+  "externalLocationSupportedSubscriptions"?: Array<string>;
+  /**
+   * An array of subscription types supported by the limit. For example, the type of subscription, such as SAAS, ERP, or CRM.
    *
    */
   "supportedSubscriptions"?: Array<string>;

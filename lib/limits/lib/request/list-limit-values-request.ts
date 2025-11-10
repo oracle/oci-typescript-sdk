@@ -28,10 +28,15 @@ export interface ListLimitValuesRequest extends common.BaseRequest {
    */
   "serviceName": string;
   /**
-   * The OCID of the subscription assigned to tenant
+   * The subscription OCID assigned to the tenant.
    *
    */
   "subscriptionId"?: string;
+  /**
+   * External cloud provider location
+   *
+   */
+  "externalLocation"?: string;
   /**
    * Filter entries by scope type.
    */

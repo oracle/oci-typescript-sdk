@@ -53,6 +53,11 @@ export interface ListInventoryRecordsRequest extends common.BaseRequest {
    */
   "opcRequestId"?: string;
   /**
+   * If set to true, inventory details will be returned.
+   *
+   */
+  "isDetailsRequired"?: boolean;
+  /**
    * The field to sort by. Only one sort order may be provided.
    *
    */

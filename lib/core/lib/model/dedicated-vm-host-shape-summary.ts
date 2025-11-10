@@ -33,20 +33,43 @@ export interface DedicatedVmHostShapeSummary {
   "availabilityDomain"?: string;
   /**
    * The name of the dedicated VM host shape. You can enumerate all available shapes by calling
-   * {@link DedicatedVmHostShapes}.
+   * {@link #listDedicatedVmHostShapes(ListDedicatedVmHostShapesRequest) listDedicatedVmHostShapes}.
    *
    */
   "dedicatedVmHostShape": string;
+  /**
+   * A list of capacity configs that are supported by this dedicated VM host shape.
+   *
+   */
+  "capacityConfigs"?: Array<model.CapacityConfig>;
 }
 
 export namespace DedicatedVmHostShapeSummary {
   export function getJsonObj(obj: DedicatedVmHostShapeSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "capacityConfigs": obj.capacityConfigs
+          ? obj.capacityConfigs.map(item => {
+              return model.CapacityConfig.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: DedicatedVmHostShapeSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "capacityConfigs": obj.capacityConfigs
+          ? obj.capacityConfigs.map(item => {
+              return model.CapacityConfig.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

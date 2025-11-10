@@ -479,6 +479,80 @@ export class GenerativeAiClient {
   }
 
   /**
+   * Moves an imported model into a different compartment. For information about moving resources between compartments, see [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ChangeImportedModelCompartmentRequest
+   * @return ChangeImportedModelCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/ChangeImportedModelCompartment.ts.html |here} to see how to use ChangeImportedModelCompartment API.
+   */
+  public async changeImportedModelCompartment(
+    changeImportedModelCompartmentRequest: requests.ChangeImportedModelCompartmentRequest
+  ): Promise<responses.ChangeImportedModelCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GenerativeAiClient#changeImportedModelCompartment.");
+    const operationName = "changeImportedModelCompartment";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{importedModelId}": changeImportedModelCompartmentRequest.importedModelId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeImportedModelCompartmentRequest.ifMatch,
+      "opc-request-id": changeImportedModelCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeImportedModelCompartmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeImportedModelCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/importedModels/{importedModelId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeImportedModelCompartmentRequest.changeImportedModelCompartmentDetails,
+        "ChangeImportedModelCompartmentDetails",
+        model.ChangeImportedModelCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeImportedModelCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Moves a custom model into a different compartment. For information about moving resources between compartments, see [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeModelCompartmentRequest
@@ -821,6 +895,93 @@ The header contains an opc-work-request-id, which is the id for the WorkRequest 
   }
 
   /**
+     * Import a model from ModelDataSource.
+* <p>
+The header contains an opc-work-request-id, which is the id for the WorkRequest that tracks the importedModel creation progress.
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param CreateImportedModelRequest
+     * @return CreateImportedModelResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/CreateImportedModel.ts.html |here} to see how to use CreateImportedModel API.
+     */
+  public async createImportedModel(
+    createImportedModelRequest: requests.CreateImportedModelRequest
+  ): Promise<responses.CreateImportedModelResponse> {
+    if (this.logger) this.logger.debug("Calling operation GenerativeAiClient#createImportedModel.");
+    const operationName = "createImportedModel";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createImportedModelRequest.opcRetryToken,
+      "opc-request-id": createImportedModelRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createImportedModelRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/importedModels",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createImportedModelRequest.createImportedModelDetails,
+        "CreateImportedModelDetails",
+        model.CreateImportedModelDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateImportedModelResponse>{},
+        body: await response.json(),
+        bodyKey: "importedModel",
+        bodyModel: model.ImportedModel,
+        type: "model.ImportedModel",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
      * Creates a custom model by fine-tuning a base model with your own dataset. You can create a new custom models or create a new version of existing custom model..
 * <p>
 The header contains an opc-work-request-id, which is the id for the WorkRequest that tracks the model creation progress.
@@ -1136,6 +1297,78 @@ You can only delete clusters without attached resources. Before you delete a hos
   }
 
   /**
+   * Deletes an imported model. An imported model shouldn't be deleted if there's one or more active endpoints associated with that imported model.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteImportedModelRequest
+   * @return DeleteImportedModelResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/DeleteImportedModel.ts.html |here} to see how to use DeleteImportedModel API.
+   */
+  public async deleteImportedModel(
+    deleteImportedModelRequest: requests.DeleteImportedModelRequest
+  ): Promise<responses.DeleteImportedModelResponse> {
+    if (this.logger) this.logger.debug("Calling operation GenerativeAiClient#deleteImportedModel.");
+    const operationName = "deleteImportedModel";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{importedModelId}": deleteImportedModelRequest.importedModelId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteImportedModelRequest.ifMatch,
+      "opc-request-id": deleteImportedModelRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteImportedModelRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/importedModels/{importedModelId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteImportedModelResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes a custom model. A model shouldn't be deleted if there's one or more active endpoints associated with that model.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteModelRequest
@@ -1416,6 +1649,81 @@ You can only delete clusters without attached resources. Before you delete a hos
         bodyKey: "generativeAiPrivateEndpoint",
         bodyModel: model.GenerativeAiPrivateEndpoint,
         type: "model.GenerativeAiPrivateEndpoint",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets information about an imported model.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetImportedModelRequest
+   * @return GetImportedModelResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/GetImportedModel.ts.html |here} to see how to use GetImportedModel API.
+   */
+  public async getImportedModel(
+    getImportedModelRequest: requests.GetImportedModelRequest
+  ): Promise<responses.GetImportedModelResponse> {
+    if (this.logger) this.logger.debug("Calling operation GenerativeAiClient#getImportedModel.");
+    const operationName = "getImportedModel";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{importedModelId}": getImportedModelRequest.importedModelId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getImportedModelRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getImportedModelRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/importedModels/{importedModelId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetImportedModelResponse>{},
+        body: await response.json(),
+        bodyKey: "importedModel",
+        bodyModel: model.ImportedModel,
+        type: "model.ImportedModel",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1821,6 +2129,90 @@ You can only delete clusters without attached resources. Before you delete a hos
         bodyKey: "generativeAiPrivateEndpointCollection",
         bodyModel: model.GenerativeAiPrivateEndpointCollection,
         type: "model.GenerativeAiPrivateEndpointCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists imported models in a specific compartment.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListImportedModelsRequest
+   * @return ListImportedModelsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/ListImportedModels.ts.html |here} to see how to use ListImportedModels API.
+   */
+  public async listImportedModels(
+    listImportedModelsRequest: requests.ListImportedModelsRequest
+  ): Promise<responses.ListImportedModelsResponse> {
+    if (this.logger) this.logger.debug("Calling operation GenerativeAiClient#listImportedModels.");
+    const operationName = "listImportedModels";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "vendor": listImportedModelsRequest.vendor,
+      "capability": listImportedModelsRequest.capability,
+      "compartmentId": listImportedModelsRequest.compartmentId,
+      "lifecycleState": listImportedModelsRequest.lifecycleState,
+      "displayName": listImportedModelsRequest.displayName,
+      "id": listImportedModelsRequest.id,
+      "limit": listImportedModelsRequest.limit,
+      "page": listImportedModelsRequest.page,
+      "sortOrder": listImportedModelsRequest.sortOrder,
+      "sortBy": listImportedModelsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listImportedModelsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listImportedModelsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/importedModels",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListImportedModelsResponse>{},
+        body: await response.json(),
+        bodyKey: "importedModelCollection",
+        bodyModel: model.ImportedModelCollection,
+        type: "model.ImportedModelCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2419,6 +2811,92 @@ You can only delete clusters without attached resources. Before you delete a hos
           {
             value: response.headers.get("etag"),
             key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the properties of an imported model such as name, description, freeform tags, and defined tags.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateImportedModelRequest
+   * @return UpdateImportedModelResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/UpdateImportedModel.ts.html |here} to see how to use UpdateImportedModel API.
+   */
+  public async updateImportedModel(
+    updateImportedModelRequest: requests.UpdateImportedModelRequest
+  ): Promise<responses.UpdateImportedModelResponse> {
+    if (this.logger) this.logger.debug("Calling operation GenerativeAiClient#updateImportedModel.");
+    const operationName = "updateImportedModel";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{importedModelId}": updateImportedModelRequest.importedModelId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateImportedModelRequest.ifMatch,
+      "opc-request-id": updateImportedModelRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateImportedModelRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/importedModels/{importedModelId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateImportedModelRequest.updateImportedModelDetails,
+        "UpdateImportedModelDetails",
+        model.UpdateImportedModelDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateImportedModelResponse>{},
+        body: await response.json(),
+        bodyKey: "importedModel",
+        bodyModel: model.ImportedModel,
+        type: "model.ImportedModel",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           }
         ]

@@ -27,6 +27,10 @@ export interface GetClusterOptionsRequest extends common.BaseRequest {
    */
   "compartmentId"?: string;
   /**
+   * Option to show all kubernetes patch versions
+   */
+  "shouldListAllPatchVersions"?: boolean;
+  /**
    * Unique Oracle-assigned identifier for the request. If you need to contact
    * Oracle about a particular request, please provide the request ID.
    *

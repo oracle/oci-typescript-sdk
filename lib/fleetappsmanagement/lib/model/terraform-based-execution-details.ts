@@ -35,6 +35,10 @@ export interface TerraformBasedExecutionDetails extends model.ExecutionDetails {
    * Is read output variable enabled
    */
   "isReadOutputVariableEnabled"?: boolean;
+  /**
+   * The list of system variables.
+   */
+  "systemVariables"?: Array<string>;
 
   "executionType": string;
 }

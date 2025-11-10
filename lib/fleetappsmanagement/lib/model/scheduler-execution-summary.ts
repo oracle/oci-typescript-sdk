@@ -36,6 +36,10 @@ Example: {@code My new resource}
    */
   "compartmentId": string;
   /**
+   * Name of the compartment in which resource exist.
+   */
+  "compartmentName"?: string;
+  /**
    * The time this resource was created. An RFC3339 formatted datetime string.
    */
   "timeCreated": Date;
@@ -52,15 +56,15 @@ Example: {@code My new resource}
    */
   "activityId"?: string;
   /**
-   * ResourceId associated with the Schedule.
+   * FleetId associated with the Schedule.
    */
   "resourceId"?: string;
   /**
-   * jobId associated with the Schedule.
+   * SchedulerJobId associated with the Schedule.
    */
   "schedulerJobId"?: string;
   /**
-   * Resource DsiplayName associated with the Schedule.
+   * Display Name of the Fleet associated with the Schedule.
    */
   "resourceDisplayName"?: string;
   /**
@@ -72,7 +76,7 @@ Example: {@code My new resource}
    */
   "runbookVersionName"?: string;
   /**
-   * DsiplayName of Runbook associated with the Schedule.
+   * Display name of Runbook associated with the Schedule.
    */
   "runbookDisplayName"?: string;
   /**
@@ -107,7 +111,7 @@ Example: {@code My new resource}
    * Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
    *
    */
-  "definedTags": { [key: string]: { [key: string]: any } };
+  "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
    * System tags for this resource. Each key is predefined and scoped to a namespace.
    * Example: {@code {\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}}

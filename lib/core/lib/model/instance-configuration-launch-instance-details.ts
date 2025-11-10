@@ -37,14 +37,14 @@ Example: {@code Uocm:PHX-AD-1}
     */
   "availabilityDomain"?: string;
   /**
+   * The OCID of the compute capacity reservation this instance is launched under.
+   */
+  "capacityReservationId"?: string;
+  /**
    * Whether to enable AI enterprise on the instance.
    *
    */
   "isAIEnterpriseEnabled"?: boolean;
-  /**
-   * The OCID of the compute capacity reservation this instance is launched under.
-   */
-  "capacityReservationId"?: string;
   "placementConstraintDetails"?: model.InstanceConfigurationHostGroupPlacementConstraintDetails;
   /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the

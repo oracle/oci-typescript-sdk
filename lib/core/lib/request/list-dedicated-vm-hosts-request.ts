@@ -91,6 +91,11 @@ Example: {@code 50}
    * The available OCPUs of the dedicated VM host.
    */
   "remainingOcpusGreaterThanOrEqualTo"?: number;
+  /**
+   * A filter to return only confidential Dedicated VM hosts (DVMH) or confidential VM instances on DVMH.
+   *
+   */
+  "isMemoryEncryptionEnabled"?: boolean;
 }
 
 export namespace ListDedicatedVmHostsRequest {

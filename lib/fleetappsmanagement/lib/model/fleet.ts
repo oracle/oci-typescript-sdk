@@ -56,6 +56,8 @@ Example: {@code My new resource}
   "timeUpdated"?: Date;
   /**
    * Products associated with the Fleet.
+   * PlatformConfiguration Ids corresponding to the Products.
+   *
    */
   "products"?: Array<string>;
   "details"?:

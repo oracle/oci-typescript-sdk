@@ -5548,7 +5548,9 @@ For more information, see [Volume Groups](https://docs.oracle.com/iaas/Content/B
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "if-match": updateVolumeKmsKeyRequest.ifMatch
+      "if-match": updateVolumeKmsKeyRequest.ifMatch,
+      "opc-parent-resource-principal-token-url":
+        updateVolumeKmsKeyRequest.opcParentResourcePrincipalTokenUrl
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -14334,6 +14336,7 @@ You can limit the list by specifying a compute capacity reservation display name
     const queryParams = {
       "availabilityDomain": listDedicatedVmHostInstancesRequest.availabilityDomain,
       "compartmentId": listDedicatedVmHostInstancesRequest.compartmentId,
+      "isMemoryEncryptionEnabled": listDedicatedVmHostInstancesRequest.isMemoryEncryptionEnabled,
       "limit": listDedicatedVmHostInstancesRequest.limit,
       "page": listDedicatedVmHostInstancesRequest.page,
       "sortBy": listDedicatedVmHostInstancesRequest.sortBy,
@@ -14615,7 +14618,8 @@ You can limit the list by specifying a dedicated virtual machine host display na
       "remainingMemoryInGBsGreaterThanOrEqualTo":
         listDedicatedVmHostsRequest.remainingMemoryInGBsGreaterThanOrEqualTo,
       "remainingOcpusGreaterThanOrEqualTo":
-        listDedicatedVmHostsRequest.remainingOcpusGreaterThanOrEqualTo
+        listDedicatedVmHostsRequest.remainingOcpusGreaterThanOrEqualTo,
+      "isMemoryEncryptionEnabled": listDedicatedVmHostsRequest.isMemoryEncryptionEnabled
     };
 
     let headerParams = {

@@ -36,16 +36,31 @@ export interface DedicatedVmHostInstanceShapeSummary {
    *
    */
   "instanceShapeName": string;
+  "supportedCapabilities"?: model.SupportedCapabilities;
 }
 
 export namespace DedicatedVmHostInstanceShapeSummary {
   export function getJsonObj(obj: DedicatedVmHostInstanceShapeSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "supportedCapabilities": obj.supportedCapabilities
+          ? model.SupportedCapabilities.getJsonObj(obj.supportedCapabilities)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: DedicatedVmHostInstanceShapeSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "supportedCapabilities": obj.supportedCapabilities
+          ? model.SupportedCapabilities.getDeserializedJsonObj(obj.supportedCapabilities)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

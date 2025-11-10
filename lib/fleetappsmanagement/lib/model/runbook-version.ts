@@ -17,6 +17,8 @@ import common = require("oci-common");
 
 /**
  * Version for the runbook.
+ * Versioning runbooks in Fleet Application Management involve assigning unique identifiers or version numbers to different iterations of the runbook to track changes, improvements, and updates over time.
+ *
  */
 export interface RunbookVersion {
   /**
@@ -47,7 +49,7 @@ export interface RunbookVersion {
    */
   "name"?: string;
   /**
-   * The current state of the FleetResource.
+   * The current state of the runbook version.
    */
   "lifecycleState"?: RunbookVersion.LifecycleState;
   /**

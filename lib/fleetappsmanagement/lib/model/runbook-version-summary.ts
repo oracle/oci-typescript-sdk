@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Summary of the FleetResource.
+ * Summary of the runbook version.
  */
 export interface RunbookVersionSummary {
   /**
@@ -52,7 +52,7 @@ export interface RunbookVersionSummary {
    */
   "isLatest"?: boolean;
   /**
-   * The current state of the Runbook.
+   * The current state of the Runbook version.
    */
   "lifecycleState"?: string;
   /**

@@ -34,6 +34,11 @@ Example: {@code Uocm:PHX-AD-1}
  */
   "availabilityDomain"?: string;
   /**
+   * A filter to return only confidential Dedicated VM hosts (DVMH) or confidential VM instances on DVMH.
+   *
+   */
+  "isMemoryEncryptionEnabled"?: boolean;
+  /**
  * For list pagination. The maximum number of results per page, or items to return in a paginated
 * \"List\" call. For important details about how pagination works, see
 * [List Pagination](https://docs.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).

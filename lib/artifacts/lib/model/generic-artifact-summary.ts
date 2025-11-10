@@ -1,7 +1,12 @@
 /**
  * Artifacts and Container Images API
- * API covering the Artifacts and [Registry](https://docs.oracle.com/iaas/Content/Registry/Concepts/registryoverview.htm) services.
-Use this API to manage resources such as generic artifacts and container images.
+ * Use the Artifacts and Container Images API to manage container images and non-container generic artifacts. 
+
+- For container images such as Docker images, use the {@link ContainerImage} resource. Save the images in a {@link ContainerRepository}.
+
+- For non-container generic artifacts or blobs, use the {@link GenericArtifact} resource. Save the artifacts in an {@link Repository}.
+- To upload and download non-container generic artifacts, instead of the Artifacts and Container Images API, use the Generic Artifacts Content API.
+For more information, see the user guides for [Container Registry](https://docs.oracle.com/iaas/Content/Registry/home.htm) and [Artifact Registry](https://docs.oracle.com/iaas/Content/artifacts/home.htm).
 
  * OpenAPI spec version: 20160918
  * 
@@ -45,7 +50,7 @@ Example: {@code project01/my-web-app/artifact-abc:1.0.0}
   /**
     * A user-defined path to describe the location of an artifact. Slashes do not create a directory structure, but you can use slashes to organize the repository. An artifact path does not include an artifact version.
 * <p>
-Example: {@code project01/my-web-app/artifact-abc} 
+Example: {@code project01/my-web-app/artifact-abc}
 * 
     */
   "artifactPath": string;
