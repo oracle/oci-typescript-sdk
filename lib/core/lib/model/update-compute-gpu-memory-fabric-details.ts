@@ -48,16 +48,33 @@ Example: {@code {\"Department\": \"Finance\"}}
    *
    */
   "displayName"?: string;
+  "memoryFabricPreferences"?: model.MemoryFabricPreferencesDescriptor;
 }
 
 export namespace UpdateComputeGpuMemoryFabricDetails {
   export function getJsonObj(obj: UpdateComputeGpuMemoryFabricDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "memoryFabricPreferences": obj.memoryFabricPreferences
+          ? model.MemoryFabricPreferencesDescriptor.getJsonObj(obj.memoryFabricPreferences)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: UpdateComputeGpuMemoryFabricDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "memoryFabricPreferences": obj.memoryFabricPreferences
+          ? model.MemoryFabricPreferencesDescriptor.getDeserializedJsonObj(
+              obj.memoryFabricPreferences
+            )
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

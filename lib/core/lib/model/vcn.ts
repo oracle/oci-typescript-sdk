@@ -151,7 +151,7 @@ Example: {@code vcn1.oraclevcn.com}
     */
   "vcnDomainName"?: string;
   /**
-   * Indicates whether Zpr Only Mode is enforced.
+   * Indicates whether ZPR Only mode is enforced.
    *
    */
   "isZprOnly"?: boolean;

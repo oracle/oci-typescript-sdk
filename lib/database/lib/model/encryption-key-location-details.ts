@@ -43,6 +43,11 @@ export namespace EncryptionKeyLocationDetails {
             <model.AzureEncryptionKeyDetails>(<object>jsonObj),
             true
           );
+        case "AWS":
+          return model.AwsEncryptionKeyDetails.getJsonObj(
+            <model.AwsEncryptionKeyDetails>(<object>jsonObj),
+            true
+          );
         default:
           if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.providerType}`);
       }
@@ -67,6 +72,11 @@ export namespace EncryptionKeyLocationDetails {
         case "AZURE":
           return model.AzureEncryptionKeyDetails.getDeserializedJsonObj(
             <model.AzureEncryptionKeyDetails>(<object>jsonObj),
+            true
+          );
+        case "AWS":
+          return model.AwsEncryptionKeyDetails.getDeserializedJsonObj(
+            <model.AwsEncryptionKeyDetails>(<object>jsonObj),
             true
           );
         default:

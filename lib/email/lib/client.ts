@@ -327,6 +327,167 @@ export class EmailClient {
   /**
    * Adds a lock to a resource.
    * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param AddEmailIpPoolLockRequest
+   * @return AddEmailIpPoolLockResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/AddEmailIpPoolLock.ts.html |here} to see how to use AddEmailIpPoolLock API.
+   */
+  public async addEmailIpPoolLock(
+    addEmailIpPoolLockRequest: requests.AddEmailIpPoolLockRequest
+  ): Promise<responses.AddEmailIpPoolLockResponse> {
+    if (this.logger) this.logger.debug("Calling operation EmailClient#addEmailIpPoolLock.");
+    const operationName = "addEmailIpPoolLock";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/emaildelivery/20170907/EmailIpPool/AddEmailIpPoolLock";
+    const pathParams = {
+      "{emailIpPoolId}": addEmailIpPoolLockRequest.emailIpPoolId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": addEmailIpPoolLockRequest.opcRequestId,
+      "if-match": addEmailIpPoolLockRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      addEmailIpPoolLockRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/emailIpPools/{emailIpPoolId}/actions/addLock",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        addEmailIpPoolLockRequest.addLockDetails,
+        "AddLockDetails",
+        model.AddLockDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AddEmailIpPoolLockResponse>{},
+        body: await response.json(),
+        bodyKey: "emailIpPool",
+        bodyModel: model.EmailIpPool,
+        type: "model.EmailIpPool",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Add OutboundIps to EmailIpPool.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param AddEmailOutboundIpRequest
+   * @return AddEmailOutboundIpResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/AddEmailOutboundIp.ts.html |here} to see how to use AddEmailOutboundIp API.
+   */
+  public async addEmailOutboundIp(
+    addEmailOutboundIpRequest: requests.AddEmailOutboundIpRequest
+  ): Promise<responses.AddEmailOutboundIpResponse> {
+    if (this.logger) this.logger.debug("Calling operation EmailClient#addEmailOutboundIp.");
+    const operationName = "addEmailOutboundIp";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/emaildelivery/20170907/EmailIpPool/AddEmailOutboundIp";
+    const pathParams = {
+      "{emailIpPoolId}": addEmailOutboundIpRequest.emailIpPoolId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": addEmailOutboundIpRequest.opcRequestId,
+      "if-match": addEmailOutboundIpRequest.ifMatch,
+      "opc-retry-token": addEmailOutboundIpRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      addEmailOutboundIpRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/emailIpPools/{emailIpPoolId}/actions/addEmailOutboundIp",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        addEmailOutboundIpRequest.addEmailOutboundIpDetails,
+        "AddEmailOutboundIpDetails",
+        model.AddEmailOutboundIpDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AddEmailOutboundIpResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Adds a lock to a resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param AddReturnPathLockRequest
    * @return AddReturnPathLockResponse
    * @throws OciError when an error occurs
@@ -556,6 +717,88 @@ export class EmailClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeEmailDomainCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Moves a resource into a different compartment. When provided, If-Match is checked against ETag values of the resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ChangeEmailIpPoolCompartmentRequest
+   * @return ChangeEmailIpPoolCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/ChangeEmailIpPoolCompartment.ts.html |here} to see how to use ChangeEmailIpPoolCompartment API.
+   */
+  public async changeEmailIpPoolCompartment(
+    changeEmailIpPoolCompartmentRequest: requests.ChangeEmailIpPoolCompartmentRequest
+  ): Promise<responses.ChangeEmailIpPoolCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation EmailClient#changeEmailIpPoolCompartment.");
+    const operationName = "changeEmailIpPoolCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/emaildelivery/20170907/EmailIpPool/ChangeEmailIpPoolCompartment";
+    const pathParams = {
+      "{emailIpPoolId}": changeEmailIpPoolCompartmentRequest.emailIpPoolId
+    };
+
+    const queryParams = {
+      "isLockOverride": changeEmailIpPoolCompartmentRequest.isLockOverride
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeEmailIpPoolCompartmentRequest.ifMatch,
+      "opc-request-id": changeEmailIpPoolCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeEmailIpPoolCompartmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeEmailIpPoolCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/emailIpPools/{emailIpPoolId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeEmailIpPoolCompartmentRequest.changeEmailIpPoolCompartmentDetails,
+        "ChangeEmailIpPoolCompartmentDetails",
+        model.ChangeEmailIpPoolCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeEmailIpPoolCompartmentResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -811,6 +1054,101 @@ export class EmailClient {
         bodyKey: "emailDomain",
         bodyModel: model.EmailDomain,
         type: "model.EmailDomain",
+        responseHeaders: [
+          {
+            value: response.headers.get("Content-Location"),
+            key: "contentLocation",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("Location"),
+            key: "location",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new EmailIpPool.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateEmailIpPoolRequest
+   * @return CreateEmailIpPoolResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/CreateEmailIpPool.ts.html |here} to see how to use CreateEmailIpPool API.
+   */
+  public async createEmailIpPool(
+    createEmailIpPoolRequest: requests.CreateEmailIpPoolRequest
+  ): Promise<responses.CreateEmailIpPoolResponse> {
+    if (this.logger) this.logger.debug("Calling operation EmailClient#createEmailIpPool.");
+    const operationName = "createEmailIpPool";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/emaildelivery/20170907/EmailIpPool/CreateEmailIpPool";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createEmailIpPoolRequest.opcRetryToken,
+      "opc-request-id": createEmailIpPoolRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createEmailIpPoolRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/emailIpPools",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createEmailIpPoolRequest.createEmailIpPoolDetails,
+        "CreateEmailIpPoolDetails",
+        model.CreateEmailIpPoolDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateEmailIpPoolResponse>{},
+        body: await response.json(),
+        bodyKey: "emailIpPool",
+        bodyModel: model.EmailIpPool,
+        type: "model.EmailIpPool",
         responseHeaders: [
           {
             value: response.headers.get("Content-Location"),
@@ -1253,6 +1591,81 @@ export class EmailClient {
   }
 
   /**
+   * Deletes an EmailIpPool resource by identifier
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteEmailIpPoolRequest
+   * @return DeleteEmailIpPoolResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/DeleteEmailIpPool.ts.html |here} to see how to use DeleteEmailIpPool API.
+   */
+  public async deleteEmailIpPool(
+    deleteEmailIpPoolRequest: requests.DeleteEmailIpPoolRequest
+  ): Promise<responses.DeleteEmailIpPoolResponse> {
+    if (this.logger) this.logger.debug("Calling operation EmailClient#deleteEmailIpPool.");
+    const operationName = "deleteEmailIpPool";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/emaildelivery/20170907/EmailIpPool/DeleteEmailIpPool";
+    const pathParams = {
+      "{emailIpPoolId}": deleteEmailIpPoolRequest.emailIpPoolId
+    };
+
+    const queryParams = {
+      "isLockOverride": deleteEmailIpPoolRequest.isLockOverride
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteEmailIpPoolRequest.ifMatch,
+      "opc-request-id": deleteEmailIpPoolRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteEmailIpPoolRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/emailIpPools/{emailIpPoolId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteEmailIpPoolResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes an email return path.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteEmailReturnPathRequest
@@ -1672,6 +2085,82 @@ export class EmailClient {
         bodyKey: "emailDomain",
         bodyModel: model.EmailDomain,
         type: "model.EmailDomain",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Retrieves the specified IpPool by identifier
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetEmailIpPoolRequest
+   * @return GetEmailIpPoolResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/GetEmailIpPool.ts.html |here} to see how to use GetEmailIpPool API.
+   */
+  public async getEmailIpPool(
+    getEmailIpPoolRequest: requests.GetEmailIpPoolRequest
+  ): Promise<responses.GetEmailIpPoolResponse> {
+    if (this.logger) this.logger.debug("Calling operation EmailClient#getEmailIpPool.");
+    const operationName = "getEmailIpPool";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/emaildelivery/20170907/EmailIpPool/GetEmailIpPool";
+    const pathParams = {
+      "{emailIpPoolId}": getEmailIpPoolRequest.emailIpPoolId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getEmailIpPoolRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getEmailIpPoolRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/emailIpPools/{emailIpPoolId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetEmailIpPoolResponse>{},
+        body: await response.json(),
+        bodyKey: "emailIpPool",
+        bodyModel: model.EmailIpPool,
+        type: "model.EmailIpPool",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -2160,6 +2649,172 @@ export class EmailClient {
   }
 
   /**
+   * Returns a list of EmailIpPools.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListEmailIpPoolsRequest
+   * @return ListEmailIpPoolsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/ListEmailIpPools.ts.html |here} to see how to use ListEmailIpPools API.
+   */
+  public async listEmailIpPools(
+    listEmailIpPoolsRequest: requests.ListEmailIpPoolsRequest
+  ): Promise<responses.ListEmailIpPoolsResponse> {
+    if (this.logger) this.logger.debug("Calling operation EmailClient#listEmailIpPools.");
+    const operationName = "listEmailIpPools";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/emaildelivery/20170907/EmailIpPoolCollection/ListEmailIpPools";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listEmailIpPoolsRequest.compartmentId,
+      "id": listEmailIpPoolsRequest.id,
+      "name": listEmailIpPoolsRequest.name,
+      "lifecycleState": listEmailIpPoolsRequest.lifecycleState,
+      "limit": listEmailIpPoolsRequest.limit,
+      "page": listEmailIpPoolsRequest.page,
+      "sortOrder": listEmailIpPoolsRequest.sortOrder,
+      "sortBy": listEmailIpPoolsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listEmailIpPoolsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listEmailIpPoolsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/emailIpPools",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListEmailIpPoolsResponse>{},
+        body: await response.json(),
+        bodyKey: "emailIpPoolCollection",
+        bodyModel: model.EmailIpPoolCollection,
+        type: "model.EmailIpPoolCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns a list of all Outbound Public IPs assigned for a given tenant.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListEmailOutboundIpsRequest
+   * @return ListEmailOutboundIpsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/ListEmailOutboundIps.ts.html |here} to see how to use ListEmailOutboundIps API.
+   */
+  public async listEmailOutboundIps(
+    listEmailOutboundIpsRequest: requests.ListEmailOutboundIpsRequest
+  ): Promise<responses.ListEmailOutboundIpsResponse> {
+    if (this.logger) this.logger.debug("Calling operation EmailClient#listEmailOutboundIps.");
+    const operationName = "listEmailOutboundIps";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/emaildelivery/20170907/EmailOutboundIpCollection/ListEmailOutboundIps";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listEmailOutboundIpsRequest.compartmentId,
+      "outboundIp": listEmailOutboundIpsRequest.outboundIp,
+      "limit": listEmailOutboundIpsRequest.limit,
+      "page": listEmailOutboundIpsRequest.page,
+      "sortOrder": listEmailOutboundIpsRequest.sortOrder,
+      "lifecycleState": listEmailOutboundIpsRequest.lifecycleState,
+      "assignmentState": listEmailOutboundIpsRequest.assignmentState,
+      "sortBy": listEmailOutboundIpsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listEmailOutboundIpsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listEmailOutboundIpsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/emailOutboundIps",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListEmailOutboundIpsResponse>{},
+        body: await response.json(),
+        bodyKey: "emailOutboundIpCollection",
+        bodyModel: model.EmailOutboundIpCollection,
+        type: "model.EmailOutboundIpCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Lists email return paths in the specified compartment or emaildomain.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListEmailReturnPathsRequest
@@ -2266,6 +2921,7 @@ export class EmailClient {
       "lifecycleState": listSendersRequest.lifecycleState,
       "domain": listSendersRequest.domain,
       "emailAddress": listSendersRequest.emailAddress,
+      "emailIpPoolId": listSendersRequest.emailIpPoolId,
       "page": listSendersRequest.page,
       "limit": listSendersRequest.limit,
       "sortBy": listSendersRequest.sortBy,
@@ -2857,6 +3513,167 @@ export class EmailClient {
   /**
    * Remove a lock to a resource.
    * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param RemoveEmailIpPoolLockRequest
+   * @return RemoveEmailIpPoolLockResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/RemoveEmailIpPoolLock.ts.html |here} to see how to use RemoveEmailIpPoolLock API.
+   */
+  public async removeEmailIpPoolLock(
+    removeEmailIpPoolLockRequest: requests.RemoveEmailIpPoolLockRequest
+  ): Promise<responses.RemoveEmailIpPoolLockResponse> {
+    if (this.logger) this.logger.debug("Calling operation EmailClient#removeEmailIpPoolLock.");
+    const operationName = "removeEmailIpPoolLock";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/emaildelivery/20170907/EmailIpPool/RemoveEmailIpPoolLock";
+    const pathParams = {
+      "{emailIpPoolId}": removeEmailIpPoolLockRequest.emailIpPoolId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": removeEmailIpPoolLockRequest.opcRequestId,
+      "if-match": removeEmailIpPoolLockRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removeEmailIpPoolLockRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/emailIpPools/{emailIpPoolId}/actions/removeLock",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        removeEmailIpPoolLockRequest.removeLockDetails,
+        "RemoveLockDetails",
+        model.RemoveLockDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RemoveEmailIpPoolLockResponse>{},
+        body: await response.json(),
+        bodyKey: "emailIpPool",
+        bodyModel: model.EmailIpPool,
+        type: "model.EmailIpPool",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Remove OutboundIps from EmailIpPool.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param RemoveEmailOutboundIpRequest
+   * @return RemoveEmailOutboundIpResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/RemoveEmailOutboundIp.ts.html |here} to see how to use RemoveEmailOutboundIp API.
+   */
+  public async removeEmailOutboundIp(
+    removeEmailOutboundIpRequest: requests.RemoveEmailOutboundIpRequest
+  ): Promise<responses.RemoveEmailOutboundIpResponse> {
+    if (this.logger) this.logger.debug("Calling operation EmailClient#removeEmailOutboundIp.");
+    const operationName = "removeEmailOutboundIp";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/emaildelivery/20170907/EmailIpPool/RemoveEmailOutboundIp";
+    const pathParams = {
+      "{emailIpPoolId}": removeEmailOutboundIpRequest.emailIpPoolId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": removeEmailOutboundIpRequest.opcRequestId,
+      "if-match": removeEmailOutboundIpRequest.ifMatch,
+      "opc-retry-token": removeEmailOutboundIpRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removeEmailOutboundIpRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/emailIpPools/{emailIpPoolId}/actions/removeEmailOutboundIp",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        removeEmailOutboundIpRequest.removeEmailOutboundIpDetails,
+        "RemoveEmailOutboundIpDetails",
+        model.RemoveEmailOutboundIpDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RemoveEmailOutboundIpResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Remove a lock to a resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param RemoveReturnPathLockRequest
    * @return RemoveReturnPathLockResponse
    * @throws OciError when an error occurs
@@ -3156,6 +3973,86 @@ export class EmailClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateEmailDomainResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the EmailIpPool
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateEmailIpPoolRequest
+   * @return UpdateEmailIpPoolResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/email/UpdateEmailIpPool.ts.html |here} to see how to use UpdateEmailIpPool API.
+   */
+  public async updateEmailIpPool(
+    updateEmailIpPoolRequest: requests.UpdateEmailIpPoolRequest
+  ): Promise<responses.UpdateEmailIpPoolResponse> {
+    if (this.logger) this.logger.debug("Calling operation EmailClient#updateEmailIpPool.");
+    const operationName = "updateEmailIpPool";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/emaildelivery/20170907/EmailIpPool/UpdateEmailIpPool";
+    const pathParams = {
+      "{emailIpPoolId}": updateEmailIpPoolRequest.emailIpPoolId
+    };
+
+    const queryParams = {
+      "isLockOverride": updateEmailIpPoolRequest.isLockOverride
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateEmailIpPoolRequest.ifMatch,
+      "opc-request-id": updateEmailIpPoolRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateEmailIpPoolRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/emailIpPools/{emailIpPoolId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateEmailIpPoolRequest.updateEmailIpPoolDetails,
+        "UpdateEmailIpPoolDetails",
+        model.UpdateEmailIpPoolDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateEmailIpPoolResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),

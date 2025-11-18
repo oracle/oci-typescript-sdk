@@ -34,6 +34,10 @@ export enum OperationType {
   CreateReturnPath = "CREATE_RETURN_PATH",
   DeleteReturnPath = "DELETE_RETURN_PATH",
   UpdateReturnPath = "UPDATE_RETURN_PATH",
+  CreateIpPool = "CREATE_IP_POOL",
+  UpdateIpPool = "UPDATE_IP_POOL",
+  DeleteIpPool = "DELETE_IP_POOL",
+  MoveIpPool = "MOVE_IP_POOL",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

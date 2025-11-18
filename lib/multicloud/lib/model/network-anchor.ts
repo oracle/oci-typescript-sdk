@@ -56,7 +56,7 @@ Example: {@code 2016-08-25T21:10:29.600Z}
   /**
    * The current state of the NetworkAnchor.
    */
-  "lifecycleState": NetworkAnchor.LifecycleState;
+  "networkAnchorLifecycleState": NetworkAnchor.NetworkAnchorLifecycleState;
   /**
    * A message that describes the current state of the NetworkAnchor in more detail. For example,
    * can be used to provide actionable information for a resource in the Failed state.
@@ -99,10 +99,14 @@ Example: {@code {\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}}
   "clusterPlacementGroupId"?: string;
   "ociMetadataItem"?: model.OciNetworkMetadata;
   "cloudServiceProviderMetadataItem"?: model.CloudServiceProviderNetworkMetadataItem;
+  /**
+   * Oracle Cloud Infrastructure Subscription Type.
+   */
+  "subscriptionType"?: model.SubscriptionType;
 }
 
 export namespace NetworkAnchor {
-  export enum LifecycleState {
+  export enum NetworkAnchorLifecycleState {
     Creating = "CREATING",
     Updating = "UPDATING",
     Active = "ACTIVE",

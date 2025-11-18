@@ -80,6 +80,37 @@ export interface ComputeGpuMemoryFabric {
    */
   "totalHostCount": number;
   /**
+   * The host platform identifier used for bundle queries
+   *
+   */
+  "hostPlatformName"?: string;
+  /**
+   * The switch platform identifier used for bundle queries
+   *
+   */
+  "switchPlatformName"?: string;
+  /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) for current firmware bundle
+   *
+   */
+  "currentFirmwareBundleId"?: string;
+  /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) for targeted firmware bundle
+   *
+   */
+  "targetFirmwareBundleId"?: string;
+  /**
+   * The state of Memory Fabric Firmware update
+   *
+   */
+  "firmwareUpdateState"?: ComputeGpuMemoryFabric.FirmwareUpdateState;
+  /**
+   * The reason for updating firmware bundle version of the GPU memory fabric.
+   *
+   */
+  "firmwareUpdateReason"?: string;
+  "memoryFabricPreferences"?: model.MemoryFabricPreferencesDescriptor;
+  /**
     * The date and time that the compute GPU memory fabric record was created, in the format defined by [RFC3339]
 * (https://tools.ietf.org/html/rfc3339).
 * <p>
@@ -141,13 +172,40 @@ export namespace ComputeGpuMemoryFabric {
     UnknownValue = "UNKNOWN_VALUE"
   }
 
+  export enum FirmwareUpdateState {
+    WillUpdate = "WILL_UPDATE",
+    NoUpdate = "NO_UPDATE",
+    SkipRecycleEnabled = "SKIP_RECYCLE_ENABLED",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: ComputeGpuMemoryFabric): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "memoryFabricPreferences": obj.memoryFabricPreferences
+          ? model.MemoryFabricPreferencesDescriptor.getJsonObj(obj.memoryFabricPreferences)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: ComputeGpuMemoryFabric): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "memoryFabricPreferences": obj.memoryFabricPreferences
+          ? model.MemoryFabricPreferencesDescriptor.getDeserializedJsonObj(
+              obj.memoryFabricPreferences
+            )
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

@@ -15,7 +15,6 @@ import * as requests from "./lib/request";
 import * as models from "./lib/model";
 import * as responses from "./lib/response";
 import * as client from "./lib/client";
-import * as omhubnetworkanchor_waiter from "./lib/omhubnetworkanchor-waiter";
 import * as omhubresourceanchor_waiter from "./lib/omhubresourceanchor-waiter";
 
 export { models };
@@ -23,7 +22,8 @@ export { requests };
 export { responses };
 export import MetadataClient = client.MetadataClient;
 export import MultiCloudsMetadataClient = client.MultiCloudsMetadataClient;
+export import MulticloudResourcesClient = client.MulticloudResourcesClient;
+export import MulticloudsubscriptionsClient = client.MulticloudsubscriptionsClient;
 export import OmhubNetworkAnchorClient = client.OmhubNetworkAnchorClient;
-export import OmhubNetworkAnchorWaiter = omhubnetworkanchor_waiter.OmhubNetworkAnchorWaiter;
 export import OmhubResourceAnchorClient = client.OmhubResourceAnchorClient;
 export import OmhubResourceAnchorWaiter = omhubresourceanchor_waiter.OmhubResourceAnchorWaiter;

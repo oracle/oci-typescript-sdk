@@ -23,11 +23,11 @@ export interface GetResourceAnchorRequest extends common.BaseRequest {
    */
   "resourceAnchorId": string;
   /**
-   * The subscription service name values from [ORACLEDBATAZURE, ORACLEDBATGOOGLE, ORACLEDBATAWS]
+   * The subscription service name of the Cloud Service Provider.
    */
   "subscriptionServiceName": model.SubscriptionType;
   /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subscription in which to list resources.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Multicloud subscription in which to list resources.
    */
   "subscriptionId": string;
   /**
@@ -38,4 +38,8 @@ export interface GetResourceAnchorRequest extends common.BaseRequest {
    *
    */
   "opcRequestId"?: string;
+  /**
+   * Whether to fetch and include the compartment name, setting this field to yes may introduce additional latency.
+   */
+  "shouldFetchCompartmentName"?: boolean;
 }

@@ -29,6 +29,12 @@ It relies on both the Oracle Azure Connector and the Oracle Azure Blob Container
 <b>Google Key Rings Resource:</b>&nbsp;&nbsp;The Google Key Rings Resource is used to register and manage Google Cloud Key Rings within Oracle Cloud Infrastructure (OCI) for use with services such as Oracle Exadata Database Service on Dedicated Infrastructure.
 
 <b>Google Key Resource:</b>&nbsp;&nbsp;The Google Key Resource is used to register and manage a Google Cloud Key within Oracle Cloud Infrastructure (OCI) under an associated Google Key Ring.
+<br>
+
+<b>AWS</b>:<br>
+<b>Oracle AWS Connector Resource:</b>&nbsp;&nbsp;The Oracle AWS Connector Resource is used to install the AWS Identity Connector on an Exadata VM cluster in Oracle Exadata Database Service on Dedicated Infrastructure (ExaDB-D).
+
+<b>Google AWS Key Resource:</b>&nbsp;&nbsp;The Oracle AWS Key Resource is used to register and manage a AWS Key within Oracle Cloud Infrastructure (OCI).
 
  * OpenAPI spec version: 20240501
  * 
@@ -40,6 +46,34 @@ It relies on both the Oracle Azure Connector and the Oracle Azure Blob Container
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as ChangeOracleDbAwsIdentityConnectorCompartmentResponse from "./change-oracle-db-aws-identity-connector-compartment-response";
+export import ChangeOracleDbAwsIdentityConnectorCompartmentResponse = ChangeOracleDbAwsIdentityConnectorCompartmentResponse.ChangeOracleDbAwsIdentityConnectorCompartmentResponse;
+import * as ChangeOracleDbAwsKeyCompartmentResponse from "./change-oracle-db-aws-key-compartment-response";
+export import ChangeOracleDbAwsKeyCompartmentResponse = ChangeOracleDbAwsKeyCompartmentResponse.ChangeOracleDbAwsKeyCompartmentResponse;
+import * as CreateOracleDbAwsIdentityConnectorResponse from "./create-oracle-db-aws-identity-connector-response";
+export import CreateOracleDbAwsIdentityConnectorResponse = CreateOracleDbAwsIdentityConnectorResponse.CreateOracleDbAwsIdentityConnectorResponse;
+import * as CreateOracleDbAwsKeyResponse from "./create-oracle-db-aws-key-response";
+export import CreateOracleDbAwsKeyResponse = CreateOracleDbAwsKeyResponse.CreateOracleDbAwsKeyResponse;
+import * as DeleteOracleDbAwsIdentityConnectorResponse from "./delete-oracle-db-aws-identity-connector-response";
+export import DeleteOracleDbAwsIdentityConnectorResponse = DeleteOracleDbAwsIdentityConnectorResponse.DeleteOracleDbAwsIdentityConnectorResponse;
+import * as DeleteOracleDbAwsKeyResponse from "./delete-oracle-db-aws-key-response";
+export import DeleteOracleDbAwsKeyResponse = DeleteOracleDbAwsKeyResponse.DeleteOracleDbAwsKeyResponse;
+import * as GetOracleDbAwsIdentityConnectorResponse from "./get-oracle-db-aws-identity-connector-response";
+export import GetOracleDbAwsIdentityConnectorResponse = GetOracleDbAwsIdentityConnectorResponse.GetOracleDbAwsIdentityConnectorResponse;
+import * as GetOracleDbAwsKeyResponse from "./get-oracle-db-aws-key-response";
+export import GetOracleDbAwsKeyResponse = GetOracleDbAwsKeyResponse.GetOracleDbAwsKeyResponse;
+import * as ListOracleDbAwsIdentityConnectorsResponse from "./list-oracle-db-aws-identity-connectors-response";
+export import ListOracleDbAwsIdentityConnectorsResponse = ListOracleDbAwsIdentityConnectorsResponse.ListOracleDbAwsIdentityConnectorsResponse;
+import * as ListOracleDbAwsKeysResponse from "./list-oracle-db-aws-keys-response";
+export import ListOracleDbAwsKeysResponse = ListOracleDbAwsKeysResponse.ListOracleDbAwsKeysResponse;
+import * as RefreshOracleDbAwsIdentityConnectorResponse from "./refresh-oracle-db-aws-identity-connector-response";
+export import RefreshOracleDbAwsIdentityConnectorResponse = RefreshOracleDbAwsIdentityConnectorResponse.RefreshOracleDbAwsIdentityConnectorResponse;
+import * as RefreshOracleDbAwsKeyResponse from "./refresh-oracle-db-aws-key-response";
+export import RefreshOracleDbAwsKeyResponse = RefreshOracleDbAwsKeyResponse.RefreshOracleDbAwsKeyResponse;
+import * as UpdateOracleDbAwsIdentityConnectorResponse from "./update-oracle-db-aws-identity-connector-response";
+export import UpdateOracleDbAwsIdentityConnectorResponse = UpdateOracleDbAwsIdentityConnectorResponse.UpdateOracleDbAwsIdentityConnectorResponse;
+import * as UpdateOracleDbAwsKeyResponse from "./update-oracle-db-aws-key-response";
+export import UpdateOracleDbAwsKeyResponse = UpdateOracleDbAwsKeyResponse.UpdateOracleDbAwsKeyResponse;
 import * as ChangeOracleDbGcpIdentityConnectorCompartmentResponse from "./change-oracle-db-gcp-identity-connector-compartment-response";
 export import ChangeOracleDbGcpIdentityConnectorCompartmentResponse = ChangeOracleDbGcpIdentityConnectorCompartmentResponse.ChangeOracleDbGcpIdentityConnectorCompartmentResponse;
 import * as ChangeOracleDbGcpKeyRingCompartmentResponse from "./change-oracle-db-gcp-key-ring-compartment-response";

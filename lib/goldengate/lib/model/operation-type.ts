@@ -62,6 +62,7 @@ export enum OperationType {
   GoldengatePipelineMove = "GOLDENGATE_PIPELINE_MOVE",
   GoldengatePipelineDiagnosticsCollect = "GOLDENGATE_PIPELINE_DIAGNOSTICS_COLLECT",
   GoldengateSwitchoverDeploymentPeer = "GOLDENGATE_SWITCHOVER_DEPLOYMENT_PEER",
+  GoldengatePipelinePause = "GOLDENGATE_PIPELINE_PAUSE",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

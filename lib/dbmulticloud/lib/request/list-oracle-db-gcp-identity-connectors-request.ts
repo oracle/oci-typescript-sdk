@@ -27,7 +27,7 @@ export interface ListOracleDbGcpIdentityConnectorsRequest extends common.BaseReq
    */
   "displayName"?: string;
   /**
-   * A filter to return Oracle DB GCP Identity Connector resource that match the given resource [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   * A filter to return Oracle DB Identity Connector resource that match the given resource [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "resourceId"?: string;
   /**

@@ -143,6 +143,10 @@ Example: '{\"6395\": 2, \"8134\": 1, \"21943\": 0.5, \"5923\": -100}'
    */
   "tools"?: Array<model.ToolDefinition>;
   "webSearchOptions"?: model.WebSearchOptions;
+  /**
+   * Specifies the processing type used for serving the request.
+   */
+  "serviceTier"?: GenericChatRequest.ServiceTier;
 
   "apiFormat": string;
 }
@@ -159,6 +163,12 @@ export namespace GenericChatRequest {
     Low = "LOW",
     Medium = "MEDIUM",
     High = "HIGH"
+  }
+
+  export enum ServiceTier {
+    Auto = "AUTO",
+    Default = "DEFAULT",
+    Priority = "PRIORITY"
   }
 
   export function getJsonObj(obj: GenericChatRequest, isParentJsonObj?: boolean): object {

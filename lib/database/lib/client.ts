@@ -31959,6 +31959,91 @@ This operation should always be performed on primary.
   }
 
   /**
+   * Refreshes the Data Guard health status for the specified database. This operation is supported on both primary and standby databases.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param RefreshDataGuardHealthStatusRequest
+   * @return RefreshDataGuardHealthStatusResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/RefreshDataGuardHealthStatus.ts.html |here} to see how to use RefreshDataGuardHealthStatus API.
+   */
+  public async refreshDataGuardHealthStatus(
+    refreshDataGuardHealthStatusRequest: requests.RefreshDataGuardHealthStatusRequest
+  ): Promise<responses.RefreshDataGuardHealthStatusResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#refreshDataGuardHealthStatus.");
+    const operationName = "refreshDataGuardHealthStatus";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/Database/RefreshDataGuardHealthStatus";
+    const pathParams = {
+      "{databaseId}": refreshDataGuardHealthStatusRequest.databaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": refreshDataGuardHealthStatusRequest.opcRetryToken,
+      "opc-request-id": refreshDataGuardHealthStatusRequest.opcRequestId,
+      "if-match": refreshDataGuardHealthStatusRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      refreshDataGuardHealthStatusRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databases/{databaseId}/dataGuard/actions/refresh",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RefreshDataGuardHealthStatusResponse>{},
+        body: await response.json(),
+        bodyKey: "database",
+        bodyModel: model.Database,
+        type: "model.Database",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Refreshes a pluggable database (PDB) Refreshable clone.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.

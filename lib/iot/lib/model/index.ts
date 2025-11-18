@@ -105,6 +105,8 @@ import * as UpdateIotDomainDetails from "./update-iot-domain-details";
 export import UpdateIotDomainDetails = UpdateIotDomainDetails.UpdateIotDomainDetails;
 import * as UpdateIotDomainGroupDetails from "./update-iot-domain-group-details";
 export import UpdateIotDomainGroupDetails = UpdateIotDomainGroupDetails.UpdateIotDomainGroupDetails;
+import * as Vcn from "./vcn";
+export import Vcn = Vcn.Vcn;
 import * as WorkRequest from "./work-request";
 export import WorkRequest = WorkRequest.WorkRequest;
 import * as WorkRequestError from "./work-request-error";

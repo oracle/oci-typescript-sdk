@@ -15,7 +15,6 @@ import common = require("oci-common");
 import * as requests from "./request";
 import * as model from "./model";
 import * as responses from "./response";
-import { OmhubNetworkAnchorWaiter } from "./omhubnetworkanchor-waiter";
 import { OmhubResourceAnchorWaiter } from "./omhubresourceanchor-waiter";
 import {
   composeResponse,
@@ -215,112 +214,6 @@ export class MetadataClient {
 
   /**
    * List externalLocationDetail metadata from OCI to Cloud  Service Provider for regions, Availability Zones, and Cluster Placement Group ID.
-   * examples:
-   *   application-json: |
-   *     [
-   *       {
-   *           \"externalLocation\": {
-   *             \"cspRegion\": \"East US\",
-   *             \"cspPhysicalAz\": \"az1-xyz\",
-   *             \"cspPhysicalAzDisplayName\": \"(US) East US 2\",
-   *             \"cspLogicalAz\": \"az1\",
-   *             \"serviceName\": \"ORACLEDBATAZURE\",
-   *             \"cspZoneKeyReferenceId\": {
-   *               \"keyName\": \"AzureSubscriptionId or AwsAccountId, GcpProjectName\",
-   *               \"keyValue\": \"azure-subscriptionId-1 or aws-account-id-1, gcp-project-id-1\"
-   *             }
-   *           },
-   *           \"ociPhysicalAd\": \"ad1-xyb\",
-   *           \"ociLogicalAd\": \"ad2\",
-   *           \"ociRegion\": \"us-ashburn-1\",
-   *           \"cpgId\": \"cpg-1\"
-   *       },
-   *         {
-   *           \"externalLocation\": {
-   *             \"cspRegion\": \"East US\",
-   *             \"cspPhysicalAz\": \"az2-abc\",
-   *             \"cspPhysicalAzDisplayName\": \"(US) East US 2\",
-   *             \"cspLogicalAz\": \"az2\",
-   *             \"serviceName\": \"ORACLEDBATAZURE\",
-   *             \"cspZoneKeyReferenceId\": {
-   *               \"keyName\": \"AzureSubscriptionId or AwsAccountId, GcpProjectName\",
-   *               \"keyValue\": \"azure-subscriptionId-2 or aws-account-id-2, gcp-project-id-2\"
-   *             }
-   *           },
-   *           \"ociPhysicalAd\": \"ad2-xby\",
-   *           \"ociLogicalAd\": \"ad1\",
-   *           \"ociRegion\": \"us-ashburn-1\",
-   *           \"cpgId\": \"cpg-2\"
-   *         },
-   *         {
-   *           \"externalLocation\": {
-   *             \"cspRegion\": \"East US\",
-   *             \"cspPhysicalAz\": \"az3-abz\",
-   *             \"cspPhysicalAzDisplayName\": \"(US) East US 2\",
-   *             \"cspLogicalAz\": \"az3\",
-   *             \"serviceName\": \"ORACLEDBATAZURE\",
-   *             \"cspZoneKeyReferenceId\": {
-   *               \"keyName\": \"AzureSubscriptionId or AwsAccountId, GcpProjectName\",
-   *               \"keyValue\": \"azure-subscriptionId-3 or aws-account-id-3, gcp-project-id-3\"
-   *             }
-   *           },
-   *           \"ociPhysicalAd\": \"ad3-cde\",
-   *           \"ociLogicalAd\": \"ad3\",
-   *           \"ociRegion\": \"us-ashburn-1\",
-   *           \"cpgId\": \"cpg-3\"
-   *         },
-   *         {
-   *           \"externalLocation\": {
-   *             \"cspRegion\": \"East US 2\",
-   *             \"cspPhysicalAz\": \"az1-def\",
-   *             \"cspPhysicalAzDisplayName\": \"(US) East US 2\",
-   *             \"cspLogicalAz\": \"az1\",
-   *             \"serviceName\": \"ORACLEDBATAZURE\",
-   *             \"cspZoneKeyReferenceId\": {
-   *               \"keyName\": \"AzureSubscriptionId or AwsAccountId, GcpProjectName\",
-   *               \"keyValue\": \"azure-subscriptionId-4 or aws-account-id-4, gcp-project-id-4\"
-   *             }
-   *           },
-   *           \"ociPhysicalAd\": \"ad1-bce\",
-   *           \"ociLogicalAd\": \"ad2\",
-   *           \"ociRegion\": \"us-ashburn-1\",
-   *           \"cpgId\": \"cpg-4\"
-   *         },
-   *         {
-   *           \"externalLocation\": {
-   *             \"cspRegion\": \"East US 2\",
-   *             \"cspPhysicalAz\": \"az2-uvw\",
-   *             \"cspPhysicalAzDisplayName\": \"(US) East US 2\",
-   *             \"cspLogicalAz\": \"az2\",
-   *             \"serviceName\": \"ORACLEDBATAZURE\",
-   *             \"cspZoneKeyReferenceId\": {
-   *               \"keyName\": \"AzureSubscriptionId or AwsAccountId, GcpProjectName\",
-   *               \"keyValue\": \"azure-subscriptionId-3 or aws-account-id-3, gcp-project-id-3\"
-   *             }
-   *           },
-   *           \"ociPhysicalAd\": \"ad2-ftc\",
-   *           \"ociLogicalAd\": \"ad1\",
-   *           \"ociRegion\": \"us-ashburn-1\",
-   *           \"cpgId\": \"cpg-5\"
-   *         },
-   *         {
-   *           \"externalLocation\": {
-   *             \"cspRegion\": \"East US 2\",
-   *             \"cspPhysicalAz\": \"az3-uvw\",
-   *             \"cspPhysicalAzDisplayName\": \"(US) East US 2\",
-   *             \"cspLogicalAz\": \"az3\",
-   *             \"serviceName\": \"ORACLEDBATAZURE\",
-   *             \"cspZoneKeyReferenceId\": {
-   *               \"keyName\": \"AzureSubscriptionId or AwsAccountId, GcpProjectName\",
-   *               \"keyValue\": \"azure-subscriptionId-3 or aws-account-id-3, gcp-project-id-3\"
-   *             }
-   *           },
-   *           \"ociPhysicalAd\": \"ad3-stc\",
-   *           \"ociLogicalAd\": \"ad3\",
-   *           \"ociRegion\": \"us-ashburn-1\",
-   *           \"cpgId\": \"cpg-6\"
-   *         }
-   *       ]
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListExternalLocationDetailsMetadataRequest
@@ -343,6 +236,9 @@ export class MetadataClient {
       "compartmentId": listExternalLocationDetailsMetadataRequest.compartmentId,
       "linkedCompartmentId": listExternalLocationDetailsMetadataRequest.linkedCompartmentId,
       "subscriptionServiceName": listExternalLocationDetailsMetadataRequest.subscriptionServiceName,
+      "externalLocation": listExternalLocationDetailsMetadataRequest.externalLocation,
+      "logicalZone": listExternalLocationDetailsMetadataRequest.logicalZone,
+      "clusterPlacementGroupId": listExternalLocationDetailsMetadataRequest.clusterPlacementGroupId,
       "limit": listExternalLocationDetailsMetadataRequest.limit,
       "page": listExternalLocationDetailsMetadataRequest.page,
       "sortOrder": listExternalLocationDetailsMetadataRequest.sortOrder,
@@ -406,54 +302,6 @@ export class MetadataClient {
 
   /**
    * List externalLocation metadata from OCI to the Cloud Service Provider for regions, Physical Availability Zones.
-   * examples:
-   *   application-json: |
-   *     [
-   *       {
-   *         \"externalLocation\": {
-   *           \"cspRegion\": \"eastus\",
-   *           \"cspPhysicalAz\": \"eastus-az1\",
-   *           \"cspPhysicalAzDisplayName\": \"(US) East US 1\",
-   *           \"serviceName\": \"ORACLEDBATAZURE\"
-   *         },
-   *         \"ociPhysicalAd\": \"iad-ad-1\",
-   *         \"ociLogicalAd\": \"ad1\",
-   *         \"ociRegion\": \"us-ashburn-1\"
-   *     },
-   *       {
-   *         \"externalLocation\": {
-   *           \"cspRegion\": \"eastus\",
-   *           \"cspPhysicalAz\": \"eastus-az1\",
-   *           \"cspPhysicalAzDisplayName\": \"(US) East US 1\",
-   *           \"serviceName\": \"ORACLEDBATAZURE\"
-   *         },
-   *         \"ociPhysicalAd\": \"iad-ad-1\",
-   *         \"ociLogicalAd\": \"ad1\",
-   *         \"ociRegion\": \"us-ashburn-1\"
-   *       },
-   *       {
-   *         \"externalLocation\": {
-   *           \"cspRegion\": \"eastus2\",
-   *           \"cspPhysicalAz\": \"eastus2-az3\",
-   *           \"cspPhysicalAzDisplayName\": \"(US) East US 1\",
-   *           \"serviceName\": \"ORACLEDBATAZURE\"
-   *         },
-   *         \"ociPhysicalAd\": \"iad-ad-2\",
-   *         \"ociLogicalAd\": \"ad1\",
-   *         \"ociRegion\": \"us-ashburn-1\"
-   *       },
-   *       {
-   *         \"externalLocation\": {
-   *           \"cspRegion\": \"eastus\",
-   *           \"cspPhysicalAz\": \"eastus-az3\"
-   *           \"cspPhysicalAzDisplayName\": \"(US) East US 1\",
-   *           \"serviceName\": \"ORACLEDBATAZURE\"
-   *         },
-   *         \"ociPhysicalAd\": \"iad-ad-333\",
-   *         \"ociLogicalAd\": \"ad1\",
-   *         \"ociRegion\": \"us-ashburn-1\"
-   *       }
-   *     ]
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListExternalLocationMappingMetadataRequest
@@ -537,28 +385,6 @@ export class MetadataClient {
 
   /**
    * List externalLocationSummary metadata from OCI Region to the Cloud Service Provider region across all regions.
-   * examples:
-   *   application-json: |
-   *     [
-   *       {
-   *           \"externalLocation\": {
-   *             \"cspRegion\": \"East US\"
-   *           },
-   *           \"ociRegion\": \"us-ashburn-1\"
-   *       },
-   *         {
-   *           \"externalLocation\": {
-   *             \"cspRegion\": \"East US 2\"
-   *           },
-   *           \"ociRegion\": \"us-ashburn-1\"
-   *         },
-   *         {
-   *           \"externalLocation\": {
-   *             \"cspRegion\": \"Germany West Central\"
-   *           },
-   *           \"ociRegion\": \"eu-frankfurt-1\",
-   *         }
-   *       ]
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListExternalLocationSummariesMetadataRequest
@@ -828,7 +654,9 @@ export class MultiCloudsMetadataClient {
   }
 
   /**
-   * Gets information about multicloud base compartment
+   * Gets information about the Multicloud base compartment for a given tenancy Id.
+   * A Multicloud base compartment is an OCI compartment that maps to a subscription in a Cloud Service Provider (such as Azure, AWS, or Google Cloud).
+   *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetMultiCloudMetadataRequest
    * @return GetMultiCloudMetadataResponse
@@ -906,7 +734,8 @@ export class MultiCloudsMetadataClient {
   }
 
   /**
-   * Gets a list of multicloud metadata with multicloud base compartment and subscription across Cloud Service Providers.
+   * Gets a list of multicloud metadata with pairs of Multicloud base compartment and subscription across Cloud Service Providers from a tenancy Id.
+   * A Multicloud base compartment is an OCI compartment that maps to a subscription in a Cloud Service Provider (such as Azure, AWS, or Google Cloud).
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListMultiCloudMetadataRequest
@@ -986,6 +815,545 @@ export class MultiCloudsMetadataClient {
     }
   }
 }
+export enum MulticloudResourcesApiKeys {}
+/**
+ * This service client uses {@link common.CircuitBreaker.DefaultConfiguration} for all the operations by default if no circuit breaker configuration is defined by the user.
+ */
+export class MulticloudResourcesClient {
+  protected static serviceEndpointTemplate = "https://multicloud.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
+  protected "_endpoint": string = "";
+  protected "_defaultHeaders": any = {};
+  protected "_clientConfiguration": common.ClientConfiguration;
+  protected _circuitBreaker: typeof Breaker | null = null;
+  protected _httpOptions: any = undefined;
+  protected _bodyDuplexMode: any = undefined;
+  public targetService = "MulticloudResources";
+  protected _regionId: string = "";
+  protected "_region": common.Region;
+  protected _lastSetRegionOrRegionId: string = "";
+
+  protected _httpClient: common.HttpClient;
+  protected _authProvider: common.AuthenticationDetailsProvider | undefined;
+
+  constructor(params: common.AuthParams, clientConfiguration?: common.ClientConfiguration) {
+    const requestSigner = params.authenticationDetailsProvider
+      ? new common.DefaultRequestSigner(params.authenticationDetailsProvider)
+      : null;
+    this._authProvider = params.authenticationDetailsProvider;
+    if (clientConfiguration) {
+      this._clientConfiguration = clientConfiguration;
+      this._circuitBreaker = clientConfiguration.circuitBreaker
+        ? clientConfiguration.circuitBreaker!.circuit
+        : null;
+      this._httpOptions = clientConfiguration.httpOptions
+        ? clientConfiguration.httpOptions
+        : undefined;
+      this._bodyDuplexMode = clientConfiguration.bodyDuplexMode
+        ? clientConfiguration.bodyDuplexMode
+        : undefined;
+    }
+
+    if (!developerToolConfiguration.isServiceEnabled("multicloud")) {
+      let errmsg =
+        "The developerToolConfiguration configuration disabled this service, this behavior is controlled by developerToolConfiguration.ociEnabledServiceSet variable. Please check if your local developer_tool_configuration file has configured the service you're targeting or contact the cloud provider on the availability of this service : ";
+      throw errmsg.concat("multicloud");
+    }
+
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = true;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
+    }
+    this._httpClient =
+      params.httpClient ||
+      new common.FetchHttpClient(
+        requestSigner,
+        this._circuitBreaker,
+        this._httpOptions,
+        this._bodyDuplexMode
+      );
+
+    if (
+      params.authenticationDetailsProvider &&
+      common.isRegionProvider(params.authenticationDetailsProvider)
+    ) {
+      const provider: common.RegionProvider = params.authenticationDetailsProvider;
+      if (provider.getRegion()) {
+        this.region = provider.getRegion();
+      }
+    }
+  }
+
+  /**
+   * Get the endpoint that is being used to call (ex, https://www.example.com).
+   */
+  public get endpoint() {
+    return this._endpoint;
+  }
+
+  /**
+   * Sets the endpoint to call (ex, https://www.example.com).
+   * @param endpoint The endpoint of the service.
+   */
+  public set endpoint(endpoint: string) {
+    this._endpoint = endpoint;
+    this._endpoint = this._endpoint + "/20180828";
+    if (this.logger)
+      this.logger.info(`MulticloudResourcesClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
+  }
+
+  /**
+   * Determines whether realm specific endpoint should be used or not.
+   * Set realmSpecificEndpointTemplateEnabled to "true" if the user wants to enable use of realm specific endpoint template, otherwise set it to "false"
+   * @param realmSpecificEndpointTemplateEnabled flag to enable the use of realm specific endpoint template
+   */
+  public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
+    this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
+    if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
+      this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
+        MulticloudResourcesClient.serviceEndpointTemplate,
+        this._region,
+        MulticloudResourcesClient.endpointServiceName
+      );
+    } else if (this._lastSetRegionOrRegionId === common.Region.REGION_ID_STRING) {
+      this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
+        MulticloudResourcesClient.serviceEndpointTemplate,
+        this._regionId,
+        MulticloudResourcesClient.endpointServiceName
+      );
+    }
+  }
+
+  /**
+   * Sets the region to call (ex, Region.US_PHOENIX_1).
+   * Note, this will call {@link #endpoint(String) endpoint} after resolving the endpoint.
+   * @param region The region of the service.
+   */
+  public set region(region: common.Region) {
+    this._region = region;
+    this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
+      MulticloudResourcesClient.serviceEndpointTemplate,
+      region,
+      MulticloudResourcesClient.endpointServiceName
+    );
+    this._lastSetRegionOrRegionId = common.Region.REGION_STRING;
+  }
+
+  /**
+   * Sets the regionId to call (ex, 'us-phoenix-1').
+   *
+   * Note, this will first try to map the region ID to a known Region and call {@link #region(Region) region}.
+   * If no known Region could be determined, it will create an endpoint assuming its in default Realm OC1
+   * and then call {@link #endpoint(String) endpoint}.
+   * @param regionId The public region ID.
+   */
+  public set regionId(regionId: string) {
+    this._regionId = regionId;
+    this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
+      MulticloudResourcesClient.serviceEndpointTemplate,
+      regionId,
+      MulticloudResourcesClient.endpointServiceName
+    );
+    this._lastSetRegionOrRegionId = common.Region.REGION_ID_STRING;
+  }
+
+  /**
+   * Shutdown the circuit breaker used by the client when it is no longer needed
+   */
+  public shutdownCircuitBreaker() {
+    if (this._circuitBreaker) {
+      this._circuitBreaker.shutdown();
+    }
+  }
+
+  /**
+   * Close the provider if possible which in turn shuts down any associated circuit breaker
+   */
+  public closeProvider() {
+    if (this._authProvider) {
+      if (this._authProvider instanceof common.AbstractRequestingAuthenticationDetailsProvider)
+        (<common.AbstractRequestingAuthenticationDetailsProvider>(
+          this._authProvider
+        )).closeProvider();
+    }
+  }
+
+  /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+    this.closeProvider();
+  }
+
+  /**
+   * Gets a list of multicloud resources with multicloud base compartment and subscription across Cloud Service Providers.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListMulticloudResourcesRequest
+   * @return ListMulticloudResourcesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/multicloud/ListMulticloudResources.ts.html |here} to see how to use ListMulticloudResources API.
+   */
+  public async listMulticloudResources(
+    listMulticloudResourcesRequest: requests.ListMulticloudResourcesRequest
+  ): Promise<responses.ListMulticloudResourcesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation MulticloudResourcesClient#listMulticloudResources.");
+    const operationName = "listMulticloudResources";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "resourceAnchorId": listMulticloudResourcesRequest.resourceAnchorId,
+      "compartmentId": listMulticloudResourcesRequest.compartmentId,
+      "limit": listMulticloudResourcesRequest.limit,
+      "page": listMulticloudResourcesRequest.page,
+      "sortOrder": listMulticloudResourcesRequest.sortOrder,
+      "sortBy": listMulticloudResourcesRequest.sortBy,
+      "subscriptionServiceName": listMulticloudResourcesRequest.subscriptionServiceName,
+      "subscriptionId": listMulticloudResourcesRequest.subscriptionId,
+      "externalLocation": listMulticloudResourcesRequest.externalLocation
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listMulticloudResourcesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listMulticloudResourcesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/omHub/multicloudResources",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListMulticloudResourcesResponse>{},
+        body: await response.json(),
+        bodyKey: "multicloudResourceCollection",
+        bodyModel: model.MulticloudResourceCollection,
+        type: "model.MulticloudResourceCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+}
+export enum MulticloudsubscriptionsApiKeys {}
+/**
+ * This service client uses {@link common.CircuitBreaker.DefaultConfiguration} for all the operations by default if no circuit breaker configuration is defined by the user.
+ */
+export class MulticloudsubscriptionsClient {
+  protected static serviceEndpointTemplate = "https://multicloud.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
+  protected "_endpoint": string = "";
+  protected "_defaultHeaders": any = {};
+  protected "_clientConfiguration": common.ClientConfiguration;
+  protected _circuitBreaker: typeof Breaker | null = null;
+  protected _httpOptions: any = undefined;
+  protected _bodyDuplexMode: any = undefined;
+  public targetService = "Multicloudsubscriptions";
+  protected _regionId: string = "";
+  protected "_region": common.Region;
+  protected _lastSetRegionOrRegionId: string = "";
+
+  protected _httpClient: common.HttpClient;
+  protected _authProvider: common.AuthenticationDetailsProvider | undefined;
+
+  constructor(params: common.AuthParams, clientConfiguration?: common.ClientConfiguration) {
+    const requestSigner = params.authenticationDetailsProvider
+      ? new common.DefaultRequestSigner(params.authenticationDetailsProvider)
+      : null;
+    this._authProvider = params.authenticationDetailsProvider;
+    if (clientConfiguration) {
+      this._clientConfiguration = clientConfiguration;
+      this._circuitBreaker = clientConfiguration.circuitBreaker
+        ? clientConfiguration.circuitBreaker!.circuit
+        : null;
+      this._httpOptions = clientConfiguration.httpOptions
+        ? clientConfiguration.httpOptions
+        : undefined;
+      this._bodyDuplexMode = clientConfiguration.bodyDuplexMode
+        ? clientConfiguration.bodyDuplexMode
+        : undefined;
+    }
+
+    if (!developerToolConfiguration.isServiceEnabled("multicloud")) {
+      let errmsg =
+        "The developerToolConfiguration configuration disabled this service, this behavior is controlled by developerToolConfiguration.ociEnabledServiceSet variable. Please check if your local developer_tool_configuration file has configured the service you're targeting or contact the cloud provider on the availability of this service : ";
+      throw errmsg.concat("multicloud");
+    }
+
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = true;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
+    }
+    this._httpClient =
+      params.httpClient ||
+      new common.FetchHttpClient(
+        requestSigner,
+        this._circuitBreaker,
+        this._httpOptions,
+        this._bodyDuplexMode
+      );
+
+    if (
+      params.authenticationDetailsProvider &&
+      common.isRegionProvider(params.authenticationDetailsProvider)
+    ) {
+      const provider: common.RegionProvider = params.authenticationDetailsProvider;
+      if (provider.getRegion()) {
+        this.region = provider.getRegion();
+      }
+    }
+  }
+
+  /**
+   * Get the endpoint that is being used to call (ex, https://www.example.com).
+   */
+  public get endpoint() {
+    return this._endpoint;
+  }
+
+  /**
+   * Sets the endpoint to call (ex, https://www.example.com).
+   * @param endpoint The endpoint of the service.
+   */
+  public set endpoint(endpoint: string) {
+    this._endpoint = endpoint;
+    this._endpoint = this._endpoint + "/20180828";
+    if (this.logger)
+      this.logger.info(`MulticloudsubscriptionsClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
+  }
+
+  /**
+   * Determines whether realm specific endpoint should be used or not.
+   * Set realmSpecificEndpointTemplateEnabled to "true" if the user wants to enable use of realm specific endpoint template, otherwise set it to "false"
+   * @param realmSpecificEndpointTemplateEnabled flag to enable the use of realm specific endpoint template
+   */
+  public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
+    this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
+    if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
+      this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
+        MulticloudsubscriptionsClient.serviceEndpointTemplate,
+        this._region,
+        MulticloudsubscriptionsClient.endpointServiceName
+      );
+    } else if (this._lastSetRegionOrRegionId === common.Region.REGION_ID_STRING) {
+      this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
+        MulticloudsubscriptionsClient.serviceEndpointTemplate,
+        this._regionId,
+        MulticloudsubscriptionsClient.endpointServiceName
+      );
+    }
+  }
+
+  /**
+   * Sets the region to call (ex, Region.US_PHOENIX_1).
+   * Note, this will call {@link #endpoint(String) endpoint} after resolving the endpoint.
+   * @param region The region of the service.
+   */
+  public set region(region: common.Region) {
+    this._region = region;
+    this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
+      MulticloudsubscriptionsClient.serviceEndpointTemplate,
+      region,
+      MulticloudsubscriptionsClient.endpointServiceName
+    );
+    this._lastSetRegionOrRegionId = common.Region.REGION_STRING;
+  }
+
+  /**
+   * Sets the regionId to call (ex, 'us-phoenix-1').
+   *
+   * Note, this will first try to map the region ID to a known Region and call {@link #region(Region) region}.
+   * If no known Region could be determined, it will create an endpoint assuming its in default Realm OC1
+   * and then call {@link #endpoint(String) endpoint}.
+   * @param regionId The public region ID.
+   */
+  public set regionId(regionId: string) {
+    this._regionId = regionId;
+    this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
+      MulticloudsubscriptionsClient.serviceEndpointTemplate,
+      regionId,
+      MulticloudsubscriptionsClient.endpointServiceName
+    );
+    this._lastSetRegionOrRegionId = common.Region.REGION_ID_STRING;
+  }
+
+  /**
+   * Shutdown the circuit breaker used by the client when it is no longer needed
+   */
+  public shutdownCircuitBreaker() {
+    if (this._circuitBreaker) {
+      this._circuitBreaker.shutdown();
+    }
+  }
+
+  /**
+   * Close the provider if possible which in turn shuts down any associated circuit breaker
+   */
+  public closeProvider() {
+    if (this._authProvider) {
+      if (this._authProvider instanceof common.AbstractRequestingAuthenticationDetailsProvider)
+        (<common.AbstractRequestingAuthenticationDetailsProvider>(
+          this._authProvider
+        )).closeProvider();
+    }
+  }
+
+  /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+    this.closeProvider();
+  }
+
+  /**
+   * Gets a list of Multicloud Resources.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListMulticloudSubscriptionsRequest
+   * @return ListMulticloudSubscriptionsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/multicloud/ListMulticloudSubscriptions.ts.html |here} to see how to use ListMulticloudSubscriptions API.
+   */
+  public async listMulticloudSubscriptions(
+    listMulticloudSubscriptionsRequest: requests.ListMulticloudSubscriptionsRequest
+  ): Promise<responses.ListMulticloudSubscriptionsResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation MulticloudsubscriptionsClient#listMulticloudSubscriptions."
+      );
+    const operationName = "listMulticloudSubscriptions";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listMulticloudSubscriptionsRequest.compartmentId,
+      "limit": listMulticloudSubscriptionsRequest.limit,
+      "page": listMulticloudSubscriptionsRequest.page,
+      "displayName": listMulticloudSubscriptionsRequest.displayName,
+      "sortBy": listMulticloudSubscriptionsRequest.sortBy,
+      "sortOrder": listMulticloudSubscriptionsRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listMulticloudSubscriptionsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listMulticloudSubscriptionsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/multicloudsubscriptions",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListMulticloudSubscriptionsResponse>{},
+        body: await response.json(),
+        bodyKey: "multicloudSubscriptionCollection",
+        bodyModel: model.MulticloudSubscriptionCollection,
+        type: "model.MulticloudSubscriptionCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+}
 export enum OmhubNetworkAnchorApiKeys {}
 /**
  * This service client uses {@link common.CircuitBreaker.DefaultConfiguration} for all the operations by default if no circuit breaker configuration is defined by the user.
@@ -996,7 +1364,6 @@ export class OmhubNetworkAnchorClient {
   protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
-  protected "_waiters": OmhubNetworkAnchorWaiter;
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker: typeof Breaker | null = null;
   protected _httpOptions: any = undefined;
@@ -1143,29 +1510,6 @@ export class OmhubNetworkAnchorClient {
   }
 
   /**
-   * Creates a new OmhubNetworkAnchorWaiter for resources for this service.
-   *
-   * @param config The waiter configuration for termination and delay strategy
-   * @return The service waiters.
-   */
-  public createWaiters(config?: common.WaiterConfiguration): OmhubNetworkAnchorWaiter {
-    this._waiters = new OmhubNetworkAnchorWaiter(this, config);
-    return this._waiters;
-  }
-
-  /**
-   * Gets the waiters available for resources for this service.
-   *
-   * @return The service waiters.
-   */
-  public getWaiters(): OmhubNetworkAnchorWaiter {
-    if (this._waiters) {
-      return this._waiters;
-    }
-    throw Error("Waiters do not exist. Please create waiters.");
-  }
-
-  /**
    * Shutdown the circuit breaker used by the client when it is no longer needed
    */
   public shutdownCircuitBreaker() {
@@ -1216,7 +1560,8 @@ export class OmhubNetworkAnchorClient {
     const queryParams = {
       "subscriptionServiceName": getNetworkAnchorRequest.subscriptionServiceName,
       "subscriptionId": getNetworkAnchorRequest.subscriptionId,
-      "externalLocation": getNetworkAnchorRequest.externalLocation
+      "externalLocation": getNetworkAnchorRequest.externalLocation,
+      "shouldFetchVcnName": getNetworkAnchorRequest.shouldFetchVcnName
     };
 
     let headerParams = {
@@ -1296,14 +1641,16 @@ export class OmhubNetworkAnchorClient {
       "compartmentId": listNetworkAnchorsRequest.compartmentId,
       "subscriptionId": listNetworkAnchorsRequest.subscriptionId,
       "subscriptionServiceName": listNetworkAnchorsRequest.subscriptionServiceName,
-      "lifecycleState": listNetworkAnchorsRequest.lifecycleState,
+      "networkAnchorLifecycleState": listNetworkAnchorsRequest.networkAnchorLifecycleState,
       "displayName": listNetworkAnchorsRequest.displayName,
       "externalLocation": listNetworkAnchorsRequest.externalLocation,
       "networkAnchorOciSubnetId": listNetworkAnchorsRequest.networkAnchorOciSubnetId,
+      "compartmentIdInSubtree": listNetworkAnchorsRequest.compartmentIdInSubtree,
       "networkAnchorOciVcnId": listNetworkAnchorsRequest.networkAnchorOciVcnId,
       "id": listNetworkAnchorsRequest.id,
       "limit": listNetworkAnchorsRequest.limit,
       "page": listNetworkAnchorsRequest.page,
+      "shouldFetchVcnName": listNetworkAnchorsRequest.shouldFetchVcnName,
       "sortOrder": listNetworkAnchorsRequest.sortOrder,
       "sortBy": listNetworkAnchorsRequest.sortBy
     };
@@ -1593,7 +1940,8 @@ export class OmhubResourceAnchorClient {
 
     const queryParams = {
       "subscriptionServiceName": getResourceAnchorRequest.subscriptionServiceName,
-      "subscriptionId": getResourceAnchorRequest.subscriptionId
+      "subscriptionId": getResourceAnchorRequest.subscriptionId,
+      "shouldFetchCompartmentName": getResourceAnchorRequest.shouldFetchCompartmentName
     };
 
     let headerParams = {
@@ -1680,6 +2028,7 @@ export class OmhubResourceAnchorClient {
       "sortOrder": listResourceAnchorsRequest.sortOrder,
       "sortBy": listResourceAnchorsRequest.sortBy,
       "isCompartmentIdInSubtree": listResourceAnchorsRequest.isCompartmentIdInSubtree,
+      "shouldFetchCompartmentName": listResourceAnchorsRequest.shouldFetchCompartmentName,
       "subscriptionServiceName": listResourceAnchorsRequest.subscriptionServiceName,
       "subscriptionId": listResourceAnchorsRequest.subscriptionId
     };

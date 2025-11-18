@@ -40,6 +40,10 @@ export interface ResourceAnchor {
    */
   "compartmentId": string;
   /**
+   * The name assigned to the compartment during creation.
+   */
+  "compartmentName"?: string;
+  /**
     * The date and time the ResourceAnchor was created, in the format defined by [RFC 3339](https://tools.ietf.org/html/rfc3339).
 * <p>
 Example: {@code 2016-08-25T21:10:29.600Z}
@@ -99,6 +103,10 @@ Example: {@code {\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}}
    *
    */
   "linkedCompartmentId"?: string;
+  /**
+   * The name assigned to the compartment which was created or linked by customer with resource anchor. This compartment is different from where resource Anchor live.
+   */
+  "linkedCompartmentName"?: string;
   /**
    * subscription type
    */

@@ -34,6 +34,10 @@ export interface GenericChatResponse extends model.BaseChatResponse {
    */
   "choices": Array<model.ChatChoice>;
   "usage"?: model.Usage;
+  /**
+   * Specifies the processing type used for serving the request.
+   */
+  "serviceTier"?: string;
 
   "apiFormat": string;
 }

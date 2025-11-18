@@ -24,5 +24,5 @@ export interface InvokeRawCommandResponse {
   /**
    * URL where the status of command invocation could be retrieved
    */
-  "contentLocation": string;
+  "location": string;
 }

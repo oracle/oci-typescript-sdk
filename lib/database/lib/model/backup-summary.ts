@@ -130,7 +130,8 @@ export interface BackupSummary {
   "encryptionKeyLocationDetails"?:
     | model.ExternalHsmEncryptionDetails
     | model.GoogleCloudProviderEncryptionKeyDetails
-    | model.AzureEncryptionKeyDetails;
+    | model.AzureEncryptionKeyDetails
+    | model.AwsEncryptionKeyDetails;
 }
 
 export namespace BackupSummary {

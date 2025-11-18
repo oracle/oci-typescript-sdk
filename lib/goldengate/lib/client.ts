@@ -5992,6 +5992,88 @@ export class GoldenGateClient {
   }
 
   /**
+   * Pauses the pipeline.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param PausePipelineRequest
+   * @return PausePipelineResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/PausePipeline.ts.html |here} to see how to use PausePipeline API.
+   */
+  public async pausePipeline(
+    pausePipelineRequest: requests.PausePipelineRequest
+  ): Promise<responses.PausePipelineResponse> {
+    if (this.logger) this.logger.debug("Calling operation GoldenGateClient#pausePipeline.");
+    const operationName = "pausePipeline";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/Pipeline/PausePipeline";
+    const pathParams = {
+      "{pipelineId}": pausePipelineRequest.pipelineId
+    };
+
+    const queryParams = {
+      "isLockOverride": pausePipelineRequest.isLockOverride
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": pausePipelineRequest.ifMatch,
+      "opc-request-id": pausePipelineRequest.opcRequestId,
+      "opc-retry-token": pausePipelineRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      pausePipelineRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pipelines/{pipelineId}/actions/pause",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        pausePipelineRequest.pausePipelineDetails,
+        "PausePipelineDetails",
+        model.PausePipelineDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.PausePipelineResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Refresh the external Connection attributes.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.

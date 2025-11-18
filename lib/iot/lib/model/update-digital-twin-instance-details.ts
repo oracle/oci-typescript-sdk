@@ -46,6 +46,14 @@ export interface UpdateDigitalTwinInstanceDetails {
    */
   "digitalTwinAdapterId"?: string;
   /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the digital twin model.
+   */
+  "digitalTwinModelId"?: string;
+  /**
+   * The URI of the digital twin model specification.
+   */
+  "digitalTwinModelSpecUri"?: string;
+  /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
 * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>

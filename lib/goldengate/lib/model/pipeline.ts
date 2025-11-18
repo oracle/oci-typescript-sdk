@@ -114,6 +114,18 @@ Example: {@code {orcl-cloud: {free-tier-retain: true}}}
    *
    */
   "timeUpdated": Date;
+  /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subnet of the pipeline's private endpoint.
+   * The subnet must be a private subnet.
+   *
+   */
+  "subnetId"?: string;
+  /**
+   * List of ingress IP addresses from where the GoldenGate deployment connects to this connection's privateIp.
+   * Customers may optionally set up ingress security rules to restrict traffic from these IP addresses.
+   *
+   */
+  "ingressIps"?: Array<model.IngressIpDetails>;
 
   "recipeType": string;
 }
@@ -127,6 +139,7 @@ export namespace Pipeline {
     Deleting = "DELETING",
     Deleted = "DELETED",
     Failed = "FAILED",
+    Inactive = "INACTIVE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
@@ -151,6 +164,12 @@ export namespace Pipeline {
         "locks": obj.locks
           ? obj.locks.map(item => {
               return model.ResourceLock.getJsonObj(item);
+            })
+          : undefined,
+
+        "ingressIps": obj.ingressIps
+          ? obj.ingressIps.map(item => {
+              return model.IngressIpDetails.getJsonObj(item);
             })
           : undefined
       }
@@ -187,6 +206,12 @@ export namespace Pipeline {
         "locks": obj.locks
           ? obj.locks.map(item => {
               return model.ResourceLock.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "ingressIps": obj.ingressIps
+          ? obj.ingressIps.map(item => {
+              return model.IngressIpDetails.getDeserializedJsonObj(item);
             })
           : undefined
       }

@@ -126,6 +126,17 @@ Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
    * An array of CA bundles that should be used on the Gateway for TLS validation.
    */
   "caBundles"?: Array<model.CaBundle>;
+  /**
+   * Determines whether the gateway has an IPv4 or IPv6 address assigned to it, or both.
+   * {@code IPV4} means the gateway will only have an IPv4 address assigned to it, and {@code IPV6} means the gateway will
+   * only have an {@code IPv6} address assigned to it. {@code DUAL_STACK} means the gateway will have both an IPv4 and IPv6
+   * address assigned to it.
+   * Example: {@code IPV4} or {@code IPV6} or {@code DUAL_STACK}
+   *
+   */
+  "ipMode"?: Gateway.IpMode;
+  "ipv6AddressConfiguration"?: model.Ipv6AddressConfiguration;
+  "ipv4AddressConfiguration"?: model.Ipv4AddressConfiguration;
 }
 
 export namespace Gateway {
@@ -146,6 +157,17 @@ export namespace Gateway {
     Deleting = "DELETING",
     Deleted = "DELETED",
     Failed = "FAILED",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum IpMode {
+    Ipv4 = "IPV4",
+    Ipv6 = "IPV6",
+    DualStack = "DUAL_STACK",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
@@ -176,6 +198,13 @@ export namespace Gateway {
           ? obj.caBundles.map(item => {
               return model.CaBundle.getJsonObj(item);
             })
+          : undefined,
+
+        "ipv6AddressConfiguration": obj.ipv6AddressConfiguration
+          ? model.Ipv6AddressConfiguration.getJsonObj(obj.ipv6AddressConfiguration)
+          : undefined,
+        "ipv4AddressConfiguration": obj.ipv4AddressConfiguration
+          ? model.Ipv4AddressConfiguration.getJsonObj(obj.ipv4AddressConfiguration)
           : undefined
       }
     };
@@ -205,6 +234,13 @@ export namespace Gateway {
           ? obj.caBundles.map(item => {
               return model.CaBundle.getDeserializedJsonObj(item);
             })
+          : undefined,
+
+        "ipv6AddressConfiguration": obj.ipv6AddressConfiguration
+          ? model.Ipv6AddressConfiguration.getDeserializedJsonObj(obj.ipv6AddressConfiguration)
+          : undefined,
+        "ipv4AddressConfiguration": obj.ipv4AddressConfiguration
+          ? model.Ipv4AddressConfiguration.getDeserializedJsonObj(obj.ipv4AddressConfiguration)
           : undefined
       }
     };
