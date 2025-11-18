@@ -692,6 +692,8 @@ import * as MountDbnodeSnapshotResponse from "./mount-dbnode-snapshot-response";
 export import MountDbnodeSnapshotResponse = MountDbnodeSnapshotResponse.MountDbnodeSnapshotResponse;
 import * as MoveExecutionActionMemberResponse from "./move-execution-action-member-response";
 export import MoveExecutionActionMemberResponse = MoveExecutionActionMemberResponse.MoveExecutionActionMemberResponse;
+import * as RefreshDataGuardHealthStatusResponse from "./refresh-data-guard-health-status-response";
+export import RefreshDataGuardHealthStatusResponse = RefreshDataGuardHealthStatusResponse.RefreshDataGuardHealthStatusResponse;
 import * as RefreshPluggableDatabaseResponse from "./refresh-pluggable-database-response";
 export import RefreshPluggableDatabaseResponse = RefreshPluggableDatabaseResponse.RefreshPluggableDatabaseResponse;
 import * as RegisterAutonomousDatabaseDataSafeResponse from "./register-autonomous-database-data-safe-response";

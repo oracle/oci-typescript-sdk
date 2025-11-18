@@ -39,6 +39,14 @@ export interface NetworkAnchorSummary {
    */
   "vcnId"?: string;
   /**
+   * Name of the VCN associated to the Network Anchor.
+   */
+  "vcnName"?: string;
+  /**
+   * Defines status of the Network Anchor.
+   */
+  "networkAnchorConnectionStatus": model.NetworkAnchorConnectionStatus;
+  /**
    * The CPG ID in which Network Anchor will be created.
    */
   "clusterPlacementGroupId"?: string;
@@ -57,9 +65,21 @@ Example: {@code 2016-08-25T21:10:29.600Z}
     */
   "timeUpdated"?: Date;
   /**
+   * CSP Specific Additional Properties, AzureSubnetId for Azure
+   */
+  "cspAdditionalProperties"?: { [key: string]: string };
+  /**
+   * Network Anchor Id in the Cloud Service Provider.
+   */
+  "cspNetworkAnchorId"?: string;
+  /**
+   * CSP network anchor Uri
+   */
+  "networkAnchorUri"?: string;
+  /**
    * The current state of the NetworkAnchor.
    */
-  "lifecycleState": string;
+  "networkAnchorLifecycleState": string;
   /**
    * A message that describes the current state of the NetworkAnchor in more detail. For example,
    * can be used to provide actionable information for a resource in the Failed state.
@@ -89,6 +109,10 @@ Example: {@code {\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}}
 * 
     */
   "systemTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * Oracle Cloud Infrastructure Subscription Type.
+   */
+  "subscriptionType"?: model.SubscriptionType;
 }
 
 export namespace NetworkAnchorSummary {

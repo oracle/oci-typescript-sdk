@@ -55,9 +55,25 @@ Example: {@code {\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}}
    */
   "ociRegion": string;
   /**
-   * Cluster Placement Group OCID
+   * Cluster Placement Group OCID (deprecated representation)
    */
   "cpgId": string;
+  /**
+   * Cluster Placement Group OCID
+   */
+  "clusterPlacementGroupId": string;
+  /**
+   * Partner Cloud Name based on service name
+   */
+  "partnerCloudName"?: string;
+  /**
+   * User friendly name of account name for customer's subscription
+   */
+  "partnerCloudAccountName"?: string;
+  /**
+   * Direct URL to partner cloud for customer's account
+   */
+  "partnerCloudAccountUrl"?: string;
 }
 
 export namespace ExternalLocationsMetadatumSummary {

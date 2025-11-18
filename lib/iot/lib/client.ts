@@ -2310,8 +2310,8 @@ export class IotClient {
             dataType: "string"
           },
           {
-            value: response.headers.get("Content-Location"),
-            key: "contentLocation",
+            value: response.headers.get("Location"),
+            key: "location",
             dataType: "string"
           }
         ]

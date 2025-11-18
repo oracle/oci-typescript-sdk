@@ -28,7 +28,8 @@ export interface ChangeEncryptionKeyLocationRequest extends common.BaseRequest {
   "encryptionKeyLocationDetails":
     | model.ExternalHsmEncryptionDetails
     | model.GoogleCloudProviderEncryptionKeyDetails
-    | model.AzureEncryptionKeyDetails;
+    | model.AzureEncryptionKeyDetails
+    | model.AwsEncryptionKeyDetails;
   /**
    * For optimistic concurrency control. In the PUT or DELETE call for a resource, set the {@code if-match}
    * parameter to the value of the etag from a previous GET or POST response for that resource.  The resource

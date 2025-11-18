@@ -31,6 +31,26 @@ export interface ResourceAnchorSummary {
    */
   "compartmentId": string;
   /**
+   * The name assigned to the compartment during creation.
+   */
+  "compartmentName"?: string;
+  /**
+   * Partner Cloud Account Identifier of the Cloud Service Provider.
+   */
+  "partnerCloudAccountIdentifier"?: string;
+  /**
+   * Resource Anchor Id in the Cloud Service Provider.
+   */
+  "cspResourceAnchorId"?: string;
+  /**
+   * Resource Anchor Name in the Cloud Service Provider.
+   */
+  "cspResourceAnchorName"?: string;
+  /**
+   * CSP Specific Additional Properties, AzureSubnetId for Azure
+   */
+  "cspAdditionalProperties"?: { [key: string]: string };
+  /**
     * The date and time the ResourceAnchor was created, in the format defined by [RFC 3339](https://tools.ietf.org/html/rfc3339).
 * <p>
 Example: {@code 2016-08-25T21:10:29.600Z}
@@ -81,6 +101,16 @@ Example: {@code {\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}}
 * 
     */
   "systemTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * Optional - Oracle Cloud Infrastructure compartment Id (OCID) which was created or linked by customer with resource anchor.
+   * This compartmentId is different from where resource Anchor live.
+   *
+   */
+  "linkedCompartmentId"?: string;
+  /**
+   * The name assigned to the compartment which was created or linked by customer with resource anchor. This compartment is different from where resource Anchor live.
+   */
+  "linkedCompartmentName"?: string;
 }
 
 export namespace ResourceAnchorSummary {

@@ -19,20 +19,9 @@ import common = require("oci-common");
  */
 export interface OciNetworkMetadata {
   /**
-   * This can be merge to lifecycleState
-   * CONNECTED - Partner and CSI information is assigned and MulticloudLink provisioned.
-   * DISCONNECTED - Only partner cloud information is assigned.
-   * CONNECTING - Oracle Cloud Infrastructure information is assigned and the control plane is provisioning resources.
-   * ACTIVE - Network anchor is connected and resources (VNICs) exist within a subnet.
-   * ERROR - DRG attach fails during connection.
-   * FAILED - Network anchor creation failed
-   * NEEDS_ATTENTION - Network anchor is in temporary bad state
-   * UPDATING - Network anchor is getting updated.
-   * DELETING - Network anchor is getting deleted
-   * DELETED - A connected network anchor is deleted.
-   *
+   * Defines status of the Network Anchor.
    */
-  "networkAnchorConnectionStatus": OciNetworkMetadata.NetworkAnchorConnectionStatus;
+  "networkAnchorConnectionStatus": model.NetworkAnchorConnectionStatus;
   "vcn"?: model.OciVcn;
   "dns"?: model.OciDns;
   /**
@@ -54,24 +43,6 @@ export interface OciNetworkMetadata {
 }
 
 export namespace OciNetworkMetadata {
-  export enum NetworkAnchorConnectionStatus {
-    Connected = "CONNECTED",
-    Disconnected = "DISCONNECTED",
-    Connecting = "CONNECTING",
-    Active = "ACTIVE",
-    Error = "ERROR",
-    Updating = "UPDATING",
-    NeedsAttention = "NEEDS_ATTENTION",
-    Failed = "FAILED",
-    Deleting = "DELETING",
-    Deleted = "DELETED",
-    /**
-     * This value is used if a service returns a value for this enum that is not recognized by this
-     * version of the SDK.
-     */
-    UnknownValue = "UNKNOWN_VALUE"
-  }
-
   export function getJsonObj(obj: OciNetworkMetadata): object {
     const jsonObj = {
       ...obj,

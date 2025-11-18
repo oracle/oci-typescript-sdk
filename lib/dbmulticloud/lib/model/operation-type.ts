@@ -29,6 +29,12 @@ It relies on both the Oracle Azure Connector and the Oracle Azure Blob Container
 <b>Google Key Rings Resource:</b>&nbsp;&nbsp;The Google Key Rings Resource is used to register and manage Google Cloud Key Rings within Oracle Cloud Infrastructure (OCI) for use with services such as Oracle Exadata Database Service on Dedicated Infrastructure.
 
 <b>Google Key Resource:</b>&nbsp;&nbsp;The Google Key Resource is used to register and manage a Google Cloud Key within Oracle Cloud Infrastructure (OCI) under an associated Google Key Ring.
+<br>
+
+<b>AWS</b>:<br>
+<b>Oracle AWS Connector Resource:</b>&nbsp;&nbsp;The Oracle AWS Connector Resource is used to install the AWS Identity Connector on an Exadata VM cluster in Oracle Exadata Database Service on Dedicated Infrastructure (ExaDB-D).
+
+<b>Google AWS Key Resource:</b>&nbsp;&nbsp;The Oracle AWS Key Resource is used to register and manage a AWS Key within Oracle Cloud Infrastructure (OCI).
 
  * OpenAPI spec version: 20240501
  * 
@@ -75,6 +81,7 @@ export enum OperationType {
   MoveAzureVaultAssociation = "MOVE_AZURE_VAULT_ASSOCIATION",
   PatchDbResource = "PATCH_DB_RESOURCE",
   CreateGcpIdentityConfiguration = "CREATE_GCP_IDENTITY_CONFIGURATION",
+  DeleteGcpIdentityConfiguration = "DELETE_GCP_IDENTITY_CONFIGURATION",
   CreateGcpConnector = "CREATE_GCP_CONNECTOR",
   DeleteGcpConnector = "DELETE_GCP_CONNECTOR",
   UpdateGcpConnector = "UPDATE_GCP_CONNECTOR",
@@ -86,6 +93,16 @@ export enum OperationType {
   UpdateGcpKeyRing = "UPDATE_GCP_KEY_RING",
   MoveGcpKeyRing = "MOVE_GCP_KEY_RING",
   RefreshGcpKeyRing = "REFRESH_GCP_KEY_RING",
+  CreateAwsConnector = "CREATE_AWS_CONNECTOR",
+  DeleteAwsConnector = "DELETE_AWS_CONNECTOR",
+  UpdateAwsConnector = "UPDATE_AWS_CONNECTOR",
+  MoveAwsConnector = "MOVE_AWS_CONNECTOR",
+  RefreshAwsConnector = "REFRESH_AWS_CONNECTOR",
+  CreateAwsKey = "CREATE_AWS_KEY",
+  DeleteAwsKey = "DELETE_AWS_KEY",
+  UpdateAwsKey = "UPDATE_AWS_KEY",
+  MoveAwsKey = "MOVE_AWS_KEY",
+  RefreshAwsKey = "REFRESH_AWS_KEY",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

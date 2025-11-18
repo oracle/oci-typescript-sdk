@@ -25,7 +25,7 @@ export interface InvokeRawJsonCommandDetails extends model.InvokeRawCommandDetai
    */
   "requestDataContentType"?: string;
   /**
-   * request data
+   * request data, maximum 256k
    */
   "requestData"?: { [key: string]: any };
 

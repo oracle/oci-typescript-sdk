@@ -115,6 +115,15 @@ Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
    *
    */
   "systemTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * Determines whether the gateway has an IPv4 or IPv6 address assigned to it, or both.
+   * {@code IPV4} means the gateway will only have an IPv4 address assigned to it, and {@code IPV6} means the gateway will
+   * only have an {@code IPv6} address assigned to it. {@code DUAL_STACK} means the gateway will have both an IPv4 and IPv6
+   * address assigned to it.
+   * Example: {@code IPV4} or {@code IPV6} or {@code DUAL_STACK}
+   *
+   */
+  "ipMode"?: string;
 }
 
 export namespace GatewaySummary {

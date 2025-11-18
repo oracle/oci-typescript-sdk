@@ -45,6 +45,10 @@ Stops if the model hits a natural stop point or a provided stop sequence. Return
   "logprobs"?: model.Logprobs;
   "usage"?: model.Usage;
   "groundingMetadata"?: model.GroundingMetadata;
+  /**
+   * Specifies the processing type used for serving the request.
+   */
+  "serviceTier"?: string;
 }
 
 export namespace ChatChoice {

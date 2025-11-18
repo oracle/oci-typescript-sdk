@@ -148,6 +148,8 @@ import * as ListWorkRequestLogsResponse from "./list-work-request-logs-response"
 export import ListWorkRequestLogsResponse = ListWorkRequestLogsResponse.ListWorkRequestLogsResponse;
 import * as ListWorkRequestsResponse from "./list-work-requests-response";
 export import ListWorkRequestsResponse = ListWorkRequestsResponse.ListWorkRequestsResponse;
+import * as PausePipelineResponse from "./pause-pipeline-response";
+export import PausePipelineResponse = PausePipelineResponse.PausePipelineResponse;
 import * as RefreshConnectionResponse from "./refresh-connection-response";
 export import RefreshConnectionResponse = RefreshConnectionResponse.RefreshConnectionResponse;
 import * as RemoveConnectionLockResponse from "./remove-connection-lock-response";

@@ -29,6 +29,12 @@ It relies on both the Oracle Azure Connector and the Oracle Azure Blob Container
 <b>Google Key Rings Resource:</b>&nbsp;&nbsp;The Google Key Rings Resource is used to register and manage Google Cloud Key Rings within Oracle Cloud Infrastructure (OCI) for use with services such as Oracle Exadata Database Service on Dedicated Infrastructure.
 
 <b>Google Key Resource:</b>&nbsp;&nbsp;The Google Key Resource is used to register and manage a Google Cloud Key within Oracle Cloud Infrastructure (OCI) under an associated Google Key Ring.
+<br>
+
+<b>AWS</b>:<br>
+<b>Oracle AWS Connector Resource:</b>&nbsp;&nbsp;The Oracle AWS Connector Resource is used to install the AWS Identity Connector on an Exadata VM cluster in Oracle Exadata Database Service on Dedicated Infrastructure (ExaDB-D).
+
+<b>Google AWS Key Resource:</b>&nbsp;&nbsp;The Oracle AWS Key Resource is used to register and manage a AWS Key within Oracle Cloud Infrastructure (OCI).
 
  * OpenAPI spec version: 20240501
  * 
@@ -44,8 +50,14 @@ import * as ActionType from "./action-type";
 export import ActionType = ActionType.ActionType;
 import * as ArcAgentNodes from "./arc-agent-nodes";
 export import ArcAgentNodes = ArcAgentNodes.ArcAgentNodes;
+import * as AwsNodes from "./aws-nodes";
+export import AwsNodes = AwsNodes.AwsNodes;
 import * as ChangeMultiCloudResourceDiscoveryCompartmentDetails from "./change-multi-cloud-resource-discovery-compartment-details";
 export import ChangeMultiCloudResourceDiscoveryCompartmentDetails = ChangeMultiCloudResourceDiscoveryCompartmentDetails.ChangeMultiCloudResourceDiscoveryCompartmentDetails;
+import * as ChangeOracleDbAwsIdentityConnectorCompartmentDetails from "./change-oracle-db-aws-identity-connector-compartment-details";
+export import ChangeOracleDbAwsIdentityConnectorCompartmentDetails = ChangeOracleDbAwsIdentityConnectorCompartmentDetails.ChangeOracleDbAwsIdentityConnectorCompartmentDetails;
+import * as ChangeOracleDbAwsKeyCompartmentDetails from "./change-oracle-db-aws-key-compartment-details";
+export import ChangeOracleDbAwsKeyCompartmentDetails = ChangeOracleDbAwsKeyCompartmentDetails.ChangeOracleDbAwsKeyCompartmentDetails;
 import * as ChangeOracleDbAzureBlobContainerCompartmentDetails from "./change-oracle-db-azure-blob-container-compartment-details";
 export import ChangeOracleDbAzureBlobContainerCompartmentDetails = ChangeOracleDbAzureBlobContainerCompartmentDetails.ChangeOracleDbAzureBlobContainerCompartmentDetails;
 import * as ChangeOracleDbAzureBlobMountCompartmentDetails from "./change-oracle-db-azure-blob-mount-compartment-details";
@@ -62,6 +74,10 @@ import * as ChangeOracleDbGcpKeyRingCompartmentDetails from "./change-oracle-db-
 export import ChangeOracleDbGcpKeyRingCompartmentDetails = ChangeOracleDbGcpKeyRingCompartmentDetails.ChangeOracleDbGcpKeyRingCompartmentDetails;
 import * as CreateMultiCloudResourceDiscoveryDetails from "./create-multi-cloud-resource-discovery-details";
 export import CreateMultiCloudResourceDiscoveryDetails = CreateMultiCloudResourceDiscoveryDetails.CreateMultiCloudResourceDiscoveryDetails;
+import * as CreateOracleDbAwsIdentityConnectorDetails from "./create-oracle-db-aws-identity-connector-details";
+export import CreateOracleDbAwsIdentityConnectorDetails = CreateOracleDbAwsIdentityConnectorDetails.CreateOracleDbAwsIdentityConnectorDetails;
+import * as CreateOracleDbAwsKeyDetails from "./create-oracle-db-aws-key-details";
+export import CreateOracleDbAwsKeyDetails = CreateOracleDbAwsKeyDetails.CreateOracleDbAwsKeyDetails;
 import * as CreateOracleDbAzureBlobContainerDetails from "./create-oracle-db-azure-blob-container-details";
 export import CreateOracleDbAzureBlobContainerDetails = CreateOracleDbAzureBlobContainerDetails.CreateOracleDbAzureBlobContainerDetails;
 import * as CreateOracleDbAzureBlobMountDetails from "./create-oracle-db-azure-blob-mount-details";
@@ -88,6 +104,18 @@ import * as OperationStatus from "./operation-status";
 export import OperationStatus = OperationStatus.OperationStatus;
 import * as OperationType from "./operation-type";
 export import OperationType = OperationType.OperationType;
+import * as OracleDbAwsIdentityConnector from "./oracle-db-aws-identity-connector";
+export import OracleDbAwsIdentityConnector = OracleDbAwsIdentityConnector.OracleDbAwsIdentityConnector;
+import * as OracleDbAwsIdentityConnectorSummary from "./oracle-db-aws-identity-connector-summary";
+export import OracleDbAwsIdentityConnectorSummary = OracleDbAwsIdentityConnectorSummary.OracleDbAwsIdentityConnectorSummary;
+import * as OracleDbAwsIdentityConnectorSummaryCollection from "./oracle-db-aws-identity-connector-summary-collection";
+export import OracleDbAwsIdentityConnectorSummaryCollection = OracleDbAwsIdentityConnectorSummaryCollection.OracleDbAwsIdentityConnectorSummaryCollection;
+import * as OracleDbAwsKey from "./oracle-db-aws-key";
+export import OracleDbAwsKey = OracleDbAwsKey.OracleDbAwsKey;
+import * as OracleDbAwsKeySummary from "./oracle-db-aws-key-summary";
+export import OracleDbAwsKeySummary = OracleDbAwsKeySummary.OracleDbAwsKeySummary;
+import * as OracleDbAwsKeySummaryCollection from "./oracle-db-aws-key-summary-collection";
+export import OracleDbAwsKeySummaryCollection = OracleDbAwsKeySummaryCollection.OracleDbAwsKeySummaryCollection;
 import * as OracleDbAzureBlobContainer from "./oracle-db-azure-blob-container";
 export import OracleDbAzureBlobContainer = OracleDbAzureBlobContainer.OracleDbAzureBlobContainer;
 import * as OracleDbAzureBlobContainerSummary from "./oracle-db-azure-blob-container-summary";
@@ -144,16 +172,26 @@ import * as OracleDbGcpKeySummaryCollection from "./oracle-db-gcp-key-summary-co
 export import OracleDbGcpKeySummaryCollection = OracleDbGcpKeySummaryCollection.OracleDbGcpKeySummaryCollection;
 import * as PatchOracleDbAzureConnectorDetails from "./patch-oracle-db-azure-connector-details";
 export import PatchOracleDbAzureConnectorDetails = PatchOracleDbAzureConnectorDetails.PatchOracleDbAzureConnectorDetails;
+import * as RefreshOracleDbAwsKeyDetails from "./refresh-oracle-db-aws-key-details";
+export import RefreshOracleDbAwsKeyDetails = RefreshOracleDbAwsKeyDetails.RefreshOracleDbAwsKeyDetails;
 import * as RefreshOracleDbAzureVaultDetails from "./refresh-oracle-db-azure-vault-details";
 export import RefreshOracleDbAzureVaultDetails = RefreshOracleDbAzureVaultDetails.RefreshOracleDbAzureVaultDetails;
 import * as RefreshOracleDbGcpKeyRingDetails from "./refresh-oracle-db-gcp-key-ring-details";
 export import RefreshOracleDbGcpKeyRingDetails = RefreshOracleDbGcpKeyRingDetails.RefreshOracleDbGcpKeyRingDetails;
 import * as Resources from "./resources";
 export import Resources = Resources.Resources;
+import * as ServiceRoleDetail from "./service-role-detail";
+export import ServiceRoleDetail = ServiceRoleDetail.ServiceRoleDetail;
+import * as ServiceRoleDetails from "./service-role-details";
+export import ServiceRoleDetails = ServiceRoleDetails.ServiceRoleDetails;
 import * as SortOrder from "./sort-order";
 export import SortOrder = SortOrder.SortOrder;
 import * as UpdateMultiCloudResourceDiscoveryDetails from "./update-multi-cloud-resource-discovery-details";
 export import UpdateMultiCloudResourceDiscoveryDetails = UpdateMultiCloudResourceDiscoveryDetails.UpdateMultiCloudResourceDiscoveryDetails;
+import * as UpdateOracleDbAwsIdentityConnectorDetails from "./update-oracle-db-aws-identity-connector-details";
+export import UpdateOracleDbAwsIdentityConnectorDetails = UpdateOracleDbAwsIdentityConnectorDetails.UpdateOracleDbAwsIdentityConnectorDetails;
+import * as UpdateOracleDbAwsKeyDetails from "./update-oracle-db-aws-key-details";
+export import UpdateOracleDbAwsKeyDetails = UpdateOracleDbAwsKeyDetails.UpdateOracleDbAwsKeyDetails;
 import * as UpdateOracleDbAzureBlobContainerDetails from "./update-oracle-db-azure-blob-container-details";
 export import UpdateOracleDbAzureBlobContainerDetails = UpdateOracleDbAzureBlobContainerDetails.UpdateOracleDbAzureBlobContainerDetails;
 import * as UpdateOracleDbAzureBlobMountDetails from "./update-oracle-db-azure-blob-mount-details";

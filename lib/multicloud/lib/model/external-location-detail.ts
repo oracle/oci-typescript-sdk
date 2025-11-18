@@ -34,6 +34,10 @@ export interface ExternalLocationDetail {
    * User friendly display name for cspPhysicalAZ
    */
   "cspPhysicalAzDisplayName": string;
+  /**
+   * User friendly display name for cspLogicalAZ
+   */
+  "cspLogicalAzDisplayName"?: string;
   "cspZoneKeyReferenceId"?: model.CspZoneKeyReferenceId;
   /**
    * A mapping of CSP physical availability zone to CSP logical availability zone.

@@ -27,6 +27,10 @@ export interface ListServiceCatalogsRequest extends common.BaseRequest {
    */
   "serviceCatalogId"?: string;
   /**
+   * Status of the service catalog, use as a filter to filter out all active catalogs.
+   */
+  "status"?: model.ServiceCatalogStatusEnum;
+  /**
    * Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request,
    * please provide the request ID.
    *

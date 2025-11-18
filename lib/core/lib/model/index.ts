@@ -800,6 +800,8 @@ import * as MeasuredBootReportMeasurements from "./measured-boot-report-measurem
 export import MeasuredBootReportMeasurements = MeasuredBootReportMeasurements.MeasuredBootReportMeasurements;
 import * as MemberReplica from "./member-replica";
 export import MemberReplica = MemberReplica.MemberReplica;
+import * as MemoryFabricPreferencesDescriptor from "./memory-fabric-preferences-descriptor";
+export import MemoryFabricPreferencesDescriptor = MemoryFabricPreferencesDescriptor.MemoryFabricPreferencesDescriptor;
 import * as ModifyIpv4SubnetCidrDetails from "./modify-ipv4-subnet-cidr-details";
 export import ModifyIpv4SubnetCidrDetails = ModifyIpv4SubnetCidrDetails.ModifyIpv4SubnetCidrDetails;
 import * as ModifyVcnCidrDetails from "./modify-vcn-cidr-details";

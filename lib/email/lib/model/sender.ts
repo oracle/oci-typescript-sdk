@@ -57,6 +57,10 @@ export interface Sender {
    */
   "emailDomainId"?: string;
   /**
+   * The IpPool [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) used to submit an email by Email Delivery when sent from this sender.
+   */
+  "emailIpPoolId"?: string;
+  /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
 * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
@@ -93,6 +97,7 @@ export namespace Sender {
     Failed = "FAILED",
     Deleting = "DELETING",
     Deleted = "DELETED",
+    Updating = "UPDATING",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

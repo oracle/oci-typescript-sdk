@@ -64,6 +64,25 @@ export class EmailWaiter {
   }
 
   /**
+   * Waits forEmailIpPool till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetEmailIpPoolResponse | null (null in case of 404 response)
+   */
+  public async forEmailIpPool(
+    request: serviceRequests.GetEmailIpPoolRequest,
+    ...targetStates: models.EmailIpPool.LifecycleState[]
+  ): Promise<serviceResponses.GetEmailIpPoolResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getEmailIpPool(request),
+      response => targetStates.includes(response.emailIpPool.lifecycleState!),
+      targetStates.includes(models.EmailIpPool.LifecycleState.Deleted)
+    );
+  }
+
+  /**
    * Waits forEmailReturnPath till it reaches any of the provided states
    *
    * @param request the request to send

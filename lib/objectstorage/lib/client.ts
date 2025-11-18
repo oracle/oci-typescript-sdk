@@ -346,6 +346,95 @@ export class ObjectStorageClient {
   }
 
   /**
+   * Deletes a batch of objects.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param BatchDeleteObjectsRequest
+   * @return BatchDeleteObjectsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/objectstorage/BatchDeleteObjects.ts.html |here} to see how to use BatchDeleteObjects API.
+   */
+  public async batchDeleteObjects(
+    batchDeleteObjectsRequest: requests.BatchDeleteObjectsRequest
+  ): Promise<responses.BatchDeleteObjectsResponse> {
+    if (this.logger) this.logger.debug("Calling operation ObjectStorageClient#batchDeleteObjects.");
+    const operationName = "batchDeleteObjects";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/Object/BatchDeleteObjects";
+    const pathParams = {
+      "{namespaceName}": batchDeleteObjectsRequest.namespaceName,
+      "{bucketName}": batchDeleteObjectsRequest.bucketName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-client-request-id": batchDeleteObjectsRequest.opcClientRequestId
+    };
+
+    const requiredParams = new Set<string>(["namespaceName", "bucketName"]);
+    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      this.endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      batchDeleteObjectsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/n/{namespaceName}/b/{bucketName}/actions/batchDeleteObjects",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        batchDeleteObjectsRequest.batchDeleteObjectsDetails,
+        "BatchDeleteObjectsDetails",
+        model.BatchDeleteObjectsDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.BatchDeleteObjectsResponse>{},
+        body: await response.json(),
+        bodyKey: "batchDeleteObjectsResult",
+        bodyModel: model.BatchDeleteObjectsResult,
+        type: "model.BatchDeleteObjectsResult",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-client-request-id"),
+            key: "opcClientRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Cancels a work request.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.

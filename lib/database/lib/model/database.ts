@@ -157,7 +157,8 @@ Example: {@code {\"Department\": \"Finance\"}}
   "encryptionKeyLocationDetails"?:
     | model.ExternalHsmEncryptionDetails
     | model.GoogleCloudProviderEncryptionKeyDetails
-    | model.AzureEncryptionKeyDetails;
+    | model.AzureEncryptionKeyDetails
+    | model.AwsEncryptionKeyDetails;
   "storageSizeDetails"?: model.DatabaseStorageSizeResponseDetails;
 }
 

@@ -941,6 +941,8 @@ export import WorkloadType = WorkloadType.WorkloadType;
 
 import * as AutomatedMountDetails from "./automated-mount-details";
 export import AutomatedMountDetails = AutomatedMountDetails.AutomatedMountDetails;
+import * as AwsEncryptionKeyDetails from "./aws-encryption-key-details";
+export import AwsEncryptionKeyDetails = AwsEncryptionKeyDetails.AwsEncryptionKeyDetails;
 import * as AwsKeyDetails from "./aws-key-details";
 export import AwsKeyDetails = AwsKeyDetails.AwsKeyDetails;
 import * as AzureEncryptionKeyDetails from "./azure-encryption-key-details";
