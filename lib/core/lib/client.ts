@@ -5548,9 +5548,7 @@ For more information, see [Volume Groups](https://docs.oracle.com/iaas/Content/B
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "if-match": updateVolumeKmsKeyRequest.ifMatch,
-      "opc-parent-resource-principal-token-url":
-        updateVolumeKmsKeyRequest.opcParentResourcePrincipalTokenUrl
+      "if-match": updateVolumeKmsKeyRequest.ifMatch
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -16455,7 +16453,8 @@ To delete instances from a compute cluster, use the {@link #terminateInstance(Te
   }
 
   /**
-   * Customer can update displayName, tags and for compute GPU memory fabric record
+   * Customer can update displayName, tags and  desired firmware bundle, recycle level for
+   * compute GPU memory fabric record
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateComputeGpuMemoryFabricRequest

@@ -33,10 +33,4 @@ export interface UpdateVolumeKmsKeyRequest extends common.BaseRequest {
    *
    */
   "ifMatch"?: string;
-  /**
-   * The endpoint that will be used to get the resource principal token
-   * of the parent resource.
-   *
-   */
-  "opcParentResourcePrincipalTokenUrl"?: string;
 }

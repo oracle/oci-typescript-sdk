@@ -39,6 +39,10 @@ export interface ListSendersRequest extends common.BaseRequest {
    */
   "emailAddress"?: string;
   /**
+   * A filter to only return resources that match the given IpPool resource exactly.
+   */
+  "emailIpPoolId"?: string;
+  /**
    * For list pagination. The value of the opc-next-page response header from the previous \"List\" call.
    * For important details about how pagination works,
    * see [List Pagination](https://docs.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).

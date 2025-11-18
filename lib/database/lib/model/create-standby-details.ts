@@ -37,7 +37,8 @@ export interface CreateStandbyDetails {
   "sourceEncryptionKeyLocationDetails"?:
     | model.ExternalHsmEncryptionDetails
     | model.GoogleCloudProviderEncryptionKeyDetails
-    | model.AzureEncryptionKeyDetails;
+    | model.AzureEncryptionKeyDetails
+    | model.AwsEncryptionKeyDetails;
   /**
    * True if active Data Guard is enabled.
    */

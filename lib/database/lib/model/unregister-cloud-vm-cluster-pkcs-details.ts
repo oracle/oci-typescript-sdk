@@ -30,7 +30,8 @@ export namespace UnregisterCloudVmClusterPkcsDetails {
   export enum TdeKeyStoreType {
     Azure = "AZURE",
     Oci = "OCI",
-    Gcp = "GCP"
+    Gcp = "GCP",
+    Aws = "AWS"
   }
 
   export function getJsonObj(obj: UnregisterCloudVmClusterPkcsDetails): object {

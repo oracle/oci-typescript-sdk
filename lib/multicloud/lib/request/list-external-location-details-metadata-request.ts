@@ -19,15 +19,11 @@ import common = require("oci-common");
  */
 export interface ListExternalLocationDetailsMetadataRequest extends common.BaseRequest {
   /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subscription in which to list resources.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Multicloud subscription in which to list resources.
    */
   "subscriptionId": string;
   /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment in which to list resources.
-   */
-  "compartmentId": string;
-  /**
-   * The subscription service name values from [ORACLEDBATAZURE, ORACLEDBATGOOGLE, ORACLEDBATAWS]
+   * The subscription service name of the Cloud Service Provider.
    */
   "subscriptionServiceName": model.SubscriptionType;
   /**
@@ -35,9 +31,27 @@ export interface ListExternalLocationDetailsMetadataRequest extends common.BaseR
    */
   "entityType"?: ListExternalLocationDetailsMetadataRequest.EntityType;
   /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment in which linked to Resource.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Multicloud base compartment in which to list resources.
+   * A Multicloud base compartment is an OCI compartment that maps to a subscription in a Cloud Service Provider (such as Azure, AWS, or Google Cloud).
+   *
+   */
+  "compartmentId"?: string;
+  /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment linked to the resource.
    */
   "linkedCompartmentId"?: string;
+  /**
+   * The Cloud Service Provider region.
+   */
+  "externalLocation"?: string;
+  /**
+   * OCI Logical AD to filter the response.
+   */
+  "logicalZone"?: string;
+  /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Cluster Placement Group.
+   */
+  "clusterPlacementGroupId"?: string;
   /**
    * For list pagination. The maximum number of results per page, or items to return in a
    * paginated \"List\" call. For important details about how pagination works, see

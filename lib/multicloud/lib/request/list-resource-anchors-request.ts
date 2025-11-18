@@ -19,19 +19,13 @@ import common = require("oci-common");
  */
 export interface ListResourceAnchorsRequest extends common.BaseRequest {
   /**
-   * The subscription service name values from [ORACLEDBATAZURE, ORACLEDBATGOOGLE, ORACLEDBATAWS]
-   */
-  "subscriptionServiceName": model.SubscriptionType;
-  /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subscription in which to list resources.
-   */
-  "subscriptionId": string;
-  /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment in which to list resources.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Multicloud base compartment or sub-compartment in which to list resources.
+   * A Multicloud base compartment is an OCI compartment that maps to a subscription in a Cloud Service Provider (such as Azure, AWS, or Google Cloud).
+   *
    */
   "compartmentId"?: string;
   /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment in which linked to Resource.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment linked to the resource.
    */
   "linkedCompartmentId"?: string;
   /**
@@ -76,6 +70,18 @@ export interface ListResourceAnchorsRequest extends common.BaseRequest {
    * Check the sub-compartments of a given compartmentId
    */
   "isCompartmentIdInSubtree"?: boolean;
+  /**
+   * Whether to fetch and include the compartment name, setting this field to yes may introduce additional latency.
+   */
+  "shouldFetchCompartmentName"?: boolean;
+  /**
+   * The subscription service name of the Cloud Service Provider.
+   */
+  "subscriptionServiceName"?: model.SubscriptionType;
+  /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Multicloud subscription in which to list resources.
+   */
+  "subscriptionId"?: string;
   /**
    * Unique Oracle-assigned identifier for the request. If you need to contact
    * Oracle about a particular request, please provide the request ID.

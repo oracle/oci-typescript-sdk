@@ -692,6 +692,8 @@ import * as MountDbnodeSnapshotRequest from "./mount-dbnode-snapshot-request";
 export import MountDbnodeSnapshotRequest = MountDbnodeSnapshotRequest.MountDbnodeSnapshotRequest;
 import * as MoveExecutionActionMemberRequest from "./move-execution-action-member-request";
 export import MoveExecutionActionMemberRequest = MoveExecutionActionMemberRequest.MoveExecutionActionMemberRequest;
+import * as RefreshDataGuardHealthStatusRequest from "./refresh-data-guard-health-status-request";
+export import RefreshDataGuardHealthStatusRequest = RefreshDataGuardHealthStatusRequest.RefreshDataGuardHealthStatusRequest;
 import * as RefreshPluggableDatabaseRequest from "./refresh-pluggable-database-request";
 export import RefreshPluggableDatabaseRequest = RefreshPluggableDatabaseRequest.RefreshPluggableDatabaseRequest;
 import * as RegisterAutonomousDatabaseDataSafeRequest from "./register-autonomous-database-data-safe-request";

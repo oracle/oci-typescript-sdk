@@ -29,6 +29,12 @@ It relies on both the Oracle Azure Connector and the Oracle Azure Blob Container
 <b>Google Key Rings Resource:</b>&nbsp;&nbsp;The Google Key Rings Resource is used to register and manage Google Cloud Key Rings within Oracle Cloud Infrastructure (OCI) for use with services such as Oracle Exadata Database Service on Dedicated Infrastructure.
 
 <b>Google Key Resource:</b>&nbsp;&nbsp;The Google Key Resource is used to register and manage a Google Cloud Key within Oracle Cloud Infrastructure (OCI) under an associated Google Key Ring.
+<br>
+
+<b>AWS</b>:<br>
+<b>Oracle AWS Connector Resource:</b>&nbsp;&nbsp;The Oracle AWS Connector Resource is used to install the AWS Identity Connector on an Exadata VM cluster in Oracle Exadata Database Service on Dedicated Infrastructure (ExaDB-D).
+
+<b>Google AWS Key Resource:</b>&nbsp;&nbsp;The Oracle AWS Key Resource is used to register and manage a AWS Key within Oracle Cloud Infrastructure (OCI).
 
  * OpenAPI spec version: 20240501
  * 
@@ -40,6 +46,34 @@ It relies on both the Oracle Azure Connector and the Oracle Azure Blob Container
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as ChangeOracleDbAwsIdentityConnectorCompartmentRequest from "./change-oracle-db-aws-identity-connector-compartment-request";
+export import ChangeOracleDbAwsIdentityConnectorCompartmentRequest = ChangeOracleDbAwsIdentityConnectorCompartmentRequest.ChangeOracleDbAwsIdentityConnectorCompartmentRequest;
+import * as ChangeOracleDbAwsKeyCompartmentRequest from "./change-oracle-db-aws-key-compartment-request";
+export import ChangeOracleDbAwsKeyCompartmentRequest = ChangeOracleDbAwsKeyCompartmentRequest.ChangeOracleDbAwsKeyCompartmentRequest;
+import * as CreateOracleDbAwsIdentityConnectorRequest from "./create-oracle-db-aws-identity-connector-request";
+export import CreateOracleDbAwsIdentityConnectorRequest = CreateOracleDbAwsIdentityConnectorRequest.CreateOracleDbAwsIdentityConnectorRequest;
+import * as CreateOracleDbAwsKeyRequest from "./create-oracle-db-aws-key-request";
+export import CreateOracleDbAwsKeyRequest = CreateOracleDbAwsKeyRequest.CreateOracleDbAwsKeyRequest;
+import * as DeleteOracleDbAwsIdentityConnectorRequest from "./delete-oracle-db-aws-identity-connector-request";
+export import DeleteOracleDbAwsIdentityConnectorRequest = DeleteOracleDbAwsIdentityConnectorRequest.DeleteOracleDbAwsIdentityConnectorRequest;
+import * as DeleteOracleDbAwsKeyRequest from "./delete-oracle-db-aws-key-request";
+export import DeleteOracleDbAwsKeyRequest = DeleteOracleDbAwsKeyRequest.DeleteOracleDbAwsKeyRequest;
+import * as GetOracleDbAwsIdentityConnectorRequest from "./get-oracle-db-aws-identity-connector-request";
+export import GetOracleDbAwsIdentityConnectorRequest = GetOracleDbAwsIdentityConnectorRequest.GetOracleDbAwsIdentityConnectorRequest;
+import * as GetOracleDbAwsKeyRequest from "./get-oracle-db-aws-key-request";
+export import GetOracleDbAwsKeyRequest = GetOracleDbAwsKeyRequest.GetOracleDbAwsKeyRequest;
+import * as ListOracleDbAwsIdentityConnectorsRequest from "./list-oracle-db-aws-identity-connectors-request";
+export import ListOracleDbAwsIdentityConnectorsRequest = ListOracleDbAwsIdentityConnectorsRequest.ListOracleDbAwsIdentityConnectorsRequest;
+import * as ListOracleDbAwsKeysRequest from "./list-oracle-db-aws-keys-request";
+export import ListOracleDbAwsKeysRequest = ListOracleDbAwsKeysRequest.ListOracleDbAwsKeysRequest;
+import * as RefreshOracleDbAwsIdentityConnectorRequest from "./refresh-oracle-db-aws-identity-connector-request";
+export import RefreshOracleDbAwsIdentityConnectorRequest = RefreshOracleDbAwsIdentityConnectorRequest.RefreshOracleDbAwsIdentityConnectorRequest;
+import * as RefreshOracleDbAwsKeyRequest from "./refresh-oracle-db-aws-key-request";
+export import RefreshOracleDbAwsKeyRequest = RefreshOracleDbAwsKeyRequest.RefreshOracleDbAwsKeyRequest;
+import * as UpdateOracleDbAwsIdentityConnectorRequest from "./update-oracle-db-aws-identity-connector-request";
+export import UpdateOracleDbAwsIdentityConnectorRequest = UpdateOracleDbAwsIdentityConnectorRequest.UpdateOracleDbAwsIdentityConnectorRequest;
+import * as UpdateOracleDbAwsKeyRequest from "./update-oracle-db-aws-key-request";
+export import UpdateOracleDbAwsKeyRequest = UpdateOracleDbAwsKeyRequest.UpdateOracleDbAwsKeyRequest;
 import * as ChangeOracleDbGcpIdentityConnectorCompartmentRequest from "./change-oracle-db-gcp-identity-connector-compartment-request";
 export import ChangeOracleDbGcpIdentityConnectorCompartmentRequest = ChangeOracleDbGcpIdentityConnectorCompartmentRequest.ChangeOracleDbGcpIdentityConnectorCompartmentRequest;
 import * as ChangeOracleDbGcpKeyRingCompartmentRequest from "./change-oracle-db-gcp-key-ring-compartment-request";

@@ -21,6 +21,10 @@ import * as GetMultiCloudMetadataRequest from "./get-multi-cloud-metadata-reques
 export import GetMultiCloudMetadataRequest = GetMultiCloudMetadataRequest.GetMultiCloudMetadataRequest;
 import * as ListMultiCloudMetadataRequest from "./list-multi-cloud-metadata-request";
 export import ListMultiCloudMetadataRequest = ListMultiCloudMetadataRequest.ListMultiCloudMetadataRequest;
+import * as ListMulticloudResourcesRequest from "./list-multicloud-resources-request";
+export import ListMulticloudResourcesRequest = ListMulticloudResourcesRequest.ListMulticloudResourcesRequest;
+import * as ListMulticloudSubscriptionsRequest from "./list-multicloud-subscriptions-request";
+export import ListMulticloudSubscriptionsRequest = ListMulticloudSubscriptionsRequest.ListMulticloudSubscriptionsRequest;
 import * as GetNetworkAnchorRequest from "./get-network-anchor-request";
 export import GetNetworkAnchorRequest = GetNetworkAnchorRequest.GetNetworkAnchorRequest;
 import * as ListNetworkAnchorsRequest from "./list-network-anchors-request";

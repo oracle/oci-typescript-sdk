@@ -23,6 +23,10 @@ export interface OciVcn {
    */
   "vcnId"?: string;
   /**
+   * Name of the VCN associated to the Network Anchor.
+   */
+  "vcnName"?: string;
+  /**
    * Oracle Cloud Infrastructure primary cidr block. CSP can set this property
    * It's optional only if disconnect anchor is allowed
    * IPv4 CIDR blocks for the VCN that meet the following criteria

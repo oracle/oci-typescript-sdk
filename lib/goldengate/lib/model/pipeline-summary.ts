@@ -113,6 +113,12 @@ Example: {@code {orcl-cloud: {free-tier-retain: true}}}
    *
    */
   "timeUpdated": Date;
+  /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subnet of the pipeline's private endpoint.
+   * The subnet must be a private subnet.
+   *
+   */
+  "subnetId"?: string;
 
   "recipeType": string;
 }

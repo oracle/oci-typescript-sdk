@@ -19,35 +19,41 @@ import common = require("oci-common");
  */
 export interface ListNetworkAnchorsRequest extends common.BaseRequest {
   /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subscription in which to list resources.
-   */
-  "subscriptionId": string;
-  /**
-   * The subscription service name values from [ORACLEDBATAZURE, ORACLEDBATGOOGLE, ORACLEDBATAWS]
-   */
-  "subscriptionServiceName": model.SubscriptionType;
-  /**
-   * OMHub Control Plane must know underlying CSP CP Region External Location Name.
-   */
-  "externalLocation": string;
-  /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment in which to list resources.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Multicloud base compartment or sub-compartment in which to list resources.
+   * A Multicloud base compartment is an OCI compartment that maps to a subscription in a Cloud Service Provider (such as Azure, AWS, or Google Cloud).
+   *
    */
   "compartmentId"?: string;
+  /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Multicloud subscription in which to list resources.
+   */
+  "subscriptionId"?: string;
+  /**
+   * The subscription service name of the Cloud Service Provider.
+   */
+  "subscriptionServiceName"?: model.SubscriptionType;
   /**
    * A filter to return only resources that match the given lifecycle state. The
    * state value is case-insensitive.
    *
    */
-  "lifecycleState"?: string;
+  "networkAnchorLifecycleState"?: string;
   /**
    * A filter to return only resources that match the given display name exactly.
    */
   "displayName"?: string;
   /**
+   * The Cloud Service Provider region.
+   */
+  "externalLocation"?: string;
+  /**
    * A filter to return only NetworkAnchor resources that match the given OCI subnet Id.
    */
   "networkAnchorOciSubnetId"?: string;
+  /**
+   * If set to true, a list operation will return NetworkAnchors from all child compartments in the provided compartmentId parameter.
+   */
+  "compartmentIdInSubtree"?: boolean;
   /**
    * A filter to return only NetworkAnchor resources that match the given OCI Vcn Id.
    */
@@ -70,6 +76,10 @@ export interface ListNetworkAnchorsRequest extends common.BaseRequest {
    *
    */
   "page"?: string;
+  /**
+   * Whether to fetch and include the vcn display name, which may introduce additional latency.
+   */
+  "shouldFetchVcnName"?: boolean;
   /**
    * The sort order to use, either ascending ({@code ASC}) or descending ({@code DESC}).
    */

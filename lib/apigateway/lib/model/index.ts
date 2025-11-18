@@ -142,6 +142,10 @@ import * as HeaderValidationRequestPolicy from "./header-validation-request-poli
 export import HeaderValidationRequestPolicy = HeaderValidationRequestPolicy.HeaderValidationRequestPolicy;
 import * as IpAddress from "./ip-address";
 export import IpAddress = IpAddress.IpAddress;
+import * as Ipv4AddressConfiguration from "./ipv4-address-configuration";
+export import Ipv4AddressConfiguration = Ipv4AddressConfiguration.Ipv4AddressConfiguration;
+import * as Ipv6AddressConfiguration from "./ipv6-address-configuration";
+export import Ipv6AddressConfiguration = Ipv6AddressConfiguration.Ipv6AddressConfiguration;
 import * as JsonWebTokenClaim from "./json-web-token-claim";
 export import JsonWebTokenClaim = JsonWebTokenClaim.JsonWebTokenClaim;
 import * as MutualTlsDetails from "./mutual-tls-details";

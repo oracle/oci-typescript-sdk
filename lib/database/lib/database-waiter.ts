@@ -5792,6 +5792,37 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forRefreshDataGuardHealthStatus
+   *
+   * @param request the request to send
+   * @return response returns RefreshDataGuardHealthStatusResponse, GetWorkRequestResponse tuple
+   */
+  public async forRefreshDataGuardHealthStatus(
+    request: serviceRequests.RefreshDataGuardHealthStatusRequest
+  ): Promise<{
+    response: serviceResponses.RefreshDataGuardHealthStatusResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const refreshDataGuardHealthStatusResponse = await this.client.refreshDataGuardHealthStatus(
+      request
+    );
+    if (refreshDataGuardHealthStatusResponse.opcWorkRequestId === undefined)
+      return {
+        response: refreshDataGuardHealthStatusResponse,
+        workRequestResponse: undefined as any
+      };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      refreshDataGuardHealthStatusResponse.opcWorkRequestId
+    );
+    return {
+      response: refreshDataGuardHealthStatusResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
    * Waits forRefreshPluggableDatabase
    *
    * @param request the request to send

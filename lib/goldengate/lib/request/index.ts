@@ -148,6 +148,8 @@ import * as ListWorkRequestLogsRequest from "./list-work-request-logs-request";
 export import ListWorkRequestLogsRequest = ListWorkRequestLogsRequest.ListWorkRequestLogsRequest;
 import * as ListWorkRequestsRequest from "./list-work-requests-request";
 export import ListWorkRequestsRequest = ListWorkRequestsRequest.ListWorkRequestsRequest;
+import * as PausePipelineRequest from "./pause-pipeline-request";
+export import PausePipelineRequest = PausePipelineRequest.PausePipelineRequest;
 import * as RefreshConnectionRequest from "./refresh-connection-request";
 export import RefreshConnectionRequest = RefreshConnectionRequest.RefreshConnectionRequest;
 import * as RemoveConnectionLockRequest from "./remove-connection-lock-request";

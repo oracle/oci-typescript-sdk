@@ -16,6 +16,8 @@ For more information, see [Overview of Object Storage](https://docs.oracle.com/i
 
 import * as AbortMultipartUploadResponse from "./abort-multipart-upload-response";
 export import AbortMultipartUploadResponse = AbortMultipartUploadResponse.AbortMultipartUploadResponse;
+import * as BatchDeleteObjectsResponse from "./batch-delete-objects-response";
+export import BatchDeleteObjectsResponse = BatchDeleteObjectsResponse.BatchDeleteObjectsResponse;
 import * as CancelWorkRequestResponse from "./cancel-work-request-response";
 export import CancelWorkRequestResponse = CancelWorkRequestResponse.CancelWorkRequestResponse;
 import * as CommitMultipartUploadResponse from "./commit-multipart-upload-response";

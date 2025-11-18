@@ -76,6 +76,39 @@ For more information, see
    * True if active Data Guard is enabled.
    */
   "isActiveDataGuardEnabled"?: boolean;
+  /**
+   * The switchover readiness status of the Data Guard member.
+   *
+   */
+  "switchoverReadiness"?: DataGuardGroupMember.SwitchoverReadiness;
+  /**
+   * The message explaining switchover readiness status.
+   * Example: {@code Address failed checks to avoid extended downtime.}
+   *
+   */
+  "switchoverReadinessMessage"?: string;
+  /**
+   * The failover readiness status of the Data Guard member.
+   *
+   */
+  "failoverReadiness"?: DataGuardGroupMember.FailoverReadiness;
+  /**
+   * The message explaining failover readiness status.
+   * Example: {@code This standby database is not failover ready.}
+   *
+   */
+  "failoverReadinessMessage"?: string;
+  /**
+    * The Data loss exposure is the redo transport lag between the primary and standby databases. 
+* <p>
+Example: {@code 2 seconds}
+* 
+    */
+  "dataLossExposure"?: string;
+  /**
+   * The date and time when the last successful Data Guard refresh occurred.
+   */
+  "timeUpdated"?: Date;
 }
 
 export namespace DataGuardGroupMember {
@@ -95,6 +128,28 @@ export namespace DataGuardGroupMember {
     Sync = "SYNC",
     Async = "ASYNC",
     Fastsync = "FASTSYNC",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum SwitchoverReadiness {
+    Healthy = "HEALTHY",
+    Warning = "WARNING",
+    Critical = "CRITICAL",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum FailoverReadiness {
+    Healthy = "HEALTHY",
+    Warning = "WARNING",
+    Critical = "CRITICAL",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

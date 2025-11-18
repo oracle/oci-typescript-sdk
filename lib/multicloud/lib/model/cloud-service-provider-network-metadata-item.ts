@@ -38,6 +38,10 @@ export interface CloudServiceProviderNetworkMetadataItem {
    */
   "networkAnchorUri"?: string;
   /**
+   * CSP Specific Additional Properties, AzureSubnetId for Azure
+   */
+  "cspAdditionalProperties"?: { [key: string]: string };
+  /**
    * DNS domain ip mapping forwarding configuration
    */
   "dnsForwardingConfig"?: Array<{ [key: string]: string }>;

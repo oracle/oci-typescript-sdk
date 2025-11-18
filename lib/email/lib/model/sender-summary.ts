@@ -36,6 +36,10 @@ export interface SenderSummary {
    */
   "id": string;
   /**
+   * The IpPool [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) used to submit an email by Email Delivery when sent from this sender.
+   */
+  "emailIpPoolId"?: string;
+  /**
    * The current status of the approved sender.
    */
   "lifecycleState"?: string;

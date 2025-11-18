@@ -26,13 +26,25 @@ export interface CloudServiceProviderMetadataItem {
    */
   "region"?: string;
   /**
-   * CSP resource anchor ID or name.
+   * OCI resource anchor name.
    */
   "resourceAnchorName": string;
+  /**
+   * CSP resource anchor ID.
+   */
+  "cspResourceAnchorId"?: string;
+  /**
+   * CSP resource anchor name.
+   */
+  "cspResourceAnchorName"?: string;
   /**
    * CSP resource anchor Uri.
    */
   "resourceAnchorUri"?: string;
+  /**
+   * CSP Specific Additional Properties, AzureSubnetId for Azure
+   */
+  "cspAdditionalProperties"?: { [key: string]: string };
 
   "subscriptionType": string;
 }

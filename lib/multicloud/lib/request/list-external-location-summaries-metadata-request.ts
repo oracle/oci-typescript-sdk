@@ -19,15 +19,17 @@ import common = require("oci-common");
  */
 export interface ListExternalLocationSummariesMetadataRequest extends common.BaseRequest {
   /**
-   * The subscription service name values from [ORACLEDBATAZURE, ORACLEDBATGOOGLE, ORACLEDBATAWS]
+   * The subscription service name of the Cloud Service Provider.
    */
   "subscriptionServiceName": model.SubscriptionType;
   /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment in which to list resources.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Multicloud base compartment in which to list resources.
+   * A Multicloud base compartment is an OCI compartment that maps to a subscription in a Cloud Service Provider (such as Azure, AWS, or Google Cloud).
+   *
    */
   "compartmentId": string;
   /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subscription in which to list resources.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Multicloud subscription in which to list resources.
    */
   "subscriptionId"?: string;
   /**

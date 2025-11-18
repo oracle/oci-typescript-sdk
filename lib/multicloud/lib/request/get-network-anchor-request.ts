@@ -23,11 +23,11 @@ export interface GetNetworkAnchorRequest extends common.BaseRequest {
    */
   "networkAnchorId": string;
   /**
-   * The subscription service name values from [ORACLEDBATAZURE, ORACLEDBATGOOGLE, ORACLEDBATAWS]
+   * The subscription service name of the Cloud Service Provider.
    */
   "subscriptionServiceName": model.SubscriptionType;
   /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subscription in which to list resources.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Multicloud subscription in which to list resources.
    */
   "subscriptionId": string;
   /**
@@ -39,7 +39,11 @@ export interface GetNetworkAnchorRequest extends common.BaseRequest {
    */
   "opcRequestId"?: string;
   /**
-   * OMHub Control Plane must know underlying CSP CP Region External Location Name.
+   * The Cloud Service Provider region.
    */
   "externalLocation"?: string;
+  /**
+   * Whether to fetch and include the vcn display name, which may introduce additional latency.
+   */
+  "shouldFetchVcnName"?: boolean;
 }
