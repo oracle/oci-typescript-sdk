@@ -516,6 +516,10 @@ import * as EnablePluggableDatabaseManagementDetails from "./enable-pluggable-da
 export import EnablePluggableDatabaseManagementDetails = EnablePluggableDatabaseManagementDetails.EnablePluggableDatabaseManagementDetails;
 import * as EncryptionKeyLocationDetails from "./encryption-key-location-details";
 export import EncryptionKeyLocationDetails = EncryptionKeyLocationDetails.EncryptionKeyLocationDetails;
+import * as EstimateCostSavingSummary from "./estimate-cost-saving-summary";
+export import EstimateCostSavingSummary = EstimateCostSavingSummary.EstimateCostSavingSummary;
+import * as EstimateCostSavingsSummaryCollection from "./estimate-cost-savings-summary-collection";
+export import EstimateCostSavingsSummaryCollection = EstimateCostSavingsSummaryCollection.EstimateCostSavingsSummaryCollection;
 import * as EstimatedPatchingTime from "./estimated-patching-time";
 export import EstimatedPatchingTime = EstimatedPatchingTime.EstimatedPatchingTime;
 import * as ExadataDbSystemMigration from "./exadata-db-system-migration";

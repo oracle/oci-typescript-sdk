@@ -602,6 +602,8 @@ import * as ListDbVersionsResponse from "./list-db-versions-response";
 export import ListDbVersionsResponse = ListDbVersionsResponse.ListDbVersionsResponse;
 import * as ListDbnodeSnapshotsResponse from "./list-dbnode-snapshots-response";
 export import ListDbnodeSnapshotsResponse = ListDbnodeSnapshotsResponse.ListDbnodeSnapshotsResponse;
+import * as ListEstimateCostSavingsResponse from "./list-estimate-cost-savings-response";
+export import ListEstimateCostSavingsResponse = ListEstimateCostSavingsResponse.ListEstimateCostSavingsResponse;
 import * as ListExadataInfrastructuresResponse from "./list-exadata-infrastructures-response";
 export import ListExadataInfrastructuresResponse = ListExadataInfrastructuresResponse.ListExadataInfrastructuresResponse;
 import * as ListExadbVmClusterUpdateHistoryEntriesResponse from "./list-exadb-vm-cluster-update-history-entries-response";

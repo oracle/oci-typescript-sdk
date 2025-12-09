@@ -1,6 +1,6 @@
 {
   "name": "oci-blockchain",
-  "version": "2.122.0",
+  "version": "2.122.1",
   "description": "OCI NodeJS client for Blockchain Service",
   "repository": {
     "type": "git",
