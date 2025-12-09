@@ -26673,6 +26673,86 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
+   * Gets the estimate cost savings of the Autonomous AI Database.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListEstimateCostSavingsRequest
+   * @return ListEstimateCostSavingsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListEstimateCostSavings.ts.html |here} to see how to use ListEstimateCostSavings API.
+   */
+  public async listEstimateCostSavings(
+    listEstimateCostSavingsRequest: requests.ListEstimateCostSavingsRequest
+  ): Promise<responses.ListEstimateCostSavingsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#listEstimateCostSavings.");
+    const operationName = "listEstimateCostSavings";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabase/ListEstimateCostSavings";
+    const pathParams = {
+      "{autonomousDatabaseId}": listEstimateCostSavingsRequest.autonomousDatabaseId
+    };
+
+    const queryParams = {
+      "limit": listEstimateCostSavingsRequest.limit,
+      "page": listEstimateCostSavingsRequest.page,
+      "isCpuAutoscale": listEstimateCostSavingsRequest.isCpuAutoscale
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listEstimateCostSavingsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listEstimateCostSavingsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/autonomousDatabases/{autonomousDatabaseId}/estimateCostSavings",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListEstimateCostSavingsResponse>{},
+        body: await response.json(),
+        bodyKey: "estimateCostSavingsSummaryCollection",
+        bodyModel: model.EstimateCostSavingsSummaryCollection,
+        type: "model.EstimateCostSavingsSummaryCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Lists the Exadata infrastructure resources in the specified compartment. Applies to Exadata Cloud@Customer instances only.
    * To list the Exadata Cloud Service infrastructure resources in a compartment, use the  {@link #listCloudExadataInfrastructures(ListCloudExadataInfrastructuresRequest) listCloudExadataInfrastructures} operation.
    *
