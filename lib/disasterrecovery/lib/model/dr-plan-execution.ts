@@ -129,6 +129,7 @@ Example: {@code 750}
    *
    */
   "groupExecutions": Array<model.DrPlanGroupExecution>;
+  "stepStatusCounts": model.DrPlanExecutionStepStatusCounts;
   /**
    * The current state of the DR plan execution.
    *
@@ -188,6 +189,9 @@ export namespace DrPlanExecution {
               return model.DrPlanGroupExecution.getJsonObj(item);
             })
           : undefined,
+        "stepStatusCounts": obj.stepStatusCounts
+          ? model.DrPlanExecutionStepStatusCounts.getJsonObj(obj.stepStatusCounts)
+          : undefined,
 
         "automaticExecutionDetails": obj.automaticExecutionDetails
           ? model.AutomaticExecutionDetails.getJsonObj(obj.automaticExecutionDetails)
@@ -213,6 +217,9 @@ export namespace DrPlanExecution {
           ? obj.groupExecutions.map(item => {
               return model.DrPlanGroupExecution.getDeserializedJsonObj(item);
             })
+          : undefined,
+        "stepStatusCounts": obj.stepStatusCounts
+          ? model.DrPlanExecutionStepStatusCounts.getDeserializedJsonObj(obj.stepStatusCounts)
           : undefined,
 
         "automaticExecutionDetails": obj.automaticExecutionDetails

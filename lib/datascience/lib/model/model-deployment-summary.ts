@@ -63,6 +63,7 @@ export interface ModelDeploymentSummary {
    * The state of the model deployment.
    */
   "lifecycleState": model.ModelDeploymentLifecycleState;
+  "modelDeploymentSystemData"?: model.InstancePoolModelDeploymentSystemData;
   /**
    * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace. See [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
    * Example: {@code {\"Department\": \"Finance\"}}
@@ -89,6 +90,10 @@ export namespace ModelDeploymentSummary {
           : undefined,
         "categoryLogDetails": obj.categoryLogDetails
           ? model.CategoryLogDetails.getJsonObj(obj.categoryLogDetails)
+          : undefined,
+
+        "modelDeploymentSystemData": obj.modelDeploymentSystemData
+          ? model.ModelDeploymentSystemData.getJsonObj(obj.modelDeploymentSystemData)
           : undefined
       }
     };
@@ -106,6 +111,10 @@ export namespace ModelDeploymentSummary {
           : undefined,
         "categoryLogDetails": obj.categoryLogDetails
           ? model.CategoryLogDetails.getDeserializedJsonObj(obj.categoryLogDetails)
+          : undefined,
+
+        "modelDeploymentSystemData": obj.modelDeploymentSystemData
+          ? model.ModelDeploymentSystemData.getDeserializedJsonObj(obj.modelDeploymentSystemData)
           : undefined
       }
     };

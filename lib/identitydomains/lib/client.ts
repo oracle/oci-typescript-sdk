@@ -8354,6 +8354,82 @@ export class IdentityDomainsClient {
   }
 
   /**
+   * Get Attribute Mappings for a Mapped Attribute
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetMappedAttributeRequest
+   * @return GetMappedAttributeResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetMappedAttribute.ts.html |here} to see how to use GetMappedAttribute API.
+   */
+  public async getMappedAttribute(
+    getMappedAttributeRequest: requests.GetMappedAttributeRequest
+  ): Promise<responses.GetMappedAttributeResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#getMappedAttribute.");
+    const operationName = "getMappedAttribute";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{mappedAttributeId}": getMappedAttributeRequest.mappedAttributeId
+    };
+
+    const queryParams = {
+      "attributes": getMappedAttributeRequest.attributes,
+      "attributeSets": getMappedAttributeRequest.attributeSets
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": getMappedAttributeRequest.authorization,
+      "resource_type_schema_version": getMappedAttributeRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": getMappedAttributeRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getMappedAttributeRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/MappedAttributes/{mappedAttributeId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetMappedAttributeResponse>{},
+        body: await response.json(),
+        bodyKey: "mappedAttribute",
+        bodyModel: model.MappedAttribute,
+        type: "model.MappedAttribute",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Get a user's own information.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetMeRequest
@@ -12665,6 +12741,92 @@ export class IdentityDomainsClient {
         bodyKey: "kmsiSettings",
         bodyModel: model.KmsiSettings,
         type: "model.KmsiSettings",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Search Mapped Attributes
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListMappedAttributesRequest
+   * @return ListMappedAttributesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListMappedAttributes.ts.html |here} to see how to use ListMappedAttributes API.
+   */
+  public async listMappedAttributes(
+    listMappedAttributesRequest: requests.ListMappedAttributesRequest
+  ): Promise<responses.ListMappedAttributesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#listMappedAttributes.");
+    const operationName = "listMappedAttributes";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "filter": listMappedAttributesRequest.filter,
+      "sortBy": listMappedAttributesRequest.sortBy,
+      "sortOrder": listMappedAttributesRequest.sortOrder,
+      "startIndex": listMappedAttributesRequest.startIndex,
+      "count": listMappedAttributesRequest.count,
+      "attributes": listMappedAttributesRequest.attributes,
+      "attributeSets": listMappedAttributesRequest.attributeSets,
+      "page": listMappedAttributesRequest.page,
+      "limit": listMappedAttributesRequest.limit
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": listMappedAttributesRequest.authorization,
+      "resource_type_schema_version": listMappedAttributesRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": listMappedAttributesRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listMappedAttributesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/MappedAttributes",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListMappedAttributesResponse>{},
+        body: await response.json(),
+        bodyKey: "mappedAttributes",
+        bodyModel: model.MappedAttributes,
+        type: "model.MappedAttributes",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -17287,6 +17449,93 @@ export class IdentityDomainsClient {
   }
 
   /**
+   * Update a Mapped Attribute
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param PatchMappedAttributeRequest
+   * @return PatchMappedAttributeResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchMappedAttribute.ts.html |here} to see how to use PatchMappedAttribute API.
+   */
+  public async patchMappedAttribute(
+    patchMappedAttributeRequest: requests.PatchMappedAttributeRequest
+  ): Promise<responses.PatchMappedAttributeResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#patchMappedAttribute.");
+    const operationName = "patchMappedAttribute";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{mappedAttributeId}": patchMappedAttributeRequest.mappedAttributeId
+    };
+
+    const queryParams = {
+      "attributes": patchMappedAttributeRequest.attributes,
+      "attributeSets": patchMappedAttributeRequest.attributeSets
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": patchMappedAttributeRequest.authorization,
+      "resource_type_schema_version": patchMappedAttributeRequest.resourceTypeSchemaVersion,
+      "if-match": patchMappedAttributeRequest.ifMatch,
+      "opc-retry-token": patchMappedAttributeRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      patchMappedAttributeRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/MappedAttributes/{mappedAttributeId}",
+      method: "PATCH",
+      bodyContent: common.ObjectSerializer.serialize(
+        patchMappedAttributeRequest.patchOp,
+        "PatchOp",
+        model.PatchOp.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.PatchMappedAttributeResponse>{},
+        body: await response.json(),
+        bodyKey: "mappedAttribute",
+        bodyModel: model.MappedAttribute,
+        type: "model.MappedAttribute",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Update a user's own information.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param PatchMeRequest
@@ -20554,6 +20803,93 @@ export class IdentityDomainsClient {
   }
 
   /**
+   * Replace a Mapped Attribute
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param PutMappedAttributeRequest
+   * @return PutMappedAttributeResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutMappedAttribute.ts.html |here} to see how to use PutMappedAttribute API.
+   */
+  public async putMappedAttribute(
+    putMappedAttributeRequest: requests.PutMappedAttributeRequest
+  ): Promise<responses.PutMappedAttributeResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#putMappedAttribute.");
+    const operationName = "putMappedAttribute";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{mappedAttributeId}": putMappedAttributeRequest.mappedAttributeId
+    };
+
+    const queryParams = {
+      "attributes": putMappedAttributeRequest.attributes,
+      "attributeSets": putMappedAttributeRequest.attributeSets
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": putMappedAttributeRequest.authorization,
+      "resource_type_schema_version": putMappedAttributeRequest.resourceTypeSchemaVersion,
+      "if-match": putMappedAttributeRequest.ifMatch,
+      "opc-retry-token": putMappedAttributeRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      putMappedAttributeRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/MappedAttributes/{mappedAttributeId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        putMappedAttributeRequest.mappedAttribute,
+        "MappedAttribute",
+        model.MappedAttribute.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.PutMappedAttributeResponse>{},
+        body: await response.json(),
+        bodyKey: "mappedAttribute",
+        bodyModel: model.MappedAttribute,
+        type: "model.MappedAttribute",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Replace a user's own information.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param PutMeRequest
@@ -23401,6 +23737,90 @@ export class IdentityDomainsClient {
         bodyKey: "kmsiSettings",
         bodyModel: model.KmsiSettings,
         type: "model.KmsiSettings",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Search Mapped Attributes Using POST
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param SearchMappedAttributesRequest
+   * @return SearchMappedAttributesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchMappedAttributes.ts.html |here} to see how to use SearchMappedAttributes API.
+   */
+  public async searchMappedAttributes(
+    searchMappedAttributesRequest: requests.SearchMappedAttributesRequest
+  ): Promise<responses.SearchMappedAttributesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#searchMappedAttributes.");
+    const operationName = "searchMappedAttributes";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "page": searchMappedAttributesRequest.page,
+      "limit": searchMappedAttributesRequest.limit
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": searchMappedAttributesRequest.authorization,
+      "resource_type_schema_version": searchMappedAttributesRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": searchMappedAttributesRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      searchMappedAttributesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/MappedAttributes/.search",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        searchMappedAttributesRequest.mappedAttributeSearchRequest,
+        "MappedAttributeSearchRequest",
+        model.MappedAttributeSearchRequest.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SearchMappedAttributesResponse>{},
+        body: await response.json(),
+        bodyKey: "mappedAttributes",
+        bodyModel: model.MappedAttributes,
+        type: "model.MappedAttributes",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),

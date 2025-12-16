@@ -92,6 +92,11 @@ This field is the Fault domain of the host
    */
   "shape": string;
   /**
+   * The platform of the host
+   *
+   */
+  "platform"?: string;
+  /**
    * The heathy state of the host
    *
    */

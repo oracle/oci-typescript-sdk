@@ -5966,6 +5966,94 @@ export class ComputeClient {
   }
 
   /**
+   * Triggers the asynchronous process that applies the host's target configuration
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ApplyHostConfigurationRequest
+   * @return ApplyHostConfigurationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ApplyHostConfiguration.ts.html |here} to see how to use ApplyHostConfiguration API.
+   */
+  public async applyHostConfiguration(
+    applyHostConfigurationRequest: requests.ApplyHostConfigurationRequest
+  ): Promise<responses.ApplyHostConfigurationResponse> {
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#applyHostConfiguration.");
+    const operationName = "applyHostConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeHost/ApplyHostConfiguration";
+    const pathParams = {
+      "{computeHostId}": applyHostConfigurationRequest.computeHostId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": applyHostConfigurationRequest.ifMatch,
+      "opc-request-id": applyHostConfigurationRequest.opcRequestId,
+      "opc-retry-token": applyHostConfigurationRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      applyHostConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/computeHosts/{computeHostId}/actions/applyConfiguration",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ApplyHostConfigurationResponse>{},
+        body: await response.json(),
+        bodyKey: "computeHost",
+        bodyModel: model.ComputeHost,
+        type: "model.ComputeHost",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Attaches the specified boot volume to the specified instance.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -7299,6 +7387,89 @@ When you move an instance to a different compartment, associated resources such 
           {
             value: response.headers.get("opc-work-request-id"),
             key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Marks the host to be checked for conformance to its target configuration
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CheckHostConfigurationRequest
+   * @return CheckHostConfigurationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CheckHostConfiguration.ts.html |here} to see how to use CheckHostConfiguration API.
+   */
+  public async checkHostConfiguration(
+    checkHostConfigurationRequest: requests.CheckHostConfigurationRequest
+  ): Promise<responses.CheckHostConfigurationResponse> {
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#checkHostConfiguration.");
+    const operationName = "checkHostConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeHost/CheckHostConfiguration";
+    const pathParams = {
+      "{computeHostId}": checkHostConfigurationRequest.computeHostId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": checkHostConfigurationRequest.ifMatch,
+      "opc-request-id": checkHostConfigurationRequest.opcRequestId,
+      "opc-retry-token": checkHostConfigurationRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      checkHostConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/computeHosts/{computeHostId}/actions/checkConfiguration",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CheckHostConfigurationResponse>{},
+        body: await response.json(),
+        bodyKey: "computeHost",
+        bodyModel: model.ComputeHost,
+        type: "model.ComputeHost",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("location"),
+            key: "location",
             dataType: "string"
           }
         ]
@@ -10775,6 +10946,78 @@ See [Object Storage URLs](https://docs.oracle.com/iaas/Content/Compute/Tasks/ima
             key: "etag",
             dataType: "string"
           },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns the Firmware Bundle matching the provided firmwareBundleId.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetFirmwareBundleRequest
+   * @return GetFirmwareBundleResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetFirmwareBundle.ts.html |here} to see how to use GetFirmwareBundle API.
+   */
+  public async getFirmwareBundle(
+    getFirmwareBundleRequest: requests.GetFirmwareBundleRequest
+  ): Promise<responses.GetFirmwareBundleResponse> {
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#getFirmwareBundle.");
+    const operationName = "getFirmwareBundle";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/FirmwareBundle/GetFirmwareBundle";
+    const pathParams = {
+      "{firmwareBundleId}": getFirmwareBundleRequest.firmwareBundleId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getFirmwareBundleRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getFirmwareBundleRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/firmwareBundles/{firmwareBundleId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetFirmwareBundleResponse>{},
+        body: await response.json(),
+        bodyKey: "firmwareBundle",
+        bodyModel: model.FirmwareBundle,
+        type: "model.FirmwareBundle",
+        responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -14728,6 +14971,89 @@ You can limit the list by specifying a dedicated virtual machine host display na
   }
 
   /**
+   * Gets a list of all Firmware Bundles in a compartment for specified platform. Can filter results to include
+   * only the default (recommended) Firmware Bundle for the given platform.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListFirmwareBundlesRequest
+   * @return ListFirmwareBundlesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListFirmwareBundles.ts.html |here} to see how to use ListFirmwareBundles API.
+   */
+  public async listFirmwareBundles(
+    listFirmwareBundlesRequest: requests.ListFirmwareBundlesRequest
+  ): Promise<responses.ListFirmwareBundlesResponse> {
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#listFirmwareBundles.");
+    const operationName = "listFirmwareBundles";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/FirmwareBundlesCollection/ListFirmwareBundles";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listFirmwareBundlesRequest.compartmentId,
+      "platform": listFirmwareBundlesRequest.platform,
+      "isDefaultBundle": listFirmwareBundlesRequest.isDefaultBundle,
+      "limit": listFirmwareBundlesRequest.limit,
+      "page": listFirmwareBundlesRequest.page,
+      "lifecycleState": listFirmwareBundlesRequest.lifecycleState
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listFirmwareBundlesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listFirmwareBundlesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/firmwareBundles",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListFirmwareBundlesResponse>{},
+        body: await response.json(),
+        bodyKey: "firmwareBundlesCollection",
+        bodyModel: model.FirmwareBundlesCollection,
+        type: "model.FirmwareBundlesCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Lists the compatible shapes for the specified image.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListImageShapeCompatibilityEntriesRequest
@@ -15579,7 +15905,8 @@ For more information about instance console connections, see [Troubleshooting In
       "compartmentId": listShapesRequest.compartmentId,
       "limit": listShapesRequest.limit,
       "page": listShapesRequest.page,
-      "imageId": listShapesRequest.imageId
+      "imageId": listShapesRequest.imageId,
+      "shape": listShapesRequest.shape
     };
 
     let headerParams = {

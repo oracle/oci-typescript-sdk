@@ -142,6 +142,8 @@ import * as AcceptShieldedIntegrityPolicyResponse from "./accept-shielded-integr
 export import AcceptShieldedIntegrityPolicyResponse = AcceptShieldedIntegrityPolicyResponse.AcceptShieldedIntegrityPolicyResponse;
 import * as AddImageShapeCompatibilityEntryResponse from "./add-image-shape-compatibility-entry-response";
 export import AddImageShapeCompatibilityEntryResponse = AddImageShapeCompatibilityEntryResponse.AddImageShapeCompatibilityEntryResponse;
+import * as ApplyHostConfigurationResponse from "./apply-host-configuration-response";
+export import ApplyHostConfigurationResponse = ApplyHostConfigurationResponse.ApplyHostConfigurationResponse;
 import * as AttachBootVolumeResponse from "./attach-boot-volume-response";
 export import AttachBootVolumeResponse = AttachBootVolumeResponse.AttachBootVolumeResponse;
 import * as AttachComputeHostGroupHostResponse from "./attach-compute-host-group-host-response";
@@ -174,6 +176,8 @@ import * as ChangeImageCompartmentResponse from "./change-image-compartment-resp
 export import ChangeImageCompartmentResponse = ChangeImageCompartmentResponse.ChangeImageCompartmentResponse;
 import * as ChangeInstanceCompartmentResponse from "./change-instance-compartment-response";
 export import ChangeInstanceCompartmentResponse = ChangeInstanceCompartmentResponse.ChangeInstanceCompartmentResponse;
+import * as CheckHostConfigurationResponse from "./check-host-configuration-response";
+export import CheckHostConfigurationResponse = CheckHostConfigurationResponse.CheckHostConfigurationResponse;
 import * as CreateAppCatalogSubscriptionResponse from "./create-app-catalog-subscription-response";
 export import CreateAppCatalogSubscriptionResponse = CreateAppCatalogSubscriptionResponse.CreateAppCatalogSubscriptionResponse;
 import * as CreateComputeCapacityReportResponse from "./create-compute-capacity-report-response";
@@ -262,6 +266,8 @@ import * as GetConsoleHistoryContentResponse from "./get-console-history-content
 export import GetConsoleHistoryContentResponse = GetConsoleHistoryContentResponse.GetConsoleHistoryContentResponse;
 import * as GetDedicatedVmHostResponse from "./get-dedicated-vm-host-response";
 export import GetDedicatedVmHostResponse = GetDedicatedVmHostResponse.GetDedicatedVmHostResponse;
+import * as GetFirmwareBundleResponse from "./get-firmware-bundle-response";
+export import GetFirmwareBundleResponse = GetFirmwareBundleResponse.GetFirmwareBundleResponse;
 import * as GetImageResponse from "./get-image-response";
 export import GetImageResponse = GetImageResponse.GetImageResponse;
 import * as GetImageShapeCompatibilityEntryResponse from "./get-image-shape-compatibility-entry-response";
@@ -336,6 +342,8 @@ import * as ListDedicatedVmHostShapesResponse from "./list-dedicated-vm-host-sha
 export import ListDedicatedVmHostShapesResponse = ListDedicatedVmHostShapesResponse.ListDedicatedVmHostShapesResponse;
 import * as ListDedicatedVmHostsResponse from "./list-dedicated-vm-hosts-response";
 export import ListDedicatedVmHostsResponse = ListDedicatedVmHostsResponse.ListDedicatedVmHostsResponse;
+import * as ListFirmwareBundlesResponse from "./list-firmware-bundles-response";
+export import ListFirmwareBundlesResponse = ListFirmwareBundlesResponse.ListFirmwareBundlesResponse;
 import * as ListImageShapeCompatibilityEntriesResponse from "./list-image-shape-compatibility-entries-response";
 export import ListImageShapeCompatibilityEntriesResponse = ListImageShapeCompatibilityEntriesResponse.ListImageShapeCompatibilityEntriesResponse;
 import * as ListImagesResponse from "./list-images-response";

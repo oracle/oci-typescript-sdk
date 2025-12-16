@@ -39,6 +39,11 @@ export namespace CreateDrProtectionGroupMemberDetails {
 
     if (obj && "memberType" in obj && obj.memberType) {
       switch (obj.memberType) {
+        case "INTEGRATION_INSTANCE":
+          return model.CreateDrProtectionGroupMemberIntegrationInstanceDetails.getJsonObj(
+            <model.CreateDrProtectionGroupMemberIntegrationInstanceDetails>(<object>jsonObj),
+            true
+          );
         case "DATABASE":
           return model.CreateDrProtectionGroupMemberDatabaseDetails.getJsonObj(
             <model.CreateDrProtectionGroupMemberDatabaseDetails>(<object>jsonObj),
@@ -117,6 +122,11 @@ export namespace CreateDrProtectionGroupMemberDetails {
 
     if (obj && "memberType" in obj && obj.memberType) {
       switch (obj.memberType) {
+        case "INTEGRATION_INSTANCE":
+          return model.CreateDrProtectionGroupMemberIntegrationInstanceDetails.getDeserializedJsonObj(
+            <model.CreateDrProtectionGroupMemberIntegrationInstanceDetails>(<object>jsonObj),
+            true
+          );
         case "DATABASE":
           return model.CreateDrProtectionGroupMemberDatabaseDetails.getDeserializedJsonObj(
             <model.CreateDrProtectionGroupMemberDatabaseDetails>(<object>jsonObj),

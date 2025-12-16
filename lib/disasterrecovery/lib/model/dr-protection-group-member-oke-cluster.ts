@@ -70,6 +70,12 @@ Example: {@code ocid1.instance.oc1..uniqueID}
    *
    */
   "virtualNodePoolConfigs"?: Array<model.OkeClusterVirtualNodePoolConfiguration>;
+  /**
+   * The list of config maps along with their corresponding namespaces.
+   * This property applies to the OKE cluster member in primary region.
+   *
+   */
+  "resourceModifierMappings"?: Array<model.OkeClusterResourceModifierMapping>;
 
   "memberType": string;
 }
@@ -113,6 +119,11 @@ export namespace DrProtectionGroupMemberOkeCluster {
         "virtualNodePoolConfigs": obj.virtualNodePoolConfigs
           ? obj.virtualNodePoolConfigs.map(item => {
               return model.OkeClusterVirtualNodePoolConfiguration.getJsonObj(item);
+            })
+          : undefined,
+        "resourceModifierMappings": obj.resourceModifierMappings
+          ? obj.resourceModifierMappings.map(item => {
+              return model.OkeClusterResourceModifierMapping.getJsonObj(item);
             })
           : undefined
       }
@@ -161,6 +172,11 @@ export namespace DrProtectionGroupMemberOkeCluster {
         "virtualNodePoolConfigs": obj.virtualNodePoolConfigs
           ? obj.virtualNodePoolConfigs.map(item => {
               return model.OkeClusterVirtualNodePoolConfiguration.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "resourceModifierMappings": obj.resourceModifierMappings
+          ? obj.resourceModifierMappings.map(item => {
+              return model.OkeClusterResourceModifierMapping.getDeserializedJsonObj(item);
             })
           : undefined
       }

@@ -42,6 +42,18 @@ Example: {@code us-ashburn-1}
     */
   "runOnInstanceRegion": string;
   "objectStorageScriptLocation": model.ObjectStorageScriptLocation;
+  /**
+   * The entire path and arguments for the script that is stored in object store, or inside a compressed archive in object store.
+   * Example: {@code /usr/bin/python3.7 scripts/start_server.py --port 8080 --env \"production\" --max-connections 200 --log-level \"INFO\"}
+   *
+   */
+  "scriptCommand"?: string;
+  /**
+   * The user ID on the instance that will be used to execute the script specified in 'scriptCommand'.
+   * Example: {@code opc}
+   *
+   */
+  "runAsUser"?: string;
 
   "stepType": string;
 }

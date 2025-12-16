@@ -32,6 +32,7 @@ import common = require("oci-common");
  * - NETWORK_LOAD_BALANCER - A network load balancer.
  * - FILE_SYSTEM - A file system.
  * - MYSQL_DB_SYSTEM - A HeatWave MySQL DB system.
+ * - INTEGRATION_INSTANCE - An integration instance (OIC).
  *
  **/
 export enum DrProtectionGroupMemberType {
@@ -48,6 +49,7 @@ export enum DrProtectionGroupMemberType {
   OkeCluster = "OKE_CLUSTER",
   ObjectStorageBucket = "OBJECT_STORAGE_BUCKET",
   MysqlDbSystem = "MYSQL_DB_SYSTEM",
+  IntegrationInstance = "INTEGRATION_INSTANCE",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

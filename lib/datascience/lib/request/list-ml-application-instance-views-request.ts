@@ -35,6 +35,10 @@ export interface ListMlApplicationInstanceViewsRequest extends common.BaseReques
    */
   "mlApplicationImplementationId"?: string;
   /**
+   * unique MlApplicationInstance identifier
+   */
+  "mlApplicationInstanceId"?: string;
+  /**
    * A filter to return only resources matching the given lifecycleState.
    */
   "lifecycleState"?: string;
