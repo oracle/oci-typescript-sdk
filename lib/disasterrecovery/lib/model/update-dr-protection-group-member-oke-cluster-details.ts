@@ -71,6 +71,12 @@ Example: {@code ocid1.instance.oc1..uniqueID}
    *
    */
   "virtualNodePoolConfigs"?: Array<model.UpdateOkeClusterVirtualNodePoolConfigurationDetails>;
+  /**
+   * The list of config maps along with their corresponding namespaces.
+   * This property applies to the OKE cluster member in primary region.
+   *
+   */
+  "resourceModifierMappings"?: Array<model.UpdateOkeClusterResourceModifierMappingDetails>;
 
   "memberType": string;
 }
@@ -116,6 +122,11 @@ export namespace UpdateDrProtectionGroupMemberOkeClusterDetails {
         "virtualNodePoolConfigs": obj.virtualNodePoolConfigs
           ? obj.virtualNodePoolConfigs.map(item => {
               return model.UpdateOkeClusterVirtualNodePoolConfigurationDetails.getJsonObj(item);
+            })
+          : undefined,
+        "resourceModifierMappings": obj.resourceModifierMappings
+          ? obj.resourceModifierMappings.map(item => {
+              return model.UpdateOkeClusterResourceModifierMappingDetails.getJsonObj(item);
             })
           : undefined
       }
@@ -168,6 +179,13 @@ export namespace UpdateDrProtectionGroupMemberOkeClusterDetails {
         "virtualNodePoolConfigs": obj.virtualNodePoolConfigs
           ? obj.virtualNodePoolConfigs.map(item => {
               return model.UpdateOkeClusterVirtualNodePoolConfigurationDetails.getDeserializedJsonObj(
+                item
+              );
+            })
+          : undefined,
+        "resourceModifierMappings": obj.resourceModifierMappings
+          ? obj.resourceModifierMappings.map(item => {
+              return model.UpdateOkeClusterResourceModifierMappingDetails.getDeserializedJsonObj(
                 item
               );
             })

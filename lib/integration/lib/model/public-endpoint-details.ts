@@ -30,6 +30,8 @@ export interface PublicEndpointDetails extends model.NetworkEndpointDetails {
    *
    */
   "allowlistedHttpVcns"?: Array<model.VirtualCloudNetwork>;
+  "runtime"?: model.ComponentAllowListDetails;
+  "designTime"?: model.ComponentAllowListDetails;
   /**
    * The Integration service's VCN is allow-listed to allow integrations to call back into other integrations
    */
@@ -49,6 +51,12 @@ export namespace PublicEndpointDetails {
           ? obj.allowlistedHttpVcns.map(item => {
               return model.VirtualCloudNetwork.getJsonObj(item);
             })
+          : undefined,
+        "runtime": obj.runtime
+          ? model.ComponentAllowListDetails.getJsonObj(obj.runtime)
+          : undefined,
+        "designTime": obj.designTime
+          ? model.ComponentAllowListDetails.getJsonObj(obj.designTime)
           : undefined
       }
     };
@@ -69,6 +77,12 @@ export namespace PublicEndpointDetails {
           ? obj.allowlistedHttpVcns.map(item => {
               return model.VirtualCloudNetwork.getDeserializedJsonObj(item);
             })
+          : undefined,
+        "runtime": obj.runtime
+          ? model.ComponentAllowListDetails.getDeserializedJsonObj(obj.runtime)
+          : undefined,
+        "designTime": obj.designTime
+          ? model.ComponentAllowListDetails.getDeserializedJsonObj(obj.designTime)
           : undefined
       }
     };

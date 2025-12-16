@@ -40,12 +40,26 @@ export interface HostGroupConfiguration {
    *
    */
   "recycleLevel"?: HostGroupConfiguration.RecycleLevel;
+  /**
+   * The state of the host group configuration.
+   */
+  "state"?: HostGroupConfiguration.State;
 }
 
 export namespace HostGroupConfiguration {
   export enum RecycleLevel {
     SkipRecycle = "SKIP_RECYCLE",
     FullRecycle = "FULL_RECYCLE",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum State {
+    Valid = "VALID",
+    Invalid = "INVALID",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

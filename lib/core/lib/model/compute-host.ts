@@ -80,6 +80,16 @@ Example: {@code 2016-08-25T21:10:29.600Z}
   "configurationData"?: model.ComputeHostConfigurationData;
   "recycleDetails"?: model.RecycleDetails;
   /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) for the Customer-unique firmware bundle associated with the Host.
+   *
+   */
+  "firmwareBundleId"?: string;
+  /**
+   * The platform of the host
+   *
+   */
+  "platform"?: string;
+  /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) for Customer-unique Network Block
    *
    */

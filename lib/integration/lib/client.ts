@@ -239,6 +239,88 @@ export class IntegrationInstanceClient {
   }
 
   /**
+   * Add LogGroup with specified ocid for Integration Instance to enable sending OIC Activity
+   * Stream to OCI Logging Analytics.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param AddLogAnalyticsLogGroupRequest
+   * @return AddLogAnalyticsLogGroupResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/integration/AddLogAnalyticsLogGroup.ts.html |here} to see how to use AddLogAnalyticsLogGroup API.
+   */
+  public async addLogAnalyticsLogGroup(
+    addLogAnalyticsLogGroupRequest: requests.AddLogAnalyticsLogGroupRequest
+  ): Promise<responses.AddLogAnalyticsLogGroupResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IntegrationInstanceClient#addLogAnalyticsLogGroup.");
+    const operationName = "addLogAnalyticsLogGroup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/integration/20190131/IntegrationInstance/AddLogAnalyticsLogGroup";
+    const pathParams = {
+      "{integrationInstanceId}": addLogAnalyticsLogGroupRequest.integrationInstanceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": addLogAnalyticsLogGroupRequest.ifMatch,
+      "opc-request-id": addLogAnalyticsLogGroupRequest.opcRequestId,
+      "opc-retry-token": addLogAnalyticsLogGroupRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      addLogAnalyticsLogGroupRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/integrationInstances/{integrationInstanceId}/actions/addLogAnalyticsLogGroup",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        addLogAnalyticsLogGroupRequest.addLogAnalyticsLogGroupDetails,
+        "AddLogAnalyticsLogGroupDetails",
+        model.AddLogAnalyticsLogGroupDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AddLogAnalyticsLogGroupResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Enable Oracle Managed Custom Endpoint for given integration instance.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -576,6 +658,89 @@ export class IntegrationInstanceClient {
   }
 
   /**
+   * Integration instance identified by ID will be migrated to a new Disaster Recovery enabled integration instance.
+   * If a given Integration instance has certain features enabled which are not supported for conversion/migration
+   * it will not be accepted for conversion.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ConvertInstanceRequest
+   * @return ConvertInstanceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/integration/ConvertInstance.ts.html |here} to see how to use ConvertInstance API.
+   */
+  public async convertInstance(
+    convertInstanceRequest: requests.ConvertInstanceRequest
+  ): Promise<responses.ConvertInstanceResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IntegrationInstanceClient#convertInstance.");
+    const operationName = "convertInstance";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/integration/20190131/IntegrationInstance/ConvertInstance";
+    const pathParams = {
+      "{integrationInstanceId}": convertInstanceRequest.integrationInstanceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": convertInstanceRequest.ifMatch,
+      "opc-request-id": convertInstanceRequest.opcRequestId,
+      "opc-retry-token": convertInstanceRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      convertInstanceRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/integrationInstances/{integrationInstanceId}/actions/convertInstance",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        convertInstanceRequest.convertInstanceDetails,
+        "ConvertInstanceDetails",
+        model.ConvertInstanceDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ConvertInstanceResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates a new Integration Instance.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -707,6 +872,82 @@ export class IntegrationInstanceClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteIntegrationInstanceResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Disable Process Automation for given Integration Instance
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DisableProcessAutomationRequest
+   * @return DisableProcessAutomationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/integration/DisableProcessAutomation.ts.html |here} to see how to use DisableProcessAutomation API.
+   */
+  public async disableProcessAutomation(
+    disableProcessAutomationRequest: requests.DisableProcessAutomationRequest
+  ): Promise<responses.DisableProcessAutomationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IntegrationInstanceClient#disableProcessAutomation.");
+    const operationName = "disableProcessAutomation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/integration/20190131/IntegrationInstance/DisableProcessAutomation";
+    const pathParams = {
+      "{integrationInstanceId}": disableProcessAutomationRequest.integrationInstanceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": disableProcessAutomationRequest.ifMatch,
+      "opc-request-id": disableProcessAutomationRequest.opcRequestId,
+      "opc-retry-token": disableProcessAutomationRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      disableProcessAutomationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/integrationInstances/{integrationInstanceId}/actions/disableProcessAutomation",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DisableProcessAutomationResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -1675,6 +1916,83 @@ export class IntegrationInstanceClient {
     request: requests.ListWorkRequestsRequest
   ): AsyncIterableIterator<responses.ListWorkRequestsResponse> {
     return paginateResponses(request, req => this.listWorkRequests(req));
+  }
+
+  /**
+   * Removes Log Analytics logGroup, if enabled for given integrationInstance. Since only single LogGroup can be enabled
+   * for integration instance, no additional details are required to be includes in the request.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param RemoveLogAnalyticsLogGroupRequest
+   * @return RemoveLogAnalyticsLogGroupResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/integration/RemoveLogAnalyticsLogGroup.ts.html |here} to see how to use RemoveLogAnalyticsLogGroup API.
+   */
+  public async removeLogAnalyticsLogGroup(
+    removeLogAnalyticsLogGroupRequest: requests.RemoveLogAnalyticsLogGroupRequest
+  ): Promise<responses.RemoveLogAnalyticsLogGroupResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IntegrationInstanceClient#removeLogAnalyticsLogGroup.");
+    const operationName = "removeLogAnalyticsLogGroup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/integration/20190131/IntegrationInstance/RemoveLogAnalyticsLogGroup";
+    const pathParams = {
+      "{integrationInstanceId}": removeLogAnalyticsLogGroupRequest.integrationInstanceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": removeLogAnalyticsLogGroupRequest.ifMatch,
+      "opc-request-id": removeLogAnalyticsLogGroupRequest.opcRequestId,
+      "opc-retry-token": removeLogAnalyticsLogGroupRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removeLogAnalyticsLogGroupRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/integrationInstances/{integrationInstanceId}/actions/removeLogAnalyticsLogGroup",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RemoveLogAnalyticsLogGroupResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
   }
 
   /**

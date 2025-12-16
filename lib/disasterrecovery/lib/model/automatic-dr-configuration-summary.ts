@@ -82,6 +82,11 @@ Example: {@code ocid1.drplan.oc1..uniqueID}
    */
   "lifecycleState": model.AutomaticDrConfigurationLifecycleState;
   /**
+   * The current sub-state of the Automatic DR configuration.
+   *
+   */
+  "lifecycleSubState"?: model.AutomaticDrConfigurationLifecycleSubState;
+  /**
    * A message describing the Automatic DR configuration's current state in more detail.
    *
    */

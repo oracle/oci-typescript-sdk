@@ -21,6 +21,8 @@ import common = require("oci-common");
 export interface InstanceConfiguration {
   /**
    * The shape used to launch the model deployment instances.
+   * When using service managed open source foundation model, the supported shapes can be retrieved using get model api /models/{modelId}/definedMetadata/deploymentConfiguration/artifact/content.
+   *
    */
   "instanceShapeName": string;
   "modelDeploymentInstanceShapeConfigDetails"?: model.ModelDeploymentInstanceShapeConfigDetails;

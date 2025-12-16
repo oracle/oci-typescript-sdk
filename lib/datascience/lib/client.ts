@@ -9953,6 +9953,7 @@ export class DataScienceClient {
       "mlApplicationId": listMlApplicationInstanceViewsRequest.mlApplicationId,
       "mlApplicationImplementationId":
         listMlApplicationInstanceViewsRequest.mlApplicationImplementationId,
+      "mlApplicationInstanceId": listMlApplicationInstanceViewsRequest.mlApplicationInstanceId,
       "lifecycleState": listMlApplicationInstanceViewsRequest.lifecycleState,
       "limit": listMlApplicationInstanceViewsRequest.limit,
       "page": listMlApplicationInstanceViewsRequest.page,

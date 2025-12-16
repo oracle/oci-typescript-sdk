@@ -11,6 +11,8 @@
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as AddLogAnalyticsLogGroupResponse from "./add-log-analytics-log-group-response";
+export import AddLogAnalyticsLogGroupResponse = AddLogAnalyticsLogGroupResponse.AddLogAnalyticsLogGroupResponse;
 import * as AddOracleManagedCustomEndpointResponse from "./add-oracle-managed-custom-endpoint-response";
 export import AddOracleManagedCustomEndpointResponse = AddOracleManagedCustomEndpointResponse.AddOracleManagedCustomEndpointResponse;
 import * as ChangeIntegrationInstanceCompartmentResponse from "./change-integration-instance-compartment-response";
@@ -19,10 +21,14 @@ import * as ChangeIntegrationInstanceNetworkEndpointResponse from "./change-inte
 export import ChangeIntegrationInstanceNetworkEndpointResponse = ChangeIntegrationInstanceNetworkEndpointResponse.ChangeIntegrationInstanceNetworkEndpointResponse;
 import * as ChangePrivateEndpointOutboundConnectionResponse from "./change-private-endpoint-outbound-connection-response";
 export import ChangePrivateEndpointOutboundConnectionResponse = ChangePrivateEndpointOutboundConnectionResponse.ChangePrivateEndpointOutboundConnectionResponse;
+import * as ConvertInstanceResponse from "./convert-instance-response";
+export import ConvertInstanceResponse = ConvertInstanceResponse.ConvertInstanceResponse;
 import * as CreateIntegrationInstanceResponse from "./create-integration-instance-response";
 export import CreateIntegrationInstanceResponse = CreateIntegrationInstanceResponse.CreateIntegrationInstanceResponse;
 import * as DeleteIntegrationInstanceResponse from "./delete-integration-instance-response";
 export import DeleteIntegrationInstanceResponse = DeleteIntegrationInstanceResponse.DeleteIntegrationInstanceResponse;
+import * as DisableProcessAutomationResponse from "./disable-process-automation-response";
+export import DisableProcessAutomationResponse = DisableProcessAutomationResponse.DisableProcessAutomationResponse;
 import * as DisasterRecoveryFailoverResponse from "./disaster-recovery-failover-response";
 export import DisasterRecoveryFailoverResponse = DisasterRecoveryFailoverResponse.DisasterRecoveryFailoverResponse;
 import * as EnableProcessAutomationResponse from "./enable-process-automation-response";
@@ -41,6 +47,8 @@ import * as ListWorkRequestLogsResponse from "./list-work-request-logs-response"
 export import ListWorkRequestLogsResponse = ListWorkRequestLogsResponse.ListWorkRequestLogsResponse;
 import * as ListWorkRequestsResponse from "./list-work-requests-response";
 export import ListWorkRequestsResponse = ListWorkRequestsResponse.ListWorkRequestsResponse;
+import * as RemoveLogAnalyticsLogGroupResponse from "./remove-log-analytics-log-group-response";
+export import RemoveLogAnalyticsLogGroupResponse = RemoveLogAnalyticsLogGroupResponse.RemoveLogAnalyticsLogGroupResponse;
 import * as RemoveOracleManagedCustomEndpointResponse from "./remove-oracle-managed-custom-endpoint-response";
 export import RemoveOracleManagedCustomEndpointResponse = RemoveOracleManagedCustomEndpointResponse.RemoveOracleManagedCustomEndpointResponse;
 import * as StartIntegrationInstanceResponse from "./start-integration-instance-response";

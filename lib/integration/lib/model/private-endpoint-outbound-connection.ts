@@ -27,6 +27,10 @@ export interface PrivateEndpointOutboundConnection extends model.OutboundConnect
    * One or more Network security group Ids. This is an optional argument.
    */
   "nsgIds"?: Array<string>;
+  /**
+   * Indicates if all traffic should go through configured outbound connection
+   */
+  "isAllOutboundTrafficPrivate"?: boolean;
 
   "outboundConnectionType": string;
 }

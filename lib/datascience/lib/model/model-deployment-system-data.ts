@@ -19,6 +19,11 @@ import common = require("oci-common");
  * Model deployment system data.
  */
 export interface ModelDeploymentSystemData {
+  /**
+   * The type of the deployed model.
+   */
+  "modelType"?: model.ModelDeploymentModelType;
+
   "systemInfraType": string;
 }
 

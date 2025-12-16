@@ -182,7 +182,8 @@
     "oci-resourceanalytics": "file:lib/resourceanalytics",
     "oci-iot": "file:lib/iot",
     "oci-dif": "file:lib/dif",
-    "oci-psa": "file:lib/psa"
+    "oci-psa": "file:lib/psa",
+    "oci-batch": "file:lib/batch"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"

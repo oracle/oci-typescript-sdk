@@ -35,6 +35,11 @@ export interface ServiceLbConfigDetails {
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * A list of the OCIDs of the network security groups (NSGs) associated to backends to LBs (pods/nodes/virtual pods, etc.). Rules necessary for LB to backend communication would be added when rule management mode is set to NSG via annotations. see {@link NetworkSecurityGroup}.
+   *
+   */
+  "backendNsgIds"?: Array<string>;
 }
 
 export namespace ServiceLbConfigDetails {

@@ -64,7 +64,7 @@ export interface VirtualNodePool {
   /**
    * The pod configuration for pods run on virtual nodes of this virtual node pool.
    */
-  "podConfiguration"?: model.PodConfiguration;
+  "podConfiguration": model.PodConfiguration;
   /**
    * The state of the Virtual Node Pool.
    */
