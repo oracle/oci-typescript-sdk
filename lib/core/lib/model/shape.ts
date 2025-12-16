@@ -168,6 +168,11 @@ If the shape does not have any local disks, this field is {@code null}.
    *
    */
   "recommendedAlternatives"?: Array<model.ShapeAlternativeObject>;
+  /**
+   * The list of platform names that can be used for this shapes
+   *
+   */
+  "platformNames"?: Array<string>;
 }
 
 export namespace Shape {

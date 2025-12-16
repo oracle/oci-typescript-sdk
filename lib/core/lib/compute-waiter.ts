@@ -33,6 +33,32 @@ export class ComputeWaiter {
   ) {}
 
   /**
+   * Waits forApplyHostConfiguration
+   *
+   * @param request the request to send
+   * @return response returns ApplyHostConfigurationResponse, GetWorkRequestResponse tuple
+   */
+  public async forApplyHostConfiguration(
+    request: serviceRequests.ApplyHostConfigurationRequest
+  ): Promise<{
+    response: serviceResponses.ApplyHostConfigurationResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const applyHostConfigurationResponse = await this.client.applyHostConfiguration(request);
+    if (applyHostConfigurationResponse.opcWorkRequestId === undefined)
+      return { response: applyHostConfigurationResponse, workRequestResponse: undefined as any };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      applyHostConfigurationResponse.opcWorkRequestId
+    );
+    return {
+      response: applyHostConfigurationResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
    * Waits forAttachComputeHostGroupHost
    *
    * @param request the request to send
@@ -781,6 +807,24 @@ export class ComputeWaiter {
       () => this.client.getDedicatedVmHost(request),
       response => targetStates.includes(response.dedicatedVmHost.lifecycleState!),
       targetStates.includes(models.DedicatedVmHost.LifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forFirmwareBundle till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetFirmwareBundleResponse
+   */
+  public async forFirmwareBundle(
+    request: serviceRequests.GetFirmwareBundleRequest,
+    ...targetStates: models.FirmwareBundle.LifecycleState[]
+  ): Promise<serviceResponses.GetFirmwareBundleResponse> {
+    return genericWaiter(
+      this.config,
+      () => this.client.getFirmwareBundle(request),
+      response => targetStates.includes(response.firmwareBundle.lifecycleState!)
     );
   }
 

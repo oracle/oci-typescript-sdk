@@ -59,6 +59,11 @@ export namespace UpdateDrProtectionGroupMemberDetails {
             <model.UpdateDrProtectionGroupMemberAutonomousDatabaseDetails>(<object>jsonObj),
             true
           );
+        case "INTEGRATION_INSTANCE":
+          return model.UpdateDrProtectionGroupMemberIntegrationInstanceDetails.getJsonObj(
+            <model.UpdateDrProtectionGroupMemberIntegrationInstanceDetails>(<object>jsonObj),
+            true
+          );
         case "FILE_SYSTEM":
           return model.UpdateDrProtectionGroupMemberFileSystemDetails.getJsonObj(
             <model.UpdateDrProtectionGroupMemberFileSystemDetails>(<object>jsonObj),
@@ -135,6 +140,11 @@ export namespace UpdateDrProtectionGroupMemberDetails {
         case "AUTONOMOUS_DATABASE":
           return model.UpdateDrProtectionGroupMemberAutonomousDatabaseDetails.getDeserializedJsonObj(
             <model.UpdateDrProtectionGroupMemberAutonomousDatabaseDetails>(<object>jsonObj),
+            true
+          );
+        case "INTEGRATION_INSTANCE":
+          return model.UpdateDrProtectionGroupMemberIntegrationInstanceDetails.getDeserializedJsonObj(
+            <model.UpdateDrProtectionGroupMemberIntegrationInstanceDetails>(<object>jsonObj),
             true
           );
         case "FILE_SYSTEM":

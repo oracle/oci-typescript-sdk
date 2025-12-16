@@ -22,12 +22,13 @@ export interface OcirModelDeploymentEnvironmentConfigurationDetails
   extends model.ModelDeploymentEnvironmentConfigurationDetails {
   /**
    * The full path to the Oracle Container Repository (OCIR) registry, image, and tag in a canonical format.
+   * The container image is optional while using service managed open source foundation model.
    * Acceptable format:
    * {@code <region>.ocir.io/<registry>/<image>:<tag>}
    * {@code <region>.ocir.io/<registry>/<image>:<tag>@digest}
    *
    */
-  "image": string;
+  "image"?: string;
   /**
    * The digest of the container image. For example,
    * {@code sha256:881303a6b2738834d795a32b4a98eb0e5e3d1cad590a712d1e04f9b2fa90a030}
@@ -75,6 +76,11 @@ export interface OcirModelDeploymentEnvironmentConfigurationDetails
    *
    */
   "environmentVariables"?: { [key: string]: string };
+  /**
+   * Service injected Environment variables set for the web server container and can not be set or modified by user.
+   *
+   */
+  "defaultEnvironmentVariables"?: { [key: string]: string };
 
   "environmentConfigurationType": string;
 }

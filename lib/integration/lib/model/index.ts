@@ -11,6 +11,8 @@
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as AddLogAnalyticsLogGroupDetails from "./add-log-analytics-log-group-details";
+export import AddLogAnalyticsLogGroupDetails = AddLogAnalyticsLogGroupDetails.AddLogAnalyticsLogGroupDetails;
 import * as AddOracleManagedCustomEndpointDetails from "./add-oracle-managed-custom-endpoint-details";
 export import AddOracleManagedCustomEndpointDetails = AddOracleManagedCustomEndpointDetails.AddOracleManagedCustomEndpointDetails;
 import * as AttachmentDetails from "./attachment-details";
@@ -21,6 +23,10 @@ import * as ChangeIntegrationInstanceNetworkEndpointDetails from "./change-integ
 export import ChangeIntegrationInstanceNetworkEndpointDetails = ChangeIntegrationInstanceNetworkEndpointDetails.ChangeIntegrationInstanceNetworkEndpointDetails;
 import * as ChangePrivateEndpointOutboundConnectionDetails from "./change-private-endpoint-outbound-connection-details";
 export import ChangePrivateEndpointOutboundConnectionDetails = ChangePrivateEndpointOutboundConnectionDetails.ChangePrivateEndpointOutboundConnectionDetails;
+import * as ComponentAllowListDetails from "./component-allow-list-details";
+export import ComponentAllowListDetails = ComponentAllowListDetails.ComponentAllowListDetails;
+import * as ConvertInstanceDetails from "./convert-instance-details";
+export import ConvertInstanceDetails = ConvertInstanceDetails.ConvertInstanceDetails;
 import * as CreateCustomEndpointDetails from "./create-custom-endpoint-details";
 export import CreateCustomEndpointDetails = CreateCustomEndpointDetails.CreateCustomEndpointDetails;
 import * as CreateIntegrationInstanceDetails from "./create-integration-instance-details";

@@ -142,6 +142,8 @@ import * as AcceptShieldedIntegrityPolicyRequest from "./accept-shielded-integri
 export import AcceptShieldedIntegrityPolicyRequest = AcceptShieldedIntegrityPolicyRequest.AcceptShieldedIntegrityPolicyRequest;
 import * as AddImageShapeCompatibilityEntryRequest from "./add-image-shape-compatibility-entry-request";
 export import AddImageShapeCompatibilityEntryRequest = AddImageShapeCompatibilityEntryRequest.AddImageShapeCompatibilityEntryRequest;
+import * as ApplyHostConfigurationRequest from "./apply-host-configuration-request";
+export import ApplyHostConfigurationRequest = ApplyHostConfigurationRequest.ApplyHostConfigurationRequest;
 import * as AttachBootVolumeRequest from "./attach-boot-volume-request";
 export import AttachBootVolumeRequest = AttachBootVolumeRequest.AttachBootVolumeRequest;
 import * as AttachComputeHostGroupHostRequest from "./attach-compute-host-group-host-request";
@@ -174,6 +176,8 @@ import * as ChangeImageCompartmentRequest from "./change-image-compartment-reque
 export import ChangeImageCompartmentRequest = ChangeImageCompartmentRequest.ChangeImageCompartmentRequest;
 import * as ChangeInstanceCompartmentRequest from "./change-instance-compartment-request";
 export import ChangeInstanceCompartmentRequest = ChangeInstanceCompartmentRequest.ChangeInstanceCompartmentRequest;
+import * as CheckHostConfigurationRequest from "./check-host-configuration-request";
+export import CheckHostConfigurationRequest = CheckHostConfigurationRequest.CheckHostConfigurationRequest;
 import * as CreateAppCatalogSubscriptionRequest from "./create-app-catalog-subscription-request";
 export import CreateAppCatalogSubscriptionRequest = CreateAppCatalogSubscriptionRequest.CreateAppCatalogSubscriptionRequest;
 import * as CreateComputeCapacityReportRequest from "./create-compute-capacity-report-request";
@@ -262,6 +266,8 @@ import * as GetConsoleHistoryContentRequest from "./get-console-history-content-
 export import GetConsoleHistoryContentRequest = GetConsoleHistoryContentRequest.GetConsoleHistoryContentRequest;
 import * as GetDedicatedVmHostRequest from "./get-dedicated-vm-host-request";
 export import GetDedicatedVmHostRequest = GetDedicatedVmHostRequest.GetDedicatedVmHostRequest;
+import * as GetFirmwareBundleRequest from "./get-firmware-bundle-request";
+export import GetFirmwareBundleRequest = GetFirmwareBundleRequest.GetFirmwareBundleRequest;
 import * as GetImageRequest from "./get-image-request";
 export import GetImageRequest = GetImageRequest.GetImageRequest;
 import * as GetImageShapeCompatibilityEntryRequest from "./get-image-shape-compatibility-entry-request";
@@ -336,6 +342,8 @@ import * as ListDedicatedVmHostShapesRequest from "./list-dedicated-vm-host-shap
 export import ListDedicatedVmHostShapesRequest = ListDedicatedVmHostShapesRequest.ListDedicatedVmHostShapesRequest;
 import * as ListDedicatedVmHostsRequest from "./list-dedicated-vm-hosts-request";
 export import ListDedicatedVmHostsRequest = ListDedicatedVmHostsRequest.ListDedicatedVmHostsRequest;
+import * as ListFirmwareBundlesRequest from "./list-firmware-bundles-request";
+export import ListFirmwareBundlesRequest = ListFirmwareBundlesRequest.ListFirmwareBundlesRequest;
 import * as ListImageShapeCompatibilityEntriesRequest from "./list-image-shape-compatibility-entries-request";
 export import ListImageShapeCompatibilityEntriesRequest = ListImageShapeCompatibilityEntriesRequest.ListImageShapeCompatibilityEntriesRequest;
 import * as ListImagesRequest from "./list-images-request";

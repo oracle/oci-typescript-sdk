@@ -246,6 +246,8 @@ import * as ModelDeploymentLifecycleState from "./model-deployment-lifecycle-sta
 export import ModelDeploymentLifecycleState = ModelDeploymentLifecycleState.ModelDeploymentLifecycleState;
 import * as ModelDeploymentModelStateSummary from "./model-deployment-model-state-summary";
 export import ModelDeploymentModelStateSummary = ModelDeploymentModelStateSummary.ModelDeploymentModelStateSummary;
+import * as ModelDeploymentModelType from "./model-deployment-model-type";
+export import ModelDeploymentModelType = ModelDeploymentModelType.ModelDeploymentModelType;
 import * as ModelDeploymentShapeSeries from "./model-deployment-shape-series";
 export import ModelDeploymentShapeSeries = ModelDeploymentShapeSeries.ModelDeploymentShapeSeries;
 import * as ModelDeploymentShapeSummary from "./model-deployment-shape-summary";

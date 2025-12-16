@@ -48,6 +48,13 @@ Example: {@code 169.254.0.2}
     */
   "ipv4": string;
   /**
+    * The volume's iSCSI IPv6 address.
+* <p>
+Example: {@code 2001:db8::1/64}
+* 
+    */
+  "ipv6"?: string;
+  /**
     * The target volume's iSCSI Qualified Name in the format defined
 * by [RFC 3720](https://tools.ietf.org/html/rfc3720#page-32).
 * <p>

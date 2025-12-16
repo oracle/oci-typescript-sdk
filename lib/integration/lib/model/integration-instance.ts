@@ -142,6 +142,10 @@ Example: {@code {\"Oracle-ZPR\": {\"MaxEgressCount\": {\"value\": \"42\", \"mode
    * Data retention period set for given integration instance
    */
   "dataRetentionPeriod"?: IntegrationInstance.DataRetentionPeriod;
+  /**
+   * OCID of LogAnalytics LogGroup, enabled for given integration instance
+   */
+  "logGroupId"?: string;
 }
 
 export namespace IntegrationInstance {

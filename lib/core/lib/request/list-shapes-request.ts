@@ -49,4 +49,8 @@ Example: {@code 50}
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of an image.
    */
   "imageId"?: string;
+  /**
+   * Shape name.
+   */
+  "shape"?: string;
 }

@@ -28,6 +28,10 @@ export interface ModelGroupModelSummary {
    */
   "modelId": string;
   /**
+   * SaaS friendly name of the model.
+   */
+  "inferenceKey"?: string;
+  /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the model's compartment.
    */
   "compartmentId": string;

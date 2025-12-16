@@ -11,6 +11,8 @@
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as AddLogAnalyticsLogGroupRequest from "./add-log-analytics-log-group-request";
+export import AddLogAnalyticsLogGroupRequest = AddLogAnalyticsLogGroupRequest.AddLogAnalyticsLogGroupRequest;
 import * as AddOracleManagedCustomEndpointRequest from "./add-oracle-managed-custom-endpoint-request";
 export import AddOracleManagedCustomEndpointRequest = AddOracleManagedCustomEndpointRequest.AddOracleManagedCustomEndpointRequest;
 import * as ChangeIntegrationInstanceCompartmentRequest from "./change-integration-instance-compartment-request";
@@ -19,10 +21,14 @@ import * as ChangeIntegrationInstanceNetworkEndpointRequest from "./change-integ
 export import ChangeIntegrationInstanceNetworkEndpointRequest = ChangeIntegrationInstanceNetworkEndpointRequest.ChangeIntegrationInstanceNetworkEndpointRequest;
 import * as ChangePrivateEndpointOutboundConnectionRequest from "./change-private-endpoint-outbound-connection-request";
 export import ChangePrivateEndpointOutboundConnectionRequest = ChangePrivateEndpointOutboundConnectionRequest.ChangePrivateEndpointOutboundConnectionRequest;
+import * as ConvertInstanceRequest from "./convert-instance-request";
+export import ConvertInstanceRequest = ConvertInstanceRequest.ConvertInstanceRequest;
 import * as CreateIntegrationInstanceRequest from "./create-integration-instance-request";
 export import CreateIntegrationInstanceRequest = CreateIntegrationInstanceRequest.CreateIntegrationInstanceRequest;
 import * as DeleteIntegrationInstanceRequest from "./delete-integration-instance-request";
 export import DeleteIntegrationInstanceRequest = DeleteIntegrationInstanceRequest.DeleteIntegrationInstanceRequest;
+import * as DisableProcessAutomationRequest from "./disable-process-automation-request";
+export import DisableProcessAutomationRequest = DisableProcessAutomationRequest.DisableProcessAutomationRequest;
 import * as DisasterRecoveryFailoverRequest from "./disaster-recovery-failover-request";
 export import DisasterRecoveryFailoverRequest = DisasterRecoveryFailoverRequest.DisasterRecoveryFailoverRequest;
 import * as EnableProcessAutomationRequest from "./enable-process-automation-request";
@@ -41,6 +47,8 @@ import * as ListWorkRequestLogsRequest from "./list-work-request-logs-request";
 export import ListWorkRequestLogsRequest = ListWorkRequestLogsRequest.ListWorkRequestLogsRequest;
 import * as ListWorkRequestsRequest from "./list-work-requests-request";
 export import ListWorkRequestsRequest = ListWorkRequestsRequest.ListWorkRequestsRequest;
+import * as RemoveLogAnalyticsLogGroupRequest from "./remove-log-analytics-log-group-request";
+export import RemoveLogAnalyticsLogGroupRequest = RemoveLogAnalyticsLogGroupRequest.RemoveLogAnalyticsLogGroupRequest;
 import * as RemoveOracleManagedCustomEndpointRequest from "./remove-oracle-managed-custom-endpoint-request";
 export import RemoveOracleManagedCustomEndpointRequest = RemoveOracleManagedCustomEndpointRequest.RemoveOracleManagedCustomEndpointRequest;
 import * as StartIntegrationInstanceRequest from "./start-integration-instance-request";

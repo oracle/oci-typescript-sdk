@@ -84,6 +84,11 @@ export namespace DrProtectionGroupMember {
             <model.DrProtectionGroupMemberObjectStorageBucket>(<object>jsonObj),
             true
           );
+        case "INTEGRATION_INSTANCE":
+          return model.DrProtectionGroupMemberIntegrationInstance.getJsonObj(
+            <model.DrProtectionGroupMemberIntegrationInstance>(<object>jsonObj),
+            true
+          );
         case "COMPUTE_INSTANCE_MOVABLE":
           return model.DrProtectionGroupMemberComputeInstanceMovable.getJsonObj(
             <model.DrProtectionGroupMemberComputeInstanceMovable>(<object>jsonObj),
@@ -158,6 +163,11 @@ export namespace DrProtectionGroupMember {
         case "OBJECT_STORAGE_BUCKET":
           return model.DrProtectionGroupMemberObjectStorageBucket.getDeserializedJsonObj(
             <model.DrProtectionGroupMemberObjectStorageBucket>(<object>jsonObj),
+            true
+          );
+        case "INTEGRATION_INSTANCE":
+          return model.DrProtectionGroupMemberIntegrationInstance.getDeserializedJsonObj(
+            <model.DrProtectionGroupMemberIntegrationInstance>(<object>jsonObj),
             true
           );
         case "COMPUTE_INSTANCE_MOVABLE":

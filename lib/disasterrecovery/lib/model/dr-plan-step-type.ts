@@ -142,6 +142,10 @@ import common = require("oci-common");
  * - MYSQL_DB_SYSTEM_START_DRILL - A DR plan step to perform a HeatWave MySQL DB System start drill.
  * - MYSQL_DB_SYSTEM_STOP_DRILL_PRECHECK - A precheck step for validating HeatWave MySQL DB System stop drill.
  * - MYSQL_DB_SYSTEM_STOP_DRILL - A DR plan step to perform a HeatWave MySQL DB System stop drill.
+ * - INTEGRATION_INSTANCE_SWITCHOVER_PRECHECK - A precheck step for validating an integration instance (OIC) for switchover.
+ * - INTEGRATION_INSTANCE_SWITCHOVER - A DR plan step to perform a switchover operation for an integration instance (OIC).
+ * - INTEGRATION_INSTANCE_FAILOVER_PRECHECK -A precheck step for validating an integration instance (OIC) for failover.
+ * - INTEGRATION_INSTANCE_FAILOVER - A DR plan step to perform a failover operation for an integration instance (OIC).
  *
  **/
 export enum DrPlanStepType {
@@ -267,6 +271,10 @@ export enum DrPlanStepType {
   MysqlDbSystemStartDrill = "MYSQL_DB_SYSTEM_START_DRILL",
   MysqlDbSystemStopDrillPrecheck = "MYSQL_DB_SYSTEM_STOP_DRILL_PRECHECK",
   MysqlDbSystemStopDrill = "MYSQL_DB_SYSTEM_STOP_DRILL",
+  IntegrationInstanceSwitchoverPrecheck = "INTEGRATION_INSTANCE_SWITCHOVER_PRECHECK",
+  IntegrationInstanceSwitchover = "INTEGRATION_INSTANCE_SWITCHOVER",
+  IntegrationInstanceFailoverPrecheck = "INTEGRATION_INSTANCE_FAILOVER_PRECHECK",
+  IntegrationInstanceFailover = "INTEGRATION_INSTANCE_FAILOVER",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this
