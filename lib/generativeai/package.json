@@ -1,6 +1,6 @@
 {
   "name": "oci-generativeai",
-  "version": "2.122.1",
+  "version": "2.122.2",
   "description": "OCI NodeJS client for Generative Ai Service",
   "repository": {
     "type": "git",
