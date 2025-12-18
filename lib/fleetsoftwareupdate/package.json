@@ -1,6 +1,6 @@
 {
   "name": "oci-fleetsoftwareupdate",
-  "version": "2.122.1",
+  "version": "2.122.2",
   "description": "OCI NodeJS client for Fleet Software Update Service",
   "repository": {
     "type": "git",
