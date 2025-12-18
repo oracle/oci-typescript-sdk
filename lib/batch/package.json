@@ -1,6 +1,6 @@
 {
   "name": "oci-batch",
-  "version": "2.122.1",
+  "version": "2.122.2",
   "description": "OCI NodeJS client for Batch Service",
   "repository": {
     "type": "git",
