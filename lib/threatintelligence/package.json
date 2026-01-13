@@ -1,6 +1,6 @@
 {
   "name": "oci-threatintelligence",
-  "version": "2.122.2",
+  "version": "2.123.0",
   "description": "OCI NodeJS client for Threat Intelligence Service",
   "repository": {
     "type": "git",
