@@ -39,6 +39,14 @@ export interface EmbedTextDetails {
    */
   "isEcho"?: boolean;
   /**
+   * Specifies the types of embeddings you want to get back. Supports list of enums. Supported values :float, int8, uint8, binary, ubinary, base64. If nothing is passed default will be considered as float.
+   */
+  "embeddingTypes"?: Array<EmbedTextDetails.EmbeddingTypes>;
+  /**
+   * The number of dimensions of the output embedding. This is only available for embed-v4 and newer models. Possible values are 256, 512, 1024, and 1536. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "outputDimensions"?: number;
+  /**
    * For an input that's longer than the maximum token length, specifies which part of the input text will be truncated.
    */
   "truncate"?: EmbedTextDetails.Truncate;
@@ -49,6 +57,15 @@ export interface EmbedTextDetails {
 }
 
 export namespace EmbedTextDetails {
+  export enum EmbeddingTypes {
+    Float = "float",
+    Int8 = "int8",
+    Uint8 = "uint8",
+    Binary = "binary",
+    Ubinary = "ubinary",
+    Base64 = "base64"
+  }
+
   export enum Truncate {
     None = "NONE",
     Start = "START",

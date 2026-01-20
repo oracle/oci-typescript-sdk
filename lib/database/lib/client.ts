@@ -8466,7 +8466,7 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   /**
    * Performs one of the following power actions on the specified DB node:
    * - start - power on
-   * - stop - power off
+   * - stop - power off gracefully
    * - softreset - ACPI shutdown and power on
    * - reset - power off and power on
    * <p>
@@ -12226,6 +12226,112 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
             dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Downloads the specified database connection bundle content.
+   * The bundle is returned as a binary file containing the connection details.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DownloadDbConnectionBundleRequest
+   * @return DownloadDbConnectionBundleResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DownloadDbConnectionBundle.ts.html |here} to see how to use DownloadDbConnectionBundle API.
+   */
+  public async downloadDbConnectionBundle(
+    downloadDbConnectionBundleRequest: requests.DownloadDbConnectionBundleRequest
+  ): Promise<responses.DownloadDbConnectionBundleResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#downloadDbConnectionBundle.");
+    const operationName = "downloadDbConnectionBundle";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/DbConnectionBundle/DownloadDbConnectionBundle";
+    const pathParams = {
+      "{dbConnectionBundleId}": downloadDbConnectionBundleRequest.dbConnectionBundleId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": downloadDbConnectionBundleRequest.opcRequestId,
+      "if-match": downloadDbConnectionBundleRequest.ifMatch,
+      "opc-retry-token": downloadDbConnectionBundleRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      downloadDbConnectionBundleRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dbConnectionBundles/{dbConnectionBundleId}/actions/download",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        downloadDbConnectionBundleRequest.downloadDbConnectionBundleDetails,
+        "DownloadDbConnectionBundleDetails",
+        model.DownloadDbConnectionBundleDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DownloadDbConnectionBundleResponse>{},
+
+        body: response.body!,
+        bodyKey: "value",
+        bodyModel: "string",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-type"),
+            key: "contentType",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-disposition"),
+            key: "contentDisposition",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-length"),
+            key: "contentLength",
+            dataType: "number"
+          },
+          {
+            value: response.headers.get("last-modified"),
+            key: "lastModified",
+            dataType: "Date"
           }
         ]
       });
@@ -16850,6 +16956,82 @@ A failover might result in data loss depending on the protection mode in effect 
   }
 
   /**
+   * Gets information about the specified database connection bundle.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetDbConnectionBundleRequest
+   * @return GetDbConnectionBundleResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetDbConnectionBundle.ts.html |here} to see how to use GetDbConnectionBundle API.
+   */
+  public async getDbConnectionBundle(
+    getDbConnectionBundleRequest: requests.GetDbConnectionBundleRequest
+  ): Promise<responses.GetDbConnectionBundleResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#getDbConnectionBundle.");
+    const operationName = "getDbConnectionBundle";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/DbConnectionBundle/GetDbConnectionBundle";
+    const pathParams = {
+      "{dbConnectionBundleId}": getDbConnectionBundleRequest.dbConnectionBundleId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getDbConnectionBundleRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDbConnectionBundleRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dbConnectionBundles/{dbConnectionBundleId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetDbConnectionBundleResponse>{},
+        body: await response.json(),
+        bodyKey: "dbConnectionBundle",
+        bodyModel: model.DbConnectionBundle,
+        type: "model.DbConnectionBundle",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets information about the specified Database Home.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetDbHomeRequest
@@ -20152,6 +20334,97 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Imports transportable tablespace for the specified Autonomous AI Database.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ImportTransportableTablespaceRequest
+   * @return ImportTransportableTablespaceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ImportTransportableTablespace.ts.html |here} to see how to use ImportTransportableTablespace API.
+   */
+  public async importTransportableTablespace(
+    importTransportableTablespaceRequest: requests.ImportTransportableTablespaceRequest
+  ): Promise<responses.ImportTransportableTablespaceResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#importTransportableTablespace.");
+    const operationName = "importTransportableTablespace";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabase/ImportTransportableTablespace";
+    const pathParams = {
+      "{autonomousDatabaseId}": importTransportableTablespaceRequest.autonomousDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": importTransportableTablespaceRequest.ifMatch,
+      "opc-retry-token": importTransportableTablespaceRequest.opcRetryToken,
+      "opc-request-id": importTransportableTablespaceRequest.opcRequestId,
+      "opc-dry-run": importTransportableTablespaceRequest.opcDryRun
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      importTransportableTablespaceRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/autonomousDatabases/{autonomousDatabaseId}/actions/importTransportableTablespace",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        importTransportableTablespaceRequest.importTransportableTablespaceDetails,
+        "ImportTransportableTablespaceDetails",
+        model.ImportTransportableTablespaceDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ImportTransportableTablespaceResponse>{},
+        body: await response.json(),
+        bodyKey: "autonomousDatabase",
+        bodyModel: model.AutonomousDatabase,
+        type: "model.AutonomousDatabase",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           }
         ]
@@ -24764,6 +25037,143 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
     request: requests.ListDatabasesRequest
   ): AsyncIterableIterator<responses.ListDatabasesResponse> {
     return paginateResponses(request, req => this.listDatabases(req));
+  }
+
+  /**
+   * Lists all database connection bundles that match the query parameters.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListDbConnectionBundlesRequest
+   * @return ListDbConnectionBundlesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListDbConnectionBundles.ts.html |here} to see how to use ListDbConnectionBundles API.
+   */
+  public async listDbConnectionBundles(
+    listDbConnectionBundlesRequest: requests.ListDbConnectionBundlesRequest
+  ): Promise<responses.ListDbConnectionBundlesResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#listDbConnectionBundles.");
+    const operationName = "listDbConnectionBundles";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/DbConnectionBundle/ListDbConnectionBundles";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listDbConnectionBundlesRequest.compartmentId,
+      "limit": listDbConnectionBundlesRequest.limit,
+      "page": listDbConnectionBundlesRequest.page,
+      "sortOrder": listDbConnectionBundlesRequest.sortOrder,
+      "sortBy": listDbConnectionBundlesRequest.sortBy,
+      "lifecycleState": listDbConnectionBundlesRequest.lifecycleState,
+      "displayName": listDbConnectionBundlesRequest.displayName,
+      "dbConnectionBundleType": listDbConnectionBundlesRequest.dbConnectionBundleType,
+      "associatedResourceId": listDbConnectionBundlesRequest.associatedResourceId
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listDbConnectionBundlesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDbConnectionBundlesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dbConnectionBundles",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListDbConnectionBundlesResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.DbConnectionBundleSummary,
+        type: "Array<model.DbConnectionBundleSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listDbConnectionBundlesRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.DbConnectionBundleSummary objects
+   * contained in responses from the listDbConnectionBundles operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllDbConnectionBundles(
+    request: requests.ListDbConnectionBundlesRequest
+  ): AsyncIterableIterator<model.DbConnectionBundleSummary> {
+    return paginateRecords(request, req => this.listDbConnectionBundles(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listDbConnectionBundlesResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listDbConnectionBundles operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllDbConnectionBundlesResponses(
+    request: requests.ListDbConnectionBundlesRequest
+  ): AsyncIterableIterator<responses.ListDbConnectionBundlesResponse> {
+    return paginateResponses(request, req => this.listDbConnectionBundles(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.DbConnectionBundleSummary objects
+   * contained in responses from the listDbConnectionBundles operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listDbConnectionBundlesRecordIterator(
+    request: requests.ListDbConnectionBundlesRequest
+  ): AsyncIterableIterator<model.DbConnectionBundleSummary> {
+    return paginateRecords(request, req => this.listDbConnectionBundles(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listDbConnectionBundles operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listDbConnectionBundlesResponseIterator(
+    request: requests.ListDbConnectionBundlesRequest
+  ): AsyncIterableIterator<responses.ListDbConnectionBundlesResponse> {
+    return paginateResponses(request, req => this.listDbConnectionBundles(req));
   }
 
   /**
@@ -32292,6 +32702,88 @@ This operation should always be performed on primary.
    * Install the PKCS11 driver for given keystore type
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param RegisterCloudAutonomousVmClusterPkcsRequest
+   * @return RegisterCloudAutonomousVmClusterPkcsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/RegisterCloudAutonomousVmClusterPkcs.ts.html |here} to see how to use RegisterCloudAutonomousVmClusterPkcs API.
+   */
+  public async registerCloudAutonomousVmClusterPkcs(
+    registerCloudAutonomousVmClusterPkcsRequest: requests.RegisterCloudAutonomousVmClusterPkcsRequest
+  ): Promise<responses.RegisterCloudAutonomousVmClusterPkcsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#registerCloudAutonomousVmClusterPkcs.");
+    const operationName = "registerCloudAutonomousVmClusterPkcs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/CloudAutonomousVmCluster/RegisterCloudAutonomousVmClusterPkcs";
+    const pathParams = {
+      "{cloudAutonomousVmClusterId}":
+        registerCloudAutonomousVmClusterPkcsRequest.cloudAutonomousVmClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": registerCloudAutonomousVmClusterPkcsRequest.opcRetryToken,
+      "opc-request-id": registerCloudAutonomousVmClusterPkcsRequest.opcRequestId,
+      "if-match": registerCloudAutonomousVmClusterPkcsRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      registerCloudAutonomousVmClusterPkcsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudAutonomousVmClusters/{cloudAutonomousVmClusterId}/actions/registerPkcs",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        registerCloudAutonomousVmClusterPkcsRequest.registerCloudAutonomousVmClusterPkcsDetails,
+        "RegisterCloudAutonomousVmClusterPkcsDetails",
+        model.RegisterCloudAutonomousVmClusterPkcsDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RegisterCloudAutonomousVmClusterPkcsResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Install the PKCS11 driver for given keystore type
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
    * @param RegisterCloudVmClusterPkcsRequest
    * @return RegisterCloudVmClusterPkcsResponse
    * @throws OciError when an error occurs
@@ -34616,6 +35108,95 @@ This operation should be performed on disabled standby database.
   }
 
   /**
+   * Run datapatch on the specified Oracle Database and optionally on the specified Pluggable databases.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param RunDataPatchRequest
+   * @return RunDataPatchResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/RunDataPatch.ts.html |here} to see how to use RunDataPatch API.
+   */
+  public async runDataPatch(
+    runDataPatchRequest: requests.RunDataPatchRequest
+  ): Promise<responses.RunDataPatchResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#runDataPatch.");
+    const operationName = "runDataPatch";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/Database/RunDataPatch";
+    const pathParams = {
+      "{databaseId}": runDataPatchRequest.databaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": runDataPatchRequest.opcRetryToken,
+      "if-match": runDataPatchRequest.ifMatch,
+      "opc-request-id": runDataPatchRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      runDataPatchRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databases/{databaseId}/actions/runDatapatch",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        runDataPatchRequest.runDataPatchDetails,
+        "RunDataPatchDetails",
+        model.RunDataPatchDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RunDataPatchResponse>{},
+        body: await response.json(),
+        bodyKey: "database",
+        bodyModel: model.Database,
+        type: "model.Database",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * This operation gets SaaS administrative user status of the Autonomous AI Database.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SaasAdminUserStatusRequest
@@ -36134,6 +36715,88 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
           {
             value: response.headers.get("etag"),
             key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Uninstall the PKCS11 driver for given keystore type
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UnregisterCloudAutonomousVmClusterPkcsRequest
+   * @return UnregisterCloudAutonomousVmClusterPkcsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UnregisterCloudAutonomousVmClusterPkcs.ts.html |here} to see how to use UnregisterCloudAutonomousVmClusterPkcs API.
+   */
+  public async unregisterCloudAutonomousVmClusterPkcs(
+    unregisterCloudAutonomousVmClusterPkcsRequest: requests.UnregisterCloudAutonomousVmClusterPkcsRequest
+  ): Promise<responses.UnregisterCloudAutonomousVmClusterPkcsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#unregisterCloudAutonomousVmClusterPkcs.");
+    const operationName = "unregisterCloudAutonomousVmClusterPkcs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/CloudAutonomousVmCluster/UnregisterCloudAutonomousVmClusterPkcs";
+    const pathParams = {
+      "{cloudAutonomousVmClusterId}":
+        unregisterCloudAutonomousVmClusterPkcsRequest.cloudAutonomousVmClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": unregisterCloudAutonomousVmClusterPkcsRequest.opcRetryToken,
+      "opc-request-id": unregisterCloudAutonomousVmClusterPkcsRequest.opcRequestId,
+      "if-match": unregisterCloudAutonomousVmClusterPkcsRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      unregisterCloudAutonomousVmClusterPkcsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudAutonomousVmClusters/{cloudAutonomousVmClusterId}/actions/unregisterPkcs",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        unregisterCloudAutonomousVmClusterPkcsRequest.unregisterCloudAutonomousVmClusterPkcsDetails,
+        "UnregisterCloudAutonomousVmClusterPkcsDetails",
+        model.UnregisterCloudAutonomousVmClusterPkcsDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UnregisterCloudAutonomousVmClusterPkcsResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           }
         ]

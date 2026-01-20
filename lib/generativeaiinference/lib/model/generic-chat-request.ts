@@ -153,6 +153,7 @@ Example: '{\"6395\": 2, \"8134\": 1, \"21943\": 0.5, \"5923\": -100}'
 
 export namespace GenericChatRequest {
   export enum ReasoningEffort {
+    None = "NONE",
     Minimal = "MINIMAL",
     Low = "LOW",
     Medium = "MEDIUM",

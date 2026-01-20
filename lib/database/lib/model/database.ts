@@ -160,6 +160,10 @@ Example: {@code {\"Department\": \"Finance\"}}
     | model.AzureEncryptionKeyDetails
     | model.AwsEncryptionKeyDetails;
   "storageSizeDetails"?: model.DatabaseStorageSizeResponseDetails;
+  /**
+   * The patch version of the database.
+   */
+  "patchVersion"?: string;
 }
 
 export namespace Database {

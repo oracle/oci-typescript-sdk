@@ -30,7 +30,7 @@ export interface ChatDetails {
    */
   "compartmentId": string;
   "servingMode": model.DedicatedServingMode | model.OnDemandServingMode;
-  "chatRequest": model.GenericChatRequest | model.CohereChatRequest;
+  "chatRequest": model.CohereChatRequestV2 | model.GenericChatRequest | model.CohereChatRequest;
 }
 
 export namespace ChatDetails {

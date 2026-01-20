@@ -25,6 +25,12 @@ export interface CreateIotDomainGroupDetails {
    */
   "compartmentId": string;
   /**
+   * Type of the domain group. LIGHTWEIGHT uses fewer resources and has a higher Recovery Time Objective (RTO),
+   * making it suitable for development and testing. STANDARD is recommended for production.
+   *
+   */
+  "type"?: CreateIotDomainGroupDetails.Type;
+  /**
    * A user-friendly name. Does not have to be unique, and it's changeable. Avoid entering confidential information.
    */
   "displayName"?: string;
@@ -52,6 +58,11 @@ Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
 }
 
 export namespace CreateIotDomainGroupDetails {
+  export enum Type {
+    Standard = "STANDARD",
+    Lightweight = "LIGHTWEIGHT"
+  }
+
   export function getJsonObj(obj: CreateIotDomainGroupDetails): object {
     const jsonObj = { ...obj, ...{} };
 

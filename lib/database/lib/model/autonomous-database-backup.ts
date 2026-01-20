@@ -100,6 +100,10 @@ export interface AutonomousDatabaseBackup {
   "timeAvailableTill"?: Date;
   /**
    * A valid Oracle AI Database version for Autonomous AI Database.
+   * When you specify 23ai for dbversion, the system will provision a 23ai database, but the UI will display it as 26ai.
+   * When you specify 26ai for dbversion, the system will provision and display a 26ai database as expected.
+   * For new databases, it is recommended to use either 19c or 26ai.
+   *
    */
   "dbVersion"?: string;
   /**

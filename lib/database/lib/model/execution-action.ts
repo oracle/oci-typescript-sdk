@@ -133,6 +133,7 @@ export namespace ExecutionAction {
     MaintenanceInProgress = "MAINTENANCE_IN_PROGRESS",
     Waiting = "WAITING",
     Rescheduled = "RESCHEDULED",
+    CanceledByOps = "CANCELED_BY_OPS",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

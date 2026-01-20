@@ -4882,6 +4882,25 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forDbConnectionBundle till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetDbConnectionBundleResponse | null (null in case of 404 response)
+   */
+  public async forDbConnectionBundle(
+    request: serviceRequests.GetDbConnectionBundleRequest,
+    ...targetStates: models.DbConnectionBundle.LifecycleState[]
+  ): Promise<serviceResponses.GetDbConnectionBundleResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getDbConnectionBundle(request),
+      response => targetStates.includes(response.dbConnectionBundle.lifecycleState!),
+      targetStates.includes(models.DbConnectionBundle.LifecycleState.Deleted)
+    );
+  }
+
+  /**
    * Waits forDbHome till it reaches any of the provided states
    *
    * @param request the request to send
@@ -5483,6 +5502,37 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forImportTransportableTablespace
+   *
+   * @param request the request to send
+   * @return response returns ImportTransportableTablespaceResponse, GetWorkRequestResponse tuple
+   */
+  public async forImportTransportableTablespace(
+    request: serviceRequests.ImportTransportableTablespaceRequest
+  ): Promise<{
+    response: serviceResponses.ImportTransportableTablespaceResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const importTransportableTablespaceResponse = await this.client.importTransportableTablespace(
+      request
+    );
+    if (importTransportableTablespaceResponse.opcWorkRequestId === undefined)
+      return {
+        response: importTransportableTablespaceResponse,
+        workRequestResponse: undefined as any
+      };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      importTransportableTablespaceResponse.opcWorkRequestId
+    );
+    return {
+      response: importTransportableTablespaceResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
    * Waits forLaunchAutonomousExadataInfrastructure
    *
    * @param request the request to send
@@ -5875,6 +5925,37 @@ export class DatabaseWaiter {
     );
     return {
       response: registerAutonomousDatabaseDataSafeResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forRegisterCloudAutonomousVmClusterPkcs
+   *
+   * @param request the request to send
+   * @return response returns RegisterCloudAutonomousVmClusterPkcsResponse, GetWorkRequestResponse tuple
+   */
+  public async forRegisterCloudAutonomousVmClusterPkcs(
+    request: serviceRequests.RegisterCloudAutonomousVmClusterPkcsRequest
+  ): Promise<{
+    response: serviceResponses.RegisterCloudAutonomousVmClusterPkcsResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const registerCloudAutonomousVmClusterPkcsResponse = await this.client.registerCloudAutonomousVmClusterPkcs(
+      request
+    );
+    if (registerCloudAutonomousVmClusterPkcsResponse.opcWorkRequestId === undefined)
+      return {
+        response: registerCloudAutonomousVmClusterPkcsResponse,
+        workRequestResponse: undefined as any
+      };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      registerCloudAutonomousVmClusterPkcsResponse.opcWorkRequestId
+    );
+    return {
+      response: registerCloudAutonomousVmClusterPkcsResponse,
       workRequestResponse: getWorkRequestResponse
     };
   }
@@ -6624,6 +6705,29 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forRunDataPatch
+   *
+   * @param request the request to send
+   * @return response returns RunDataPatchResponse, GetWorkRequestResponse tuple
+   */
+  public async forRunDataPatch(
+    request: serviceRequests.RunDataPatchRequest
+  ): Promise<{
+    response: serviceResponses.RunDataPatchResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const runDataPatchResponse = await this.client.runDataPatch(request);
+    if (runDataPatchResponse.opcWorkRequestId === undefined)
+      return { response: runDataPatchResponse, workRequestResponse: undefined as any };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      runDataPatchResponse.opcWorkRequestId
+    );
+    return { response: runDataPatchResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
    * Waits forScanExternalContainerDatabasePluggableDatabases
    *
    * @param request the request to send
@@ -7083,6 +7187,37 @@ export class DatabaseWaiter {
       unmountDbnodeSnapshotResponse.opcWorkRequestId
     );
     return { response: unmountDbnodeSnapshotResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forUnregisterCloudAutonomousVmClusterPkcs
+   *
+   * @param request the request to send
+   * @return response returns UnregisterCloudAutonomousVmClusterPkcsResponse, GetWorkRequestResponse tuple
+   */
+  public async forUnregisterCloudAutonomousVmClusterPkcs(
+    request: serviceRequests.UnregisterCloudAutonomousVmClusterPkcsRequest
+  ): Promise<{
+    response: serviceResponses.UnregisterCloudAutonomousVmClusterPkcsResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const unregisterCloudAutonomousVmClusterPkcsResponse = await this.client.unregisterCloudAutonomousVmClusterPkcs(
+      request
+    );
+    if (unregisterCloudAutonomousVmClusterPkcsResponse.opcWorkRequestId === undefined)
+      return {
+        response: unregisterCloudAutonomousVmClusterPkcsResponse,
+        workRequestResponse: undefined as any
+      };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      unregisterCloudAutonomousVmClusterPkcsResponse.opcWorkRequestId
+    );
+    return {
+      response: unregisterCloudAutonomousVmClusterPkcsResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
   }
 
   /**
