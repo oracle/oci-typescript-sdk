@@ -72,6 +72,11 @@ export interface GenerativeAiPrivateEndpoint {
    */
   "fqdn": string;
   /**
+   * Flag that allows access to on-demand models using this private endpoint.
+   *
+   */
+  "isAllowOnDemand"?: boolean;
+  /**
    * The private IP address (in the customer's VCN) that represents the access point for the associated endpoint service.
    *
    */

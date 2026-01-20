@@ -34,6 +34,11 @@ export namespace BaseChatRequest {
 
     if (obj && "apiFormat" in obj && obj.apiFormat) {
       switch (obj.apiFormat) {
+        case "COHEREV2":
+          return model.CohereChatRequestV2.getJsonObj(
+            <model.CohereChatRequestV2>(<object>jsonObj),
+            true
+          );
         case "GENERIC":
           return model.GenericChatRequest.getJsonObj(
             <model.GenericChatRequest>(<object>jsonObj),
@@ -55,6 +60,11 @@ export namespace BaseChatRequest {
 
     if (obj && "apiFormat" in obj && obj.apiFormat) {
       switch (obj.apiFormat) {
+        case "COHEREV2":
+          return model.CohereChatRequestV2.getDeserializedJsonObj(
+            <model.CohereChatRequestV2>(<object>jsonObj),
+            true
+          );
         case "GENERIC":
           return model.GenericChatRequest.getDeserializedJsonObj(
             <model.GenericChatRequest>(<object>jsonObj),

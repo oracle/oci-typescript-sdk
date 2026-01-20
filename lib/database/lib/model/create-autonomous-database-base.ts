@@ -314,6 +314,10 @@ Example: {@code {\"Department\": \"Finance\"}}
   "privateEndpointIp"?: string;
   /**
    * A valid Oracle AI Database version for Autonomous AI Database.
+   * When you specify 23ai for dbversion, the system will provision a 23ai database, but the UI will display it as 26ai.
+   * When you specify 26ai for dbversion, the system will provision and display a 26ai database as expected.
+   * For new databases, it is recommended to use either 19c or 26ai.
+   *
    */
   "dbVersion"?: string;
   /**
@@ -386,6 +390,7 @@ This cannot be used in conjunction with adminPassword.
    * The version of the vault secret. If no version is specified, the latest version will be used. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "secretVersionNumber"?: number;
+  "transportableTablespace"?: model.ImportTransportableTablespaceDetails;
 
   "source": string;
 }
@@ -447,6 +452,10 @@ export namespace CreateAutonomousDatabaseBase {
           ? obj.dbToolsDetails.map(item => {
               return model.DatabaseTool.getJsonObj(item);
             })
+          : undefined,
+
+        "transportableTablespace": obj.transportableTablespace
+          ? model.ImportTransportableTablespaceDetails.getJsonObj(obj.transportableTablespace)
           : undefined
       }
     };
@@ -537,6 +546,12 @@ export namespace CreateAutonomousDatabaseBase {
           ? obj.dbToolsDetails.map(item => {
               return model.DatabaseTool.getDeserializedJsonObj(item);
             })
+          : undefined,
+
+        "transportableTablespace": obj.transportableTablespace
+          ? model.ImportTransportableTablespaceDetails.getDeserializedJsonObj(
+              obj.transportableTablespace
+            )
           : undefined
       }
     };

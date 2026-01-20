@@ -33,7 +33,7 @@ export interface ChatResult {
    * The version of the model.
    */
   "modelVersion": string;
-  "chatResponse": model.GenericChatResponse | model.CohereChatResponse;
+  "chatResponse": model.GenericChatResponse | model.CohereChatResponseV2 | model.CohereChatResponse;
 }
 
 export namespace ChatResult {

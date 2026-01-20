@@ -278,6 +278,10 @@ To create or delete a local (in-region) standby, see the {@code isDataGuardEnabl
   "peerDbId"?: string;
   /**
    * A valid Oracle AI Database version for Autonomous AI Database.
+   * When you specify 23ai for dbversion, the system will provision a 23ai database, but the UI will display it as 26ai.
+   * When you specify 26ai for dbversion, the system will provision and display a 26ai database as expected.
+   * For new databases, it is recommended to use either 19c or 26ai.
+   *
    */
   "dbVersion"?: string;
   /**
@@ -376,7 +380,7 @@ Service Change: The default value of the isMTLSConnectionRequired attribute will
   "autonomousMaintenanceScheduleType"?: UpdateAutonomousDatabaseDetails.AutonomousMaintenanceScheduleType;
   "autonomousDatabaseMaintenanceWindow"?: model.AutonomousDatabaseMaintenanceWindowSummary;
   /**
-   * The date until which maintenance of Autonomous AI Database is temporarily paused.
+   * The date until which Autonomous AI Database maintenance is temporarily paused.
    */
   "timeMaintenancePauseUntil"?: Date;
   /**
