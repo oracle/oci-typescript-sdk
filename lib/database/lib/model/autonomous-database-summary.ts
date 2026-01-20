@@ -66,6 +66,11 @@ export interface AutonomousDatabaseSummary {
    *
    */
   "kmsKeyVersionId"?: string;
+  "encryptionKeyLocationDetails"?:
+    | model.ExternalHsmEncryptionDetails
+    | model.GoogleCloudProviderEncryptionKeyDetails
+    | model.AzureEncryptionKeyDetails
+    | model.AwsEncryptionKeyDetails;
   /**
    * The database name.
    */
@@ -349,6 +354,10 @@ This setting cannot be updated in parallel with any of the following: licenseMod
   "privateEndpointIp"?: string;
   /**
    * A valid Oracle AI Database version for Autonomous AI Database.
+   * When you specify 23ai for dbversion, the system will provision a 23ai database, but the UI will display it as 26ai.
+   * When you specify 26ai for dbversion, the system will provision and display a 26ai database as expected.
+   * For new databases, it is recommended to use either 19c or 26ai.
+   *
    */
   "dbVersion"?: string;
   /**
@@ -629,7 +638,7 @@ Service Change: The default value of the isMTLSConnectionRequired attribute will
   "autonomousMaintenanceScheduleType"?: AutonomousDatabaseSummary.AutonomousMaintenanceScheduleType;
   "autonomousDatabaseMaintenanceWindow"?: model.AutonomousDatabaseMaintenanceWindowSummary;
   /**
-   * The date until which maintenance of Autonomous AI Database is temporarily paused.
+   * The date until which Autonomous AI Database maintenance is temporarily paused.
    */
   "timeMaintenancePauseUntil"?: Date;
   /**
@@ -742,6 +751,7 @@ export namespace AutonomousDatabaseSummary {
     Upgrading = "UPGRADING",
     Inaccessible = "INACCESSIBLE",
     Standby = "STANDBY",
+    Transporting = "TRANSPORTING",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
@@ -955,6 +965,10 @@ export namespace AutonomousDatabaseSummary {
           ? model.AutonomousDatabaseEncryptionKeyDetails.getJsonObj(obj.encryptionKey)
           : undefined,
 
+        "encryptionKeyLocationDetails": obj.encryptionKeyLocationDetails
+          ? model.EncryptionKeyLocationDetails.getJsonObj(obj.encryptionKeyLocationDetails)
+          : undefined,
+
         "longTermBackupSchedule": obj.longTermBackupSchedule
           ? model.LongTermBackUpScheduleDetails.getJsonObj(obj.longTermBackupSchedule)
           : undefined,
@@ -1043,6 +1057,12 @@ export namespace AutonomousDatabaseSummary {
       ...{
         "encryptionKey": obj.encryptionKey
           ? model.AutonomousDatabaseEncryptionKeyDetails.getDeserializedJsonObj(obj.encryptionKey)
+          : undefined,
+
+        "encryptionKeyLocationDetails": obj.encryptionKeyLocationDetails
+          ? model.EncryptionKeyLocationDetails.getDeserializedJsonObj(
+              obj.encryptionKeyLocationDetails
+            )
           : undefined,
 
         "longTermBackupSchedule": obj.longTermBackupSchedule

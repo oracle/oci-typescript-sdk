@@ -50,6 +50,10 @@ export interface RerankTextDetails {
    * The maximum number of chunks to produce internally from a document. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maxChunksPerDocument"?: number;
+  /**
+   * Used to truncate the long documents with the specified no of tokens. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "maxTokensPerDocument"?: number;
 }
 
 export namespace RerankTextDetails {

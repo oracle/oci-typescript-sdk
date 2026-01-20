@@ -170,6 +170,11 @@ Example: {@code {\"Department\": \"Finance\"}}
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the key store of Oracle Vault.
    */
   "keyStoreId"?: string;
+  "encryptionKeyLocationDetails"?:
+    | model.ExternalHsmEncryptionDetails
+    | model.GoogleCloudProviderEncryptionKeyDetails
+    | model.AzureEncryptionKeyDetails
+    | model.AwsEncryptionKeyDetails;
   /**
    * The CPU value beyond which an Autonomous AI Database will be opened across multiple nodes. The default value of this attribute is 16 for OCPUs and 64 for ECPUs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
@@ -243,6 +248,10 @@ export namespace CreateAutonomousContainerDatabaseBase {
 
         "backupConfig": obj.backupConfig
           ? model.AutonomousContainerDatabaseBackupConfig.getJsonObj(obj.backupConfig)
+          : undefined,
+
+        "encryptionKeyLocationDetails": obj.encryptionKeyLocationDetails
+          ? model.EncryptionKeyLocationDetails.getJsonObj(obj.encryptionKeyLocationDetails)
           : undefined
       }
     };
@@ -287,6 +296,12 @@ export namespace CreateAutonomousContainerDatabaseBase {
 
         "backupConfig": obj.backupConfig
           ? model.AutonomousContainerDatabaseBackupConfig.getDeserializedJsonObj(obj.backupConfig)
+          : undefined,
+
+        "encryptionKeyLocationDetails": obj.encryptionKeyLocationDetails
+          ? model.EncryptionKeyLocationDetails.getDeserializedJsonObj(
+              obj.encryptionKeyLocationDetails
+            )
           : undefined
       }
     };

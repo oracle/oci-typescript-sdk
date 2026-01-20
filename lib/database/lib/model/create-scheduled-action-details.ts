@@ -66,7 +66,10 @@ export namespace CreateScheduledActionDetails {
   export enum ActionType {
     DbServerFullSoftwareUpdate = "DB_SERVER_FULL_SOFTWARE_UPDATE",
     StorageServerFullSoftwareUpdate = "STORAGE_SERVER_FULL_SOFTWARE_UPDATE",
-    NetworkSwitchFullSoftwareUpdate = "NETWORK_SWITCH_FULL_SOFTWARE_UPDATE"
+    NetworkSwitchFullSoftwareUpdate = "NETWORK_SWITCH_FULL_SOFTWARE_UPDATE",
+    FsuVmClusterOsSoftwareUpdate = "FSU_VM_CLUSTER_OS_SOFTWARE_UPDATE",
+    FsuVmClusterGiSoftwareUpdate = "FSU_VM_CLUSTER_GI_SOFTWARE_UPDATE",
+    FsuVmClusterGiOsSoftwareUpdate = "FSU_VM_CLUSTER_GI_OS_SOFTWARE_UPDATE"
   }
 
   export function getJsonObj(obj: CreateScheduledActionDetails): object {

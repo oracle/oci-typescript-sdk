@@ -174,6 +174,7 @@ export namespace MaintenanceRunSummary {
     Deleting = "DELETING",
     Deleted = "DELETED",
     Canceled = "CANCELED",
+    PartialSuccess = "PARTIAL_SUCCESS",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
@@ -238,6 +239,8 @@ export namespace MaintenanceRunSummary {
     Patching = "PATCHING",
     Waiting = "WAITING",
     Scheduled = "SCHEDULED",
+    Complete = "COMPLETE",
+    Failed = "FAILED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

@@ -74,6 +74,8 @@ export interface Endpoint {
    */
   "lifecycleDetails"?: string;
   "contentModerationConfig"?: model.ContentModerationConfig;
+  "promptInjectionConfig"?: model.PromptInjectionConfig;
+  "piiDetectionConfig"?: model.PiiDetectionConfig;
   "previousState"?: model.Endpoint;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
@@ -122,6 +124,12 @@ export namespace Endpoint {
         "contentModerationConfig": obj.contentModerationConfig
           ? model.ContentModerationConfig.getJsonObj(obj.contentModerationConfig)
           : undefined,
+        "promptInjectionConfig": obj.promptInjectionConfig
+          ? model.PromptInjectionConfig.getJsonObj(obj.promptInjectionConfig)
+          : undefined,
+        "piiDetectionConfig": obj.piiDetectionConfig
+          ? model.PiiDetectionConfig.getJsonObj(obj.piiDetectionConfig)
+          : undefined,
         "previousState": obj.previousState
           ? model.Endpoint.getJsonObj(obj.previousState)
           : undefined
@@ -136,6 +144,12 @@ export namespace Endpoint {
       ...{
         "contentModerationConfig": obj.contentModerationConfig
           ? model.ContentModerationConfig.getDeserializedJsonObj(obj.contentModerationConfig)
+          : undefined,
+        "promptInjectionConfig": obj.promptInjectionConfig
+          ? model.PromptInjectionConfig.getDeserializedJsonObj(obj.promptInjectionConfig)
+          : undefined,
+        "piiDetectionConfig": obj.piiDetectionConfig
+          ? model.PiiDetectionConfig.getDeserializedJsonObj(obj.piiDetectionConfig)
           : undefined,
         "previousState": obj.previousState
           ? model.Endpoint.getDeserializedJsonObj(obj.previousState)

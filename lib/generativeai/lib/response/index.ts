@@ -18,6 +18,8 @@ To learn more about the service, see the [Generative AI documentation](https://d
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as ChangeApiKeyCompartmentResponse from "./change-api-key-compartment-response";
+export import ChangeApiKeyCompartmentResponse = ChangeApiKeyCompartmentResponse.ChangeApiKeyCompartmentResponse;
 import * as ChangeDedicatedAiClusterCompartmentResponse from "./change-dedicated-ai-cluster-compartment-response";
 export import ChangeDedicatedAiClusterCompartmentResponse = ChangeDedicatedAiClusterCompartmentResponse.ChangeDedicatedAiClusterCompartmentResponse;
 import * as ChangeEndpointCompartmentResponse from "./change-endpoint-compartment-response";
@@ -28,6 +30,8 @@ import * as ChangeImportedModelCompartmentResponse from "./change-imported-model
 export import ChangeImportedModelCompartmentResponse = ChangeImportedModelCompartmentResponse.ChangeImportedModelCompartmentResponse;
 import * as ChangeModelCompartmentResponse from "./change-model-compartment-response";
 export import ChangeModelCompartmentResponse = ChangeModelCompartmentResponse.ChangeModelCompartmentResponse;
+import * as CreateApiKeyResponse from "./create-api-key-response";
+export import CreateApiKeyResponse = CreateApiKeyResponse.CreateApiKeyResponse;
 import * as CreateDedicatedAiClusterResponse from "./create-dedicated-ai-cluster-response";
 export import CreateDedicatedAiClusterResponse = CreateDedicatedAiClusterResponse.CreateDedicatedAiClusterResponse;
 import * as CreateEndpointResponse from "./create-endpoint-response";
@@ -38,6 +42,8 @@ import * as CreateImportedModelResponse from "./create-imported-model-response";
 export import CreateImportedModelResponse = CreateImportedModelResponse.CreateImportedModelResponse;
 import * as CreateModelResponse from "./create-model-response";
 export import CreateModelResponse = CreateModelResponse.CreateModelResponse;
+import * as DeleteApiKeyResponse from "./delete-api-key-response";
+export import DeleteApiKeyResponse = DeleteApiKeyResponse.DeleteApiKeyResponse;
 import * as DeleteDedicatedAiClusterResponse from "./delete-dedicated-ai-cluster-response";
 export import DeleteDedicatedAiClusterResponse = DeleteDedicatedAiClusterResponse.DeleteDedicatedAiClusterResponse;
 import * as DeleteEndpointResponse from "./delete-endpoint-response";
@@ -48,6 +54,8 @@ import * as DeleteImportedModelResponse from "./delete-imported-model-response";
 export import DeleteImportedModelResponse = DeleteImportedModelResponse.DeleteImportedModelResponse;
 import * as DeleteModelResponse from "./delete-model-response";
 export import DeleteModelResponse = DeleteModelResponse.DeleteModelResponse;
+import * as GetApiKeyResponse from "./get-api-key-response";
+export import GetApiKeyResponse = GetApiKeyResponse.GetApiKeyResponse;
 import * as GetDedicatedAiClusterResponse from "./get-dedicated-ai-cluster-response";
 export import GetDedicatedAiClusterResponse = GetDedicatedAiClusterResponse.GetDedicatedAiClusterResponse;
 import * as GetEndpointResponse from "./get-endpoint-response";
@@ -60,6 +68,8 @@ import * as GetModelResponse from "./get-model-response";
 export import GetModelResponse = GetModelResponse.GetModelResponse;
 import * as GetWorkRequestResponse from "./get-work-request-response";
 export import GetWorkRequestResponse = GetWorkRequestResponse.GetWorkRequestResponse;
+import * as ListApiKeysResponse from "./list-api-keys-response";
+export import ListApiKeysResponse = ListApiKeysResponse.ListApiKeysResponse;
 import * as ListDedicatedAiClustersResponse from "./list-dedicated-ai-clusters-response";
 export import ListDedicatedAiClustersResponse = ListDedicatedAiClustersResponse.ListDedicatedAiClustersResponse;
 import * as ListEndpointsResponse from "./list-endpoints-response";
@@ -76,6 +86,12 @@ import * as ListWorkRequestLogsResponse from "./list-work-request-logs-response"
 export import ListWorkRequestLogsResponse = ListWorkRequestLogsResponse.ListWorkRequestLogsResponse;
 import * as ListWorkRequestsResponse from "./list-work-requests-response";
 export import ListWorkRequestsResponse = ListWorkRequestsResponse.ListWorkRequestsResponse;
+import * as RenewApiKeyResponse from "./renew-api-key-response";
+export import RenewApiKeyResponse = RenewApiKeyResponse.RenewApiKeyResponse;
+import * as SetApiKeyStateResponse from "./set-api-key-state-response";
+export import SetApiKeyStateResponse = SetApiKeyStateResponse.SetApiKeyStateResponse;
+import * as UpdateApiKeyResponse from "./update-api-key-response";
+export import UpdateApiKeyResponse = UpdateApiKeyResponse.UpdateApiKeyResponse;
 import * as UpdateDedicatedAiClusterResponse from "./update-dedicated-ai-cluster-response";
 export import UpdateDedicatedAiClusterResponse = UpdateDedicatedAiClusterResponse.UpdateDedicatedAiClusterResponse;
 import * as UpdateEndpointResponse from "./update-endpoint-response";

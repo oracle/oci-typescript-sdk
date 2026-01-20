@@ -50,6 +50,7 @@ export interface PatchHistoryEntry {
    * The type of Patch operation.
    */
   "patchType"?: PatchHistoryEntry.PatchType;
+  "patchOptions"?: model.PatchOptions;
 }
 
 export namespace PatchHistoryEntry {
@@ -86,12 +87,26 @@ export namespace PatchHistoryEntry {
   }
 
   export function getJsonObj(obj: PatchHistoryEntry): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "patchOptions": obj.patchOptions
+          ? model.PatchOptions.getJsonObj(obj.patchOptions)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: PatchHistoryEntry): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "patchOptions": obj.patchOptions
+          ? model.PatchOptions.getDeserializedJsonObj(obj.patchOptions)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

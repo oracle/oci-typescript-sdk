@@ -79,6 +79,8 @@ Allowed values are:
    */
   "lifecycleDetails"?: string;
   "contentModerationConfig"?: model.ContentModerationConfig;
+  "promptInjectionConfig"?: model.PromptInjectionConfig;
+  "piiDetectionConfig"?: model.PiiDetectionConfig;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
 * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
@@ -111,6 +113,12 @@ export namespace EndpointSummary {
       ...{
         "contentModerationConfig": obj.contentModerationConfig
           ? model.ContentModerationConfig.getJsonObj(obj.contentModerationConfig)
+          : undefined,
+        "promptInjectionConfig": obj.promptInjectionConfig
+          ? model.PromptInjectionConfig.getJsonObj(obj.promptInjectionConfig)
+          : undefined,
+        "piiDetectionConfig": obj.piiDetectionConfig
+          ? model.PiiDetectionConfig.getJsonObj(obj.piiDetectionConfig)
           : undefined
       }
     };
@@ -123,6 +131,12 @@ export namespace EndpointSummary {
       ...{
         "contentModerationConfig": obj.contentModerationConfig
           ? model.ContentModerationConfig.getDeserializedJsonObj(obj.contentModerationConfig)
+          : undefined,
+        "promptInjectionConfig": obj.promptInjectionConfig
+          ? model.PromptInjectionConfig.getDeserializedJsonObj(obj.promptInjectionConfig)
+          : undefined,
+        "piiDetectionConfig": obj.piiDetectionConfig
+          ? model.PiiDetectionConfig.getDeserializedJsonObj(obj.piiDetectionConfig)
           : undefined
       }
     };

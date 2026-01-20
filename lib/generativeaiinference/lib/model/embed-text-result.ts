@@ -34,9 +34,13 @@ export interface EmbedTextResult {
    */
   "inputs"?: Array<string>;
   /**
-   * The embeddings corresponding to inputs.
+   * The embeddings corresponding to float.
    */
   "embeddings": Array<Array<number>>;
+  /**
+   * The embeddings corresponding to embedding types input.
+   */
+  "embeddingsByType"?: any;
   /**
    * The OCID of the model used in this inference request.
    */

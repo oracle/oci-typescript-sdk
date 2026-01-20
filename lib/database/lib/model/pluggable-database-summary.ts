@@ -101,6 +101,10 @@ Example: {@code {\"Department\": \"Finance\"}}
    *
    */
   "pdbNodeLevelDetails"?: Array<model.PluggableDatabaseNodeLevelDetails>;
+  /**
+   * The patch version of the pluggable database.
+   */
+  "patchVersion"?: string;
 }
 
 export namespace PluggableDatabaseSummary {

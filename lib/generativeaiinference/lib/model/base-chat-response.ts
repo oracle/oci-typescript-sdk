@@ -39,6 +39,11 @@ export namespace BaseChatResponse {
             <model.GenericChatResponse>(<object>jsonObj),
             true
           );
+        case "COHEREV2":
+          return model.CohereChatResponseV2.getJsonObj(
+            <model.CohereChatResponseV2>(<object>jsonObj),
+            true
+          );
         case "COHERE":
           return model.CohereChatResponse.getJsonObj(
             <model.CohereChatResponse>(<object>jsonObj),
@@ -58,6 +63,11 @@ export namespace BaseChatResponse {
         case "GENERIC":
           return model.GenericChatResponse.getDeserializedJsonObj(
             <model.GenericChatResponse>(<object>jsonObj),
+            true
+          );
+        case "COHEREV2":
+          return model.CohereChatResponseV2.getDeserializedJsonObj(
+            <model.CohereChatResponseV2>(<object>jsonObj),
             true
           );
         case "COHERE":

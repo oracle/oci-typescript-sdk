@@ -54,6 +54,7 @@ Example: {@code {\"Department\": \"Finance\"}}
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  "patchOptions"?: model.PatchOptions;
 }
 
 export namespace UpdateDatabaseDetails {
@@ -67,6 +68,10 @@ export namespace UpdateDatabaseDetails {
 
         "storageSizeDetails": obj.storageSizeDetails
           ? model.DatabaseStorageSizeDetails.getJsonObj(obj.storageSizeDetails)
+          : undefined,
+
+        "patchOptions": obj.patchOptions
+          ? model.PatchOptions.getJsonObj(obj.patchOptions)
           : undefined
       }
     };
@@ -83,6 +88,10 @@ export namespace UpdateDatabaseDetails {
 
         "storageSizeDetails": obj.storageSizeDetails
           ? model.DatabaseStorageSizeDetails.getDeserializedJsonObj(obj.storageSizeDetails)
+          : undefined,
+
+        "patchOptions": obj.patchOptions
+          ? model.PatchOptions.getDeserializedJsonObj(obj.patchOptions)
           : undefined
       }
     };
