@@ -29,6 +29,10 @@ export interface ExecutionWindowSummary {
    */
   "executionResourceId": string;
   /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the new execution window created as part of reschedule for the execution window failure.
+   */
+  "deferredExecutionWindowId"?: string;
+  /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment.
    */
   "compartmentId": string;
@@ -143,6 +147,7 @@ export namespace ExecutionWindowSummary {
     MaintenanceInProgress = "MAINTENANCE_IN_PROGRESS",
     Waiting = "WAITING",
     Rescheduled = "RESCHEDULED",
+    CanceledByOps = "CANCELED_BY_OPS",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

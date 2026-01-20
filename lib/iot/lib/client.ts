@@ -1712,7 +1712,8 @@ export class IotClient {
   }
 
   /**
-   * Retrieves the latest snapshot data of digital twin instance identified by the specified OCID.
+   * Retrieves the content associated with a digital twin instance identified by the specified OCID.
+   * The content can be retrieved only when a model is associated with the digital twin instance.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetDigitalTwinInstanceContentRequest
@@ -2707,6 +2708,7 @@ export class IotClient {
       "id": listIotDomainGroupsRequest.id,
       "displayName": listIotDomainGroupsRequest.displayName,
       "lifecycleState": listIotDomainGroupsRequest.lifecycleState,
+      "type": listIotDomainGroupsRequest.type,
       "limit": listIotDomainGroupsRequest.limit,
       "page": listIotDomainGroupsRequest.page,
       "sortOrder": listIotDomainGroupsRequest.sortOrder,

@@ -18,6 +18,8 @@ To learn more about the service, see the [Generative AI documentation](https://d
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as ChangeApiKeyCompartmentRequest from "./change-api-key-compartment-request";
+export import ChangeApiKeyCompartmentRequest = ChangeApiKeyCompartmentRequest.ChangeApiKeyCompartmentRequest;
 import * as ChangeDedicatedAiClusterCompartmentRequest from "./change-dedicated-ai-cluster-compartment-request";
 export import ChangeDedicatedAiClusterCompartmentRequest = ChangeDedicatedAiClusterCompartmentRequest.ChangeDedicatedAiClusterCompartmentRequest;
 import * as ChangeEndpointCompartmentRequest from "./change-endpoint-compartment-request";
@@ -28,6 +30,8 @@ import * as ChangeImportedModelCompartmentRequest from "./change-imported-model-
 export import ChangeImportedModelCompartmentRequest = ChangeImportedModelCompartmentRequest.ChangeImportedModelCompartmentRequest;
 import * as ChangeModelCompartmentRequest from "./change-model-compartment-request";
 export import ChangeModelCompartmentRequest = ChangeModelCompartmentRequest.ChangeModelCompartmentRequest;
+import * as CreateApiKeyRequest from "./create-api-key-request";
+export import CreateApiKeyRequest = CreateApiKeyRequest.CreateApiKeyRequest;
 import * as CreateDedicatedAiClusterRequest from "./create-dedicated-ai-cluster-request";
 export import CreateDedicatedAiClusterRequest = CreateDedicatedAiClusterRequest.CreateDedicatedAiClusterRequest;
 import * as CreateEndpointRequest from "./create-endpoint-request";
@@ -38,6 +42,8 @@ import * as CreateImportedModelRequest from "./create-imported-model-request";
 export import CreateImportedModelRequest = CreateImportedModelRequest.CreateImportedModelRequest;
 import * as CreateModelRequest from "./create-model-request";
 export import CreateModelRequest = CreateModelRequest.CreateModelRequest;
+import * as DeleteApiKeyRequest from "./delete-api-key-request";
+export import DeleteApiKeyRequest = DeleteApiKeyRequest.DeleteApiKeyRequest;
 import * as DeleteDedicatedAiClusterRequest from "./delete-dedicated-ai-cluster-request";
 export import DeleteDedicatedAiClusterRequest = DeleteDedicatedAiClusterRequest.DeleteDedicatedAiClusterRequest;
 import * as DeleteEndpointRequest from "./delete-endpoint-request";
@@ -48,6 +54,8 @@ import * as DeleteImportedModelRequest from "./delete-imported-model-request";
 export import DeleteImportedModelRequest = DeleteImportedModelRequest.DeleteImportedModelRequest;
 import * as DeleteModelRequest from "./delete-model-request";
 export import DeleteModelRequest = DeleteModelRequest.DeleteModelRequest;
+import * as GetApiKeyRequest from "./get-api-key-request";
+export import GetApiKeyRequest = GetApiKeyRequest.GetApiKeyRequest;
 import * as GetDedicatedAiClusterRequest from "./get-dedicated-ai-cluster-request";
 export import GetDedicatedAiClusterRequest = GetDedicatedAiClusterRequest.GetDedicatedAiClusterRequest;
 import * as GetEndpointRequest from "./get-endpoint-request";
@@ -60,6 +68,8 @@ import * as GetModelRequest from "./get-model-request";
 export import GetModelRequest = GetModelRequest.GetModelRequest;
 import * as GetWorkRequestRequest from "./get-work-request-request";
 export import GetWorkRequestRequest = GetWorkRequestRequest.GetWorkRequestRequest;
+import * as ListApiKeysRequest from "./list-api-keys-request";
+export import ListApiKeysRequest = ListApiKeysRequest.ListApiKeysRequest;
 import * as ListDedicatedAiClustersRequest from "./list-dedicated-ai-clusters-request";
 export import ListDedicatedAiClustersRequest = ListDedicatedAiClustersRequest.ListDedicatedAiClustersRequest;
 import * as ListEndpointsRequest from "./list-endpoints-request";
@@ -76,6 +86,12 @@ import * as ListWorkRequestLogsRequest from "./list-work-request-logs-request";
 export import ListWorkRequestLogsRequest = ListWorkRequestLogsRequest.ListWorkRequestLogsRequest;
 import * as ListWorkRequestsRequest from "./list-work-requests-request";
 export import ListWorkRequestsRequest = ListWorkRequestsRequest.ListWorkRequestsRequest;
+import * as RenewApiKeyRequest from "./renew-api-key-request";
+export import RenewApiKeyRequest = RenewApiKeyRequest.RenewApiKeyRequest;
+import * as SetApiKeyStateRequest from "./set-api-key-state-request";
+export import SetApiKeyStateRequest = SetApiKeyStateRequest.SetApiKeyStateRequest;
+import * as UpdateApiKeyRequest from "./update-api-key-request";
+export import UpdateApiKeyRequest = UpdateApiKeyRequest.UpdateApiKeyRequest;
 import * as UpdateDedicatedAiClusterRequest from "./update-dedicated-ai-cluster-request";
 export import UpdateDedicatedAiClusterRequest = UpdateDedicatedAiClusterRequest.UpdateDedicatedAiClusterRequest;
 import * as UpdateEndpointRequest from "./update-endpoint-request";

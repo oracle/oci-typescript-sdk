@@ -29,6 +29,12 @@ export interface IotDomainGroupSummary {
    */
   "compartmentId": string;
   /**
+   * Type of the domain group. LIGHTWEIGHT uses fewer resources and has a higher Recovery Time Objective (RTO),
+   * making it suitable for development and testing. STANDARD is recommended for production.
+   *
+   */
+  "type": IotDomainGroupSummary.Type;
+  /**
    * A user-friendly name. Does not have to be unique, and it's changeable. Avoid entering confidential information.
    */
   "displayName": string;
@@ -79,6 +85,16 @@ Example: {@code {\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}}
 }
 
 export namespace IotDomainGroupSummary {
+  export enum Type {
+    Standard = "STANDARD",
+    Lightweight = "LIGHTWEIGHT",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: IotDomainGroupSummary): object {
     const jsonObj = { ...obj, ...{} };
 

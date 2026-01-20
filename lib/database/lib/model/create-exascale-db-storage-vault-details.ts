@@ -78,7 +78,7 @@ Example: {@code {\"Department\": \"Finance\"}}
    */
   "isAutoscaleEnabled"?: boolean;
   /**
-   * Maximum limit storage size in gigabytes, that is applicable for the Database Storage Vault. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The maximum limit, in gigabytes, to which the Vault storage size can automatically scale when auto scaling is enabled for the Database Storage Vault Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "autoscaleLimitInGBs"?: number;
 }

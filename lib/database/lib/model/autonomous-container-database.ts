@@ -85,6 +85,11 @@ export interface AutonomousContainerDatabase {
    * Key History Entry.
    */
   "keyHistoryEntry"?: Array<model.AutonomousDatabaseKeyHistoryEntry>;
+  "encryptionKeyLocationDetails"?:
+    | model.ExternalHsmEncryptionDetails
+    | model.GoogleCloudProviderEncryptionKeyDetails
+    | model.AzureEncryptionKeyDetails
+    | model.AwsEncryptionKeyDetails;
   /**
    * The current state of the Autonomous Container Database.
    */
@@ -398,6 +403,9 @@ export namespace AutonomousContainerDatabase {
               return model.AutonomousDatabaseKeyHistoryEntry.getJsonObj(item);
             })
           : undefined,
+        "encryptionKeyLocationDetails": obj.encryptionKeyLocationDetails
+          ? model.EncryptionKeyLocationDetails.getJsonObj(obj.encryptionKeyLocationDetails)
+          : undefined,
 
         "maintenanceWindow": obj.maintenanceWindow
           ? model.MaintenanceWindow.getJsonObj(obj.maintenanceWindow)
@@ -447,6 +455,11 @@ export namespace AutonomousContainerDatabase {
           ? obj.keyHistoryEntry.map(item => {
               return model.AutonomousDatabaseKeyHistoryEntry.getDeserializedJsonObj(item);
             })
+          : undefined,
+        "encryptionKeyLocationDetails": obj.encryptionKeyLocationDetails
+          ? model.EncryptionKeyLocationDetails.getDeserializedJsonObj(
+              obj.encryptionKeyLocationDetails
+            )
           : undefined,
 
         "maintenanceWindow": obj.maintenanceWindow

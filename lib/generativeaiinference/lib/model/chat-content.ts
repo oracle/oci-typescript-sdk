@@ -38,6 +38,8 @@ export namespace ChatContent {
           return model.VideoContent.getJsonObj(<model.VideoContent>(<object>jsonObj), true);
         case "IMAGE":
           return model.ImageContent.getJsonObj(<model.ImageContent>(<object>jsonObj), true);
+        case "DOCUMENT":
+          return model.DocumentContent.getJsonObj(<model.DocumentContent>(<object>jsonObj), true);
         case "AUDIO":
           return model.AudioContent.getJsonObj(<model.AudioContent>(<object>jsonObj), true);
         case "TEXT":
@@ -61,6 +63,11 @@ export namespace ChatContent {
         case "IMAGE":
           return model.ImageContent.getDeserializedJsonObj(
             <model.ImageContent>(<object>jsonObj),
+            true
+          );
+        case "DOCUMENT":
+          return model.DocumentContent.getDeserializedJsonObj(
+            <model.DocumentContent>(<object>jsonObj),
             true
           );
         case "AUDIO":

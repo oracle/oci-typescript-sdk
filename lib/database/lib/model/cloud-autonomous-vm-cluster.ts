@@ -295,6 +295,14 @@ Example: {@code {\"Department\": \"Finance\"}}
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subscription with which resource needs to be associated with.
    */
   "subscriptionId"?: string;
+  /**
+   * Details of the multi cloud identity connectors of the VM cluster.
+   */
+  "multiCloudIdentityConnectorConfigs"?: Array<model.IdentityConnectorDetails>;
+  /**
+   * TDE keystore type
+   */
+  "tdeKeyStoreType"?: CloudAutonomousVmCluster.TdeKeyStoreType;
 }
 
 export namespace CloudAutonomousVmCluster {
@@ -333,12 +341,30 @@ export namespace CloudAutonomousVmCluster {
     UnknownValue = "UNKNOWN_VALUE"
   }
 
+  export enum TdeKeyStoreType {
+    Azure = "AZURE",
+    Oci = "OCI",
+    Gcp = "GCP",
+    Aws = "AWS",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: CloudAutonomousVmCluster): object {
     const jsonObj = {
       ...obj,
       ...{
         "maintenanceWindow": obj.maintenanceWindow
           ? model.MaintenanceWindow.getJsonObj(obj.maintenanceWindow)
+          : undefined,
+
+        "multiCloudIdentityConnectorConfigs": obj.multiCloudIdentityConnectorConfigs
+          ? obj.multiCloudIdentityConnectorConfigs.map(item => {
+              return model.IdentityConnectorDetails.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -351,6 +377,12 @@ export namespace CloudAutonomousVmCluster {
       ...{
         "maintenanceWindow": obj.maintenanceWindow
           ? model.MaintenanceWindow.getDeserializedJsonObj(obj.maintenanceWindow)
+          : undefined,
+
+        "multiCloudIdentityConnectorConfigs": obj.multiCloudIdentityConnectorConfigs
+          ? obj.multiCloudIdentityConnectorConfigs.map(item => {
+              return model.IdentityConnectorDetails.getDeserializedJsonObj(item);
+            })
           : undefined
       }
     };

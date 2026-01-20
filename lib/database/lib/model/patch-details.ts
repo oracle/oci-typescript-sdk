@@ -34,6 +34,7 @@ export interface PatchDetails {
    * The action to perform on the patch.
    */
   "action"?: PatchDetails.Action;
+  "patchOptions"?: model.PatchOptions;
 }
 
 export namespace PatchDetails {
@@ -43,12 +44,26 @@ export namespace PatchDetails {
   }
 
   export function getJsonObj(obj: PatchDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "patchOptions": obj.patchOptions
+          ? model.PatchOptions.getJsonObj(obj.patchOptions)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: PatchDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "patchOptions": obj.patchOptions
+          ? model.PatchOptions.getDeserializedJsonObj(obj.patchOptions)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
