@@ -269,7 +269,7 @@ export class GenericRetrier {
       const delayTime = this.retryConfiguration.delayStrategy.delay(waitContext);
       waitContext.attemptCount++;
       console.warn(
-        `Request failed with Exception : ${lastKnownError}\nRetrying request -> Total Attempts : ${waitContext.attemptCount}, Retrying after ${delayTime} seconds...`
+        `Request failed with Exception : ${lastKnownError?.message ?? lastKnownError}\nRetrying request -> Total Attempts : ${waitContext.attemptCount}, Retrying after ${delayTime} seconds...`
       );
       await delay(delayTime);
       GenericRetrier.refreshRequest(request);
