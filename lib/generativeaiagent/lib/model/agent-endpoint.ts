@@ -99,6 +99,7 @@ Example: {@code 2016-08-25T21:10:29.600Z}
    *
    */
   "lifecycleDetails"?: string;
+  "provisionedCapacityConfig"?: model.ProvisionedCapacityConfig;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
 * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
@@ -159,6 +160,10 @@ export namespace AgentEndpoint {
 
         "sessionConfig": obj.sessionConfig
           ? model.SessionConfig.getJsonObj(obj.sessionConfig)
+          : undefined,
+
+        "provisionedCapacityConfig": obj.provisionedCapacityConfig
+          ? model.ProvisionedCapacityConfig.getJsonObj(obj.provisionedCapacityConfig)
           : undefined
       }
     };
@@ -185,6 +190,10 @@ export namespace AgentEndpoint {
 
         "sessionConfig": obj.sessionConfig
           ? model.SessionConfig.getDeserializedJsonObj(obj.sessionConfig)
+          : undefined,
+
+        "provisionedCapacityConfig": obj.provisionedCapacityConfig
+          ? model.ProvisionedCapacityConfig.getDeserializedJsonObj(obj.provisionedCapacityConfig)
           : undefined
       }
     };

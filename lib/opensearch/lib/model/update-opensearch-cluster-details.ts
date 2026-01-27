@@ -45,6 +45,7 @@ export interface UpdateOpensearchClusterDetails {
   "reverseConnectionEndpointCustomerIps"?: Array<string>;
   "outboundClusterConfig"?: model.OutboundClusterConfig;
   "maintenanceDetails"?: model.UpdateMaintenanceDetails;
+  "loadBalancerConfig"?: model.LoadBalancerConfig;
   "certificateConfig"?: model.CertificateConfig;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
@@ -86,6 +87,9 @@ export namespace UpdateOpensearchClusterDetails {
         "maintenanceDetails": obj.maintenanceDetails
           ? model.UpdateMaintenanceDetails.getJsonObj(obj.maintenanceDetails)
           : undefined,
+        "loadBalancerConfig": obj.loadBalancerConfig
+          ? model.LoadBalancerConfig.getJsonObj(obj.loadBalancerConfig)
+          : undefined,
         "certificateConfig": obj.certificateConfig
           ? model.CertificateConfig.getJsonObj(obj.certificateConfig)
           : undefined
@@ -110,6 +114,9 @@ export namespace UpdateOpensearchClusterDetails {
           : undefined,
         "maintenanceDetails": obj.maintenanceDetails
           ? model.UpdateMaintenanceDetails.getDeserializedJsonObj(obj.maintenanceDetails)
+          : undefined,
+        "loadBalancerConfig": obj.loadBalancerConfig
+          ? model.LoadBalancerConfig.getDeserializedJsonObj(obj.loadBalancerConfig)
           : undefined,
         "certificateConfig": obj.certificateConfig
           ? model.CertificateConfig.getDeserializedJsonObj(obj.certificateConfig)

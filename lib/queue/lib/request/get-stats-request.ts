@@ -30,4 +30,8 @@ export interface GetStatsRequest extends common.BaseRequest {
    * Id to specify channel.
    */
   "channelId"?: string;
+  /**
+   * Optional parameter to specify a consumer group.
+   */
+  "consumerGroupId"?: string;
 }

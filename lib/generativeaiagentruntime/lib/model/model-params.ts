@@ -51,6 +51,18 @@ export interface ModelParams {
    * Presence penalty to encourage new topics. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "presencePenalty"?: number;
+  /**
+   * Seed makes best effort to sample tokens deterministically. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "seed"?: number;
+  /**
+   * Constrains effort on reasoning for reasoning models.
+   */
+  "reasoningEffort"?: string;
+  /**
+   * Constrains the verbosity of the model's response.
+   */
+  "verbosity"?: string;
 }
 
 export namespace ModelParams {

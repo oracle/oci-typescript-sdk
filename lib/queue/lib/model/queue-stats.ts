@@ -24,6 +24,10 @@ export interface QueueStats {
    * If channelId is present in GetStats call, the channel id will be returned in the GetStats response.
    */
   "channelId"?: string;
+  /**
+   * If consumerGroupId is present in GetStats call, the consumer group id will be returned in the GetStats response.
+   */
+  "consumerGroupId"?: string;
 }
 
 export namespace QueueStats {

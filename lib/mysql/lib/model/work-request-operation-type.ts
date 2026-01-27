@@ -43,6 +43,7 @@ export enum WorkRequestOperationType {
   CreateBackup = "CREATE_BACKUP",
   DeleteBackup = "DELETE_BACKUP",
   UpdateBackup = "UPDATE_BACKUP",
+  ExportBackup = "EXPORT_BACKUP",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

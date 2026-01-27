@@ -43,6 +43,18 @@ export namespace CreateCertificateAuthorityConfigDetails {
             <model.CreateSubordinateCaIssuedByInternalCaConfigDetails>(<object>jsonObj),
             true
           );
+        case "ROOT_CA_MANAGED_EXTERNALLY":
+          return model.CreateRootCaManagedExternallyConfigDetails.getJsonObj(
+            <model.CreateRootCaManagedExternallyConfigDetails>(<object>jsonObj),
+            true
+          );
+        case "SUBORDINATE_CA_MANAGED_INTERNALLY_ISSUED_BY_EXTERNAL_CA":
+          return model.CreateSubordinateCaManagedInternallyIssuedByExternalCaConfigDetails.getJsonObj(
+            <model.CreateSubordinateCaManagedInternallyIssuedByExternalCaConfigDetails>(
+              (<object>jsonObj)
+            ),
+            true
+          );
         default:
           if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.configType}`);
       }
@@ -62,6 +74,18 @@ export namespace CreateCertificateAuthorityConfigDetails {
         case "SUBORDINATE_CA_ISSUED_BY_INTERNAL_CA":
           return model.CreateSubordinateCaIssuedByInternalCaConfigDetails.getDeserializedJsonObj(
             <model.CreateSubordinateCaIssuedByInternalCaConfigDetails>(<object>jsonObj),
+            true
+          );
+        case "ROOT_CA_MANAGED_EXTERNALLY":
+          return model.CreateRootCaManagedExternallyConfigDetails.getDeserializedJsonObj(
+            <model.CreateRootCaManagedExternallyConfigDetails>(<object>jsonObj),
+            true
+          );
+        case "SUBORDINATE_CA_MANAGED_INTERNALLY_ISSUED_BY_EXTERNAL_CA":
+          return model.CreateSubordinateCaManagedInternallyIssuedByExternalCaConfigDetails.getDeserializedJsonObj(
+            <model.CreateSubordinateCaManagedInternallyIssuedByExternalCaConfigDetails>(
+              (<object>jsonObj)
+            ),
             true
           );
         default:

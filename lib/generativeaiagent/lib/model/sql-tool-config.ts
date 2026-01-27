@@ -49,6 +49,10 @@ export interface SqlToolConfig extends model.ToolConfig {
   "tableAndColumnDescription"?: model.ObjectStorageInputLocation | model.InlineInputLocation;
   "generationLlmCustomization"?: model.LlmCustomization;
   "databaseConnection"?: model.DatabaseToolConnection;
+  /**
+   * The runtimeVersion of the system prompt.
+   */
+  "runtimeVersion"?: string;
 
   "toolConfigType": string;
 }

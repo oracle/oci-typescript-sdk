@@ -250,6 +250,7 @@ Example: {@code {\"Oracle-ZPR\": {\"MaxEgressCount\": {\"value\": \"42\", \"mode
    */
   "inboundClusterIds"?: Array<string>;
   "maintenanceDetails"?: model.MaintenanceDetails;
+  "loadBalancerConfig"?: model.LoadBalancerConfig;
   "certificateConfig"?: model.CertificateConfig;
 }
 
@@ -291,6 +292,9 @@ export namespace OpensearchCluster {
         "maintenanceDetails": obj.maintenanceDetails
           ? model.MaintenanceDetails.getJsonObj(obj.maintenanceDetails)
           : undefined,
+        "loadBalancerConfig": obj.loadBalancerConfig
+          ? model.LoadBalancerConfig.getJsonObj(obj.loadBalancerConfig)
+          : undefined,
         "certificateConfig": obj.certificateConfig
           ? model.CertificateConfig.getJsonObj(obj.certificateConfig)
           : undefined
@@ -321,6 +325,9 @@ export namespace OpensearchCluster {
 
         "maintenanceDetails": obj.maintenanceDetails
           ? model.MaintenanceDetails.getDeserializedJsonObj(obj.maintenanceDetails)
+          : undefined,
+        "loadBalancerConfig": obj.loadBalancerConfig
+          ? model.LoadBalancerConfig.getDeserializedJsonObj(obj.loadBalancerConfig)
           : undefined,
         "certificateConfig": obj.certificateConfig
           ? model.CertificateConfig.getDeserializedJsonObj(obj.certificateConfig)

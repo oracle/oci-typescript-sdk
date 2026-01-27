@@ -718,24 +718,6 @@ export class ComputeWaiter {
   }
 
   /**
-   * Waits forComputeHost till it reaches any of the provided states
-   *
-   * @param request the request to send
-   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
-   * @return response returns GetComputeHostResponse
-   */
-  public async forComputeHost(
-    request: serviceRequests.GetComputeHostRequest,
-    ...targetStates: models.ComputeHost.LifecycleState[]
-  ): Promise<serviceResponses.GetComputeHostResponse> {
-    return genericWaiter(
-      this.config,
-      () => this.client.getComputeHost(request),
-      response => targetStates.includes(response.computeHost.lifecycleState!)
-    );
-  }
-
-  /**
    * Waits forComputeHostGroup till it reaches any of the provided states
    *
    * @param request the request to send
@@ -1056,29 +1038,6 @@ export class ComputeWaiter {
   }
 
   /**
-   * Waits forUpdateComputeHost
-   *
-   * @param request the request to send
-   * @return response returns UpdateComputeHostResponse, GetWorkRequestResponse tuple
-   */
-  public async forUpdateComputeHost(
-    request: serviceRequests.UpdateComputeHostRequest
-  ): Promise<{
-    response: serviceResponses.UpdateComputeHostResponse;
-    workRequestResponse: responses.GetWorkRequestResponse;
-  }> {
-    const updateComputeHostResponse = await this.client.updateComputeHost(request);
-    if (updateComputeHostResponse.opcWorkRequestId === undefined)
-      return { response: updateComputeHostResponse, workRequestResponse: undefined as any };
-    const getWorkRequestResponse = await waitForWorkRequest(
-      this.config,
-      this.workRequestClient,
-      updateComputeHostResponse.opcWorkRequestId
-    );
-    return { response: updateComputeHostResponse, workRequestResponse: getWorkRequestResponse };
-  }
-
-  /**
    * Waits forUpdateComputeHostGroup
    *
    * @param request the request to send
@@ -1102,6 +1061,29 @@ export class ComputeWaiter {
       response: updateComputeHostGroupResponse,
       workRequestResponse: getWorkRequestResponse
     };
+  }
+
+  /**
+   * Waits forUpdateComputeHosts
+   *
+   * @param request the request to send
+   * @return response returns UpdateComputeHostsResponse, GetWorkRequestResponse tuple
+   */
+  public async forUpdateComputeHosts(
+    request: serviceRequests.UpdateComputeHostsRequest
+  ): Promise<{
+    response: serviceResponses.UpdateComputeHostsResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const updateComputeHostsResponse = await this.client.updateComputeHosts(request);
+    if (updateComputeHostsResponse.opcWorkRequestId === undefined)
+      return { response: updateComputeHostsResponse, workRequestResponse: undefined as any };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      updateComputeHostsResponse.opcWorkRequestId
+    );
+    return { response: updateComputeHostsResponse, workRequestResponse: getWorkRequestResponse };
   }
 
   /**

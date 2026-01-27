@@ -22,6 +22,7 @@ export enum StackTemplate {
   Datapipeline = "DATAPIPELINE",
   Aiservices = "AISERVICES",
   Datatransformation = "DATATRANSFORMATION",
+  Devopstoolkit = "DEVOPSTOOLKIT",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

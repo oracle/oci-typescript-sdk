@@ -35,4 +35,10 @@ export interface LaunchInstanceConfigurationRequest extends common.BaseRequest {
    *
    */
   "opcRetryToken"?: string;
+  /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the
+   * [compute cluster](https://docs.oracle.com/iaas/Content/Compute/Tasks/compute-clusters.htm) that the instance will be created in.
+   *
+   */
+  "opcComputeClusterId"?: string;
 }

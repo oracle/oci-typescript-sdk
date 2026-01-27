@@ -55,6 +55,8 @@ import * as ForcePatchPipelineDetails from "./force-patch-pipeline-details";
 export import ForcePatchPipelineDetails = ForcePatchPipelineDetails.ForcePatchPipelineDetails;
 import * as GetManifestResponse from "./get-manifest-response";
 export import GetManifestResponse = GetManifestResponse.GetManifestResponse;
+import * as LoadBalancerConfig from "./load-balancer-config";
+export import LoadBalancerConfig = LoadBalancerConfig.LoadBalancerConfig;
 import * as MaintenanceDetails from "./maintenance-details";
 export import MaintenanceDetails = MaintenanceDetails.MaintenanceDetails;
 import * as MaintenanceNotificationDetails from "./maintenance-notification-details";

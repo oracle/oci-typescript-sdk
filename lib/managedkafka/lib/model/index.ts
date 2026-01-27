@@ -45,6 +45,10 @@ import * as KafkaClusterConfigVersionSummary from "./kafka-cluster-config-versio
 export import KafkaClusterConfigVersionSummary = KafkaClusterConfigVersionSummary.KafkaClusterConfigVersionSummary;
 import * as KafkaClusterSummary from "./kafka-cluster-summary";
 export import KafkaClusterSummary = KafkaClusterSummary.KafkaClusterSummary;
+import * as NodeShapeCollection from "./node-shape-collection";
+export import NodeShapeCollection = NodeShapeCollection.NodeShapeCollection;
+import * as NodeShapeSummary from "./node-shape-summary";
+export import NodeShapeSummary = NodeShapeSummary.NodeShapeSummary;
 import * as OperationStatus from "./operation-status";
 export import OperationStatus = OperationStatus.OperationStatus;
 import * as OperationType from "./operation-type";

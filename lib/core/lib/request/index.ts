@@ -254,10 +254,10 @@ import * as GetComputeGpuMemoryClusterRequest from "./get-compute-gpu-memory-clu
 export import GetComputeGpuMemoryClusterRequest = GetComputeGpuMemoryClusterRequest.GetComputeGpuMemoryClusterRequest;
 import * as GetComputeGpuMemoryFabricRequest from "./get-compute-gpu-memory-fabric-request";
 export import GetComputeGpuMemoryFabricRequest = GetComputeGpuMemoryFabricRequest.GetComputeGpuMemoryFabricRequest;
-import * as GetComputeHostRequest from "./get-compute-host-request";
-export import GetComputeHostRequest = GetComputeHostRequest.GetComputeHostRequest;
 import * as GetComputeHostGroupRequest from "./get-compute-host-group-request";
 export import GetComputeHostGroupRequest = GetComputeHostGroupRequest.GetComputeHostGroupRequest;
+import * as GetComputeHostsRequest from "./get-compute-hosts-request";
+export import GetComputeHostsRequest = GetComputeHostsRequest.GetComputeHostsRequest;
 import * as GetComputeImageCapabilitySchemaRequest from "./get-compute-image-capability-schema-request";
 export import GetComputeImageCapabilitySchemaRequest = GetComputeImageCapabilitySchemaRequest.GetComputeImageCapabilitySchemaRequest;
 import * as GetConsoleHistoryRequest from "./get-console-history-request";
@@ -376,10 +376,10 @@ import * as UpdateComputeGpuMemoryClusterRequest from "./update-compute-gpu-memo
 export import UpdateComputeGpuMemoryClusterRequest = UpdateComputeGpuMemoryClusterRequest.UpdateComputeGpuMemoryClusterRequest;
 import * as UpdateComputeGpuMemoryFabricRequest from "./update-compute-gpu-memory-fabric-request";
 export import UpdateComputeGpuMemoryFabricRequest = UpdateComputeGpuMemoryFabricRequest.UpdateComputeGpuMemoryFabricRequest;
-import * as UpdateComputeHostRequest from "./update-compute-host-request";
-export import UpdateComputeHostRequest = UpdateComputeHostRequest.UpdateComputeHostRequest;
 import * as UpdateComputeHostGroupRequest from "./update-compute-host-group-request";
 export import UpdateComputeHostGroupRequest = UpdateComputeHostGroupRequest.UpdateComputeHostGroupRequest;
+import * as UpdateComputeHostsRequest from "./update-compute-hosts-request";
+export import UpdateComputeHostsRequest = UpdateComputeHostsRequest.UpdateComputeHostsRequest;
 import * as UpdateComputeImageCapabilitySchemaRequest from "./update-compute-image-capability-schema-request";
 export import UpdateComputeImageCapabilitySchemaRequest = UpdateComputeImageCapabilitySchemaRequest.UpdateComputeImageCapabilitySchemaRequest;
 import * as UpdateConsoleHistoryRequest from "./update-console-history-request";

@@ -234,7 +234,9 @@ export class QueueClient {
       "{messageReceipt}": deleteMessageRequest.messageReceipt
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "consumerGroupId": deleteMessageRequest.consumerGroupId
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -303,7 +305,9 @@ export class QueueClient {
       "{queueId}": deleteMessagesRequest.queueId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "consumerGroupId": deleteMessagesRequest.consumerGroupId
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -388,7 +392,8 @@ export class QueueClient {
       "visibilityInSeconds": getMessagesRequest.visibilityInSeconds,
       "timeoutInSeconds": getMessagesRequest.timeoutInSeconds,
       "limit": getMessagesRequest.limit,
-      "channelFilter": getMessagesRequest.channelFilter
+      "channelFilter": getMessagesRequest.channelFilter,
+      "consumerGroupId": getMessagesRequest.consumerGroupId
     };
 
     let headerParams = {
@@ -463,7 +468,8 @@ export class QueueClient {
     };
 
     const queryParams = {
-      "channelId": getStatsRequest.channelId
+      "channelId": getStatsRequest.channelId,
+      "consumerGroupId": getStatsRequest.consumerGroupId
     };
 
     let headerParams = {
@@ -539,6 +545,7 @@ export class QueueClient {
     };
 
     const queryParams = {
+      "consumerGroupId": listChannelsRequest.consumerGroupId,
       "limit": listChannelsRequest.limit,
       "page": listChannelsRequest.page,
       "channelFilter": listChannelsRequest.channelFilter
@@ -699,7 +706,9 @@ export class QueueClient {
       "{messageReceipt}": updateMessageRequest.messageReceipt
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "consumerGroupId": updateMessageRequest.consumerGroupId
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -777,7 +786,9 @@ export class QueueClient {
       "{queueId}": updateMessagesRequest.queueId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "consumerGroupId": updateMessagesRequest.consumerGroupId
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -1121,6 +1132,82 @@ export class QueueAdminClient {
   }
 
   /**
+   * Creates a new consumer group.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateConsumerGroupRequest
+   * @return CreateConsumerGroupResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/queue/CreateConsumerGroup.ts.html |here} to see how to use CreateConsumerGroup API.
+   */
+  public async createConsumerGroup(
+    createConsumerGroupRequest: requests.CreateConsumerGroupRequest
+  ): Promise<responses.CreateConsumerGroupResponse> {
+    if (this.logger) this.logger.debug("Calling operation QueueAdminClient#createConsumerGroup.");
+    const operationName = "createConsumerGroup";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createConsumerGroupRequest.opcRetryToken,
+      "opc-request-id": createConsumerGroupRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createConsumerGroupRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/consumerGroups",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createConsumerGroupRequest.createConsumerGroupDetails,
+        "CreateConsumerGroupDetails",
+        model.CreateConsumerGroupDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateConsumerGroupResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates a new queue.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -1197,6 +1284,78 @@ export class QueueAdminClient {
   }
 
   /**
+   * Deletes a consumer group resource by identifier.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteConsumerGroupRequest
+   * @return DeleteConsumerGroupResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/queue/DeleteConsumerGroup.ts.html |here} to see how to use DeleteConsumerGroup API.
+   */
+  public async deleteConsumerGroup(
+    deleteConsumerGroupRequest: requests.DeleteConsumerGroupRequest
+  ): Promise<responses.DeleteConsumerGroupResponse> {
+    if (this.logger) this.logger.debug("Calling operation QueueAdminClient#deleteConsumerGroup.");
+    const operationName = "deleteConsumerGroup";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{consumerGroupId}": deleteConsumerGroupRequest.consumerGroupId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteConsumerGroupRequest.ifMatch,
+      "opc-request-id": deleteConsumerGroupRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteConsumerGroupRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/consumerGroups/{consumerGroupId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteConsumerGroupResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes a queue resource by identifier.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteQueueRequest
@@ -1252,6 +1411,81 @@ export class QueueAdminClient {
           {
             value: response.headers.get("opc-work-request-id"),
             key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a consumer group by identifier.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetConsumerGroupRequest
+   * @return GetConsumerGroupResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/queue/GetConsumerGroup.ts.html |here} to see how to use GetConsumerGroup API.
+   */
+  public async getConsumerGroup(
+    getConsumerGroupRequest: requests.GetConsumerGroupRequest
+  ): Promise<responses.GetConsumerGroupResponse> {
+    if (this.logger) this.logger.debug("Calling operation QueueAdminClient#getConsumerGroup.");
+    const operationName = "getConsumerGroup";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{consumerGroupId}": getConsumerGroupRequest.consumerGroupId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getConsumerGroupRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getConsumerGroupRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/consumerGroups/{consumerGroupId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetConsumerGroupResponse>{},
+        body: await response.json(),
+        bodyKey: "consumerGroup",
+        bodyModel: model.ConsumerGroup,
+        type: "model.ConsumerGroup",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
             dataType: "string"
           },
           {
@@ -1408,6 +1642,89 @@ export class QueueAdminClient {
             value: response.headers.get("retry-after"),
             key: "retryAfter",
             dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns a list of consumer groups.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListConsumerGroupsRequest
+   * @return ListConsumerGroupsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/queue/ListConsumerGroups.ts.html |here} to see how to use ListConsumerGroups API.
+   */
+  public async listConsumerGroups(
+    listConsumerGroupsRequest: requests.ListConsumerGroupsRequest
+  ): Promise<responses.ListConsumerGroupsResponse> {
+    if (this.logger) this.logger.debug("Calling operation QueueAdminClient#listConsumerGroups.");
+    const operationName = "listConsumerGroups";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "lifecycleState": listConsumerGroupsRequest.lifecycleState,
+      "displayName": listConsumerGroupsRequest.displayName,
+      "id": listConsumerGroupsRequest.id,
+      "queueId": listConsumerGroupsRequest.queueId,
+      "limit": listConsumerGroupsRequest.limit,
+      "page": listConsumerGroupsRequest.page,
+      "sortOrder": listConsumerGroupsRequest.sortOrder,
+      "sortBy": listConsumerGroupsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listConsumerGroupsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listConsumerGroupsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/consumerGroups",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListConsumerGroupsResponse>{},
+        body: await response.json(),
+        bodyKey: "consumerGroupCollection",
+        bodyModel: model.ConsumerGroupCollection,
+        type: "model.ConsumerGroupCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
           }
         ]
       });
@@ -1739,9 +2056,12 @@ export class QueueAdminClient {
   }
 
   /**
-   * Deletes all messages present in the queue, or deletes all the messages in the specific channel at the time of invocation. Only one concurrent purge operation is supported for any given queue.
+   * Deletes all messages present in the queue or in the specified consumer group, or deletes all the messages in the specific channel at the time of invocation.
+   * Only one concurrent purge operation is supported for any given queue.
    * However multiple concurrent purge operations are supported for different queues.
    * Purge request without specification of target channels will clean up all messages in the queue and in the child channels.
+   * Purge request without specification of consumer group will either clean up all messages in the queue or in the primary consumer group, depending on the presence of the CONSUMER_GROUPS capability on the queue.
+   * To purge all consumer groups, the special value 'all' can be used.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param PurgeQueueRequest
@@ -1798,6 +2118,83 @@ export class QueueAdminClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.PurgeQueueResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the specified consumer group.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateConsumerGroupRequest
+   * @return UpdateConsumerGroupResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/queue/UpdateConsumerGroup.ts.html |here} to see how to use UpdateConsumerGroup API.
+   */
+  public async updateConsumerGroup(
+    updateConsumerGroupRequest: requests.UpdateConsumerGroupRequest
+  ): Promise<responses.UpdateConsumerGroupResponse> {
+    if (this.logger) this.logger.debug("Calling operation QueueAdminClient#updateConsumerGroup.");
+    const operationName = "updateConsumerGroup";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{consumerGroupId}": updateConsumerGroupRequest.consumerGroupId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateConsumerGroupRequest.ifMatch,
+      "opc-request-id": updateConsumerGroupRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateConsumerGroupRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/consumerGroups/{consumerGroupId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateConsumerGroupRequest.updateConsumerGroupDetails,
+        "UpdateConsumerGroupDetails",
+        model.UpdateConsumerGroupDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateConsumerGroupResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),

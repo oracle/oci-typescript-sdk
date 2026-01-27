@@ -24,6 +24,25 @@ export class QueueAdminWaiter {
   ) {}
 
   /**
+   * Waits forConsumerGroup till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetConsumerGroupResponse | null (null in case of 404 response)
+   */
+  public async forConsumerGroup(
+    request: serviceRequests.GetConsumerGroupRequest,
+    ...targetStates: models.ConsumerGroup.LifecycleState[]
+  ): Promise<serviceResponses.GetConsumerGroupResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getConsumerGroup(request),
+      response => targetStates.includes(response.consumerGroup.lifecycleState!),
+      targetStates.includes(models.ConsumerGroup.LifecycleState.Deleted)
+    );
+  }
+
+  /**
    * Waits forQueue till it reaches any of the provided states
    *
    * @param request the request to send

@@ -94,6 +94,7 @@ Example: {@code {\"Oracle-ZPR\": {\"MaxEgressCount\": {\"value\": \"42\", \"mode
   "securityMode"?: model.SecurityMode;
   "backupPolicy"?: model.BackupPolicy;
   "outboundClusterConfig"?: model.OutboundClusterConfig;
+  "loadBalancerConfig"?: model.LoadBalancerConfig;
 }
 
 export namespace OpensearchClusterSummary {
@@ -106,6 +107,9 @@ export namespace OpensearchClusterSummary {
           : undefined,
         "outboundClusterConfig": obj.outboundClusterConfig
           ? model.OutboundClusterConfig.getJsonObj(obj.outboundClusterConfig)
+          : undefined,
+        "loadBalancerConfig": obj.loadBalancerConfig
+          ? model.LoadBalancerConfig.getJsonObj(obj.loadBalancerConfig)
           : undefined
       }
     };
@@ -121,6 +125,9 @@ export namespace OpensearchClusterSummary {
           : undefined,
         "outboundClusterConfig": obj.outboundClusterConfig
           ? model.OutboundClusterConfig.getDeserializedJsonObj(obj.outboundClusterConfig)
+          : undefined,
+        "loadBalancerConfig": obj.loadBalancerConfig
+          ? model.LoadBalancerConfig.getDeserializedJsonObj(obj.loadBalancerConfig)
           : undefined
       }
     };

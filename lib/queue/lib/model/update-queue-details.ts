@@ -46,6 +46,10 @@ export interface UpdateQueueDetails {
    */
   "customEncryptionKeyId"?: string;
   /**
+   * The list of capabilities enabled on the queue
+   */
+  "capabilities"?: Array<model.CapabilityDetails>;
+  /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
    * Example: {@code {\"bar-key\": \"value\"}}
    *
@@ -61,12 +65,30 @@ export interface UpdateQueueDetails {
 
 export namespace UpdateQueueDetails {
   export function getJsonObj(obj: UpdateQueueDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "capabilities": obj.capabilities
+          ? obj.capabilities.map(item => {
+              return model.CapabilityDetails.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: UpdateQueueDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "capabilities": obj.capabilities
+          ? obj.capabilities.map(item => {
+              return model.CapabilityDetails.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

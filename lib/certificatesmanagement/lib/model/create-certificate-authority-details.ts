@@ -36,12 +36,18 @@ export interface CreateCertificateAuthorityDetails {
   "certificateAuthorityRules"?: Array<model.CertificateAuthorityRule>;
   "certificateAuthorityConfig":
     | model.CreateRootCaByGeneratingInternallyConfigDetails
-    | model.CreateSubordinateCaIssuedByInternalCaConfigDetails;
+    | model.CreateSubordinateCaIssuedByInternalCaConfigDetails
+    | model.CreateRootCaManagedExternallyConfigDetails
+    | model.CreateSubordinateCaManagedInternallyIssuedByExternalCaConfigDetails;
   "certificateRevocationListDetails"?: model.CertificateRevocationListDetails;
   /**
    * The OCID of the Oracle Cloud Infrastructure Vault key used to encrypt the CA.
    */
-  "kmsKeyId": string;
+  "kmsKeyId"?: string;
+  /**
+   * For externally managed CAs, a description of the externally managed private key. Avoid entering confidential information.
+   */
+  "externalKeyDescription"?: string;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
    * Example: {@code {\"bar-key\": \"value\"}}
