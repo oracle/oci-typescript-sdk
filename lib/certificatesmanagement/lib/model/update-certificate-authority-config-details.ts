@@ -45,6 +45,11 @@ export namespace UpdateCertificateAuthorityConfigDetails {
 
     if (obj && "configType" in obj && obj.configType) {
       switch (obj.configType) {
+        case "ROOT_CA_MANAGED_EXTERNALLY":
+          return model.UpdateRootCaManagedExternallyConfigDetails.getJsonObj(
+            <model.UpdateRootCaManagedExternallyConfigDetails>(<object>jsonObj),
+            true
+          );
         case "SUBORDINATE_CA_ISSUED_BY_INTERNAL_CA":
           return model.UpdateSubordinateCaIssuedByInternalCaConfigDetails.getJsonObj(
             <model.UpdateSubordinateCaIssuedByInternalCaConfigDetails>(<object>jsonObj),
@@ -53,6 +58,13 @@ export namespace UpdateCertificateAuthorityConfigDetails {
         case "ROOT_CA_GENERATED_INTERNALLY":
           return model.UpdateRootCaByGeneratingInternallyConfigDetails.getJsonObj(
             <model.UpdateRootCaByGeneratingInternallyConfigDetails>(<object>jsonObj),
+            true
+          );
+        case "SUBORDINATE_CA_MANAGED_INTERNALLY_ISSUED_BY_EXTERNAL_CA":
+          return model.UpdateSubordinateCaManagedInternallyIssuedByExternalCaConfigDetails.getJsonObj(
+            <model.UpdateSubordinateCaManagedInternallyIssuedByExternalCaConfigDetails>(
+              (<object>jsonObj)
+            ),
             true
           );
         default:
@@ -66,6 +78,11 @@ export namespace UpdateCertificateAuthorityConfigDetails {
 
     if (obj && "configType" in obj && obj.configType) {
       switch (obj.configType) {
+        case "ROOT_CA_MANAGED_EXTERNALLY":
+          return model.UpdateRootCaManagedExternallyConfigDetails.getDeserializedJsonObj(
+            <model.UpdateRootCaManagedExternallyConfigDetails>(<object>jsonObj),
+            true
+          );
         case "SUBORDINATE_CA_ISSUED_BY_INTERNAL_CA":
           return model.UpdateSubordinateCaIssuedByInternalCaConfigDetails.getDeserializedJsonObj(
             <model.UpdateSubordinateCaIssuedByInternalCaConfigDetails>(<object>jsonObj),
@@ -74,6 +91,13 @@ export namespace UpdateCertificateAuthorityConfigDetails {
         case "ROOT_CA_GENERATED_INTERNALLY":
           return model.UpdateRootCaByGeneratingInternallyConfigDetails.getDeserializedJsonObj(
             <model.UpdateRootCaByGeneratingInternallyConfigDetails>(<object>jsonObj),
+            true
+          );
+        case "SUBORDINATE_CA_MANAGED_INTERNALLY_ISSUED_BY_EXTERNAL_CA":
+          return model.UpdateSubordinateCaManagedInternallyIssuedByExternalCaConfigDetails.getDeserializedJsonObj(
+            <model.UpdateSubordinateCaManagedInternallyIssuedByExternalCaConfigDetails>(
+              (<object>jsonObj)
+            ),
             true
           );
         default:

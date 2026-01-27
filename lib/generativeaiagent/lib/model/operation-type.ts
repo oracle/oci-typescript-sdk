@@ -51,6 +51,9 @@ export enum OperationType {
   UpdateProvisionedCapacity = "UPDATE_PROVISIONED_CAPACITY",
   DeleteProvisionedCapacity = "DELETE_PROVISIONED_CAPACITY",
   MoveProvisionedCapacity = "MOVE_PROVISIONED_CAPACITY",
+  CreateFlow = "CREATE_FLOW",
+  UpdateFlow = "UPDATE_FLOW",
+  DeleteFlow = "DELETE_FLOW",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

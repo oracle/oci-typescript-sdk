@@ -984,10 +984,10 @@ import * as UpdateComputeGpuMemoryClusterDetails from "./update-compute-gpu-memo
 export import UpdateComputeGpuMemoryClusterDetails = UpdateComputeGpuMemoryClusterDetails.UpdateComputeGpuMemoryClusterDetails;
 import * as UpdateComputeGpuMemoryFabricDetails from "./update-compute-gpu-memory-fabric-details";
 export import UpdateComputeGpuMemoryFabricDetails = UpdateComputeGpuMemoryFabricDetails.UpdateComputeGpuMemoryFabricDetails;
-import * as UpdateComputeHostDetails from "./update-compute-host-details";
-export import UpdateComputeHostDetails = UpdateComputeHostDetails.UpdateComputeHostDetails;
 import * as UpdateComputeHostGroupDetails from "./update-compute-host-group-details";
 export import UpdateComputeHostGroupDetails = UpdateComputeHostGroupDetails.UpdateComputeHostGroupDetails;
+import * as UpdateComputeHostsDetails from "./update-compute-hosts-details";
+export import UpdateComputeHostsDetails = UpdateComputeHostsDetails.UpdateComputeHostsDetails;
 import * as UpdateComputeImageCapabilitySchemaDetails from "./update-compute-image-capability-schema-details";
 export import UpdateComputeImageCapabilitySchemaDetails = UpdateComputeImageCapabilitySchemaDetails.UpdateComputeImageCapabilitySchemaDetails;
 import * as UpdateConsoleHistoryDetails from "./update-console-history-details";

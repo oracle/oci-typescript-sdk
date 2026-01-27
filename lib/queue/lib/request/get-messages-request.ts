@@ -52,4 +52,8 @@ If the parameter is set to 0, the request is using the short-polling mode and im
    * Optional parameter to filter the channels.
    */
   "channelFilter"?: string;
+  /**
+   * Optional parameter to specify a consumer group.
+   */
+  "consumerGroupId"?: string;
 }

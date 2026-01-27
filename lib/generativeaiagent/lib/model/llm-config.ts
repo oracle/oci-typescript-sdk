@@ -29,6 +29,10 @@ import common = require("oci-common");
  */
 export interface LlmConfig {
   "routingLlmCustomization"?: model.LlmCustomization;
+  /**
+   * The runtimeVersion of the system prompt.
+   */
+  "runtimeVersion"?: string;
 }
 
 export namespace LlmConfig {

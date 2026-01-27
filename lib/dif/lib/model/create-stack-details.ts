@@ -60,6 +60,18 @@ export interface CreateStackDetails {
    */
   "genai"?: Array<model.GenAiDetail>;
   /**
+   * AI Data Platform Details if aidataplatform is included in services.
+   */
+  "aidataplatform"?: Array<model.AiDataPlatformDetail>;
+  /**
+   * OMK Details if omk is included in services.
+   */
+  "omk"?: Array<model.OmkDetail>;
+  /**
+   * OKE Details if oke is included in services.
+   */
+  "oke"?: Array<model.OkeDetail>;
+  /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
 * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
@@ -82,7 +94,8 @@ export namespace CreateStackDetails {
     Datalake = "DATALAKE",
     Datapipeline = "DATAPIPELINE",
     Aiservices = "AISERVICES",
-    Datatransformation = "DATATRANSFORMATION"
+    Datatransformation = "DATATRANSFORMATION",
+    Devopstoolkit = "DEVOPSTOOLKIT"
   }
 
   export enum Services {
@@ -90,7 +103,10 @@ export namespace CreateStackDetails {
     Ggcs = "GGCS",
     Objectstorage = "OBJECTSTORAGE",
     Genai = "GENAI",
-    Dataflow = "DATAFLOW"
+    Dataflow = "DATAFLOW",
+    Aidataplatform = "AIDATAPLATFORM",
+    Omk = "OMK",
+    Oke = "OKE"
   }
 
   export function getJsonObj(obj: CreateStackDetails): object {
@@ -120,6 +136,21 @@ export namespace CreateStackDetails {
         "genai": obj.genai
           ? obj.genai.map(item => {
               return model.GenAiDetail.getJsonObj(item);
+            })
+          : undefined,
+        "aidataplatform": obj.aidataplatform
+          ? obj.aidataplatform.map(item => {
+              return model.AiDataPlatformDetail.getJsonObj(item);
+            })
+          : undefined,
+        "omk": obj.omk
+          ? obj.omk.map(item => {
+              return model.OmkDetail.getJsonObj(item);
+            })
+          : undefined,
+        "oke": obj.oke
+          ? obj.oke.map(item => {
+              return model.OkeDetail.getJsonObj(item);
             })
           : undefined
       }
@@ -154,6 +185,21 @@ export namespace CreateStackDetails {
         "genai": obj.genai
           ? obj.genai.map(item => {
               return model.GenAiDetail.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "aidataplatform": obj.aidataplatform
+          ? obj.aidataplatform.map(item => {
+              return model.AiDataPlatformDetail.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "omk": obj.omk
+          ? obj.omk.map(item => {
+              return model.OmkDetail.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "oke": obj.oke
+          ? obj.oke.map(item => {
+              return model.OkeDetail.getDeserializedJsonObj(item);
             })
           : undefined
       }

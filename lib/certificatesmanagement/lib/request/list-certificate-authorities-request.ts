@@ -80,7 +80,8 @@ export namespace ListCertificateAuthoritiesRequest {
     SchedulingDeletion = "SCHEDULING_DELETION",
     PendingDeletion = "PENDING_DELETION",
     CancellingDeletion = "CANCELLING_DELETION",
-    Failed = "FAILED"
+    Failed = "FAILED",
+    PendingActivation = "PENDING_ACTIVATION"
   }
 
   export enum SortBy {

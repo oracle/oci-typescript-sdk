@@ -1566,6 +1566,86 @@ export class KafkaClusterClient {
   }
 
   /**
+   * Returns the list of shapes allowed in the region.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListNodeShapesRequest
+   * @return ListNodeShapesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managedkafka/ListNodeShapes.ts.html |here} to see how to use ListNodeShapes API.
+   */
+  public async listNodeShapes(
+    listNodeShapesRequest: requests.ListNodeShapesRequest
+  ): Promise<responses.ListNodeShapesResponse> {
+    if (this.logger) this.logger.debug("Calling operation KafkaClusterClient#listNodeShapes.");
+    const operationName = "listNodeShapes";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listNodeShapesRequest.compartmentId,
+      "name": listNodeShapesRequest.name,
+      "limit": listNodeShapesRequest.limit,
+      "page": listNodeShapesRequest.page,
+      "sortOrder": listNodeShapesRequest.sortOrder,
+      "sortBy": listNodeShapesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listNodeShapesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listNodeShapesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/nodeShapes",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListNodeShapesResponse>{},
+        body: await response.json(),
+        bodyKey: "nodeShapeCollection",
+        bodyModel: model.NodeShapeCollection,
+        type: "model.NodeShapeCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Lists the errors for a work request.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.

@@ -1466,6 +1466,85 @@ export class DbBackupsClient {
   }
 
   /**
+   * Export logical data from a DB system backup to an Object Storage bucket.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ExportBackupRequest
+   * @return ExportBackupResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/ExportBackup.ts.html |here} to see how to use ExportBackup API.
+   */
+  public async exportBackup(
+    exportBackupRequest: requests.ExportBackupRequest
+  ): Promise<responses.ExportBackupResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbBackupsClient#exportBackup.");
+    const operationName = "exportBackup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/Backup/ExportBackup";
+    const pathParams = {
+      "{backupId}": exportBackupRequest.backupId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": exportBackupRequest.opcRequestId,
+      "opc-retry-token": exportBackupRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      exportBackupRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/backups/{backupId}/actions/export",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        exportBackupRequest.exportBackupDetails,
+        "ExportBackupDetails",
+        model.ExportBackupDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ExportBackupResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Get information about the specified Backup
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetBackupRequest
@@ -5154,6 +5233,74 @@ export class WorkRequestsClient {
   public close() {
     this.shutdownCircuitBreaker();
     this.closeProvider();
+  }
+
+  /**
+   * Cancels a work request.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CancelWorkRequestRequest
+   * @return CancelWorkRequestResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/CancelWorkRequest.ts.html |here} to see how to use CancelWorkRequest API.
+   */
+  public async cancelWorkRequest(
+    cancelWorkRequestRequest: requests.CancelWorkRequestRequest
+  ): Promise<responses.CancelWorkRequestResponse> {
+    if (this.logger) this.logger.debug("Calling operation WorkRequestsClient#cancelWorkRequest.");
+    const operationName = "cancelWorkRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/WorkRequest/CancelWorkRequest";
+    const pathParams = {
+      "{workRequestId}": cancelWorkRequestRequest.workRequestId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": cancelWorkRequestRequest.ifMatch,
+      "opc-request-id": cancelWorkRequestRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      cancelWorkRequestRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workRequests/{workRequestId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CancelWorkRequestResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
   }
 
   /**

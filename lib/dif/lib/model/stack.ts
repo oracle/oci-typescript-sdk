@@ -68,6 +68,18 @@ export interface Stack {
    */
   "genai"?: Array<model.GenAiDetail>;
   /**
+   * AI Data Platform Details if aidataplatform is included in services.
+   */
+  "aidataplatform"?: Array<model.AiDataPlatformDetail>;
+  /**
+   * OMK Details if omk is included in services.
+   */
+  "omk"?: Array<model.OmkDetail>;
+  /**
+   * OKE Details if oke is included in services.
+   */
+  "oke"?: Array<model.OkeDetail>;
+  /**
    * Details of the service onboarded for the data intelligence stack.
    */
   "serviceDetails"?: Array<model.ServiceDetailResponse>;
@@ -126,6 +138,7 @@ export namespace Stack {
     Datapipeline = "DATAPIPELINE",
     Aiservices = "AISERVICES",
     Datatransformation = "DATATRANSFORMATION",
+    Devopstoolkit = "DEVOPSTOOLKIT",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
@@ -139,6 +152,9 @@ export namespace Stack {
     Objectstorage = "OBJECTSTORAGE",
     Genai = "GENAI",
     Dataflow = "DATAFLOW",
+    Aidataplatform = "AIDATAPLATFORM",
+    Omk = "OMK",
+    Oke = "OKE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
@@ -190,6 +206,21 @@ export namespace Stack {
               return model.GenAiDetail.getJsonObj(item);
             })
           : undefined,
+        "aidataplatform": obj.aidataplatform
+          ? obj.aidataplatform.map(item => {
+              return model.AiDataPlatformDetail.getJsonObj(item);
+            })
+          : undefined,
+        "omk": obj.omk
+          ? obj.omk.map(item => {
+              return model.OmkDetail.getJsonObj(item);
+            })
+          : undefined,
+        "oke": obj.oke
+          ? obj.oke.map(item => {
+              return model.OkeDetail.getJsonObj(item);
+            })
+          : undefined,
         "serviceDetails": obj.serviceDetails
           ? obj.serviceDetails.map(item => {
               return model.ServiceDetailResponse.getJsonObj(item);
@@ -227,6 +258,21 @@ export namespace Stack {
         "genai": obj.genai
           ? obj.genai.map(item => {
               return model.GenAiDetail.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "aidataplatform": obj.aidataplatform
+          ? obj.aidataplatform.map(item => {
+              return model.AiDataPlatformDetail.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "omk": obj.omk
+          ? obj.omk.map(item => {
+              return model.OmkDetail.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "oke": obj.oke
+          ? obj.oke.map(item => {
+              return model.OkeDetail.getDeserializedJsonObj(item);
             })
           : undefined,
         "serviceDetails": obj.serviceDetails

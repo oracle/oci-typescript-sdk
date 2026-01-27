@@ -214,6 +214,11 @@ Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
    * List of DatastoreAttachment objects containing information about attachment details
    */
   "datastoreAttachments"?: Array<model.DatastoreAttachment>;
+  /**
+   * MAC address of ESXi host's compute instance primary VNIC.
+   *
+   */
+  "primaryVnicMacAddress"?: string;
 }
 
 export namespace EsxiHost {

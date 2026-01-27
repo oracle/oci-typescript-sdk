@@ -30,6 +30,10 @@ export interface BrokerShape {
    * Size of the storage per nodes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "storageSizeInGbs"?: number;
+  /**
+   * Node shape for broker is passed as part of cluster creation, similar to VM.Standard.A1.Flex
+   */
+  "nodeShape"?: string;
 }
 
 export namespace BrokerShape {

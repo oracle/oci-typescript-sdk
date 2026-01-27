@@ -23,6 +23,9 @@ export enum Service {
   Objectstorage = "OBJECTSTORAGE",
   Genai = "GENAI",
   Dataflow = "DATAFLOW",
+  Aidataplatform = "AIDATAPLATFORM",
+  Omk = "OMK",
+  Oke = "OKE",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

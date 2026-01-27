@@ -19,17 +19,23 @@ import common = require("oci-common");
  */
 export interface UpdateCertificateAuthorityDetails {
   /**
-   * A brief description of the CA.
+   * A brief description of the CA. Avoid entering confidential information.
    */
   "description"?: string;
   /**
-   * Makes this version the current version. This property cannot be updated in combination with any other properties. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Makes this version the current version. This property can't be updated in combination with any other properties. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "currentVersionNumber"?: number;
   "certificateAuthorityConfig"?:
+    | model.UpdateRootCaManagedExternallyConfigDetails
     | model.UpdateSubordinateCaIssuedByInternalCaConfigDetails
-    | model.UpdateRootCaByGeneratingInternallyConfigDetails;
+    | model.UpdateRootCaByGeneratingInternallyConfigDetails
+    | model.UpdateSubordinateCaManagedInternallyIssuedByExternalCaConfigDetails;
   "certificateRevocationListDetails"?: model.CertificateRevocationListDetails;
+  /**
+   * For externally managed CAs, a description of the externally managed key. Avoid entering confidential information.
+   */
+  "externalKeyDescription"?: string;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
    * Example: {@code {\"bar-key\": \"value\"}}

@@ -66,6 +66,7 @@ export namespace CertificateAuthorityBundleVersionSummary {
   export enum Stages {
     Current = "CURRENT",
     Pending = "PENDING",
+    PendingActivation = "PENDING_ACTIVATION",
     Latest = "LATEST",
     Previous = "PREVIOUS",
     Deprecated = "DEPRECATED",

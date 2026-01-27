@@ -42,6 +42,14 @@ export interface AdditionalDetails {
    * OCID of model
    */
   "privateEndpointId"?: string;
+  /**
+   * OCID of cluster assigned to OMK cluster-namespace.
+   */
+  "clusterId"?: string;
+  /**
+   * Kubernetes namespace-name of omk cluster-namespace.
+   */
+  "namespaceName"?: string;
 }
 
 export namespace AdditionalDetails {

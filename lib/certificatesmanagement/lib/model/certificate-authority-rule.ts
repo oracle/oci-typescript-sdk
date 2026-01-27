@@ -32,6 +32,11 @@ export namespace CertificateAuthorityRule {
             <model.CertificateAuthorityIssuanceExpiryRule>(<object>jsonObj),
             true
           );
+        case "CERTIFICATE_AUTHORITY_ISSUANCE_RULE":
+          return model.CertificateAuthorityIssuanceRule.getJsonObj(
+            <model.CertificateAuthorityIssuanceRule>(<object>jsonObj),
+            true
+          );
         default:
           if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.ruleType}`);
       }
@@ -46,6 +51,11 @@ export namespace CertificateAuthorityRule {
         case "CERTIFICATE_AUTHORITY_ISSUANCE_EXPIRY_RULE":
           return model.CertificateAuthorityIssuanceExpiryRule.getDeserializedJsonObj(
             <model.CertificateAuthorityIssuanceExpiryRule>(<object>jsonObj),
+            true
+          );
+        case "CERTIFICATE_AUTHORITY_ISSUANCE_RULE":
+          return model.CertificateAuthorityIssuanceRule.getDeserializedJsonObj(
+            <model.CertificateAuthorityIssuanceRule>(<object>jsonObj),
             true
           );
         default:

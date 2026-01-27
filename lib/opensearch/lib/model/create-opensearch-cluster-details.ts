@@ -166,6 +166,7 @@ export interface CreateOpensearchClusterDetails {
   "inboundClusterIds"?: Array<string>;
   "outboundClusterConfig"?: model.OutboundClusterConfig;
   "maintenanceDetails"?: model.CreateMaintenanceDetails;
+  "loadBalancerConfig"?: model.LoadBalancerConfig;
   "certificateConfig"?: model.CertificateConfig;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
@@ -213,6 +214,9 @@ export namespace CreateOpensearchClusterDetails {
         "maintenanceDetails": obj.maintenanceDetails
           ? model.CreateMaintenanceDetails.getJsonObj(obj.maintenanceDetails)
           : undefined,
+        "loadBalancerConfig": obj.loadBalancerConfig
+          ? model.LoadBalancerConfig.getJsonObj(obj.loadBalancerConfig)
+          : undefined,
         "certificateConfig": obj.certificateConfig
           ? model.CertificateConfig.getJsonObj(obj.certificateConfig)
           : undefined
@@ -237,6 +241,9 @@ export namespace CreateOpensearchClusterDetails {
           : undefined,
         "maintenanceDetails": obj.maintenanceDetails
           ? model.CreateMaintenanceDetails.getDeserializedJsonObj(obj.maintenanceDetails)
+          : undefined,
+        "loadBalancerConfig": obj.loadBalancerConfig
+          ? model.LoadBalancerConfig.getDeserializedJsonObj(obj.loadBalancerConfig)
           : undefined,
         "certificateConfig": obj.certificateConfig
           ? model.CertificateConfig.getDeserializedJsonObj(obj.certificateConfig)

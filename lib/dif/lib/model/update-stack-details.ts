@@ -73,7 +73,8 @@ export namespace UpdateStackDetails {
     Datalake = "DATALAKE",
     Datapipeline = "DATAPIPELINE",
     Aiservices = "AISERVICES",
-    Datatransformation = "DATATRANSFORMATION"
+    Datatransformation = "DATATRANSFORMATION",
+    Devopstoolkit = "DEVOPSTOOLKIT"
   }
 
   export enum Services {
@@ -81,7 +82,10 @@ export namespace UpdateStackDetails {
     Ggcs = "GGCS",
     Objectstorage = "OBJECTSTORAGE",
     Genai = "GENAI",
-    Dataflow = "DATAFLOW"
+    Dataflow = "DATAFLOW",
+    Aidataplatform = "AIDATAPLATFORM",
+    Omk = "OMK",
+    Oke = "OKE"
   }
 
   export function getJsonObj(obj: UpdateStackDetails): object {
