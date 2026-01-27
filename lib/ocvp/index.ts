@@ -21,6 +21,7 @@ import * as cluster_waiter from "./lib/cluster-waiter";
 import * as datastore_waiter from "./lib/datastore-waiter";
 import * as datastorecluster_waiter from "./lib/datastorecluster-waiter";
 import * as esxihost_waiter from "./lib/esxihost-waiter";
+import * as managementappliance_waiter from "./lib/managementappliance-waiter";
 import * as sddc_waiter from "./lib/sddc-waiter";
 import * as workrequest_waiter from "./lib/workrequest-waiter";
 
@@ -35,6 +36,8 @@ export import DatastoreClusterClient = client.DatastoreClusterClient;
 export import DatastoreClusterWaiter = datastorecluster_waiter.DatastoreClusterWaiter;
 export import EsxiHostClient = client.EsxiHostClient;
 export import EsxiHostWaiter = esxihost_waiter.EsxiHostWaiter;
+export import ManagementApplianceClient = client.ManagementApplianceClient;
+export import ManagementApplianceWaiter = managementappliance_waiter.ManagementApplianceWaiter;
 export import SddcClient = client.SddcClient;
 export import SddcWaiter = sddc_waiter.SddcWaiter;
 export import WorkRequestClient = client.WorkRequestClient;

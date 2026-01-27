@@ -563,6 +563,89 @@ export class GenerativeAiAgentClient {
   }
 
   /**
+   * Moves a provisioned capacity into a different compartment within the same tenancy. For information about moving resources between
+   * compartments, see [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ChangeProvisionedCapacityCompartmentRequest
+   * @return ChangeProvisionedCapacityCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/ChangeProvisionedCapacityCompartment.ts.html |here} to see how to use ChangeProvisionedCapacityCompartment API.
+   */
+  public async changeProvisionedCapacityCompartment(
+    changeProvisionedCapacityCompartmentRequest: requests.ChangeProvisionedCapacityCompartmentRequest
+  ): Promise<responses.ChangeProvisionedCapacityCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation GenerativeAiAgentClient#changeProvisionedCapacityCompartment."
+      );
+    const operationName = "changeProvisionedCapacityCompartment";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{provisionedCapacityId}": changeProvisionedCapacityCompartmentRequest.provisionedCapacityId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeProvisionedCapacityCompartmentRequest.ifMatch,
+      "opc-request-id": changeProvisionedCapacityCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeProvisionedCapacityCompartmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeProvisionedCapacityCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/provisionedCapacities/{provisionedCapacityId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeProvisionedCapacityCompartmentRequest.changeProvisionedCapacityCompartmentDetails,
+        "ChangeProvisionedCapacityCompartmentDetails",
+        model.ChangeProvisionedCapacityCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeProvisionedCapacityCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates an agent.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -1042,6 +1125,102 @@ export class GenerativeAiAgentClient {
   }
 
   /**
+   * Creates a provisioned capacity.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateProvisionedCapacityRequest
+   * @return CreateProvisionedCapacityResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/CreateProvisionedCapacity.ts.html |here} to see how to use CreateProvisionedCapacity API.
+   */
+  public async createProvisionedCapacity(
+    createProvisionedCapacityRequest: requests.CreateProvisionedCapacityRequest
+  ): Promise<responses.CreateProvisionedCapacityResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GenerativeAiAgentClient#createProvisionedCapacity.");
+    const operationName = "createProvisionedCapacity";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createProvisionedCapacityRequest.opcRetryToken,
+      "opc-request-id": createProvisionedCapacityRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createProvisionedCapacityRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/provisionedCapacities",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createProvisionedCapacityRequest.createProvisionedCapacityDetails,
+        "CreateProvisionedCapacityDetails",
+        model.CreateProvisionedCapacityDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateProvisionedCapacityResponse>{},
+        body: await response.json(),
+        bodyKey: "provisionedCapacity",
+        bodyModel: model.ProvisionedCapacity,
+        type: "model.ProvisionedCapacity",
+        responseHeaders: [
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-location"),
+            key: "contentLocation",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates a tool.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -1485,6 +1664,80 @@ export class GenerativeAiAgentClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteKnowledgeBaseResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes a provisioned capacity.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteProvisionedCapacityRequest
+   * @return DeleteProvisionedCapacityResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/DeleteProvisionedCapacity.ts.html |here} to see how to use DeleteProvisionedCapacity API.
+   */
+  public async deleteProvisionedCapacity(
+    deleteProvisionedCapacityRequest: requests.DeleteProvisionedCapacityRequest
+  ): Promise<responses.DeleteProvisionedCapacityResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GenerativeAiAgentClient#deleteProvisionedCapacity.");
+    const operationName = "deleteProvisionedCapacity";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{provisionedCapacityId}": deleteProvisionedCapacityRequest.provisionedCapacityId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteProvisionedCapacityRequest.ifMatch,
+      "opc-request-id": deleteProvisionedCapacityRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteProvisionedCapacityRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/provisionedCapacities/{provisionedCapacityId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteProvisionedCapacityResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -2013,6 +2266,83 @@ export class GenerativeAiAgentClient {
         bodyKey: "knowledgeBase",
         bodyModel: model.KnowledgeBase,
         type: "model.KnowledgeBase",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets information about a provisioned capacity.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetProvisionedCapacityRequest
+   * @return GetProvisionedCapacityResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/GetProvisionedCapacity.ts.html |here} to see how to use GetProvisionedCapacity API.
+   */
+  public async getProvisionedCapacity(
+    getProvisionedCapacityRequest: requests.GetProvisionedCapacityRequest
+  ): Promise<responses.GetProvisionedCapacityResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GenerativeAiAgentClient#getProvisionedCapacity.");
+    const operationName = "getProvisionedCapacity";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{provisionedCapacityId}": getProvisionedCapacityRequest.provisionedCapacityId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getProvisionedCapacityRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getProvisionedCapacityRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/provisionedCapacities/{provisionedCapacityId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetProvisionedCapacityResponse>{},
+        body: await response.json(),
+        bodyKey: "provisionedCapacity",
+        bodyModel: model.ProvisionedCapacity,
+        type: "model.ProvisionedCapacity",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -2587,6 +2917,90 @@ export class GenerativeAiAgentClient {
         bodyKey: "knowledgeBaseCollection",
         bodyModel: model.KnowledgeBaseCollection,
         type: "model.KnowledgeBaseCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a list of provisioned capacities.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListProvisionedCapacitiesRequest
+   * @return ListProvisionedCapacitiesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/ListProvisionedCapacities.ts.html |here} to see how to use ListProvisionedCapacities API.
+   */
+  public async listProvisionedCapacities(
+    listProvisionedCapacitiesRequest: requests.ListProvisionedCapacitiesRequest
+  ): Promise<responses.ListProvisionedCapacitiesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GenerativeAiAgentClient#listProvisionedCapacities.");
+    const operationName = "listProvisionedCapacities";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listProvisionedCapacitiesRequest.compartmentId,
+      "provisionedCapacityId": listProvisionedCapacitiesRequest.provisionedCapacityId,
+      "lifecycleState": listProvisionedCapacitiesRequest.lifecycleState,
+      "displayName": listProvisionedCapacitiesRequest.displayName,
+      "limit": listProvisionedCapacitiesRequest.limit,
+      "page": listProvisionedCapacitiesRequest.page,
+      "sortOrder": listProvisionedCapacitiesRequest.sortOrder,
+      "sortBy": listProvisionedCapacitiesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listProvisionedCapacitiesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listProvisionedCapacitiesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/provisionedCapacities",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListProvisionedCapacitiesResponse>{},
+        body: await response.json(),
+        bodyKey: "provisionedCapacityCollection",
+        bodyModel: model.ProvisionedCapacityCollection,
+        type: "model.ProvisionedCapacityCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3233,6 +3647,85 @@ export class GenerativeAiAgentClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateKnowledgeBaseResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates a provisioned capacity.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateProvisionedCapacityRequest
+   * @return UpdateProvisionedCapacityResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiagent/UpdateProvisionedCapacity.ts.html |here} to see how to use UpdateProvisionedCapacity API.
+   */
+  public async updateProvisionedCapacity(
+    updateProvisionedCapacityRequest: requests.UpdateProvisionedCapacityRequest
+  ): Promise<responses.UpdateProvisionedCapacityResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GenerativeAiAgentClient#updateProvisionedCapacity.");
+    const operationName = "updateProvisionedCapacity";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{provisionedCapacityId}": updateProvisionedCapacityRequest.provisionedCapacityId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateProvisionedCapacityRequest.ifMatch,
+      "opc-request-id": updateProvisionedCapacityRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateProvisionedCapacityRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/provisionedCapacities/{provisionedCapacityId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateProvisionedCapacityRequest.updateProvisionedCapacityDetails,
+        "UpdateProvisionedCapacityDetails",
+        model.UpdateProvisionedCapacityDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateProvisionedCapacityResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),

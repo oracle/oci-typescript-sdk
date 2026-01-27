@@ -74,9 +74,23 @@ Example: {@code 2018-04-20T00:00:07.405Z}
    *
    */
   "systemTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * The list of capabilities enabled on the queue
+   */
+  "capabilities"?: Array<QueueSummary.Capabilities>;
 }
 
 export namespace QueueSummary {
+  export enum Capabilities {
+    ConsumerGroups = "CONSUMER_GROUPS",
+    LargeMessages = "LARGE_MESSAGES",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: QueueSummary): object {
     const jsonObj = { ...obj, ...{} };
 

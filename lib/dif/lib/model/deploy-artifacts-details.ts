@@ -42,6 +42,14 @@ export interface DeployArtifactsDetails {
    * Dataflow artifact details if dataflow is included in the services.
    */
   "dataflow"?: Array<model.DataflowArtifactsDetail>;
+  /**
+   * Omk artifact details if omk is included in the services.
+   */
+  "omk"?: Array<model.OmkArtifactsDetail>;
+  /**
+   * Oke artifact details if oke is included in the services.
+   */
+  "oke"?: Array<model.OkeArtifactsDetail>;
 }
 
 export namespace DeployArtifactsDetails {
@@ -49,7 +57,8 @@ export namespace DeployArtifactsDetails {
     Datalake = "DATALAKE",
     Datapipeline = "DATAPIPELINE",
     Aiservices = "AISERVICES",
-    Datatransformation = "DATATRANSFORMATION"
+    Datatransformation = "DATATRANSFORMATION",
+    Devopstoolkit = "DEVOPSTOOLKIT"
   }
 
   export enum Services {
@@ -57,7 +66,10 @@ export namespace DeployArtifactsDetails {
     Ggcs = "GGCS",
     Objectstorage = "OBJECTSTORAGE",
     Genai = "GENAI",
-    Dataflow = "DATAFLOW"
+    Dataflow = "DATAFLOW",
+    Aidataplatform = "AIDATAPLATFORM",
+    Omk = "OMK",
+    Oke = "OKE"
   }
 
   export function getJsonObj(obj: DeployArtifactsDetails): object {
@@ -77,6 +89,16 @@ export namespace DeployArtifactsDetails {
         "dataflow": obj.dataflow
           ? obj.dataflow.map(item => {
               return model.DataflowArtifactsDetail.getJsonObj(item);
+            })
+          : undefined,
+        "omk": obj.omk
+          ? obj.omk.map(item => {
+              return model.OmkArtifactsDetail.getJsonObj(item);
+            })
+          : undefined,
+        "oke": obj.oke
+          ? obj.oke.map(item => {
+              return model.OkeArtifactsDetail.getJsonObj(item);
             })
           : undefined
       }
@@ -101,6 +123,16 @@ export namespace DeployArtifactsDetails {
         "dataflow": obj.dataflow
           ? obj.dataflow.map(item => {
               return model.DataflowArtifactsDetail.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "omk": obj.omk
+          ? obj.omk.map(item => {
+              return model.OmkArtifactsDetail.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "oke": obj.oke
+          ? obj.oke.map(item => {
+              return model.OkeArtifactsDetail.getDeserializedJsonObj(item);
             })
           : undefined
       }

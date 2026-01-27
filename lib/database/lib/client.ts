@@ -34048,7 +34048,9 @@ This operation should be performed on disabled standby database.
       "{autonomousDatabaseId}": restartAutonomousDatabaseRequest.autonomousDatabaseId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isOnlineRestart": restartAutonomousDatabaseRequest.isOnlineRestart
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,

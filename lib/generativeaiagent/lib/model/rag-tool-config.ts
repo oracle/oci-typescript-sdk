@@ -33,6 +33,13 @@ export interface RagToolConfig extends model.ToolConfig {
    */
   "knowledgeBaseConfigs": Array<model.KnowledgeBaseConfig>;
   "generationLlmCustomization"?: model.LlmCustomization;
+  /**
+   * The runtimeVersion of the system prompt.
+   */
+  "runtimeVersion"?: string;
+  "embeddingLlmCustomization"?: model.LlmCustomization;
+  "rerankingLlmCustomization"?: model.LlmCustomization;
+  "reasoningLlmCustomization"?: model.LlmCustomization;
 
   "toolConfigType": string;
 }
@@ -49,6 +56,16 @@ export namespace RagToolConfig {
           : undefined,
         "generationLlmCustomization": obj.generationLlmCustomization
           ? model.LlmCustomization.getJsonObj(obj.generationLlmCustomization)
+          : undefined,
+
+        "embeddingLlmCustomization": obj.embeddingLlmCustomization
+          ? model.LlmCustomization.getJsonObj(obj.embeddingLlmCustomization)
+          : undefined,
+        "rerankingLlmCustomization": obj.rerankingLlmCustomization
+          ? model.LlmCustomization.getJsonObj(obj.rerankingLlmCustomization)
+          : undefined,
+        "reasoningLlmCustomization": obj.reasoningLlmCustomization
+          ? model.LlmCustomization.getJsonObj(obj.reasoningLlmCustomization)
           : undefined
       }
     };
@@ -67,6 +84,16 @@ export namespace RagToolConfig {
           : undefined,
         "generationLlmCustomization": obj.generationLlmCustomization
           ? model.LlmCustomization.getDeserializedJsonObj(obj.generationLlmCustomization)
+          : undefined,
+
+        "embeddingLlmCustomization": obj.embeddingLlmCustomization
+          ? model.LlmCustomization.getDeserializedJsonObj(obj.embeddingLlmCustomization)
+          : undefined,
+        "rerankingLlmCustomization": obj.rerankingLlmCustomization
+          ? model.LlmCustomization.getDeserializedJsonObj(obj.rerankingLlmCustomization)
+          : undefined,
+        "reasoningLlmCustomization": obj.reasoningLlmCustomization
+          ? model.LlmCustomization.getDeserializedJsonObj(obj.reasoningLlmCustomization)
           : undefined
       }
     };

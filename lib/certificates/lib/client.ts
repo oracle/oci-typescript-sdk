@@ -213,7 +213,7 @@ export class CertificatesClient {
   }
 
   /**
-   * Gets a ca-bundle bundle.
+   * Gets the bundle for the specified CA bundle.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetCaBundleRequest
@@ -290,8 +290,8 @@ export class CertificatesClient {
   }
 
   /**
-   * Gets a certificate authority bundle that matches either the specified `stage`, `name`, or `versionNumber` parameter.
-   * If none of these parameters are provided, the bundle for the certificate authority version marked as `CURRENT` will be returned.
+   * Gets a bundle for a certificate authority (CA) that matches either the specified `stage`, `name`, or `versionNumber` parameter.
+   * If none of these parameters are provided, the bundle for the CA version marked as `CURRENT` is returned.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetCertificateAuthorityBundleRequest
@@ -375,10 +375,10 @@ export class CertificatesClient {
 
   /**
      * Gets a certificate bundle that matches either the specified `stage`, `versionName`, or `versionNumber` parameter.
-* If none of these parameters are provided, the bundle for the certificate version marked as `CURRENT` will be returned.
+* If none of these parameters are provided, the bundle for the certificate version marked as `CURRENT` is returned.
 * <p>
-By default, the private key is not included in the query result, and a CertificateBundlePublicOnly is returned.
-* If the private key is needed, use the CertificateBundleTypeQueryParam parameter to get a CertificateBundleWithPrivateKey response.
+By default, the private key is not included in the query result, and only the certificate bundle is returned.
+* If you also need the private key, you can use the parameter `CertificateBundleTypeQueryParam` to indicate that you want a certificate bundle along with its private key as a response to your request.
 * 
      * This operation does not retry by default if the user has not defined a retry configuration.
      * @param GetCertificateBundleRequest
@@ -461,7 +461,7 @@ By default, the private key is not included in the query result, and a Certifica
   }
 
   /**
-   * Lists all certificate authority bundle versions for the specified certificate authority.
+   * Lists all versions of bundles for a given certificate authority (CA).
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListCertificateAuthorityBundleVersionsRequest
    * @return ListCertificateAuthorityBundleVersionsResponse

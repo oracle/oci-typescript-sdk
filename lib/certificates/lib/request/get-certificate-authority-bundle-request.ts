@@ -47,6 +47,7 @@ export namespace GetCertificateAuthorityBundleRequest {
   export enum Stage {
     Current = "CURRENT",
     Pending = "PENDING",
+    PendingActivation = "PENDING_ACTIVATION",
     Latest = "LATEST",
     Previous = "PREVIOUS",
     Deprecated = "DEPRECATED"

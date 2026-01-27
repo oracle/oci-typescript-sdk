@@ -25,7 +25,7 @@ import common = require("oci-common");
  * The details for updating the compute host.
  *
  */
-export interface UpdateComputeHostDetails {
+export interface UpdateComputeHostsDetails {
   /**
     * Defined tags for this resource. Each key is predefined and scoped to a
 * namespace. For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
@@ -50,13 +50,13 @@ Example: {@code {\"Department\": \"Finance\"}}
   "freeformTags"?: { [key: string]: string };
 }
 
-export namespace UpdateComputeHostDetails {
-  export function getJsonObj(obj: UpdateComputeHostDetails): object {
+export namespace UpdateComputeHostsDetails {
+  export function getJsonObj(obj: UpdateComputeHostsDetails): object {
     const jsonObj = { ...obj, ...{} };
 
     return jsonObj;
   }
-  export function getDeserializedJsonObj(obj: UpdateComputeHostDetails): object {
+  export function getDeserializedJsonObj(obj: UpdateComputeHostsDetails): object {
     const jsonObj = { ...obj, ...{} };
 
     return jsonObj;

@@ -28,6 +28,16 @@ import common = require("oci-common");
  *
  */
 export interface LlmCustomization {
+  "llmSelection"?:
+    | model.DefaultLlmSelection
+    | model.CustomGenAiEndpointLlmSelection
+    | model.CustomGenAiModelLlmSelection;
+  /**
+   * Hyper parameters for LLM configuration. Accepts Key-value pairs to configure various hyper parameters.
+   * Refer to the guide for examples and the JSON Schema documentation for details on the format.
+   *
+   */
+  "llmHyperParameters"?: { [key: string]: any };
   /**
    * If specified, the default instruction is replaced with provided instruction.
    */
@@ -36,12 +46,26 @@ export interface LlmCustomization {
 
 export namespace LlmCustomization {
   export function getJsonObj(obj: LlmCustomization): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "llmSelection": obj.llmSelection
+          ? model.LlmSelection.getJsonObj(obj.llmSelection)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: LlmCustomization): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "llmSelection": obj.llmSelection
+          ? model.LlmSelection.getDeserializedJsonObj(obj.llmSelection)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

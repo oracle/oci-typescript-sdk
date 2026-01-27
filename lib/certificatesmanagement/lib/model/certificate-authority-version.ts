@@ -63,6 +63,10 @@ export interface CertificateAuthorityVersion {
    */
   "stages": Array<model.VersionStage>;
   "revocationStatus"?: model.RevocationStatus;
+  /**
+   * The certificate signing request (in PEM format).
+   */
+  "csrPem"?: string;
 }
 
 export namespace CertificateAuthorityVersion {

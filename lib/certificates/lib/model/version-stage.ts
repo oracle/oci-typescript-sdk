@@ -21,11 +21,13 @@ import common = require("oci-common");
  * (The first version of a certificate is always marked as both {@code CURRENT} and {@code LATEST}.)
  * A certificate version marked {@code PREVIOUS} is the certificate version that was most recently marked {@code CURRENT}, before the last certificate version rotation.
  * A certificate version marked {@code DEPRECATED} is neither current, pending, nor the previous one in use. Only certificate versions marked {@code DEPRECATED} can be scheduled for deletion.
+ * A certificate version marked {@code PENDING_ACTIVATION} applies to certificates issued by an externally managed CA and stays in that rotation state until you successfully sign the certificate signing request (CSR) externally and then import the signed certificate to the Certificates service.
  *
  **/
 export enum VersionStage {
   Current = "CURRENT",
   Pending = "PENDING",
+  PendingActivation = "PENDING_ACTIVATION",
   Latest = "LATEST",
   Previous = "PREVIOUS",
   Deprecated = "DEPRECATED",

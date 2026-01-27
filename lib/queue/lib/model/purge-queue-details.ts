@@ -33,6 +33,13 @@ export interface PurgeQueueDetails {
    *
    */
   "channelIds"?: Array<string>;
+  /**
+   * The consumer group ID to purge. If the CONSUMER_GROUPS capability is enabled on the queue, omitting that field
+   * will purge the \"Primary Consumer Group\", otherwise it will purge the queue.
+   * If you wish to purge all consumer groups in the queue, you can pass the special value 'all'.
+   *
+   */
+  "consumerGroupId"?: string;
 }
 
 export namespace PurgeQueueDetails {

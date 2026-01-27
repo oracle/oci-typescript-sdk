@@ -254,10 +254,10 @@ import * as GetComputeGpuMemoryClusterResponse from "./get-compute-gpu-memory-cl
 export import GetComputeGpuMemoryClusterResponse = GetComputeGpuMemoryClusterResponse.GetComputeGpuMemoryClusterResponse;
 import * as GetComputeGpuMemoryFabricResponse from "./get-compute-gpu-memory-fabric-response";
 export import GetComputeGpuMemoryFabricResponse = GetComputeGpuMemoryFabricResponse.GetComputeGpuMemoryFabricResponse;
-import * as GetComputeHostResponse from "./get-compute-host-response";
-export import GetComputeHostResponse = GetComputeHostResponse.GetComputeHostResponse;
 import * as GetComputeHostGroupResponse from "./get-compute-host-group-response";
 export import GetComputeHostGroupResponse = GetComputeHostGroupResponse.GetComputeHostGroupResponse;
+import * as GetComputeHostsResponse from "./get-compute-hosts-response";
+export import GetComputeHostsResponse = GetComputeHostsResponse.GetComputeHostsResponse;
 import * as GetComputeImageCapabilitySchemaResponse from "./get-compute-image-capability-schema-response";
 export import GetComputeImageCapabilitySchemaResponse = GetComputeImageCapabilitySchemaResponse.GetComputeImageCapabilitySchemaResponse;
 import * as GetConsoleHistoryResponse from "./get-console-history-response";
@@ -376,10 +376,10 @@ import * as UpdateComputeGpuMemoryClusterResponse from "./update-compute-gpu-mem
 export import UpdateComputeGpuMemoryClusterResponse = UpdateComputeGpuMemoryClusterResponse.UpdateComputeGpuMemoryClusterResponse;
 import * as UpdateComputeGpuMemoryFabricResponse from "./update-compute-gpu-memory-fabric-response";
 export import UpdateComputeGpuMemoryFabricResponse = UpdateComputeGpuMemoryFabricResponse.UpdateComputeGpuMemoryFabricResponse;
-import * as UpdateComputeHostResponse from "./update-compute-host-response";
-export import UpdateComputeHostResponse = UpdateComputeHostResponse.UpdateComputeHostResponse;
 import * as UpdateComputeHostGroupResponse from "./update-compute-host-group-response";
 export import UpdateComputeHostGroupResponse = UpdateComputeHostGroupResponse.UpdateComputeHostGroupResponse;
+import * as UpdateComputeHostsResponse from "./update-compute-hosts-response";
+export import UpdateComputeHostsResponse = UpdateComputeHostsResponse.UpdateComputeHostsResponse;
 import * as UpdateComputeImageCapabilitySchemaResponse from "./update-compute-image-capability-schema-response";
 export import UpdateComputeImageCapabilitySchemaResponse = UpdateComputeImageCapabilitySchemaResponse.UpdateComputeImageCapabilitySchemaResponse;
 import * as UpdateConsoleHistoryResponse from "./update-console-history-response";

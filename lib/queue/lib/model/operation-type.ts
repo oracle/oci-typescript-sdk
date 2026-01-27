@@ -23,6 +23,9 @@ export enum OperationType {
   DeleteQueue = "DELETE_QUEUE",
   MoveQueue = "MOVE_QUEUE",
   PurgeQueue = "PURGE_QUEUE",
+  CreateConsumerGroup = "CREATE_CONSUMER_GROUP",
+  UpdateConsumerGroup = "UPDATE_CONSUMER_GROUP",
+  DeleteConsumerGroup = "DELETE_CONSUMER_GROUP",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

@@ -45,6 +45,8 @@ import * as ListKafkaClusterConfigsResponse from "./list-kafka-cluster-configs-r
 export import ListKafkaClusterConfigsResponse = ListKafkaClusterConfigsResponse.ListKafkaClusterConfigsResponse;
 import * as ListKafkaClustersResponse from "./list-kafka-clusters-response";
 export import ListKafkaClustersResponse = ListKafkaClustersResponse.ListKafkaClustersResponse;
+import * as ListNodeShapesResponse from "./list-node-shapes-response";
+export import ListNodeShapesResponse = ListNodeShapesResponse.ListNodeShapesResponse;
 import * as ListWorkRequestErrorsResponse from "./list-work-request-errors-response";
 export import ListWorkRequestErrorsResponse = ListWorkRequestErrorsResponse.ListWorkRequestErrorsResponse;
 import * as ListWorkRequestLogsResponse from "./list-work-request-logs-response";
