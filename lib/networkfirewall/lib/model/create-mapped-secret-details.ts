@@ -31,6 +31,10 @@ export interface CreateMappedSecretDetails {
    *
    */
   "type": model.InspectionType;
+  /**
+   * The description of the mapped secret. This field can be used to add additional info.
+   */
+  "description"?: string;
 
   "source": string;
 }

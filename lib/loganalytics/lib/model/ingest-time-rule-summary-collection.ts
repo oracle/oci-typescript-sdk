@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A collection of Logging Analytics ingest time rules.
+ * A collection of Log Analytics ingest time rules.
  */
 export interface IngestTimeRuleSummaryCollection {
   /**

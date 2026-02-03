@@ -48,7 +48,7 @@ export interface ListNatRulesRequest extends common.BaseRequest {
    */
   "displayName"?: string;
   /**
-   * Unique priority order for NAT Rules in the network firewall policy.
+   * Unique priority order for NAT rules in the Network Firewall policy.
    */
   "natRulePriorityOrder"?: number;
 }

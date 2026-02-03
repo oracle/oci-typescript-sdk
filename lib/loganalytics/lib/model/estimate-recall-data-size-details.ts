@@ -36,6 +36,12 @@ export interface EstimateRecallDataSizeDetails {
    * This indicates if only new data has to be recalled in the timeframe
    */
   "isRecallNewDataOnly"?: boolean;
+  /**
+   * This is the existing recalled data collection ID, to be used only for recalling new data.
+   * If specified, the recall new data will be estimated only for this collection
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "collectionId"?: number;
 }
 
 export namespace EstimateRecallDataSizeDetails {

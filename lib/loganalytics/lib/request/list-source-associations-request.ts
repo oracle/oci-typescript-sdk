@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ListSourceAssociationsRequest extends common.BaseRequest {
   /**
-   * The Logging Analytics namespace used for the request.
+   * The Log Analytics namespace used for the request. The namespace can be obtained by running 'oci os ns get'
    *
    */
   "namespaceName": string;
@@ -36,6 +36,11 @@ export interface ListSourceAssociationsRequest extends common.BaseRequest {
    *
    */
   "entityId"?: string;
+  /**
+   * The entity name used for filtering.
+   *
+   */
+  "entityName"?: string;
   /**
    * The life cycle state used for filtering.  Only associations with the specified
    * life cycle state will be returned.

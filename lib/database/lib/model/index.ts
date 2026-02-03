@@ -32,6 +32,12 @@ import * as AddVirtualMachineToCloudVmClusterDetails from "./add-virtual-machine
 export import AddVirtualMachineToCloudVmClusterDetails = AddVirtualMachineToCloudVmClusterDetails.AddVirtualMachineToCloudVmClusterDetails;
 import * as AddVirtualMachineToVmClusterDetails from "./add-virtual-machine-to-vm-cluster-details";
 export import AddVirtualMachineToVmClusterDetails = AddVirtualMachineToVmClusterDetails.AddVirtualMachineToVmClusterDetails;
+import * as AdvancedClusterFileSystem from "./advanced-cluster-file-system";
+export import AdvancedClusterFileSystem = AdvancedClusterFileSystem.AdvancedClusterFileSystem;
+import * as AdvancedClusterFileSystemCollection from "./advanced-cluster-file-system-collection";
+export import AdvancedClusterFileSystemCollection = AdvancedClusterFileSystemCollection.AdvancedClusterFileSystemCollection;
+import * as AdvancedClusterFileSystemSummary from "./advanced-cluster-file-system-summary";
+export import AdvancedClusterFileSystemSummary = AdvancedClusterFileSystemSummary.AdvancedClusterFileSystemSummary;
 import * as AppVersionSummary from "./app-version-summary";
 export import AppVersionSummary = AppVersionSummary.AppVersionSummary;
 import * as ApplicationVip from "./application-vip";
@@ -280,6 +286,8 @@ import * as ConvertToRegularPluggableDatabaseDetails from "./convert-to-regular-
 export import ConvertToRegularPluggableDatabaseDetails = ConvertToRegularPluggableDatabaseDetails.ConvertToRegularPluggableDatabaseDetails;
 import * as ConvertToStandaloneDetails from "./convert-to-standalone-details";
 export import ConvertToStandaloneDetails = ConvertToStandaloneDetails.ConvertToStandaloneDetails;
+import * as CreateAdvancedClusterFileSystemDetails from "./create-advanced-cluster-file-system-details";
+export import CreateAdvancedClusterFileSystemDetails = CreateAdvancedClusterFileSystemDetails.CreateAdvancedClusterFileSystemDetails;
 import * as CreateApplicationVipDetails from "./create-application-vip-details";
 export import CreateApplicationVipDetails = CreateApplicationVipDetails.CreateApplicationVipDetails;
 import * as CreateAutonomousContainerDatabaseBase from "./create-autonomous-container-database-base";
@@ -844,6 +852,8 @@ import * as UnregisterCloudVmClusterPkcsDetails from "./unregister-cloud-vm-clus
 export import UnregisterCloudVmClusterPkcsDetails = UnregisterCloudVmClusterPkcsDetails.UnregisterCloudVmClusterPkcsDetails;
 import * as Update from "./update";
 export import Update = Update.Update;
+import * as UpdateAdvancedClusterFileSystemDetails from "./update-advanced-cluster-file-system-details";
+export import UpdateAdvancedClusterFileSystemDetails = UpdateAdvancedClusterFileSystemDetails.UpdateAdvancedClusterFileSystemDetails;
 import * as UpdateAutonomousContainerDatabaseDataGuardAssociationDetails from "./update-autonomous-container-database-data-guard-association-details";
 export import UpdateAutonomousContainerDatabaseDataGuardAssociationDetails = UpdateAutonomousContainerDatabaseDataGuardAssociationDetails.UpdateAutonomousContainerDatabaseDataGuardAssociationDetails;
 import * as UpdateAutonomousContainerDatabaseDetails from "./update-autonomous-container-database-details";

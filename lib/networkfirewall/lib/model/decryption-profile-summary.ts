@@ -34,6 +34,10 @@ export interface DecryptionProfileSummary {
    * OCID of the Network Firewall Policy this decryption profile belongs to.
    */
   "parentResourceId": string;
+  /**
+   * The description of the decryption profile. This field can be used to add additional info.
+   */
+  "description"?: string;
 }
 
 export namespace DecryptionProfileSummary {

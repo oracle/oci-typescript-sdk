@@ -43,6 +43,7 @@ export interface DesktopSummary {
    * The pool ID of the desktop.
    */
   "poolId": string;
+  "image"?: model.DesktopImage;
   /**
    * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
    * Example: {@code {\"Department\": \"Finance\"}}
@@ -56,16 +57,35 @@ export interface DesktopSummary {
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  "connection"?: model.DesktopConnection;
 }
 
 export namespace DesktopSummary {
   export function getJsonObj(obj: DesktopSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "image": obj.image ? model.DesktopImage.getJsonObj(obj.image) : undefined,
+
+        "connection": obj.connection
+          ? model.DesktopConnection.getJsonObj(obj.connection)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: DesktopSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "image": obj.image ? model.DesktopImage.getDeserializedJsonObj(obj.image) : undefined,
+
+        "connection": obj.connection
+          ? model.DesktopConnection.getDeserializedJsonObj(obj.connection)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

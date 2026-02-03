@@ -128,12 +128,21 @@ Example: {@code {\"Department\": \"Finance\"}}
    */
   "fileSystemConfigurationDetails"?: Array<model.FileSystemConfigurationDetail>;
   "cloudAutomationUpdateDetails"?: model.CloudAutomationUpdateDetails;
+  /**
+   * Specifies the type of VM Backups Storage and supported values are LOCAL and EXASCALE. Storage Type can only be changed once from LOCAL to EXASCALE. EXASCALE to LOCAL is not permitted.
+   */
+  "vmBackupStorageType"?: UpdateCloudVmClusterDetails.VmBackupStorageType;
 }
 
 export namespace UpdateCloudVmClusterDetails {
   export enum LicenseModel {
     LicenseIncluded = "LICENSE_INCLUDED",
     BringYourOwnLicense = "BRING_YOUR_OWN_LICENSE"
+  }
+
+  export enum VmBackupStorageType {
+    Local = "LOCAL",
+    Exascale = "EXASCALE"
   }
 
   export function getJsonObj(obj: UpdateCloudVmClusterDetails): object {

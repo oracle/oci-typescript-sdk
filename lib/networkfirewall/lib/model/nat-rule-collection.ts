@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Collection of Nat Rule Summaries in the network firewall policy
+ * Collection of NAT rule summaries in the network firewall policy.
  */
 export interface NatRuleCollection {
   /**

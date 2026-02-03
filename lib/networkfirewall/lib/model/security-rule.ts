@@ -49,6 +49,10 @@ export interface SecurityRule {
    * OCID of the Network Firewall Policy this security rule belongs to.
    */
   "parentResourceId": string;
+  /**
+   * The description of the security rule. This field can be used to add additional info.
+   */
+  "description"?: string;
 }
 
 export namespace SecurityRule {

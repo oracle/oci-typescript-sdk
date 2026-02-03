@@ -27,6 +27,10 @@ export interface CreateUrlListDetails {
    * List of urls.
    */
   "urls": Array<model.UrlPattern>;
+  /**
+   * The description of the Url list. This field can be used to add additional info.
+   */
+  "description"?: string;
 }
 
 export namespace CreateUrlListDetails {

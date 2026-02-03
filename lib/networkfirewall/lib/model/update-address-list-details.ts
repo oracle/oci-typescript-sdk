@@ -18,6 +18,11 @@ import common = require("oci-common");
  * The request details to be updated in the address List for the policy.
  */
 export interface UpdateAddressListDetails {
+  /**
+   * The description of the address list. This field can be used to add additional info.
+   */
+  "description"?: string;
+
   "type": string;
 }
 

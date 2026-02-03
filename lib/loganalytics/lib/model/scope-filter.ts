@@ -21,7 +21,7 @@ import common = require("oci-common");
  */
 export interface ScopeFilter {
   /**
-   * Field must be a valid logging-analytics out-of-the-box field.
+   * Field must be a valid log analytics out-of-the-box field.
    *
    */
   "fieldName": string;

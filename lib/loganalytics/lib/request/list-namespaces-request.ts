@@ -26,4 +26,9 @@ export interface ListNamespacesRequest extends common.BaseRequest {
    * The client request ID for tracing.
    */
   "opcRequestId"?: string;
+  /**
+   * if true, the request is from compartment delete service.
+   *
+   */
+  "isCompartmentDelete"?: boolean;
 }

@@ -20,7 +20,7 @@ import common = require("oci-common");
  */
 export interface SourceValidateResults {
   /**
-   * An arrya of source validation details.
+   * An array of source validation details.
    */
   "items"?: Array<model.SourceValidateDetails>;
 }

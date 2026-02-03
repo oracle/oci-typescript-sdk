@@ -86,7 +86,7 @@ export interface LogAnalyticsObjectCollectionRuleSummary {
    */
   "logType"?: model.LogTypes;
   /**
-   * A Stream OCID is required for Object Collection rules of type LIVE or HISTORIC_LIVE, which will be used by Logging Analytics while creating Event Rule and consume the event notifications created by the Object Storage.
+   * A Stream OCID is required for Object Collection rules of type LIVE or HISTORIC_LIVE, which will be used by Log Analytics while creating Event Rule and consume the event notifications created by the Object Storage.
    *
    */
   "streamId"?: string;

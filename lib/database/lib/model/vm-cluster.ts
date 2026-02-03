@@ -170,6 +170,14 @@ Example: {@code {\"Department\": \"Finance\"}}
    * The compute model of the Autonomous AI Database. This is required if using the {@code computeCount} parameter. If using {@code cpuCoreCount} then it is an error to specify {@code computeModel} to a non-null value. ECPU compute model is the recommended model and OCPU compute model is legacy.
    */
   "computeModel"?: VmCluster.ComputeModel;
+  /**
+   * Specifies the type of file system storage and supported values are LOCAL and EXASCALE. - LOCAL if selected then file system storage will be on DB Servers. - EXASCALE if selected then file system storage will be on Exascale Storage Servers. Default Value is LOCAL
+   */
+  "vmFileSystemStorageType"?: VmCluster.VmFileSystemStorageType;
+  /**
+   * Specifies the type of VM Backups Storage and supported values are LOCAL and EXASCALE. - LOCAL if selected then VM Backups storage will be on DB Servers. - EXASCALE if selected then VM Backups storage will be on Exascale Storage Servers. Default Value is LOCAL.
+   */
+  "vmBackupStorageType"?: VmCluster.VmBackupStorageType;
 }
 
 export namespace VmCluster {
@@ -221,6 +229,26 @@ export namespace VmCluster {
   export enum ComputeModel {
     Ecpu = "ECPU",
     Ocpu = "OCPU",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum VmFileSystemStorageType {
+    Local = "LOCAL",
+    Exascale = "EXASCALE",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum VmBackupStorageType {
+    Local = "LOCAL",
+    Exascale = "EXASCALE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

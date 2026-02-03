@@ -38,6 +38,10 @@ export interface MappedSecretSummary {
    * OCID of the Network Firewall Policy this mapped secret belongs to.
    */
   "parentResourceId": string;
+  /**
+   * The description of the mapped secret. This field can be used to add additional info.
+   */
+  "description"?: string;
 }
 
 export namespace MappedSecretSummary {

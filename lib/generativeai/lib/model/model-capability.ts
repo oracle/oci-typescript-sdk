@@ -31,6 +31,7 @@ export enum ModelCapability {
   FineTune = "FINE_TUNE",
   Chat = "CHAT",
   TextRerank = "TEXT_RERANK",
+  TextToImage = "TEXT_TO_IMAGE",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

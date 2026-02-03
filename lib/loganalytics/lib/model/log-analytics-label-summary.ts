@@ -74,6 +74,10 @@ export interface LogAnalyticsLabelSummary {
    *
    */
   "isUserDeleted"?: boolean;
+  /**
+   * The last updated date.
+   */
+  "timeUpdated"?: Date;
 }
 
 export namespace LogAnalyticsLabelSummary {

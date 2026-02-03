@@ -19,12 +19,12 @@ import common = require("oci-common");
  */
 export interface SetUnprocessedDataBucketRequest extends common.BaseRequest {
   /**
-   * The Logging Analytics namespace used for the request.
+   * The Log Analytics namespace used for the request. The namespace can be obtained by running 'oci os ns get'
    *
    */
   "namespaceName": string;
   /**
-   * Name of the Object Storage bucket.
+   * Name of the Object Storage bucket. Bucket name can be obtained by running 'oci os bucket list --namespace-name <namespace> --compartment-id <compartment>'. The json output 'name' parameter value contains the bucket name.
    */
   "bucketName": string;
   /**

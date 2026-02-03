@@ -119,6 +119,10 @@ export interface DesktopPool {
    */
   "nsgIds"?: Array<string>;
   "privateAccessDetails"?: model.DesktopPoolPrivateAccessDetails;
+  /**
+   * The size in GBs of the boot volume for the desktop pool. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "bootVolumeSizeInGBs"?: number;
 }
 
 export namespace DesktopPool {

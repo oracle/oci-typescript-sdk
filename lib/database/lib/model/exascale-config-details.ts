@@ -28,6 +28,14 @@ export interface ExascaleConfigDetails {
    * Available storage size for Exascale in GBs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "availableStorageInGBs"?: number;
+  /**
+   * Storage size needed for VM storage on Exascale in GBs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "totalVmStorageInGBs"?: number;
+  /**
+   * Available storage size for VM storage on Exascale in GBs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "availableVmStorageInGBs"?: number;
 }
 
 export namespace ExascaleConfigDetails {

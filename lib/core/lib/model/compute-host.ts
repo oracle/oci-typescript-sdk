@@ -61,6 +61,11 @@ This field is the Fault domain of the host
    */
   "hpcIslandId"?: string;
   /**
+   * The ID that remains consistent when a host moves between capacity pools within the same tenancy.
+   *
+   */
+  "hostCorrelationId"?: string;
+  /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) for the Customer-unique host group associated with the Compute Bare Metal Host.
    *
    */

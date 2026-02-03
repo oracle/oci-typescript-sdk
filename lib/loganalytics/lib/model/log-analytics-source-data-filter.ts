@@ -32,7 +32,7 @@ export interface LogAnalyticsSourceDataFilter {
    */
   "editVersion"?: number;
   /**
-   * A flag inidcating whether or not the filter is enabled.
+   * A flag indicating whether or not the filter is enabled.
    *
    */
   "isEnabled"?: boolean;

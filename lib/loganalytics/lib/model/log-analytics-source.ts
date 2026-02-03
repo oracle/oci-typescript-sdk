@@ -121,7 +121,7 @@ export interface LogAnalyticsSource {
    */
   "isAutoAssociationEnabled"?: boolean;
   /**
-   * A flag indicating whether or not the auto-association state should be overriden.
+   * A flag indicating whether or not the auto-association state should be overridden.
    *
    */
   "isAutoAssociationOverride"?: boolean;
@@ -146,7 +146,7 @@ export interface LogAnalyticsSource {
    */
   "metadataFields"?: Array<model.LogAnalyticsSourceMetadataField>;
   /**
-   * The labls used by the source.
+   * The labels used by the source.
    */
   "labelDefinitions"?: Array<model.LogAnalyticsLabelDefinition>;
   /**
@@ -184,9 +184,24 @@ export interface LogAnalyticsSource {
    * A list of source properties.
    */
   "sourceProperties"?: Array<model.LogAnalyticsProperty>;
+  /**
+   * The current state of the Log Analytics source.
+   *
+   */
+  "lifecycleState"?: LogAnalyticsSource.LifecycleState;
 }
 
 export namespace LogAnalyticsSource {
+  export enum LifecycleState {
+    Active = "ACTIVE",
+    Deleted = "DELETED",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: LogAnalyticsSource): object {
     const jsonObj = {
       ...obj,

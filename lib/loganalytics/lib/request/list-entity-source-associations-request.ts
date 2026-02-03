@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ListEntitySourceAssociationsRequest extends common.BaseRequest {
   /**
-   * The Logging Analytics namespace used for the request.
+   * The Log Analytics namespace used for the request. The namespace can be obtained by running 'oci os ns get'
    *
    */
   "namespaceName": string;
@@ -27,6 +27,10 @@ export interface ListEntitySourceAssociationsRequest extends common.BaseRequest 
    * The ID of the compartment in which to list resources.
    */
   "compartmentId": string;
+  /**
+   * The source name.
+   */
+  "sourceName"?: string;
   /**
    * The entity OCID.
    *

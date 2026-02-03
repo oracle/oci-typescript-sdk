@@ -120,6 +120,24 @@ export class LogAnalyticsWaiter {
   }
 
   /**
+   * Waits forNamespace till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetNamespaceResponse
+   */
+  public async forNamespace(
+    request: serviceRequests.GetNamespaceRequest,
+    ...targetStates: models.Namespace.LifecycleState[]
+  ): Promise<serviceResponses.GetNamespaceResponse> {
+    return genericWaiter(
+      this.config,
+      () => this.client.getNamespace(request),
+      response => targetStates.includes(response.namespace.lifecycleState!)
+    );
+  }
+
+  /**
    * Waits forQueryWorkRequest
    *
    * @param request the request to send

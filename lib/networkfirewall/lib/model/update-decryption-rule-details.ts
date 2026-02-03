@@ -20,6 +20,10 @@ import common = require("oci-common");
  *
  */
 export interface UpdateDecryptionRuleDetails {
+  /**
+   * The description of the decryption rule. This field can be used to add additional info.
+   */
+  "description"?: string;
   "condition": model.DecryptionRuleMatchCriteria;
   /**
    * Action:

@@ -54,17 +54,17 @@ export interface LogAnalyticsFieldSummary {
    */
   "name"?: string;
   /**
-   * A flag inidcating whether or not the facet is elibigle for use.
+   * A flag indicating whether or not the facet is eligible for use.
    *
    */
   "isFacetEligible"?: boolean;
   /**
-   * A flag inidcating whether or not the cardinality of the field is high.
+   * A flag indicating whether or not the cardinality of the field is high.
    *
    */
   "isHighCardinality"?: boolean;
   /**
-   * A flag inidcating whether or not the field is a large data field.
+   * A flag indicating whether or not the field is a large data field.
    *
    */
   "isLargeData"?: boolean;
@@ -74,7 +74,7 @@ export interface LogAnalyticsFieldSummary {
    */
   "isMultiValued"?: boolean;
   /**
-   * A flag inidcating whether or not this is a primary field.
+   * A flag indicating whether or not this is a primary field.
    *
    */
   "isPrimary"?: boolean;
@@ -85,7 +85,7 @@ export interface LogAnalyticsFieldSummary {
    */
   "isSystem"?: boolean;
   /**
-   * A flag inidcating whether or not the field can be summarized.
+   * A flag indicating whether or not the field can be summarized.
    *
    */
   "isSummarizable"?: boolean;
@@ -94,22 +94,22 @@ export interface LogAnalyticsFieldSummary {
    */
   "mappedValue"?: string;
   /**
-   * A flag inidcating whether or not the field is metric key eligible.
+   * A flag indicating whether or not the field is metric key eligible.
    *
    */
   "isMetricKeyEligible"?: boolean;
   /**
-   * A flag inidcating whether or not the field is metric value eligible.
+   * A flag indicating whether or not the field is metric value eligible.
    *
    */
   "isMetricValueEligible"?: boolean;
   /**
-   * A flag inidcating whether or not the field is range facet eligible.
+   * A flag indicating whether or not the field is range facet eligible.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "rangeFacetEligible"?: number;
   /**
-   * A flag inidcating whether or not the field is table eligible.
+   * A flag indicating whether or not the field is table eligible.
    *
    */
   "isTableEligible"?: boolean;

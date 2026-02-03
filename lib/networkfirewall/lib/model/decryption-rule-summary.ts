@@ -48,6 +48,10 @@ export interface DecryptionRuleSummary {
    * OCID of the Network Firewall Policy this application belongs to.
    */
   "parentResourceId": string;
+  /**
+   * The description of the decryption rule. This field can be used to add additional info.
+   */
+  "description"?: string;
 }
 
 export namespace DecryptionRuleSummary {

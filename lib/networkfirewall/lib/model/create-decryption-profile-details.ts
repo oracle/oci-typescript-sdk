@@ -22,6 +22,10 @@ export interface CreateDecryptionProfileDetails {
    * Name of the decryption profile.
    */
   "name": string;
+  /**
+   * The description of the decryption profile. This field can be used to add additional info.
+   */
+  "description"?: string;
 
   "type": string;
 }

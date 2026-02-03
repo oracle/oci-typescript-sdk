@@ -65,6 +65,12 @@ export interface UpdateLogAnalyticsEntityDetails {
    */
   "timeLastDiscovered"?: Date;
   "metadata"?: model.LogAnalyticsMetadataDetails;
+  /**
+   * The OCID of the Cloud resource which this entity is a representation of. This may be blank when the entity
+   * represents a non-cloud resource that the customer may have on their premises.
+   *
+   */
+  "cloudResourceId"?: string;
 }
 
 export namespace UpdateLogAnalyticsEntityDetails {

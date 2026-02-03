@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * This is the namespace details of a tenancy in Logging Analytics application
+ * This is the namespace details of a tenancy in Log Analytics application
  */
 export interface Namespace {
   /**
@@ -28,7 +28,7 @@ export interface Namespace {
    */
   "compartmentId": string;
   /**
-   * This indicates if the tenancy is onboarded to Logging Analytics
+   * This indicates if the tenancy is onboarded to Log Analytics
    */
   "isOnboarded": boolean;
   /**
@@ -36,16 +36,30 @@ export interface Namespace {
    */
   "isLogSetEnabled"?: boolean;
   /**
-   * This indicates if data has ever been ingested for the tenancy in Logging Analytics
+   * This indicates if data has ever been ingested for the tenancy in Log Analytics
    */
   "isDataEverIngested"?: boolean;
   /**
    * This indicates if old data can be archived for a tenancy
    */
   "isArchivingEnabled"?: boolean;
+  /**
+   * The current state of the compartment.
+   */
+  "lifecycleState"?: Namespace.LifecycleState;
 }
 
 export namespace Namespace {
+  export enum LifecycleState {
+    Active = "ACTIVE",
+    Inactive = "INACTIVE",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: Namespace): object {
     const jsonObj = { ...obj, ...{} };
 

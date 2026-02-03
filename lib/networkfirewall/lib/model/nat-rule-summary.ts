@@ -15,13 +15,13 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Summary of NAT Rules used in the firewall policy.
- * A Nat Rule is used to define which traffic NAT should be applied by the firewall, and how it should do so.
+ * Summary of NAT rules used in the firewall policy.
+ * A [NAT rule](https://docs.oracle.com/iaas/Content/network-firewall/policies.htm#network-firewall-policies__nat) defines which traffic NAT should be applied to by the firewall, and how it should do so.
  *
  */
 export interface NatRuleSummary {
   /**
-   * Name for the nat rule, must be unique within the policy.
+   * Name for the NAT rule, must be unique within the policy.
    */
   "name": string;
   /**
@@ -33,7 +33,8 @@ export interface NatRuleSummary {
    */
   "priorityOrder": number;
   /**
-   * OCID of the Network Firewall Policy this application belongs to.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Network Firewall Policy this NAT rule belongs to.
+   *
    */
   "parentResourceId": string;
 

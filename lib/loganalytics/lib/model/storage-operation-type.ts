@@ -29,6 +29,7 @@ export enum StorageOperationType {
   CleanupArchivalStorageData = "CLEANUP_ARCHIVAL_STORAGE_DATA",
   EncryptActiveData = "ENCRYPT_ACTIVE_DATA",
   EncryptArchivalData = "ENCRYPT_ARCHIVAL_DATA",
+  EncryptAllData = "ENCRYPT_ALL_DATA",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

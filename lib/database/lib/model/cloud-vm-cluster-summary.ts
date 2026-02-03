@@ -310,6 +310,14 @@ Example: {@code {\"Department\": \"Finance\"}}
    * TDE keystore type
    */
   "tdeKeyStoreType"?: CloudVmClusterSummary.TdeKeyStoreType;
+  /**
+   * Specifies the type of file system storage and supported values are LOCAL and EXASCALE. - LOCAL if selected then file system storage will be on DB Servers. - EXASCALE if selected then file system storage will be on Exascale Storage Servers. Default Value is LOCAL
+   */
+  "vmFileSystemStorageType"?: CloudVmClusterSummary.VmFileSystemStorageType;
+  /**
+   * Specifies the type of VM Backups Storage and supported values are LOCAL and EXASCALE. - LOCAL if selected then VM Backups storage will be on DB Servers. - EXASCALE if selected then VM Backups storage will be on Exascale Storage Servers. Default Value is LOCAL
+   */
+  "vmBackupStorageType"?: CloudVmClusterSummary.VmBackupStorageType;
 }
 
 export namespace CloudVmClusterSummary {
@@ -383,6 +391,26 @@ export namespace CloudVmClusterSummary {
     Oci = "OCI",
     Gcp = "GCP",
     Aws = "AWS",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum VmFileSystemStorageType {
+    Local = "LOCAL",
+    Exascale = "EXASCALE",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum VmBackupStorageType {
+    Local = "LOCAL",
+    Exascale = "EXASCALE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
