@@ -73,7 +73,8 @@ export namespace CreateImportedModelDetails {
     TextToText = "TEXT_TO_TEXT",
     ImageTextToText = "IMAGE_TEXT_TO_TEXT",
     Embedding = "EMBEDDING",
-    Rerank = "RERANK"
+    Rerank = "RERANK",
+    TextToImage = "TEXT_TO_IMAGE"
   }
 
   export function getJsonObj(obj: CreateImportedModelDetails): object {

@@ -23,7 +23,7 @@ export interface CreateNatRuleRequest extends common.BaseRequest {
    */
   "networkFirewallPolicyId": string;
   /**
-   * Request Details to create NAT rule under a Network Firewall Policy Resource.
+   * Request details used to create NAT rule under a Network Firewall policy resource.
    */
   "createNatRuleDetails": model.CreateNatV4RuleDetails;
   /**

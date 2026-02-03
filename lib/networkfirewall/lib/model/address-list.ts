@@ -41,6 +41,10 @@ export interface AddressList {
    * OCID of the Network Firewall Policy this Address List belongs to.
    */
   "parentResourceId": string;
+  /**
+   * The description of the address list. This field can be used to add additional info.
+   */
+  "description"?: string;
 }
 
 export namespace AddressList {

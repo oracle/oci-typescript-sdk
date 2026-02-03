@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Request for updating NATV4 type Nat Rule used in the firewall policy.
+ * Request for updating NATv4 type NAT rule used in the firewall policy.
  *
  */
 export interface NatV4NatSummary extends model.NatRuleSummary {

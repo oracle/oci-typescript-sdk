@@ -19,6 +19,11 @@ import common = require("oci-common");
  *
  */
 export interface UpdateServiceDetails {
+  /**
+   * The description of the service. This field can be used to add additional info.
+   */
+  "description"?: string;
+
   "type": string;
 }
 

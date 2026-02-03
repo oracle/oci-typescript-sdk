@@ -27,16 +27,54 @@ export interface AbstractParserTestResultLogLine {
    * The pre-processed log line.
    */
   "preProcessedLogLine"?: string;
+  /**
+   * The find start index. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "findStartIndex"?: number;
+  /**
+   * The find end index. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "findEndIndex"?: number;
+  /**
+   * The replacement string.
+   */
+  "replaceString"?: string;
+  /**
+   * The replace start index. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "replaceStartIndex"?: number;
+  /**
+   * The replace end index. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "replaceEndIndex"?: number;
+  /**
+   * The group name value map.
+   */
+  "grpNameValueMap"?: { [key: string]: model.NamedCaptureValue };
 }
 
 export namespace AbstractParserTestResultLogLine {
   export function getJsonObj(obj: AbstractParserTestResultLogLine): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "grpNameValueMap": obj.grpNameValueMap
+          ? common.mapContainer(obj.grpNameValueMap, model.NamedCaptureValue.getJsonObj)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: AbstractParserTestResultLogLine): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "grpNameValueMap": obj.grpNameValueMap
+          ? common.mapContainer(obj.grpNameValueMap, model.NamedCaptureValue.getDeserializedJsonObj)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

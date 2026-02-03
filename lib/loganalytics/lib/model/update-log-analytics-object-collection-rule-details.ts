@@ -27,15 +27,15 @@ export interface UpdateLogAnalyticsObjectCollectionRuleDetails {
    */
   "description"?: string;
   /**
-   * Logging Analytics Log group OCID to associate the processed logs with.
+   * Log Analytics Log group OCID to associate the processed logs with.
    */
   "logGroupId"?: string;
   /**
-   * Name of the Logging Analytics Source to use for the processing.
+   * Name of the Log Analytics Source to use for the processing.
    */
   "logSourceName"?: string;
   /**
-   * Logging Analytics entity OCID. Associates the processed logs with the given entity (optional).
+   * Log Analytics entity OCID. Associates the processed logs with the given entity (optional).
    */
   "entityId"?: string;
   /**
@@ -91,7 +91,7 @@ export interface UpdateLogAnalyticsObjectCollectionRuleDetails {
    */
   "objectNameFilters"?: Array<string>;
   /**
-   * A Stream OCID is required for Object Collection rules of type LIVE or HISTORIC_LIVE, which will be used by Logging Analytics while creating Event Rule and consume the event notifications created by the Object Storage.
+   * A Stream OCID is required for Object Collection rules of type LIVE or HISTORIC_LIVE, which will be used by Log Analytics while creating Event Rule and consume the event notifications created by the Object Storage.
    *
    */
   "streamId"?: string;

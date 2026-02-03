@@ -60,7 +60,7 @@ export interface LogAnalyticsAssociationParameter {
    */
   "missingProperties"?: Array<string>;
   /**
-   * A list of requried properties.
+   * A list of required properties.
    */
   "requiredProperties"?: Array<string>;
 }

@@ -28,6 +28,10 @@ export interface Application {
    * OCID of the Network Firewall Policy this application belongs to.
    */
   "parentResourceId": string;
+  /**
+   * The description of the application. This field can be used to add additional info.
+   */
+  "description"?: string;
 
   "type": string;
 }

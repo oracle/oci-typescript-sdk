@@ -23,7 +23,7 @@ export interface GetNatRuleRequest extends common.BaseRequest {
    */
   "networkFirewallPolicyId": string;
   /**
-   * Unique identifier for NAT Rules in the network firewall policy.
+   * Unique identifier for NAT rules in the Network Firewall policy.
    */
   "natRuleName": string;
   /**

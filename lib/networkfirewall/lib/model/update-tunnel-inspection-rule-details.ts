@@ -30,6 +30,10 @@ export interface UpdateTunnelInspectionRuleDetails {
    */
   "action"?: model.InspectActionType;
   "position"?: model.RulePosition;
+  /**
+   * The description of the tunnel inspect rule. This field can be used to add additional info.
+   */
+  "description"?: string;
 
   "protocol": string;
 }

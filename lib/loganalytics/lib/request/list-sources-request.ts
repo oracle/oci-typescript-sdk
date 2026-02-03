@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ListSourcesRequest extends common.BaseRequest {
   /**
-   * The Logging Analytics namespace used for the request.
+   * The Log Analytics namespace used for the request. The namespace can be obtained by running 'oci os ns get'
    *
    */
   "namespaceName": string;
@@ -46,6 +46,12 @@ export interface ListSourcesRequest extends common.BaseRequest {
    *
    */
   "isSystem"?: ListSourcesRequest.IsSystem;
+  /**
+   * The source lifecycle state used for filtering. Currently supported
+   * values are ACTIVE and DELETED.
+   *
+   */
+  "lifecycleState"?: ListSourcesRequest.LifecycleState;
   /**
    * An auto-associate flag used for filtering.  Only sources which are marked for automatic
    * association will be returned.
@@ -108,6 +114,12 @@ export namespace ListSourcesRequest {
     All = "ALL",
     Custom = "CUSTOM",
     BuiltIn = "BUILT_IN"
+  }
+
+  export enum LifecycleState {
+    Active = "ACTIVE",
+    Deleted = "DELETED",
+    All = "ALL"
   }
 
   export enum SortOrder {

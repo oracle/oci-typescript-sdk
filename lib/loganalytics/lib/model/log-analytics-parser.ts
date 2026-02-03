@@ -109,7 +109,7 @@ export interface LogAnalyticsParser {
   "parserTimezone"?: string;
   "parserFilter"?: model.LogAnalyticsParserFilter;
   /**
-   * A flag indicating whther or not the parser is write once.
+   * A flag indicating whether or not the parser is write once.
    *
    */
   "isParserWrittenOnce"?: boolean;

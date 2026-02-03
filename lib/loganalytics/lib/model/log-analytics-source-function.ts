@@ -24,7 +24,7 @@ export interface LogAnalyticsSourceFunction {
    */
   "arguments"?: Array<model.LogAnalyticsMetaFunctionArgument>;
   /**
-   * A flag inidcating whether or not the source function is enabled.
+   * A flag indicating whether or not the source function is enabled.
    *
    */
   "isEnabled"?: boolean;

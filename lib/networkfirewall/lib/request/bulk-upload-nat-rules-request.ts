@@ -24,7 +24,7 @@ export interface BulkUploadNatRulesRequest extends common.BaseRequest {
    */
   "networkFirewallPolicyId": string;
   /**
-   * Request Details to create the NAT Rule for the Network Firewall Policy Resource.
+   * Request details to create the NAT rule for the Network Firewall policy resource.
    */
   "bulkUploadNatRulesDetails":
     | Uint8Array

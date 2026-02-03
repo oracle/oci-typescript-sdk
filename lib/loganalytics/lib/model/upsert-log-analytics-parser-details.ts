@@ -96,7 +96,7 @@ export interface UpsertLogAnalyticsParserDetails {
    */
   "parserTimezone"?: string;
   /**
-   * A flag indicating whther or not the parser is write once.
+   * A flag indicating whether or not the parser is write once.
    *
    */
   "isParserWrittenOnce"?: boolean;

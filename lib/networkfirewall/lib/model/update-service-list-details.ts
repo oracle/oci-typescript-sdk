@@ -23,6 +23,10 @@ export interface UpdateServiceListDetails {
    * Collection of service names.
    */
   "services": Array<string>;
+  /**
+   * The description of the service list. This field can be used to add additional info.
+   */
+  "description"?: string;
 }
 
 export namespace UpdateServiceListDetails {

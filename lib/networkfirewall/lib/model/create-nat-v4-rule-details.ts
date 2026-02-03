@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Request for creating NATV4 type Nat Rule used in the firewall policy.
+ * Request for creating NATv4 type [NAT rule](https://docs.oracle.com/iaas/Content/network-firewall/policies.htm#network-firewall-policies__nat) used in the firewall policy.
  *
  */
 export interface CreateNatV4RuleDetails extends model.CreateNatRuleDetails {

@@ -29,7 +29,7 @@ export interface LogAnalyticsParserFunction {
    */
   "parserFunctionName"?: string;
   /**
-   * A flag inidcating whether or not the parser function is enabled.
+   * A flag indicating whether or not the parser function is enabled.
    *
    */
   "isEnabled"?: boolean;

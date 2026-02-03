@@ -36,7 +36,7 @@ export interface QueryDetails {
    */
   "savedSearchId"?: string;
   /**
-   * Query to perform. Must conform to logging analytic querylanguage syntax. Syntax errors will be returned if present.
+   * Query to perform. Must conform to log analytics querylanguage syntax. Syntax errors will be returned if present.
    */
   "queryString": string;
   /**
@@ -55,6 +55,11 @@ export interface QueryDetails {
    *
    */
   "scopeFilters"?: Array<model.ScopeFilter>;
+  /**
+   * List of variables to be prepended to the query string.
+   *
+   */
+  "variables"?: Array<string>;
   /**
    * Amount of time, in seconds, allowed for a query to execute. If this time expires before the query is complete, any partial results will be returned. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */

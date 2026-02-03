@@ -51,16 +51,110 @@ export interface AbstractParserTestResultLogEntry {
    * The match status description.
    */
   "matchStatusDescription"?: string;
+  /**
+   * Additional properties on the field map.
+   */
+  "fieldMapping"?: Array<model.ParserTestResultFieldValue>;
+  /**
+   * Additional properties on the field map if sub parser with actions defined.
+   */
+  "metadata"?: Array<model.ParserTestResultFieldValue>;
+  /**
+   * The parser action.
+   */
+  "action"?: string;
+  /**
+   * The timezone corresponding to the timestamp detected in the log entry (e.g. GMT).
+   */
+  "timestampZone"?: string;
+  /**
+   * In case of regex parser, if there is any timestamp identified in the log entry,
+   * this value signifies the index in the log entry from which timestamp starts.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "timestampStartIndex"?: number;
+  /**
+   * In case of regex parser, if there is any timestamp identified in the log entry,
+   * this value signifies the index in the log entry at which timestamp ends.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "timestampEndIndex"?: number;
+  /**
+   * The timestamp epoch in milliseconds. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "timestampEpochMillisec"?: number;
+  "textMatchInfo"?: model.AbstractParserTestResultLogLine;
+  "matchResult"?: model.RegexMatchResult;
+  /**
+   * Test result log lines.
+   */
+  "loglines"?: Array<model.AbstractParserTestResultLogLine>;
+  /**
+   * The parser function names.
+   */
+  "functionNames"?: Array<string>;
 }
 
 export namespace AbstractParserTestResultLogEntry {
   export function getJsonObj(obj: AbstractParserTestResultLogEntry): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "fieldMapping": obj.fieldMapping
+          ? obj.fieldMapping.map(item => {
+              return model.ParserTestResultFieldValue.getJsonObj(item);
+            })
+          : undefined,
+        "metadata": obj.metadata
+          ? obj.metadata.map(item => {
+              return model.ParserTestResultFieldValue.getJsonObj(item);
+            })
+          : undefined,
+
+        "textMatchInfo": obj.textMatchInfo
+          ? model.AbstractParserTestResultLogLine.getJsonObj(obj.textMatchInfo)
+          : undefined,
+        "matchResult": obj.matchResult
+          ? model.RegexMatchResult.getJsonObj(obj.matchResult)
+          : undefined,
+        "loglines": obj.loglines
+          ? obj.loglines.map(item => {
+              return model.AbstractParserTestResultLogLine.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: AbstractParserTestResultLogEntry): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "fieldMapping": obj.fieldMapping
+          ? obj.fieldMapping.map(item => {
+              return model.ParserTestResultFieldValue.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "metadata": obj.metadata
+          ? obj.metadata.map(item => {
+              return model.ParserTestResultFieldValue.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "textMatchInfo": obj.textMatchInfo
+          ? model.AbstractParserTestResultLogLine.getDeserializedJsonObj(obj.textMatchInfo)
+          : undefined,
+        "matchResult": obj.matchResult
+          ? model.RegexMatchResult.getDeserializedJsonObj(obj.matchResult)
+          : undefined,
+        "loglines": obj.loglines
+          ? obj.loglines.map(item => {
+              return model.AbstractParserTestResultLogLine.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

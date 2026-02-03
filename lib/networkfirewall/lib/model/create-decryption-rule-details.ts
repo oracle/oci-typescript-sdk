@@ -24,6 +24,10 @@ export interface CreateDecryptionRuleDetails {
    * Name for the decryption rule, must be unique within the policy.
    */
   "name": string;
+  /**
+   * The description of the decryption rule. This field can be used to add additional info.
+   */
+  "description"?: string;
   "condition": model.DecryptionRuleMatchCriteria;
   /**
    * Action:

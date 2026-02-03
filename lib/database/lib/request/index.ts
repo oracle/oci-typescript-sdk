@@ -124,6 +124,8 @@ import * as ConvertToRegularPluggableDatabaseRequest from "./convert-to-regular-
 export import ConvertToRegularPluggableDatabaseRequest = ConvertToRegularPluggableDatabaseRequest.ConvertToRegularPluggableDatabaseRequest;
 import * as ConvertToStandaloneRequest from "./convert-to-standalone-request";
 export import ConvertToStandaloneRequest = ConvertToStandaloneRequest.ConvertToStandaloneRequest;
+import * as CreateAdvancedClusterFileSystemRequest from "./create-advanced-cluster-file-system-request";
+export import CreateAdvancedClusterFileSystemRequest = CreateAdvancedClusterFileSystemRequest.CreateAdvancedClusterFileSystemRequest;
 import * as CreateApplicationVipRequest from "./create-application-vip-request";
 export import CreateApplicationVipRequest = CreateApplicationVipRequest.CreateApplicationVipRequest;
 import * as CreateAutonomousContainerDatabaseRequest from "./create-autonomous-container-database-request";
@@ -204,6 +206,8 @@ import * as CreateVmClusterNetworkRequest from "./create-vm-cluster-network-requ
 export import CreateVmClusterNetworkRequest = CreateVmClusterNetworkRequest.CreateVmClusterNetworkRequest;
 import * as DbNodeActionRequest from "./db-node-action-request";
 export import DbNodeActionRequest = DbNodeActionRequest.DbNodeActionRequest;
+import * as DeleteAdvancedClusterFileSystemRequest from "./delete-advanced-cluster-file-system-request";
+export import DeleteAdvancedClusterFileSystemRequest = DeleteAdvancedClusterFileSystemRequest.DeleteAdvancedClusterFileSystemRequest;
 import * as DeleteApplicationVipRequest from "./delete-application-vip-request";
 export import DeleteApplicationVipRequest = DeleteApplicationVipRequest.DeleteApplicationVipRequest;
 import * as DeleteAutonomousDatabaseRequest from "./delete-autonomous-database-request";
@@ -350,6 +354,8 @@ import * as GenerateAutonomousDatabaseWalletRequest from "./generate-autonomous-
 export import GenerateAutonomousDatabaseWalletRequest = GenerateAutonomousDatabaseWalletRequest.GenerateAutonomousDatabaseWalletRequest;
 import * as GenerateRecommendedVmClusterNetworkRequest from "./generate-recommended-vm-cluster-network-request";
 export import GenerateRecommendedVmClusterNetworkRequest = GenerateRecommendedVmClusterNetworkRequest.GenerateRecommendedVmClusterNetworkRequest;
+import * as GetAdvancedClusterFileSystemRequest from "./get-advanced-cluster-file-system-request";
+export import GetAdvancedClusterFileSystemRequest = GetAdvancedClusterFileSystemRequest.GetAdvancedClusterFileSystemRequest;
 import * as GetApplicationVipRequest from "./get-application-vip-request";
 export import GetApplicationVipRequest = GetApplicationVipRequest.GetApplicationVipRequest;
 import * as GetAutonomousContainerDatabaseRequest from "./get-autonomous-container-database-request";
@@ -508,6 +514,8 @@ import * as LaunchAutonomousExadataInfrastructureRequest from "./launch-autonomo
 export import LaunchAutonomousExadataInfrastructureRequest = LaunchAutonomousExadataInfrastructureRequest.LaunchAutonomousExadataInfrastructureRequest;
 import * as LaunchDbSystemRequest from "./launch-db-system-request";
 export import LaunchDbSystemRequest = LaunchDbSystemRequest.LaunchDbSystemRequest;
+import * as ListAdvancedClusterFileSystemsRequest from "./list-advanced-cluster-file-systems-request";
+export import ListAdvancedClusterFileSystemsRequest = ListAdvancedClusterFileSystemsRequest.ListAdvancedClusterFileSystemsRequest;
 import * as ListApplicationVipsRequest from "./list-application-vips-request";
 export import ListApplicationVipsRequest = ListApplicationVipsRequest.ListApplicationVipsRequest;
 import * as ListAutonomousContainerDatabaseBackupsRequest from "./list-autonomous-container-database-backups-request";
@@ -698,6 +706,8 @@ import * as ModifyDatabaseManagementRequest from "./modify-database-management-r
 export import ModifyDatabaseManagementRequest = ModifyDatabaseManagementRequest.ModifyDatabaseManagementRequest;
 import * as ModifyPluggableDatabaseManagementRequest from "./modify-pluggable-database-management-request";
 export import ModifyPluggableDatabaseManagementRequest = ModifyPluggableDatabaseManagementRequest.ModifyPluggableDatabaseManagementRequest;
+import * as MountAdvancedClusterFileSystemRequest from "./mount-advanced-cluster-file-system-request";
+export import MountAdvancedClusterFileSystemRequest = MountAdvancedClusterFileSystemRequest.MountAdvancedClusterFileSystemRequest;
 import * as MountDbnodeSnapshotRequest from "./mount-dbnode-snapshot-request";
 export import MountDbnodeSnapshotRequest = MountDbnodeSnapshotRequest.MountDbnodeSnapshotRequest;
 import * as MoveExecutionActionMemberRequest from "./move-execution-action-member-request";
@@ -800,12 +810,16 @@ import * as TerminateAutonomousExadataInfrastructureRequest from "./terminate-au
 export import TerminateAutonomousExadataInfrastructureRequest = TerminateAutonomousExadataInfrastructureRequest.TerminateAutonomousExadataInfrastructureRequest;
 import * as TerminateDbSystemRequest from "./terminate-db-system-request";
 export import TerminateDbSystemRequest = TerminateDbSystemRequest.TerminateDbSystemRequest;
+import * as UnmountAdvancedClusterFileSystemRequest from "./unmount-advanced-cluster-file-system-request";
+export import UnmountAdvancedClusterFileSystemRequest = UnmountAdvancedClusterFileSystemRequest.UnmountAdvancedClusterFileSystemRequest;
 import * as UnmountDbnodeSnapshotRequest from "./unmount-dbnode-snapshot-request";
 export import UnmountDbnodeSnapshotRequest = UnmountDbnodeSnapshotRequest.UnmountDbnodeSnapshotRequest;
 import * as UnregisterCloudAutonomousVmClusterPkcsRequest from "./unregister-cloud-autonomous-vm-cluster-pkcs-request";
 export import UnregisterCloudAutonomousVmClusterPkcsRequest = UnregisterCloudAutonomousVmClusterPkcsRequest.UnregisterCloudAutonomousVmClusterPkcsRequest;
 import * as UnregisterCloudVmClusterPkcsRequest from "./unregister-cloud-vm-cluster-pkcs-request";
 export import UnregisterCloudVmClusterPkcsRequest = UnregisterCloudVmClusterPkcsRequest.UnregisterCloudVmClusterPkcsRequest;
+import * as UpdateAdvancedClusterFileSystemRequest from "./update-advanced-cluster-file-system-request";
+export import UpdateAdvancedClusterFileSystemRequest = UpdateAdvancedClusterFileSystemRequest.UpdateAdvancedClusterFileSystemRequest;
 import * as UpdateAutonomousContainerDatabaseRequest from "./update-autonomous-container-database-request";
 export import UpdateAutonomousContainerDatabaseRequest = UpdateAutonomousContainerDatabaseRequest.UpdateAutonomousContainerDatabaseRequest;
 import * as UpdateAutonomousContainerDatabaseDataguardAssociationRequest from "./update-autonomous-container-database-dataguard-association-request";

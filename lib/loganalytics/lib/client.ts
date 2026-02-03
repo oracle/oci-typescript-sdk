@@ -2573,7 +2573,7 @@ export class LogAnalyticsClient {
 
   /**
    * Deletes the configured object storage bucket based collection rule and stop the log collection.
-   * It will not delete the existing processed data associated with this bucket from logging analytics storage.
+   * It will not delete the existing processed data associated with this bucket from Log Analytics Storage.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteLogAnalyticsObjectCollectionRuleRequest
@@ -6020,7 +6020,7 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * This API gets the namespace details of a tenancy already onboarded in Logging Analytics Application
+   * This API gets the namespace details of a tenancy already onboarded in Log Analytics Application
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetNamespaceRequest
@@ -7701,6 +7701,7 @@ export class LogAnalyticsClient {
     };
 
     const queryParams = {
+      "sourceName": listAssociatedEntitiesRequest.sourceName,
       "entityId": listAssociatedEntitiesRequest.entityId,
       "entityType": listAssociatedEntitiesRequest.entityType,
       "entityTypeDisplayName": listAssociatedEntitiesRequest.entityTypeDisplayName,
@@ -8312,6 +8313,7 @@ export class LogAnalyticsClient {
     };
 
     const queryParams = {
+      "sourceName": listEntitySourceAssociationsRequest.sourceName,
       "entityId": listEntitySourceAssociationsRequest.entityId,
       "entityType": listEntitySourceAssociationsRequest.entityType,
       "entityTypeDisplayName": listEntitySourceAssociationsRequest.entityTypeDisplayName,
@@ -9642,7 +9644,7 @@ export class LogAnalyticsClient {
 
   /**
    * Given a tenancy OCID, this API returns the namespace of the tenancy if it is valid and subscribed to the region.  The
-   * result also indicates if the tenancy is onboarded with Logging Analytics.
+   * result also indicates if the tenancy is onboarded with Log Analytics.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListNamespacesRequest
@@ -9660,7 +9662,8 @@ export class LogAnalyticsClient {
     const pathParams = {};
 
     const queryParams = {
-      "compartmentId": listNamespacesRequest.compartmentId
+      "compartmentId": listNamespacesRequest.compartmentId,
+      "isCompartmentDelete": listNamespacesRequest.isCompartmentDelete
     };
 
     let headerParams = {
@@ -10826,6 +10829,7 @@ export class LogAnalyticsClient {
     const queryParams = {
       "sourceName": listSourceAssociationsRequest.sourceName,
       "entityId": listSourceAssociationsRequest.entityId,
+      "entityName": listSourceAssociationsRequest.entityName,
       "lifeCycleState": listSourceAssociationsRequest.lifeCycleState,
       "isShowTotal": listSourceAssociationsRequest.isShowTotal,
       "compartmentId": listSourceAssociationsRequest.compartmentId,
@@ -11365,6 +11369,7 @@ export class LogAnalyticsClient {
       "entityType": listSourcesRequest.entityType,
       "sourceDisplayText": listSourcesRequest.sourceDisplayText,
       "isSystem": listSourcesRequest.isSystem,
+      "lifecycleState": listSourcesRequest.lifecycleState,
       "isAutoAssociated": listSourcesRequest.isAutoAssociated,
       "sortOrder": listSourcesRequest.sortOrder,
       "sortBy": listSourcesRequest.sortBy,
@@ -12483,7 +12488,7 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * Off-boards a tenant from Logging Analytics
+   * Off-boards a tenant from Log Analytics
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param OffboardNamespaceRequest
    * @return OffboardNamespaceResponse
@@ -12556,7 +12561,7 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * On-boards a tenant to Logging Analytics.
+   * On-boards a tenant to Log Analytics.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param OnboardNamespaceRequest
@@ -15135,7 +15140,7 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * Accepts discovery data for processing by Logging Analytics.
+   * Accepts discovery data for processing by Log Analytics.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UploadDiscoveryDataRequest
@@ -15223,7 +15228,7 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * Accepts log events for processing by Logging Analytics.
+   * Accepts log events for processing by Log Analytics.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UploadLogEventsFileRequest
@@ -15311,7 +15316,7 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * Accepts log data for processing by Logging Analytics.
+   * Accepts log data for processing by Log Analytics.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UploadLogFileRequest

@@ -44,6 +44,7 @@ export interface DesktopPoolDesktopSummary {
    * The date and time the resource was created.
    */
   "timeCreated": Date;
+  "image"?: model.DesktopImage;
   /**
    * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
    * Example: {@code {\"Department\": \"Finance\"}}
@@ -57,16 +58,35 @@ export interface DesktopPoolDesktopSummary {
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  "connection"?: model.DesktopConnection;
 }
 
 export namespace DesktopPoolDesktopSummary {
   export function getJsonObj(obj: DesktopPoolDesktopSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "image": obj.image ? model.DesktopImage.getJsonObj(obj.image) : undefined,
+
+        "connection": obj.connection
+          ? model.DesktopConnection.getJsonObj(obj.connection)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: DesktopPoolDesktopSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "image": obj.image ? model.DesktopImage.getDeserializedJsonObj(obj.image) : undefined,
+
+        "connection": obj.connection
+          ? model.DesktopConnection.getDeserializedJsonObj(obj.connection)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

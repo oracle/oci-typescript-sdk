@@ -29,7 +29,7 @@ export interface LogAnalyticsParserFilter {
    */
   "agentVersion"?: string;
   /**
-   * A flag idicating whether or not hte filter is currently being used.
+   * A flag indicating whether or not the filter is currently being used.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "isInUse"?: number;

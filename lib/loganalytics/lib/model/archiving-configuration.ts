@@ -33,6 +33,10 @@ export interface ArchivingConfiguration {
    *
    */
   "archivalStorageDuration"?: string;
+  /**
+   * end time of the oldest active CoreGroup
+   */
+  "timeOldestActiveBucketEnded"?: Date;
 }
 
 export namespace ArchivingConfiguration {

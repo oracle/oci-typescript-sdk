@@ -20,7 +20,7 @@ import common = require("oci-common");
  */
 export interface LogAnalyticsLabelView {
   /**
-   * An arrya of label aliases.
+   * An array of label aliases.
    */
   "aliases"?: Array<model.LogAnalyticsLabelAlias>;
   /**

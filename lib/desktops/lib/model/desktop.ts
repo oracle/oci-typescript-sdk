@@ -58,6 +58,7 @@ export interface Desktop {
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  "connection"?: model.DesktopConnection;
 }
 
 export namespace Desktop {
@@ -70,6 +71,10 @@ export namespace Desktop {
           : undefined,
         "hostingOptions": obj.hostingOptions
           ? model.HostingOptions.getJsonObj(obj.hostingOptions)
+          : undefined,
+
+        "connection": obj.connection
+          ? model.DesktopConnection.getJsonObj(obj.connection)
           : undefined
       }
     };
@@ -85,6 +90,10 @@ export namespace Desktop {
           : undefined,
         "hostingOptions": obj.hostingOptions
           ? model.HostingOptions.getDeserializedJsonObj(obj.hostingOptions)
+          : undefined,
+
+        "connection": obj.connection
+          ? model.DesktopConnection.getDeserializedJsonObj(obj.connection)
           : undefined
       }
     };

@@ -58,7 +58,7 @@ export interface Rule {
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
-   * The current state of the logging analytics rule.
+   * The current state of the Log Analytics rule.
    *
    */
   "lifecycleState"?: model.ConfigLifecycleState;

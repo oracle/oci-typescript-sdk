@@ -34,6 +34,11 @@ export interface ScheduledTask {
    */
   "displayName": string;
   /**
+   * Description for this resource.
+   *
+   */
+  "description"?: string;
+  /**
    * Task type.
    */
   "taskType": model.TaskType;
@@ -119,6 +124,7 @@ export namespace ScheduledTask {
     UserAction = "USER_ACTION",
     TenancyLifecycle = "TENANCY_LIFECYCLE",
     PurgeResourceNotFound = "PURGE_RESOURCE_NOT_FOUND",
+    LimitExceeded = "LIMIT_EXCEEDED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

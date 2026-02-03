@@ -67,6 +67,11 @@ export interface UpdateDesktopPoolDetails {
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   "sessionLifecycleActions"?: model.UpdateDesktopPoolDesktopSessionLifecycleActions;
+  "image"?: model.UpdateDesktopImage;
+  /**
+   * The size in GBs of the boot volume for the desktop pool. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "bootVolumeSizeInGBs"?: number;
 }
 
 export namespace UpdateDesktopPoolDetails {
@@ -85,7 +90,8 @@ export namespace UpdateDesktopPoolDetails {
           ? model.UpdateDesktopPoolDesktopSessionLifecycleActions.getJsonObj(
               obj.sessionLifecycleActions
             )
-          : undefined
+          : undefined,
+        "image": obj.image ? model.UpdateDesktopImage.getJsonObj(obj.image) : undefined
       }
     };
 
@@ -106,7 +112,8 @@ export namespace UpdateDesktopPoolDetails {
           ? model.UpdateDesktopPoolDesktopSessionLifecycleActions.getDeserializedJsonObj(
               obj.sessionLifecycleActions
             )
-          : undefined
+          : undefined,
+        "image": obj.image ? model.UpdateDesktopImage.getDeserializedJsonObj(obj.image) : undefined
       }
     };
 

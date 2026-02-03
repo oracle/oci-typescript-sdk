@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ListLabelsRequest extends common.BaseRequest {
   /**
-   * The Logging Analytics namespace used for the request.
+   * The Log Analytics namespace used for the request. The namespace can be obtained by running 'oci os ns get'
    *
    */
   "namespaceName": string;
@@ -103,6 +103,7 @@ export namespace ListLabelsRequest {
   export enum LabelSortBy {
     Name = "name",
     Priority = "priority",
-    SourceUsing = "sourceUsing"
+    SourceUsing = "sourceUsing",
+    TimeUpdated = "timeUpdated"
   }
 }

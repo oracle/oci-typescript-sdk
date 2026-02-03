@@ -62,6 +62,10 @@ export interface DesktopDevicePolicy {
    * Indicates whether the display is enabled.
    */
   "isDisplayEnabled": boolean;
+  /**
+   * Indicates whether video input is enabled.
+   */
+  "isVideoInputEnabled"?: boolean;
 }
 
 export namespace DesktopDevicePolicy {

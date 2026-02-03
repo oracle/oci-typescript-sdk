@@ -36,6 +36,11 @@ export interface VariableDefinition {
    */
   "type"?: VariableDefinition.Type;
   /**
+   * List of variables if this variable is a map.
+   *
+   */
+  "mapKeys"?: Array<model.VariableDefinition>;
+  /**
    * Default value of the variable is not already set.
    *
    */
@@ -63,6 +68,12 @@ export namespace VariableDefinition {
     const jsonObj = {
       ...obj,
       ...{
+        "mapKeys": obj.mapKeys
+          ? obj.mapKeys.map(item => {
+              return model.VariableDefinition.getJsonObj(item);
+            })
+          : undefined,
+
         "properties": obj.properties
           ? obj.properties.map(item => {
               return model.PropertyDefinition.getJsonObj(item);
@@ -77,6 +88,12 @@ export namespace VariableDefinition {
     const jsonObj = {
       ...obj,
       ...{
+        "mapKeys": obj.mapKeys
+          ? obj.mapKeys.map(item => {
+              return model.VariableDefinition.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
         "properties": obj.properties
           ? obj.properties.map(item => {
               return model.PropertyDefinition.getDeserializedJsonObj(item);

@@ -1268,7 +1268,8 @@ export class DashxApisClient {
       "limit": listManagementDashboardsRequest.limit,
       "page": listManagementDashboardsRequest.page,
       "sortOrder": listManagementDashboardsRequest.sortOrder,
-      "sortBy": listManagementDashboardsRequest.sortBy
+      "sortBy": listManagementDashboardsRequest.sortBy,
+      "compartmentIdInSubtree": listManagementDashboardsRequest.compartmentIdInSubtree
     };
 
     let headerParams = {
@@ -1350,7 +1351,8 @@ export class DashxApisClient {
       "limit": listManagementSavedSearchesRequest.limit,
       "page": listManagementSavedSearchesRequest.page,
       "sortOrder": listManagementSavedSearchesRequest.sortOrder,
-      "sortBy": listManagementSavedSearchesRequest.sortBy
+      "sortBy": listManagementSavedSearchesRequest.sortBy,
+      "compartmentIdInSubtree": listManagementSavedSearchesRequest.compartmentIdInSubtree
     };
 
     let headerParams = {

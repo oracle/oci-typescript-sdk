@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface UpdateLogAnalyticsEntityTypeRequest extends common.BaseRequest {
   /**
-   * The Logging Analytics namespace used for the request.
+   * The Log Analytics namespace used for the request. The namespace can be obtained by running 'oci os ns get'
    *
    */
   "namespaceName": string;
@@ -28,7 +28,7 @@ export interface UpdateLogAnalyticsEntityTypeRequest extends common.BaseRequest 
    */
   "updateLogAnalyticsEntityTypeDetails": model.UpdateLogAnalyticsEntityTypeDetails;
   /**
-   * Log analytics entity type name.
+   * Log analytics entity type name. Entity type name can be obtained by running 'oci log-analytics entity-type list --namespace-name <namespacename> --all'. The json output 'internal-name' parameter value contains the entity type name.
    *
    */
   "entityTypeName": string;

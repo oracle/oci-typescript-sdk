@@ -18,6 +18,11 @@ import common = require("oci-common");
  * Update Request for Decryption Profile used on the firewall policy rules.
  */
 export interface UpdateDecryptionProfileDetails {
+  /**
+   * The description of the decryption profile. This field can be used to add additional info.
+   */
+  "description"?: string;
+
   "type": string;
 }
 

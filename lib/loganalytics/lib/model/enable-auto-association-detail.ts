@@ -20,7 +20,7 @@ import common = require("oci-common");
  */
 export interface EnableAutoAssociationDetail {
   /**
-   * The unique identifier of the log group to use when auto-associting the log source to
+   * The unique identifier of the log group to use when auto-associating the log source to
    * eligible entities.
    *
    */

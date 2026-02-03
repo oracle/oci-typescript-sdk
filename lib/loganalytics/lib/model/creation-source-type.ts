@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Entities are auto-created when enterprise manager bridge is configured in logging analytics, or
+ * Entities are auto-created when enterprise manager bridge is configured in log analytics, or
  * when logs are forwarded from service connector or through bulk discovery from object store.
  *
  **/
