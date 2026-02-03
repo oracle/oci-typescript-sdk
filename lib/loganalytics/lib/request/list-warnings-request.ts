@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ListWarningsRequest extends common.BaseRequest {
   /**
-   * The Logging Analytics namespace used for the request.
+   * The Log Analytics namespace used for the request. The namespace can be obtained by running 'oci os ns get'
    *
    */
   "namespaceName": string;
@@ -50,8 +50,7 @@ export interface ListWarningsRequest extends common.BaseRequest {
    */
   "warningMessage"?: string;
   /**
-   * The entity name used for filtering.  Only warnings associated with an entity with the
-   * specified name will be returned.
+   * The entity name used for filtering.
    *
    */
   "entityName"?: string;

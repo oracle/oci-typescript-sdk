@@ -1,6 +1,6 @@
 {
   "name": "oci-sdk",
-  "version": "2.124.0",
+  "version": "2.125.0",
   "author": {
     "name": "Oracle Cloud Infrastructure",
     "email": ""
@@ -153,7 +153,6 @@
     "oci-generativeai": "file:lib/generativeai",
     "oci-generativeaiinference": "file:lib/generativeaiinference",
     "oci-capacitymanagement": "file:lib/capacitymanagement",
-    "oci-globallydistributeddatabase": "file:lib/globallydistributeddatabase",
     "oci-desktops": "file:lib/desktops",
     "oci-emaildataplane": "file:lib/emaildataplane",
     "oci-clusterplacementgroups": "file:lib/clusterplacementgroups",

@@ -47,6 +47,10 @@ export interface ListManagementSavedSearchesRequest extends common.BaseRequest {
    *
    */
   "sortBy"?: ListManagementSavedSearchesRequest.SortBy;
+  /**
+   * This parameter applies only when compartmentId is root compartment. When set to true, all accessible resources will be returned. Default is false.
+   */
+  "compartmentIdInSubtree"?: string;
 }
 
 export namespace ListManagementSavedSearchesRequest {

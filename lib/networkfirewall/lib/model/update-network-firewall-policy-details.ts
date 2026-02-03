@@ -23,6 +23,10 @@ export interface UpdateNetworkFirewallPolicyDetails {
    */
   "displayName"?: string;
   /**
+   * The description of the network firewall policy. This field can be used to add additional info.
+   */
+  "description"?: string;
+  /**
    * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
    * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
    * Example: {@code {\"Department\": \"Finance\"}}

@@ -31,6 +31,10 @@ export interface CreateAddressListDetails {
    * List of addresses.
    */
   "addresses": Array<string>;
+  /**
+   * The description of the address list. This field can be used to add additional info.
+   */
+  "description"?: string;
 }
 
 export namespace CreateAddressListDetails {

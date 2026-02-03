@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Logging Analytics rule kinds. Supported values are INGEST_TIME and SAVED_SEARCH.
+ * Log Analytics rule kinds. Supported values are INGEST_TIME and SAVED_SEARCH.
  *
  **/
 export enum RuleKind {

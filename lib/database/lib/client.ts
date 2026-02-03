@@ -5079,6 +5079,92 @@ This operation should be performed on respective standby database.
   }
 
   /**
+   * Creates an advanced cluster file system resource.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateAdvancedClusterFileSystemRequest
+   * @return CreateAdvancedClusterFileSystemResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateAdvancedClusterFileSystem.ts.html |here} to see how to use CreateAdvancedClusterFileSystem API.
+   */
+  public async createAdvancedClusterFileSystem(
+    createAdvancedClusterFileSystemRequest: requests.CreateAdvancedClusterFileSystemRequest
+  ): Promise<responses.CreateAdvancedClusterFileSystemResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#createAdvancedClusterFileSystem.");
+    const operationName = "createAdvancedClusterFileSystem";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createAdvancedClusterFileSystemRequest.opcRetryToken,
+      "opc-request-id": createAdvancedClusterFileSystemRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createAdvancedClusterFileSystemRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/advancedClusterFileSystems",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createAdvancedClusterFileSystemRequest.createAdvancedClusterFileSystemDetails,
+        "CreateAdvancedClusterFileSystemDetails",
+        model.CreateAdvancedClusterFileSystemDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateAdvancedClusterFileSystemResponse>{},
+        body: await response.json(),
+        bodyKey: "advancedClusterFileSystem",
+        bodyModel: model.AdvancedClusterFileSystem,
+        type: "model.AdvancedClusterFileSystem",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates a new application virtual IP (VIP) address in the specified cloud VM cluster based on the request parameters you provide.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -8544,6 +8630,82 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
           {
             value: response.headers.get("etag"),
             key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the advanced cluster file system.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteAdvancedClusterFileSystemRequest
+   * @return DeleteAdvancedClusterFileSystemResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteAdvancedClusterFileSystem.ts.html |here} to see how to use DeleteAdvancedClusterFileSystem API.
+   */
+  public async deleteAdvancedClusterFileSystem(
+    deleteAdvancedClusterFileSystemRequest: requests.DeleteAdvancedClusterFileSystemRequest
+  ): Promise<responses.DeleteAdvancedClusterFileSystemResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#deleteAdvancedClusterFileSystem.");
+    const operationName = "deleteAdvancedClusterFileSystem";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AdvancedClusterFileSystem/DeleteAdvancedClusterFileSystem";
+    const pathParams = {
+      "{advancedClusterFileSystemId}":
+        deleteAdvancedClusterFileSystemRequest.advancedClusterFileSystemId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteAdvancedClusterFileSystemRequest.ifMatch,
+      "opc-request-id": deleteAdvancedClusterFileSystemRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteAdvancedClusterFileSystemRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/advancedClusterFileSystems/{advancedClusterFileSystemId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteAdvancedClusterFileSystemResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           },
           {
@@ -14456,6 +14618,85 @@ A failover might result in data loss depending on the protection mode in effect 
         bodyKey: "vmClusterNetworkDetails",
         bodyModel: model.VmClusterNetworkDetails,
         type: "model.VmClusterNetworkDetails",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets information about the specified advanced cluster file systems.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetAdvancedClusterFileSystemRequest
+   * @return GetAdvancedClusterFileSystemResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetAdvancedClusterFileSystem.ts.html |here} to see how to use GetAdvancedClusterFileSystem API.
+   */
+  public async getAdvancedClusterFileSystem(
+    getAdvancedClusterFileSystemRequest: requests.GetAdvancedClusterFileSystemRequest
+  ): Promise<responses.GetAdvancedClusterFileSystemResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#getAdvancedClusterFileSystem.");
+    const operationName = "getAdvancedClusterFileSystem";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AdvancedClusterFileSystem/GetAdvancedClusterFileSystem";
+    const pathParams = {
+      "{advancedClusterFileSystemId}":
+        getAdvancedClusterFileSystemRequest.advancedClusterFileSystemId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getAdvancedClusterFileSystemRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getAdvancedClusterFileSystemRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/advancedClusterFileSystems/{advancedClusterFileSystemId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetAdvancedClusterFileSystemResponse>{},
+        body: await response.json(),
+        bodyKey: "advancedClusterFileSystem",
+        bodyModel: model.AdvancedClusterFileSystem,
+        type: "model.AdvancedClusterFileSystem",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -20607,6 +20848,92 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists the advanced cluster file system resources in the specified compartment.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListAdvancedClusterFileSystemsRequest
+   * @return ListAdvancedClusterFileSystemsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListAdvancedClusterFileSystems.ts.html |here} to see how to use ListAdvancedClusterFileSystems API.
+   */
+  public async listAdvancedClusterFileSystems(
+    listAdvancedClusterFileSystemsRequest: requests.ListAdvancedClusterFileSystemsRequest
+  ): Promise<responses.ListAdvancedClusterFileSystemsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#listAdvancedClusterFileSystems.");
+    const operationName = "listAdvancedClusterFileSystems";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AdvancedClusterFileSystem/ListAdvancedClusterFileSystems";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listAdvancedClusterFileSystemsRequest.compartmentId,
+      "limit": listAdvancedClusterFileSystemsRequest.limit,
+      "page": listAdvancedClusterFileSystemsRequest.page,
+      "vmClusterId": listAdvancedClusterFileSystemsRequest.vmClusterId,
+      "resourceId": listAdvancedClusterFileSystemsRequest.resourceId,
+      "lifecycleState": listAdvancedClusterFileSystemsRequest.lifecycleState,
+      "sortBy": listAdvancedClusterFileSystemsRequest.sortBy,
+      "sortOrder": listAdvancedClusterFileSystemsRequest.sortOrder,
+      "name": listAdvancedClusterFileSystemsRequest.name
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listAdvancedClusterFileSystemsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAdvancedClusterFileSystemsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/advancedClusterFileSystems",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListAdvancedClusterFileSystemsResponse>{},
+        body: await response.json(),
+        bodyKey: "advancedClusterFileSystemCollection",
+        bodyModel: model.AdvancedClusterFileSystemCollection,
+        type: "model.AdvancedClusterFileSystemCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
             dataType: "string"
           }
         ]
@@ -32270,6 +32597,92 @@ This operation should always be performed on primary.
   }
 
   /**
+   * Mounts the advanced cluster file system to all the virtual machines within a vmcluster.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param MountAdvancedClusterFileSystemRequest
+   * @return MountAdvancedClusterFileSystemResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/MountAdvancedClusterFileSystem.ts.html |here} to see how to use MountAdvancedClusterFileSystem API.
+   */
+  public async mountAdvancedClusterFileSystem(
+    mountAdvancedClusterFileSystemRequest: requests.MountAdvancedClusterFileSystemRequest
+  ): Promise<responses.MountAdvancedClusterFileSystemResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#mountAdvancedClusterFileSystem.");
+    const operationName = "mountAdvancedClusterFileSystem";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AdvancedClusterFileSystem/MountAdvancedClusterFileSystem";
+    const pathParams = {
+      "{advancedClusterFileSystemId}":
+        mountAdvancedClusterFileSystemRequest.advancedClusterFileSystemId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": mountAdvancedClusterFileSystemRequest.opcRetryToken,
+      "opc-request-id": mountAdvancedClusterFileSystemRequest.opcRequestId,
+      "if-match": mountAdvancedClusterFileSystemRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      mountAdvancedClusterFileSystemRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/advancedClusterFileSystems/{advancedClusterFileSystemId}/actions/mount",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.MountAdvancedClusterFileSystemResponse>{},
+        body: await response.json(),
+        bodyKey: "advancedClusterFileSystem",
+        bodyModel: model.AdvancedClusterFileSystem,
+        type: "model.AdvancedClusterFileSystem",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Mounts the snapshot for the provided dbNode.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -36640,6 +37053,92 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
+   * Unmounts the advanced cluster file system from all the virtual machines within a vmcluster.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UnmountAdvancedClusterFileSystemRequest
+   * @return UnmountAdvancedClusterFileSystemResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UnmountAdvancedClusterFileSystem.ts.html |here} to see how to use UnmountAdvancedClusterFileSystem API.
+   */
+  public async unmountAdvancedClusterFileSystem(
+    unmountAdvancedClusterFileSystemRequest: requests.UnmountAdvancedClusterFileSystemRequest
+  ): Promise<responses.UnmountAdvancedClusterFileSystemResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#unmountAdvancedClusterFileSystem.");
+    const operationName = "unmountAdvancedClusterFileSystem";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AdvancedClusterFileSystem/UnmountAdvancedClusterFileSystem";
+    const pathParams = {
+      "{advancedClusterFileSystemId}":
+        unmountAdvancedClusterFileSystemRequest.advancedClusterFileSystemId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": unmountAdvancedClusterFileSystemRequest.opcRetryToken,
+      "opc-request-id": unmountAdvancedClusterFileSystemRequest.opcRequestId,
+      "if-match": unmountAdvancedClusterFileSystemRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      unmountAdvancedClusterFileSystemRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/advancedClusterFileSystems/{advancedClusterFileSystemId}/actions/unmount",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UnmountAdvancedClusterFileSystemResponse>{},
+        body: await response.json(),
+        bodyKey: "advancedClusterFileSystem",
+        bodyModel: model.AdvancedClusterFileSystem,
+        type: "model.AdvancedClusterFileSystem",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Unmounts the snapshot for the provided dbNode.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -36875,6 +37374,95 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
           {
             value: response.headers.get("opc-work-request-id"),
             key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the advanced cluster file system resource.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateAdvancedClusterFileSystemRequest
+   * @return UpdateAdvancedClusterFileSystemResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateAdvancedClusterFileSystem.ts.html |here} to see how to use UpdateAdvancedClusterFileSystem API.
+   */
+  public async updateAdvancedClusterFileSystem(
+    updateAdvancedClusterFileSystemRequest: requests.UpdateAdvancedClusterFileSystemRequest
+  ): Promise<responses.UpdateAdvancedClusterFileSystemResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#updateAdvancedClusterFileSystem.");
+    const operationName = "updateAdvancedClusterFileSystem";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{advancedClusterFileSystemId}":
+        updateAdvancedClusterFileSystemRequest.advancedClusterFileSystemId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateAdvancedClusterFileSystemRequest.ifMatch,
+      "opc-request-id": updateAdvancedClusterFileSystemRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateAdvancedClusterFileSystemRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/advancedClusterFileSystems/{advancedClusterFileSystemId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateAdvancedClusterFileSystemRequest.updateAdvancedClusterFileSystemDetails,
+        "UpdateAdvancedClusterFileSystemDetails",
+        model.UpdateAdvancedClusterFileSystemDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateAdvancedClusterFileSystemResponse>{},
+        body: await response.json(),
+        bodyKey: "advancedClusterFileSystem",
+        bodyModel: model.AdvancedClusterFileSystem,
+        type: "model.AdvancedClusterFileSystem",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
             dataType: "string"
           },
           {

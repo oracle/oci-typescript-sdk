@@ -211,6 +211,14 @@ Example: {@code {\"Department\": \"Finance\"}}
    * The vmcluster type for the VM cluster/Cloud VM cluster.
    */
   "vmClusterType"?: CreateCloudVmClusterDetails.VmClusterType;
+  /**
+   * Specifies the type of file system storage and supported values are LOCAL and EXASCALE. - LOCAL if selected then file system storage will be on DB Servers. - EXASCALE if selected then file system storage will be on Exascale Storage Servers. Default Value is LOCAL
+   */
+  "vmFileSystemStorageType"?: CreateCloudVmClusterDetails.VmFileSystemStorageType;
+  /**
+   * Specifies the type of VM Backups Storage and supported values are LOCAL and EXASCALE. - LOCAL if selected then VM Backups storage will be on DB Servers. - EXASCALE if selected then VM Backups storage will be on Exascale Storage Servers. Default Value is LOCAL
+   */
+  "vmBackupStorageType"?: CreateCloudVmClusterDetails.VmBackupStorageType;
 }
 
 export namespace CreateCloudVmClusterDetails {
@@ -222,6 +230,16 @@ export namespace CreateCloudVmClusterDetails {
   export enum VmClusterType {
     Regular = "REGULAR",
     Developer = "DEVELOPER"
+  }
+
+  export enum VmFileSystemStorageType {
+    Local = "LOCAL",
+    Exascale = "EXASCALE"
+  }
+
+  export enum VmBackupStorageType {
+    Local = "LOCAL",
+    Exascale = "EXASCALE"
   }
 
   export function getJsonObj(obj: CreateCloudVmClusterDetails): object {

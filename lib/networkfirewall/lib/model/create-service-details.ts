@@ -22,6 +22,10 @@ export interface CreateServiceDetails {
    * Name of the service
    */
   "name": string;
+  /**
+   * The description of the service. This field can be used to add additional info.
+   */
+  "description"?: string;
 
   "type": string;
 }

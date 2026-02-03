@@ -5215,6 +5215,7 @@ See [Special Instructions for Object Storage PUT](https://docs.oracle.com/iaas/C
         Object.assign(headerParams, { ["opc-meta-" + key]: value });
       });
     }
+
     const requiredParams = new Set<string>(["namespaceName", "bucketName", "objectName"]);
     let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
       this.endpoint,

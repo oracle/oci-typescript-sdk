@@ -28,7 +28,7 @@ export interface FieldSummaryReport {
    */
   "oobCount"?: number;
   /**
-   * Field usage detailss
+   * Field usage details
    */
   "usageDetails"?: Array<model.UsageStatusItem>;
 }

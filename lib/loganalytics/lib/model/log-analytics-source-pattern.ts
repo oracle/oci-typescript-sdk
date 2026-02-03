@@ -63,7 +63,7 @@ export interface LogAnalyticsSourcePattern {
    */
   "description"?: string;
   /**
-   * A flag inidcating whether or not the source pattern is enabled.
+   * A flag indicating whether or not the source pattern is enabled.
    *
    */
   "isEnabled"?: boolean;

@@ -784,7 +784,7 @@ export class NetworkFirewallClient {
   }
 
   /**
-   * Creates a new NAT Rule at bulk for the Network Firewall Policy.
+   * Creates a new [NAT rule](https://docs.oracle.com/iaas/Content/network-firewall/policies.htm#network-firewall-policies__nat) at bulk for the Network Firewall policy.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param BulkUploadNatRulesRequest
@@ -2053,7 +2053,7 @@ export class NetworkFirewallClient {
   }
 
   /**
-   * Creates a new NAT Rule for the Network Firewall Policy.
+   * Creates a new [NAT rule](https://docs.oracle.com/iaas/Content/network-firewall/policies.htm#network-firewall-policies__nat) for the Network Firewall policy.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateNatRuleRequest
@@ -3137,7 +3137,7 @@ export class NetworkFirewallClient {
   }
 
   /**
-   * Deletes a NAT Rule resource with the given identifier.
+   * Deletes a [NAT rule](https://docs.oracle.com/iaas/Content/network-firewall/policies.htm#network-firewall-policies__nat) resource with the given identifier.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteNatRuleRequest
    * @return DeleteNatRuleResponse
@@ -4166,7 +4166,7 @@ export class NetworkFirewallClient {
   }
 
   /**
-   * Get NAT Rule by the given name in the context of network firewall policy.
+   * Get a [NAT rule](https://docs.oracle.com/iaas/Content/network-firewall/policies.htm#network-firewall-policies__nat) by the given name in the context of Network Firewall policy.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetNatRuleRequest
    * @return GetNatRuleResponse
@@ -5446,7 +5446,7 @@ export class NetworkFirewallClient {
   }
 
   /**
-   * Returns a list of NAT Rules for the Network Firewall Policy.
+   * Returns a list of [NAT rules](https://docs.oracle.com/iaas/Content/network-firewall/policies.htm#network-firewall-policies__nat) for the Network Firewall policy.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListNatRulesRequest
@@ -7111,7 +7111,7 @@ export class NetworkFirewallClient {
   }
 
   /**
-   * Updates the NAT Rule with the given name in the network firewall policy.
+   * Updates the [NAT rule](https://docs.oracle.com/iaas/Content/network-firewall/policies.htm#network-firewall-policies__nat) with the given name in the Network Firewall policy.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateNatRuleRequest
    * @return UpdateNatRuleResponse

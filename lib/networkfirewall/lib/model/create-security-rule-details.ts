@@ -45,6 +45,10 @@ export interface CreateSecurityRuleDetails {
    */
   "inspection"?: model.TrafficInspectionType;
   "position"?: model.RulePosition;
+  /**
+   * The description of the security rule. This field can be used to add additional info.
+   */
+  "description"?: string;
 }
 
 export namespace CreateSecurityRuleDetails {

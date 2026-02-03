@@ -23,6 +23,10 @@ export interface UpdateApplicationGroupDetails {
    * Collection of application names.
    */
   "apps": Array<string>;
+  /**
+   * The description of the application list. This field can be used to add additional info.
+   */
+  "description"?: string;
 }
 
 export namespace UpdateApplicationGroupDetails {

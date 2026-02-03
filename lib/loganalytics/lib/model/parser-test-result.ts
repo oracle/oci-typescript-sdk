@@ -39,6 +39,10 @@ export interface ParserTestResult {
    * The named capture groups.
    */
   "namedCaptureGroups"?: Array<string>;
+  /**
+   * The test violations.
+   */
+  "violations"?: Array<model.Violation>;
 }
 
 export namespace ParserTestResult {
@@ -55,6 +59,12 @@ export namespace ParserTestResult {
         "lines": obj.lines
           ? obj.lines.map(item => {
               return model.AbstractParserTestResultLogLine.getJsonObj(item);
+            })
+          : undefined,
+
+        "violations": obj.violations
+          ? obj.violations.map(item => {
+              return model.Violation.getJsonObj(item);
             })
           : undefined
       }
@@ -75,6 +85,12 @@ export namespace ParserTestResult {
         "lines": obj.lines
           ? obj.lines.map(item => {
               return model.AbstractParserTestResultLogLine.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "violations": obj.violations
+          ? obj.violations.map(item => {
+              return model.Violation.getDeserializedJsonObj(item);
             })
           : undefined
       }

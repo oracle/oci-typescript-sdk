@@ -56,6 +56,10 @@ export interface NetworkFirewall {
   "availabilityDomain"?: string;
   "natConfiguration"?: model.NatConfigurationResponse;
   /**
+   * The shape of a firewall to determine the bandwidth that the firewall allows.
+   */
+  "shape"?: string;
+  /**
    * An array of network security groups [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) associated with the Network Firewall.
    */
   "networkSecurityGroupIds"?: Array<string>;

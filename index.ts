@@ -210,7 +210,6 @@ export import psql = require("oci-psql");
 export import generativeai = require("oci-generativeai");
 export import generativeaiinference = require("oci-generativeaiinference");
 export import capacitymanagement = require("oci-capacitymanagement");
-export import globallydistributeddatabase = require("oci-globallydistributeddatabase");
 export import desktops = require("oci-desktops");
 export import emaildataplane = require("oci-emaildataplane");
 export import clusterplacementgroups = require("oci-clusterplacementgroups");

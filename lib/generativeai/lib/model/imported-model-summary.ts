@@ -111,6 +111,7 @@ export namespace ImportedModelSummary {
     ImageTextToText = "IMAGE_TEXT_TO_TEXT",
     Embedding = "EMBEDDING",
     Rerank = "RERANK",
+    TextToImage = "TEXT_TO_IMAGE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

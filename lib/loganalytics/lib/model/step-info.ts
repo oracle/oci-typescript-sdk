@@ -20,7 +20,7 @@ import common = require("oci-common");
  */
 export interface StepInfo {
   /**
-   * The currnet input sequence match.
+   * The current input sequence match.
    */
   "inputSequenceCurrentMatch"?: string;
   /**

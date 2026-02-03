@@ -47,6 +47,10 @@ export interface ListManagementDashboardsRequest extends common.BaseRequest {
    *
    */
   "sortBy"?: ListManagementDashboardsRequest.SortBy;
+  /**
+   * This parameter applies only when compartmentId is root compartment. When set to true, all accessible resources will be returned. Default is false.
+   */
+  "compartmentIdInSubtree"?: string;
 }
 
 export namespace ListManagementDashboardsRequest {

@@ -58,7 +58,7 @@ export interface RuleSummary {
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
-   * The current state of the logging analytics rule.
+   * The current state of the Log Analytics rule.
    *
    */
   "lifecycleState"?: model.ConfigLifecycleState;
@@ -87,12 +87,28 @@ export interface RuleSummary {
    * The date and time the scheduled task last executed, in the format defined by RFC3339.
    */
   "timeLastExecuted"?: Date;
+  /**
+   * The task status of the rule.
+   */
+  "taskStatus"?: RuleSummary.TaskStatus;
 }
 
 export namespace RuleSummary {
   export enum LastExecutionStatus {
     Failed = "FAILED",
     Succeeded = "SUCCEEDED",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum TaskStatus {
+    Ready = "READY",
+    Paused = "PAUSED",
+    Completed = "COMPLETED",
+    Blocked = "BLOCKED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

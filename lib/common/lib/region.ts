@@ -116,6 +116,7 @@ export class Region {
   public static AP_BATAM_1: Region = Region.register("ap-batam-1", Realm.OC1, "hsg");
     public static EU_MADRID_3: Region = Region.register("eu-madrid-3", Realm.OC1, "orf");
     public static EU_TURIN_1: Region = Region.register("eu-turin-1", Realm.OC1, "nrq");
+    public static AP_KULAI_2: Region = Region.register("ap-kulai-2", Realm.OC1, "jbp");
 
   // OC2
   public static US_LANGLEY_1: Region = Region.register("us-langley-1", Realm.OC2, "lfi");
@@ -189,6 +190,9 @@ export class Region {
 
     // OC51
     public static EU_BUDAPEST_1: Region = Region.register("eu-budapest-1", Realm.OC51, "jsk");
+
+    // OC52
+    public static SA_RIODEJANEIRO_1: Region = Region.register("sa-riodejaneiro-1", Realm.OC52, "hnw");
 
   /**
  * Return all known Regions in this version of the SDK, except possibly the region returned by IMDS (Instance Metadata

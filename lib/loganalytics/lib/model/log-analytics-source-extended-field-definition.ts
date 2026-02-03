@@ -57,7 +57,7 @@ export interface LogAnalyticsSourceExtendedFieldDefinition {
    */
   "convertedRegularExpression"?: string;
   /**
-   * A flag inidcating whether or not the extended definition is enabled.
+   * A flag indicating whether or not the extended definition is enabled.
    *
    */
   "isEnabled"?: boolean;

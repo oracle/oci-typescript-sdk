@@ -121,7 +121,7 @@ export interface LogAnalyticsSourceSummary {
    */
   "isAutoAssociationEnabled"?: boolean;
   /**
-   * A flag indicating whether or not the auto-association state should be overriden.
+   * A flag indicating whether or not the auto-association state should be overridden.
    *
    */
   "isAutoAssociationOverride"?: boolean;
@@ -174,6 +174,11 @@ export interface LogAnalyticsSourceSummary {
    * A list of source properties.
    */
   "sourceProperties"?: Array<model.LogAnalyticsProperty>;
+  /**
+   * The current state of the Log Analytics source.
+   *
+   */
+  "lifecycleState"?: string;
 }
 
 export namespace LogAnalyticsSourceSummary {

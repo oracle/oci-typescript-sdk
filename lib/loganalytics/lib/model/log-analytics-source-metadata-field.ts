@@ -24,7 +24,7 @@ export interface LogAnalyticsSourceMetadataField {
    */
   "fieldName"?: string;
   /**
-   * A flag inidcating whether or not the source metadata field is enabled.
+   * A flag indicating whether or not the source metadata field is enabled.
    *
    */
   "isEnabled"?: boolean;

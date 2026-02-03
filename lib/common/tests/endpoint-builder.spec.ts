@@ -172,4 +172,84 @@ describe("Test EndpointBuilder ", () => {
     );
     expect(url).equals("https://test-bucket-1.objectstorage.us-phoenix-1.oci.oraclecloud.com");
   });
+
+  it("should populate dualstack empty in default case", function() {
+    let endpoint =
+      "https://test-namespace-1.{dualStack?ds.:}objectstorage.us-phoenix-1.oci.customer-oci.com";
+    const url = EndpointBuilder.updateEndpointTemplateForOptions(endpoint, undefined, false);
+    expect(url).equals("https://test-namespace-1.objectstorage.us-phoenix-1.oci.customer-oci.com");
+  });
+
+  it("should populate dualstack when enabled by default in service", function() {
+    let endpoint =
+      "https://test-namespace-1.{dualStack?ds.:}objectstorage.us-phoenix-1.oci.customer-oci.com";
+    const url = EndpointBuilder.updateEndpointTemplateForOptions(endpoint, undefined, true);
+    expect(url).equals(
+      "https://test-namespace-1.ds.objectstorage.us-phoenix-1.oci.customer-oci.com"
+    );
+  });
+
+  it("should populate dualstack when enabled on client", function() {
+    let endpoint =
+      "https://test-namespace-1.{dualStack?ds.:}objectstorage.us-phoenix-1.oci.customer-oci.com";
+    const url = EndpointBuilder.updateEndpointTemplateForOptions(endpoint, true, false);
+    expect(url).equals(
+      "https://test-namespace-1.ds.objectstorage.us-phoenix-1.oci.customer-oci.com"
+    );
+  });
+
+  it("should give precedence to client dualstack option over service default", function() {
+    let endpoint =
+      "https://test-namespace-1.{dualStack?ds.:}objectstorage.us-phoenix-1.oci.customer-oci.com";
+    const url = EndpointBuilder.updateEndpointTemplateForOptions(endpoint, false, true);
+    expect(url).equals("https://test-namespace-1.objectstorage.us-phoenix-1.oci.customer-oci.com");
+  });
+
+  it("should handle non empty secondary dualstack option", function() {
+    let endpoint =
+      "https://test-namespace-1.{dualStack?ds.:notDs.}objectstorage.us-phoenix-1.oci.customer-oci.com";
+    const url = EndpointBuilder.updateEndpointTemplateForOptions(endpoint, false, true);
+    expect(url).equals(
+      "https://test-namespace-1.notDs.objectstorage.us-phoenix-1.oci.customer-oci.com"
+    );
+  });
+
+  it("should populate dualstack when enabled by environment variable ", function() {
+    let endpoint =
+      "https://test-namespace-1.{dualStack?ds.:}objectstorage.us-phoenix-1.oci.customer-oci.com";
+    process.env.OCI_DUAL_STACK_ENDPOINT_ENABLED = "true";
+    const url = EndpointBuilder.updateEndpointTemplateForOptions(endpoint, undefined, false);
+    process.env.OCI_DUAL_STACK_ENDPOINT_ENABLED = undefined;
+    expect(url).equals(
+      "https://test-namespace-1.ds.objectstorage.us-phoenix-1.oci.customer-oci.com"
+    );
+  });
+
+  it("should give precedence to environment variable dualstack option over service default", function() {
+    let endpoint =
+      "https://test-namespace-1.{dualStack?ds.:}objectstorage.us-phoenix-1.oci.customer-oci.com";
+    process.env.OCI_DUAL_STACK_ENDPOINT_ENABLED = "false";
+    const url = EndpointBuilder.updateEndpointTemplateForOptions(endpoint, undefined, true);
+    process.env.OCI_DUAL_STACK_ENDPOINT_ENABLED = undefined;
+    expect(url).equals("https://test-namespace-1.objectstorage.us-phoenix-1.oci.customer-oci.com");
+  });
+
+  it("should give precedence to client dualstack option over environment variable", function() {
+    let endpoint =
+      "https://test-namespace-1.{dualStack?ds.:}objectstorage.us-phoenix-1.oci.customer-oci.com";
+    process.env.OCI_DUAL_STACK_ENDPOINT_ENABLED = "false";
+    const url = EndpointBuilder.updateEndpointTemplateForOptions(endpoint, true, false);
+    expect(url).equals(
+      "https://test-namespace-1.ds.objectstorage.us-phoenix-1.oci.customer-oci.com"
+    );
+  });
+
+  it("should handle compound dualstack option", function() {
+    let endpoint = "https://iaas.us-phoenix-1.{dualStack?ds.oci.:}oraclecloud.com";
+    const url = EndpointBuilder.updateEndpointTemplateForOptions(endpoint, true, false);
+    expect(url).equals("https://iaas.us-phoenix-1.ds.oci.oraclecloud.com");
+
+    const url2 = EndpointBuilder.updateEndpointTemplateForOptions(endpoint, false, false);
+    expect(url2).equals("https://iaas.us-phoenix-1.oraclecloud.com");
+  });
 });

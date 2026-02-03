@@ -1695,6 +1695,37 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forCreateAdvancedClusterFileSystem
+   *
+   * @param request the request to send
+   * @return response returns CreateAdvancedClusterFileSystemResponse, GetWorkRequestResponse tuple
+   */
+  public async forCreateAdvancedClusterFileSystem(
+    request: serviceRequests.CreateAdvancedClusterFileSystemRequest
+  ): Promise<{
+    response: serviceResponses.CreateAdvancedClusterFileSystemResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const createAdvancedClusterFileSystemResponse = await this.client.createAdvancedClusterFileSystem(
+      request
+    );
+    if (createAdvancedClusterFileSystemResponse.opcWorkRequestId === undefined)
+      return {
+        response: createAdvancedClusterFileSystemResponse,
+        workRequestResponse: undefined as any
+      };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      createAdvancedClusterFileSystemResponse.opcWorkRequestId
+    );
+    return {
+      response: createAdvancedClusterFileSystemResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
    * Waits forCreateApplicationVip
    *
    * @param request the request to send
@@ -2689,6 +2720,37 @@ export class DatabaseWaiter {
       dbNodeActionResponse.opcWorkRequestId
     );
     return { response: dbNodeActionResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forDeleteAdvancedClusterFileSystem
+   *
+   * @param request the request to send
+   * @return response returns DeleteAdvancedClusterFileSystemResponse, GetWorkRequestResponse tuple
+   */
+  public async forDeleteAdvancedClusterFileSystem(
+    request: serviceRequests.DeleteAdvancedClusterFileSystemRequest
+  ): Promise<{
+    response: serviceResponses.DeleteAdvancedClusterFileSystemResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const deleteAdvancedClusterFileSystemResponse = await this.client.deleteAdvancedClusterFileSystem(
+      request
+    );
+    if (deleteAdvancedClusterFileSystemResponse.opcWorkRequestId === undefined)
+      return {
+        response: deleteAdvancedClusterFileSystemResponse,
+        workRequestResponse: undefined as any
+      };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      deleteAdvancedClusterFileSystemResponse.opcWorkRequestId
+    );
+    return {
+      response: deleteAdvancedClusterFileSystemResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
   }
 
   /**
@@ -4442,6 +4504,25 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forAdvancedClusterFileSystem till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetAdvancedClusterFileSystemResponse | null (null in case of 404 response)
+   */
+  public async forAdvancedClusterFileSystem(
+    request: serviceRequests.GetAdvancedClusterFileSystemRequest,
+    ...targetStates: models.AdvancedClusterFileSystem.LifecycleState[]
+  ): Promise<serviceResponses.GetAdvancedClusterFileSystemResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getAdvancedClusterFileSystem(request),
+      response => targetStates.includes(response.advancedClusterFileSystem.lifecycleState!),
+      targetStates.includes(models.AdvancedClusterFileSystem.LifecycleState.Deleted)
+    );
+  }
+
+  /**
    * Waits forApplicationVip till it reaches any of the provided states
    *
    * @param request the request to send
@@ -5788,6 +5869,37 @@ export class DatabaseWaiter {
     );
     return {
       response: modifyPluggableDatabaseManagementResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forMountAdvancedClusterFileSystem
+   *
+   * @param request the request to send
+   * @return response returns MountAdvancedClusterFileSystemResponse, GetWorkRequestResponse tuple
+   */
+  public async forMountAdvancedClusterFileSystem(
+    request: serviceRequests.MountAdvancedClusterFileSystemRequest
+  ): Promise<{
+    response: serviceResponses.MountAdvancedClusterFileSystemResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const mountAdvancedClusterFileSystemResponse = await this.client.mountAdvancedClusterFileSystem(
+      request
+    );
+    if (mountAdvancedClusterFileSystemResponse.opcWorkRequestId === undefined)
+      return {
+        response: mountAdvancedClusterFileSystemResponse,
+        workRequestResponse: undefined as any
+      };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      mountAdvancedClusterFileSystemResponse.opcWorkRequestId
+    );
+    return {
+      response: mountAdvancedClusterFileSystemResponse,
       workRequestResponse: getWorkRequestResponse
     };
   }
@@ -7167,6 +7279,37 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forUnmountAdvancedClusterFileSystem
+   *
+   * @param request the request to send
+   * @return response returns UnmountAdvancedClusterFileSystemResponse, GetWorkRequestResponse tuple
+   */
+  public async forUnmountAdvancedClusterFileSystem(
+    request: serviceRequests.UnmountAdvancedClusterFileSystemRequest
+  ): Promise<{
+    response: serviceResponses.UnmountAdvancedClusterFileSystemResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const unmountAdvancedClusterFileSystemResponse = await this.client.unmountAdvancedClusterFileSystem(
+      request
+    );
+    if (unmountAdvancedClusterFileSystemResponse.opcWorkRequestId === undefined)
+      return {
+        response: unmountAdvancedClusterFileSystemResponse,
+        workRequestResponse: undefined as any
+      };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      unmountAdvancedClusterFileSystemResponse.opcWorkRequestId
+    );
+    return {
+      response: unmountAdvancedClusterFileSystemResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
    * Waits forUnmountDbnodeSnapshot
    *
    * @param request the request to send
@@ -7247,6 +7390,37 @@ export class DatabaseWaiter {
     );
     return {
       response: unregisterCloudVmClusterPkcsResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forUpdateAdvancedClusterFileSystem
+   *
+   * @param request the request to send
+   * @return response returns UpdateAdvancedClusterFileSystemResponse, GetWorkRequestResponse tuple
+   */
+  public async forUpdateAdvancedClusterFileSystem(
+    request: serviceRequests.UpdateAdvancedClusterFileSystemRequest
+  ): Promise<{
+    response: serviceResponses.UpdateAdvancedClusterFileSystemResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const updateAdvancedClusterFileSystemResponse = await this.client.updateAdvancedClusterFileSystem(
+      request
+    );
+    if (updateAdvancedClusterFileSystemResponse.opcWorkRequestId === undefined)
+      return {
+        response: updateAdvancedClusterFileSystemResponse,
+        workRequestResponse: undefined as any
+      };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      updateAdvancedClusterFileSystemResponse.opcWorkRequestId
+    );
+    return {
+      response: updateAdvancedClusterFileSystemResponse,
       workRequestResponse: getWorkRequestResponse
     };
   }

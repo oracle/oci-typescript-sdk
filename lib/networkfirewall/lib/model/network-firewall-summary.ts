@@ -51,6 +51,10 @@ export interface NetworkFirewallSummary {
   "ipv6Address"?: string;
   "natConfiguration"?: model.NatConfigurationResponse;
   /**
+   * The shape of a firewall to determine the bandwidth that the firewall allows.
+   */
+  "shape"?: string;
+  /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Network Firewall Policy.
    */
   "networkFirewallPolicyId": string;

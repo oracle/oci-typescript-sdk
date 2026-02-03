@@ -59,7 +59,7 @@ export interface LogAnalyticsSourceLabelCondition {
    */
   "contentExample"?: string;
   /**
-   * A flag inidcating whether or not the condition is enabled.
+   * A flag indicating whether or not the condition is enabled.
    *
    */
   "isEnabled"?: boolean;

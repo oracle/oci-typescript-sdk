@@ -7,6 +7,23 @@ import { Region } from "./region";
 import { Realm } from "./realm";
 import { LOG } from "./log";
 
+const OCI_DUALSTACK_ENDPOINT_ENABLED_ENV_VAR = "OCI_DUAL_STACK_ENDPOINT_ENABLED";
+const ENDPOINT_TEMPLATE_OPTION_PHRASE = "((\\w|\\.|\\-)+)";
+const DUALSTACK_OPTION = "{dualStack";
+const PATTERN_FOR_ENDPOINT_TEMPLATE_OPTIONS =
+  "\\{" +
+  ENDPOINT_TEMPLATE_OPTION_PHRASE +
+  "\\?((" +
+  ENDPOINT_TEMPLATE_OPTION_PHRASE +
+  ":" +
+  ENDPOINT_TEMPLATE_OPTION_PHRASE +
+  ")" +
+  "|(" +
+  ENDPOINT_TEMPLATE_OPTION_PHRASE +
+  ":\\s*)|(\\s*:" +
+  ENDPOINT_TEMPLATE_OPTION_PHRASE +
+  "))}";
+
 export class EndpointBuilder {
   public static createEndpointFromRegion(
     template: string,
@@ -212,5 +229,66 @@ export class EndpointBuilder {
       return true;
     }
     return false;
+  }
+
+  private static get isDualStackEnabledViaEnv(): boolean | undefined {
+    let value = process.env[OCI_DUALSTACK_ENDPOINT_ENABLED_ENV_VAR];
+    if (value) {
+      if (value.toLowerCase() === "true") return true;
+      if (value.toLowerCase() === "false") return false;
+    }
+    return undefined;
+  }
+
+  public static updateEndpointTemplateForOptions(
+    endpointTemplate: string,
+    dualStackEnabledOnClient: boolean | undefined,
+    serviceUsesDualStackByDefault: boolean
+  ): string {
+    let templateRegex = RegExp(PATTERN_FOR_ENDPOINT_TEMPLATE_OPTIONS, "g");
+    let templates = endpointTemplate.match(templateRegex);
+    if (templates) {
+      templates.forEach(templateOption => {
+        let optionParam = "";
+        let optionEnabledParam = templateOption.substring(
+          templateOption.indexOf("?") + 1,
+          templateOption.indexOf(":")
+        );
+        let optionDisabledParam = templateOption.substring(
+          templateOption.indexOf(":") + 1,
+          templateOption.indexOf("}")
+        );
+        // Option case: Dual Stack Endpoints
+        if (templateOption.includes(DUALSTACK_OPTION)) {
+          if (serviceUsesDualStackByDefault) {
+            // Service uses dual stack by default, disable only if explicitly disabled on client or via env var
+            if (
+              dualStackEnabledOnClient === false ||
+              EndpointBuilder.isDualStackEnabledViaEnv === false
+            ) {
+              optionParam = optionDisabledParam;
+            } else {
+              optionParam = optionEnabledParam;
+            }
+          } else {
+            // Service does not use dual stack by default, enable only if explicitly enabled on client or via env var
+            if (
+              dualStackEnabledOnClient === true ||
+              EndpointBuilder.isDualStackEnabledViaEnv === true
+            ) {
+              optionParam = optionEnabledParam;
+            } else {
+              optionParam = optionDisabledParam;
+            }
+          }
+        }
+        endpointTemplate = endpointTemplate.replace(templateOption, optionParam);
+      });
+    }
+    if (LOG.logger)
+      LOG.logger.debug(
+        `Using ${endpointTemplate} as endpoint template after evaluating endpoint template options`
+      );
+    return endpointTemplate;
   }
 }

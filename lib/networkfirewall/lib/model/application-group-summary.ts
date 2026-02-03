@@ -30,6 +30,10 @@ export interface ApplicationGroupSummary {
    * OCID of the Network Firewall Policy this application group belongs to.
    */
   "parentResourceId": string;
+  /**
+   * The description of the application list. This field can be used to add additional info.
+   */
+  "description"?: string;
 }
 
 export namespace ApplicationGroupSummary {

@@ -29,6 +29,15 @@ export interface Schedule {
    *
    */
   "timeOfFirstExecution"?: Date;
+  /**
+   * Number of seconds to offset the query time window by to accommodate capture late arriving data. For example, a schedule run at 12:00 with a 10 minute interval and queryOffsetSecs=120 will use the query time window of 11:48-11:58 rather than 11:50-12:00 without queryOffsetSecs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "queryOffsetSecs"?: number;
+  /**
+   * End time for the schedule, even if the schedule would otherwise have remaining executions.
+   *
+   */
+  "timeEnd"?: Date;
 
   "type": string;
 }

@@ -41,6 +41,10 @@ export interface TunnelInspectionRuleSummary {
    * OCID of the Network Firewall Policy this Tunnel Inspection Rule belongs to.
    */
   "parentResourceId": string;
+  /**
+   * The description of the tunnel inspect rule. This field can be used to add additional info.
+   */
+  "description"?: string;
 
   "protocol": string;
 }

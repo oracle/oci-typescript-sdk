@@ -124,6 +124,14 @@ Example: {@code {\"Department\": \"Finance\"}}
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Exadata Database Storage Vault.
    */
   "exascaleDbStorageVaultId"?: string;
+  /**
+   * Specifies the type of file system storage and supported values are LOCAL and EXASCALE. - LOCAL if selected then file system storage will be on DB Servers. - EXASCALE if selected then file system storage will be on Exascale Storage Servers. Default Value is LOCAL
+   */
+  "vmFileSystemStorageType"?: CreateVmClusterDetails.VmFileSystemStorageType;
+  /**
+   * Specifies the type of VM Backups Storage and supported values are LOCAL and EXASCALE. - LOCAL if selected then VM Backups storage will be on DB Servers. - EXASCALE if selected then VM Backups storage will be on Exascale Storage Servers. Default Value is LOCAL
+   */
+  "vmBackupStorageType"?: CreateVmClusterDetails.VmBackupStorageType;
 }
 
 export namespace CreateVmClusterDetails {
@@ -135,6 +143,16 @@ export namespace CreateVmClusterDetails {
   export enum VmClusterType {
     Regular = "REGULAR",
     Developer = "DEVELOPER"
+  }
+
+  export enum VmFileSystemStorageType {
+    Local = "LOCAL",
+    Exascale = "EXASCALE"
+  }
+
+  export enum VmBackupStorageType {
+    Local = "LOCAL",
+    Exascale = "EXASCALE"
   }
 
   export function getJsonObj(obj: CreateVmClusterDetails): object {

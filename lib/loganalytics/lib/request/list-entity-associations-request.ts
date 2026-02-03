@@ -19,12 +19,12 @@ import common = require("oci-common");
  */
 export interface ListEntityAssociationsRequest extends common.BaseRequest {
   /**
-   * The Logging Analytics namespace used for the request.
+   * The Log Analytics namespace used for the request. The namespace can be obtained by running 'oci os ns get'
    *
    */
   "namespaceName": string;
   /**
-   * The log analytics entity OCID.
+   * The log analytics entity ID [OCID]. Entity ID can be obtained by running 'oci log-analytics entity list --namespace-name <namespace> --compartment-id <compartment>'. The json output 'id' parameter value contains the entity ID.
    *
    */
   "logAnalyticsEntityId": string;

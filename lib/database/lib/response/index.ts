@@ -124,6 +124,8 @@ import * as ConvertToRegularPluggableDatabaseResponse from "./convert-to-regular
 export import ConvertToRegularPluggableDatabaseResponse = ConvertToRegularPluggableDatabaseResponse.ConvertToRegularPluggableDatabaseResponse;
 import * as ConvertToStandaloneResponse from "./convert-to-standalone-response";
 export import ConvertToStandaloneResponse = ConvertToStandaloneResponse.ConvertToStandaloneResponse;
+import * as CreateAdvancedClusterFileSystemResponse from "./create-advanced-cluster-file-system-response";
+export import CreateAdvancedClusterFileSystemResponse = CreateAdvancedClusterFileSystemResponse.CreateAdvancedClusterFileSystemResponse;
 import * as CreateApplicationVipResponse from "./create-application-vip-response";
 export import CreateApplicationVipResponse = CreateApplicationVipResponse.CreateApplicationVipResponse;
 import * as CreateAutonomousContainerDatabaseResponse from "./create-autonomous-container-database-response";
@@ -204,6 +206,8 @@ import * as CreateVmClusterNetworkResponse from "./create-vm-cluster-network-res
 export import CreateVmClusterNetworkResponse = CreateVmClusterNetworkResponse.CreateVmClusterNetworkResponse;
 import * as DbNodeActionResponse from "./db-node-action-response";
 export import DbNodeActionResponse = DbNodeActionResponse.DbNodeActionResponse;
+import * as DeleteAdvancedClusterFileSystemResponse from "./delete-advanced-cluster-file-system-response";
+export import DeleteAdvancedClusterFileSystemResponse = DeleteAdvancedClusterFileSystemResponse.DeleteAdvancedClusterFileSystemResponse;
 import * as DeleteApplicationVipResponse from "./delete-application-vip-response";
 export import DeleteApplicationVipResponse = DeleteApplicationVipResponse.DeleteApplicationVipResponse;
 import * as DeleteAutonomousDatabaseResponse from "./delete-autonomous-database-response";
@@ -350,6 +354,8 @@ import * as GenerateAutonomousDatabaseWalletResponse from "./generate-autonomous
 export import GenerateAutonomousDatabaseWalletResponse = GenerateAutonomousDatabaseWalletResponse.GenerateAutonomousDatabaseWalletResponse;
 import * as GenerateRecommendedVmClusterNetworkResponse from "./generate-recommended-vm-cluster-network-response";
 export import GenerateRecommendedVmClusterNetworkResponse = GenerateRecommendedVmClusterNetworkResponse.GenerateRecommendedVmClusterNetworkResponse;
+import * as GetAdvancedClusterFileSystemResponse from "./get-advanced-cluster-file-system-response";
+export import GetAdvancedClusterFileSystemResponse = GetAdvancedClusterFileSystemResponse.GetAdvancedClusterFileSystemResponse;
 import * as GetApplicationVipResponse from "./get-application-vip-response";
 export import GetApplicationVipResponse = GetApplicationVipResponse.GetApplicationVipResponse;
 import * as GetAutonomousContainerDatabaseResponse from "./get-autonomous-container-database-response";
@@ -508,6 +514,8 @@ import * as LaunchAutonomousExadataInfrastructureResponse from "./launch-autonom
 export import LaunchAutonomousExadataInfrastructureResponse = LaunchAutonomousExadataInfrastructureResponse.LaunchAutonomousExadataInfrastructureResponse;
 import * as LaunchDbSystemResponse from "./launch-db-system-response";
 export import LaunchDbSystemResponse = LaunchDbSystemResponse.LaunchDbSystemResponse;
+import * as ListAdvancedClusterFileSystemsResponse from "./list-advanced-cluster-file-systems-response";
+export import ListAdvancedClusterFileSystemsResponse = ListAdvancedClusterFileSystemsResponse.ListAdvancedClusterFileSystemsResponse;
 import * as ListApplicationVipsResponse from "./list-application-vips-response";
 export import ListApplicationVipsResponse = ListApplicationVipsResponse.ListApplicationVipsResponse;
 import * as ListAutonomousContainerDatabaseBackupsResponse from "./list-autonomous-container-database-backups-response";
@@ -698,6 +706,8 @@ import * as ModifyDatabaseManagementResponse from "./modify-database-management-
 export import ModifyDatabaseManagementResponse = ModifyDatabaseManagementResponse.ModifyDatabaseManagementResponse;
 import * as ModifyPluggableDatabaseManagementResponse from "./modify-pluggable-database-management-response";
 export import ModifyPluggableDatabaseManagementResponse = ModifyPluggableDatabaseManagementResponse.ModifyPluggableDatabaseManagementResponse;
+import * as MountAdvancedClusterFileSystemResponse from "./mount-advanced-cluster-file-system-response";
+export import MountAdvancedClusterFileSystemResponse = MountAdvancedClusterFileSystemResponse.MountAdvancedClusterFileSystemResponse;
 import * as MountDbnodeSnapshotResponse from "./mount-dbnode-snapshot-response";
 export import MountDbnodeSnapshotResponse = MountDbnodeSnapshotResponse.MountDbnodeSnapshotResponse;
 import * as MoveExecutionActionMemberResponse from "./move-execution-action-member-response";
@@ -800,12 +810,16 @@ import * as TerminateAutonomousExadataInfrastructureResponse from "./terminate-a
 export import TerminateAutonomousExadataInfrastructureResponse = TerminateAutonomousExadataInfrastructureResponse.TerminateAutonomousExadataInfrastructureResponse;
 import * as TerminateDbSystemResponse from "./terminate-db-system-response";
 export import TerminateDbSystemResponse = TerminateDbSystemResponse.TerminateDbSystemResponse;
+import * as UnmountAdvancedClusterFileSystemResponse from "./unmount-advanced-cluster-file-system-response";
+export import UnmountAdvancedClusterFileSystemResponse = UnmountAdvancedClusterFileSystemResponse.UnmountAdvancedClusterFileSystemResponse;
 import * as UnmountDbnodeSnapshotResponse from "./unmount-dbnode-snapshot-response";
 export import UnmountDbnodeSnapshotResponse = UnmountDbnodeSnapshotResponse.UnmountDbnodeSnapshotResponse;
 import * as UnregisterCloudAutonomousVmClusterPkcsResponse from "./unregister-cloud-autonomous-vm-cluster-pkcs-response";
 export import UnregisterCloudAutonomousVmClusterPkcsResponse = UnregisterCloudAutonomousVmClusterPkcsResponse.UnregisterCloudAutonomousVmClusterPkcsResponse;
 import * as UnregisterCloudVmClusterPkcsResponse from "./unregister-cloud-vm-cluster-pkcs-response";
 export import UnregisterCloudVmClusterPkcsResponse = UnregisterCloudVmClusterPkcsResponse.UnregisterCloudVmClusterPkcsResponse;
+import * as UpdateAdvancedClusterFileSystemResponse from "./update-advanced-cluster-file-system-response";
+export import UpdateAdvancedClusterFileSystemResponse = UpdateAdvancedClusterFileSystemResponse.UpdateAdvancedClusterFileSystemResponse;
 import * as UpdateAutonomousContainerDatabaseResponse from "./update-autonomous-container-database-response";
 export import UpdateAutonomousContainerDatabaseResponse = UpdateAutonomousContainerDatabaseResponse.UpdateAutonomousContainerDatabaseResponse;
 import * as UpdateAutonomousContainerDatabaseDataguardAssociationResponse from "./update-autonomous-container-database-dataguard-association-response";

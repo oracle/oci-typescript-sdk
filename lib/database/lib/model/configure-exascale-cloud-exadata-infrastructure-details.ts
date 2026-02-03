@@ -24,6 +24,10 @@ export interface ConfigureExascaleCloudExadataInfrastructureDetails {
    * Storage size needed for Exascale in GBs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "totalStorageInGBs": number;
+  /**
+   * Storage size needed for VM storage on Exascale in GBs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "totalVmStorageInGBs"?: number;
 }
 
 export namespace ConfigureExascaleCloudExadataInfrastructureDetails {

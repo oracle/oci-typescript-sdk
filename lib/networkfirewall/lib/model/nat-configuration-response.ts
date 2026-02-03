@@ -15,16 +15,23 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Nat Configuration response.
- */
+* Response to a request to configure Network Address Translation (NAT) on a firewall.
+* <p>
+To perform NAT on traffic passing the private NAT IPs to the firewall, the attached network firewall policy must also have NAT rules and NAT configuration must be enabled. If NAT configuration is enabled and the attached firewall policy does not contain NAT rule then NAT IPs will get allocated but NAT will not be performed on any traffic.
+* 
+*/
 export interface NatConfigurationResponse {
   /**
-   * To allocate private NAT IPs to the firewall. The attached network firewall policy must also have NAT rules to enable NAT on any traffic passing through the firewall.
+   * True indicates that NAT configuration is enabled. False indicates NAT configuration is disabled.
+   *
    */
   "mustEnablePrivateNat"?: boolean;
   /**
-   * An array of NAT IP addresses that are associated with the Network Firewall. These IPs are reserved for NAT and shouldn't be used for any other purpose in the subnet.
-   */
+    * An array of Private NAT IP addresses that are associated with the Network Firewall. These IP addresses are reserved for NAT and shouldn't be used for any other purpose in the subnet.
+* <p>
+This list contains IP  addresses when NAT configuration is enabled. This list is empty or null IP when NAT configuration is disabled.
+* 
+    */
   "natIpAddressList"?: Array<string>;
 }
 

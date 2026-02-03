@@ -47,16 +47,38 @@ export interface MetricExtraction {
    *
    */
   "resourceGroup"?: string;
+  /**
+   * Details for the metrics to be collected.
+   */
+  "metricCollections"?: Array<model.MetricCollection>;
 }
 
 export namespace MetricExtraction {
   export function getJsonObj(obj: MetricExtraction): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "metricCollections": obj.metricCollections
+          ? obj.metricCollections.map(item => {
+              return model.MetricCollection.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: MetricExtraction): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "metricCollections": obj.metricCollections
+          ? obj.metricCollections.map(item => {
+              return model.MetricCollection.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

@@ -30,6 +30,10 @@ export interface ServiceSummary {
    * OCID of the Network Firewall Policy this Service belongs to.
    */
   "parentResourceId": string;
+  /**
+   * The description of the service. This field can be used to add additional info.
+   */
+  "description"?: string;
 }
 
 export namespace ServiceSummary {

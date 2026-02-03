@@ -52,7 +52,7 @@ export interface LogAnalyticsMetric {
    */
   "groupingField"?: string;
   /**
-   * A flag inidcating whether or not the metric is enabled.
+   * A flag indicating whether or not the metric is enabled.
    *
    */
   "isEnabled"?: boolean;
@@ -75,7 +75,7 @@ export interface LogAnalyticsMetric {
    */
   "name"?: string;
   /**
-   * The metric type, specifying the type of aggreation to perform.  Default value
+   * The metric type, specifying the type of aggregation to perform. Default value
    * is COUNT.
    *
    */
