@@ -40,6 +40,11 @@ export namespace TargetDetails {
 
     if (obj && "entityType" in obj && obj.entityType) {
       switch (obj.entityType) {
+        case "EXADBVMCLUSTER":
+          return model.ExadbVmClusterTargetSummary.getJsonObj(
+            <model.ExadbVmClusterTargetSummary>(<object>jsonObj),
+            true
+          );
         case "VMCLUSTER":
           return model.VmClusterTargetSummary.getJsonObj(
             <model.VmClusterTargetSummary>(<object>jsonObj),
@@ -66,6 +71,11 @@ export namespace TargetDetails {
 
     if (obj && "entityType" in obj && obj.entityType) {
       switch (obj.entityType) {
+        case "EXADBVMCLUSTER":
+          return model.ExadbVmClusterTargetSummary.getDeserializedJsonObj(
+            <model.ExadbVmClusterTargetSummary>(<object>jsonObj),
+            true
+          );
         case "VMCLUSTER":
           return model.VmClusterTargetSummary.getDeserializedJsonObj(
             <model.VmClusterTargetSummary>(<object>jsonObj),

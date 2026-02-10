@@ -25,6 +25,7 @@ export interface GiTargetListDiscovery extends model.GiFleetDiscoveryDetails {
    * OCIDs of target resources to include.
    * For EXACC service type Collections only VMClusters are allowed.
    * For EXACS service type Collections only CloudVMClusters are allowed.
+   * For EXA-DB-XS service type Collections only ExaDBVMClusters are allowed.
    *
    */
   "targets": Array<string>;

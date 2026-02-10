@@ -22014,6 +22014,316 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
   }
 
   /**
+   * Create new IPv6s for a VNIC or Subnet.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param BulkCreateIpv6sRequest
+   * @return BulkCreateIpv6sResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/BulkCreateIpv6s.ts.html |here} to see how to use BulkCreateIpv6s API.
+   */
+  public async bulkCreateIpv6s(
+    bulkCreateIpv6sRequest: requests.BulkCreateIpv6sRequest
+  ): Promise<responses.BulkCreateIpv6sResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#bulkCreateIpv6s.");
+    const operationName = "bulkCreateIpv6s";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Ipv6/BulkCreateIpv6s";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": bulkCreateIpv6sRequest.opcRetryToken,
+      "opc-request-id": bulkCreateIpv6sRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      bulkCreateIpv6sRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/ipv6/actions/bulkCreateIpv6s",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        bulkCreateIpv6sRequest.bulkCreateIpv6sDetails,
+        "BulkCreateIpv6sDetails",
+        model.BulkCreateIpv6sDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.BulkCreateIpv6sResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Create secondary private IPv4 addresses.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param BulkCreatePrivateIpsRequest
+   * @return BulkCreatePrivateIpsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/BulkCreatePrivateIps.ts.html |here} to see how to use BulkCreatePrivateIps API.
+   */
+  public async bulkCreatePrivateIps(
+    bulkCreatePrivateIpsRequest: requests.BulkCreatePrivateIpsRequest
+  ): Promise<responses.BulkCreatePrivateIpsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#bulkCreatePrivateIps.");
+    const operationName = "bulkCreatePrivateIps";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/PrivateIp/BulkCreatePrivateIps";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": bulkCreatePrivateIpsRequest.opcRetryToken,
+      "opc-request-id": bulkCreatePrivateIpsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      bulkCreatePrivateIpsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/privateIps/actions/bulkCreatePrivateIps",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        bulkCreatePrivateIpsRequest.bulkCreatePrivateIpsDetails,
+        "BulkCreatePrivateIpsDetails",
+        model.BulkCreatePrivateIpsDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.BulkCreatePrivateIpsResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Unassigns and deletes IPv6s for a VNIC.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param BulkDeleteIpv6sRequest
+   * @return BulkDeleteIpv6sResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/BulkDeleteIpv6s.ts.html |here} to see how to use BulkDeleteIpv6s API.
+   */
+  public async bulkDeleteIpv6s(
+    bulkDeleteIpv6sRequest: requests.BulkDeleteIpv6sRequest
+  ): Promise<responses.BulkDeleteIpv6sResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#bulkDeleteIpv6s.");
+    const operationName = "bulkDeleteIpv6s";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Ipv6/BulkDeleteIpv6s";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": bulkDeleteIpv6sRequest.opcRetryToken,
+      "opc-request-id": bulkDeleteIpv6sRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      bulkDeleteIpv6sRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/ipv6/actions/bulkDeleteIpv6s",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        bulkDeleteIpv6sRequest.bulkDeleteIpv6sDetails,
+        "BulkDeleteIpv6sDetails",
+        model.BulkDeleteIpv6sDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.BulkDeleteIpv6sResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Unassigns and deletes secondary private IPv4s for a VNIC.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param BulkDeletePrivateIpsRequest
+   * @return BulkDeletePrivateIpsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/BulkDeletePrivateIps.ts.html |here} to see how to use BulkDeletePrivateIps API.
+   */
+  public async bulkDeletePrivateIps(
+    bulkDeletePrivateIpsRequest: requests.BulkDeletePrivateIpsRequest
+  ): Promise<responses.BulkDeletePrivateIpsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#bulkDeletePrivateIps.");
+    const operationName = "bulkDeletePrivateIps";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/PrivateIp/BulkDeletePrivateIps";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": bulkDeletePrivateIpsRequest.opcRetryToken,
+      "opc-request-id": bulkDeletePrivateIpsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      bulkDeletePrivateIpsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/privateIps/actions/bulkDeletePrivateIps",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        bulkDeletePrivateIpsRequest.bulkDeletePrivateIpsDetails,
+        "BulkDeletePrivateIpsDetails",
+        model.BulkDeletePrivateIpsDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.BulkDeletePrivateIpsResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Removes one or more customer public IP prefixes from the specified public virtual circuit.
    * Use this operation (and not {@link #updateVirtualCircuit(UpdateVirtualCircuitRequest) updateVirtualCircuit})
    * to remove prefixes from the virtual circuit. When the virtual circuit's state switches
@@ -22077,6 +22387,315 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
       const sdkResponse = composeResponse({
         responseObject: <responses.BulkDeleteVirtualCircuitPublicPrefixesResponse>{},
         responseHeaders: []
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * detach the specified IPv6s.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param BulkDetachIpv6sRequest
+   * @return BulkDetachIpv6sResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/BulkDetachIpv6s.ts.html |here} to see how to use BulkDetachIpv6s API.
+   */
+  public async bulkDetachIpv6s(
+    bulkDetachIpv6sRequest: requests.BulkDetachIpv6sRequest
+  ): Promise<responses.BulkDetachIpv6sResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#bulkDetachIpv6s.");
+    const operationName = "bulkDetachIpv6s";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Ipv6/BulkDetachIpv6s";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": bulkDetachIpv6sRequest.opcRetryToken,
+      "opc-request-id": bulkDetachIpv6sRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      bulkDetachIpv6sRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/ipv6/actions/bulkDetachIpv6s",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        bulkDetachIpv6sRequest.bulkDetachIpv6sDetails,
+        "BulkDetachIpv6sDetails",
+        model.BulkDetachIpv6sDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.BulkDetachIpv6sResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Unassign the specified PrivateIP address from Virtual Network Interface Card (VNIC). You must specify the PrivateIP [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param BulkDetachPrivateIpsRequest
+   * @return BulkDetachPrivateIpsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/BulkDetachPrivateIps.ts.html |here} to see how to use BulkDetachPrivateIps API.
+   */
+  public async bulkDetachPrivateIps(
+    bulkDetachPrivateIpsRequest: requests.BulkDetachPrivateIpsRequest
+  ): Promise<responses.BulkDetachPrivateIpsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#bulkDetachPrivateIps.");
+    const operationName = "bulkDetachPrivateIps";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/PrivateIp/BulkDetachPrivateIps";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": bulkDetachPrivateIpsRequest.opcRetryToken,
+      "opc-request-id": bulkDetachPrivateIpsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      bulkDetachPrivateIpsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/privateIps/actions/bulkDetachPrivateIps",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        bulkDetachPrivateIpsRequest.bulkDetachPrivateIpsDetails,
+        "BulkDetachPrivateIpsDetails",
+        model.BulkDetachPrivateIpsDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.BulkDetachPrivateIpsResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the specified IPv6s.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param BulkUpdateIpv6sRequest
+   * @return BulkUpdateIpv6sResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/BulkUpdateIpv6s.ts.html |here} to see how to use BulkUpdateIpv6s API.
+   */
+  public async bulkUpdateIpv6s(
+    bulkUpdateIpv6sRequest: requests.BulkUpdateIpv6sRequest
+  ): Promise<responses.BulkUpdateIpv6sResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#bulkUpdateIpv6s.");
+    const operationName = "bulkUpdateIpv6s";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Ipv6/BulkUpdateIpv6s";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": bulkUpdateIpv6sRequest.opcRetryToken,
+      "opc-request-id": bulkUpdateIpv6sRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      bulkUpdateIpv6sRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/ipv6/actions/bulkUpdateIpv6s",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        bulkUpdateIpv6sRequest.bulkUpdateIpv6sDetails,
+        "BulkUpdateIpv6sDetails",
+        model.BulkUpdateIpv6sDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.BulkUpdateIpv6sResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates existing secondary Private IPv4s for a VNIC.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param BulkUpdatePrivateIpsRequest
+   * @return BulkUpdatePrivateIpsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/BulkUpdatePrivateIps.ts.html |here} to see how to use BulkUpdatePrivateIps API.
+   */
+  public async bulkUpdatePrivateIps(
+    bulkUpdatePrivateIpsRequest: requests.BulkUpdatePrivateIpsRequest
+  ): Promise<responses.BulkUpdatePrivateIpsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#bulkUpdatePrivateIps.");
+    const operationName = "bulkUpdatePrivateIps";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/PrivateIp/BulkUpdatePrivateIps";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": bulkUpdatePrivateIpsRequest.opcRetryToken,
+      "opc-request-id": bulkUpdatePrivateIpsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      bulkUpdatePrivateIpsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/privateIps/actions/bulkUpdatePrivateIps",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        bulkUpdatePrivateIpsRequest.bulkUpdatePrivateIpsDetails,
+        "BulkUpdatePrivateIpsDetails",
+        model.BulkUpdatePrivateIpsDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.BulkUpdatePrivateIpsResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
       });
 
       return sdkResponse;
