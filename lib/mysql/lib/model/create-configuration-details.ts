@@ -38,6 +38,10 @@ export interface CreateConfigurationDetails {
   "initVariables"?: model.InitializationVariables;
   "variables"?: model.ConfigurationVariables;
   /**
+   * The MySQL options defined in the Configuration.
+   */
+  "options"?: Array<model.Option>;
+  /**
    * The OCID of the Configuration from which the new Configuration is derived. The values in CreateConfigurationDetails.variables supersede the variables of the parent Configuration.
    *
    */
@@ -66,6 +70,11 @@ export namespace CreateConfigurationDetails {
           : undefined,
         "variables": obj.variables
           ? model.ConfigurationVariables.getJsonObj(obj.variables)
+          : undefined,
+        "options": obj.options
+          ? obj.options.map(item => {
+              return model.Option.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -81,6 +90,11 @@ export namespace CreateConfigurationDetails {
           : undefined,
         "variables": obj.variables
           ? model.ConfigurationVariables.getDeserializedJsonObj(obj.variables)
+          : undefined,
+        "options": obj.options
+          ? obj.options.map(item => {
+              return model.Option.getDeserializedJsonObj(item);
+            })
           : undefined
       }
     };

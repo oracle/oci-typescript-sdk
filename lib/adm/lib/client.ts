@@ -2452,6 +2452,88 @@ export class ApplicationDependencyManagementClient {
   }
 
   /**
+   * Returns a list of vulnerability details for an audit.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListVulnerabilitiesRequest
+   * @return ListVulnerabilitiesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/adm/ListVulnerabilities.ts.html |here} to see how to use ListVulnerabilities API.
+   */
+  public async listVulnerabilities(
+    listVulnerabilitiesRequest: requests.ListVulnerabilitiesRequest
+  ): Promise<responses.ListVulnerabilitiesResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ApplicationDependencyManagementClient#listVulnerabilities."
+      );
+    const operationName = "listVulnerabilities";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{vulnerabilityAuditId}": listVulnerabilitiesRequest.vulnerabilityAuditId
+    };
+
+    const queryParams = {
+      "isDirectVulnerability": listVulnerabilitiesRequest.isDirectVulnerability,
+      "limit": listVulnerabilitiesRequest.limit,
+      "page": listVulnerabilitiesRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listVulnerabilitiesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listVulnerabilitiesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/vulnerabilityAudits/{vulnerabilityAuditId}/vulnerabilities",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListVulnerabilitiesResponse>{},
+        body: await response.json(),
+        bodyKey: "vulnerabilityDetailsCollection",
+        bodyModel: model.VulnerabilityDetailsCollection,
+        type: "model.VulnerabilityDetailsCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Returns a list of Vulnerability Audits based on the specified query parameters.
    * At least one of id, compartmentId query parameter must be provided.
    *

@@ -60,6 +60,11 @@ export interface ListJobsRequest extends common.BaseRequest {
    *
    */
   "lifecycleState"?: model.JobLifecycleStates;
+  /**
+   * The ID of the Job to exclude from the list of jobs.
+   *
+   */
+  "jobIdNotEqualTo"?: string;
 }
 
 export namespace ListJobsRequest {

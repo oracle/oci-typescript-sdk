@@ -332,6 +332,8 @@ import * as ExadbStackFsuCollectionSummary from "./exadb-stack-fsu-collection-su
 export import ExadbStackFsuCollectionSummary = ExadbStackFsuCollectionSummary.ExadbStackFsuCollectionSummary;
 import * as ExadbStackFsuGoalVersionDetails from "./exadb-stack-fsu-goal-version-details";
 export import ExadbStackFsuGoalVersionDetails = ExadbStackFsuGoalVersionDetails.ExadbStackFsuGoalVersionDetails;
+import * as ExadbVmClusterTargetSummary from "./exadb-vm-cluster-target-summary";
+export import ExadbVmClusterTargetSummary = ExadbVmClusterTargetSummary.ExadbVmClusterTargetSummary;
 import * as FailedJobsRollbackDetails from "./failed-jobs-rollback-details";
 export import FailedJobsRollbackDetails = FailedJobsRollbackDetails.FailedJobsRollbackDetails;
 import * as FiftyFiftyBatchingStrategyDetails from "./fifty-fifty-batching-strategy-details";

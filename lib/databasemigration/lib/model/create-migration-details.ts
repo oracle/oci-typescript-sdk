@@ -43,11 +43,11 @@ export interface CreateMigrationDetails {
   /**
    * The OCID of the resource being referenced.
    */
-  "sourceDatabaseConnectionId": string;
+  "sourceDatabaseConnectionId"?: string;
   /**
    * The OCID of the resource being referenced.
    */
-  "targetDatabaseConnectionId": string;
+  "targetDatabaseConnectionId"?: string;
   /**
    * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
    * For more information, see Resource Tags. Example: {\"Department\": \"Finance\"}
@@ -60,6 +60,10 @@ export interface CreateMigrationDetails {
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * The OCID of the resource being referenced.
+   */
+  "assessmentId"?: string;
 
   "databaseCombination": string;
 }

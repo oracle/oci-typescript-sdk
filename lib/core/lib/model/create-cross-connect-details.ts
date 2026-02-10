@@ -92,6 +92,16 @@ Example: {@code 10 Gbps}
    */
   "customerReferenceName"?: string;
   "macsecProperties"?: model.CreateMacsecProperties;
+  /**
+   * The name of the FastConnect device where this cross-connect is installed.
+   *
+   */
+  "ociPhysicalDeviceName"?: string;
+  /**
+   * The name of the FastConnect interface where this cross-connect is installed.
+   *
+   */
+  "interfaceName"?: string;
 }
 
 export namespace CreateCrossConnectDetails {

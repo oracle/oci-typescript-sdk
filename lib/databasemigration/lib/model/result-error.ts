@@ -39,6 +39,16 @@ export interface ResultError {
    *
    */
   "action"?: string;
+  /**
+   * The link to the documentation
+   *
+   */
+  "actionLink"?: string;
+  /**
+   * The text for the link to the documentation
+   *
+   */
+  "actionText"?: string;
 }
 
 export namespace ResultError {

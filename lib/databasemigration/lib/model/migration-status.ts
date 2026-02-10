@@ -22,6 +22,7 @@ export enum MigrationStatus {
   Aborting = "ABORTING",
   Validating = "VALIDATING",
   Validated = "VALIDATED",
+  Assessed = "ASSESSED",
   Waiting = "WAITING",
   Migrating = "MIGRATING",
   Done = "DONE",

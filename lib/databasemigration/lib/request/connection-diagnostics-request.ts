@@ -46,4 +46,8 @@ export interface ConnectionDiagnosticsRequest extends common.BaseRequest {
    *
    */
   "opcRetryToken"?: string;
+  /**
+   * When true, run assessment validation checks (e.g., DMSROLE) and include database information (name/version/size) in the response.
+   */
+  "isAssessmentValidation"?: boolean;
 }

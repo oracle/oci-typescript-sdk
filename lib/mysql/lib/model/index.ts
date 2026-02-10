@@ -143,6 +143,8 @@ import * as MaintenanceScheduleType from "./maintenance-schedule-type";
 export import MaintenanceScheduleType = MaintenanceScheduleType.MaintenanceScheduleType;
 import * as MaintenanceType from "./maintenance-type";
 export import MaintenanceType = MaintenanceType.MaintenanceType;
+import * as Option from "./option";
+export import Option = Option.Option;
 import * as PitrPolicy from "./pitr-policy";
 export import PitrPolicy = PitrPolicy.PitrPolicy;
 import * as PointInTimeRecoveryDetails from "./point-in-time-recovery-details";

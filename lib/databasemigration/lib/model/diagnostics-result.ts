@@ -25,6 +25,7 @@ export interface DiagnosticsResult {
    */
   "resultType": model.ResultType;
   "error"?: model.ResultError;
+  "databaseInformation"?: model.DatabaseInformation;
 }
 
 export namespace DiagnosticsResult {
@@ -32,7 +33,10 @@ export namespace DiagnosticsResult {
     const jsonObj = {
       ...obj,
       ...{
-        "error": obj.error ? model.ResultError.getJsonObj(obj.error) : undefined
+        "error": obj.error ? model.ResultError.getJsonObj(obj.error) : undefined,
+        "databaseInformation": obj.databaseInformation
+          ? model.DatabaseInformation.getJsonObj(obj.databaseInformation)
+          : undefined
       }
     };
 
@@ -42,7 +46,10 @@ export namespace DiagnosticsResult {
     const jsonObj = {
       ...obj,
       ...{
-        "error": obj.error ? model.ResultError.getDeserializedJsonObj(obj.error) : undefined
+        "error": obj.error ? model.ResultError.getDeserializedJsonObj(obj.error) : undefined,
+        "databaseInformation": obj.databaseInformation
+          ? model.DatabaseInformation.getDeserializedJsonObj(obj.databaseInformation)
+          : undefined
       }
     };
 
