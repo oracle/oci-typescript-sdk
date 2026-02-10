@@ -24,6 +24,43 @@ export class DatabaseMigrationWaiter {
   ) {}
 
   /**
+   * Waits forAssessment till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetAssessmentResponse | null (null in case of 404 response)
+   */
+  public async forAssessment(
+    request: serviceRequests.GetAssessmentRequest,
+    ...targetStates: models.AssessmentLifecycleStates[]
+  ): Promise<serviceResponses.GetAssessmentResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getAssessment(request),
+      response => targetStates.includes(response.assessment.lifecycleState!),
+      targetStates.includes(models.AssessmentLifecycleStates.Deleted)
+    );
+  }
+
+  /**
+   * Waits forAssessor till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetAssessorResponse
+   */
+  public async forAssessor(
+    request: serviceRequests.GetAssessorRequest,
+    ...targetStates: models.AssessorLifecycleStates[]
+  ): Promise<serviceResponses.GetAssessorResponse> {
+    return genericWaiter(
+      this.config,
+      () => this.client.getAssessor(request),
+      response => targetStates.includes(response.assessor.lifecycleState!)
+    );
+  }
+
+  /**
    * Waits forConnection till it reaches any of the provided states
    *
    * @param request the request to send

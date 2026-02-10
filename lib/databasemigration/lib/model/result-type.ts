@@ -21,6 +21,7 @@ import common = require("oci-common");
 export enum ResultType {
   Succeeded = "SUCCEEDED",
   Failed = "FAILED",
+  Warning = "WARNING",
   TimedOut = "TIMED_OUT",
 
   /**

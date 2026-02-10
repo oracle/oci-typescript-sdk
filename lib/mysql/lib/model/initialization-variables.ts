@@ -15,7 +15,9 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
+ * DEPRECATED -- please use the {@code options} field instead.
  * User-defined service variables set only at DB system initialization. These variables cannot be changed later at runtime.
+ *
  */
 export interface InitializationVariables {
   /**

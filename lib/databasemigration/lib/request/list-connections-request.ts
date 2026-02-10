@@ -34,6 +34,10 @@ export interface ListConnectionsRequest extends common.BaseRequest {
    */
   "technologyType"?: Array<model.TechnologyType>;
   /**
+   * The database technology sub-type.
+   */
+  "technologySubType"?: string;
+  /**
    * The array of connection types.
    */
   "connectionType"?: Array<model.ConnectionType>;

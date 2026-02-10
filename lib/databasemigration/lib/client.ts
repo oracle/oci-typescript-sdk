@@ -319,6 +319,81 @@ export class DatabaseMigrationClient {
    * Add excluded/included object to the list.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param AddAssessmentObjectsRequest
+   * @return AddAssessmentObjectsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/AddAssessmentObjects.ts.html |here} to see how to use AddAssessmentObjects API.
+   */
+  public async addAssessmentObjects(
+    addAssessmentObjectsRequest: requests.AddAssessmentObjectsRequest
+  ): Promise<responses.AddAssessmentObjectsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseMigrationClient#addAssessmentObjects.");
+    const operationName = "addAssessmentObjects";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-migration/20230518/Assessment/AddAssessmentObjects";
+    const pathParams = {
+      "{assessmentId}": addAssessmentObjectsRequest.assessmentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": addAssessmentObjectsRequest.opcRequestId,
+      "if-match": addAssessmentObjectsRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      addAssessmentObjectsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/assessments/{assessmentId}/actions/addAssessmentObjects",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        addAssessmentObjectsRequest.addAssessmentObjectsDetails,
+        "AssessmentObjectCollection",
+        model.AssessmentObjectCollection.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AddAssessmentObjectsResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Add excluded/included object to the list.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param AddMigrationObjectsRequest
    * @return AddMigrationObjectsResponse
    * @throws OciError when an error occurs
@@ -375,6 +450,82 @@ export class DatabaseMigrationClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.AddMigrationObjectsResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Used to change the Assessment compartment.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ChangeAssessmentCompartmentRequest
+   * @return ChangeAssessmentCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/ChangeAssessmentCompartment.ts.html |here} to see how to use ChangeAssessmentCompartment API.
+   */
+  public async changeAssessmentCompartment(
+    changeAssessmentCompartmentRequest: requests.ChangeAssessmentCompartmentRequest
+  ): Promise<responses.ChangeAssessmentCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseMigrationClient#changeAssessmentCompartment.");
+    const operationName = "changeAssessmentCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-migration/20230518/Assessment/ChangeAssessmentCompartment";
+    const pathParams = {
+      "{assessmentId}": changeAssessmentCompartmentRequest.assessmentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": changeAssessmentCompartmentRequest.opcRetryToken,
+      "opc-request-id": changeAssessmentCompartmentRequest.opcRequestId,
+      "if-match": changeAssessmentCompartmentRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeAssessmentCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/assessments/{assessmentId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeAssessmentCompartmentRequest.changeAssessmentCompartmentDetails,
+        "ChangeAssessmentCompartmentDetails",
+        model.ChangeAssessmentCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeAssessmentCompartmentResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -531,6 +682,96 @@ export class DatabaseMigrationClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Clone a configuration from an existing Assessment.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CloneAssessmentRequest
+   * @return CloneAssessmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/CloneAssessment.ts.html |here} to see how to use CloneAssessment API.
+   */
+  public async cloneAssessment(
+    cloneAssessmentRequest: requests.CloneAssessmentRequest
+  ): Promise<responses.CloneAssessmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseMigrationClient#cloneAssessment.");
+    const operationName = "cloneAssessment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-migration/20230518/Assessment/CloneAssessment";
+    const pathParams = {
+      "{assessmentId}": cloneAssessmentRequest.assessmentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": cloneAssessmentRequest.ifMatch,
+      "opc-retry-token": cloneAssessmentRequest.opcRetryToken,
+      "opc-request-id": cloneAssessmentRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      cloneAssessmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/assessments/{assessmentId}/actions/clone",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        cloneAssessmentRequest.cloneAssessmentDetails,
+        "CloneAssessmentDetails",
+        model.CloneAssessmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CloneAssessmentResponse>{},
+        body: await response.json(),
+        bodyKey: "assessment",
+        bodyModel: model.Assessment,
+        type: "model.Assessment",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
             dataType: "string"
           }
         ]
@@ -735,7 +976,9 @@ export class DatabaseMigrationClient {
       "{connectionId}": connectionDiagnosticsRequest.connectionId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isAssessmentValidation": connectionDiagnosticsRequest.isAssessmentValidation
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -783,6 +1026,95 @@ export class DatabaseMigrationClient {
           {
             value: response.headers.get("etag"),
             key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Create an Assessment resource that contains all the details to perform the
+   * database assessment operation, such as source and destination database
+   * details, network throughput, accepted downtime etc.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateAssessmentRequest
+   * @return CreateAssessmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/CreateAssessment.ts.html |here} to see how to use CreateAssessment API.
+   */
+  public async createAssessment(
+    createAssessmentRequest: requests.CreateAssessmentRequest
+  ): Promise<responses.CreateAssessmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseMigrationClient#createAssessment.");
+    const operationName = "createAssessment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-migration/20230518/Assessment/CreateAssessment";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createAssessmentRequest.opcRetryToken,
+      "opc-request-id": createAssessmentRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createAssessmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/assessments",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createAssessmentRequest.createAssessmentDetails,
+        "CreateAssessmentDetails",
+        model.CreateAssessmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateAssessmentResponse>{},
+        body: await response.json(),
+        bodyKey: "assessment",
+        bodyModel: model.Assessment,
+        type: "model.Assessment",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           }
         ]
@@ -1031,6 +1363,81 @@ export class DatabaseMigrationClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateParameterFileVersionResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the Assessment represented by the specified assessment ID.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteAssessmentRequest
+   * @return DeleteAssessmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/DeleteAssessment.ts.html |here} to see how to use DeleteAssessment API.
+   */
+  public async deleteAssessment(
+    deleteAssessmentRequest: requests.DeleteAssessmentRequest
+  ): Promise<responses.DeleteAssessmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseMigrationClient#deleteAssessment.");
+    const operationName = "deleteAssessment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-migration/20230518/Assessment/DeleteAssessment";
+    const pathParams = {
+      "{assessmentId}": deleteAssessmentRequest.assessmentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": deleteAssessmentRequest.opcRequestId,
+      "if-match": deleteAssessmentRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteAssessmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/assessments/{assessmentId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteAssessmentResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1510,6 +1917,249 @@ export class DatabaseMigrationClient {
   }
 
   /**
+   * Display Assessment details.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetAssessmentRequest
+   * @return GetAssessmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/GetAssessment.ts.html |here} to see how to use GetAssessment API.
+   */
+  public async getAssessment(
+    getAssessmentRequest: requests.GetAssessmentRequest
+  ): Promise<responses.GetAssessmentResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseMigrationClient#getAssessment.");
+    const operationName = "getAssessment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-migration/20230518/Assessment/GetAssessment";
+    const pathParams = {
+      "{assessmentId}": getAssessmentRequest.assessmentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getAssessmentRequest.opcRequestId,
+      "if-match": getAssessmentRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getAssessmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/assessments/{assessmentId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetAssessmentResponse>{},
+        body: await response.json(),
+        bodyKey: "assessment",
+        bodyModel: model.Assessment,
+        type: "model.Assessment",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Display Assessor details.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetAssessorRequest
+   * @return GetAssessorResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/GetAssessor.ts.html |here} to see how to use GetAssessor API.
+   */
+  public async getAssessor(
+    getAssessorRequest: requests.GetAssessorRequest
+  ): Promise<responses.GetAssessorResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseMigrationClient#getAssessor.");
+    const operationName = "getAssessor";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-migration/20230518/Assessor/GetAssessor";
+    const pathParams = {
+      "{assessmentId}": getAssessorRequest.assessmentId,
+      "{assessorName}": getAssessorRequest.assessorName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getAssessorRequest.opcRequestId,
+      "if-match": getAssessorRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getAssessorRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/assessments/{assessmentId}/assessors/{assessorName}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetAssessorResponse>{},
+        body: await response.json(),
+        bodyKey: "assessor",
+        bodyModel: model.Assessor,
+        type: "model.Assessor",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get Assessor Check details.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetAssessorCheckRequest
+   * @return GetAssessorCheckResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/GetAssessorCheck.ts.html |here} to see how to use GetAssessorCheck API.
+   */
+  public async getAssessorCheck(
+    getAssessorCheckRequest: requests.GetAssessorCheckRequest
+  ): Promise<responses.GetAssessorCheckResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseMigrationClient#getAssessorCheck.");
+    const operationName = "getAssessorCheck";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-migration/20230518/AssessorCheck/GetAssessorCheck";
+    const pathParams = {
+      "{assessmentId}": getAssessorCheckRequest.assessmentId,
+      "{assessorName}": getAssessorCheckRequest.assessorName,
+      "{checkName}": getAssessorCheckRequest.checkName
+    };
+
+    const queryParams = {
+      "compartmentId": getAssessorCheckRequest.compartmentId,
+      "displayName": getAssessorCheckRequest.displayName,
+      "limit": getAssessorCheckRequest.limit,
+      "page": getAssessorCheckRequest.page,
+      "sortBy": getAssessorCheckRequest.sortBy,
+      "sortOrder": getAssessorCheckRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getAssessorCheckRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getAssessorCheckRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/assessments/{assessmentId}/assessors/{assessorName}/checks/{checkName}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetAssessorCheckResponse>{},
+        body: await response.json(),
+        bodyKey: "assessorCheck",
+        bodyModel: model.AssessorCheck,
+        type: "model.AssessorCheck",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Display Database Connection details.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -1893,6 +2543,83 @@ export class DatabaseMigrationClient {
   }
 
   /**
+   * Download DMS script.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetScriptRequest
+   * @return GetScriptResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/GetScript.ts.html |here} to see how to use GetScript API.
+   */
+  public async getScript(
+    getScriptRequest: requests.GetScriptRequest
+  ): Promise<responses.GetScriptResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseMigrationClient#getScript.");
+    const operationName = "getScript";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{scriptId}": getScriptRequest.scriptId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getScriptRequest.opcRequestId,
+      "if-match": getScriptRequest.ifMatch,
+      "opc-retry-token": getScriptRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getScriptRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/scripts/{scriptId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetScriptResponse>{},
+
+        body: response.body!,
+        bodyKey: "value",
+        bodyModel: "string",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets the details of a work request.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -1965,6 +2692,675 @@ export class DatabaseMigrationClient {
   }
 
   /**
+   * Get the Pre-Migration extended Advisor report object list.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListAdvisorReportCheckObjectsRequest
+   * @return ListAdvisorReportCheckObjectsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/ListAdvisorReportCheckObjects.ts.html |here} to see how to use ListAdvisorReportCheckObjects API.
+   */
+  public async listAdvisorReportCheckObjects(
+    listAdvisorReportCheckObjectsRequest: requests.ListAdvisorReportCheckObjectsRequest
+  ): Promise<responses.ListAdvisorReportCheckObjectsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseMigrationClient#listAdvisorReportCheckObjects.");
+    const operationName = "listAdvisorReportCheckObjects";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-migration/20230518/Job/ListAdvisorReportCheckObjects";
+    const pathParams = {
+      "{jobId}": listAdvisorReportCheckObjectsRequest.jobId,
+      "{advisorReportCheckId}": listAdvisorReportCheckObjectsRequest.advisorReportCheckId
+    };
+
+    const queryParams = {
+      "limit": listAdvisorReportCheckObjectsRequest.limit,
+      "page": listAdvisorReportCheckObjectsRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listAdvisorReportCheckObjectsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAdvisorReportCheckObjectsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/jobs/{jobId}/advisorReportChecks/{advisorReportCheckId}/objects",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListAdvisorReportCheckObjectsResponse>{},
+        body: await response.json(),
+        bodyKey: "advisorReportCheckObjectsCollection",
+        bodyModel: model.AdvisorReportCheckObjectsCollection,
+        type: "model.AdvisorReportCheckObjectsCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * List of Pre-Migration checks from the advisor.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListAdvisorReportChecksRequest
+   * @return ListAdvisorReportChecksResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/ListAdvisorReportChecks.ts.html |here} to see how to use ListAdvisorReportChecks API.
+   */
+  public async listAdvisorReportChecks(
+    listAdvisorReportChecksRequest: requests.ListAdvisorReportChecksRequest
+  ): Promise<responses.ListAdvisorReportChecksResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseMigrationClient#listAdvisorReportChecks.");
+    const operationName = "listAdvisorReportChecks";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-migration/20230518/Job/ListAdvisorReportChecks";
+    const pathParams = {
+      "{jobId}": listAdvisorReportChecksRequest.jobId
+    };
+
+    const queryParams = {
+      "limit": listAdvisorReportChecksRequest.limit,
+      "page": listAdvisorReportChecksRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listAdvisorReportChecksRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAdvisorReportChecksRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/jobs/{jobId}/advisorReportChecks",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListAdvisorReportChecksResponse>{},
+        body: await response.json(),
+        bodyKey: "advisorReportCheckCollection",
+        bodyModel: model.AdvisorReportCheckCollection,
+        type: "model.AdvisorReportCheckCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Display Check Affected objects.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListAffectedObjectsRequest
+   * @return ListAffectedObjectsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/ListAffectedObjects.ts.html |here} to see how to use ListAffectedObjects API.
+   */
+  public async listAffectedObjects(
+    listAffectedObjectsRequest: requests.ListAffectedObjectsRequest
+  ): Promise<responses.ListAffectedObjectsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseMigrationClient#listAffectedObjects.");
+    const operationName = "listAffectedObjects";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-migration/20230518/AssessorCheck/ListAffectedObjects";
+    const pathParams = {
+      "{assessmentId}": listAffectedObjectsRequest.assessmentId,
+      "{assessorName}": listAffectedObjectsRequest.assessorName,
+      "{checkName}": listAffectedObjectsRequest.checkName
+    };
+
+    const queryParams = {
+      "sortBy": listAffectedObjectsRequest.sortBy,
+      "sortOrder": listAffectedObjectsRequest.sortOrder,
+      "limit": listAffectedObjectsRequest.limit,
+      "page": listAffectedObjectsRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listAffectedObjectsRequest.opcRequestId,
+      "if-match": listAffectedObjectsRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAffectedObjectsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/assessments/{assessmentId}/assessors/{assessorName}/checks/{checkName}/affectedObjects",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListAffectedObjectsResponse>{},
+        body: await response.json(),
+        bodyKey: "affectedObjectsCollection",
+        bodyModel: model.AffectedObjectsCollection,
+        type: "model.AffectedObjectsCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Display sample object types to exclude or include for an Assessment.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListAssessmentObjectTypesRequest
+   * @return ListAssessmentObjectTypesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/ListAssessmentObjectTypes.ts.html |here} to see how to use ListAssessmentObjectTypes API.
+   */
+  public async listAssessmentObjectTypes(
+    listAssessmentObjectTypesRequest: requests.ListAssessmentObjectTypesRequest
+  ): Promise<responses.ListAssessmentObjectTypesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseMigrationClient#listAssessmentObjectTypes.");
+    const operationName = "listAssessmentObjectTypes";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-migration/20230518/AssessmentObjectTypeSummary/ListAssessmentObjectTypes";
+    const pathParams = {};
+
+    const queryParams = {
+      "sortBy": listAssessmentObjectTypesRequest.sortBy,
+      "sortOrder": listAssessmentObjectTypesRequest.sortOrder,
+      "limit": listAssessmentObjectTypesRequest.limit,
+      "page": listAssessmentObjectTypesRequest.page,
+      "connectionType": listAssessmentObjectTypesRequest.connectionType
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listAssessmentObjectTypesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAssessmentObjectTypesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/assessmentObjectTypes",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListAssessmentObjectTypesResponse>{},
+        body: await response.json(),
+        bodyKey: "assessmentObjectTypeSummaryCollection",
+        bodyModel: model.AssessmentObjectTypeSummaryCollection,
+        type: "model.AssessmentObjectTypeSummaryCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Display excluded/included objects.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListAssessmentObjectsRequest
+   * @return ListAssessmentObjectsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/ListAssessmentObjects.ts.html |here} to see how to use ListAssessmentObjects API.
+   */
+  public async listAssessmentObjects(
+    listAssessmentObjectsRequest: requests.ListAssessmentObjectsRequest
+  ): Promise<responses.ListAssessmentObjectsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseMigrationClient#listAssessmentObjects.");
+    const operationName = "listAssessmentObjects";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-migration/20230518/AssessmentObjectCollection/ListAssessmentObjects";
+    const pathParams = {
+      "{assessmentId}": listAssessmentObjectsRequest.assessmentId
+    };
+
+    const queryParams = {
+      "limit": listAssessmentObjectsRequest.limit,
+      "page": listAssessmentObjectsRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listAssessmentObjectsRequest.opcRequestId,
+      "if-match": listAssessmentObjectsRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAssessmentObjectsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/assessments/{assessmentId}/assessmentObjects",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListAssessmentObjectsResponse>{},
+        body: await response.json(),
+        bodyKey: "assessmentObjectCollection",
+        bodyModel: model.AssessmentObjectCollection,
+        type: "model.AssessmentObjectCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * List all Assessments.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListAssessmentsRequest
+   * @return ListAssessmentsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/ListAssessments.ts.html |here} to see how to use ListAssessments API.
+   */
+  public async listAssessments(
+    listAssessmentsRequest: requests.ListAssessmentsRequest
+  ): Promise<responses.ListAssessmentsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseMigrationClient#listAssessments.");
+    const operationName = "listAssessments";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-migration/20230518/AssessmentSummary/ListAssessments";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listAssessmentsRequest.compartmentId,
+      "displayName": listAssessmentsRequest.displayName,
+      "limit": listAssessmentsRequest.limit,
+      "page": listAssessmentsRequest.page,
+      "sortBy": listAssessmentsRequest.sortBy,
+      "sortOrder": listAssessmentsRequest.sortOrder,
+      "lifecycleState": listAssessmentsRequest.lifecycleState,
+      "lifecycleDetails": listAssessmentsRequest.lifecycleDetails
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listAssessmentsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAssessmentsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/assessments",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListAssessmentsResponse>{},
+        body: await response.json(),
+        bodyKey: "assessmentCollection",
+        bodyModel: model.AssessmentCollection,
+        type: "model.AssessmentCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * List Assessor Check Summaries.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListAssessorChecksRequest
+   * @return ListAssessorChecksResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/ListAssessorChecks.ts.html |here} to see how to use ListAssessorChecks API.
+   */
+  public async listAssessorChecks(
+    listAssessorChecksRequest: requests.ListAssessorChecksRequest
+  ): Promise<responses.ListAssessorChecksResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseMigrationClient#listAssessorChecks.");
+    const operationName = "listAssessorChecks";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-migration/20230518/AssessorCheckSummary/ListAssessorChecks";
+    const pathParams = {
+      "{assessmentId}": listAssessorChecksRequest.assessmentId,
+      "{assessorName}": listAssessorChecksRequest.assessorName
+    };
+
+    const queryParams = {
+      "compartmentId": listAssessorChecksRequest.compartmentId,
+      "displayName": listAssessorChecksRequest.displayName,
+      "limit": listAssessorChecksRequest.limit,
+      "page": listAssessorChecksRequest.page,
+      "sortBy": listAssessorChecksRequest.sortBy,
+      "sortOrder": listAssessorChecksRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listAssessorChecksRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAssessorChecksRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/assessments/{assessmentId}/assessors/{assessorName}/checks",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListAssessorChecksResponse>{},
+        body: await response.json(),
+        bodyKey: "assessorCheckSummaryCollection",
+        bodyModel: model.AssessorCheckSummaryCollection,
+        type: "model.AssessorCheckSummaryCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * List all Assessors.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListAssessorsRequest
+   * @return ListAssessorsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/ListAssessors.ts.html |here} to see how to use ListAssessors API.
+   */
+  public async listAssessors(
+    listAssessorsRequest: requests.ListAssessorsRequest
+  ): Promise<responses.ListAssessorsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseMigrationClient#listAssessors.");
+    const operationName = "listAssessors";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-migration/20230518/AssessorSummary/ListAssessors";
+    const pathParams = {
+      "{assessmentId}": listAssessorsRequest.assessmentId
+    };
+
+    const queryParams = {
+      "displayName": listAssessorsRequest.displayName,
+      "limit": listAssessorsRequest.limit,
+      "page": listAssessorsRequest.page,
+      "sortBy": listAssessorsRequest.sortBy,
+      "sortOrder": listAssessorsRequest.sortOrder,
+      "lifecycleState": listAssessorsRequest.lifecycleState
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listAssessorsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAssessorsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/assessments/{assessmentId}/assessors",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListAssessorsResponse>{},
+        body: await response.json(),
+        bodyKey: "assessorSummaryCollection",
+        bodyModel: model.AssessorSummaryCollection,
+        type: "model.AssessorSummaryCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * List all Database Connections.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -1986,6 +3382,7 @@ export class DatabaseMigrationClient {
     const queryParams = {
       "compartmentId": listConnectionsRequest.compartmentId,
       "technologyType": listConnectionsRequest.technologyType,
+      "technologySubType": listConnectionsRequest.technologySubType,
       "connectionType": listConnectionsRequest.connectionType,
       "sourceConnectionId": listConnectionsRequest.sourceConnectionId,
       "displayName": listConnectionsRequest.displayName,
@@ -2031,6 +3428,90 @@ export class DatabaseMigrationClient {
         bodyKey: "connectionCollection",
         bodyModel: model.ConnectionCollection,
         type: "model.ConnectionCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * List supported Database Types, Sub-types and Versions.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListDatabaseConnectionTypeRequest
+   * @return ListDatabaseConnectionTypeResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/ListDatabaseConnectionType.ts.html |here} to see how to use ListDatabaseConnectionType API.
+   */
+  public async listDatabaseConnectionType(
+    listDatabaseConnectionTypeRequest: requests.ListDatabaseConnectionTypeRequest
+  ): Promise<responses.ListDatabaseConnectionTypeResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseMigrationClient#listDatabaseConnectionType.");
+    const operationName = "listDatabaseConnectionType";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-migration/20230518/DatabaseConnectionTypeSummary/ListDatabaseConnectionType";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listDatabaseConnectionTypeRequest.compartmentId,
+      "technologyType": listDatabaseConnectionTypeRequest.technologyType,
+      "connectionType": listDatabaseConnectionTypeRequest.connectionType,
+      "sourceConnectionId": listDatabaseConnectionTypeRequest.sourceConnectionId,
+      "limit": listDatabaseConnectionTypeRequest.limit,
+      "page": listDatabaseConnectionTypeRequest.page,
+      "sortBy": listDatabaseConnectionTypeRequest.sortBy,
+      "sortOrder": listDatabaseConnectionTypeRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listDatabaseConnectionTypeRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDatabaseConnectionTypeRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/connections/databaseconnectiontype",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListDatabaseConnectionTypeResponse>{},
+        body: await response.json(),
+        bodyKey: "databaseConnectionTypeCollection",
+        bodyModel: model.DatabaseConnectionTypeCollection,
+        type: "model.DatabaseConnectionTypeCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2247,7 +3728,8 @@ export class DatabaseMigrationClient {
       "page": listJobsRequest.page,
       "sortBy": listJobsRequest.sortBy,
       "sortOrder": listJobsRequest.sortOrder,
-      "lifecycleState": listJobsRequest.lifecycleState
+      "lifecycleState": listJobsRequest.lifecycleState,
+      "jobIdNotEqualTo": listJobsRequest.jobIdNotEqualTo
     };
 
     let headerParams = {
@@ -3055,6 +4537,333 @@ export class DatabaseMigrationClient {
   }
 
   /**
+   * Assessor Action.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param PerformAssessorActionRequest
+   * @return PerformAssessorActionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/PerformAssessorAction.ts.html |here} to see how to use PerformAssessorAction API.
+   */
+  public async performAssessorAction(
+    performAssessorActionRequest: requests.PerformAssessorActionRequest
+  ): Promise<responses.PerformAssessorActionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseMigrationClient#performAssessorAction.");
+    const operationName = "performAssessorAction";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-migration/20230518/Assessment/PerformAssessorAction";
+    const pathParams = {
+      "{assessmentId}": performAssessorActionRequest.assessmentId,
+      "{assessorName}": performAssessorActionRequest.assessorName,
+      "{assessorAction}": performAssessorActionRequest.assessorAction
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": performAssessorActionRequest.opcRequestId,
+      "if-match": performAssessorActionRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      performAssessorActionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/assessments/{assessmentId}/assessors/{assessorName}/assessorActions/{assessorAction}",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        performAssessorActionRequest.performAssessorActionDetails,
+        "PerformAssessorActionDetails",
+        model.PerformAssessorActionDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.PerformAssessorActionResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Download SQL script Assessor Action.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param PerformAssessorActionDownloadSqlRequest
+   * @return PerformAssessorActionDownloadSqlResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/PerformAssessorActionDownloadSql.ts.html |here} to see how to use PerformAssessorActionDownloadSql API.
+   */
+  public async performAssessorActionDownloadSql(
+    performAssessorActionDownloadSqlRequest: requests.PerformAssessorActionDownloadSqlRequest
+  ): Promise<responses.PerformAssessorActionDownloadSqlResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseMigrationClient#performAssessorActionDownloadSql."
+      );
+    const operationName = "performAssessorActionDownloadSql";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-migration/20230518/Assessment/PerformAssessorActionDownloadSql";
+    const pathParams = {
+      "{assessmentId}": performAssessorActionDownloadSqlRequest.assessmentId,
+      "{assessorName}": performAssessorActionDownloadSqlRequest.assessorName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": performAssessorActionDownloadSqlRequest.opcRequestId,
+      "if-match": performAssessorActionDownloadSqlRequest.ifMatch,
+      "opc-retry-token": performAssessorActionDownloadSqlRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      performAssessorActionDownloadSqlRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/assessments/{assessmentId}/assessors/{assessorName}/actions/download_sql",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.PerformAssessorActionDownloadSqlResponse>{},
+        body: await response.json(),
+        bodyKey: "downloadSqlDetails",
+        bodyModel: model.DownloadSqlDetails,
+        type: "model.DownloadSqlDetails",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Assessor Check Action.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param PerformAssessorCheckActionRequest
+   * @return PerformAssessorCheckActionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/PerformAssessorCheckAction.ts.html |here} to see how to use PerformAssessorCheckAction API.
+   */
+  public async performAssessorCheckAction(
+    performAssessorCheckActionRequest: requests.PerformAssessorCheckActionRequest
+  ): Promise<responses.PerformAssessorCheckActionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseMigrationClient#performAssessorCheckAction.");
+    const operationName = "performAssessorCheckAction";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-migration/20230518/Assessment/PerformAssessorCheckAction";
+    const pathParams = {
+      "{assessmentId}": performAssessorCheckActionRequest.assessmentId,
+      "{assessorName}": performAssessorCheckActionRequest.assessorName,
+      "{checkName}": performAssessorCheckActionRequest.checkName,
+      "{assessorCheckAction}": performAssessorCheckActionRequest.assessorCheckAction
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": performAssessorCheckActionRequest.opcRequestId,
+      "if-match": performAssessorCheckActionRequest.ifMatch,
+      "opc-retry-token": performAssessorCheckActionRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      performAssessorCheckActionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/assessments/{assessmentId}/assessors/{assessorName}/checks/{checkName}/actions/{assessorCheckAction}",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        performAssessorCheckActionRequest.performAssessorCheckActionDetails,
+        "PerformAssessorCheckActionDetails",
+        model.PerformAssessorCheckActionDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.PerformAssessorCheckActionResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Remove excluded/included objects.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param RemoveAssessmentObjectsRequest
+   * @return RemoveAssessmentObjectsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/RemoveAssessmentObjects.ts.html |here} to see how to use RemoveAssessmentObjects API.
+   */
+  public async removeAssessmentObjects(
+    removeAssessmentObjectsRequest: requests.RemoveAssessmentObjectsRequest
+  ): Promise<responses.RemoveAssessmentObjectsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseMigrationClient#removeAssessmentObjects.");
+    const operationName = "removeAssessmentObjects";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-migration/20230518/Assessment/RemoveAssessmentObjects";
+    const pathParams = {
+      "{assessmentId}": removeAssessmentObjectsRequest.assessmentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": removeAssessmentObjectsRequest.opcRequestId,
+      "if-match": removeAssessmentObjectsRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removeAssessmentObjectsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/assessments/{assessmentId}/actions/removeAssessmentObjects",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        removeAssessmentObjectsRequest.removeAssessmentObjectsDetails,
+        "AssessmentObjectCollection",
+        model.AssessmentObjectCollection.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RemoveAssessmentObjectsResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Remove excluded/included objects.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -3443,6 +5252,322 @@ export class DatabaseMigrationClient {
           {
             value: response.headers.get("etag"),
             key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Update the premigration extended Advisor report check.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateAdvisorReportCheckRequest
+   * @return UpdateAdvisorReportCheckResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/UpdateAdvisorReportCheck.ts.html |here} to see how to use UpdateAdvisorReportCheck API.
+   */
+  public async updateAdvisorReportCheck(
+    updateAdvisorReportCheckRequest: requests.UpdateAdvisorReportCheckRequest
+  ): Promise<responses.UpdateAdvisorReportCheckResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseMigrationClient#updateAdvisorReportCheck.");
+    const operationName = "updateAdvisorReportCheck";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{jobId}": updateAdvisorReportCheckRequest.jobId,
+      "{advisorReportCheckId}": updateAdvisorReportCheckRequest.advisorReportCheckId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateAdvisorReportCheckRequest.opcRequestId,
+      "if-match": updateAdvisorReportCheckRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateAdvisorReportCheckRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/jobs/{jobId}/advisorReportChecks/{advisorReportCheckId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateAdvisorReportCheckRequest.updateAdvisorReportCheck,
+        "UpdateAdvisorReportCheckDetails",
+        model.UpdateAdvisorReportCheckDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateAdvisorReportCheckResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Update the Pre-Migration extended Advisor report object list.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateAdvisorReportCheckObjectsRequest
+   * @return UpdateAdvisorReportCheckObjectsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/UpdateAdvisorReportCheckObjects.ts.html |here} to see how to use UpdateAdvisorReportCheckObjects API.
+   */
+  public async updateAdvisorReportCheckObjects(
+    updateAdvisorReportCheckObjectsRequest: requests.UpdateAdvisorReportCheckObjectsRequest
+  ): Promise<responses.UpdateAdvisorReportCheckObjectsResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseMigrationClient#updateAdvisorReportCheckObjects."
+      );
+    const operationName = "updateAdvisorReportCheckObjects";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-migration/20230518/AdvisorReportCheckCollection/UpdateAdvisorReportCheckObjects";
+    const pathParams = {
+      "{jobId}": updateAdvisorReportCheckObjectsRequest.jobId,
+      "{advisorReportCheckId}": updateAdvisorReportCheckObjectsRequest.advisorReportCheckId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateAdvisorReportCheckObjectsRequest.opcRequestId,
+      "if-match": updateAdvisorReportCheckObjectsRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateAdvisorReportCheckObjectsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/jobs/{jobId}/advisorReportChecks/{advisorReportCheckId}/actions/updateObjects",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateAdvisorReportCheckObjectsRequest.updateAdvisorReportCheckObjectsDetails,
+        "UpdateAdvisorReportCheckObjectsDetails",
+        model.UpdateAdvisorReportCheckObjectsDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateAdvisorReportCheckObjectsResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Update Assessment resource details.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateAssessmentRequest
+   * @return UpdateAssessmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/UpdateAssessment.ts.html |here} to see how to use UpdateAssessment API.
+   */
+  public async updateAssessment(
+    updateAssessmentRequest: requests.UpdateAssessmentRequest
+  ): Promise<responses.UpdateAssessmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseMigrationClient#updateAssessment.");
+    const operationName = "updateAssessment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-migration/20230518/Assessment/UpdateAssessment";
+    const pathParams = {
+      "{assessmentId}": updateAssessmentRequest.assessmentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateAssessmentRequest.opcRequestId,
+      "if-match": updateAssessmentRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateAssessmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/assessments/{assessmentId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateAssessmentRequest.updateAssessmentDetails,
+        "UpdateAssessmentDetails",
+        model.UpdateAssessmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateAssessmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Update the advisor report object list.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateCheckActionUpdateObjectRequest
+   * @return UpdateCheckActionUpdateObjectResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/UpdateCheckActionUpdateObject.ts.html |here} to see how to use UpdateCheckActionUpdateObject API.
+   */
+  public async updateCheckActionUpdateObject(
+    updateCheckActionUpdateObjectRequest: requests.UpdateCheckActionUpdateObjectRequest
+  ): Promise<responses.UpdateCheckActionUpdateObjectResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseMigrationClient#updateCheckActionUpdateObject.");
+    const operationName = "updateCheckActionUpdateObject";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-migration/20230518/AdvisorReportCheckCollection/UpdateCheckActionUpdateObject";
+    const pathParams = {
+      "{assessmentId}": updateCheckActionUpdateObjectRequest.assessmentId,
+      "{assessorName}": updateCheckActionUpdateObjectRequest.assessorName,
+      "{checkName}": updateCheckActionUpdateObjectRequest.checkName
+    };
+
+    const queryParams = {
+      "sortBy": updateCheckActionUpdateObjectRequest.sortBy,
+      "sortOrder": updateCheckActionUpdateObjectRequest.sortOrder,
+      "limit": updateCheckActionUpdateObjectRequest.limit,
+      "page": updateCheckActionUpdateObjectRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateCheckActionUpdateObjectRequest.opcRequestId,
+      "if-match": updateCheckActionUpdateObjectRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateCheckActionUpdateObjectRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/assessments/{assessmentId}/assessors/{assessorName}/checks/{checkName}/actions/updateObjects",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateCheckActionUpdateObjectRequest.updateCheckActionUpdateObjectDetails,
+        "UpdateCheckActionUpdateObjectDetails",
+        model.UpdateCheckActionUpdateObjectDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateCheckActionUpdateObjectResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           }
         ]

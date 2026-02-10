@@ -70,6 +70,11 @@ export interface PhaseStatus {
    *
    */
   "editableParameterFiles"?: Array<PhaseStatus.EditableParameterFiles>;
+  /**
+   * Job Phase group display name e.g. 'Step 1: Migration'
+   *
+   */
+  "groupDisplayName"?: string;
 }
 
 export namespace PhaseStatus {

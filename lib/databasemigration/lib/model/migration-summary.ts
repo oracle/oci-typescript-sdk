@@ -51,6 +51,10 @@ export interface MigrationSummary {
    */
   "executingJobId"?: string;
   /**
+   * The OCID of the resource being referenced.
+   */
+  "assessmentId"?: string;
+  /**
    * An RFC3339 formatted datetime string such as {@code 2016-08-25T21:10:29.600Z}.
    *
    */

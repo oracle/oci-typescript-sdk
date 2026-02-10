@@ -125,6 +125,190 @@ export class VirtualNetworkWaiter {
   }
 
   /**
+   * Waits forBulkCreateIpv6s
+   *
+   * @param request the request to send
+   * @return response returns BulkCreateIpv6sResponse, GetWorkRequestResponse tuple
+   */
+  public async forBulkCreateIpv6s(
+    request: serviceRequests.BulkCreateIpv6sRequest
+  ): Promise<{
+    response: serviceResponses.BulkCreateIpv6sResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const bulkCreateIpv6sResponse = await this.client.bulkCreateIpv6s(request);
+    if (bulkCreateIpv6sResponse.opcWorkRequestId === undefined)
+      return { response: bulkCreateIpv6sResponse, workRequestResponse: undefined as any };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      bulkCreateIpv6sResponse.opcWorkRequestId
+    );
+    return { response: bulkCreateIpv6sResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forBulkCreatePrivateIps
+   *
+   * @param request the request to send
+   * @return response returns BulkCreatePrivateIpsResponse, GetWorkRequestResponse tuple
+   */
+  public async forBulkCreatePrivateIps(
+    request: serviceRequests.BulkCreatePrivateIpsRequest
+  ): Promise<{
+    response: serviceResponses.BulkCreatePrivateIpsResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const bulkCreatePrivateIpsResponse = await this.client.bulkCreatePrivateIps(request);
+    if (bulkCreatePrivateIpsResponse.opcWorkRequestId === undefined)
+      return { response: bulkCreatePrivateIpsResponse, workRequestResponse: undefined as any };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      bulkCreatePrivateIpsResponse.opcWorkRequestId
+    );
+    return { response: bulkCreatePrivateIpsResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forBulkDeleteIpv6s
+   *
+   * @param request the request to send
+   * @return response returns BulkDeleteIpv6sResponse, GetWorkRequestResponse tuple
+   */
+  public async forBulkDeleteIpv6s(
+    request: serviceRequests.BulkDeleteIpv6sRequest
+  ): Promise<{
+    response: serviceResponses.BulkDeleteIpv6sResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const bulkDeleteIpv6sResponse = await this.client.bulkDeleteIpv6s(request);
+    if (bulkDeleteIpv6sResponse.opcWorkRequestId === undefined)
+      return { response: bulkDeleteIpv6sResponse, workRequestResponse: undefined as any };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      bulkDeleteIpv6sResponse.opcWorkRequestId
+    );
+    return { response: bulkDeleteIpv6sResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forBulkDeletePrivateIps
+   *
+   * @param request the request to send
+   * @return response returns BulkDeletePrivateIpsResponse, GetWorkRequestResponse tuple
+   */
+  public async forBulkDeletePrivateIps(
+    request: serviceRequests.BulkDeletePrivateIpsRequest
+  ): Promise<{
+    response: serviceResponses.BulkDeletePrivateIpsResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const bulkDeletePrivateIpsResponse = await this.client.bulkDeletePrivateIps(request);
+    if (bulkDeletePrivateIpsResponse.opcWorkRequestId === undefined)
+      return { response: bulkDeletePrivateIpsResponse, workRequestResponse: undefined as any };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      bulkDeletePrivateIpsResponse.opcWorkRequestId
+    );
+    return { response: bulkDeletePrivateIpsResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forBulkDetachIpv6s
+   *
+   * @param request the request to send
+   * @return response returns BulkDetachIpv6sResponse, GetWorkRequestResponse tuple
+   */
+  public async forBulkDetachIpv6s(
+    request: serviceRequests.BulkDetachIpv6sRequest
+  ): Promise<{
+    response: serviceResponses.BulkDetachIpv6sResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const bulkDetachIpv6sResponse = await this.client.bulkDetachIpv6s(request);
+    if (bulkDetachIpv6sResponse.opcWorkRequestId === undefined)
+      return { response: bulkDetachIpv6sResponse, workRequestResponse: undefined as any };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      bulkDetachIpv6sResponse.opcWorkRequestId
+    );
+    return { response: bulkDetachIpv6sResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forBulkDetachPrivateIps
+   *
+   * @param request the request to send
+   * @return response returns BulkDetachPrivateIpsResponse, GetWorkRequestResponse tuple
+   */
+  public async forBulkDetachPrivateIps(
+    request: serviceRequests.BulkDetachPrivateIpsRequest
+  ): Promise<{
+    response: serviceResponses.BulkDetachPrivateIpsResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const bulkDetachPrivateIpsResponse = await this.client.bulkDetachPrivateIps(request);
+    if (bulkDetachPrivateIpsResponse.opcWorkRequestId === undefined)
+      return { response: bulkDetachPrivateIpsResponse, workRequestResponse: undefined as any };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      bulkDetachPrivateIpsResponse.opcWorkRequestId
+    );
+    return { response: bulkDetachPrivateIpsResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forBulkUpdateIpv6s
+   *
+   * @param request the request to send
+   * @return response returns BulkUpdateIpv6sResponse, GetWorkRequestResponse tuple
+   */
+  public async forBulkUpdateIpv6s(
+    request: serviceRequests.BulkUpdateIpv6sRequest
+  ): Promise<{
+    response: serviceResponses.BulkUpdateIpv6sResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const bulkUpdateIpv6sResponse = await this.client.bulkUpdateIpv6s(request);
+    if (bulkUpdateIpv6sResponse.opcWorkRequestId === undefined)
+      return { response: bulkUpdateIpv6sResponse, workRequestResponse: undefined as any };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      bulkUpdateIpv6sResponse.opcWorkRequestId
+    );
+    return { response: bulkUpdateIpv6sResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forBulkUpdatePrivateIps
+   *
+   * @param request the request to send
+   * @return response returns BulkUpdatePrivateIpsResponse, GetWorkRequestResponse tuple
+   */
+  public async forBulkUpdatePrivateIps(
+    request: serviceRequests.BulkUpdatePrivateIpsRequest
+  ): Promise<{
+    response: serviceResponses.BulkUpdatePrivateIpsResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const bulkUpdatePrivateIpsResponse = await this.client.bulkUpdatePrivateIps(request);
+    if (bulkUpdatePrivateIpsResponse.opcWorkRequestId === undefined)
+      return { response: bulkUpdatePrivateIpsResponse, workRequestResponse: undefined as any };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      bulkUpdatePrivateIpsResponse.opcWorkRequestId
+    );
+    return { response: bulkUpdatePrivateIpsResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
    * Waits forChangeCaptureFilterCompartment
    *
    * @param request the request to send

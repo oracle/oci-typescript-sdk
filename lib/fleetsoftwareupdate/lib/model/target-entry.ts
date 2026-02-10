@@ -37,7 +37,8 @@ export namespace TargetEntry {
   export enum EntityType {
     Database = "DATABASE",
     Vmcluster = "VMCLUSTER",
-    Cloudvmcluster = "CLOUDVMCLUSTER"
+    Cloudvmcluster = "CLOUDVMCLUSTER",
+    Exadbvmcluster = "EXADBVMCLUSTER"
   }
 
   export function getJsonObj(obj: TargetEntry): object {

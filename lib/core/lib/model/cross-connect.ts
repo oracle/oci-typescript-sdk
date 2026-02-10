@@ -121,6 +121,11 @@ Example: {@code 2016-08-25T21:10:29.600Z}
    *
    */
   "ociLogicalDeviceName"?: string;
+  /**
+   * The name of the FastConnect interface where this cross-connect is installed.
+   *
+   */
+  "interfaceName"?: string;
 }
 
 export namespace CrossConnect {

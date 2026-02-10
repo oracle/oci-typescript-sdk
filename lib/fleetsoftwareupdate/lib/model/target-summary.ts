@@ -22,6 +22,7 @@ import common = require("oci-common");
  */
 export interface TargetSummary {
   "target"?:
+    | model.ExadbVmClusterTargetSummary
     | model.VmClusterTargetSummary
     | model.CloudVmClusterTargetSummary
     | model.DatabaseTargetSummary;

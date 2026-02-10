@@ -48,6 +48,8 @@ export namespace GiResourceIdFilter {
     Cloudexadatainfrastructure = "CLOUDEXADATAINFRASTRUCTURE",
     Vmcluster = "VMCLUSTER",
     Cloudvmcluster = "CLOUDVMCLUSTER",
+    Exadbvmcluster = "EXADBVMCLUSTER",
+    Exascaledbstoragevault = "EXASCALEDBSTORAGEVAULT",
     Fsucollection = "FSUCOLLECTION",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this

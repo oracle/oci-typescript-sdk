@@ -67,6 +67,8 @@ import * as ListRemediationRunsResponse from "./list-remediation-runs-response";
 export import ListRemediationRunsResponse = ListRemediationRunsResponse.ListRemediationRunsResponse;
 import * as ListStagesResponse from "./list-stages-response";
 export import ListStagesResponse = ListStagesResponse.ListStagesResponse;
+import * as ListVulnerabilitiesResponse from "./list-vulnerabilities-response";
+export import ListVulnerabilitiesResponse = ListVulnerabilitiesResponse.ListVulnerabilitiesResponse;
 import * as ListVulnerabilityAuditsResponse from "./list-vulnerability-audits-response";
 export import ListVulnerabilityAuditsResponse = ListVulnerabilityAuditsResponse.ListVulnerabilityAuditsResponse;
 import * as ListWorkRequestErrorsResponse from "./list-work-request-errors-response";

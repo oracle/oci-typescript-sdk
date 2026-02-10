@@ -55,6 +55,10 @@ export interface Configuration {
    * The current state of the Configuration.
    */
   "lifecycleState": Configuration.LifecycleState;
+  /**
+   * The MySQL options defined in the Configuration.
+   */
+  "options": Array<model.Option>;
   "initVariables"?: model.InitializationVariables;
   "variables": model.ConfigurationVariables;
   /**
@@ -109,6 +113,11 @@ export namespace Configuration {
     const jsonObj = {
       ...obj,
       ...{
+        "options": obj.options
+          ? obj.options.map(item => {
+              return model.Option.getJsonObj(item);
+            })
+          : undefined,
         "initVariables": obj.initVariables
           ? model.InitializationVariables.getJsonObj(obj.initVariables)
           : undefined,
@@ -124,6 +133,11 @@ export namespace Configuration {
     const jsonObj = {
       ...obj,
       ...{
+        "options": obj.options
+          ? obj.options.map(item => {
+              return model.Option.getDeserializedJsonObj(item);
+            })
+          : undefined,
         "initVariables": obj.initVariables
           ? model.InitializationVariables.getDeserializedJsonObj(obj.initVariables)
           : undefined,

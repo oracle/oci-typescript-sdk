@@ -37,6 +37,10 @@ export interface CloneMigrationDetails {
    */
   "targetDatabaseConnectionId": string;
   /**
+   * The OCID of the resource being referenced.
+   */
+  "assessmentId"?: string;
+  /**
    * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
    * For more information, see Resource Tags. Example: {\"Department\": \"Finance\"}
    *
