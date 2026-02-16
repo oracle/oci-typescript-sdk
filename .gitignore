@@ -15,3 +15,4 @@ lib/**/*.js
 integration-test/*.js
 .vscode
 .DS_Store
+test_file.bin
