@@ -57,16 +57,41 @@ OLDEST: Choose the oldest available MySQL version based on the current version o
    *
    */
   "maintenanceScheduleType"?: model.MaintenanceScheduleType;
+  /**
+   * Time window during which downtime-inducing maintenance shall not be performed.
+   * Downtime-free maintenance may be performed to apply required security patches.
+   * At most one configured window is supported.
+   *
+   */
+  "maintenanceDisabledWindows"?: Array<model.MaintenanceDisabledWindow>;
 }
 
 export namespace UpdateMaintenanceDetails {
   export function getJsonObj(obj: UpdateMaintenanceDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "maintenanceDisabledWindows": obj.maintenanceDisabledWindows
+          ? obj.maintenanceDisabledWindows.map(item => {
+              return model.MaintenanceDisabledWindow.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: UpdateMaintenanceDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "maintenanceDisabledWindows": obj.maintenanceDisabledWindows
+          ? obj.maintenanceDisabledWindows.map(item => {
+              return model.MaintenanceDisabledWindow.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

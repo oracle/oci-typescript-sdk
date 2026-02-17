@@ -63,6 +63,8 @@ import * as GetHeatWaveClusterMemoryEstimateRequest from "./get-heat-wave-cluste
 export import GetHeatWaveClusterMemoryEstimateRequest = GetHeatWaveClusterMemoryEstimateRequest.GetHeatWaveClusterMemoryEstimateRequest;
 import * as ListDbSystemsRequest from "./list-db-systems-request";
 export import ListDbSystemsRequest = ListDbSystemsRequest.ListDbSystemsRequest;
+import * as ListMaintenanceEventsRequest from "./list-maintenance-events-request";
+export import ListMaintenanceEventsRequest = ListMaintenanceEventsRequest.ListMaintenanceEventsRequest;
 import * as RestartDbSystemRequest from "./restart-db-system-request";
 export import RestartDbSystemRequest = RestartDbSystemRequest.RestartDbSystemRequest;
 import * as RestartHeatWaveClusterRequest from "./restart-heat-wave-cluster-request";

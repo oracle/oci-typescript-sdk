@@ -93,14 +93,14 @@ export namespace DbmResource {
             <model.ExternalExadataStorageConnector>(<object>jsonObj),
             true
           );
-        case "STORAGE_GRID_SUMMARY":
-          return model.ExternalExadataStorageGridSummary.getJsonObj(
-            <model.ExternalExadataStorageGridSummary>(<object>jsonObj),
+        case "VM_CLUSTER_SUMMARY":
+          return model.ExadataVmClusterSummary.getJsonObj(
+            <model.ExadataVmClusterSummary>(<object>jsonObj),
             true
           );
-        case "STORAGE_SERVER":
-          return model.ExternalExadataStorageServer.getJsonObj(
-            <model.ExternalExadataStorageServer>(<object>jsonObj),
+        case "CLOUD_STORAGE_CONNECTOR_SUMMARY":
+          return model.CloudExadataStorageConnectorSummary.getJsonObj(
+            <model.CloudExadataStorageConnectorSummary>(<object>jsonObj),
             true
           );
         case "INFRASTRUCTURE":
@@ -108,19 +108,64 @@ export namespace DbmResource {
             <model.ExternalExadataInfrastructure>(<object>jsonObj),
             true
           );
-        case "STORAGE_GRID":
-          return model.ExternalExadataStorageGrid.getJsonObj(
-            <model.ExternalExadataStorageGrid>(<object>jsonObj),
-            true
-          );
         case "INFRASTRUCTURE_SUMMARY":
           return model.ExternalExadataInfrastructureSummary.getJsonObj(
             <model.ExternalExadataInfrastructureSummary>(<object>jsonObj),
             true
           );
+        case "CLOUD_INFRASTRUCTURE":
+          return model.CloudExadataInfrastructure.getJsonObj(
+            <model.CloudExadataInfrastructure>(<object>jsonObj),
+            true
+          );
+        case "CLOUD_STORAGE_SERVER_SUMMARY":
+          return model.CloudExadataStorageServerSummary.getJsonObj(
+            <model.CloudExadataStorageServerSummary>(<object>jsonObj),
+            true
+          );
+        case "CLOUD_STORAGE_GRID":
+          return model.CloudExadataStorageGrid.getJsonObj(
+            <model.CloudExadataStorageGrid>(<object>jsonObj),
+            true
+          );
+        case "STORAGE_GRID_SUMMARY":
+          return model.ExternalExadataStorageGridSummary.getJsonObj(
+            <model.ExternalExadataStorageGridSummary>(<object>jsonObj),
+            true
+          );
+        case "CLOUD_STORAGE_CONNECTOR":
+          return model.CloudExadataStorageConnector.getJsonObj(
+            <model.CloudExadataStorageConnector>(<object>jsonObj),
+            true
+          );
+        case "CLOUD_INFRASTRUCTURE_SUMMARY":
+          return model.CloudExadataInfrastructureSummary.getJsonObj(
+            <model.CloudExadataInfrastructureSummary>(<object>jsonObj),
+            true
+          );
+        case "STORAGE_SERVER":
+          return model.ExternalExadataStorageServer.getJsonObj(
+            <model.ExternalExadataStorageServer>(<object>jsonObj),
+            true
+          );
+        case "STORAGE_GRID":
+          return model.ExternalExadataStorageGrid.getJsonObj(
+            <model.ExternalExadataStorageGrid>(<object>jsonObj),
+            true
+          );
+        case "CLOUD_STORAGE_GRID_SUMMARY":
+          return model.CloudExadataStorageGridSummary.getJsonObj(
+            <model.CloudExadataStorageGridSummary>(<object>jsonObj),
+            true
+          );
         case "DATABASE_SYSTEM_SUMMARY":
           return model.ExternalExadataDatabaseSystemSummary.getJsonObj(
             <model.ExternalExadataDatabaseSystemSummary>(<object>jsonObj),
+            true
+          );
+        case "CLOUD_STORAGE_SERVER":
+          return model.CloudExadataStorageServer.getJsonObj(
+            <model.CloudExadataStorageServer>(<object>jsonObj),
             true
           );
         case "STORAGE_CONNECTOR_SUMMARY":
@@ -149,14 +194,14 @@ export namespace DbmResource {
             <model.ExternalExadataStorageConnector>(<object>jsonObj),
             true
           );
-        case "STORAGE_GRID_SUMMARY":
-          return model.ExternalExadataStorageGridSummary.getDeserializedJsonObj(
-            <model.ExternalExadataStorageGridSummary>(<object>jsonObj),
+        case "VM_CLUSTER_SUMMARY":
+          return model.ExadataVmClusterSummary.getDeserializedJsonObj(
+            <model.ExadataVmClusterSummary>(<object>jsonObj),
             true
           );
-        case "STORAGE_SERVER":
-          return model.ExternalExadataStorageServer.getDeserializedJsonObj(
-            <model.ExternalExadataStorageServer>(<object>jsonObj),
+        case "CLOUD_STORAGE_CONNECTOR_SUMMARY":
+          return model.CloudExadataStorageConnectorSummary.getDeserializedJsonObj(
+            <model.CloudExadataStorageConnectorSummary>(<object>jsonObj),
             true
           );
         case "INFRASTRUCTURE":
@@ -164,19 +209,64 @@ export namespace DbmResource {
             <model.ExternalExadataInfrastructure>(<object>jsonObj),
             true
           );
-        case "STORAGE_GRID":
-          return model.ExternalExadataStorageGrid.getDeserializedJsonObj(
-            <model.ExternalExadataStorageGrid>(<object>jsonObj),
-            true
-          );
         case "INFRASTRUCTURE_SUMMARY":
           return model.ExternalExadataInfrastructureSummary.getDeserializedJsonObj(
             <model.ExternalExadataInfrastructureSummary>(<object>jsonObj),
             true
           );
+        case "CLOUD_INFRASTRUCTURE":
+          return model.CloudExadataInfrastructure.getDeserializedJsonObj(
+            <model.CloudExadataInfrastructure>(<object>jsonObj),
+            true
+          );
+        case "CLOUD_STORAGE_SERVER_SUMMARY":
+          return model.CloudExadataStorageServerSummary.getDeserializedJsonObj(
+            <model.CloudExadataStorageServerSummary>(<object>jsonObj),
+            true
+          );
+        case "CLOUD_STORAGE_GRID":
+          return model.CloudExadataStorageGrid.getDeserializedJsonObj(
+            <model.CloudExadataStorageGrid>(<object>jsonObj),
+            true
+          );
+        case "STORAGE_GRID_SUMMARY":
+          return model.ExternalExadataStorageGridSummary.getDeserializedJsonObj(
+            <model.ExternalExadataStorageGridSummary>(<object>jsonObj),
+            true
+          );
+        case "CLOUD_STORAGE_CONNECTOR":
+          return model.CloudExadataStorageConnector.getDeserializedJsonObj(
+            <model.CloudExadataStorageConnector>(<object>jsonObj),
+            true
+          );
+        case "CLOUD_INFRASTRUCTURE_SUMMARY":
+          return model.CloudExadataInfrastructureSummary.getDeserializedJsonObj(
+            <model.CloudExadataInfrastructureSummary>(<object>jsonObj),
+            true
+          );
+        case "STORAGE_SERVER":
+          return model.ExternalExadataStorageServer.getDeserializedJsonObj(
+            <model.ExternalExadataStorageServer>(<object>jsonObj),
+            true
+          );
+        case "STORAGE_GRID":
+          return model.ExternalExadataStorageGrid.getDeserializedJsonObj(
+            <model.ExternalExadataStorageGrid>(<object>jsonObj),
+            true
+          );
+        case "CLOUD_STORAGE_GRID_SUMMARY":
+          return model.CloudExadataStorageGridSummary.getDeserializedJsonObj(
+            <model.CloudExadataStorageGridSummary>(<object>jsonObj),
+            true
+          );
         case "DATABASE_SYSTEM_SUMMARY":
           return model.ExternalExadataDatabaseSystemSummary.getDeserializedJsonObj(
             <model.ExternalExadataDatabaseSystemSummary>(<object>jsonObj),
+            true
+          );
+        case "CLOUD_STORAGE_SERVER":
+          return model.CloudExadataStorageServer.getDeserializedJsonObj(
+            <model.CloudExadataStorageServer>(<object>jsonObj),
             true
           );
         case "STORAGE_CONNECTOR_SUMMARY":

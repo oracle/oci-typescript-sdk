@@ -2919,6 +2919,144 @@ export class DbSystemClient {
   }
 
   /**
+   * List all the maintenance events.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListMaintenanceEventsRequest
+   * @return ListMaintenanceEventsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/ListMaintenanceEvents.ts.html |here} to see how to use ListMaintenanceEvents API.
+   */
+  public async listMaintenanceEvents(
+    listMaintenanceEventsRequest: requests.ListMaintenanceEventsRequest
+  ): Promise<responses.ListMaintenanceEventsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbSystemClient#listMaintenanceEvents.");
+    const operationName = "listMaintenanceEvents";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/MaintenanceEvent/ListMaintenanceEvents";
+    const pathParams = {
+      "{dbSystemId}": listMaintenanceEventsRequest.dbSystemId
+    };
+
+    const queryParams = {
+      "mysqlVersionBeforeMaintenance": listMaintenanceEventsRequest.mysqlVersionBeforeMaintenance,
+      "mysqlVersionAfterMaintenance": listMaintenanceEventsRequest.mysqlVersionAfterMaintenance,
+      "maintenanceType": listMaintenanceEventsRequest.maintenanceType,
+      "maintenanceAction": listMaintenanceEventsRequest.maintenanceAction,
+      "maintenanceStatus": listMaintenanceEventsRequest.maintenanceStatus,
+      "limit": listMaintenanceEventsRequest.limit,
+      "page": listMaintenanceEventsRequest.page,
+      "sortBy": listMaintenanceEventsRequest.sortBy,
+      "sortOrder": listMaintenanceEventsRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listMaintenanceEventsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listMaintenanceEventsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dbSystems/{dbSystemId}/maintenanceEvents",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListMaintenanceEventsResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.MaintenanceEvent,
+        type: "Array<model.MaintenanceEvent>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listMaintenanceEventsRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.MaintenanceEvent objects
+   * contained in responses from the listMaintenanceEvents operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllMaintenanceEvents(
+    request: requests.ListMaintenanceEventsRequest
+  ): AsyncIterableIterator<model.MaintenanceEvent> {
+    return paginateRecords(request, req => this.listMaintenanceEvents(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listMaintenanceEventsResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listMaintenanceEvents operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllMaintenanceEventsResponses(
+    request: requests.ListMaintenanceEventsRequest
+  ): AsyncIterableIterator<responses.ListMaintenanceEventsResponse> {
+    return paginateResponses(request, req => this.listMaintenanceEvents(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.MaintenanceEvent objects
+   * contained in responses from the listMaintenanceEvents operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listMaintenanceEventsRecordIterator(
+    request: requests.ListMaintenanceEventsRequest
+  ): AsyncIterableIterator<model.MaintenanceEvent> {
+    return paginateRecords(request, req => this.listMaintenanceEvents(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listMaintenanceEvents operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listMaintenanceEventsResponseIterator(
+    request: requests.ListMaintenanceEventsRequest
+  ): AsyncIterableIterator<responses.ListMaintenanceEventsResponse> {
+    return paginateResponses(request, req => this.listMaintenanceEvents(req));
+  }
+
+  /**
    * Restarts the specified DB System.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param RestartDbSystemRequest

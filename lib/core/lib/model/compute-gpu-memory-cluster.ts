@@ -66,6 +66,7 @@ export interface ComputeGpuMemoryCluster {
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "size": number;
+  "gpuMemoryClusterScaleConfig"?: model.ComputeGpuMemoryClusterScaleConfig;
   /**
     * Defined tags for this resource. Each key is predefined and scoped to a
 * namespace. For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
@@ -118,12 +119,28 @@ export namespace ComputeGpuMemoryCluster {
   }
 
   export function getJsonObj(obj: ComputeGpuMemoryCluster): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "gpuMemoryClusterScaleConfig": obj.gpuMemoryClusterScaleConfig
+          ? model.ComputeGpuMemoryClusterScaleConfig.getJsonObj(obj.gpuMemoryClusterScaleConfig)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: ComputeGpuMemoryCluster): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "gpuMemoryClusterScaleConfig": obj.gpuMemoryClusterScaleConfig
+          ? model.ComputeGpuMemoryClusterScaleConfig.getDeserializedJsonObj(
+              obj.gpuMemoryClusterScaleConfig
+            )
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
