@@ -487,6 +487,90 @@ export class DbManagementClient {
   }
 
   /**
+   * Moves the Exadata infrastructure and its related resources (Exadata storage server, Exadata storage server connectors and Exadata storage server grid) to the specified compartment.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ChangeCloudExadataInfrastructureCompartmentRequest
+   * @return ChangeCloudExadataInfrastructureCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ChangeCloudExadataInfrastructureCompartment.ts.html |here} to see how to use ChangeCloudExadataInfrastructureCompartment API.
+   */
+  public async changeCloudExadataInfrastructureCompartment(
+    changeCloudExadataInfrastructureCompartmentRequest: requests.ChangeCloudExadataInfrastructureCompartmentRequest
+  ): Promise<responses.ChangeCloudExadataInfrastructureCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#changeCloudExadataInfrastructureCompartment."
+      );
+    const operationName = "changeCloudExadataInfrastructureCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/CloudExadataInfrastructure/ChangeCloudExadataInfrastructureCompartment";
+    const pathParams = {
+      "{cloudExadataInfrastructureId}":
+        changeCloudExadataInfrastructureCompartmentRequest.cloudExadataInfrastructureId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": changeCloudExadataInfrastructureCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeCloudExadataInfrastructureCompartmentRequest.opcRetryToken,
+      "if-match": changeCloudExadataInfrastructureCompartmentRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeCloudExadataInfrastructureCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudExadataInfrastructures/{cloudExadataInfrastructureId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeCloudExadataInfrastructureCompartmentRequest.changeCloudExadataInfrastructureCompartmentDetails,
+        "ChangeCloudExadataInfrastructureCompartmentDetails",
+        model.ChangeCloudExadataInfrastructureCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeCloudExadataInfrastructureCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
      * Changes database parameter values. There are two kinds of database
 * parameters:
 * <p>
@@ -1368,6 +1452,87 @@ The database purges plans that have not been used for longer than
   }
 
   /**
+   * Checks the status of the Exadata storage server connection specified by exadataStorageConnectorId.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CheckCloudExadataStorageConnectorRequest
+   * @return CheckCloudExadataStorageConnectorResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/CheckCloudExadataStorageConnector.ts.html |here} to see how to use CheckCloudExadataStorageConnector API.
+   */
+  public async checkCloudExadataStorageConnector(
+    checkCloudExadataStorageConnectorRequest: requests.CheckCloudExadataStorageConnectorRequest
+  ): Promise<responses.CheckCloudExadataStorageConnectorResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#checkCloudExadataStorageConnector.");
+    const operationName = "checkCloudExadataStorageConnector";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/CloudExadataStorageConnector/CheckCloudExadataStorageConnector";
+    const pathParams = {
+      "{cloudExadataStorageConnectorId}":
+        checkCloudExadataStorageConnectorRequest.cloudExadataStorageConnectorId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": checkCloudExadataStorageConnectorRequest.ifMatch,
+      "opc-request-id": checkCloudExadataStorageConnectorRequest.opcRequestId,
+      "opc-retry-token": checkCloudExadataStorageConnectorRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      checkCloudExadataStorageConnectorRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudExadataStorageConnectors/{cloudExadataStorageConnectorId}/actions/checkStatus",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CheckCloudExadataStorageConnectorResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudExadataStorageConnectorStatus",
+        bodyModel: model.CloudExadataStorageConnectorStatus,
+        type: "model.CloudExadataStorageConnectorStatus",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Checks the status of the external DB system component connection specified in this connector.
    * This operation will refresh the connectionStatus and timeConnectionStatusLastUpdated fields.
    *
@@ -2035,6 +2200,175 @@ The database purges plans that have not been used for longer than
           {
             value: response.headers.get("content-location"),
             key: "contentLocation",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates an OCI resource for the Exadata infrastructure and enables the Monitoring service for the Exadata infrastructure.
+   * The following resource/subresources are created:
+   *   Infrastructure
+   *   Storage server connectors
+   *   Storage servers
+   *   Storage grids
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateCloudExadataInfrastructureRequest
+   * @return CreateCloudExadataInfrastructureResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/CreateCloudExadataInfrastructure.ts.html |here} to see how to use CreateCloudExadataInfrastructure API.
+   */
+  public async createCloudExadataInfrastructure(
+    createCloudExadataInfrastructureRequest: requests.CreateCloudExadataInfrastructureRequest
+  ): Promise<responses.CreateCloudExadataInfrastructureResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#createCloudExadataInfrastructure.");
+    const operationName = "createCloudExadataInfrastructure";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/CloudExadataInfrastructure/CreateCloudExadataInfrastructure";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createCloudExadataInfrastructureRequest.opcRequestId,
+      "opc-retry-token": createCloudExadataInfrastructureRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createCloudExadataInfrastructureRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudExadataInfrastructures",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createCloudExadataInfrastructureRequest.createCloudExadataInfrastructureDetails,
+        "CreateCloudExadataInfrastructureDetails",
+        model.CreateCloudExadataInfrastructureDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateCloudExadataInfrastructureResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudExadataInfrastructure",
+        bodyModel: model.CloudExadataInfrastructure,
+        type: "model.CloudExadataInfrastructure",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates the Exadata storage server connector after validating the connection information.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateCloudExadataStorageConnectorRequest
+   * @return CreateCloudExadataStorageConnectorResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/CreateCloudExadataStorageConnector.ts.html |here} to see how to use CreateCloudExadataStorageConnector API.
+   */
+  public async createCloudExadataStorageConnector(
+    createCloudExadataStorageConnectorRequest: requests.CreateCloudExadataStorageConnectorRequest
+  ): Promise<responses.CreateCloudExadataStorageConnectorResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#createCloudExadataStorageConnector.");
+    const operationName = "createCloudExadataStorageConnector";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/CloudExadataStorageConnector/CreateCloudExadataStorageConnector";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createCloudExadataStorageConnectorRequest.opcRequestId,
+      "opc-retry-token": createCloudExadataStorageConnectorRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createCloudExadataStorageConnectorRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudExadataStorageConnectors",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createCloudExadataStorageConnectorRequest.createCloudExadataStorageConnectorDetails,
+        "CreateCloudExadataStorageConnectorDetails",
+        model.CreateCloudExadataStorageConnectorDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateCloudExadataStorageConnectorResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudExadataStorageConnector",
+        bodyModel: model.CloudExadataStorageConnector,
+        type: "model.CloudExadataStorageConnector",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
             dataType: "string"
           }
         ]
@@ -3330,6 +3664,153 @@ The database purges plans that have not been used for longer than
   }
 
   /**
+   * Deletes the Exadata infrastructure specified by exadataInfrastructureId.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteCloudExadataInfrastructureRequest
+   * @return DeleteCloudExadataInfrastructureResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DeleteCloudExadataInfrastructure.ts.html |here} to see how to use DeleteCloudExadataInfrastructure API.
+   */
+  public async deleteCloudExadataInfrastructure(
+    deleteCloudExadataInfrastructureRequest: requests.DeleteCloudExadataInfrastructureRequest
+  ): Promise<responses.DeleteCloudExadataInfrastructureResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#deleteCloudExadataInfrastructure.");
+    const operationName = "deleteCloudExadataInfrastructure";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/CloudExadataInfrastructure/DeleteCloudExadataInfrastructure";
+    const pathParams = {
+      "{cloudExadataInfrastructureId}":
+        deleteCloudExadataInfrastructureRequest.cloudExadataInfrastructureId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": deleteCloudExadataInfrastructureRequest.opcRequestId,
+      "if-match": deleteCloudExadataInfrastructureRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteCloudExadataInfrastructureRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudExadataInfrastructures/{cloudExadataInfrastructureId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteCloudExadataInfrastructureResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the Exadata storage server connector specified by exadataStorageConnectorId.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteCloudExadataStorageConnectorRequest
+   * @return DeleteCloudExadataStorageConnectorResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DeleteCloudExadataStorageConnector.ts.html |here} to see how to use DeleteCloudExadataStorageConnector API.
+   */
+  public async deleteCloudExadataStorageConnector(
+    deleteCloudExadataStorageConnectorRequest: requests.DeleteCloudExadataStorageConnectorRequest
+  ): Promise<responses.DeleteCloudExadataStorageConnectorResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#deleteCloudExadataStorageConnector.");
+    const operationName = "deleteCloudExadataStorageConnector";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/CloudExadataStorageConnector/DeleteCloudExadataStorageConnector";
+    const pathParams = {
+      "{cloudExadataStorageConnectorId}":
+        deleteCloudExadataStorageConnectorRequest.cloudExadataStorageConnectorId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": deleteCloudExadataStorageConnectorRequest.opcRequestId,
+      "if-match": deleteCloudExadataStorageConnectorRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteCloudExadataStorageConnectorRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudExadataStorageConnectors/{cloudExadataStorageConnectorId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteCloudExadataStorageConnectorResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes a specific Database Management private endpoint.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteDbManagementPrivateEndpointRequest
@@ -4602,6 +5083,93 @@ One client controls both Automatic SQL Tuning Advisor and Automatic SPM Evolve A
   }
 
   /**
+     * Disables Database Management for the Exadata infrastructure specified by exadataInfrastructureId.
+* It covers the following components:
+* <p>
+- Exadata infrastructure
+* - Exadata storage grid
+* - Exadata storage server
+* <p>
+Note that Database Management will not be disabled for the VM Clusters within the Exadata infrastructure and should be disabled explicitly, if required.
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param DisableCloudExadataInfrastructureManagementRequest
+     * @return DisableCloudExadataInfrastructureManagementResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DisableCloudExadataInfrastructureManagement.ts.html |here} to see how to use DisableCloudExadataInfrastructureManagement API.
+     */
+  public async disableCloudExadataInfrastructureManagement(
+    disableCloudExadataInfrastructureManagementRequest: requests.DisableCloudExadataInfrastructureManagementRequest
+  ): Promise<responses.DisableCloudExadataInfrastructureManagementResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#disableCloudExadataInfrastructureManagement."
+      );
+    const operationName = "disableCloudExadataInfrastructureManagement";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/CloudExadataInfrastructure/DisableCloudExadataInfrastructureManagement";
+    const pathParams = {
+      "{cloudExadataInfrastructureId}":
+        disableCloudExadataInfrastructureManagementRequest.cloudExadataInfrastructureId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": disableCloudExadataInfrastructureManagementRequest.opcRequestId,
+      "opc-retry-token": disableCloudExadataInfrastructureManagementRequest.opcRetryToken,
+      "if-match": disableCloudExadataInfrastructureManagementRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      disableCloudExadataInfrastructureManagementRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/cloudExadataInfrastructures/{cloudExadataInfrastructureId}/actions/disableDatabaseManagement",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DisableCloudExadataInfrastructureManagementResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Disables a Database Management feature for the specified Oracle cloud database.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -5505,6 +6073,98 @@ When disabled, the optimizer does not use any SQL plan baselines.
   /**
      * Completes the Exadata system prechecking on the following:
 * <p>
+- Verifies if the ASM connector is defined for each VM Cluster or return 400 status code with CONNECTOR_NOT_DEFINED error code.
+* - Verifies if the agents associated with ASM are valid and could be used for the Exadata storage servers or return 400 status code with
+* INVALID_AGENT error code.
+* <p>
+Starts the discovery process for the Exadata system infrastructure. The following resources/components are discovered
+* <p>
+- Exadata storage servers from each VM Cluster
+* - Exadata storage grid for all Exadata storage servers
+* - Exadata infrastructure
+* <p>
+The same API covers both new discovery and rediscovery cases.
+*   For the new discovery case, new managed resources/sub-resources are created or the existing ones are overridden.
+*   For rediscovery case, the existing managed resources/sub-resources are checked to find out which ones should be added or which ones
+*   should be removed based on the unique key defined for each resource/sub-resource.
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param DiscoverCloudExadataInfrastructureRequest
+     * @return DiscoverCloudExadataInfrastructureResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DiscoverCloudExadataInfrastructure.ts.html |here} to see how to use DiscoverCloudExadataInfrastructure API.
+     */
+  public async discoverCloudExadataInfrastructure(
+    discoverCloudExadataInfrastructureRequest: requests.DiscoverCloudExadataInfrastructureRequest
+  ): Promise<responses.DiscoverCloudExadataInfrastructureResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#discoverCloudExadataInfrastructure.");
+    const operationName = "discoverCloudExadataInfrastructure";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/CloudExadataInfrastructure/DiscoverCloudExadataInfrastructure";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": discoverCloudExadataInfrastructureRequest.opcRequestId,
+      "opc-retry-token": discoverCloudExadataInfrastructureRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      discoverCloudExadataInfrastructureRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudExadataInfrastructures/actions/discoverExadataInfrastructure",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        discoverCloudExadataInfrastructureRequest.discoverCloudExadataInfrastructureDetails,
+        "DiscoverCloudExadataInfrastructureDetails",
+        model.DiscoverCloudExadataInfrastructureDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DiscoverCloudExadataInfrastructureResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudExadataInfrastructureDiscovery",
+        bodyModel: model.CloudExadataInfrastructureDiscovery,
+        type: "model.CloudExadataInfrastructureDiscovery",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+     * Completes the Exadata system prechecking on the following:
+* <p>
 - Verifies if the DB systems are valid RAC DB systems or return 400 status code with NON_RAC_DATABASE_SYSTEM error code.
 * - Verifies if the ASM connector defined for each DB system or return 400 status code with CONNECTOR_NOT_DEFINED error code.
 * - Verifies if the agents associated with ASM are valid and could be used for the Exadata storage servers or return 400 status code with 
@@ -6160,6 +6820,96 @@ One client controls both Automatic SQL Tuning Advisor and Automatic SPM Evolve A
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.EnableCloudDbSystemStackMonitoringResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+     * Enables Database Management for the Exadata infrastructure specified by exadataInfrastructureId. It covers the following 
+* components:
+* <p>
+- Exadata infrastructure
+* - Exadata storage grid
+* - Exadata storage server
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param EnableCloudExadataInfrastructureManagementRequest
+     * @return EnableCloudExadataInfrastructureManagementResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/EnableCloudExadataInfrastructureManagement.ts.html |here} to see how to use EnableCloudExadataInfrastructureManagement API.
+     */
+  public async enableCloudExadataInfrastructureManagement(
+    enableCloudExadataInfrastructureManagementRequest: requests.EnableCloudExadataInfrastructureManagementRequest
+  ): Promise<responses.EnableCloudExadataInfrastructureManagementResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#enableCloudExadataInfrastructureManagement."
+      );
+    const operationName = "enableCloudExadataInfrastructureManagement";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/CloudExadataInfrastructure/EnableCloudExadataInfrastructureManagement";
+    const pathParams = {
+      "{cloudExadataInfrastructureId}":
+        enableCloudExadataInfrastructureManagementRequest.cloudExadataInfrastructureId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": enableCloudExadataInfrastructureManagementRequest.opcRequestId,
+      "opc-retry-token": enableCloudExadataInfrastructureManagementRequest.opcRetryToken,
+      "if-match": enableCloudExadataInfrastructureManagementRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      enableCloudExadataInfrastructureManagementRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/cloudExadataInfrastructures/{cloudExadataInfrastructureId}/actions/enableDatabaseManagement",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        enableCloudExadataInfrastructureManagementRequest.enableCloudExadataInfrastructureManagementDetails,
+        "EnableCloudExadataInfrastructureManagementDetails",
+        model.EnableCloudExadataInfrastructureManagementDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.EnableCloudExadataInfrastructureManagementResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -8118,6 +8868,394 @@ When enabled, the optimizer uses SQL plan baselines to select plans
   }
 
   /**
+   * Gets the details for the Exadata infrastructure specified by exadataInfrastructureId. It includes the VMCluster and storage grid within the
+   * Exadata infrastructure.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetCloudExadataInfrastructureRequest
+   * @return GetCloudExadataInfrastructureResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetCloudExadataInfrastructure.ts.html |here} to see how to use GetCloudExadataInfrastructure API.
+   */
+  public async getCloudExadataInfrastructure(
+    getCloudExadataInfrastructureRequest: requests.GetCloudExadataInfrastructureRequest
+  ): Promise<responses.GetCloudExadataInfrastructureResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#getCloudExadataInfrastructure.");
+    const operationName = "getCloudExadataInfrastructure";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/CloudExadataInfrastructure/GetCloudExadataInfrastructure";
+    const pathParams = {
+      "{cloudExadataInfrastructureId}":
+        getCloudExadataInfrastructureRequest.cloudExadataInfrastructureId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getCloudExadataInfrastructureRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getCloudExadataInfrastructureRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudExadataInfrastructures/{cloudExadataInfrastructureId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetCloudExadataInfrastructureResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudExadataInfrastructure",
+        bodyModel: model.CloudExadataInfrastructure,
+        type: "model.CloudExadataInfrastructure",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the details for the Exadata storage server connector specified by exadataStorageConnectorId.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetCloudExadataStorageConnectorRequest
+   * @return GetCloudExadataStorageConnectorResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetCloudExadataStorageConnector.ts.html |here} to see how to use GetCloudExadataStorageConnector API.
+   */
+  public async getCloudExadataStorageConnector(
+    getCloudExadataStorageConnectorRequest: requests.GetCloudExadataStorageConnectorRequest
+  ): Promise<responses.GetCloudExadataStorageConnectorResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#getCloudExadataStorageConnector.");
+    const operationName = "getCloudExadataStorageConnector";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/CloudExadataStorageConnector/GetCloudExadataStorageConnector";
+    const pathParams = {
+      "{cloudExadataStorageConnectorId}":
+        getCloudExadataStorageConnectorRequest.cloudExadataStorageConnectorId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getCloudExadataStorageConnectorRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getCloudExadataStorageConnectorRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudExadataStorageConnectors/{cloudExadataStorageConnectorId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetCloudExadataStorageConnectorResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudExadataStorageConnector",
+        bodyModel: model.CloudExadataStorageConnector,
+        type: "model.CloudExadataStorageConnector",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the details for the Exadata storage server grid specified by exadataStorageGridId.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetCloudExadataStorageGridRequest
+   * @return GetCloudExadataStorageGridResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetCloudExadataStorageGrid.ts.html |here} to see how to use GetCloudExadataStorageGrid API.
+   */
+  public async getCloudExadataStorageGrid(
+    getCloudExadataStorageGridRequest: requests.GetCloudExadataStorageGridRequest
+  ): Promise<responses.GetCloudExadataStorageGridResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#getCloudExadataStorageGrid.");
+    const operationName = "getCloudExadataStorageGrid";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/CloudExadataStorageGrid/GetCloudExadataStorageGrid";
+    const pathParams = {
+      "{cloudExadataStorageGridId}": getCloudExadataStorageGridRequest.cloudExadataStorageGridId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getCloudExadataStorageGridRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getCloudExadataStorageGridRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudExadataStorageGrids/{cloudExadataStorageGridId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetCloudExadataStorageGridResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudExadataStorageGrid",
+        bodyModel: model.CloudExadataStorageGrid,
+        type: "model.CloudExadataStorageGrid",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the summary for the Exadata storage server specified by exadataStorageServerId.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetCloudExadataStorageServerRequest
+   * @return GetCloudExadataStorageServerResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetCloudExadataStorageServer.ts.html |here} to see how to use GetCloudExadataStorageServer API.
+   */
+  public async getCloudExadataStorageServer(
+    getCloudExadataStorageServerRequest: requests.GetCloudExadataStorageServerRequest
+  ): Promise<responses.GetCloudExadataStorageServerResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#getCloudExadataStorageServer.");
+    const operationName = "getCloudExadataStorageServer";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/CloudExadataStorageServer/GetCloudExadataStorageServer";
+    const pathParams = {
+      "{cloudExadataStorageServerId}":
+        getCloudExadataStorageServerRequest.cloudExadataStorageServerId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getCloudExadataStorageServerRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getCloudExadataStorageServerRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudExadataStorageServers/{cloudExadataStorageServerId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetCloudExadataStorageServerResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudExadataStorageServer",
+        bodyModel: model.CloudExadataStorageServer,
+        type: "model.CloudExadataStorageServer",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get the IORM plan from the specific Exadata storage server.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetCloudIormPlanRequest
+   * @return GetCloudIormPlanResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetCloudIormPlan.ts.html |here} to see how to use GetCloudIormPlan API.
+   */
+  public async getCloudIormPlan(
+    getCloudIormPlanRequest: requests.GetCloudIormPlanRequest
+  ): Promise<responses.GetCloudIormPlanResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#getCloudIormPlan.");
+    const operationName = "getCloudIormPlan";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/CloudExadataStorageServer/GetCloudIormPlan";
+    const pathParams = {
+      "{cloudExadataStorageServerId}": getCloudIormPlanRequest.cloudExadataStorageServerId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getCloudIormPlanRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getCloudIormPlanRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudExadataStorageServers/{cloudExadataStorageServerId}/iormPlan",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetCloudIormPlanResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudIormPlan",
+        bodyModel: model.CloudIormPlan,
+        type: "model.CloudIormPlan",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets the details for the cloud listener specified by `cloudListenerId`.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -8180,6 +9318,79 @@ When enabled, the optimizer uses SQL plan baselines to select plans
             key: "etag",
             dataType: "string"
           },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the open alerts from the specified Exadata storage server.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetCloudOpenAlertHistoryRequest
+   * @return GetCloudOpenAlertHistoryResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetCloudOpenAlertHistory.ts.html |here} to see how to use GetCloudOpenAlertHistory API.
+   */
+  public async getCloudOpenAlertHistory(
+    getCloudOpenAlertHistoryRequest: requests.GetCloudOpenAlertHistoryRequest
+  ): Promise<responses.GetCloudOpenAlertHistoryResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#getCloudOpenAlertHistory.");
+    const operationName = "getCloudOpenAlertHistory";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/CloudExadataStorageServer/GetCloudOpenAlertHistory";
+    const pathParams = {
+      "{cloudExadataStorageServerId}": getCloudOpenAlertHistoryRequest.cloudExadataStorageServerId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getCloudOpenAlertHistoryRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getCloudOpenAlertHistoryRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudExadataStorageServers/{cloudExadataStorageServerId}/openAlertHistory",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetCloudOpenAlertHistoryResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudOpenAlertHistory",
+        bodyModel: model.CloudOpenAlertHistory,
+        type: "model.CloudOpenAlertHistory",
+        responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -8932,6 +10143,91 @@ When enabled, the optimizer uses SQL plan baselines to select plans
             key: "etag",
             dataType: "string"
           },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the health metrics for a fleet of Exadata infrastructure in a compartment.
+   * The CompartmentId query parameters must be provided to retrieve the health metrics.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetExadataInfrastructureFleetHealthMetricsRequest
+   * @return GetExadataInfrastructureFleetHealthMetricsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetExadataInfrastructureFleetHealthMetrics.ts.html |here} to see how to use GetExadataInfrastructureFleetHealthMetrics API.
+   */
+  public async getExadataInfrastructureFleetHealthMetrics(
+    getExadataInfrastructureFleetHealthMetricsRequest: requests.GetExadataInfrastructureFleetHealthMetricsRequest
+  ): Promise<responses.GetExadataInfrastructureFleetHealthMetricsResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#getExadataInfrastructureFleetHealthMetrics."
+      );
+    const operationName = "getExadataInfrastructureFleetHealthMetrics";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExadataInfrastructureFleetHealthMetrics/GetExadataInfrastructureFleetHealthMetrics";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": getExadataInfrastructureFleetHealthMetricsRequest.compartmentId,
+      "compareBaselineTime": getExadataInfrastructureFleetHealthMetricsRequest.compareBaselineTime,
+      "compareTargetTime": getExadataInfrastructureFleetHealthMetricsRequest.compareTargetTime,
+      "compareType": getExadataInfrastructureFleetHealthMetricsRequest.compareType,
+      "filterByExadataInfrastructureDeploymentType":
+        getExadataInfrastructureFleetHealthMetricsRequest.filterByExadataInfrastructureDeploymentType,
+      "filterByExadataInfrastructureLifecycleState":
+        getExadataInfrastructureFleetHealthMetricsRequest.filterByExadataInfrastructureLifecycleState,
+      "sortBy": getExadataInfrastructureFleetHealthMetricsRequest.sortBy,
+      "sortOrder": getExadataInfrastructureFleetHealthMetricsRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getExadataInfrastructureFleetHealthMetricsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getExadataInfrastructureFleetHealthMetricsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/exadataInfrastructureFleetMetrics",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetExadataInfrastructureFleetHealthMetricsResponse>{},
+        body: await response.json(),
+        bodyKey: "exadataInfrastructureFleetHealthMetrics",
+        bodyModel: model.ExadataInfrastructureFleetHealthMetrics,
+        type: "model.ExadataInfrastructureFleetHealthMetrics",
+        responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -13196,6 +14492,259 @@ When enabled, the optimizer uses SQL plan baselines to select plans
         bodyKey: "cloudDbSystemCollection",
         bodyModel: model.CloudDbSystemCollection,
         type: "model.CloudDbSystemCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists the Exadata infrastructure resources in the specified compartment.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListCloudExadataInfrastructuresRequest
+   * @return ListCloudExadataInfrastructuresResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListCloudExadataInfrastructures.ts.html |here} to see how to use ListCloudExadataInfrastructures API.
+   */
+  public async listCloudExadataInfrastructures(
+    listCloudExadataInfrastructuresRequest: requests.ListCloudExadataInfrastructuresRequest
+  ): Promise<responses.ListCloudExadataInfrastructuresResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#listCloudExadataInfrastructures.");
+    const operationName = "listCloudExadataInfrastructures";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/CloudExadataInfrastructure/ListCloudExadataInfrastructures";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listCloudExadataInfrastructuresRequest.compartmentId,
+      "displayName": listCloudExadataInfrastructuresRequest.displayName,
+      "page": listCloudExadataInfrastructuresRequest.page,
+      "limit": listCloudExadataInfrastructuresRequest.limit,
+      "sortBy": listCloudExadataInfrastructuresRequest.sortBy,
+      "sortOrder": listCloudExadataInfrastructuresRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listCloudExadataInfrastructuresRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listCloudExadataInfrastructuresRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudExadataInfrastructures",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListCloudExadataInfrastructuresResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudExadataInfrastructureCollection",
+        bodyModel: model.CloudExadataInfrastructureCollection,
+        type: "model.CloudExadataInfrastructureCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists the Exadata storage server connectors for the specified Exadata infrastructure.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListCloudExadataStorageConnectorsRequest
+   * @return ListCloudExadataStorageConnectorsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListCloudExadataStorageConnectors.ts.html |here} to see how to use ListCloudExadataStorageConnectors API.
+   */
+  public async listCloudExadataStorageConnectors(
+    listCloudExadataStorageConnectorsRequest: requests.ListCloudExadataStorageConnectorsRequest
+  ): Promise<responses.ListCloudExadataStorageConnectorsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#listCloudExadataStorageConnectors.");
+    const operationName = "listCloudExadataStorageConnectors";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/CloudExadataStorageConnector/ListCloudExadataStorageConnectors";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listCloudExadataStorageConnectorsRequest.compartmentId,
+      "cloudExadataInfrastructureId":
+        listCloudExadataStorageConnectorsRequest.cloudExadataInfrastructureId,
+      "displayName": listCloudExadataStorageConnectorsRequest.displayName,
+      "page": listCloudExadataStorageConnectorsRequest.page,
+      "limit": listCloudExadataStorageConnectorsRequest.limit,
+      "sortBy": listCloudExadataStorageConnectorsRequest.sortBy,
+      "sortOrder": listCloudExadataStorageConnectorsRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listCloudExadataStorageConnectorsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listCloudExadataStorageConnectorsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudExadataStorageConnectors",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListCloudExadataStorageConnectorsResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudExadataStorageConnectorCollection",
+        bodyModel: model.CloudExadataStorageConnectorCollection,
+        type: "model.CloudExadataStorageConnectorCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists the Exadata storage servers for the specified Exadata infrastructure.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListCloudExadataStorageServersRequest
+   * @return ListCloudExadataStorageServersResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListCloudExadataStorageServers.ts.html |here} to see how to use ListCloudExadataStorageServers API.
+   */
+  public async listCloudExadataStorageServers(
+    listCloudExadataStorageServersRequest: requests.ListCloudExadataStorageServersRequest
+  ): Promise<responses.ListCloudExadataStorageServersResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#listCloudExadataStorageServers.");
+    const operationName = "listCloudExadataStorageServers";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/CloudExadataStorageServer/ListCloudExadataStorageServers";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listCloudExadataStorageServersRequest.compartmentId,
+      "cloudExadataInfrastructureId":
+        listCloudExadataStorageServersRequest.cloudExadataInfrastructureId,
+      "displayName": listCloudExadataStorageServersRequest.displayName,
+      "page": listCloudExadataStorageServersRequest.page,
+      "limit": listCloudExadataStorageServersRequest.limit,
+      "sortBy": listCloudExadataStorageServersRequest.sortBy,
+      "sortOrder": listCloudExadataStorageServersRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listCloudExadataStorageServersRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listCloudExadataStorageServersRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudExadataStorageServers",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListCloudExadataStorageServersResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudExadataStorageServerCollection",
+        bodyModel: model.CloudExadataStorageServerCollection,
+        type: "model.CloudExadataStorageServerCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -21348,6 +22897,346 @@ Note that this API does not return information on the number of times each datab
         bodyKey: "cloudDbSystemDiscovery",
         bodyModel: model.CloudDbSystemDiscovery,
         type: "model.CloudDbSystemDiscovery",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the details for the Exadata infrastructure specified by exadataInfrastructureId.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateCloudExadataInfrastructureRequest
+   * @return UpdateCloudExadataInfrastructureResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdateCloudExadataInfrastructure.ts.html |here} to see how to use UpdateCloudExadataInfrastructure API.
+   */
+  public async updateCloudExadataInfrastructure(
+    updateCloudExadataInfrastructureRequest: requests.UpdateCloudExadataInfrastructureRequest
+  ): Promise<responses.UpdateCloudExadataInfrastructureResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#updateCloudExadataInfrastructure.");
+    const operationName = "updateCloudExadataInfrastructure";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/CloudExadataInfrastructure/UpdateCloudExadataInfrastructure";
+    const pathParams = {
+      "{cloudExadataInfrastructureId}":
+        updateCloudExadataInfrastructureRequest.cloudExadataInfrastructureId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateCloudExadataInfrastructureRequest.opcRequestId,
+      "if-match": updateCloudExadataInfrastructureRequest.ifMatch,
+      "opc-retry-token": updateCloudExadataInfrastructureRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateCloudExadataInfrastructureRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudExadataInfrastructures/{cloudExadataInfrastructureId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateCloudExadataInfrastructureRequest.updateCloudExadataInfrastructureDetails,
+        "UpdateCloudExadataInfrastructureDetails",
+        model.UpdateCloudExadataInfrastructureDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateCloudExadataInfrastructureResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudExadataInfrastructure",
+        bodyModel: model.CloudExadataInfrastructure,
+        type: "model.CloudExadataInfrastructure",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the Exadata storage server connector specified by exadataStorageConnectorId.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateCloudExadataStorageConnectorRequest
+   * @return UpdateCloudExadataStorageConnectorResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdateCloudExadataStorageConnector.ts.html |here} to see how to use UpdateCloudExadataStorageConnector API.
+   */
+  public async updateCloudExadataStorageConnector(
+    updateCloudExadataStorageConnectorRequest: requests.UpdateCloudExadataStorageConnectorRequest
+  ): Promise<responses.UpdateCloudExadataStorageConnectorResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#updateCloudExadataStorageConnector.");
+    const operationName = "updateCloudExadataStorageConnector";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/CloudExadataStorageConnector/UpdateCloudExadataStorageConnector";
+    const pathParams = {
+      "{cloudExadataStorageConnectorId}":
+        updateCloudExadataStorageConnectorRequest.cloudExadataStorageConnectorId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateCloudExadataStorageConnectorRequest.ifMatch,
+      "opc-request-id": updateCloudExadataStorageConnectorRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateCloudExadataStorageConnectorRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudExadataStorageConnectors/{cloudExadataStorageConnectorId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateCloudExadataStorageConnectorRequest.updateCloudExadataStorageConnectorDetails,
+        "UpdateCloudExadataStorageConnectorDetails",
+        model.UpdateCloudExadataStorageConnectorDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateCloudExadataStorageConnectorResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudExadataStorageConnector",
+        bodyModel: model.CloudExadataStorageConnector,
+        type: "model.CloudExadataStorageConnector",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the Exadata storage server grid specified by exadataStorageGridId.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateCloudExadataStorageGridRequest
+   * @return UpdateCloudExadataStorageGridResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdateCloudExadataStorageGrid.ts.html |here} to see how to use UpdateCloudExadataStorageGrid API.
+   */
+  public async updateCloudExadataStorageGrid(
+    updateCloudExadataStorageGridRequest: requests.UpdateCloudExadataStorageGridRequest
+  ): Promise<responses.UpdateCloudExadataStorageGridResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#updateCloudExadataStorageGrid.");
+    const operationName = "updateCloudExadataStorageGrid";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/CloudExadataStorageGrid/UpdateCloudExadataStorageGrid";
+    const pathParams = {
+      "{cloudExadataStorageGridId}": updateCloudExadataStorageGridRequest.cloudExadataStorageGridId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateCloudExadataStorageGridRequest.opcRequestId,
+      "if-match": updateCloudExadataStorageGridRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateCloudExadataStorageGridRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudExadataStorageGrids/{cloudExadataStorageGridId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateCloudExadataStorageGridRequest.updateCloudExadataStorageGridDetails,
+        "UpdateCloudExadataStorageGridDetails",
+        model.UpdateCloudExadataStorageGridDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateCloudExadataStorageGridResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudExadataStorageGrid",
+        bodyModel: model.CloudExadataStorageGrid,
+        type: "model.CloudExadataStorageGrid",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the Exadata storage server specified by exadataStorageServerId.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateCloudExadataStorageServerRequest
+   * @return UpdateCloudExadataStorageServerResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdateCloudExadataStorageServer.ts.html |here} to see how to use UpdateCloudExadataStorageServer API.
+   */
+  public async updateCloudExadataStorageServer(
+    updateCloudExadataStorageServerRequest: requests.UpdateCloudExadataStorageServerRequest
+  ): Promise<responses.UpdateCloudExadataStorageServerResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#updateCloudExadataStorageServer.");
+    const operationName = "updateCloudExadataStorageServer";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/CloudExadataStorageServer/UpdateCloudExadataStorageServer";
+    const pathParams = {
+      "{cloudExadataStorageServerId}":
+        updateCloudExadataStorageServerRequest.cloudExadataStorageServerId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateCloudExadataStorageServerRequest.opcRequestId,
+      "if-match": updateCloudExadataStorageServerRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateCloudExadataStorageServerRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudExadataStorageServers/{cloudExadataStorageServerId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateCloudExadataStorageServerRequest.updateCloudExadataStorageServerDetails,
+        "UpdateCloudExadataStorageServerDetails",
+        model.UpdateCloudExadataStorageServerDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateCloudExadataStorageServerResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudExadataStorageServer",
+        bodyModel: model.CloudExadataStorageServer,
+        type: "model.CloudExadataStorageServer",
         responseHeaders: [
           {
             value: response.headers.get("etag"),

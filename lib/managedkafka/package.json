@@ -1,6 +1,6 @@
 {
   "name": "oci-managedkafka",
-  "version": "2.125.1",
+  "version": "2.125.2",
   "description": "OCI NodeJS client for Managed Kafka Service",
   "repository": {
     "type": "git",

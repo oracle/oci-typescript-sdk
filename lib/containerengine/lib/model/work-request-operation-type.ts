@@ -41,6 +41,8 @@ export enum WorkRequestOperationType {
   ReconcileAddon = "RECONCILE_ADDON",
   ClusterNodeReboot = "CLUSTER_NODE_REBOOT",
   ClusterNodeReplaceBootVolume = "CLUSTER_NODE_REPLACE_BOOT_VOLUME",
+  StartPublicApiEndpointDecommission = "START_PUBLIC_API_ENDPOINT_DECOMMISSION",
+  RollbackPublicApiEndpointDecommission = "ROLLBACK_PUBLIC_API_ENDPOINT_DECOMMISSION",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

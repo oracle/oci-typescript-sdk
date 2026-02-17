@@ -1,6 +1,6 @@
 {
   "name": "oci-aidataplatform",
-  "version": "2.125.1",
+  "version": "2.125.2",
   "description": "OCI NodeJS client for Ai Data Platform Service",
   "repository": {
     "type": "git",
