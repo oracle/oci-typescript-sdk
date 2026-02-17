@@ -17,13 +17,23 @@ import common = require("oci-common");
 /**
  * The nature of the maintenance event.
 * <p>
-DATABASE:  maintenance event causing a MySQL version upgrade.
+DATABASE:  maintenance event causing a MySQL version upgrade. This may also include OS updates.
 * OS_UPDATE: maintenance event causing an OS update.
+* ONLINE_UPDATE: maintenance event causing downtime-free OS security patches.
+* HARDWARE: hardware maintenance event affecting the DB System's VMs and BMs.
 * 
 **/
 export enum MaintenanceAction {
   Database = "DATABASE",
-  OsUpdate = "OS_UPDATE"
+  OsUpdate = "OS_UPDATE",
+  OnlineUpdate = "ONLINE_UPDATE",
+  Hardware = "HARDWARE",
+
+  /**
+   * This value is used if a service returns a value for this enum that is not recognized by this
+   * version of the SDK.
+   */
+  UnknownValue = "UNKNOWN_VALUE"
 }
 
 export namespace MaintenanceAction {

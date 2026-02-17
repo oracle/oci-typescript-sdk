@@ -1,6 +1,6 @@
 {
   "name": "oci-email",
-  "version": "2.125.1",
+  "version": "2.125.2",
   "description": "OCI NodeJS client for Email",
   "repository": {
     "type": "git",

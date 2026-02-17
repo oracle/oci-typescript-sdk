@@ -1,6 +1,6 @@
 {
   "name": "oci-apiaccesscontrol",
-  "version": "2.125.1",
+  "version": "2.125.2",
   "description": "OCI NodeJS client for Apiaccesscontrol Service",
   "repository": {
     "type": "git",

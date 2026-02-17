@@ -1293,6 +1293,93 @@ export class ContainerEngineClient {
   }
 
   /**
+   * Extend the rollback deadline of public api endpoint decommission for a cluster.
+   * The operation can only be performed within decommission rollback deadline.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ExtendEndpointDecommissionRollbackDeadlineRequest
+   * @return ExtendEndpointDecommissionRollbackDeadlineResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/ExtendEndpointDecommissionRollbackDeadline.ts.html |here} to see how to use ExtendEndpointDecommissionRollbackDeadline API.
+   */
+  public async extendEndpointDecommissionRollbackDeadline(
+    extendEndpointDecommissionRollbackDeadlineRequest: requests.ExtendEndpointDecommissionRollbackDeadlineRequest
+  ): Promise<responses.ExtendEndpointDecommissionRollbackDeadlineResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ContainerEngineClient#extendEndpointDecommissionRollbackDeadline."
+      );
+    const operationName = "extendEndpointDecommissionRollbackDeadline";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{clusterId}": extendEndpointDecommissionRollbackDeadlineRequest.clusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": extendEndpointDecommissionRollbackDeadlineRequest.opcRetryToken,
+      "opc-request-id": extendEndpointDecommissionRollbackDeadlineRequest.opcRequestId,
+      "if-match": extendEndpointDecommissionRollbackDeadlineRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      extendEndpointDecommissionRollbackDeadlineRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/clusters/{clusterId}/actions/extendEndpointDecommissionRollbackDeadline",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        extendEndpointDecommissionRollbackDeadlineRequest.extendEndpointDecommissionRollbackDeadlineDetails,
+        "ExtendEndpointDecommissionRollbackDeadlineDetails",
+        model.ExtendEndpointDecommissionRollbackDeadlineDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ExtendEndpointDecommissionRollbackDeadlineResponse>{},
+        body: await response.json(),
+        bodyKey: "publicApiEndpointDecommissionStatus",
+        bodyModel: model.PublicApiEndpointDecommissionStatus,
+        type: "model.PublicApiEndpointDecommissionStatus",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Get the specified addon for a cluster.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetAddonRequest
@@ -1811,6 +1898,84 @@ export class ContainerEngineClient {
         bodyModel: model.NodePoolOptions,
         type: "model.NodePoolOptions",
         responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get cluster public api endpoint decommission status.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetPublicApiEndpointDecommissionStatusRequest
+   * @return GetPublicApiEndpointDecommissionStatusResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/GetPublicApiEndpointDecommissionStatus.ts.html |here} to see how to use GetPublicApiEndpointDecommissionStatus API.
+   */
+  public async getPublicApiEndpointDecommissionStatus(
+    getPublicApiEndpointDecommissionStatusRequest: requests.GetPublicApiEndpointDecommissionStatusRequest
+  ): Promise<responses.GetPublicApiEndpointDecommissionStatusResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ContainerEngineClient#getPublicApiEndpointDecommissionStatus."
+      );
+    const operationName = "getPublicApiEndpointDecommissionStatus";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{clusterId}": getPublicApiEndpointDecommissionStatusRequest.clusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getPublicApiEndpointDecommissionStatusRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getPublicApiEndpointDecommissionStatusRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/clusters/{clusterId}/publicApiEndpointDecommissionStatus",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetPublicApiEndpointDecommissionStatusResponse>{},
+        body: await response.json(),
+        bodyKey: "publicApiEndpointDecommissionStatus",
+        bodyModel: model.PublicApiEndpointDecommissionStatus,
+        type: "model.PublicApiEndpointDecommissionStatus",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -3718,6 +3883,84 @@ export class ContainerEngineClient {
   }
 
   /**
+   * Rollback public api endpoint decommission for a cluster, legacy kubernetes endpoint will be brought back once the operation is completed.
+   * The operation can only be performed within decommission rollback deadline.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param RollbackPublicApiEndpointDecommissionRequest
+   * @return RollbackPublicApiEndpointDecommissionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/RollbackPublicApiEndpointDecommission.ts.html |here} to see how to use RollbackPublicApiEndpointDecommission API.
+   */
+  public async rollbackPublicApiEndpointDecommission(
+    rollbackPublicApiEndpointDecommissionRequest: requests.RollbackPublicApiEndpointDecommissionRequest
+  ): Promise<responses.RollbackPublicApiEndpointDecommissionResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ContainerEngineClient#rollbackPublicApiEndpointDecommission."
+      );
+    const operationName = "rollbackPublicApiEndpointDecommission";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{clusterId}": rollbackPublicApiEndpointDecommissionRequest.clusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": rollbackPublicApiEndpointDecommissionRequest.opcRetryToken,
+      "opc-request-id": rollbackPublicApiEndpointDecommissionRequest.opcRequestId,
+      "if-match": rollbackPublicApiEndpointDecommissionRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      rollbackPublicApiEndpointDecommissionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/clusters/{clusterId}/actions/rollbackPublicApiEndpointDecommission",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RollbackPublicApiEndpointDecommissionResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Start cluster credential rotation by adding new credentials, old credentials will still work after this operation.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param StartCredentialRotationRequest
@@ -3776,6 +4019,82 @@ export class ContainerEngineClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.StartCredentialRotationResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Start public api endpoint decommission for a cluster, legacy kubernetes endpoint will no longer available after this operation.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param StartPublicApiEndpointDecommissionRequest
+   * @return StartPublicApiEndpointDecommissionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/StartPublicApiEndpointDecommission.ts.html |here} to see how to use StartPublicApiEndpointDecommission API.
+   */
+  public async startPublicApiEndpointDecommission(
+    startPublicApiEndpointDecommissionRequest: requests.StartPublicApiEndpointDecommissionRequest
+  ): Promise<responses.StartPublicApiEndpointDecommissionResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ContainerEngineClient#startPublicApiEndpointDecommission."
+      );
+    const operationName = "startPublicApiEndpointDecommission";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{clusterId}": startPublicApiEndpointDecommissionRequest.clusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": startPublicApiEndpointDecommissionRequest.opcRetryToken,
+      "opc-request-id": startPublicApiEndpointDecommissionRequest.opcRequestId,
+      "if-match": startPublicApiEndpointDecommissionRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      startPublicApiEndpointDecommissionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/clusters/{clusterId}/actions/startPublicApiEndpointDecommission",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.StartPublicApiEndpointDecommissionResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),

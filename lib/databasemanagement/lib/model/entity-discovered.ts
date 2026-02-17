@@ -83,6 +83,16 @@ export namespace EntityDiscovered {
 
     if (obj && "entityType" in obj && obj.entityType) {
       switch (obj.entityType) {
+        case "MANAGED_INFRASTRUCTURE_DISCOVER_SUMMARY":
+          return model.ExadataInfrastructureDiscoverySummary.getJsonObj(
+            <model.ExadataInfrastructureDiscoverySummary>(<object>jsonObj),
+            true
+          );
+        case "MANAGED_STORAGE_GRID_DISCOVER_SUMMARY":
+          return model.StorageGridDiscoverySummary.getJsonObj(
+            <model.StorageGridDiscoverySummary>(<object>jsonObj),
+            true
+          );
         case "STORAGE_GRID_DISCOVER_SUMMARY":
           return model.ExternalStorageGridDiscoverySummary.getJsonObj(
             <model.ExternalStorageGridDiscoverySummary>(<object>jsonObj),
@@ -98,6 +108,11 @@ export namespace EntityDiscovered {
             <model.ExternalDatabaseSystemDiscoverySummary>(<object>jsonObj),
             true
           );
+        case "CLOUD_INFRASTRUCTURE_DISCOVER":
+          return model.CloudExadataInfrastructureDiscovery.getJsonObj(
+            <model.CloudExadataInfrastructureDiscovery>(<object>jsonObj),
+            true
+          );
         case "INFRASTRUCTURE_DISCOVER_SUMMARY":
           return model.ExternalExadataInfrastructureDiscoverySummary.getJsonObj(
             <model.ExternalExadataInfrastructureDiscoverySummary>(<object>jsonObj),
@@ -106,6 +121,16 @@ export namespace EntityDiscovered {
         case "STORAGE_SERVER_DISCOVER_SUMMARY":
           return model.ExternalStorageServerDiscoverySummary.getJsonObj(
             <model.ExternalStorageServerDiscoverySummary>(<object>jsonObj),
+            true
+          );
+        case "MANAGED_STORAGE_SERVER_DISCOVER_SUMMARY":
+          return model.StorageServerDiscoverySummary.getJsonObj(
+            <model.StorageServerDiscoverySummary>(<object>jsonObj),
+            true
+          );
+        case "VM_CLUSTER_DISCOVER_SUMMARY":
+          return model.VMClusterDiscoverySummary.getJsonObj(
+            <model.VMClusterDiscoverySummary>(<object>jsonObj),
             true
           );
         default:
@@ -119,6 +144,16 @@ export namespace EntityDiscovered {
 
     if (obj && "entityType" in obj && obj.entityType) {
       switch (obj.entityType) {
+        case "MANAGED_INFRASTRUCTURE_DISCOVER_SUMMARY":
+          return model.ExadataInfrastructureDiscoverySummary.getDeserializedJsonObj(
+            <model.ExadataInfrastructureDiscoverySummary>(<object>jsonObj),
+            true
+          );
+        case "MANAGED_STORAGE_GRID_DISCOVER_SUMMARY":
+          return model.StorageGridDiscoverySummary.getDeserializedJsonObj(
+            <model.StorageGridDiscoverySummary>(<object>jsonObj),
+            true
+          );
         case "STORAGE_GRID_DISCOVER_SUMMARY":
           return model.ExternalStorageGridDiscoverySummary.getDeserializedJsonObj(
             <model.ExternalStorageGridDiscoverySummary>(<object>jsonObj),
@@ -134,6 +169,11 @@ export namespace EntityDiscovered {
             <model.ExternalDatabaseSystemDiscoverySummary>(<object>jsonObj),
             true
           );
+        case "CLOUD_INFRASTRUCTURE_DISCOVER":
+          return model.CloudExadataInfrastructureDiscovery.getDeserializedJsonObj(
+            <model.CloudExadataInfrastructureDiscovery>(<object>jsonObj),
+            true
+          );
         case "INFRASTRUCTURE_DISCOVER_SUMMARY":
           return model.ExternalExadataInfrastructureDiscoverySummary.getDeserializedJsonObj(
             <model.ExternalExadataInfrastructureDiscoverySummary>(<object>jsonObj),
@@ -142,6 +182,16 @@ export namespace EntityDiscovered {
         case "STORAGE_SERVER_DISCOVER_SUMMARY":
           return model.ExternalStorageServerDiscoverySummary.getDeserializedJsonObj(
             <model.ExternalStorageServerDiscoverySummary>(<object>jsonObj),
+            true
+          );
+        case "MANAGED_STORAGE_SERVER_DISCOVER_SUMMARY":
+          return model.StorageServerDiscoverySummary.getDeserializedJsonObj(
+            <model.StorageServerDiscoverySummary>(<object>jsonObj),
+            true
+          );
+        case "VM_CLUSTER_DISCOVER_SUMMARY":
+          return model.VMClusterDiscoverySummary.getDeserializedJsonObj(
+            <model.VMClusterDiscoverySummary>(<object>jsonObj),
             true
           );
         default:

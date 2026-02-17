@@ -79,16 +79,35 @@ Example: {@code {\"Department\": \"Finance\"}}
    *
    */
   "displayName"?: string;
+  "gpuMemoryClusterScaleConfig"?: model.CreateComputeGpuMemoryClusterScaleConfig;
 }
 
 export namespace CreateComputeGpuMemoryClusterDetails {
   export function getJsonObj(obj: CreateComputeGpuMemoryClusterDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "gpuMemoryClusterScaleConfig": obj.gpuMemoryClusterScaleConfig
+          ? model.CreateComputeGpuMemoryClusterScaleConfig.getJsonObj(
+              obj.gpuMemoryClusterScaleConfig
+            )
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: CreateComputeGpuMemoryClusterDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "gpuMemoryClusterScaleConfig": obj.gpuMemoryClusterScaleConfig
+          ? model.CreateComputeGpuMemoryClusterScaleConfig.getDeserializedJsonObj(
+              obj.gpuMemoryClusterScaleConfig
+            )
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

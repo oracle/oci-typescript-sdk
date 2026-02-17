@@ -82,6 +82,8 @@ import * as CredentialRotationStatus from "./credential-rotation-status";
 export import CredentialRotationStatus = CredentialRotationStatus.CredentialRotationStatus;
 import * as CycleMode from "./cycle-mode";
 export import CycleMode = CycleMode.CycleMode;
+import * as ExtendEndpointDecommissionRollbackDeadlineDetails from "./extend-endpoint-decommission-rollback-deadline-details";
+export import ExtendEndpointDecommissionRollbackDeadlineDetails = ExtendEndpointDecommissionRollbackDeadlineDetails.ExtendEndpointDecommissionRollbackDeadlineDetails;
 import * as Image from "./image";
 export import Image = Image.Image;
 import * as ImagePolicyConfig from "./image-policy-config";
@@ -148,6 +150,8 @@ import * as PreemptibleNodeConfigDetails from "./preemptible-node-config-details
 export import PreemptibleNodeConfigDetails = PreemptibleNodeConfigDetails.PreemptibleNodeConfigDetails;
 import * as PreemptionAction from "./preemption-action";
 export import PreemptionAction = PreemptionAction.PreemptionAction;
+import * as PublicApiEndpointDecommissionStatus from "./public-api-endpoint-decommission-status";
+export import PublicApiEndpointDecommissionStatus = PublicApiEndpointDecommissionStatus.PublicApiEndpointDecommissionStatus;
 import * as RebootClusterNodeDetails from "./reboot-cluster-node-details";
 export import RebootClusterNodeDetails = RebootClusterNodeDetails.RebootClusterNodeDetails;
 import * as ReplaceBootVolumeClusterNodeDetails from "./replace-boot-volume-cluster-node-details";

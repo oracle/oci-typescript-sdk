@@ -1,6 +1,6 @@
 {
   "name": "oci-core",
-  "version": "2.125.1",
+  "version": "2.125.2",
   "description": "OCI NodeJS client for Core",
   "repository": {
     "type": "git",
