@@ -127,6 +127,7 @@ export interface Replica {
    */
   "configurationId"?: string;
   "replicaOverrides"?: model.ReplicaOverrides;
+  "telemetryConfiguration"?: model.TelemetryConfigurationDetails;
 }
 
 export namespace Replica {
@@ -159,6 +160,9 @@ export namespace Replica {
 
         "replicaOverrides": obj.replicaOverrides
           ? model.ReplicaOverrides.getJsonObj(obj.replicaOverrides)
+          : undefined,
+        "telemetryConfiguration": obj.telemetryConfiguration
+          ? model.TelemetryConfigurationDetails.getJsonObj(obj.telemetryConfiguration)
           : undefined
       }
     };
@@ -178,6 +182,9 @@ export namespace Replica {
 
         "replicaOverrides": obj.replicaOverrides
           ? model.ReplicaOverrides.getDeserializedJsonObj(obj.replicaOverrides)
+          : undefined,
+        "telemetryConfiguration": obj.telemetryConfiguration
+          ? model.TelemetryConfigurationDetails.getDeserializedJsonObj(obj.telemetryConfiguration)
           : undefined
       }
     };

@@ -1,6 +1,6 @@
 {
   "name": "oci-sdk",
-  "version": "2.125.2",
+  "version": "2.125.3",
   "author": {
     "name": "Oracle Cloud Infrastructure",
     "email": ""
@@ -156,7 +156,6 @@
     "oci-desktops": "file:lib/desktops",
     "oci-emaildataplane": "file:lib/emaildataplane",
     "oci-clusterplacementgroups": "file:lib/clusterplacementgroups",
-    "oci-marketplaceprivateoffer": "file:lib/marketplaceprivateoffer",
     "oci-resourcescheduler": "file:lib/resourcescheduler",
     "oci-demandsignal": "file:lib/demandsignal",
     "oci-fleetappsmanagement": "file:lib/fleetappsmanagement",
@@ -182,7 +181,8 @@
     "oci-iot": "file:lib/iot",
     "oci-dif": "file:lib/dif",
     "oci-psa": "file:lib/psa",
-    "oci-batch": "file:lib/batch"
+    "oci-batch": "file:lib/batch",
+    "oci-marketplaceprivateoffer": "file:lib/marketplaceprivateoffer"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"

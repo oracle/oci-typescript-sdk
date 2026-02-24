@@ -107,7 +107,8 @@ export interface Resolver {
    */
   "attachedViews": Array<model.AttachedView>;
   /**
-   * Rules for the resolver. Rules are evaluated in order.
+   * Rules for the resolver. Rules are evaluated in order, and only the first matching rule will have its action
+   * applied.
    *
    */
   "rules"?: Array<model.ResolverRule>;

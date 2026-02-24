@@ -11,6 +11,7 @@ import SecurityTokenAdapter from "./security-token-adapter";
 import AuthUtils from "./helpers/auth-utils";
 import { HttpRequest } from "../http-request";
 import { FetchHttpClient } from "../http";
+import { CustomMutex } from "./helpers/custom-mutex";
 
 /**
  * This class gets a security token from the OKE Proxymux service by authenticating the request with the kubernetes service account,
@@ -23,6 +24,7 @@ const OKE_WORKLOAD_IDENTITY_GENERIC_ERROR =
 export default class X509FederationClientForOkeWorkloadIdentity implements FederationClient {
   securityTokenAdapter: SecurityTokenAdapter;
   private retry = 0;
+  private refreshMutex = new CustomMutex();
 
   constructor(
     private proxymuxEndpoint: string,
@@ -65,15 +67,22 @@ export default class X509FederationClientForOkeWorkloadIdentity implements Feder
   private async refreshAndGetSecurityTokenInner(
     doFinalTokenValidityCheck: boolean
   ): Promise<string> {
-    // Check again to see if the JWT is still invalid, unless we want to skip that check
-    if (!doFinalTokenValidityCheck || !this.securityTokenAdapter.isValid()) {
-      this.sessionKeySupplier.refreshKeys();
+    await this.refreshMutex.acquire();
+    try {
+      // Check again to see if the JWT is still invalid, unless we want to skip that check
+      if (!doFinalTokenValidityCheck || !this.securityTokenAdapter.isValid()) {
+        this.sessionKeySupplier.refreshKeys();
 
-      this.securityTokenAdapter = await this.getSecurityTokenFromServer();
+        this.securityTokenAdapter = await this.getSecurityTokenFromServer();
 
+        return this.securityTokenAdapter.getSecurityToken();
+      }
       return this.securityTokenAdapter.getSecurityToken();
+    } catch (e) {
+      throw e;
+    } finally {
+      this.refreshMutex.release();
     }
-    return this.securityTokenAdapter.getSecurityToken();
   }
 
   /**

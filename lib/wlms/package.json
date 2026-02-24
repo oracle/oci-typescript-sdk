@@ -1,6 +1,6 @@
 {
   "name": "oci-wlms",
-  "version": "2.125.2",
+  "version": "2.125.3",
   "description": "OCI NodeJS client for Wlms Service",
   "repository": {
     "type": "git",

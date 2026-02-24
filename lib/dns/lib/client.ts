@@ -861,6 +861,8 @@ Protected zones cannot have their compartment changed. When the zone name is pro
 * <p>
 For the purposes of access control, the attachment is automatically placed
 * into the same compartment as the domain's zone.
+* <p>
+Attachments cannot be created for private zones.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param CreateSteeringPolicyAttachmentRequest
@@ -1164,7 +1166,8 @@ Private zones must have a zone type of `PRIMARY`. Creating a private zone at or 
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": createZoneRequest.opcRequestId
+      "opc-request-id": createZoneRequest.opcRequestId,
+      "opc-retry-token": createZoneRequest.opcRetryToken
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -1257,7 +1260,8 @@ Private zones must have a zone type of `PRIMARY`. Creating a private zone at or 
     };
 
     let headerParams = {
-      "opc-request-id": createZoneFromZoneFileRequest.opcRequestId
+      "opc-request-id": createZoneFromZoneFileRequest.opcRequestId,
+      "opc-retry-token": createZoneFromZoneFileRequest.opcRetryToken
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;

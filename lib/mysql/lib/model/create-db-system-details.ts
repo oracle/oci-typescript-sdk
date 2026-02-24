@@ -205,6 +205,7 @@ Must be unique across all VNICs in the subnet and comply with RFC 952 and RFC 11
    */
   "customerContacts"?: Array<model.CustomerContact>;
   "readEndpoint"?: model.CreateReadEndpointDetails;
+  "telemetryConfiguration"?: model.CreateTelemetryConfigurationDetails;
 }
 
 export namespace CreateDbSystemDetails {
@@ -247,6 +248,9 @@ export namespace CreateDbSystemDetails {
           : undefined,
         "readEndpoint": obj.readEndpoint
           ? model.CreateReadEndpointDetails.getJsonObj(obj.readEndpoint)
+          : undefined,
+        "telemetryConfiguration": obj.telemetryConfiguration
+          ? model.CreateTelemetryConfigurationDetails.getJsonObj(obj.telemetryConfiguration)
           : undefined
       }
     };
@@ -294,6 +298,11 @@ export namespace CreateDbSystemDetails {
           : undefined,
         "readEndpoint": obj.readEndpoint
           ? model.CreateReadEndpointDetails.getDeserializedJsonObj(obj.readEndpoint)
+          : undefined,
+        "telemetryConfiguration": obj.telemetryConfiguration
+          ? model.CreateTelemetryConfigurationDetails.getDeserializedJsonObj(
+              obj.telemetryConfiguration
+            )
           : undefined
       }
     };
