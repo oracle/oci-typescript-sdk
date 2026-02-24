@@ -98,6 +98,8 @@ import * as SqlEndpointCollection from "./sql-endpoint-collection";
 export import SqlEndpointCollection = SqlEndpointCollection.SqlEndpointCollection;
 import * as SqlEndpointLifecycleState from "./sql-endpoint-lifecycle-state";
 export import SqlEndpointLifecycleState = SqlEndpointLifecycleState.SqlEndpointLifecycleState;
+import * as SqlEndpointLogOperation from "./sql-endpoint-log-operation";
+export import SqlEndpointLogOperation = SqlEndpointLogOperation.SqlEndpointLogOperation;
 import * as SqlEndpointNetworkConfiguration from "./sql-endpoint-network-configuration";
 export import SqlEndpointNetworkConfiguration = SqlEndpointNetworkConfiguration.SqlEndpointNetworkConfiguration;
 import * as SqlEndpointSummary from "./sql-endpoint-summary";

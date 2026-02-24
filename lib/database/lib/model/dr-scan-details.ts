@@ -32,6 +32,10 @@ export interface DrScanDetails {
    * The list of Disaster recovery SCAN IP addresses. Three addresses should be provided.
    */
   "ips": Array<string>;
+  /**
+   * The DR SCAN TCPIP SSL port. Default is 2484. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "scanListenerPortTcpSsl"?: number;
 }
 
 export namespace DrScanDetails {

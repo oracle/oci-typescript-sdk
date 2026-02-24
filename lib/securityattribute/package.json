@@ -1,6 +1,6 @@
 {
   "name": "oci-securityattribute",
-  "version": "2.125.2",
+  "version": "2.125.3",
   "description": "OCI NodeJS client for Security Attribute Service",
   "repository": {
     "type": "git",

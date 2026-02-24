@@ -25,7 +25,7 @@ export interface SteeringPolicyAttachmentSummary {
    */
   "steeringPolicyId": string;
   /**
-   * The OCID of the attached zone.
+   * The OCID of the attached zone. Must be a public zone.
    */
   "zoneId": string;
   /**

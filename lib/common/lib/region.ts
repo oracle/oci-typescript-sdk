@@ -117,6 +117,7 @@ export class Region {
     public static EU_MADRID_3: Region = Region.register("eu-madrid-3", Realm.OC1, "orf");
     public static EU_TURIN_1: Region = Region.register("eu-turin-1", Realm.OC1, "nrq");
     public static AP_KULAI_2: Region = Region.register("ap-kulai-2", Realm.OC1, "jbp");
+    public static AF_CASABLANCA_1: Region = Region.register("af-casablanca-1", Realm.OC1, "lej");
 
   // OC2
   public static US_LANGLEY_1: Region = Region.register("us-langley-1", Realm.OC2, "lfi");

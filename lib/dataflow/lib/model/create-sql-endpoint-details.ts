@@ -88,6 +88,22 @@ export interface CreateSqlEndpointDetails {
    */
   "sparkAdvancedConfigurations"?: { [key: string]: string };
   "networkConfiguration": model.SqlEndpointVcnConfig | model.SqlEndpointSecureAccessConfig;
+  /**
+   * The identifier of the log group used with the SQL Endpoint.
+   */
+  "logGroupId"?: string;
+  /**
+   * The identifier of the log group compartment used with the SQL Endpoint.
+   */
+  "logCompartmentId"?: string;
+  /**
+   * The friendly name of the log object used with the SQL Endpoint.
+   */
+  "logDisplayName"?: string;
+  /**
+   * Log retention duration in days Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "logRetentionDuration"?: number;
 }
 
 export namespace CreateSqlEndpointDetails {

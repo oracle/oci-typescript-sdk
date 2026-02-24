@@ -31,6 +31,8 @@ export enum WorkRequestOperationType {
   StopHeatwaveCluster = "STOP_HEATWAVE_CLUSTER",
   RestartHeatwaveCluster = "RESTART_HEATWAVE_CLUSTER",
   GenerateHeatwaveClusterMemoryEstimate = "GENERATE_HEATWAVE_CLUSTER_MEMORY_ESTIMATE",
+  GenerateDbsystemStatus = "GENERATE_DBSYSTEM_STATUS",
+  GenerateChannelStatus = "GENERATE_CHANNEL_STATUS",
   CreateReplica = "CREATE_REPLICA",
   UpdateReplica = "UPDATE_REPLICA",
   DeleteReplica = "DELETE_REPLICA",

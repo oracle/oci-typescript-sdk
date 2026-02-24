@@ -1,6 +1,6 @@
 {
   "name": "oci-dashboardservice",
-  "version": "2.125.2",
+  "version": "2.125.3",
   "description": "OCI NodeJS client for Dashboard Service Service",
   "repository": {
     "type": "git",

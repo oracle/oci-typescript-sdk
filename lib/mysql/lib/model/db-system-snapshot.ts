@@ -161,6 +161,7 @@ export interface DbSystemSnapshot {
    */
   "region"?: string;
   "readEndpoint"?: model.ReadEndpointDetails;
+  "telemetryConfiguration"?: model.TelemetryConfigurationDetails;
 }
 
 export namespace DbSystemSnapshot {
@@ -200,6 +201,9 @@ export namespace DbSystemSnapshot {
 
         "readEndpoint": obj.readEndpoint
           ? model.ReadEndpointDetails.getJsonObj(obj.readEndpoint)
+          : undefined,
+        "telemetryConfiguration": obj.telemetryConfiguration
+          ? model.TelemetryConfigurationDetails.getJsonObj(obj.telemetryConfiguration)
           : undefined
       }
     };
@@ -244,6 +248,9 @@ export namespace DbSystemSnapshot {
 
         "readEndpoint": obj.readEndpoint
           ? model.ReadEndpointDetails.getDeserializedJsonObj(obj.readEndpoint)
+          : undefined,
+        "telemetryConfiguration": obj.telemetryConfiguration
+          ? model.TelemetryConfigurationDetails.getDeserializedJsonObj(obj.telemetryConfiguration)
           : undefined
       }
     };

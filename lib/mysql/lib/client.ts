@@ -401,6 +401,84 @@ export class ChannelsClient {
   }
 
   /**
+   * Initiates an asynchronous request to collect the current status of the specified Channel.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GenerateChannelStatusRequest
+   * @return GenerateChannelStatusResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/GenerateChannelStatus.ts.html |here} to see how to use GenerateChannelStatus API.
+   */
+  public async generateChannelStatus(
+    generateChannelStatusRequest: requests.GenerateChannelStatusRequest
+  ): Promise<responses.GenerateChannelStatusResponse> {
+    if (this.logger) this.logger.debug("Calling operation ChannelsClient#generateChannelStatus.");
+    const operationName = "generateChannelStatus";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/ChannelStatus/GenerateChannelStatus";
+    const pathParams = {
+      "{channelId}": generateChannelStatusRequest.channelId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": generateChannelStatusRequest.opcRequestId,
+      "opc-retry-token": generateChannelStatusRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      generateChannelStatusRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/channels/{channelId}/actions/generateChannelStatus",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GenerateChannelStatusResponse>{},
+        body: await response.json(),
+        bodyKey: "channelStatus",
+        bodyModel: model.ChannelStatus,
+        type: "model.ChannelStatus",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets the full details of the specified Channel, including the user-specified
    * configuration parameters (passwords are omitted), as well as information about
    * the state of the Channel, its sources and targets.
@@ -466,6 +544,78 @@ export class ChannelsClient {
             key: "etag",
             dataType: "string"
           },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns the most up-to-date status of the specified Channel.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetChannelStatusRequest
+   * @return GetChannelStatusResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/GetChannelStatus.ts.html |here} to see how to use GetChannelStatus API.
+   */
+  public async getChannelStatus(
+    getChannelStatusRequest: requests.GetChannelStatusRequest
+  ): Promise<responses.GetChannelStatusResponse> {
+    if (this.logger) this.logger.debug("Calling operation ChannelsClient#getChannelStatus.");
+    const operationName = "getChannelStatus";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/ChannelStatus/GetChannelStatus";
+    const pathParams = {
+      "{channelId}": getChannelStatusRequest.channelId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getChannelStatusRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getChannelStatusRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/channels/{channelId}/channelStatus",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetChannelStatusResponse>{},
+        body: await response.json(),
+        bodyKey: "channelStatus",
+        bodyModel: model.ChannelStatus,
+        type: "model.ChannelStatus",
+        responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -2471,6 +2621,90 @@ export class DbSystemClient {
   }
 
   /**
+   * Initiates an asynchronous request to collect the current status of the specified DB System,
+   * including the status of any attached Channels (if requested).
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GenerateDbSystemStatusRequest
+   * @return GenerateDbSystemStatusResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/GenerateDbSystemStatus.ts.html |here} to see how to use GenerateDbSystemStatus API.
+   */
+  public async generateDbSystemStatus(
+    generateDbSystemStatusRequest: requests.GenerateDbSystemStatusRequest
+  ): Promise<responses.GenerateDbSystemStatusResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbSystemClient#generateDbSystemStatus.");
+    const operationName = "generateDbSystemStatus";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/DbSystemStatus/GenerateDbSystemStatus";
+    const pathParams = {
+      "{dbSystemId}": generateDbSystemStatusRequest.dbSystemId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": generateDbSystemStatusRequest.opcRequestId,
+      "opc-retry-token": generateDbSystemStatusRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      generateDbSystemStatusRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dbSystems/{dbSystemId}/actions/generateDbSystemStatus",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        generateDbSystemStatusRequest.generateDbSystemStatusDetails,
+        "GenerateDbSystemStatusDetails",
+        model.GenerateDbSystemStatusDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GenerateDbSystemStatusResponse>{},
+        body: await response.json(),
+        bodyKey: "dbSystemStatus",
+        bodyModel: model.DbSystemStatus,
+        type: "model.DbSystemStatus",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Sends a request to estimate the memory footprints of user tables when loaded to HeatWave cluster memory.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -2612,6 +2846,79 @@ export class DbSystemClient {
             key: "etag",
             dataType: "string"
           },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns the most up-to-date status of the specified DB System,
+   * including the status of any requested Channels.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetDbSystemStatusRequest
+   * @return GetDbSystemStatusResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/GetDbSystemStatus.ts.html |here} to see how to use GetDbSystemStatus API.
+   */
+  public async getDbSystemStatus(
+    getDbSystemStatusRequest: requests.GetDbSystemStatusRequest
+  ): Promise<responses.GetDbSystemStatusResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbSystemClient#getDbSystemStatus.");
+    const operationName = "getDbSystemStatus";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/DbSystemStatus/GetDbSystemStatus";
+    const pathParams = {
+      "{dbSystemId}": getDbSystemStatusRequest.dbSystemId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getDbSystemStatusRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDbSystemStatusRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dbSystems/{dbSystemId}/dbSystemStatus",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetDbSystemStatusResponse>{},
+        body: await response.json(),
+        bodyKey: "dbSystemStatus",
+        bodyModel: model.DbSystemStatus,
+        type: "model.DbSystemStatus",
+        responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",

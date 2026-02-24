@@ -44,6 +44,8 @@ export enum OperationType {
   ApplyAction = "APPLY_ACTION",
   PrecheckAction = "PRECHECK_ACTION",
   StageAction = "STAGE_ACTION",
+  CreateReadinessCheck = "CREATE_READINESS_CHECK",
+  DeleteReadinessCheck = "DELETE_READINESS_CHECK",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

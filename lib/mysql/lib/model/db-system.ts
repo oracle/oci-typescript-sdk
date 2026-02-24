@@ -228,6 +228,7 @@ For a standalone DB System, this defines the fault domain in which the DB System
    */
   "customerContacts"?: Array<model.CustomerContact>;
   "readEndpoint"?: model.ReadEndpointDetails;
+  "telemetryConfiguration"?: model.TelemetryConfigurationDetails;
 }
 
 export namespace DbSystem {
@@ -326,6 +327,9 @@ export namespace DbSystem {
           : undefined,
         "readEndpoint": obj.readEndpoint
           ? model.ReadEndpointDetails.getJsonObj(obj.readEndpoint)
+          : undefined,
+        "telemetryConfiguration": obj.telemetryConfiguration
+          ? model.TelemetryConfigurationDetails.getJsonObj(obj.telemetryConfiguration)
           : undefined
       }
     };
@@ -394,6 +398,9 @@ export namespace DbSystem {
           : undefined,
         "readEndpoint": obj.readEndpoint
           ? model.ReadEndpointDetails.getDeserializedJsonObj(obj.readEndpoint)
+          : undefined,
+        "telemetryConfiguration": obj.telemetryConfiguration
+          ? model.TelemetryConfigurationDetails.getDeserializedJsonObj(obj.telemetryConfiguration)
           : undefined
       }
     };

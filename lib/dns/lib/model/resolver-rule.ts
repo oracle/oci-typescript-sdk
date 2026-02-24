@@ -24,13 +24,14 @@ import common = require("oci-common");
  */
 export interface ResolverRule {
   /**
-   * A list of CIDR blocks. The query must come from a client within one of the blocks in order for the rule action
-   * to apply.
+   * A list of CIDR blocks. In order for the rule action to apply, the query must come from a client within one of
+   * the CIDR blocks.
    *
    */
   "clientAddressConditions": Array<string>;
   /**
-   * A list of domain names. The query must be covered by one of the domains in order for the rule action to apply.
+   * A list of domain names. In order for the rule action to apply, the query must either match or be a subdomain
+   * of one of the listed domains.
    *
    */
   "qnameCoverConditions": Array<string>;
