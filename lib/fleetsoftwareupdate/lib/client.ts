@@ -787,6 +787,84 @@ export class FleetSoftwareUpdateClient {
   }
 
   /**
+   * Moves a Exadata Fleet Update Readiness Check resource from one compartment identifier to another.
+   * When provided, If-Match is checked against ETag values of the resource.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ChangeFsuReadinessCheckCompartmentRequest
+   * @return ChangeFsuReadinessCheckCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/ChangeFsuReadinessCheckCompartment.ts.html |here} to see how to use ChangeFsuReadinessCheckCompartment API.
+   */
+  public async changeFsuReadinessCheckCompartment(
+    changeFsuReadinessCheckCompartmentRequest: requests.ChangeFsuReadinessCheckCompartmentRequest
+  ): Promise<responses.ChangeFsuReadinessCheckCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation FleetSoftwareUpdateClient#changeFsuReadinessCheckCompartment."
+      );
+    const operationName = "changeFsuReadinessCheckCompartment";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{fsuReadinessCheckId}": changeFsuReadinessCheckCompartmentRequest.fsuReadinessCheckId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeFsuReadinessCheckCompartmentRequest.ifMatch,
+      "opc-request-id": changeFsuReadinessCheckCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeFsuReadinessCheckCompartmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeFsuReadinessCheckCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fsuReadinessChecks/{fsuReadinessCheckId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeFsuReadinessCheckCompartmentRequest.changeFsuReadinessCheckCompartmentDetails,
+        "ChangeFsuReadinessCheckCompartmentDetails",
+        model.ChangeFsuReadinessCheckCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeFsuReadinessCheckCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Clones existing Exadata Fleet Update Cycle details into a new Exadata Fleet Update Cycle resource.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -1244,6 +1322,97 @@ export class FleetSoftwareUpdateClient {
   }
 
   /**
+   * Creates a new Exadata Fleet Update Readiness Check.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateFsuReadinessCheckRequest
+   * @return CreateFsuReadinessCheckResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/CreateFsuReadinessCheck.ts.html |here} to see how to use CreateFsuReadinessCheck API.
+   */
+  public async createFsuReadinessCheck(
+    createFsuReadinessCheckRequest: requests.CreateFsuReadinessCheckRequest
+  ): Promise<responses.CreateFsuReadinessCheckResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FleetSoftwareUpdateClient#createFsuReadinessCheck.");
+    const operationName = "createFsuReadinessCheck";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createFsuReadinessCheckRequest.opcRetryToken,
+      "opc-request-id": createFsuReadinessCheckRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createFsuReadinessCheckRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fsuReadinessChecks",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createFsuReadinessCheckRequest.createFsuReadinessCheckDetails,
+        "CreateFsuReadinessCheckDetails",
+        model.CreateFsuReadinessCheckDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateFsuReadinessCheckResponse>{},
+        body: await response.json(),
+        bodyKey: "fsuReadinessCheck",
+        bodyModel: model.FsuReadinessCheck,
+        type: "model.FsuReadinessCheck",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("Location"),
+            key: "location",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes a Exadata Fleet Update Action resource by identifier.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -1670,6 +1839,80 @@ export class FleetSoftwareUpdateClient {
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteFsuJobResponse>{},
         responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes a Exadata Fleet Update Readiness Check resource by identifier.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteFsuReadinessCheckRequest
+   * @return DeleteFsuReadinessCheckResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/DeleteFsuReadinessCheck.ts.html |here} to see how to use DeleteFsuReadinessCheck API.
+   */
+  public async deleteFsuReadinessCheck(
+    deleteFsuReadinessCheckRequest: requests.DeleteFsuReadinessCheckRequest
+  ): Promise<responses.DeleteFsuReadinessCheckResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FleetSoftwareUpdateClient#deleteFsuReadinessCheck.");
+    const operationName = "deleteFsuReadinessCheck";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{fsuReadinessCheckId}": deleteFsuReadinessCheckRequest.fsuReadinessCheckId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteFsuReadinessCheckRequest.ifMatch,
+      "opc-request-id": deleteFsuReadinessCheckRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteFsuReadinessCheckRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fsuReadinessChecks/{fsuReadinessCheckId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteFsuReadinessCheckResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -2275,6 +2518,83 @@ export class FleetSoftwareUpdateClient {
         bodyKey: "value",
         bodyModel: "string",
         responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a Exadata Fleet Update Readiness Check by identifier.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetFsuReadinessCheckRequest
+   * @return GetFsuReadinessCheckResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/GetFsuReadinessCheck.ts.html |here} to see how to use GetFsuReadinessCheck API.
+   */
+  public async getFsuReadinessCheck(
+    getFsuReadinessCheckRequest: requests.GetFsuReadinessCheckRequest
+  ): Promise<responses.GetFsuReadinessCheckResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FleetSoftwareUpdateClient#getFsuReadinessCheck.");
+    const operationName = "getFsuReadinessCheck";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{fsuReadinessCheckId}": getFsuReadinessCheckRequest.fsuReadinessCheckId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getFsuReadinessCheckRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getFsuReadinessCheckRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fsuReadinessChecks/{fsuReadinessCheckId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetFsuReadinessCheckResponse>{},
+        body: await response.json(),
+        bodyKey: "fsuReadinessCheck",
+        bodyModel: model.FsuReadinessCheck,
+        type: "model.FsuReadinessCheck",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -3021,6 +3341,91 @@ export class FleetSoftwareUpdateClient {
         bodyKey: "fsuJobCollection",
         bodyModel: model.FsuJobCollection,
         type: "model.FsuJobCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns a list of Exadata Fleet Update Readiness Checks resources in the specified compartment.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListFsuReadinessChecksRequest
+   * @return ListFsuReadinessChecksResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/ListFsuReadinessChecks.ts.html |here} to see how to use ListFsuReadinessChecks API.
+   */
+  public async listFsuReadinessChecks(
+    listFsuReadinessChecksRequest: requests.ListFsuReadinessChecksRequest
+  ): Promise<responses.ListFsuReadinessChecksResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FleetSoftwareUpdateClient#listFsuReadinessChecks.");
+    const operationName = "listFsuReadinessChecks";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listFsuReadinessChecksRequest.compartmentId,
+      "resourceId": listFsuReadinessChecksRequest.resourceId,
+      "lifecycleState": listFsuReadinessChecksRequest.lifecycleState,
+      "displayName": listFsuReadinessChecksRequest.displayName,
+      "type": listFsuReadinessChecksRequest.type,
+      "limit": listFsuReadinessChecksRequest.limit,
+      "page": listFsuReadinessChecksRequest.page,
+      "sortOrder": listFsuReadinessChecksRequest.sortOrder,
+      "sortBy": listFsuReadinessChecksRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listFsuReadinessChecksRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listFsuReadinessChecksRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fsuReadinessChecks",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListFsuReadinessChecksResponse>{},
+        body: await response.json(),
+        bodyKey: "fsuReadinessCheckCollection",
+        bodyModel: model.FsuReadinessCheckCollection,
+        type: "model.FsuReadinessCheckCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3884,6 +4289,89 @@ export class FleetSoftwareUpdateClient {
         bodyKey: "fsuJob",
         bodyModel: model.FsuJob,
         type: "model.FsuJob",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the Exadata Fleet Update Readiness Check identified by the ID.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateFsuReadinessCheckRequest
+   * @return UpdateFsuReadinessCheckResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fleetsoftwareupdate/UpdateFsuReadinessCheck.ts.html |here} to see how to use UpdateFsuReadinessCheck API.
+   */
+  public async updateFsuReadinessCheck(
+    updateFsuReadinessCheckRequest: requests.UpdateFsuReadinessCheckRequest
+  ): Promise<responses.UpdateFsuReadinessCheckResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FleetSoftwareUpdateClient#updateFsuReadinessCheck.");
+    const operationName = "updateFsuReadinessCheck";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{fsuReadinessCheckId}": updateFsuReadinessCheckRequest.fsuReadinessCheckId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateFsuReadinessCheckRequest.ifMatch,
+      "opc-request-id": updateFsuReadinessCheckRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateFsuReadinessCheckRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fsuReadinessChecks/{fsuReadinessCheckId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateFsuReadinessCheckRequest.updateFsuReadinessCheckDetails,
+        "UpdateFsuReadinessCheckDetails",
+        model.UpdateFsuReadinessCheckDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateFsuReadinessCheckResponse>{},
+        body: await response.json(),
+        bodyKey: "fsuReadinessCheck",
+        bodyModel: model.FsuReadinessCheck,
+        type: "model.FsuReadinessCheck",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),

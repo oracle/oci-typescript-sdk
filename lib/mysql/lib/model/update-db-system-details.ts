@@ -203,6 +203,7 @@ It is not possible to decrease data storage size.
    */
   "customerContacts"?: Array<model.CustomerContact>;
   "readEndpoint"?: model.UpdateReadEndpointDetails;
+  "telemetryConfiguration"?: model.UpdateTelemetryConfigurationDetails;
 }
 
 export namespace UpdateDbSystemDetails {
@@ -243,6 +244,9 @@ export namespace UpdateDbSystemDetails {
           : undefined,
         "readEndpoint": obj.readEndpoint
           ? model.UpdateReadEndpointDetails.getJsonObj(obj.readEndpoint)
+          : undefined,
+        "telemetryConfiguration": obj.telemetryConfiguration
+          ? model.UpdateTelemetryConfigurationDetails.getJsonObj(obj.telemetryConfiguration)
           : undefined
       }
     };
@@ -286,6 +290,11 @@ export namespace UpdateDbSystemDetails {
           : undefined,
         "readEndpoint": obj.readEndpoint
           ? model.UpdateReadEndpointDetails.getDeserializedJsonObj(obj.readEndpoint)
+          : undefined,
+        "telemetryConfiguration": obj.telemetryConfiguration
+          ? model.UpdateTelemetryConfigurationDetails.getDeserializedJsonObj(
+              obj.telemetryConfiguration
+            )
           : undefined
       }
     };

@@ -42,6 +42,11 @@ export interface UpdateZoneDetails {
     */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
+   * The resolution mode of a zone defines behavior related to how query responses can be handled.
+   *
+   */
+  "resolutionMode"?: model.ZoneResolutionMode;
+  /**
     * The state of DNSSEC on the zone.
 * <p>
 For DNSSEC to function, every parent zone in the DNS tree up to the top-level domain (or an independent

@@ -67,6 +67,26 @@ export interface UpdateSqlEndpointDetails {
    */
   "lakeId"?: string;
   /**
+   * The identifier of the log group used with the SQL Endpoint.
+   */
+  "logGroupId"?: string;
+  /**
+   * The identifier of the log group compartment used with the SQL Endpoint.
+   */
+  "logCompartmentId"?: string;
+  /**
+   * The friendly name of the log object used with the SQL Endpoint.
+   */
+  "logDisplayName"?: string;
+  /**
+   * Log retention duration in days Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "logRetentionDuration"?: number;
+  /**
+   * The log operation will be performed for the Sql Endpoint.
+   */
+  "logOperation"?: model.SqlEndpointLogOperation;
+  /**
    * The Spark configuration passed to the running process.
    * See https://spark.apache.org/docs/latest/configuration.html#available-properties.
    * Example: { \"spark.app.name\" : \"My App Name\", \"spark.shuffle.io.maxRetries\" : \"4\" }

@@ -155,6 +155,8 @@ import * as Zone from "./zone";
 export import Zone = Zone.Zone;
 import * as ZoneDnssecState from "./zone-dnssec-state";
 export import ZoneDnssecState = ZoneDnssecState.ZoneDnssecState;
+import * as ZoneResolutionMode from "./zone-resolution-mode";
+export import ZoneResolutionMode = ZoneResolutionMode.ZoneResolutionMode;
 import * as ZoneSummary from "./zone-summary";
 export import ZoneSummary = ZoneSummary.ZoneSummary;
 import * as ZoneTransferServer from "./zone-transfer-server";

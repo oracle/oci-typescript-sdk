@@ -48,16 +48,31 @@ export interface ReplicaOverrides {
    *
    */
   "securityAttributes"?: { [key: string]: { [key: string]: any } };
+  "telemetryConfiguration"?: model.TelemetryConfigurationDetails;
 }
 
 export namespace ReplicaOverrides {
   export function getJsonObj(obj: ReplicaOverrides): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "telemetryConfiguration": obj.telemetryConfiguration
+          ? model.TelemetryConfigurationDetails.getJsonObj(obj.telemetryConfiguration)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: ReplicaOverrides): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "telemetryConfiguration": obj.telemetryConfiguration
+          ? model.TelemetryConfigurationDetails.getDeserializedJsonObj(obj.telemetryConfiguration)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

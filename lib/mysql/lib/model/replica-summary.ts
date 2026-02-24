@@ -125,6 +125,7 @@ export interface ReplicaSummary {
    */
   "configurationId"?: string;
   "replicaOverrides"?: model.ReplicaOverrides;
+  "telemetryConfiguration"?: model.TelemetryConfigurationDetails;
 }
 
 export namespace ReplicaSummary {
@@ -150,6 +151,9 @@ export namespace ReplicaSummary {
       ...{
         "replicaOverrides": obj.replicaOverrides
           ? model.ReplicaOverrides.getJsonObj(obj.replicaOverrides)
+          : undefined,
+        "telemetryConfiguration": obj.telemetryConfiguration
+          ? model.TelemetryConfigurationDetails.getJsonObj(obj.telemetryConfiguration)
           : undefined
       }
     };
@@ -162,6 +166,9 @@ export namespace ReplicaSummary {
       ...{
         "replicaOverrides": obj.replicaOverrides
           ? model.ReplicaOverrides.getDeserializedJsonObj(obj.replicaOverrides)
+          : undefined,
+        "telemetryConfiguration": obj.telemetryConfiguration
+          ? model.TelemetryConfigurationDetails.getDeserializedJsonObj(obj.telemetryConfiguration)
           : undefined
       }
     };
