@@ -13995,6 +13995,86 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   }
 
   /**
+   * Execute an operating system (OS) patch action on a DB system. Returns 202 and a work request. Some updates may require a reboot.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ExecuteDbSystemOsPatchRequest
+   * @return ExecuteDbSystemOsPatchResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ExecuteDbSystemOsPatch.ts.html |here} to see how to use ExecuteDbSystemOsPatch API.
+   */
+  public async executeDbSystemOsPatch(
+    executeDbSystemOsPatchRequest: requests.ExecuteDbSystemOsPatchRequest
+  ): Promise<responses.ExecuteDbSystemOsPatchResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#executeDbSystemOsPatch.");
+    const operationName = "executeDbSystemOsPatch";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/DbSystem/ExecuteDbSystemOsPatch";
+    const pathParams = {
+      "{dbSystemId}": executeDbSystemOsPatchRequest.dbSystemId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": executeDbSystemOsPatchRequest.opcRetryToken,
+      "opc-request-id": executeDbSystemOsPatchRequest.opcRequestId,
+      "if-match": executeDbSystemOsPatchRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      executeDbSystemOsPatchRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dbSystems/{dbSystemId}/actions/osPatch",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        executeDbSystemOsPatchRequest.executeDbSystemOsPatchDetails,
+        "ExecuteDbSystemOsPatchDetails",
+        model.ExecuteDbSystemOsPatchDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ExecuteDbSystemOsPatchResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Initiates a failover of the specified Autonomous AI Database to the associated peer database. Applicable only to databases with Disaster Recovery enabled.
    * This API should be called in the remote region where the peer database resides.
    * Below parameter is optional:
@@ -17717,6 +17797,80 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
             key: "etag",
             dataType: "string"
           },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the details of the specified OS patch action for the specified DB system.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetDbSystemOsPatchHistoryEntryRequest
+   * @return GetDbSystemOsPatchHistoryEntryResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetDbSystemOsPatchHistoryEntry.ts.html |here} to see how to use GetDbSystemOsPatchHistoryEntry API.
+   */
+  public async getDbSystemOsPatchHistoryEntry(
+    getDbSystemOsPatchHistoryEntryRequest: requests.GetDbSystemOsPatchHistoryEntryRequest
+  ): Promise<responses.GetDbSystemOsPatchHistoryEntryResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#getDbSystemOsPatchHistoryEntry.");
+    const operationName = "getDbSystemOsPatchHistoryEntry";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/DbSystemOsPatchHistoryEntry/GetDbSystemOsPatchHistoryEntry";
+    const pathParams = {
+      "{dbSystemId}": getDbSystemOsPatchHistoryEntryRequest.dbSystemId,
+      "{osPatchHistoryEntryId}": getDbSystemOsPatchHistoryEntryRequest.osPatchHistoryEntryId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getDbSystemOsPatchHistoryEntryRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDbSystemOsPatchHistoryEntryRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dbSystems/{dbSystemId}/osPatchHistoryEntries/{osPatchHistoryEntryId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetDbSystemOsPatchHistoryEntryResponse>{},
+        body: await response.json(),
+        bodyKey: "dbSystemOsPatchHistoryEntry",
+        bodyModel: model.DbSystemOsPatchHistoryEntry,
+        type: "model.DbSystemOsPatchHistoryEntry",
+        responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -26234,6 +26388,91 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
         bodyKey: "items",
         bodyModel: model.DbSystemComputePerformanceSummary,
         type: "Array<model.DbSystemComputePerformanceSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the history of the OS patch actions performed on the specified DB system.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListDbSystemOsPatchHistoryEntriesRequest
+   * @return ListDbSystemOsPatchHistoryEntriesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListDbSystemOsPatchHistoryEntries.ts.html |here} to see how to use ListDbSystemOsPatchHistoryEntries API.
+   */
+  public async listDbSystemOsPatchHistoryEntries(
+    listDbSystemOsPatchHistoryEntriesRequest: requests.ListDbSystemOsPatchHistoryEntriesRequest
+  ): Promise<responses.ListDbSystemOsPatchHistoryEntriesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#listDbSystemOsPatchHistoryEntries.");
+    const operationName = "listDbSystemOsPatchHistoryEntries";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/DbSystemOsPatchHistoryEntryCollection/ListDbSystemOsPatchHistoryEntries";
+    const pathParams = {
+      "{dbSystemId}": listDbSystemOsPatchHistoryEntriesRequest.dbSystemId
+    };
+
+    const queryParams = {
+      "limit": listDbSystemOsPatchHistoryEntriesRequest.limit,
+      "page": listDbSystemOsPatchHistoryEntriesRequest.page,
+      "sortOrder": listDbSystemOsPatchHistoryEntriesRequest.sortOrder,
+      "sortBy": listDbSystemOsPatchHistoryEntriesRequest.sortBy,
+      "lifecycleState": listDbSystemOsPatchHistoryEntriesRequest.lifecycleState,
+      "action": listDbSystemOsPatchHistoryEntriesRequest.action
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listDbSystemOsPatchHistoryEntriesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDbSystemOsPatchHistoryEntriesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dbSystems/{dbSystemId}/osPatchHistoryEntries",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListDbSystemOsPatchHistoryEntriesResponse>{},
+        body: await response.json(),
+        bodyKey: "dbSystemOsPatchHistoryEntryCollection",
+        bodyModel: model.DbSystemOsPatchHistoryEntryCollection,
+        type: "model.DbSystemOsPatchHistoryEntryCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),

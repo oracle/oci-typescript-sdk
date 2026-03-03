@@ -27,6 +27,7 @@ export import OciCacheConfigSetClient = client.OciCacheConfigSetClient;
 export import OciCacheConfigSetWaiter = ocicacheconfigset_waiter.OciCacheConfigSetWaiter;
 export import OciCacheDefaultConfigSetClient = client.OciCacheDefaultConfigSetClient;
 export import OciCacheDefaultConfigSetWaiter = ocicachedefaultconfigset_waiter.OciCacheDefaultConfigSetWaiter;
+export import OciCacheEngineOptionsClient = client.OciCacheEngineOptionsClient;
 export import OciCacheUserClient = client.OciCacheUserClient;
 export import OciCacheUserWaiter = ocicacheuser_waiter.OciCacheUserWaiter;
 export import RedisClusterClient = client.RedisClusterClient;

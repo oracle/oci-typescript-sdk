@@ -53,6 +53,7 @@ Example: {@code {\"Department\": \"Finance\"}}
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  "targetCredentials"?: model.Credentials;
 }
 
 export namespace GenerateHealthReportDetails {
@@ -61,12 +62,26 @@ export namespace GenerateHealthReportDetails {
   }
 
   export function getJsonObj(obj: GenerateHealthReportDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "targetCredentials": obj.targetCredentials
+          ? model.Credentials.getJsonObj(obj.targetCredentials)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: GenerateHealthReportDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "targetCredentials": obj.targetCredentials
+          ? model.Credentials.getDeserializedJsonObj(obj.targetCredentials)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

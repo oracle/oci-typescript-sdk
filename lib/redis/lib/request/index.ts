@@ -29,6 +29,8 @@ import * as GetOciCacheDefaultConfigSetRequest from "./get-oci-cache-default-con
 export import GetOciCacheDefaultConfigSetRequest = GetOciCacheDefaultConfigSetRequest.GetOciCacheDefaultConfigSetRequest;
 import * as ListOciCacheDefaultConfigSetsRequest from "./list-oci-cache-default-config-sets-request";
 export import ListOciCacheDefaultConfigSetsRequest = ListOciCacheDefaultConfigSetsRequest.ListOciCacheDefaultConfigSetsRequest;
+import * as ListOciCacheEngineOptionsRequest from "./list-oci-cache-engine-options-request";
+export import ListOciCacheEngineOptionsRequest = ListOciCacheEngineOptionsRequest.ListOciCacheEngineOptionsRequest;
 import * as ChangeOciCacheUserCompartmentRequest from "./change-oci-cache-user-compartment-request";
 export import ChangeOciCacheUserCompartmentRequest = ChangeOciCacheUserCompartmentRequest.ChangeOciCacheUserCompartmentRequest;
 import * as CreateOciCacheUserRequest from "./create-oci-cache-user-request";

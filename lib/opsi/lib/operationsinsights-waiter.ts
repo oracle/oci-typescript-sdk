@@ -65,6 +65,25 @@ export class OperationsInsightsWaiter {
   }
 
   /**
+   * Waits forChargebackPlan till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetChargebackPlanResponse | null (null in case of 404 response)
+   */
+  public async forChargebackPlan(
+    request: serviceRequests.GetChargebackPlanRequest,
+    ...targetStates: models.LifecycleState[]
+  ): Promise<serviceResponses.GetChargebackPlanResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getChargebackPlan(request),
+      response => targetStates.includes(response.chargebackPlan.lifecycleState!),
+      targetStates.includes(models.LifecycleState.Deleted)
+    );
+  }
+
+  /**
    * Waits forDatabaseInsight till it reaches any of the provided states
    *
    * @param request the request to send

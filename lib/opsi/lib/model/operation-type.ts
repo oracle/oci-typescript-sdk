@@ -88,6 +88,12 @@ export enum OperationType {
   ChangeMacsManagedAdbConnectionDetails = "CHANGE_MACS_MANAGED_ADB_CONNECTION_DETAILS",
   TestMacsManagedAdbConnectionDetails = "TEST_MACS_MANAGED_ADB_CONNECTION_DETAILS",
   SynchronizeAutonomousDatabaseToExadata = "SYNCHRONIZE_AUTONOMOUS_DATABASE_TO_EXADATA",
+  CreateChargeBack = "CREATE_CHARGE_BACK",
+  EnableChargeBack = "ENABLE_CHARGE_BACK",
+  DisableChargeBack = "DISABLE_CHARGE_BACK",
+  UpdateChargeBack = "UPDATE_CHARGE_BACK",
+  MoveChargeBack = "MOVE_CHARGE_BACK",
+  DeleteChargeBack = "DELETE_CHARGE_BACK",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

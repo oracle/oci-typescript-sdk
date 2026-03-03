@@ -108,6 +108,10 @@ export interface MaskingPolicy {
   "postMaskingScript"?: string;
   "columnSource"?: model.ColumnSourceFromSdmDetails | model.ColumnSourceFromTargetDetails;
   /**
+   * Specifies whether target database credentials are required to perform masking with this policy
+   */
+  "areTargetCredentialsRequired"?: boolean;
+  /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm)
 * <p>
 Example: {@code {\"Department\": \"Finance\"}}
