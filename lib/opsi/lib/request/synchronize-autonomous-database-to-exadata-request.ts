@@ -19,13 +19,13 @@ import common = require("oci-common");
  */
 export interface SynchronizeAutonomousDatabaseToExadataRequest extends common.BaseRequest {
   /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment.
-   */
-  "compartmentId": string;
-  /**
    * The information to be updated.
    */
   "synchronizeAutonomousDatabaseToExadataDetails": model.SynchronizeAutonomousDatabaseToExadataDetails;
+  /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment.
+   */
+  "compartmentId"?: string;
   /**
    * Optional [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the associated DBaaS entity.
    *

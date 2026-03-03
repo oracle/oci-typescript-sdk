@@ -94,6 +94,7 @@ export namespace OciCacheConfigSet {
     V705 = "V7_0_5",
     Redis70 = "REDIS_7_0",
     Valkey72 = "VALKEY_7_2",
+    Valkey81 = "VALKEY_8_1",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

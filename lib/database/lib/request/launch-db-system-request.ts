@@ -28,6 +28,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
  */
   "launchDbSystemDetails":
     | model.LaunchDbSystemDetails
+    | model.LaunchStandbyDbSystemDetails
     | model.LaunchDbSystemFromDbSystemDetails
     | model.LaunchDbSystemFromDatabaseDetails
     | model.LaunchDbSystemFromBackupDetails;

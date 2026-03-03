@@ -484,6 +484,87 @@ export class OperationsInsightsClient {
   }
 
   /**
+   * Moves a Chargeback Plan insight resource from one compartment identifier to another. When provided, If-Match is checked against ETag values of the resource.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ChangeChargebackPlanCompartmentRequest
+   * @return ChangeChargebackPlanCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ChangeChargebackPlanCompartment.ts.html |here} to see how to use ChangeChargebackPlanCompartment API.
+   */
+  public async changeChargebackPlanCompartment(
+    changeChargebackPlanCompartmentRequest: requests.ChangeChargebackPlanCompartmentRequest
+  ): Promise<responses.ChangeChargebackPlanCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OperationsInsightsClient#changeChargebackPlanCompartment."
+      );
+    const operationName = "changeChargebackPlanCompartment";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{chargebackplanId}": changeChargebackPlanCompartmentRequest.chargebackplanId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeChargebackPlanCompartmentRequest.ifMatch,
+      "opc-request-id": changeChargebackPlanCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeChargebackPlanCompartmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeChargebackPlanCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/chargebackPlans/{chargebackplanId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeChargebackPlanCompartmentRequest.changeChargebackPlanCompartmentDetails,
+        "ChangeChargebackPlanCompartmentDetails",
+        model.ChangeChargebackPlanCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeChargebackPlanCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Moves a DatabaseInsight resource from one compartment identifier to another. When provided, If-Match is checked against ETag values of the resource.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeDatabaseInsightCompartmentRequest
@@ -727,7 +808,9 @@ export class OperationsInsightsClient {
   }
 
   /**
+   * MySQL support within the OCI Ops Insights service has been deprecated as of January 29, 2026.
    * Change the connection details of an External MySQL database insight. When provided, If-Match is checked against ETag values of the resource.
+   *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeExternalMysqlDatabaseInsightConnectionRequest
    * @return ChangeExternalMysqlDatabaseInsightConnectionResponse
@@ -1626,6 +1709,191 @@ export class OperationsInsightsClient {
           {
             value: response.headers.get("opc-work-request-id"),
             key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Create a chargeback plan resource for the resource in Ops Insights.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateChargebackPlanRequest
+   * @return CreateChargebackPlanResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/CreateChargebackPlan.ts.html |here} to see how to use CreateChargebackPlan API.
+   */
+  public async createChargebackPlan(
+    createChargebackPlanRequest: requests.CreateChargebackPlanRequest
+  ): Promise<responses.CreateChargebackPlanResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#createChargebackPlan.");
+    const operationName = "createChargebackPlan";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createChargebackPlanRequest.opcRetryToken,
+      "opc-request-id": createChargebackPlanRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createChargebackPlanRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/chargebackPlans",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createChargebackPlanRequest.createChargebackPlanDetails,
+        "CreateChargebackPlanDetails",
+        model.CreateChargebackPlanDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateChargebackPlanResponse>{},
+        body: await response.json(),
+        bodyKey: "chargebackPlan",
+        bodyModel: model.ChargebackPlan,
+        type: "model.ChargebackPlan",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-location"),
+            key: "contentLocation",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a chargeback plan report for a resource in Ops Insights
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateChargebackPlanReportRequest
+   * @return CreateChargebackPlanReportResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/CreateChargebackPlanReport.ts.html |here} to see how to use CreateChargebackPlanReport API.
+   */
+  public async createChargebackPlanReport(
+    createChargebackPlanReportRequest: requests.CreateChargebackPlanReportRequest
+  ): Promise<responses.CreateChargebackPlanReportResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#createChargebackPlanReport.");
+    const operationName = "createChargebackPlanReport";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "id": createChargebackPlanReportRequest.id,
+      "resourceType": createChargebackPlanReportRequest.resourceType
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": createChargebackPlanReportRequest.ifMatch,
+      "opc-request-id": createChargebackPlanReportRequest.opcRequestId,
+      "opc-retry-token": createChargebackPlanReportRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createChargebackPlanReportRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/chargebackPlanReport",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createChargebackPlanReportRequest.createChargebackPlanReportDetails,
+        "CreateChargebackPlanReportDetails",
+        model.CreateChargebackPlanReportDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateChargebackPlanReportResponse>{},
+        body: await response.json(),
+        bodyKey: "chargebackPlanReport",
+        bodyModel: model.ChargebackPlanReport,
+        type: "model.ChargebackPlanReport",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           },
           {
@@ -2748,6 +3016,155 @@ export class OperationsInsightsClient {
   }
 
   /**
+   * Deletes a chargeback plan if it's not assigned to any resource.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteChargebackPlanRequest
+   * @return DeleteChargebackPlanResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/DeleteChargebackPlan.ts.html |here} to see how to use DeleteChargebackPlan API.
+   */
+  public async deleteChargebackPlan(
+    deleteChargebackPlanRequest: requests.DeleteChargebackPlanRequest
+  ): Promise<responses.DeleteChargebackPlanResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#deleteChargebackPlan.");
+    const operationName = "deleteChargebackPlan";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{chargebackplanId}": deleteChargebackPlanRequest.chargebackplanId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteChargebackPlanRequest.ifMatch,
+      "opc-request-id": deleteChargebackPlanRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteChargebackPlanRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/chargebackPlans/{chargebackplanId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteChargebackPlanResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes a chargeback plan report if it's not assigned to any resource.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteChargebackPlanReportRequest
+   * @return DeleteChargebackPlanReportResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/DeleteChargebackPlanReport.ts.html |here} to see how to use DeleteChargebackPlanReport API.
+   */
+  public async deleteChargebackPlanReport(
+    deleteChargebackPlanReportRequest: requests.DeleteChargebackPlanReportRequest
+  ): Promise<responses.DeleteChargebackPlanReportResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#deleteChargebackPlanReport.");
+    const operationName = "deleteChargebackPlanReport";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{chargebackPlanReportId}": deleteChargebackPlanReportRequest.chargebackPlanReportId
+    };
+
+    const queryParams = {
+      "id": deleteChargebackPlanReportRequest.id,
+      "resourceType": deleteChargebackPlanReportRequest.resourceType
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteChargebackPlanReportRequest.ifMatch,
+      "opc-request-id": deleteChargebackPlanReportRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteChargebackPlanReportRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/chargebackPlanReport/{chargebackPlanReportId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteChargebackPlanReportResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes a database insight. The database insight will be deleted and cannot be enabled again.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteDatabaseInsightRequest
@@ -3794,6 +4211,80 @@ export class OperationsInsightsClient {
   }
 
   /**
+   * Disables a chargeback plan on an Exadata system in Operations Insights. Metering-related metric collection and analysis will be stopped.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DisablePlanExadataInsightRequest
+   * @return DisablePlanExadataInsightResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/DisablePlanExadataInsight.ts.html |here} to see how to use DisablePlanExadataInsight API.
+   */
+  public async disablePlanExadataInsight(
+    disablePlanExadataInsightRequest: requests.DisablePlanExadataInsightRequest
+  ): Promise<responses.DisablePlanExadataInsightResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#disablePlanExadataInsight.");
+    const operationName = "disablePlanExadataInsight";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{exadataInsightId}": disablePlanExadataInsightRequest.exadataInsightId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": disablePlanExadataInsightRequest.ifMatch,
+      "opc-request-id": disablePlanExadataInsightRequest.opcRequestId,
+      "opc-retry-token": disablePlanExadataInsightRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      disablePlanExadataInsightRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/exadataInsights/{exadataInsightId}/actions/disablePlan",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DisablePlanExadataInsightResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Download the ADW wallet for Operations Insights Warehouse using which the Hub data is exposed.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DownloadOperationsInsightsWarehouseWalletRequest
@@ -4263,6 +4754,85 @@ export class OperationsInsightsClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.EnableHostInsightResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Enables a chargeback plan on an Exadata system in Operations Insights. Metering-related metric collection and analysis will be started.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param EnablePlanExadataInsightRequest
+   * @return EnablePlanExadataInsightResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/EnablePlanExadataInsight.ts.html |here} to see how to use EnablePlanExadataInsight API.
+   */
+  public async enablePlanExadataInsight(
+    enablePlanExadataInsightRequest: requests.EnablePlanExadataInsightRequest
+  ): Promise<responses.EnablePlanExadataInsightResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#enablePlanExadataInsight.");
+    const operationName = "enablePlanExadataInsight";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{exadataInsightId}": enablePlanExadataInsightRequest.exadataInsightId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": enablePlanExadataInsightRequest.ifMatch,
+      "opc-request-id": enablePlanExadataInsightRequest.opcRequestId,
+      "opc-retry-token": enablePlanExadataInsightRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      enablePlanExadataInsightRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/exadataInsights/{exadataInsightId}/actions/enablePlan",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        enablePlanExadataInsightRequest.enablePlanExadataInsightDetails,
+        "EnablePlanExadataInsightDetails",
+        model.EnablePlanExadataInsightDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.EnablePlanExadataInsightResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -4833,6 +5403,245 @@ export class OperationsInsightsClient {
         bodyModel: model.AwrReport,
         type: "model.AwrReport",
         responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the details of the specified chargeback plan.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetChargebackPlanRequest
+   * @return GetChargebackPlanResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/GetChargebackPlan.ts.html |here} to see how to use GetChargebackPlan API.
+   */
+  public async getChargebackPlan(
+    getChargebackPlanRequest: requests.GetChargebackPlanRequest
+  ): Promise<responses.GetChargebackPlanResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#getChargebackPlan.");
+    const operationName = "getChargebackPlan";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{chargebackplanId}": getChargebackPlanRequest.chargebackplanId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getChargebackPlanRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getChargebackPlanRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/chargebackPlans/{chargebackplanId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetChargebackPlanResponse>{},
+        body: await response.json(),
+        bodyKey: "chargebackPlan",
+        bodyModel: model.ChargebackPlan,
+        type: "model.ChargebackPlan",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the details of the specified chargeback plan plan report
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetChargebackPlanReportRequest
+   * @return GetChargebackPlanReportResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/GetChargebackPlanReport.ts.html |here} to see how to use GetChargebackPlanReport API.
+   */
+  public async getChargebackPlanReport(
+    getChargebackPlanReportRequest: requests.GetChargebackPlanReportRequest
+  ): Promise<responses.GetChargebackPlanReportResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#getChargebackPlanReport.");
+    const operationName = "getChargebackPlanReport";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{chargebackPlanReportId}": getChargebackPlanReportRequest.chargebackPlanReportId
+    };
+
+    const queryParams = {
+      "id": getChargebackPlanReportRequest.id,
+      "resourceType": getChargebackPlanReportRequest.resourceType
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getChargebackPlanReportRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getChargebackPlanReportRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/chargebackPlanReport/{chargebackPlanReportId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetChargebackPlanReportResponse>{},
+        body: await response.json(),
+        bodyKey: "chargebackPlanReport",
+        bodyModel: model.ChargebackPlanReport,
+        type: "model.ChargebackPlanReport",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Generates the chargeback report in csv format for a specified time interval
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetChargebackPlanReportContentRequest
+   * @return GetChargebackPlanReportContentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/GetChargebackPlanReportContent.ts.html |here} to see how to use GetChargebackPlanReportContent API.
+   */
+  public async getChargebackPlanReportContent(
+    getChargebackPlanReportContentRequest: requests.GetChargebackPlanReportContentRequest
+  ): Promise<responses.GetChargebackPlanReportContentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OperationsInsightsClient#getChargebackPlanReportContent."
+      );
+    const operationName = "getChargebackPlanReportContent";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{chargebackPlanReportId}": getChargebackPlanReportContentRequest.chargebackPlanReportId
+    };
+
+    const queryParams = {
+      "timeIntervalStart": getChargebackPlanReportContentRequest.timeIntervalStart,
+      "timeIntervalEnd": getChargebackPlanReportContentRequest.timeIntervalEnd,
+      "id": getChargebackPlanReportContentRequest.id,
+      "resourceType": getChargebackPlanReportContentRequest.resourceType,
+      "relativeTimeInterval": getChargebackPlanReportContentRequest.relativeTimeInterval
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getChargebackPlanReportContentRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getChargebackPlanReportContentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/chargebackPlanReport/{chargebackPlanReportId}/content",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetChargebackPlanReportContentResponse>{},
+
+        body: response.body!,
+        bodyKey: "value",
+        bodyModel: "string",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -7782,6 +8591,169 @@ export class OperationsInsightsClient {
   }
 
   /**
+   * Gets a list of Ops Insights chargeback plan reports for a resource.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListChargebackPlanReportsRequest
+   * @return ListChargebackPlanReportsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListChargebackPlanReports.ts.html |here} to see how to use ListChargebackPlanReports API.
+   */
+  public async listChargebackPlanReports(
+    listChargebackPlanReportsRequest: requests.ListChargebackPlanReportsRequest
+  ): Promise<responses.ListChargebackPlanReportsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#listChargebackPlanReports.");
+    const operationName = "listChargebackPlanReports";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "id": listChargebackPlanReportsRequest.id,
+      "resourceType": listChargebackPlanReportsRequest.resourceType,
+      "limit": listChargebackPlanReportsRequest.limit,
+      "page": listChargebackPlanReportsRequest.page,
+      "sortOrder": listChargebackPlanReportsRequest.sortOrder,
+      "sortBy": listChargebackPlanReportsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listChargebackPlanReportsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listChargebackPlanReportsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/chargebackPlanReport",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListChargebackPlanReportsResponse>{},
+        body: await response.json(),
+        bodyKey: "chargebackPlanReportCollection",
+        bodyModel: model.ChargebackPlanReportCollection,
+        type: "model.ChargebackPlanReportCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a list of Ops Insights chargeback plans.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListChargebackPlansRequest
+   * @return ListChargebackPlansResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListChargebackPlans.ts.html |here} to see how to use ListChargebackPlans API.
+   */
+  public async listChargebackPlans(
+    listChargebackPlansRequest: requests.ListChargebackPlansRequest
+  ): Promise<responses.ListChargebackPlansResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#listChargebackPlans.");
+    const operationName = "listChargebackPlans";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listChargebackPlansRequest.compartmentId,
+      "chargebackplanId": listChargebackPlansRequest.chargebackplanId,
+      "limit": listChargebackPlansRequest.limit,
+      "page": listChargebackPlansRequest.page,
+      "sortOrder": listChargebackPlansRequest.sortOrder,
+      "sortBy": listChargebackPlansRequest.sortBy,
+      "compartmentIdInSubtree": listChargebackPlansRequest.compartmentIdInSubtree
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listChargebackPlansRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listChargebackPlansRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/chargebackPlans",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListChargebackPlansResponse>{},
+        body: await response.json(),
+        bodyKey: "chargebackPlanCollection",
+        bodyModel: model.ChargebackPlanCollection,
+        type: "model.ChargebackPlanCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets a list of database insight configurations based on the query parameters specified. Either compartmentId or databaseInsightId query parameter must be specified.
    * When both compartmentId and compartmentIdInSubtree are specified, a list of database insight configurations in that compartment and in all sub-compartments will be returned.
    *
@@ -9403,6 +10375,7 @@ export class OperationsInsightsClient {
   }
 
   /**
+   * This API was deprecated May 2024 and is no longer functional as of May 31st, 2025.
    * Search SQL by SQL Identifier across databases in a compartment and in all sub-compartments if specified.
    * And get the SQL Text and the details of the databases executing the SQL for a given time period.
    *
@@ -14846,8 +15819,9 @@ Note that this API does not return information on the number of times each datab
   }
 
   /**
-   * Query SQL Warehouse to get the performance insights for SQLs taking greater than X% database time for a given
-   * time period across the given databases or database types in a compartment and in all sub-compartments if specified.
+   * This API was deprecated May 2024 and is no longer functional as of May 31st, 2025.
+   * Query SQL Warehouse to get the performance insights for SQLs taking greater than X% database time for a given time period across the given databases or database
+   * types in a compartment and in all sub-compartments if specified.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param SummarizeSqlInsightsRequest
@@ -14941,6 +15915,7 @@ Note that this API does not return information on the number of times each datab
   }
 
   /**
+   * This API was deprecated May 2024 and is no longer functional as of May 31st, 2025.
    * Query SQL Warehouse to get the performance insights on the execution plans for a given SQL for a given time period.
    * Either databaseId or id must be specified.
    *
@@ -15026,8 +16001,8 @@ Note that this API does not return information on the number of times each datab
   }
 
   /**
-   * Query SQL Warehouse to summarize the response time distribution of query executions for a given SQL for a given time period.
-   * Either databaseId or id must be specified.
+   * This API was deprecated May 2024 and is no longer functional as of May 31st, 2025.
+   * Query SQL Warehouse to summarize the response time distribution of query executions for a given SQL for a given time period. Either databaseId or id must be specified.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param SummarizeSqlResponseTimeDistributionsRequest
@@ -15113,6 +16088,7 @@ Note that this API does not return information on the number of times each datab
   }
 
   /**
+   * This API was deprecated May 2024 and is no longer functional as of May 31st, 2025.
    * Query SQL Warehouse to get the performance statistics for SQLs taking greater than X% database time for a given
    * time period across the given databases or database types in a compartment and in all sub-compartments if specified.
    *
@@ -15213,6 +16189,7 @@ Note that this API does not return information on the number of times each datab
   }
 
   /**
+   * This API was deprecated May 2024 and is no longer functional as of May 31st, 2025.
    * Query SQL Warehouse to get the performance statistics time series for a given SQL across given databases for a
    * given time period in a compartment and in all sub-compartments if specified.
    *
@@ -15309,6 +16286,7 @@ Note that this API does not return information on the number of times each datab
   }
 
   /**
+   * This API was deprecated May 2024 and is no longer functional as of May 31st, 2025.
    * Query SQL Warehouse to get the performance statistics time series for a given SQL by execution plans for a given time period.
    * Either databaseId or id must be specified.
    *
@@ -15396,9 +16374,8 @@ Note that this API does not return information on the number of times each datab
   }
 
   /**
-   * Synchronize infrastructure details that has been missing when autonomous database onboarded in Operations Insights.
-   * Onboarded Opsi ExadataInsight resource need to be provided with compartmentId for searching infrastruture details.
-   * The query parameters, DatabaseId and DatabaseInsightId, are mutually exclusive and provided for searching Opsi resources that have been onboarded.
+   * Synchronize infrastructure details that has been missing when autonomous database onboarded in Ops Insights.
+   * Parameters exadataInsightId, databaseId, or databaseInsightId (id) are mutually exclusive, and scope the Ops Insights resources which are scoped for the search to find ADB-D resources missing the Exadata infrastructure details.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param SynchronizeAutonomousDatabaseToExadataRequest
@@ -15779,6 +16756,165 @@ Note that this API does not return information on the number of times each datab
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateAwrHubSourceResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates one or more attributes of the specified chargeback plan.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateChargebackPlanRequest
+   * @return UpdateChargebackPlanResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/UpdateChargebackPlan.ts.html |here} to see how to use UpdateChargebackPlan API.
+   */
+  public async updateChargebackPlan(
+    updateChargebackPlanRequest: requests.UpdateChargebackPlanRequest
+  ): Promise<responses.UpdateChargebackPlanResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#updateChargebackPlan.");
+    const operationName = "updateChargebackPlan";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{chargebackplanId}": updateChargebackPlanRequest.chargebackplanId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateChargebackPlanRequest.ifMatch,
+      "opc-request-id": updateChargebackPlanRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateChargebackPlanRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/chargebackPlans/{chargebackplanId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateChargebackPlanRequest.updateChargebackPlanDetails,
+        "UpdateChargebackPlanDetails",
+        model.UpdateChargebackPlanDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateChargebackPlanResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates one or more attributes of the specified chargeback plan report.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateChargebackPlanReportRequest
+   * @return UpdateChargebackPlanReportResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/UpdateChargebackPlanReport.ts.html |here} to see how to use UpdateChargebackPlanReport API.
+   */
+  public async updateChargebackPlanReport(
+    updateChargebackPlanReportRequest: requests.UpdateChargebackPlanReportRequest
+  ): Promise<responses.UpdateChargebackPlanReportResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#updateChargebackPlanReport.");
+    const operationName = "updateChargebackPlanReport";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{chargebackPlanReportId}": updateChargebackPlanReportRequest.chargebackPlanReportId
+    };
+
+    const queryParams = {
+      "id": updateChargebackPlanReportRequest.id,
+      "resourceType": updateChargebackPlanReportRequest.resourceType
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateChargebackPlanReportRequest.ifMatch,
+      "opc-request-id": updateChargebackPlanReportRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateChargebackPlanReportRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/chargebackPlanReport/{chargebackPlanReportId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateChargebackPlanReportRequest.updateChargebackPlanReportDetails,
+        "UpdateChargebackPlanReportDetails",
+        model.UpdateChargebackPlanReportDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateChargebackPlanReportResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),

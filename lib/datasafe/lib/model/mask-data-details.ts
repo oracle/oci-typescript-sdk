@@ -126,6 +126,7 @@ export interface MaskDataDetails {
    *
    */
   "recompile"?: string;
+  "targetCredentials"?: model.Credentials;
 }
 
 export namespace MaskDataDetails {
@@ -135,12 +136,26 @@ export namespace MaskDataDetails {
   }
 
   export function getJsonObj(obj: MaskDataDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "targetCredentials": obj.targetCredentials
+          ? model.Credentials.getJsonObj(obj.targetCredentials)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: MaskDataDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "targetCredentials": obj.targetCredentials
+          ? model.Credentials.getDeserializedJsonObj(obj.targetCredentials)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

@@ -18,7 +18,9 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
+ * MySQL support within the OCI Ops Insights service has been deprecated as of January 29, 2026.
  * Summary of a database insight resource.
+ *
  */
 export interface ExternalMysqlDatabaseInsightSummary extends model.DatabaseInsightSummary {
   /**

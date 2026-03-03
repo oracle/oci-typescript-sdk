@@ -269,6 +269,11 @@ export namespace LaunchDbSystemBase {
             <model.LaunchDbSystemDetails>(<object>jsonObj),
             true
           );
+        case "DATAGUARD":
+          return model.LaunchStandbyDbSystemDetails.getJsonObj(
+            <model.LaunchStandbyDbSystemDetails>(<object>jsonObj),
+            true
+          );
         case "DB_SYSTEM":
           return model.LaunchDbSystemFromDbSystemDetails.getJsonObj(
             <model.LaunchDbSystemFromDbSystemDetails>(<object>jsonObj),
@@ -309,6 +314,11 @@ export namespace LaunchDbSystemBase {
         case "NONE":
           return model.LaunchDbSystemDetails.getDeserializedJsonObj(
             <model.LaunchDbSystemDetails>(<object>jsonObj),
+            true
+          );
+        case "DATAGUARD":
+          return model.LaunchStandbyDbSystemDetails.getDeserializedJsonObj(
+            <model.LaunchStandbyDbSystemDetails>(<object>jsonObj),
             true
           );
         case "DB_SYSTEM":

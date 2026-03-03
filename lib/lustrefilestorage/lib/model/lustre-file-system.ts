@@ -166,6 +166,7 @@ Example: {@code 2016-08-25T21:10:29.600Z}
     */
   "timeBillingCycleEnd"?: Date;
   "maintenanceWindow": model.MaintenanceWindow;
+  "maintenanceWindowMetadata"?: model.MaintenanceWindowMetadataDetails;
   "rootSquashConfiguration": model.RootSquashConfiguration;
 }
 
@@ -204,6 +205,9 @@ export namespace LustreFileSystem {
         "maintenanceWindow": obj.maintenanceWindow
           ? model.MaintenanceWindow.getJsonObj(obj.maintenanceWindow)
           : undefined,
+        "maintenanceWindowMetadata": obj.maintenanceWindowMetadata
+          ? model.MaintenanceWindowMetadataDetails.getJsonObj(obj.maintenanceWindowMetadata)
+          : undefined,
         "rootSquashConfiguration": obj.rootSquashConfiguration
           ? model.RootSquashConfiguration.getJsonObj(obj.rootSquashConfiguration)
           : undefined
@@ -218,6 +222,11 @@ export namespace LustreFileSystem {
       ...{
         "maintenanceWindow": obj.maintenanceWindow
           ? model.MaintenanceWindow.getDeserializedJsonObj(obj.maintenanceWindow)
+          : undefined,
+        "maintenanceWindowMetadata": obj.maintenanceWindowMetadata
+          ? model.MaintenanceWindowMetadataDetails.getDeserializedJsonObj(
+              obj.maintenanceWindowMetadata
+            )
           : undefined,
         "rootSquashConfiguration": obj.rootSquashConfiguration
           ? model.RootSquashConfiguration.getDeserializedJsonObj(obj.rootSquashConfiguration)
