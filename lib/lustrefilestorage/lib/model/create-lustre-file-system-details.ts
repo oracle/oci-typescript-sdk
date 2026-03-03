@@ -97,6 +97,7 @@ Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
    */
   "clusterPlacementGroupId"?: string;
   "rootSquashConfiguration": model.RootSquashConfiguration;
+  "maintenanceWindow"?: model.MaintenanceWindow;
 }
 
 export namespace CreateLustreFileSystemDetails {
@@ -113,6 +114,9 @@ export namespace CreateLustreFileSystemDetails {
       ...{
         "rootSquashConfiguration": obj.rootSquashConfiguration
           ? model.RootSquashConfiguration.getJsonObj(obj.rootSquashConfiguration)
+          : undefined,
+        "maintenanceWindow": obj.maintenanceWindow
+          ? model.MaintenanceWindow.getJsonObj(obj.maintenanceWindow)
           : undefined
       }
     };
@@ -125,6 +129,9 @@ export namespace CreateLustreFileSystemDetails {
       ...{
         "rootSquashConfiguration": obj.rootSquashConfiguration
           ? model.RootSquashConfiguration.getDeserializedJsonObj(obj.rootSquashConfiguration)
+          : undefined,
+        "maintenanceWindow": obj.maintenanceWindow
+          ? model.MaintenanceWindow.getDeserializedJsonObj(obj.maintenanceWindow)
           : undefined
       }
     };

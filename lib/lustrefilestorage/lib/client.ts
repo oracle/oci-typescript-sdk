@@ -1118,6 +1118,174 @@ export class LustreFileStorageClient {
   }
 
   /**
+   * Gets the list of available maintenance schedule start times for both Create and Update operation
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListAvailableMaintenanceScheduleStartTimesRequest
+   * @return ListAvailableMaintenanceScheduleStartTimesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/lustrefilestorage/ListAvailableMaintenanceScheduleStartTimes.ts.html |here} to see how to use ListAvailableMaintenanceScheduleStartTimes API.
+   */
+  public async listAvailableMaintenanceScheduleStartTimes(
+    listAvailableMaintenanceScheduleStartTimesRequest: requests.ListAvailableMaintenanceScheduleStartTimesRequest
+  ): Promise<responses.ListAvailableMaintenanceScheduleStartTimesResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation LustreFileStorageClient#listAvailableMaintenanceScheduleStartTimes."
+      );
+    const operationName = "listAvailableMaintenanceScheduleStartTimes";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "id": listAvailableMaintenanceScheduleStartTimesRequest.id,
+      "compartmentId": listAvailableMaintenanceScheduleStartTimesRequest.compartmentId,
+      "availabilityDomain": listAvailableMaintenanceScheduleStartTimesRequest.availabilityDomain,
+      "dayOfWeek": listAvailableMaintenanceScheduleStartTimesRequest.dayOfWeek,
+      "limit": listAvailableMaintenanceScheduleStartTimesRequest.limit,
+      "page": listAvailableMaintenanceScheduleStartTimesRequest.page,
+      "sortBy": listAvailableMaintenanceScheduleStartTimesRequest.sortBy,
+      "sortOrder": listAvailableMaintenanceScheduleStartTimesRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listAvailableMaintenanceScheduleStartTimesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAvailableMaintenanceScheduleStartTimesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/availableMaintenanceScheduleStartTimes",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListAvailableMaintenanceScheduleStartTimesResponse>{},
+        body: await response.json(),
+        bodyKey: "availableMaintenanceScheduleStartTimeCollection",
+        bodyModel: model.AvailableMaintenanceScheduleStartTimeCollection,
+        type: "model.AvailableMaintenanceScheduleStartTimeCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the list of available maintenance start times for Override operation
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListAvailableOverrideMaintenanceStartTimesRequest
+   * @return ListAvailableOverrideMaintenanceStartTimesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/lustrefilestorage/ListAvailableOverrideMaintenanceStartTimes.ts.html |here} to see how to use ListAvailableOverrideMaintenanceStartTimes API.
+   */
+  public async listAvailableOverrideMaintenanceStartTimes(
+    listAvailableOverrideMaintenanceStartTimesRequest: requests.ListAvailableOverrideMaintenanceStartTimesRequest
+  ): Promise<responses.ListAvailableOverrideMaintenanceStartTimesResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation LustreFileStorageClient#listAvailableOverrideMaintenanceStartTimes."
+      );
+    const operationName = "listAvailableOverrideMaintenanceStartTimes";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "id": listAvailableOverrideMaintenanceStartTimesRequest.id,
+      "limit": listAvailableOverrideMaintenanceStartTimesRequest.limit,
+      "page": listAvailableOverrideMaintenanceStartTimesRequest.page,
+      "sortBy": listAvailableOverrideMaintenanceStartTimesRequest.sortBy,
+      "sortOrder": listAvailableOverrideMaintenanceStartTimesRequest.sortOrder,
+      "date": listAvailableOverrideMaintenanceStartTimesRequest.date
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listAvailableOverrideMaintenanceStartTimesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAvailableOverrideMaintenanceStartTimesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/availableOverrideMaintenanceStartTimes",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListAvailableOverrideMaintenanceStartTimesResponse>{},
+        body: await response.json(),
+        bodyKey: "availableOverrideMaintenanceStartTimeCollection",
+        bodyModel: model.AvailableOverrideMaintenanceStartTimeCollection,
+        type: "model.AvailableOverrideMaintenanceStartTimeCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets a list of Lustre file systems.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -1608,6 +1776,84 @@ export class LustreFileStorageClient {
           {
             value: response.headers.get("opc-next-page"),
             key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Overrides the upcoming maintenance to the value provided by user
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param OverrideMaintenanceRequest
+   * @return OverrideMaintenanceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/lustrefilestorage/OverrideMaintenance.ts.html |here} to see how to use OverrideMaintenance API.
+   */
+  public async overrideMaintenance(
+    overrideMaintenanceRequest: requests.OverrideMaintenanceRequest
+  ): Promise<responses.OverrideMaintenanceResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation LustreFileStorageClient#overrideMaintenance.");
+    const operationName = "overrideMaintenance";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{lustreFileSystemId}": overrideMaintenanceRequest.lustreFileSystemId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": overrideMaintenanceRequest.ifMatch,
+      "opc-request-id": overrideMaintenanceRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      overrideMaintenanceRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/lustreFileSystems/{lustreFileSystemId}/actions/overrideMaintenance",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        overrideMaintenanceRequest.overrideMaintenanceDetails,
+        "OverrideMaintenanceDetails",
+        model.OverrideMaintenanceDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.OverrideMaintenanceResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           }
         ]

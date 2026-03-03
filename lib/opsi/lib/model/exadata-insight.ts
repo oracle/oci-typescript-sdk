@@ -53,6 +53,7 @@ export interface ExadataInsight {
    * Indicates the status of an Exadata insight in Operations Insights
    */
   "status": model.ResourceStatus;
+  "chargebackPlanDetails"?: model.ChargebackPlanDetails;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
    * Example: {@code {\"bar-key\": \"value\"}}
@@ -87,13 +88,24 @@ export interface ExadataInsight {
    * A message describing the current state in more detail. For example, can be used to provide actionable information for a resource in Failed state.
    */
   "lifecycleDetails"?: string;
+  /**
+   * A message describing the status of the Exadata Resource. For example, it can be used to provide actionable information about the policies needed to access the Exadata Resource.
+   */
+  "statusDetails"?: string;
 
   "entitySource": string;
 }
 
 export namespace ExadataInsight {
   export function getJsonObj(obj: ExadataInsight): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "chargebackPlanDetails": obj.chargebackPlanDetails
+          ? model.ChargebackPlanDetails.getJsonObj(obj.chargebackPlanDetails)
+          : undefined
+      }
+    };
 
     if (obj && "entitySource" in obj && obj.entitySource) {
       switch (obj.entitySource) {
@@ -119,7 +131,14 @@ export namespace ExadataInsight {
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: ExadataInsight): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "chargebackPlanDetails": obj.chargebackPlanDetails
+          ? model.ChargebackPlanDetails.getDeserializedJsonObj(obj.chargebackPlanDetails)
+          : undefined
+      }
+    };
 
     if (obj && "entitySource" in obj && obj.entitySource) {
       switch (obj.entitySource) {

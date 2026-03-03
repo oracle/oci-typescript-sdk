@@ -357,6 +357,8 @@ This setting cannot be updated in parallel with any of the following: licenseMod
    * When you specify 23ai for dbversion, the system will provision a 23ai database, but the UI will display it as 26ai.
    * When you specify 26ai for dbversion, the system will provision and display a 26ai database as expected.
    * For new databases, it is recommended to use either 19c or 26ai.
+   * <p>
+   **Note** Starting December 2026, 23ai will not be supported as a valid value for this parameter.
    *
    */
   "dbVersion"?: string;
@@ -371,6 +373,8 @@ This setting cannot be updated in parallel with any of the following: licenseMod
 * - AJD - indicates an Autonomous AI JSON Database
 * - APEX - indicates an Autonomous AI Database with the Oracle APEX AI Application Development workload type.
 * - LH - indicates an Oracle Autonomous AI Lakehouse database
+* <p>
+**Note** Starting December 2026, DW will not be supported as a valid value for this parameter.
 * <p>
 
 * This cannot be updated in parallel with any of the following: licenseModel, dbEdition, cpuCoreCount, computeCount, computeModel, adminPassword, whitelistedIps, isMTLSConnectionRequired, privateEndpointLabel, nsgIds, dbVersion, isRefreshable, dbName, scheduledOperations, dbToolsDetails, isLocalDataGuardEnabled, or isFreeTier.

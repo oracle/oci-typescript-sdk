@@ -61,6 +61,11 @@ export interface ExadataConfigurationSummary {
    * Array of objects containing VM cluster information.
    */
   "vmclusterDetails"?: Array<model.VmClusterSummary>;
+  /**
+   * The shape of the Exadata Infrastructure.
+   */
+  "exadataShape": string;
+  "chargebackPlanDetails": model.ChargebackPlanDetails;
 
   "entitySource": string;
 }
@@ -74,6 +79,10 @@ export namespace ExadataConfigurationSummary {
           ? obj.vmclusterDetails.map(item => {
               return model.VmClusterSummary.getJsonObj(item);
             })
+          : undefined,
+
+        "chargebackPlanDetails": obj.chargebackPlanDetails
+          ? model.ChargebackPlanDetails.getJsonObj(obj.chargebackPlanDetails)
           : undefined
       }
     };
@@ -109,6 +118,10 @@ export namespace ExadataConfigurationSummary {
           ? obj.vmclusterDetails.map(item => {
               return model.VmClusterSummary.getDeserializedJsonObj(item);
             })
+          : undefined,
+
+        "chargebackPlanDetails": obj.chargebackPlanDetails
+          ? model.ChargebackPlanDetails.getDeserializedJsonObj(obj.chargebackPlanDetails)
           : undefined
       }
     };

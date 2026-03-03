@@ -67,6 +67,7 @@ export interface ExadataInsightSummary {
    * Indicates the status of an Exadata insight in Operations Insights
    */
   "status": model.ResourceStatus;
+  "chargebackPlanDetails"?: model.ChargebackPlanDetails;
   /**
    * The time the the Exadata insight was first enabled. An RFC3339 formatted datetime string
    */
@@ -83,13 +84,24 @@ export interface ExadataInsightSummary {
    * A message describing the current state in more detail. For example, can be used to provide actionable information for a resource in Failed state.
    */
   "lifecycleDetails"?: string;
+  /**
+   * A message describing the status of the Exadata Resource. For example, it can be used to provide actionable information about the policies needed to access the Exadata Resource.
+   */
+  "statusDetails"?: string;
 
   "entitySource": string;
 }
 
 export namespace ExadataInsightSummary {
   export function getJsonObj(obj: ExadataInsightSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "chargebackPlanDetails": obj.chargebackPlanDetails
+          ? model.ChargebackPlanDetails.getJsonObj(obj.chargebackPlanDetails)
+          : undefined
+      }
+    };
 
     if (obj && "entitySource" in obj && obj.entitySource) {
       switch (obj.entitySource) {
@@ -115,7 +127,14 @@ export namespace ExadataInsightSummary {
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: ExadataInsightSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "chargebackPlanDetails": obj.chargebackPlanDetails
+          ? model.ChargebackPlanDetails.getDeserializedJsonObj(obj.chargebackPlanDetails)
+          : undefined
+      }
+    };
 
     if (obj && "entitySource" in obj && obj.entitySource) {
       switch (obj.entitySource) {

@@ -4355,6 +4355,32 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forExecuteDbSystemOsPatch
+   *
+   * @param request the request to send
+   * @return response returns ExecuteDbSystemOsPatchResponse, GetWorkRequestResponse tuple
+   */
+  public async forExecuteDbSystemOsPatch(
+    request: serviceRequests.ExecuteDbSystemOsPatchRequest
+  ): Promise<{
+    response: serviceResponses.ExecuteDbSystemOsPatchResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const executeDbSystemOsPatchResponse = await this.client.executeDbSystemOsPatch(request);
+    if (executeDbSystemOsPatchResponse.opcWorkRequestId === undefined)
+      return { response: executeDbSystemOsPatchResponse, workRequestResponse: undefined as any };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      executeDbSystemOsPatchResponse.opcWorkRequestId
+    );
+    return {
+      response: executeDbSystemOsPatchResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
    * Waits forFailOverAutonomousDatabase
    *
    * @param request the request to send
@@ -5054,6 +5080,24 @@ export class DatabaseWaiter {
       () => this.client.getDbSystem(request),
       response => targetStates.includes(response.dbSystem.lifecycleState!),
       targetStates.includes(models.DbSystem.LifecycleState.Terminated)
+    );
+  }
+
+  /**
+   * Waits forDbSystemOsPatchHistoryEntry till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetDbSystemOsPatchHistoryEntryResponse
+   */
+  public async forDbSystemOsPatchHistoryEntry(
+    request: serviceRequests.GetDbSystemOsPatchHistoryEntryRequest,
+    ...targetStates: models.DbSystemOsPatchHistoryEntry.LifecycleState[]
+  ): Promise<serviceResponses.GetDbSystemOsPatchHistoryEntryResponse> {
+    return genericWaiter(
+      this.config,
+      () => this.client.getDbSystemOsPatchHistoryEntry(request),
+      response => targetStates.includes(response.dbSystemOsPatchHistoryEntry.lifecycleState!)
     );
   }
 

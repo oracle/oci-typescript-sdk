@@ -66,6 +66,7 @@ Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
    */
   "capacityInGBs"?: number;
   "rootSquashConfiguration"?: model.RootSquashConfiguration;
+  "maintenanceWindow"?: model.MaintenanceWindow;
 }
 
 export namespace UpdateLustreFileSystemDetails {
@@ -75,6 +76,9 @@ export namespace UpdateLustreFileSystemDetails {
       ...{
         "rootSquashConfiguration": obj.rootSquashConfiguration
           ? model.RootSquashConfiguration.getJsonObj(obj.rootSquashConfiguration)
+          : undefined,
+        "maintenanceWindow": obj.maintenanceWindow
+          ? model.MaintenanceWindow.getJsonObj(obj.maintenanceWindow)
           : undefined
       }
     };
@@ -87,6 +91,9 @@ export namespace UpdateLustreFileSystemDetails {
       ...{
         "rootSquashConfiguration": obj.rootSquashConfiguration
           ? model.RootSquashConfiguration.getDeserializedJsonObj(obj.rootSquashConfiguration)
+          : undefined,
+        "maintenanceWindow": obj.maintenanceWindow
+          ? model.MaintenanceWindow.getDeserializedJsonObj(obj.maintenanceWindow)
           : undefined
       }
     };

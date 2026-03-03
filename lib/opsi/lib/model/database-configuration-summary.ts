@@ -46,6 +46,10 @@ export interface DatabaseConfigurationSummary {
    */
   "databaseVersion": string;
   /**
+   * Flag is to identify if advanced features for autonomous database is enabled or not
+   */
+  "isAdvancedFeaturesEnabled": boolean;
+  /**
    * Name of the CDB.Only applies to PDB.
    */
   "cdbName": string;
