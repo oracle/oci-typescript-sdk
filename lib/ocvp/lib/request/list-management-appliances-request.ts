@@ -27,6 +27,11 @@ export interface ListManagementAppliancesRequest extends common.BaseRequest {
    */
   "managementApplianceId"?: string;
   /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the SDDC.
+   *
+   */
+  "sddcId"?: string;
+  /**
    * A filter to return only resources that match the given display name exactly.
    */
   "displayName"?: string;

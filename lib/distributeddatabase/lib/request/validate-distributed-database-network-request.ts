@@ -32,7 +32,7 @@ export interface ValidateDistributedDatabaseNetworkRequest extends common.BaseRe
    */
   "resourceName"?: string;
   /**
-   * The shardGroup name example ShardGroupA, ShardGroupB.
+   * The shardGroup name example Shardgroupa, Shardgroupb.
    *
    */
   "shardGroup"?: string;

@@ -24,10 +24,6 @@ export interface GenerateDistributedAutonomousDatabaseGsmCertificateSigningReque
    */
   "distributedAutonomousDatabaseId": string;
   /**
-   * The ID of the Ca Bundle.
-   */
-  "caBundleId": string;
-  /**
    * The client request ID for tracing.
    */
   "opcRequestId"?: string;
@@ -49,4 +45,8 @@ export interface GenerateDistributedAutonomousDatabaseGsmCertificateSigningReque
    *
    */
   "opcRetryToken"?: string;
+  /**
+   * The ID of the Ca Bundle.
+   */
+  "caBundleId"?: string;
 }

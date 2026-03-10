@@ -90,6 +90,14 @@ export interface CreateDistributedDatabaseDetails {
    */
   "onsPortRemote": number;
   /**
+   * The TCP Single Client Access Name (SCAN) port for clusters created for Globally distributed database.
+   * The scanListenerPort number should only be provided if shard and catalog have source type NEW_VAULT_AND_CLUSTER.
+   * If shard and catalog have source type NEW_VAULT_AND_CLUSTER and scanListenerPort is not provided then the
+   * scanListenerPort will default to value 1521.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "scanListenerPort"?: number;
+  /**
    * The Replication method for Globally distributed database. Use RAFT for Raft based replication.
    * With RAFT replication, shards cannot have peers details set on them. In case shards need to
    * have peers, please do not set RAFT replicationMethod. For all non RAFT replication cases (with or

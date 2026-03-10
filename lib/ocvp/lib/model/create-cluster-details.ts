@@ -117,6 +117,12 @@ For example, if the value is {@code myCluster}, the ESXi hosts are named {@code 
    *
    */
   "esxiSoftwareVersion"?: string;
+  "clusterByolAllocationDetails"?: model.ClusterByolAllocationDetails;
+  /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the initial VMware BYOL Allocation used to deploy VMware Cloud Foundation.
+   *
+   */
+  "initialVcfByolAllocationId"?: string;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no
 * predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
@@ -148,6 +154,10 @@ export namespace CreateClusterDetails {
           ? obj.datastores.map(item => {
               return model.DatastoreInfo.getJsonObj(item);
             })
+          : undefined,
+
+        "clusterByolAllocationDetails": obj.clusterByolAllocationDetails
+          ? model.ClusterByolAllocationDetails.getJsonObj(obj.clusterByolAllocationDetails)
           : undefined
       }
     };
@@ -166,6 +176,12 @@ export namespace CreateClusterDetails {
           ? obj.datastores.map(item => {
               return model.DatastoreInfo.getDeserializedJsonObj(item);
             })
+          : undefined,
+
+        "clusterByolAllocationDetails": obj.clusterByolAllocationDetails
+          ? model.ClusterByolAllocationDetails.getDeserializedJsonObj(
+              obj.clusterByolAllocationDetails
+            )
           : undefined
       }
     };

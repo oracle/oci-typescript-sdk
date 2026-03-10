@@ -1494,6 +1494,178 @@ export class IdentityDomainsClient {
   }
 
   /**
+   * Create an IdentityProofingProvider.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateIdentityProofingProviderRequest
+   * @return CreateIdentityProofingProviderResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateIdentityProofingProvider.ts.html |here} to see how to use CreateIdentityProofingProvider API.
+   */
+  public async createIdentityProofingProvider(
+    createIdentityProofingProviderRequest: requests.CreateIdentityProofingProviderRequest
+  ): Promise<responses.CreateIdentityProofingProviderResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#createIdentityProofingProvider.");
+    const operationName = "createIdentityProofingProvider";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "attributes": createIdentityProofingProviderRequest.attributes,
+      "attributeSets": createIdentityProofingProviderRequest.attributeSets
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": createIdentityProofingProviderRequest.authorization,
+      "resource_type_schema_version":
+        createIdentityProofingProviderRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": createIdentityProofingProviderRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createIdentityProofingProviderRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/IdentityProofingProviders",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createIdentityProofingProviderRequest.identityProofingProvider,
+        "IdentityProofingProvider",
+        model.IdentityProofingProvider.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateIdentityProofingProviderResponse>{},
+        body: await response.json(),
+        bodyKey: "identityProofingProvider",
+        bodyModel: model.IdentityProofingProvider,
+        type: "model.IdentityProofingProvider",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Create an Identity Proofing Provider Configuration template.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateIdentityProofingProviderTemplateRequest
+   * @return CreateIdentityProofingProviderTemplateResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateIdentityProofingProviderTemplate.ts.html |here} to see how to use CreateIdentityProofingProviderTemplate API.
+   */
+  public async createIdentityProofingProviderTemplate(
+    createIdentityProofingProviderTemplateRequest: requests.CreateIdentityProofingProviderTemplateRequest
+  ): Promise<responses.CreateIdentityProofingProviderTemplateResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation IdentityDomainsClient#createIdentityProofingProviderTemplate."
+      );
+    const operationName = "createIdentityProofingProviderTemplate";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "attributes": createIdentityProofingProviderTemplateRequest.attributes,
+      "attributeSets": createIdentityProofingProviderTemplateRequest.attributeSets
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": createIdentityProofingProviderTemplateRequest.authorization,
+      "resource_type_schema_version":
+        createIdentityProofingProviderTemplateRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": createIdentityProofingProviderTemplateRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createIdentityProofingProviderTemplateRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/IdentityProofingProviderTemplates",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createIdentityProofingProviderTemplateRequest.identityProofingProviderTemplate,
+        "IdentityProofingProviderTemplate",
+        model.IdentityProofingProviderTemplate.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateIdentityProofingProviderTemplateResponse>{},
+        body: await response.json(),
+        bodyKey: "identityProofingProviderTemplate",
+        bodyModel: model.IdentityProofingProviderTemplate,
+        type: "model.IdentityProofingProviderTemplate",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Register a new Identity Propagation Trust configuration.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateIdentityPropagationTrustRequest
@@ -3808,6 +3980,87 @@ export class IdentityDomainsClient {
   }
 
   /**
+   * Create Verification Claims of IdentityProofingProvider.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateVerificationClaimRequest
+   * @return CreateVerificationClaimResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/CreateVerificationClaim.ts.html |here} to see how to use CreateVerificationClaim API.
+   */
+  public async createVerificationClaim(
+    createVerificationClaimRequest: requests.CreateVerificationClaimRequest
+  ): Promise<responses.CreateVerificationClaimResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#createVerificationClaim.");
+    const operationName = "createVerificationClaim";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": createVerificationClaimRequest.authorization,
+      "resource_type_schema_version": createVerificationClaimRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": createVerificationClaimRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createVerificationClaimRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/VerificationClaims",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createVerificationClaimRequest.verificationClaim,
+        "VerificationClaim",
+        model.VerificationClaim.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateVerificationClaimResponse>{},
+        body: await response.json(),
+        bodyKey: "verificationClaim",
+        bodyModel: model.VerificationClaim,
+        type: "model.VerificationClaim",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Delete a user's API key.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteApiKeyRequest
@@ -4868,6 +5121,156 @@ export class IdentityDomainsClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteGroupResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Delete an IdentityProofingProvider.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteIdentityProofingProviderRequest
+   * @return DeleteIdentityProofingProviderResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteIdentityProofingProvider.ts.html |here} to see how to use DeleteIdentityProofingProvider API.
+   */
+  public async deleteIdentityProofingProvider(
+    deleteIdentityProofingProviderRequest: requests.DeleteIdentityProofingProviderRequest
+  ): Promise<responses.DeleteIdentityProofingProviderResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#deleteIdentityProofingProvider.");
+    const operationName = "deleteIdentityProofingProvider";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{identityProofingProviderId}":
+        deleteIdentityProofingProviderRequest.identityProofingProviderId
+    };
+
+    const queryParams = {
+      "forceDelete": deleteIdentityProofingProviderRequest.forceDelete
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": deleteIdentityProofingProviderRequest.authorization,
+      "resource_type_schema_version":
+        deleteIdentityProofingProviderRequest.resourceTypeSchemaVersion,
+      "if-match": deleteIdentityProofingProviderRequest.ifMatch,
+      "opc-retry-token": deleteIdentityProofingProviderRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteIdentityProofingProviderRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/IdentityProofingProviders/{identityProofingProviderId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteIdentityProofingProviderResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Delete an IdentityProofingProvider.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteIdentityProofingProviderTemplateRequest
+   * @return DeleteIdentityProofingProviderTemplateResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/DeleteIdentityProofingProviderTemplate.ts.html |here} to see how to use DeleteIdentityProofingProviderTemplate API.
+   */
+  public async deleteIdentityProofingProviderTemplate(
+    deleteIdentityProofingProviderTemplateRequest: requests.DeleteIdentityProofingProviderTemplateRequest
+  ): Promise<responses.DeleteIdentityProofingProviderTemplateResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation IdentityDomainsClient#deleteIdentityProofingProviderTemplate."
+      );
+    const operationName = "deleteIdentityProofingProviderTemplate";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{identityProofingProviderTemplateId}":
+        deleteIdentityProofingProviderTemplateRequest.identityProofingProviderTemplateId
+    };
+
+    const queryParams = {
+      "forceDelete": deleteIdentityProofingProviderTemplateRequest.forceDelete
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": deleteIdentityProofingProviderTemplateRequest.authorization,
+      "resource_type_schema_version":
+        deleteIdentityProofingProviderTemplateRequest.resourceTypeSchemaVersion,
+      "if-match": deleteIdentityProofingProviderTemplateRequest.ifMatch,
+      "opc-retry-token": deleteIdentityProofingProviderTemplateRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteIdentityProofingProviderTemplateRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/IdentityProofingProviderTemplates/{identityProofingProviderTemplateId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteIdentityProofingProviderTemplateResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -8035,6 +8438,162 @@ export class IdentityDomainsClient {
         bodyKey: "group",
         bodyModel: model.Group,
         type: "model.Group",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get an IdentityProofingProvider.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetIdentityProofingProviderRequest
+   * @return GetIdentityProofingProviderResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetIdentityProofingProvider.ts.html |here} to see how to use GetIdentityProofingProvider API.
+   */
+  public async getIdentityProofingProvider(
+    getIdentityProofingProviderRequest: requests.GetIdentityProofingProviderRequest
+  ): Promise<responses.GetIdentityProofingProviderResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#getIdentityProofingProvider.");
+    const operationName = "getIdentityProofingProvider";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{identityProofingProviderId}": getIdentityProofingProviderRequest.identityProofingProviderId
+    };
+
+    const queryParams = {
+      "attributes": getIdentityProofingProviderRequest.attributes,
+      "attributeSets": getIdentityProofingProviderRequest.attributeSets
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": getIdentityProofingProviderRequest.authorization,
+      "resource_type_schema_version": getIdentityProofingProviderRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": getIdentityProofingProviderRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getIdentityProofingProviderRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/IdentityProofingProviders/{identityProofingProviderId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetIdentityProofingProviderResponse>{},
+        body: await response.json(),
+        bodyKey: "identityProofingProvider",
+        bodyModel: model.IdentityProofingProvider,
+        type: "model.IdentityProofingProvider",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get Identity Proofing Provider Configuration template.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetIdentityProofingProviderTemplateRequest
+   * @return GetIdentityProofingProviderTemplateResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/GetIdentityProofingProviderTemplate.ts.html |here} to see how to use GetIdentityProofingProviderTemplate API.
+   */
+  public async getIdentityProofingProviderTemplate(
+    getIdentityProofingProviderTemplateRequest: requests.GetIdentityProofingProviderTemplateRequest
+  ): Promise<responses.GetIdentityProofingProviderTemplateResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation IdentityDomainsClient#getIdentityProofingProviderTemplate."
+      );
+    const operationName = "getIdentityProofingProviderTemplate";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{identityProofingProviderTemplateId}":
+        getIdentityProofingProviderTemplateRequest.identityProofingProviderTemplateId
+    };
+
+    const queryParams = {
+      "attributes": getIdentityProofingProviderTemplateRequest.attributes,
+      "attributeSets": getIdentityProofingProviderTemplateRequest.attributeSets
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": getIdentityProofingProviderTemplateRequest.authorization,
+      "resource_type_schema_version":
+        getIdentityProofingProviderTemplateRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": getIdentityProofingProviderTemplateRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getIdentityProofingProviderTemplateRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/IdentityProofingProviderTemplates/{identityProofingProviderTemplateId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetIdentityProofingProviderTemplateResponse>{},
+        body: await response.json(),
+        bodyKey: "identityProofingProviderTemplate",
+        bodyModel: model.IdentityProofingProviderTemplate,
+        type: "model.IdentityProofingProviderTemplate",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -12407,6 +12966,182 @@ export class IdentityDomainsClient {
         bodyKey: "groups",
         bodyModel: model.Groups,
         type: "model.Groups",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Search Identity Proofing Provider Configuration templates..
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListIdentityProofingProviderTemplatesRequest
+   * @return ListIdentityProofingProviderTemplatesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListIdentityProofingProviderTemplates.ts.html |here} to see how to use ListIdentityProofingProviderTemplates API.
+   */
+  public async listIdentityProofingProviderTemplates(
+    listIdentityProofingProviderTemplatesRequest: requests.ListIdentityProofingProviderTemplatesRequest
+  ): Promise<responses.ListIdentityProofingProviderTemplatesResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation IdentityDomainsClient#listIdentityProofingProviderTemplates."
+      );
+    const operationName = "listIdentityProofingProviderTemplates";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "filter": listIdentityProofingProviderTemplatesRequest.filter,
+      "sortBy": listIdentityProofingProviderTemplatesRequest.sortBy,
+      "sortOrder": listIdentityProofingProviderTemplatesRequest.sortOrder,
+      "startIndex": listIdentityProofingProviderTemplatesRequest.startIndex,
+      "count": listIdentityProofingProviderTemplatesRequest.count,
+      "attributes": listIdentityProofingProviderTemplatesRequest.attributes,
+      "attributeSets": listIdentityProofingProviderTemplatesRequest.attributeSets,
+      "page": listIdentityProofingProviderTemplatesRequest.page,
+      "limit": listIdentityProofingProviderTemplatesRequest.limit
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": listIdentityProofingProviderTemplatesRequest.authorization,
+      "resource_type_schema_version":
+        listIdentityProofingProviderTemplatesRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": listIdentityProofingProviderTemplatesRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listIdentityProofingProviderTemplatesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/IdentityProofingProviderTemplates",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListIdentityProofingProviderTemplatesResponse>{},
+        body: await response.json(),
+        bodyKey: "identityProofingProviderTemplates",
+        bodyModel: model.IdentityProofingProviderTemplates,
+        type: "model.IdentityProofingProviderTemplates",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Search IdentityProofingProvider.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListIdentityProofingProvidersRequest
+   * @return ListIdentityProofingProvidersResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/ListIdentityProofingProviders.ts.html |here} to see how to use ListIdentityProofingProviders API.
+   */
+  public async listIdentityProofingProviders(
+    listIdentityProofingProvidersRequest: requests.ListIdentityProofingProvidersRequest
+  ): Promise<responses.ListIdentityProofingProvidersResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#listIdentityProofingProviders.");
+    const operationName = "listIdentityProofingProviders";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "filter": listIdentityProofingProvidersRequest.filter,
+      "sortBy": listIdentityProofingProvidersRequest.sortBy,
+      "sortOrder": listIdentityProofingProvidersRequest.sortOrder,
+      "startIndex": listIdentityProofingProvidersRequest.startIndex,
+      "count": listIdentityProofingProvidersRequest.count,
+      "attributes": listIdentityProofingProvidersRequest.attributes,
+      "attributeSets": listIdentityProofingProvidersRequest.attributeSets,
+      "page": listIdentityProofingProvidersRequest.page,
+      "limit": listIdentityProofingProvidersRequest.limit
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": listIdentityProofingProvidersRequest.authorization,
+      "resource_type_schema_version":
+        listIdentityProofingProvidersRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": listIdentityProofingProvidersRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listIdentityProofingProvidersRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/IdentityProofingProviders",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListIdentityProofingProvidersResponse>{},
+        body: await response.json(),
+        bodyKey: "identityProofingProviders",
+        bodyModel: model.IdentityProofingProviders,
+        type: "model.IdentityProofingProviders",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -17100,6 +17835,186 @@ export class IdentityDomainsClient {
   }
 
   /**
+   * Update an IdentityProofingProvider.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param PatchIdentityProofingProviderRequest
+   * @return PatchIdentityProofingProviderResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchIdentityProofingProvider.ts.html |here} to see how to use PatchIdentityProofingProvider API.
+   */
+  public async patchIdentityProofingProvider(
+    patchIdentityProofingProviderRequest: requests.PatchIdentityProofingProviderRequest
+  ): Promise<responses.PatchIdentityProofingProviderResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#patchIdentityProofingProvider.");
+    const operationName = "patchIdentityProofingProvider";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{identityProofingProviderId}":
+        patchIdentityProofingProviderRequest.identityProofingProviderId
+    };
+
+    const queryParams = {
+      "attributes": patchIdentityProofingProviderRequest.attributes,
+      "attributeSets": patchIdentityProofingProviderRequest.attributeSets
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": patchIdentityProofingProviderRequest.authorization,
+      "resource_type_schema_version":
+        patchIdentityProofingProviderRequest.resourceTypeSchemaVersion,
+      "if-match": patchIdentityProofingProviderRequest.ifMatch,
+      "opc-retry-token": patchIdentityProofingProviderRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      patchIdentityProofingProviderRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/IdentityProofingProviders/{identityProofingProviderId}",
+      method: "PATCH",
+      bodyContent: common.ObjectSerializer.serialize(
+        patchIdentityProofingProviderRequest.patchOp,
+        "PatchOp",
+        model.PatchOp.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.PatchIdentityProofingProviderResponse>{},
+        body: await response.json(),
+        bodyKey: "identityProofingProvider",
+        bodyModel: model.IdentityProofingProvider,
+        type: "model.IdentityProofingProvider",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Update an Identity Proofing Provider Configuration template.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param PatchIdentityProofingProviderTemplateRequest
+   * @return PatchIdentityProofingProviderTemplateResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PatchIdentityProofingProviderTemplate.ts.html |here} to see how to use PatchIdentityProofingProviderTemplate API.
+   */
+  public async patchIdentityProofingProviderTemplate(
+    patchIdentityProofingProviderTemplateRequest: requests.PatchIdentityProofingProviderTemplateRequest
+  ): Promise<responses.PatchIdentityProofingProviderTemplateResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation IdentityDomainsClient#patchIdentityProofingProviderTemplate."
+      );
+    const operationName = "patchIdentityProofingProviderTemplate";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{identityProofingProviderTemplateId}":
+        patchIdentityProofingProviderTemplateRequest.identityProofingProviderTemplateId
+    };
+
+    const queryParams = {
+      "attributes": patchIdentityProofingProviderTemplateRequest.attributes,
+      "attributeSets": patchIdentityProofingProviderTemplateRequest.attributeSets
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": patchIdentityProofingProviderTemplateRequest.authorization,
+      "resource_type_schema_version":
+        patchIdentityProofingProviderTemplateRequest.resourceTypeSchemaVersion,
+      "if-match": patchIdentityProofingProviderTemplateRequest.ifMatch,
+      "opc-retry-token": patchIdentityProofingProviderTemplateRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      patchIdentityProofingProviderTemplateRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/IdentityProofingProviderTemplates/{identityProofingProviderTemplateId}",
+      method: "PATCH",
+      bodyContent: common.ObjectSerializer.serialize(
+        patchIdentityProofingProviderTemplateRequest.patchOp,
+        "PatchOp",
+        model.PatchOp.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.PatchIdentityProofingProviderTemplateResponse>{},
+        body: await response.json(),
+        bodyKey: "identityProofingProviderTemplate",
+        bodyModel: model.IdentityProofingProviderTemplate,
+        type: "model.IdentityProofingProviderTemplate",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Update an existing Identity Propagation Trust configuration.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param PatchIdentityPropagationTrustRequest
@@ -20456,6 +21371,184 @@ export class IdentityDomainsClient {
   }
 
   /**
+   * Replace an IdentityProofingProvider.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param PutIdentityProofingProviderRequest
+   * @return PutIdentityProofingProviderResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutIdentityProofingProvider.ts.html |here} to see how to use PutIdentityProofingProvider API.
+   */
+  public async putIdentityProofingProvider(
+    putIdentityProofingProviderRequest: requests.PutIdentityProofingProviderRequest
+  ): Promise<responses.PutIdentityProofingProviderResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#putIdentityProofingProvider.");
+    const operationName = "putIdentityProofingProvider";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{identityProofingProviderId}": putIdentityProofingProviderRequest.identityProofingProviderId
+    };
+
+    const queryParams = {
+      "attributes": putIdentityProofingProviderRequest.attributes,
+      "attributeSets": putIdentityProofingProviderRequest.attributeSets
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": putIdentityProofingProviderRequest.authorization,
+      "resource_type_schema_version": putIdentityProofingProviderRequest.resourceTypeSchemaVersion,
+      "if-match": putIdentityProofingProviderRequest.ifMatch,
+      "opc-retry-token": putIdentityProofingProviderRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      putIdentityProofingProviderRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/IdentityProofingProviders/{identityProofingProviderId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        putIdentityProofingProviderRequest.identityProofingProvider,
+        "IdentityProofingProvider",
+        model.IdentityProofingProvider.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.PutIdentityProofingProviderResponse>{},
+        body: await response.json(),
+        bodyKey: "identityProofingProvider",
+        bodyModel: model.IdentityProofingProvider,
+        type: "model.IdentityProofingProvider",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Replace an Identity Proofing Provider Configuration template.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param PutIdentityProofingProviderTemplateRequest
+   * @return PutIdentityProofingProviderTemplateResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/PutIdentityProofingProviderTemplate.ts.html |here} to see how to use PutIdentityProofingProviderTemplate API.
+   */
+  public async putIdentityProofingProviderTemplate(
+    putIdentityProofingProviderTemplateRequest: requests.PutIdentityProofingProviderTemplateRequest
+  ): Promise<responses.PutIdentityProofingProviderTemplateResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation IdentityDomainsClient#putIdentityProofingProviderTemplate."
+      );
+    const operationName = "putIdentityProofingProviderTemplate";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{identityProofingProviderTemplateId}":
+        putIdentityProofingProviderTemplateRequest.identityProofingProviderTemplateId
+    };
+
+    const queryParams = {
+      "attributes": putIdentityProofingProviderTemplateRequest.attributes,
+      "attributeSets": putIdentityProofingProviderTemplateRequest.attributeSets
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": putIdentityProofingProviderTemplateRequest.authorization,
+      "resource_type_schema_version":
+        putIdentityProofingProviderTemplateRequest.resourceTypeSchemaVersion,
+      "if-match": putIdentityProofingProviderTemplateRequest.ifMatch,
+      "opc-retry-token": putIdentityProofingProviderTemplateRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      putIdentityProofingProviderTemplateRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/IdentityProofingProviderTemplates/{identityProofingProviderTemplateId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        putIdentityProofingProviderTemplateRequest.identityProofingProviderTemplate,
+        "IdentityProofingProviderTemplate",
+        model.IdentityProofingProviderTemplate.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.PutIdentityProofingProviderTemplateResponse>{},
+        body: await response.json(),
+        bodyKey: "identityProofingProviderTemplate",
+        bodyModel: model.IdentityProofingProviderTemplate,
+        type: "model.IdentityProofingProviderTemplate",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Replace an existing Identity Propagation Trust configuration.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param PutIdentityPropagationTrustRequest
@@ -23485,6 +24578,91 @@ export class IdentityDomainsClient {
         bodyKey: "groups",
         bodyModel: model.Groups,
         type: "model.Groups",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Search IdentityProofingProvider Using POST.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param SearchIdentityProofingProvidersRequest
+   * @return SearchIdentityProofingProvidersResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydomains/SearchIdentityProofingProviders.ts.html |here} to see how to use SearchIdentityProofingProviders API.
+   */
+  public async searchIdentityProofingProviders(
+    searchIdentityProofingProvidersRequest: requests.SearchIdentityProofingProvidersRequest
+  ): Promise<responses.SearchIdentityProofingProvidersResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IdentityDomainsClient#searchIdentityProofingProviders.");
+    const operationName = "searchIdentityProofingProviders";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "page": searchIdentityProofingProvidersRequest.page,
+      "limit": searchIdentityProofingProvidersRequest.limit
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "authorization": searchIdentityProofingProvidersRequest.authorization,
+      "resource_type_schema_version":
+        searchIdentityProofingProvidersRequest.resourceTypeSchemaVersion,
+      "opc-retry-token": searchIdentityProofingProvidersRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      searchIdentityProofingProvidersRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/admin/v1/IdentityProofingProviders/.search",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        searchIdentityProofingProvidersRequest.identityProofingProviderSearchRequest,
+        "IdentityProofingProviderSearchRequest",
+        model.IdentityProofingProviderSearchRequest.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SearchIdentityProofingProvidersResponse>{},
+        body: await response.json(),
+        bodyKey: "identityProofingProviders",
+        bodyModel: model.IdentityProofingProviders,
+        type: "model.IdentityProofingProviders",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),

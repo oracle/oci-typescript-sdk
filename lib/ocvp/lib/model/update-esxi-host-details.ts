@@ -44,6 +44,16 @@ Avoid entering confidential information.
    */
   "billingDonorHostId"?: string;
   /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Byol Allocation for VCF (VMware Cloud Foundation) deployment.
+   *
+   */
+  "vcfByolAllocationId"?: string;
+  /**
+   * Indicates whether this host embedded VMware vSAN with BYOL Allocation.
+   *
+   */
+  "isVsanByolEnabled"?: boolean;
+  /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no
 * predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>

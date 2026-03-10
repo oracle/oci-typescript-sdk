@@ -58,6 +58,11 @@ Example: green_pool-1
    */
   "outboundIps"?: Array<model.EmailOutboundIpSummary>;
   /**
+   * Last IP will be unassigned from the IP Pool after the period of time (in hours) specified by this parameter. Default is 24 hours.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "lastIpDrainPeriodInHours"?: number;
+  /**
     * The time the IpPool was created.
 * Times are expressed in [RFC 3339](https://tools.ietf.org/html/rfc3339)
 * timestamp format, \"YYYY-MM-ddThh:mmZ\".

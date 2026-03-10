@@ -240,3 +240,5 @@ export import dif = require("oci-dif");
 export import psa = require("oci-psa");
 export import batch = require("oci-batch");
 export import marketplaceprivateoffer = require("oci-marketplaceprivateoffer");
+export import gdp = require("oci-gdp");
+export import limitsincrease = require("oci-limitsincrease");

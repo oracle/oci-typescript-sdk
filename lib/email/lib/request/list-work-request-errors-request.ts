@@ -40,4 +40,20 @@ export interface ListWorkRequestErrorsRequest extends common.BaseRequest {
    *
    */
   "limit"?: number;
+  /**
+   * The field to sort by. Only one sort order may be provided. Default order for timestamp is descending.
+   *
+   */
+  "sortBy"?: ListWorkRequestErrorsRequest.SortBy;
+  /**
+   * The sort order to use, either ascending or descending order.
+   *
+   */
+  "sortOrder"?: model.SortOrder;
+}
+
+export namespace ListWorkRequestErrorsRequest {
+  export enum SortBy {
+    Timestamp = "timestamp"
+  }
 }

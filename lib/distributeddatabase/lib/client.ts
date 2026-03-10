@@ -493,6 +493,90 @@ export class DistributedAutonomousDbServiceClient {
   }
 
   /**
+   * Configure wallets on Global Service Manager(GSM) instances for a Globally distributed autonomous database.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ConfigureDistributedAutonomousDatabaseGsmWalletRequest
+   * @return ConfigureDistributedAutonomousDatabaseGsmWalletResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/distributeddatabase/ConfigureDistributedAutonomousDatabaseGsmWallet.ts.html |here} to see how to use ConfigureDistributedAutonomousDatabaseGsmWallet API.
+   */
+  public async configureDistributedAutonomousDatabaseGsmWallet(
+    configureDistributedAutonomousDatabaseGsmWalletRequest: requests.ConfigureDistributedAutonomousDatabaseGsmWalletRequest
+  ): Promise<responses.ConfigureDistributedAutonomousDatabaseGsmWalletResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DistributedAutonomousDbServiceClient#configureDistributedAutonomousDatabaseGsmWallet."
+      );
+    const operationName = "configureDistributedAutonomousDatabaseGsmWallet";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{distributedAutonomousDatabaseId}":
+        configureDistributedAutonomousDatabaseGsmWalletRequest.distributedAutonomousDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": configureDistributedAutonomousDatabaseGsmWalletRequest.opcRetryToken,
+      "opc-request-id": configureDistributedAutonomousDatabaseGsmWalletRequest.opcRequestId,
+      "if-match": configureDistributedAutonomousDatabaseGsmWalletRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      configureDistributedAutonomousDatabaseGsmWalletRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/distributedAutonomousDatabases/{distributedAutonomousDatabaseId}/actions/configureGsmWallet",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        configureDistributedAutonomousDatabaseGsmWalletRequest.configureDistributedAutonomousDatabaseGsmWalletDetails,
+        "ConfigureDistributedAutonomousDatabaseGsmWalletDetails",
+        model.ConfigureDistributedAutonomousDatabaseGsmWalletDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ConfigureDistributedAutonomousDatabaseGsmWalletResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Configure new Global Service Manager(GSM aka shard manager) instances for the Globally distributed autonomous database.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -577,7 +661,7 @@ export class DistributedAutonomousDbServiceClient {
   }
 
   /**
-   * Once all components of Globally distributed autonomous database are provisioned, and signed GSM certificates are successfully uploaded, this
+   * Once all components of Globally distributed autonomous database are provisioned, this
    * api shall be invoked to configure sharding on the Globally distributed autonomous database. Note that this 'ConfigureSharding' API also needs to be
    * invoked after successfully adding a new shard to the Globally distributed autonomous database using PATCH api. If this API is not
    * invoked after successfully adding a new shard, then that new shard will not be a participant in sharding topology of
@@ -605,7 +689,9 @@ export class DistributedAutonomousDbServiceClient {
 
     const queryParams = {
       "isRebalanceRequired":
-        configureDistributedAutonomousDatabaseShardingRequest.isRebalanceRequired
+        configureDistributedAutonomousDatabaseShardingRequest.isRebalanceRequired,
+      "certificateId": configureDistributedAutonomousDatabaseShardingRequest.certificateId,
+      "caBundleId": configureDistributedAutonomousDatabaseShardingRequest.caBundleId
     };
 
     let headerParams = {
@@ -1198,6 +1284,82 @@ export class DistributedAutonomousDbServiceClient {
   }
 
   /**
+   * Operation to retrieve RAFT metrics for the Globally distributed autonomous database. If the Globally distributed
+   * autonomous database is not RAFT based then empty response is returned from the API.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetDistributedAutonomousDatabaseRaftMetricRequest
+   * @return GetDistributedAutonomousDatabaseRaftMetricResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/distributeddatabase/GetDistributedAutonomousDatabaseRaftMetric.ts.html |here} to see how to use GetDistributedAutonomousDatabaseRaftMetric API.
+   */
+  public async getDistributedAutonomousDatabaseRaftMetric(
+    getDistributedAutonomousDatabaseRaftMetricRequest: requests.GetDistributedAutonomousDatabaseRaftMetricRequest
+  ): Promise<responses.GetDistributedAutonomousDatabaseRaftMetricResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DistributedAutonomousDbServiceClient#getDistributedAutonomousDatabaseRaftMetric."
+      );
+    const operationName = "getDistributedAutonomousDatabaseRaftMetric";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{distributedAutonomousDatabaseId}":
+        getDistributedAutonomousDatabaseRaftMetricRequest.distributedAutonomousDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getDistributedAutonomousDatabaseRaftMetricRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDistributedAutonomousDatabaseRaftMetricRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/distributedAutonomousDatabases/{distributedAutonomousDatabaseId}/raftMetrics",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetDistributedAutonomousDatabaseRaftMetricResponse>{},
+        body: await response.json(),
+        bodyKey: "distributedAutonomousDatabaseRaftMetric",
+        bodyModel: model.DistributedAutonomousDatabaseRaftMetric,
+        type: "model.DistributedAutonomousDatabaseRaftMetric",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * List of Globally distributed autonomous databases.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -1219,6 +1381,7 @@ export class DistributedAutonomousDbServiceClient {
 
     const queryParams = {
       "compartmentId": listDistributedAutonomousDatabasesRequest.compartmentId,
+      "privateEndpointId": listDistributedAutonomousDatabasesRequest.privateEndpointId,
       "lifecycleState": listDistributedAutonomousDatabasesRequest.lifecycleState,
       "limit": listDistributedAutonomousDatabasesRequest.limit,
       "page": listDistributedAutonomousDatabasesRequest.page,
@@ -1273,6 +1436,90 @@ export class DistributedAutonomousDbServiceClient {
           {
             value: response.headers.get("opc-next-page"),
             key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Move the replication units for RAFT based globally distributed autonomous database from source shard to destination shard.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param MoveDistributedAutonomousDatabaseReplicationUnitRequest
+   * @return MoveDistributedAutonomousDatabaseReplicationUnitResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/distributeddatabase/MoveDistributedAutonomousDatabaseReplicationUnit.ts.html |here} to see how to use MoveDistributedAutonomousDatabaseReplicationUnit API.
+   */
+  public async moveDistributedAutonomousDatabaseReplicationUnit(
+    moveDistributedAutonomousDatabaseReplicationUnitRequest: requests.MoveDistributedAutonomousDatabaseReplicationUnitRequest
+  ): Promise<responses.MoveDistributedAutonomousDatabaseReplicationUnitResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DistributedAutonomousDbServiceClient#moveDistributedAutonomousDatabaseReplicationUnit."
+      );
+    const operationName = "moveDistributedAutonomousDatabaseReplicationUnit";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{distributedAutonomousDatabaseId}":
+        moveDistributedAutonomousDatabaseReplicationUnitRequest.distributedAutonomousDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": moveDistributedAutonomousDatabaseReplicationUnitRequest.ifMatch,
+      "opc-retry-token": moveDistributedAutonomousDatabaseReplicationUnitRequest.opcRetryToken,
+      "opc-request-id": moveDistributedAutonomousDatabaseReplicationUnitRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      moveDistributedAutonomousDatabaseReplicationUnitRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/distributedAutonomousDatabases/{distributedAutonomousDatabaseId}/actions/moveReplicationUnit",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        moveDistributedAutonomousDatabaseReplicationUnitRequest.moveDistributedAutonomousDatabaseReplicationUnitDetails,
+        "MoveDistributedAutonomousDatabaseReplicationUnitDetails",
+        model.MoveDistributedAutonomousDatabaseReplicationUnitDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.MoveDistributedAutonomousDatabaseReplicationUnitResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           }
         ]
@@ -1349,6 +1596,88 @@ export class DistributedAutonomousDbServiceClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.PatchDistributedAutonomousDatabaseResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Recreate the failed resource for the Globally Distributed Autonomous Database.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param RecreateFailedDistributedAutonomousDatabaseResourceRequest
+   * @return RecreateFailedDistributedAutonomousDatabaseResourceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/distributeddatabase/RecreateFailedDistributedAutonomousDatabaseResource.ts.html |here} to see how to use RecreateFailedDistributedAutonomousDatabaseResource API.
+   */
+  public async recreateFailedDistributedAutonomousDatabaseResource(
+    recreateFailedDistributedAutonomousDatabaseResourceRequest: requests.RecreateFailedDistributedAutonomousDatabaseResourceRequest
+  ): Promise<responses.RecreateFailedDistributedAutonomousDatabaseResourceResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DistributedAutonomousDbServiceClient#recreateFailedDistributedAutonomousDatabaseResource."
+      );
+    const operationName = "recreateFailedDistributedAutonomousDatabaseResource";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{distributedAutonomousDatabaseId}":
+        recreateFailedDistributedAutonomousDatabaseResourceRequest.distributedAutonomousDatabaseId
+    };
+
+    const queryParams = {
+      "resourceName": recreateFailedDistributedAutonomousDatabaseResourceRequest.resourceName,
+      "shardGroup": recreateFailedDistributedAutonomousDatabaseResourceRequest.shardGroup
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": recreateFailedDistributedAutonomousDatabaseResourceRequest.opcRequestId,
+      "if-match": recreateFailedDistributedAutonomousDatabaseResourceRequest.ifMatch,
+      "opc-retry-token": recreateFailedDistributedAutonomousDatabaseResourceRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      recreateFailedDistributedAutonomousDatabaseResourceRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/distributedAutonomousDatabases/{distributedAutonomousDatabaseId}/actions/recreateFailedResource",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RecreateFailedDistributedAutonomousDatabaseResourceResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -1763,6 +2092,85 @@ export class DistributedAutonomousDbServiceClient {
         responseObject: <
           responses.UploadDistributedAutonomousDatabaseSignedCertificateAndGenerateWalletResponse
         >{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Validate the CA Bundles consistency of the globally distributed autonomous database.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ValidateDistributedAutonomousDatabaseCaBundleRequest
+   * @return ValidateDistributedAutonomousDatabaseCaBundleResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/distributeddatabase/ValidateDistributedAutonomousDatabaseCaBundle.ts.html |here} to see how to use ValidateDistributedAutonomousDatabaseCaBundle API.
+   */
+  public async validateDistributedAutonomousDatabaseCaBundle(
+    validateDistributedAutonomousDatabaseCaBundleRequest: requests.ValidateDistributedAutonomousDatabaseCaBundleRequest
+  ): Promise<responses.ValidateDistributedAutonomousDatabaseCaBundleResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DistributedAutonomousDbServiceClient#validateDistributedAutonomousDatabaseCaBundle."
+      );
+    const operationName = "validateDistributedAutonomousDatabaseCaBundle";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{distributedAutonomousDatabaseId}":
+        validateDistributedAutonomousDatabaseCaBundleRequest.distributedAutonomousDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": validateDistributedAutonomousDatabaseCaBundleRequest.ifMatch,
+      "opc-retry-token": validateDistributedAutonomousDatabaseCaBundleRequest.opcRetryToken,
+      "opc-request-id": validateDistributedAutonomousDatabaseCaBundleRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      validateDistributedAutonomousDatabaseCaBundleRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/distributedAutonomousDatabases/{distributedAutonomousDatabaseId}/actions/validateCaBundle",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ValidateDistributedAutonomousDatabaseCaBundleResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -3369,6 +3777,8 @@ export class DistributedDbServiceClient {
 
   /**
    * Terminate the given Globally distributed databases.
+   * For an EXADB_XS based distributed database, if the parameter mustDeleteInfra is set to true,
+   * then the VmCluster and DbStorageVault associated with each shard and catalog will also be deleted.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteDistributedDatabaseRequest
@@ -3387,7 +3797,9 @@ export class DistributedDbServiceClient {
       "{distributedDatabaseId}": deleteDistributedDatabaseRequest.distributedDatabaseId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "mustDeleteInfra": deleteDistributedDatabaseRequest.mustDeleteInfra
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -3804,6 +4216,81 @@ export class DistributedDbServiceClient {
   }
 
   /**
+   * Operation to retrieve RAFT metrics for the Globally distributed database. If the Globally distributed database is not
+   * RAFT based then empty response is returned from the API.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetDistributedDatabaseRaftMetricRequest
+   * @return GetDistributedDatabaseRaftMetricResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/distributeddatabase/GetDistributedDatabaseRaftMetric.ts.html |here} to see how to use GetDistributedDatabaseRaftMetric API.
+   */
+  public async getDistributedDatabaseRaftMetric(
+    getDistributedDatabaseRaftMetricRequest: requests.GetDistributedDatabaseRaftMetricRequest
+  ): Promise<responses.GetDistributedDatabaseRaftMetricResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DistributedDbServiceClient#getDistributedDatabaseRaftMetric."
+      );
+    const operationName = "getDistributedDatabaseRaftMetric";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{distributedDatabaseId}": getDistributedDatabaseRaftMetricRequest.distributedDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getDistributedDatabaseRaftMetricRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDistributedDatabaseRaftMetricRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/distributedDatabases/{distributedDatabaseId}/raftMetrics",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetDistributedDatabaseRaftMetricResponse>{},
+        body: await response.json(),
+        bodyKey: "distributedDatabaseRaftMetric",
+        bodyModel: model.DistributedDatabaseRaftMetric,
+        type: "model.DistributedDatabaseRaftMetric",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * List of Globally distributed databases.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -3823,6 +4310,7 @@ export class DistributedDbServiceClient {
 
     const queryParams = {
       "compartmentId": listDistributedDatabasesRequest.compartmentId,
+      "privateEndpointId": listDistributedDatabasesRequest.privateEndpointId,
       "lifecycleState": listDistributedDatabasesRequest.lifecycleState,
       "limit": listDistributedDatabasesRequest.limit,
       "page": listDistributedDatabasesRequest.page,
@@ -3889,9 +4377,93 @@ export class DistributedDbServiceClient {
   }
 
   /**
+   * Move the replication units for RAFT based globally distributed database from source shard to destination shard.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param MoveDistributedDatabaseReplicationUnitRequest
+   * @return MoveDistributedDatabaseReplicationUnitResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/distributeddatabase/MoveDistributedDatabaseReplicationUnit.ts.html |here} to see how to use MoveDistributedDatabaseReplicationUnit API.
+   */
+  public async moveDistributedDatabaseReplicationUnit(
+    moveDistributedDatabaseReplicationUnitRequest: requests.MoveDistributedDatabaseReplicationUnitRequest
+  ): Promise<responses.MoveDistributedDatabaseReplicationUnitResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DistributedDbServiceClient#moveDistributedDatabaseReplicationUnit."
+      );
+    const operationName = "moveDistributedDatabaseReplicationUnit";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{distributedDatabaseId}": moveDistributedDatabaseReplicationUnitRequest.distributedDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": moveDistributedDatabaseReplicationUnitRequest.ifMatch,
+      "opc-retry-token": moveDistributedDatabaseReplicationUnitRequest.opcRetryToken,
+      "opc-request-id": moveDistributedDatabaseReplicationUnitRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      moveDistributedDatabaseReplicationUnitRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/distributedDatabases/{distributedDatabaseId}/actions/moveReplicationUnit",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        moveDistributedDatabaseReplicationUnitRequest.moveDistributedDatabaseReplicationUnitDetails,
+        "MoveDistributedDatabaseReplicationUnitDetails",
+        model.MoveDistributedDatabaseReplicationUnitDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.MoveDistributedDatabaseReplicationUnitResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Patch operation to add, remove or update shards to the Globally distributed database topology. In single patch
    * operation, multiple shards can be either added, or removed or updated. Combination of inserts, update
    * and remove in single operation is not allowed.
+   * For an EXADB_XS based distributed database, removing a shard with the parameter mustDeleteInfra set to true
+   * will also delete the associated VmCluster and DbStorageVault.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param PatchDistributedDatabaseRequest
@@ -3950,6 +4522,87 @@ export class DistributedDbServiceClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.PatchDistributedDatabaseResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Recreate the failed resource for the Globally Distributed Database.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param RecreateFailedDistributedDatabaseResourceRequest
+   * @return RecreateFailedDistributedDatabaseResourceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/distributeddatabase/RecreateFailedDistributedDatabaseResource.ts.html |here} to see how to use RecreateFailedDistributedDatabaseResource API.
+   */
+  public async recreateFailedDistributedDatabaseResource(
+    recreateFailedDistributedDatabaseResourceRequest: requests.RecreateFailedDistributedDatabaseResourceRequest
+  ): Promise<responses.RecreateFailedDistributedDatabaseResourceResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DistributedDbServiceClient#recreateFailedDistributedDatabaseResource."
+      );
+    const operationName = "recreateFailedDistributedDatabaseResource";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{distributedDatabaseId}":
+        recreateFailedDistributedDatabaseResourceRequest.distributedDatabaseId
+    };
+
+    const queryParams = {
+      "resourceName": recreateFailedDistributedDatabaseResourceRequest.resourceName,
+      "shardGroup": recreateFailedDistributedDatabaseResourceRequest.shardGroup
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": recreateFailedDistributedDatabaseResourceRequest.ifMatch,
+      "opc-retry-token": recreateFailedDistributedDatabaseResourceRequest.opcRetryToken,
+      "opc-request-id": recreateFailedDistributedDatabaseResourceRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      recreateFailedDistributedDatabaseResourceRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/distributedDatabases/{distributedDatabaseId}/actions/recreateFailedResource",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RecreateFailedDistributedDatabaseResourceResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),

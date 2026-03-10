@@ -27,6 +27,13 @@ export namespace CreateDistributedDatabaseShardDetails {
 
     if (obj && "source" in obj && obj.source) {
       switch (obj.source) {
+        case "NEW_VAULT_AND_CLUSTER":
+          return model.CreateDistributedDatabaseShardWithExadbXsNewVaultAndClusterDetails.getJsonObj(
+            <model.CreateDistributedDatabaseShardWithExadbXsNewVaultAndClusterDetails>(
+              (<object>jsonObj)
+            ),
+            true
+          );
         case "EXADB_XS":
           return model.CreateDistributedDatabaseShardWithExadbXsDetails.getJsonObj(
             <model.CreateDistributedDatabaseShardWithExadbXsDetails>(<object>jsonObj),
@@ -43,6 +50,13 @@ export namespace CreateDistributedDatabaseShardDetails {
 
     if (obj && "source" in obj && obj.source) {
       switch (obj.source) {
+        case "NEW_VAULT_AND_CLUSTER":
+          return model.CreateDistributedDatabaseShardWithExadbXsNewVaultAndClusterDetails.getDeserializedJsonObj(
+            <model.CreateDistributedDatabaseShardWithExadbXsNewVaultAndClusterDetails>(
+              (<object>jsonObj)
+            ),
+            true
+          );
         case "EXADB_XS":
           return model.CreateDistributedDatabaseShardWithExadbXsDetails.getDeserializedJsonObj(
             <model.CreateDistributedDatabaseShardWithExadbXsDetails>(<object>jsonObj),

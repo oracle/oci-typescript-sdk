@@ -13,6 +13,32 @@ For more information, see [Oracle Cloud VMware Solution](https://docs.oracle.com
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as ChangeByolCompartmentResponse from "./change-byol-compartment-response";
+export import ChangeByolCompartmentResponse = ChangeByolCompartmentResponse.ChangeByolCompartmentResponse;
+import * as CreateByolResponse from "./create-byol-response";
+export import CreateByolResponse = CreateByolResponse.CreateByolResponse;
+import * as DeleteByolResponse from "./delete-byol-response";
+export import DeleteByolResponse = DeleteByolResponse.DeleteByolResponse;
+import * as GetByolResponse from "./get-byol-response";
+export import GetByolResponse = GetByolResponse.GetByolResponse;
+import * as ListByolsResponse from "./list-byols-response";
+export import ListByolsResponse = ListByolsResponse.ListByolsResponse;
+import * as RetrieveByolRealmAllocationsResponse from "./retrieve-byol-realm-allocations-response";
+export import RetrieveByolRealmAllocationsResponse = RetrieveByolRealmAllocationsResponse.RetrieveByolRealmAllocationsResponse;
+import * as UpdateByolResponse from "./update-byol-response";
+export import UpdateByolResponse = UpdateByolResponse.UpdateByolResponse;
+import * as ChangeByolAllocationCompartmentResponse from "./change-byol-allocation-compartment-response";
+export import ChangeByolAllocationCompartmentResponse = ChangeByolAllocationCompartmentResponse.ChangeByolAllocationCompartmentResponse;
+import * as CreateByolAllocationResponse from "./create-byol-allocation-response";
+export import CreateByolAllocationResponse = CreateByolAllocationResponse.CreateByolAllocationResponse;
+import * as DeleteByolAllocationResponse from "./delete-byol-allocation-response";
+export import DeleteByolAllocationResponse = DeleteByolAllocationResponse.DeleteByolAllocationResponse;
+import * as GetByolAllocationResponse from "./get-byol-allocation-response";
+export import GetByolAllocationResponse = GetByolAllocationResponse.GetByolAllocationResponse;
+import * as ListByolAllocationsResponse from "./list-byol-allocations-response";
+export import ListByolAllocationsResponse = ListByolAllocationsResponse.ListByolAllocationsResponse;
+import * as UpdateByolAllocationResponse from "./update-byol-allocation-response";
+export import UpdateByolAllocationResponse = UpdateByolAllocationResponse.UpdateByolAllocationResponse;
 import * as CreateClusterResponse from "./create-cluster-response";
 export import CreateClusterResponse = CreateClusterResponse.CreateClusterResponse;
 import * as DeleteClusterResponse from "./delete-cluster-response";

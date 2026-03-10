@@ -27,6 +27,11 @@ import common = require("oci-common");
  */
 export interface Ipv6AddressIpv6SubnetCidrPairDetails {
   /**
+   * An [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) that specifies a previously-reserved ipv6 to use.
+   *
+   */
+  "ipv6Id"?: string;
+  /**
    * The IPv6 prefix allocated to the subnet.
    *
    */

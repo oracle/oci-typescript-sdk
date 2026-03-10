@@ -40,6 +40,11 @@ export namespace DistributedDatabaseShard {
 
     if (obj && "source" in obj && obj.source) {
       switch (obj.source) {
+        case "NEW_VAULT_AND_CLUSTER":
+          return model.DistributedDatabaseShardWithExadbXsNewVaultAndCluster.getJsonObj(
+            <model.DistributedDatabaseShardWithExadbXsNewVaultAndCluster>(<object>jsonObj),
+            true
+          );
         case "EXADB_XS":
           return model.DistributedDatabaseShardWithExadbXs.getJsonObj(
             <model.DistributedDatabaseShardWithExadbXs>(<object>jsonObj),
@@ -56,6 +61,11 @@ export namespace DistributedDatabaseShard {
 
     if (obj && "source" in obj && obj.source) {
       switch (obj.source) {
+        case "NEW_VAULT_AND_CLUSTER":
+          return model.DistributedDatabaseShardWithExadbXsNewVaultAndCluster.getDeserializedJsonObj(
+            <model.DistributedDatabaseShardWithExadbXsNewVaultAndCluster>(<object>jsonObj),
+            true
+          );
         case "EXADB_XS":
           return model.DistributedDatabaseShardWithExadbXs.getDeserializedJsonObj(
             <model.DistributedDatabaseShardWithExadbXs>(<object>jsonObj),

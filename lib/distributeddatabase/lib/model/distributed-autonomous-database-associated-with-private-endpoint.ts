@@ -15,7 +15,8 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The details of distributed autonomous database associated with the private endpoint.
+ * This field is deprecated. Support for this field will be removed after Mon, 1 Mar 2027 00:00:00 GMT.
+ *
  */
 export interface DistributedAutonomousDatabaseAssociatedWithPrivateEndpoint {
   /**

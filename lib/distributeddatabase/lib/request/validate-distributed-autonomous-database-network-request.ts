@@ -32,7 +32,7 @@ export interface ValidateDistributedAutonomousDatabaseNetworkRequest extends com
    */
   "resourceName"?: string;
   /**
-   * The shardGroup name example ShardGroupA, ShardGroupB.
+   * The shardGroup name example Shardgroupa, Shardgroupb.
    *
    */
   "shardGroup"?: string;

@@ -27,6 +27,13 @@ export namespace CreateDistributedDatabaseCatalogDetails {
 
     if (obj && "source" in obj && obj.source) {
       switch (obj.source) {
+        case "NEW_VAULT_AND_CLUSTER":
+          return model.CreateDistributedDatabaseCatalogWithExadbXsNewVaultAndClusterDetails.getJsonObj(
+            <model.CreateDistributedDatabaseCatalogWithExadbXsNewVaultAndClusterDetails>(
+              (<object>jsonObj)
+            ),
+            true
+          );
         case "EXADB_XS":
           return model.CreateDistributedDatabaseCatalogWithExadbXsDetails.getJsonObj(
             <model.CreateDistributedDatabaseCatalogWithExadbXsDetails>(<object>jsonObj),
@@ -43,6 +50,13 @@ export namespace CreateDistributedDatabaseCatalogDetails {
 
     if (obj && "source" in obj && obj.source) {
       switch (obj.source) {
+        case "NEW_VAULT_AND_CLUSTER":
+          return model.CreateDistributedDatabaseCatalogWithExadbXsNewVaultAndClusterDetails.getDeserializedJsonObj(
+            <model.CreateDistributedDatabaseCatalogWithExadbXsNewVaultAndClusterDetails>(
+              (<object>jsonObj)
+            ),
+            true
+          );
         case "EXADB_XS":
           return model.CreateDistributedDatabaseCatalogWithExadbXsDetails.getDeserializedJsonObj(
             <model.CreateDistributedDatabaseCatalogWithExadbXsDetails>(<object>jsonObj),

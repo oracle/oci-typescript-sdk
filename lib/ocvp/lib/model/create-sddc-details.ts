@@ -64,6 +64,7 @@ export interface CreateSddcDetails {
    *
    */
   "sshAuthorizedKeys": string;
+  "sddcByolAllocationDetails"?: model.SddcByolAllocationDetails;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no
 * predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
@@ -89,6 +90,10 @@ export namespace CreateSddcDetails {
       ...{
         "initialConfiguration": obj.initialConfiguration
           ? model.InitialConfiguration.getJsonObj(obj.initialConfiguration)
+          : undefined,
+
+        "sddcByolAllocationDetails": obj.sddcByolAllocationDetails
+          ? model.SddcByolAllocationDetails.getJsonObj(obj.sddcByolAllocationDetails)
           : undefined
       }
     };
@@ -101,6 +106,10 @@ export namespace CreateSddcDetails {
       ...{
         "initialConfiguration": obj.initialConfiguration
           ? model.InitialConfiguration.getDeserializedJsonObj(obj.initialConfiguration)
+          : undefined,
+
+        "sddcByolAllocationDetails": obj.sddcByolAllocationDetails
+          ? model.SddcByolAllocationDetails.getDeserializedJsonObj(obj.sddcByolAllocationDetails)
           : undefined
       }
     };
