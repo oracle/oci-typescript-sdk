@@ -13,6 +13,32 @@ For more information, see [Oracle Cloud VMware Solution](https://docs.oracle.com
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as ChangeByolCompartmentRequest from "./change-byol-compartment-request";
+export import ChangeByolCompartmentRequest = ChangeByolCompartmentRequest.ChangeByolCompartmentRequest;
+import * as CreateByolRequest from "./create-byol-request";
+export import CreateByolRequest = CreateByolRequest.CreateByolRequest;
+import * as DeleteByolRequest from "./delete-byol-request";
+export import DeleteByolRequest = DeleteByolRequest.DeleteByolRequest;
+import * as GetByolRequest from "./get-byol-request";
+export import GetByolRequest = GetByolRequest.GetByolRequest;
+import * as ListByolsRequest from "./list-byols-request";
+export import ListByolsRequest = ListByolsRequest.ListByolsRequest;
+import * as RetrieveByolRealmAllocationsRequest from "./retrieve-byol-realm-allocations-request";
+export import RetrieveByolRealmAllocationsRequest = RetrieveByolRealmAllocationsRequest.RetrieveByolRealmAllocationsRequest;
+import * as UpdateByolRequest from "./update-byol-request";
+export import UpdateByolRequest = UpdateByolRequest.UpdateByolRequest;
+import * as ChangeByolAllocationCompartmentRequest from "./change-byol-allocation-compartment-request";
+export import ChangeByolAllocationCompartmentRequest = ChangeByolAllocationCompartmentRequest.ChangeByolAllocationCompartmentRequest;
+import * as CreateByolAllocationRequest from "./create-byol-allocation-request";
+export import CreateByolAllocationRequest = CreateByolAllocationRequest.CreateByolAllocationRequest;
+import * as DeleteByolAllocationRequest from "./delete-byol-allocation-request";
+export import DeleteByolAllocationRequest = DeleteByolAllocationRequest.DeleteByolAllocationRequest;
+import * as GetByolAllocationRequest from "./get-byol-allocation-request";
+export import GetByolAllocationRequest = GetByolAllocationRequest.GetByolAllocationRequest;
+import * as ListByolAllocationsRequest from "./list-byol-allocations-request";
+export import ListByolAllocationsRequest = ListByolAllocationsRequest.ListByolAllocationsRequest;
+import * as UpdateByolAllocationRequest from "./update-byol-allocation-request";
+export import UpdateByolAllocationRequest = UpdateByolAllocationRequest.UpdateByolAllocationRequest;
 import * as CreateClusterRequest from "./create-cluster-request";
 export import CreateClusterRequest = CreateClusterRequest.CreateClusterRequest;
 import * as DeleteClusterRequest from "./delete-cluster-request";

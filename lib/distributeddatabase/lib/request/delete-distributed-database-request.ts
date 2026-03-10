@@ -23,6 +23,10 @@ export interface DeleteDistributedDatabaseRequest extends common.BaseRequest {
    */
   "distributedDatabaseId": string;
   /**
+   * The flag to indicate if infra like VmCluster & DbStorageVault associated with the resource should be deleted.
+   */
+  "mustDeleteInfra"?: boolean;
+  /**
    * The client request ID for tracing.
    */
   "opcRequestId"?: string;

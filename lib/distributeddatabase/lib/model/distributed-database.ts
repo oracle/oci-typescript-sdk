@@ -97,6 +97,10 @@ export interface DistributedDatabase {
    */
   "onsPortRemote": number;
   /**
+   * The TCP Single Client Access Name (SCAN) port for Globally distributed database clusters. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "scanListenerPort"?: number;
+  /**
    * The Replication method for Globally distributed database. Use RAFT for Raft replication, and DG for
    * DataGuard. If replicationMethod is not provided, it defaults to DG.
    *

@@ -44,4 +44,28 @@ export interface ListWorkRequestsRequest extends common.BaseRequest {
    *
    */
   "limit"?: number;
+  /**
+   * A filter to return only resources their lifecycleState matches the given OperationStatus.
+   */
+  "status"?: model.OperationStatus;
+  /**
+   * The field to sort by. Only one sort order may be provided. Default order for timeAccepted is descending.
+   *
+   */
+  "sortBy"?: ListWorkRequestsRequest.SortBy;
+  /**
+   * The sort order to use, either ascending or descending order.
+   *
+   */
+  "sortOrder"?: model.SortOrder;
+  /**
+   * A filter to return only resources matching the given operation type.
+   */
+  "operationType"?: model.OperationType;
+}
+
+export namespace ListWorkRequestsRequest {
+  export enum SortBy {
+    TimeAccepted = "timeAccepted"
+  }
 }

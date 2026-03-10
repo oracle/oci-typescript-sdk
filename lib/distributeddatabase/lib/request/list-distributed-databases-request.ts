@@ -23,6 +23,10 @@ export interface ListDistributedDatabasesRequest extends common.BaseRequest {
    */
   "compartmentId": string;
   /**
+   * A filter to return only resources that are associated with the given privateEndpointId.
+   */
+  "privateEndpointId"?: string;
+  /**
    * A filter to return only resources their lifecycleState matches the given lifecycleState.
    */
   "lifecycleState"?: string;

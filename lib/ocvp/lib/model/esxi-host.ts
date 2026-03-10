@@ -219,6 +219,16 @@ Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
    *
    */
   "primaryVnicMacAddress"?: string;
+  /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Byol Allocation for VCF (VMware Cloud Foundation) deployment.
+   *
+   */
+  "vcfByolAllocationId"?: string;
+  /**
+   * Indicates whether this host embedded VMware vSAN with BYOL Allocation.
+   *
+   */
+  "isVsanByolEnabled"?: boolean;
 }
 
 export namespace EsxiHost {

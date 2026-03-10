@@ -219,6 +219,7 @@ Example: {@code 2016-08-25T21:10:29.600Z}
    * The current state of the SDDC.
    */
   "lifecycleState"?: model.LifecycleStates;
+  "sddcByolAllocationDetails"?: model.SddcByolAllocationDetails;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no
 * predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
@@ -256,6 +257,10 @@ export namespace Sddc {
           ? obj.hcxOnPremLicenses.map(item => {
               return model.HcxLicenseSummary.getJsonObj(item);
             })
+          : undefined,
+
+        "sddcByolAllocationDetails": obj.sddcByolAllocationDetails
+          ? model.SddcByolAllocationDetails.getJsonObj(obj.sddcByolAllocationDetails)
           : undefined
       }
     };
@@ -274,6 +279,10 @@ export namespace Sddc {
           ? obj.hcxOnPremLicenses.map(item => {
               return model.HcxLicenseSummary.getDeserializedJsonObj(item);
             })
+          : undefined,
+
+        "sddcByolAllocationDetails": obj.sddcByolAllocationDetails
+          ? model.SddcByolAllocationDetails.getDeserializedJsonObj(obj.sddcByolAllocationDetails)
           : undefined
       }
     };

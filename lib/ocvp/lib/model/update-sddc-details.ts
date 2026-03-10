@@ -59,6 +59,7 @@ For the list of versions supported by the Oracle Cloud VMware Solution, see
    *
    */
   "sshAuthorizedKeys"?: string;
+  "sddcByolAllocationDetails"?: model.SddcByolAllocationDetails;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no
 * predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
@@ -79,12 +80,26 @@ Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
 
 export namespace UpdateSddcDetails {
   export function getJsonObj(obj: UpdateSddcDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "sddcByolAllocationDetails": obj.sddcByolAllocationDetails
+          ? model.SddcByolAllocationDetails.getJsonObj(obj.sddcByolAllocationDetails)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: UpdateSddcDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "sddcByolAllocationDetails": obj.sddcByolAllocationDetails
+          ? model.SddcByolAllocationDetails.getDeserializedJsonObj(obj.sddcByolAllocationDetails)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

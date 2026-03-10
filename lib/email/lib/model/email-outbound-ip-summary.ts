@@ -41,6 +41,14 @@ export interface EmailOutboundIpSummary {
    * The assignment state of the public IP address.
    */
   "assignmentState": EmailOutboundIpSummary.AssignmentState;
+  /**
+   * The time IP was removed from IP Pool.
+   * Times are expressed in [RFC 3339](https://tools.ietf.org/html/rfc3339)
+   * timestamp format, \"YYYY-MM-ddThh:mmZ\".
+   * Example: {@code 2021-02-12T22:47:12.613Z}
+   *
+   */
+  "timeUnassigned"?: Date;
 }
 
 export namespace EmailOutboundIpSummary {

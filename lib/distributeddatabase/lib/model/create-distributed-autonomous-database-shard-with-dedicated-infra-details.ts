@@ -69,6 +69,14 @@ export interface CreateDistributedAutonomousDatabaseShardWithDedicatedInfraDetai
    *
    */
   "kmsKeyVersionId"?: string;
+  /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the key store used to create the shard.
+   */
+  "okvKeyStoreId"?: string;
+  /**
+   * The OKV endpoint name.
+   */
+  "okvEndPointGroup"?: string;
 
   "source": string;
 }

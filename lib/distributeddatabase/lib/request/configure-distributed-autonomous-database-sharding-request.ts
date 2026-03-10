@@ -29,6 +29,14 @@ export interface ConfigureDistributedAutonomousDatabaseShardingRequest extends c
    */
   "isRebalanceRequired"?: boolean;
   /**
+   * The ID of the cluster certificate.
+   */
+  "certificateId"?: string;
+  /**
+   * The ID of the Ca Bundle.
+   */
+  "caBundleId"?: string;
+  /**
    * A token that uniquely identifies a request so it can be retried in case of a timeout or
    * server error without risk of executing that same action again. Retry tokens expire after 24
    * hours, but can be invalidated before then due to conflicting operations. For example, if a resource
