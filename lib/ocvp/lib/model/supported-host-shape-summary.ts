@@ -103,8 +103,17 @@ export namespace SupportedHostShapeSummary {
     UpdateManagementAppliance = "UPDATE_MANAGEMENT_APPLIANCE",
     DeleteManagementAppliance = "DELETE_MANAGEMENT_APPLIANCE",
     AbandonManagementApplianceJobs = "ABANDON_MANAGEMENT_APPLIANCE_JOBS",
+    BatchDeleteManagementApplianceJobs = "BATCH_DELETE_MANAGEMENT_APPLIANCE_JOBS",
     ManagementApplianceEsxiHostProvisioning = "MANAGEMENT_APPLIANCE_ESXI_HOST_PROVISIONING",
+    ManagementApplianceEsxiHostDeletion = "MANAGEMENT_APPLIANCE_ESXI_HOST_DELETION",
     ManagementApplianceDatastoreProvisioning = "MANAGEMENT_APPLIANCE_DATASTORE_PROVISIONING",
+    ManagementApplianceDatastoreDelete = "MANAGEMENT_APPLIANCE_DATASTORE_DELETE",
+    CreateByol = "CREATE_BYOL",
+    UpdateByol = "UPDATE_BYOL",
+    DeleteByol = "DELETE_BYOL",
+    CreateByolAllocation = "CREATE_BYOL_ALLOCATION",
+    UpdateByolAllocation = "UPDATE_BYOL_ALLOCATION",
+    DeleteByolAllocation = "DELETE_BYOL_ALLOCATION",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

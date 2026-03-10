@@ -3210,7 +3210,9 @@ export class EmailClient {
 
     const queryParams = {
       "page": listWorkRequestErrorsRequest.page,
-      "limit": listWorkRequestErrorsRequest.limit
+      "limit": listWorkRequestErrorsRequest.limit,
+      "sortBy": listWorkRequestErrorsRequest.sortBy,
+      "sortOrder": listWorkRequestErrorsRequest.sortOrder
     };
 
     let headerParams = {
@@ -3290,7 +3292,9 @@ export class EmailClient {
 
     const queryParams = {
       "page": listWorkRequestLogsRequest.page,
-      "limit": listWorkRequestLogsRequest.limit
+      "limit": listWorkRequestLogsRequest.limit,
+      "sortBy": listWorkRequestLogsRequest.sortBy,
+      "sortOrder": listWorkRequestLogsRequest.sortOrder
     };
 
     let headerParams = {
@@ -3370,7 +3374,11 @@ export class EmailClient {
       "compartmentId": listWorkRequestsRequest.compartmentId,
       "workRequestId": listWorkRequestsRequest.workRequestId,
       "page": listWorkRequestsRequest.page,
-      "limit": listWorkRequestsRequest.limit
+      "limit": listWorkRequestsRequest.limit,
+      "status": listWorkRequestsRequest.status,
+      "sortBy": listWorkRequestsRequest.sortBy,
+      "sortOrder": listWorkRequestsRequest.sortOrder,
+      "operationType": listWorkRequestsRequest.operationType
     };
 
     let headerParams = {

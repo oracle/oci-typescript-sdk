@@ -106,6 +106,7 @@ Example: {@code 2016-08-25T21:10:29.600Z}
    * Indicates whether this SDDC is designated for only single ESXi host.
    */
   "isSingleHostSddc"?: boolean;
+  "sddcByolAllocationDetails"?: model.SddcByolAllocationDetails;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no
 * predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
@@ -132,12 +133,26 @@ Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
 
 export namespace SddcSummary {
   export function getJsonObj(obj: SddcSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "sddcByolAllocationDetails": obj.sddcByolAllocationDetails
+          ? model.SddcByolAllocationDetails.getJsonObj(obj.sddcByolAllocationDetails)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: SddcSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "sddcByolAllocationDetails": obj.sddcByolAllocationDetails
+          ? model.SddcByolAllocationDetails.getDeserializedJsonObj(obj.sddcByolAllocationDetails)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

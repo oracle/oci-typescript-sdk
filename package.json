@@ -1,6 +1,6 @@
 {
   "name": "oci-sdk",
-  "version": "2.126.0",
+  "version": "2.126.1",
   "author": {
     "name": "Oracle Cloud Infrastructure",
     "email": ""
@@ -182,7 +182,9 @@
     "oci-dif": "file:lib/dif",
     "oci-psa": "file:lib/psa",
     "oci-batch": "file:lib/batch",
-    "oci-marketplaceprivateoffer": "file:lib/marketplaceprivateoffer"
+    "oci-marketplaceprivateoffer": "file:lib/marketplaceprivateoffer",
+    "oci-gdp": "file:lib/gdp",
+    "oci-limitsincrease": "file:lib/limitsincrease"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"

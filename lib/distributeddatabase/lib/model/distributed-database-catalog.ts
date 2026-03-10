@@ -45,6 +45,11 @@ export namespace DistributedDatabaseCatalog {
             <model.DistributedDatabaseCatalogWithExadbXs>(<object>jsonObj),
             true
           );
+        case "NEW_VAULT_AND_CLUSTER":
+          return model.DistributedDatabaseCatalogWithExadbXsNewVaultAndCluster.getJsonObj(
+            <model.DistributedDatabaseCatalogWithExadbXsNewVaultAndCluster>(<object>jsonObj),
+            true
+          );
         default:
           if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.source}`);
       }
@@ -59,6 +64,11 @@ export namespace DistributedDatabaseCatalog {
         case "EXADB_XS":
           return model.DistributedDatabaseCatalogWithExadbXs.getDeserializedJsonObj(
             <model.DistributedDatabaseCatalogWithExadbXs>(<object>jsonObj),
+            true
+          );
+        case "NEW_VAULT_AND_CLUSTER":
+          return model.DistributedDatabaseCatalogWithExadbXsNewVaultAndCluster.getDeserializedJsonObj(
+            <model.DistributedDatabaseCatalogWithExadbXsNewVaultAndCluster>(<object>jsonObj),
             true
           );
         default:

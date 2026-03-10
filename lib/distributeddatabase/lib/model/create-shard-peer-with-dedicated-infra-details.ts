@@ -31,7 +31,7 @@ export interface CreateShardPeerWithDedicatedInfraDetails {
    */
   "fastStartFailOverLagLimitInSeconds"?: number;
   /**
-   * Indicates whether Automatic Failover is enabled for Autonomous Container Database Dataguard Association
+   * This field is deprecated. Support for this field will be removed after one year of deprecation cycle.
    *
    */
   "isAutomaticFailoverEnabled"?: boolean;

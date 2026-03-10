@@ -49,6 +49,7 @@ export interface UpdateClusterDetails {
    *
    */
   "esxiSoftwareVersion"?: string;
+  "clusterByolAllocationDetails"?: model.ClusterByolAllocationDetails;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no
 * predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
@@ -74,6 +75,10 @@ export namespace UpdateClusterDetails {
       ...{
         "networkConfiguration": obj.networkConfiguration
           ? model.NetworkConfiguration.getJsonObj(obj.networkConfiguration)
+          : undefined,
+
+        "clusterByolAllocationDetails": obj.clusterByolAllocationDetails
+          ? model.ClusterByolAllocationDetails.getJsonObj(obj.clusterByolAllocationDetails)
           : undefined
       }
     };
@@ -86,6 +91,12 @@ export namespace UpdateClusterDetails {
       ...{
         "networkConfiguration": obj.networkConfiguration
           ? model.NetworkConfiguration.getDeserializedJsonObj(obj.networkConfiguration)
+          : undefined,
+
+        "clusterByolAllocationDetails": obj.clusterByolAllocationDetails
+          ? model.ClusterByolAllocationDetails.getDeserializedJsonObj(
+              obj.clusterByolAllocationDetails
+            )
           : undefined
       }
     };

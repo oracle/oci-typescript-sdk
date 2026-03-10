@@ -52,11 +52,13 @@ export interface DistributedDatabasePrivateEndpoint {
    */
   "nsgIds"?: Array<string>;
   /**
-   * The details of the non-deleted Globally distributed databases that consumes the given private endpoint.
+   * This field is deprecated. Support for this field will be removed after Mon, 1 Mar 2027 00:00:00 GMT.
+   *
    */
   "globallyDistributedDatabases"?: Array<model.DistributedDatabaseAssociatedWithPrivateEndpoint>;
   /**
-   * The details of the non-deleted Globally distributed autonomous databases that consumes the given private endpoint.
+   * This field is deprecated. Support for this field will be removed after Mon, 1 Mar 2027 00:00:00 GMT.
+   *
    */
   "globallyDistributedAutonomousDatabases"?: Array<
     model.DistributedAutonomousDatabaseAssociatedWithPrivateEndpoint

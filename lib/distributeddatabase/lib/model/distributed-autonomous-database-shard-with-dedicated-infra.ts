@@ -78,6 +78,14 @@ export interface DistributedAutonomousDatabaseShardWithDedicatedInfra
    * Peer details for the shard with dedicated infrastructure.
    */
   "peerDetails"?: Array<model.ShardPeerWithDedicatedInfra>;
+  /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the key store used to create the shard.
+   */
+  "okvKeyStoreId"?: string;
+  /**
+   * The OKV endpoint name.
+   */
+  "okvEndPointGroup"?: string;
   "metadata"?: model.DistributedAutonomousDbMetadata;
 
   "source": string;
@@ -117,6 +125,7 @@ export namespace DistributedAutonomousDatabaseShardWithDedicatedInfra {
               return model.ShardPeerWithDedicatedInfra.getJsonObj(item);
             })
           : undefined,
+
         "metadata": obj.metadata
           ? model.DistributedAutonomousDbMetadata.getJsonObj(obj.metadata)
           : undefined
@@ -142,6 +151,7 @@ export namespace DistributedAutonomousDatabaseShardWithDedicatedInfra {
               return model.ShardPeerWithDedicatedInfra.getDeserializedJsonObj(item);
             })
           : undefined,
+
         "metadata": obj.metadata
           ? model.DistributedAutonomousDbMetadata.getDeserializedJsonObj(obj.metadata)
           : undefined

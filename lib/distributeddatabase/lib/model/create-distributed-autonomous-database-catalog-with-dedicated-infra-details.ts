@@ -62,6 +62,14 @@ export interface CreateDistributedAutonomousDatabaseCatalogWithDedicatedInfraDet
    *
    */
   "kmsKeyVersionId"?: string;
+  /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the key store used to create the catalog.
+   */
+  "okvKeyStoreId"?: string;
+  /**
+   * The OKV endpoint name.
+   */
+  "okvEndPointGroup"?: string;
 
   "source": string;
 }

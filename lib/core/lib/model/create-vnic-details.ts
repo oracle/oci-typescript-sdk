@@ -176,10 +176,17 @@ If a {@code vlanId} is specified, the {@code nsgIds} cannot be specified. The {@
 * If you specify a {@code vlanId}, the {@code privateIp} cannot be specified.
 * See {@link Vlan}.
 * <p>
+If you specify a 'privateIpId', the 'privateIp' cannot be specified.
+* <p>
 Example: {@code 10.0.3.3}
 * 
     */
   "privateIp"?: string;
+  /**
+   * An [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) that specifies a previously-reserved IP address to use for this VNIC.
+   *
+   */
+  "privateIpId"?: string;
   /**
     * Whether the source/destination check is disabled on the VNIC.
 * Defaults to {@code false}, which means the check is performed. For information

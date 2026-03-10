@@ -111,6 +111,7 @@ Example: {@code 2016-08-25T21:10:29.600Z}
    *
    */
   "vsphereType": model.VsphereTypes;
+  "clusterByolAllocationDetails"?: model.ClusterByolAllocationDetails;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no
 * predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
@@ -137,12 +138,28 @@ Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
 
 export namespace ClusterSummary {
   export function getJsonObj(obj: ClusterSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "clusterByolAllocationDetails": obj.clusterByolAllocationDetails
+          ? model.ClusterByolAllocationDetails.getJsonObj(obj.clusterByolAllocationDetails)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: ClusterSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "clusterByolAllocationDetails": obj.clusterByolAllocationDetails
+          ? model.ClusterByolAllocationDetails.getDeserializedJsonObj(
+              obj.clusterByolAllocationDetails
+            )
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

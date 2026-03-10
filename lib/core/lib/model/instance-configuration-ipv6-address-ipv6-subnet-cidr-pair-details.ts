@@ -36,6 +36,11 @@ export interface InstanceConfigurationIpv6AddressIpv6SubnetCidrPairDetails {
    *
    */
   "ipv6Address"?: string;
+  /**
+   * An [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) that specifies a previously-reserved ipv6 to use.
+   *
+   */
+  "ipv6Id"?: string;
 }
 
 export namespace InstanceConfigurationIpv6AddressIpv6SubnetCidrPairDetails {

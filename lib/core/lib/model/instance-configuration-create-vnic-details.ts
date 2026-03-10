@@ -120,6 +120,12 @@ Example: {@code {\"Oracle-DataSecurity-ZPR\": {\"MaxEgressCount\": {\"value\":\"
    */
   "privateIp"?: string;
   /**
+   * An [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) that specifies a previously-reserved IP address to use for this VNIC.
+   * See the {@code privateIpId} attribute of {@link CreateVnicDetails} for more information.
+   *
+   */
+  "privateIpId"?: string;
+  /**
    * Whether the source/destination check is disabled on the VNIC.
    * See the {@code skipSourceDestCheck} attribute of {@link CreateVnicDetails} for more information.
    *
