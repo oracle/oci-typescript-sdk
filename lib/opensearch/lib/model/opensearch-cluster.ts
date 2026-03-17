@@ -179,6 +179,30 @@ Example: {@code {\"Oracle-ZPR\": {\"MaxEgressCount\": {\"value\": \"42\", \"mode
    */
   "searchNodeStorageGB"?: number;
   /**
+   * The number of ML nodes configured for the cluster. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "mlNodeCount"?: number;
+  /**
+   * The instance type for the cluster's ML nodes.
+   */
+  "mlNodeHostType"?: model.MlNodeHostType;
+  /**
+   * The node shape for the cluster's ML nodes.
+   */
+  "mlNodeHostShape"?: string;
+  /**
+   * The number of OCPUs configured for the cluster's ML nodes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "mlNodeHostOcpuCount"?: number;
+  /**
+   * The amount of memory in GB, for the cluster's ML nodes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "mlNodeHostMemoryGB"?: number;
+  /**
+   * The amount of storage in GB, to configure per node for the cluster's ML nodes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "mlNodeStorageGB"?: number;
+  /**
    * The node shape for the cluster's OpenSearch Dashboard nodes.
    */
   "opendashboardNodeHostShape"?: string;

@@ -35,6 +35,10 @@ export interface ResizeOpensearchClusterHorizontalDetails {
    */
   "searchNodeCount"?: number;
   /**
+   * The number of ML nodes configured for the cluster. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "mlNodeCount"?: number;
+  /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
    * Example: {@code {\"bar-key\": \"value\"}}
    *

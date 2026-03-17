@@ -75,6 +75,22 @@ export interface ResizeOpensearchClusterVerticalDetails {
    */
   "searchNodeStorageGB"?: number;
   /**
+   * The node shape for the cluster's ML nodes.
+   */
+  "mlNodeHostShape"?: string;
+  /**
+   * The number of OCPUs configured for the cluster's ML nodes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "mlNodeHostOcpuCount"?: number;
+  /**
+   * The amount of memory in GB, for the cluster's ML nodes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "mlNodeHostMemoryGB"?: number;
+  /**
+   * The amount of storage in GB, to configure per node for the cluster's ML nodes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "mlNodeStorageGB"?: number;
+  /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
    * Example: {@code {\"bar-key\": \"value\"}}
    *
