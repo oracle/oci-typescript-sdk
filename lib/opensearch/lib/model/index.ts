@@ -71,6 +71,8 @@ import * as MaintenanceState from "./maintenance-state";
 export import MaintenanceState = MaintenanceState.MaintenanceState;
 import * as MasterNodeHostType from "./master-node-host-type";
 export import MasterNodeHostType = MasterNodeHostType.MasterNodeHostType;
+import * as MlNodeHostType from "./ml-node-host-type";
+export import MlNodeHostType = MlNodeHostType.MlNodeHostType;
 import * as OpensearchCluster from "./opensearch-cluster";
 export import OpensearchCluster = OpensearchCluster.OpensearchCluster;
 import * as OpensearchClusterBackup from "./opensearch-cluster-backup";
