@@ -59,6 +59,18 @@ export interface UpdateClusterSpecsDetails {
    */
   "searchNodeHostMemoryGB"?: number;
   /**
+   * The node shape for the cluster's ML nodes.
+   */
+  "mlNodeHostShape"?: string;
+  /**
+   * The number of OCPUs configured for the cluster's ML nodes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "mlNodeHostOcpuCount"?: number;
+  /**
+   * The amount of memory in GB, for the cluster's ML nodes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "mlNodeHostMemoryGB"?: number;
+  /**
    * Updated version of the software the cluster is currently running.
    */
   "softwareVersion"?: string;
