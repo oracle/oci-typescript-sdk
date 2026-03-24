@@ -38,6 +38,11 @@ export interface ListGenerativeAiPrivateEndpointsRequest extends common.BaseRequ
    */
   "sortBy"?: ListGenerativeAiPrivateEndpointsRequest.SortBy;
   /**
+   * Query by the resource type of Generative AI private endpoints.
+   *
+   */
+  "resourceType"?: string;
+  /**
    * A filter to return only resources that match the given display name exactly.
    */
   "displayName"?: string;

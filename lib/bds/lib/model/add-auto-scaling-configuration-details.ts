@@ -34,7 +34,11 @@ export interface AddAutoScalingConfigurationDetails {
   /**
    * Base-64 encoded password for the cluster (and Cloudera Manager) admin user.
    */
-  "clusterAdminPassword": string;
+  "clusterAdminPassword"?: string;
+  /**
+   * The secretId for the clusterAdminPassword.
+   */
+  "secretId"?: string;
   "policy"?: model.AutoScalePolicy;
   "policyDetails"?:
     | model.AddMetricBasedHorizontalScalingPolicyDetails

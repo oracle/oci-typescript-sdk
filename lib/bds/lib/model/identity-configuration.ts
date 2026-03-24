@@ -28,6 +28,10 @@ export interface IdentityConfiguration {
    */
   "displayName": string;
   /**
+   * The secretId for the clusterAdminPassword.
+   */
+  "secretId"?: string;
+  /**
    * Identity domain to use for identity config
    */
   "identityDomainId": string;

@@ -119,6 +119,10 @@ export interface Node {
    * The node back id that was used for replacing the node.
    */
   "nodeBackupId"?: string;
+  /**
+   * ID of the certificate configuration which is used to generate the certificate for the node.
+   */
+  "certificateConfigurationId"?: string;
 }
 
 export namespace Node {

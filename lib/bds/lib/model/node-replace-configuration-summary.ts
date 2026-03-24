@@ -20,7 +20,7 @@ import common = require("oci-common");
  */
 export interface NodeReplaceConfigurationSummary {
   /**
-   * The id of the NodeReplaceConfiguration.
+   * The id of the NodeReplaceConfiguration defined under BDS resources, not OCID.
    */
   "id": string;
   /**

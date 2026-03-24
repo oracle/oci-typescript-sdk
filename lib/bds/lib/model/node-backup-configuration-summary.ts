@@ -20,7 +20,7 @@ import common = require("oci-common");
  */
 export interface NodeBackupConfigurationSummary {
   /**
-   * The id of the NodeBackupConfiguration.
+   * The id of the NodeBackupConfiguration defined under BDS resources, not OCID.
    */
   "id": string;
   /**

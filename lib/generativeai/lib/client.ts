@@ -245,6 +245,158 @@ export class GenerativeAiClient {
   }
 
   /**
+   * add image with isAutoDeploy flag.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param AddArtifactRequest
+   * @return AddArtifactResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/AddArtifact.ts.html |here} to see how to use AddArtifact API.
+   */
+  public async addArtifact(
+    addArtifactRequest: requests.AddArtifactRequest
+  ): Promise<responses.AddArtifactResponse> {
+    if (this.logger) this.logger.debug("Calling operation GenerativeAiClient#addArtifact.");
+    const operationName = "addArtifact";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{hostedDeploymentId}": addArtifactRequest.hostedDeploymentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": addArtifactRequest.ifMatch,
+      "opc-request-id": addArtifactRequest.opcRequestId,
+      "opc-retry-token": addArtifactRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      addArtifactRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/hostedDeployments/{hostedDeploymentId}/artifacts",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        addArtifactRequest.addArtifactDetails,
+        "AddArtifactDetails",
+        model.AddArtifactDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AddArtifactResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Cancels a vectorStoreConnectorFileSync.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CancelVectorStoreConnectorFileSyncRequest
+   * @return CancelVectorStoreConnectorFileSyncResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/CancelVectorStoreConnectorFileSync.ts.html |here} to see how to use CancelVectorStoreConnectorFileSync API.
+   */
+  public async cancelVectorStoreConnectorFileSync(
+    cancelVectorStoreConnectorFileSyncRequest: requests.CancelVectorStoreConnectorFileSyncRequest
+  ): Promise<responses.CancelVectorStoreConnectorFileSyncResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GenerativeAiClient#cancelVectorStoreConnectorFileSync.");
+    const operationName = "cancelVectorStoreConnectorFileSync";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{vectorStoreConnectorFileSyncId}":
+        cancelVectorStoreConnectorFileSyncRequest.vectorStoreConnectorFileSyncId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": cancelVectorStoreConnectorFileSyncRequest.ifMatch,
+      "opc-request-id": cancelVectorStoreConnectorFileSyncRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      cancelVectorStoreConnectorFileSyncRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/vectorStoreConnectorFileSyncs/{vectorStoreConnectorFileSyncId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CancelVectorStoreConnectorFileSyncResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Moves an API key into a different compartment within the same tenancy. For information about moving resources between compartments, see [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeApiKeyCompartmentRequest
@@ -553,6 +705,233 @@ export class GenerativeAiClient {
   }
 
   /**
+   * Moves a generativeAiProject into a different compartment within the same tenancy. For information about moving resources between compartments, see [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ChangeGenerativeAiProjectCompartmentRequest
+   * @return ChangeGenerativeAiProjectCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/ChangeGenerativeAiProjectCompartment.ts.html |here} to see how to use ChangeGenerativeAiProjectCompartment API.
+   */
+  public async changeGenerativeAiProjectCompartment(
+    changeGenerativeAiProjectCompartmentRequest: requests.ChangeGenerativeAiProjectCompartmentRequest
+  ): Promise<responses.ChangeGenerativeAiProjectCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation GenerativeAiClient#changeGenerativeAiProjectCompartment."
+      );
+    const operationName = "changeGenerativeAiProjectCompartment";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{generativeAiProjectId}": changeGenerativeAiProjectCompartmentRequest.generativeAiProjectId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeGenerativeAiProjectCompartmentRequest.ifMatch,
+      "opc-request-id": changeGenerativeAiProjectCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeGenerativeAiProjectCompartmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeGenerativeAiProjectCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/generativeAiProjects/{generativeAiProjectId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeGenerativeAiProjectCompartmentRequest.changeGenerativeAiProjectCompartmentDetails,
+        "ChangeGenerativeAiProjectCompartmentDetails",
+        model.ChangeGenerativeAiProjectCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeGenerativeAiProjectCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Moves a hosted application into a different compartment within the same tenancy. For information about moving resources between compartments, see [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ChangeHostedApplicationCompartmentRequest
+   * @return ChangeHostedApplicationCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/ChangeHostedApplicationCompartment.ts.html |here} to see how to use ChangeHostedApplicationCompartment API.
+   */
+  public async changeHostedApplicationCompartment(
+    changeHostedApplicationCompartmentRequest: requests.ChangeHostedApplicationCompartmentRequest
+  ): Promise<responses.ChangeHostedApplicationCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GenerativeAiClient#changeHostedApplicationCompartment.");
+    const operationName = "changeHostedApplicationCompartment";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{hostedApplicationId}": changeHostedApplicationCompartmentRequest.hostedApplicationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeHostedApplicationCompartmentRequest.ifMatch,
+      "opc-request-id": changeHostedApplicationCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeHostedApplicationCompartmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeHostedApplicationCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/hostedApplications/{hostedApplicationId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeHostedApplicationCompartmentRequest.changeHostedApplicationCompartmentDetails,
+        "ChangeHostedApplicationCompartmentDetails",
+        model.ChangeHostedApplicationCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeHostedApplicationCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Moves a hosted application storage into a different compartment within the same tenancy. For information about moving resources between compartments, see [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ChangeHostedApplicationStorageCompartmentRequest
+   * @return ChangeHostedApplicationStorageCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/ChangeHostedApplicationStorageCompartment.ts.html |here} to see how to use ChangeHostedApplicationStorageCompartment API.
+   */
+  public async changeHostedApplicationStorageCompartment(
+    changeHostedApplicationStorageCompartmentRequest: requests.ChangeHostedApplicationStorageCompartmentRequest
+  ): Promise<responses.ChangeHostedApplicationStorageCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation GenerativeAiClient#changeHostedApplicationStorageCompartment."
+      );
+    const operationName = "changeHostedApplicationStorageCompartment";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{hostedApplicationStorageId}":
+        changeHostedApplicationStorageCompartmentRequest.hostedApplicationStorageId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeHostedApplicationStorageCompartmentRequest.ifMatch,
+      "opc-request-id": changeHostedApplicationStorageCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeHostedApplicationStorageCompartmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeHostedApplicationStorageCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/hostedApplicationStorages/{hostedApplicationStorageId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeHostedApplicationStorageCompartmentRequest.changeHostedApplicationStorageCompartmentDetails,
+        "ChangeHostedApplicationStorageCompartmentDetails",
+        model.ChangeHostedApplicationStorageCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeHostedApplicationStorageCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Moves an imported model into a different compartment. For information about moving resources between compartments, see [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeImportedModelCompartmentRequest
@@ -686,6 +1065,85 @@ export class GenerativeAiClient {
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeModelCompartmentResponse>{},
         responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Moves a SemanticStore into a different compartment within the same tenancy. For information about moving resources between compartments, see [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ChangeSemanticStoreCompartmentRequest
+   * @return ChangeSemanticStoreCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/ChangeSemanticStoreCompartment.ts.html |here} to see how to use ChangeSemanticStoreCompartment API.
+   */
+  public async changeSemanticStoreCompartment(
+    changeSemanticStoreCompartmentRequest: requests.ChangeSemanticStoreCompartmentRequest
+  ): Promise<responses.ChangeSemanticStoreCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GenerativeAiClient#changeSemanticStoreCompartment.");
+    const operationName = "changeSemanticStoreCompartment";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{semanticStoreId}": changeSemanticStoreCompartmentRequest.semanticStoreId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeSemanticStoreCompartmentRequest.ifMatch,
+      "opc-request-id": changeSemanticStoreCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeSemanticStoreCompartmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeSemanticStoreCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/semanticStores/{semanticStoreId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeSemanticStoreCompartmentRequest.changeSemanticStoreCompartmentDetails,
+        "ChangeSemanticStoreCompartmentDetails",
+        model.ChangeSemanticStoreCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeSemanticStoreCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -1048,6 +1506,348 @@ The header contains an opc-work-request-id, which is the id for the WorkRequest 
   }
 
   /**
+   * Creates a GenerativeAiProject.
+   * The header contains an opc-work-request-id, which is the id for the WorkRequest that tracks the generativeAiProject creation progress.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateGenerativeAiProjectRequest
+   * @return CreateGenerativeAiProjectResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/CreateGenerativeAiProject.ts.html |here} to see how to use CreateGenerativeAiProject API.
+   */
+  public async createGenerativeAiProject(
+    createGenerativeAiProjectRequest: requests.CreateGenerativeAiProjectRequest
+  ): Promise<responses.CreateGenerativeAiProjectResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GenerativeAiClient#createGenerativeAiProject.");
+    const operationName = "createGenerativeAiProject";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createGenerativeAiProjectRequest.opcRetryToken,
+      "opc-request-id": createGenerativeAiProjectRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createGenerativeAiProjectRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/generativeAiProjects",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createGenerativeAiProjectRequest.createGenerativeAiProjectDetails,
+        "CreateGenerativeAiProjectDetails",
+        model.CreateGenerativeAiProjectDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateGenerativeAiProjectResponse>{},
+        body: await response.json(),
+        bodyKey: "generativeAiProject",
+        bodyModel: model.GenerativeAiProject,
+        type: "model.GenerativeAiProject",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a hosted application.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateHostedApplicationRequest
+   * @return CreateHostedApplicationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/CreateHostedApplication.ts.html |here} to see how to use CreateHostedApplication API.
+   */
+  public async createHostedApplication(
+    createHostedApplicationRequest: requests.CreateHostedApplicationRequest
+  ): Promise<responses.CreateHostedApplicationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GenerativeAiClient#createHostedApplication.");
+    const operationName = "createHostedApplication";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createHostedApplicationRequest.opcRetryToken,
+      "opc-request-id": createHostedApplicationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createHostedApplicationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/hostedApplications",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createHostedApplicationRequest.createHostedApplicationDetails,
+        "CreateHostedApplicationDetails",
+        model.CreateHostedApplicationDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateHostedApplicationResponse>{},
+        body: await response.json(),
+        bodyKey: "hostedApplication",
+        bodyModel: model.HostedApplication,
+        type: "model.HostedApplication",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a hosted application storage.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateHostedApplicationStorageRequest
+   * @return CreateHostedApplicationStorageResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/CreateHostedApplicationStorage.ts.html |here} to see how to use CreateHostedApplicationStorage API.
+   */
+  public async createHostedApplicationStorage(
+    createHostedApplicationStorageRequest: requests.CreateHostedApplicationStorageRequest
+  ): Promise<responses.CreateHostedApplicationStorageResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GenerativeAiClient#createHostedApplicationStorage.");
+    const operationName = "createHostedApplicationStorage";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createHostedApplicationStorageRequest.opcRetryToken,
+      "opc-request-id": createHostedApplicationStorageRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createHostedApplicationStorageRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/hostedApplicationStorages",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createHostedApplicationStorageRequest.createHostedApplicationStorageDetails,
+        "CreateHostedApplicationStorageDetails",
+        model.CreateHostedApplicationStorageDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateHostedApplicationStorageResponse>{},
+        body: await response.json(),
+        bodyKey: "hostedApplicationStorage",
+        bodyModel: model.HostedApplicationStorage,
+        type: "model.HostedApplicationStorage",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a hosted deployment.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateHostedDeploymentRequest
+   * @return CreateHostedDeploymentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/CreateHostedDeployment.ts.html |here} to see how to use CreateHostedDeployment API.
+   */
+  public async createHostedDeployment(
+    createHostedDeploymentRequest: requests.CreateHostedDeploymentRequest
+  ): Promise<responses.CreateHostedDeploymentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GenerativeAiClient#createHostedDeployment.");
+    const operationName = "createHostedDeployment";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createHostedDeploymentRequest.opcRetryToken,
+      "opc-request-id": createHostedDeploymentRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createHostedDeploymentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/hostedDeployments",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createHostedDeploymentRequest.createHostedDeploymentDetails,
+        "CreateHostedDeploymentDetails",
+        model.CreateHostedDeploymentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateHostedDeploymentResponse>{},
+        body: await response.json(),
+        bodyKey: "hostedDeployment",
+        bodyModel: model.HostedDeployment,
+        type: "model.HostedDeployment",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
      * Import a model from ModelDataSource.
 * <p>
 The header contains an opc-work-request-id, which is the id for the WorkRequest that tracks the importedModel creation progress.
@@ -1215,6 +2015,265 @@ The header contains an opc-work-request-id, which is the id for the WorkRequest 
           {
             value: response.headers.get("model-deprecation-info"),
             key: "modelDeprecationInfo",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a SemanticStore.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateSemanticStoreRequest
+   * @return CreateSemanticStoreResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/CreateSemanticStore.ts.html |here} to see how to use CreateSemanticStore API.
+   */
+  public async createSemanticStore(
+    createSemanticStoreRequest: requests.CreateSemanticStoreRequest
+  ): Promise<responses.CreateSemanticStoreResponse> {
+    if (this.logger) this.logger.debug("Calling operation GenerativeAiClient#createSemanticStore.");
+    const operationName = "createSemanticStore";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createSemanticStoreRequest.opcRetryToken,
+      "opc-request-id": createSemanticStoreRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createSemanticStoreRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/semanticStores",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createSemanticStoreRequest.createSemanticStoreDetails,
+        "CreateSemanticStoreDetails",
+        model.CreateSemanticStoreDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateSemanticStoreResponse>{},
+        body: await response.json(),
+        bodyKey: "semanticStore",
+        bodyModel: model.SemanticStore,
+        type: "model.SemanticStore",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a VectorStoreConnector.
+   * The header contains an opc-work-request-id, which is the id for the WorkRequest that tracks the vectorStoreConnector creation progress.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateVectorStoreConnectorRequest
+   * @return CreateVectorStoreConnectorResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/CreateVectorStoreConnector.ts.html |here} to see how to use CreateVectorStoreConnector API.
+   */
+  public async createVectorStoreConnector(
+    createVectorStoreConnectorRequest: requests.CreateVectorStoreConnectorRequest
+  ): Promise<responses.CreateVectorStoreConnectorResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GenerativeAiClient#createVectorStoreConnector.");
+    const operationName = "createVectorStoreConnector";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createVectorStoreConnectorRequest.opcRetryToken,
+      "opc-request-id": createVectorStoreConnectorRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createVectorStoreConnectorRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/vectorStoreConnectors",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createVectorStoreConnectorRequest.createVectorStoreConnectorDetails,
+        "CreateVectorStoreConnectorDetails",
+        model.CreateVectorStoreConnectorDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateVectorStoreConnectorResponse>{},
+        body: await response.json(),
+        bodyKey: "vectorStoreConnector",
+        bodyModel: model.VectorStoreConnector,
+        type: "model.VectorStoreConnector",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a File Sync operation for a VectorStoreConnector.
+   * The header contains an opc-work-request-id, which is the id for the WorkRequest that tracks the vectorStoreConnectorFileSync creation progress.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateVectorStoreConnectorFileSyncRequest
+   * @return CreateVectorStoreConnectorFileSyncResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/CreateVectorStoreConnectorFileSync.ts.html |here} to see how to use CreateVectorStoreConnectorFileSync API.
+   */
+  public async createVectorStoreConnectorFileSync(
+    createVectorStoreConnectorFileSyncRequest: requests.CreateVectorStoreConnectorFileSyncRequest
+  ): Promise<responses.CreateVectorStoreConnectorFileSyncResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GenerativeAiClient#createVectorStoreConnectorFileSync.");
+    const operationName = "createVectorStoreConnectorFileSync";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createVectorStoreConnectorFileSyncRequest.opcRetryToken,
+      "opc-request-id": createVectorStoreConnectorFileSyncRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createVectorStoreConnectorFileSyncRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/vectorStoreConnectorFileSyncs",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createVectorStoreConnectorFileSyncRequest.createVectorStoreConnectorFileSyncDetails,
+        "CreateVectorStoreConnectorFileSyncDetails",
+        model.CreateVectorStoreConnectorFileSyncDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateVectorStoreConnectorFileSyncResponse>{},
+        body: await response.json(),
+        bodyKey: "vectorStoreConnectorFileSync",
+        bodyModel: model.VectorStoreConnectorFileSync,
+        type: "model.VectorStoreConnectorFileSync",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           }
         ]
@@ -1517,6 +2576,379 @@ You can only delete clusters without attached resources. Before you delete a hos
   }
 
   /**
+   * Deletes a generativeAiProject.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteGenerativeAiProjectRequest
+   * @return DeleteGenerativeAiProjectResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/DeleteGenerativeAiProject.ts.html |here} to see how to use DeleteGenerativeAiProject API.
+   */
+  public async deleteGenerativeAiProject(
+    deleteGenerativeAiProjectRequest: requests.DeleteGenerativeAiProjectRequest
+  ): Promise<responses.DeleteGenerativeAiProjectResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GenerativeAiClient#deleteGenerativeAiProject.");
+    const operationName = "deleteGenerativeAiProject";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{generativeAiProjectId}": deleteGenerativeAiProjectRequest.generativeAiProjectId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteGenerativeAiProjectRequest.ifMatch,
+      "opc-request-id": deleteGenerativeAiProjectRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteGenerativeAiProjectRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/generativeAiProjects/{generativeAiProjectId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteGenerativeAiProjectResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes a hosted application.
+   * You can only delete hosted application without attached resources. Before you delete a hosting hosted application, you must delete the endpoints associated to that application. Before you delete a fine-tuning hosted application, you must delete the custom model on that application. The delete action permanently deletes the cluster. This action can't be undone.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteHostedApplicationRequest
+   * @return DeleteHostedApplicationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/DeleteHostedApplication.ts.html |here} to see how to use DeleteHostedApplication API.
+   */
+  public async deleteHostedApplication(
+    deleteHostedApplicationRequest: requests.DeleteHostedApplicationRequest
+  ): Promise<responses.DeleteHostedApplicationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GenerativeAiClient#deleteHostedApplication.");
+    const operationName = "deleteHostedApplication";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{hostedApplicationId}": deleteHostedApplicationRequest.hostedApplicationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteHostedApplicationRequest.ifMatch,
+      "opc-request-id": deleteHostedApplicationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteHostedApplicationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/hostedApplications/{hostedApplicationId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteHostedApplicationResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes a hosted application.
+   * You can only delete hosted application without attached resources. Before you delete a hosting hosted application, you must delete the endpoints associated to that application. Before you delete a fine-tuning hosted application, you must delete the custom model on that application. The delete action permanently deletes the cluster. This action can't be undone.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteHostedApplicationStorageRequest
+   * @return DeleteHostedApplicationStorageResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/DeleteHostedApplicationStorage.ts.html |here} to see how to use DeleteHostedApplicationStorage API.
+   */
+  public async deleteHostedApplicationStorage(
+    deleteHostedApplicationStorageRequest: requests.DeleteHostedApplicationStorageRequest
+  ): Promise<responses.DeleteHostedApplicationStorageResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GenerativeAiClient#deleteHostedApplicationStorage.");
+    const operationName = "deleteHostedApplicationStorage";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{hostedApplicationStorageId}":
+        deleteHostedApplicationStorageRequest.hostedApplicationStorageId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteHostedApplicationStorageRequest.ifMatch,
+      "opc-request-id": deleteHostedApplicationStorageRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteHostedApplicationStorageRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/hostedApplicationStorages/{hostedApplicationStorageId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteHostedApplicationStorageResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes a hosted deployment.
+   * You can only delete hosted deployment without attached resources. Before you delete a hosting hosted deployment, you must delete the endpoints associated to that deployment. Before you delete a fine-tuning hosted deployment, you must delete the custom model on that deployment. The delete action permanently deletes the cluster. This action can't be undone.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteHostedDeploymentRequest
+   * @return DeleteHostedDeploymentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/DeleteHostedDeployment.ts.html |here} to see how to use DeleteHostedDeployment API.
+   */
+  public async deleteHostedDeployment(
+    deleteHostedDeploymentRequest: requests.DeleteHostedDeploymentRequest
+  ): Promise<responses.DeleteHostedDeploymentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GenerativeAiClient#deleteHostedDeployment.");
+    const operationName = "deleteHostedDeployment";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{hostedDeploymentId}": deleteHostedDeploymentRequest.hostedDeploymentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteHostedDeploymentRequest.ifMatch,
+      "opc-request-id": deleteHostedDeploymentRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteHostedDeploymentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/hostedDeployments/{hostedDeploymentId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteHostedDeploymentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * delete artifact.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteHostedDeploymentArtifactRequest
+   * @return DeleteHostedDeploymentArtifactResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/DeleteHostedDeploymentArtifact.ts.html |here} to see how to use DeleteHostedDeploymentArtifact API.
+   */
+  public async deleteHostedDeploymentArtifact(
+    deleteHostedDeploymentArtifactRequest: requests.DeleteHostedDeploymentArtifactRequest
+  ): Promise<responses.DeleteHostedDeploymentArtifactResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GenerativeAiClient#deleteHostedDeploymentArtifact.");
+    const operationName = "deleteHostedDeploymentArtifact";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{hostedDeploymentId}": deleteHostedDeploymentArtifactRequest.hostedDeploymentId,
+      "{artifactId}": deleteHostedDeploymentArtifactRequest.artifactId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteHostedDeploymentArtifactRequest.ifMatch,
+      "opc-request-id": deleteHostedDeploymentArtifactRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteHostedDeploymentArtifactRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/hostedDeployments/{hostedDeploymentId}/artifacts/{artifactId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteHostedDeploymentArtifactResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes an imported model. An imported model shouldn't be deleted if there's one or more active endpoints associated with that imported model.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteImportedModelRequest
@@ -1640,6 +3072,151 @@ You can only delete clusters without attached resources. Before you delete a hos
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteModelResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes a semanticStore.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteSemanticStoreRequest
+   * @return DeleteSemanticStoreResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/DeleteSemanticStore.ts.html |here} to see how to use DeleteSemanticStore API.
+   */
+  public async deleteSemanticStore(
+    deleteSemanticStoreRequest: requests.DeleteSemanticStoreRequest
+  ): Promise<responses.DeleteSemanticStoreResponse> {
+    if (this.logger) this.logger.debug("Calling operation GenerativeAiClient#deleteSemanticStore.");
+    const operationName = "deleteSemanticStore";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{semanticStoreId}": deleteSemanticStoreRequest.semanticStoreId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteSemanticStoreRequest.ifMatch,
+      "opc-request-id": deleteSemanticStoreRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteSemanticStoreRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/semanticStores/{semanticStoreId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteSemanticStoreResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes a vectorStoreConnector.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteVectorStoreConnectorRequest
+   * @return DeleteVectorStoreConnectorResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/DeleteVectorStoreConnector.ts.html |here} to see how to use DeleteVectorStoreConnector API.
+   */
+  public async deleteVectorStoreConnector(
+    deleteVectorStoreConnectorRequest: requests.DeleteVectorStoreConnectorRequest
+  ): Promise<responses.DeleteVectorStoreConnectorResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GenerativeAiClient#deleteVectorStoreConnector.");
+    const operationName = "deleteVectorStoreConnector";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{vectorStoreConnectorId}": deleteVectorStoreConnectorRequest.vectorStoreConnectorId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteVectorStoreConnectorRequest.ifMatch,
+      "opc-request-id": deleteVectorStoreConnectorRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteVectorStoreConnectorRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/vectorStoreConnectors/{vectorStoreConnectorId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteVectorStoreConnectorResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -1965,6 +3542,309 @@ You can only delete clusters without attached resources. Before you delete a hos
   }
 
   /**
+   * Gets information about a generativeAiProject.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetGenerativeAiProjectRequest
+   * @return GetGenerativeAiProjectResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/GetGenerativeAiProject.ts.html |here} to see how to use GetGenerativeAiProject API.
+   */
+  public async getGenerativeAiProject(
+    getGenerativeAiProjectRequest: requests.GetGenerativeAiProjectRequest
+  ): Promise<responses.GetGenerativeAiProjectResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GenerativeAiClient#getGenerativeAiProject.");
+    const operationName = "getGenerativeAiProject";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{generativeAiProjectId}": getGenerativeAiProjectRequest.generativeAiProjectId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getGenerativeAiProjectRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getGenerativeAiProjectRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/generativeAiProjects/{generativeAiProjectId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetGenerativeAiProjectResponse>{},
+        body: await response.json(),
+        bodyKey: "generativeAiProject",
+        bodyModel: model.GenerativeAiProject,
+        type: "model.GenerativeAiProject",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets information about a hosted application.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetHostedApplicationRequest
+   * @return GetHostedApplicationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/GetHostedApplication.ts.html |here} to see how to use GetHostedApplication API.
+   */
+  public async getHostedApplication(
+    getHostedApplicationRequest: requests.GetHostedApplicationRequest
+  ): Promise<responses.GetHostedApplicationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GenerativeAiClient#getHostedApplication.");
+    const operationName = "getHostedApplication";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{hostedApplicationId}": getHostedApplicationRequest.hostedApplicationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getHostedApplicationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getHostedApplicationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/hostedApplications/{hostedApplicationId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetHostedApplicationResponse>{},
+        body: await response.json(),
+        bodyKey: "hostedApplication",
+        bodyModel: model.HostedApplication,
+        type: "model.HostedApplication",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets information about a hosted application storage.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetHostedApplicationStorageRequest
+   * @return GetHostedApplicationStorageResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/GetHostedApplicationStorage.ts.html |here} to see how to use GetHostedApplicationStorage API.
+   */
+  public async getHostedApplicationStorage(
+    getHostedApplicationStorageRequest: requests.GetHostedApplicationStorageRequest
+  ): Promise<responses.GetHostedApplicationStorageResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GenerativeAiClient#getHostedApplicationStorage.");
+    const operationName = "getHostedApplicationStorage";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{hostedApplicationStorageId}": getHostedApplicationStorageRequest.hostedApplicationStorageId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getHostedApplicationStorageRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getHostedApplicationStorageRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/hostedApplicationStorages/{hostedApplicationStorageId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetHostedApplicationStorageResponse>{},
+        body: await response.json(),
+        bodyKey: "hostedApplicationStorage",
+        bodyModel: model.HostedApplicationStorage,
+        type: "model.HostedApplicationStorage",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets information about a hosted deployment.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetHostedDeploymentRequest
+   * @return GetHostedDeploymentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/GetHostedDeployment.ts.html |here} to see how to use GetHostedDeployment API.
+   */
+  public async getHostedDeployment(
+    getHostedDeploymentRequest: requests.GetHostedDeploymentRequest
+  ): Promise<responses.GetHostedDeploymentResponse> {
+    if (this.logger) this.logger.debug("Calling operation GenerativeAiClient#getHostedDeployment.");
+    const operationName = "getHostedDeployment";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{hostedDeploymentId}": getHostedDeploymentRequest.hostedDeploymentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getHostedDeploymentRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getHostedDeploymentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/hostedDeployments/{hostedDeploymentId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetHostedDeploymentResponse>{},
+        body: await response.json(),
+        bodyKey: "hostedDeployment",
+        bodyModel: model.HostedDeployment,
+        type: "model.HostedDeployment",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets information about an imported model.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetImportedModelRequest
@@ -2094,6 +3974,310 @@ You can only delete clusters without attached resources. Before you delete a hos
         bodyKey: "model",
         bodyModel: model.Model,
         type: "model.Model",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets information about a semanticStore.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetSemanticStoreRequest
+   * @return GetSemanticStoreResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/GetSemanticStore.ts.html |here} to see how to use GetSemanticStore API.
+   */
+  public async getSemanticStore(
+    getSemanticStoreRequest: requests.GetSemanticStoreRequest
+  ): Promise<responses.GetSemanticStoreResponse> {
+    if (this.logger) this.logger.debug("Calling operation GenerativeAiClient#getSemanticStore.");
+    const operationName = "getSemanticStore";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{semanticStoreId}": getSemanticStoreRequest.semanticStoreId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getSemanticStoreRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getSemanticStoreRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/semanticStores/{semanticStoreId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetSemanticStoreResponse>{},
+        body: await response.json(),
+        bodyKey: "semanticStore",
+        bodyModel: model.SemanticStore,
+        type: "model.SemanticStore",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets information about a vectorStoreConnector.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetVectorStoreConnectorRequest
+   * @return GetVectorStoreConnectorResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/GetVectorStoreConnector.ts.html |here} to see how to use GetVectorStoreConnector API.
+   */
+  public async getVectorStoreConnector(
+    getVectorStoreConnectorRequest: requests.GetVectorStoreConnectorRequest
+  ): Promise<responses.GetVectorStoreConnectorResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GenerativeAiClient#getVectorStoreConnector.");
+    const operationName = "getVectorStoreConnector";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{vectorStoreConnectorId}": getVectorStoreConnectorRequest.vectorStoreConnectorId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getVectorStoreConnectorRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getVectorStoreConnectorRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/vectorStoreConnectors/{vectorStoreConnectorId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetVectorStoreConnectorResponse>{},
+        body: await response.json(),
+        bodyKey: "vectorStoreConnector",
+        bodyModel: model.VectorStoreConnector,
+        type: "model.VectorStoreConnector",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets information about a vectorStoreConnectorFileSync.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetVectorStoreConnectorFileSyncRequest
+   * @return GetVectorStoreConnectorFileSyncResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/GetVectorStoreConnectorFileSync.ts.html |here} to see how to use GetVectorStoreConnectorFileSync API.
+   */
+  public async getVectorStoreConnectorFileSync(
+    getVectorStoreConnectorFileSyncRequest: requests.GetVectorStoreConnectorFileSyncRequest
+  ): Promise<responses.GetVectorStoreConnectorFileSyncResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GenerativeAiClient#getVectorStoreConnectorFileSync.");
+    const operationName = "getVectorStoreConnectorFileSync";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{vectorStoreConnectorFileSyncId}":
+        getVectorStoreConnectorFileSyncRequest.vectorStoreConnectorFileSyncId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getVectorStoreConnectorFileSyncRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getVectorStoreConnectorFileSyncRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/vectorStoreConnectorFileSyncs/{vectorStoreConnectorFileSyncId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetVectorStoreConnectorFileSyncResponse>{},
+        body: await response.json(),
+        bodyKey: "vectorStoreConnectorFileSync",
+        bodyModel: model.VectorStoreConnectorFileSync,
+        type: "model.VectorStoreConnectorFileSync",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets Sync statistics from a vectorStoreConnector.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetVectorStoreConnectorStatsRequest
+   * @return GetVectorStoreConnectorStatsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/GetVectorStoreConnectorStats.ts.html |here} to see how to use GetVectorStoreConnectorStats API.
+   */
+  public async getVectorStoreConnectorStats(
+    getVectorStoreConnectorStatsRequest: requests.GetVectorStoreConnectorStatsRequest
+  ): Promise<responses.GetVectorStoreConnectorStatsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GenerativeAiClient#getVectorStoreConnectorStats.");
+    const operationName = "getVectorStoreConnectorStats";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{vectorStoreConnectorId}": getVectorStoreConnectorStatsRequest.vectorStoreConnectorId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getVectorStoreConnectorStatsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getVectorStoreConnectorStatsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/vectorStoreConnectors/{vectorStoreConnectorId}/stats",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetVectorStoreConnectorStatsResponse>{},
+        body: await response.json(),
+        bodyKey: "vectorStoreConnectorStats",
+        bodyModel: model.VectorStoreConnectorStats,
+        type: "model.VectorStoreConnectorStats",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -2465,6 +4649,7 @@ You can only delete clusters without attached resources. Before you delete a hos
       "compartmentId": listGenerativeAiPrivateEndpointsRequest.compartmentId,
       "lifecycleState": listGenerativeAiPrivateEndpointsRequest.lifecycleState,
       "sortBy": listGenerativeAiPrivateEndpointsRequest.sortBy,
+      "resourceType": listGenerativeAiPrivateEndpointsRequest.resourceType,
       "displayName": listGenerativeAiPrivateEndpointsRequest.displayName,
       "limit": listGenerativeAiPrivateEndpointsRequest.limit,
       "page": listGenerativeAiPrivateEndpointsRequest.page,
@@ -2506,6 +4691,341 @@ You can only delete clusters without attached resources. Before you delete a hos
         bodyKey: "generativeAiPrivateEndpointCollection",
         bodyModel: model.GenerativeAiPrivateEndpointCollection,
         type: "model.GenerativeAiPrivateEndpointCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists the generativeAiProjects of a specific compartment.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListGenerativeAiProjectsRequest
+   * @return ListGenerativeAiProjectsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/ListGenerativeAiProjects.ts.html |here} to see how to use ListGenerativeAiProjects API.
+   */
+  public async listGenerativeAiProjects(
+    listGenerativeAiProjectsRequest: requests.ListGenerativeAiProjectsRequest
+  ): Promise<responses.ListGenerativeAiProjectsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GenerativeAiClient#listGenerativeAiProjects.");
+    const operationName = "listGenerativeAiProjects";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listGenerativeAiProjectsRequest.compartmentId,
+      "lifecycleState": listGenerativeAiProjectsRequest.lifecycleState,
+      "displayName": listGenerativeAiProjectsRequest.displayName,
+      "id": listGenerativeAiProjectsRequest.id,
+      "limit": listGenerativeAiProjectsRequest.limit,
+      "page": listGenerativeAiProjectsRequest.page,
+      "sortOrder": listGenerativeAiProjectsRequest.sortOrder,
+      "sortBy": listGenerativeAiProjectsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listGenerativeAiProjectsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listGenerativeAiProjectsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/generativeAiProjects",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListGenerativeAiProjectsResponse>{},
+        body: await response.json(),
+        bodyKey: "generativeAiProjectCollection",
+        bodyModel: model.GenerativeAiProjectCollection,
+        type: "model.GenerativeAiProjectCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists the hosted application storage in a specific compartment.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListHostedApplicationStoragesRequest
+   * @return ListHostedApplicationStoragesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/ListHostedApplicationStorages.ts.html |here} to see how to use ListHostedApplicationStorages API.
+   */
+  public async listHostedApplicationStorages(
+    listHostedApplicationStoragesRequest: requests.ListHostedApplicationStoragesRequest
+  ): Promise<responses.ListHostedApplicationStoragesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GenerativeAiClient#listHostedApplicationStorages.");
+    const operationName = "listHostedApplicationStorages";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listHostedApplicationStoragesRequest.compartmentId,
+      "lifecycleState": listHostedApplicationStoragesRequest.lifecycleState,
+      "hostedApplicationStorageType":
+        listHostedApplicationStoragesRequest.hostedApplicationStorageType,
+      "displayName": listHostedApplicationStoragesRequest.displayName,
+      "id": listHostedApplicationStoragesRequest.id,
+      "limit": listHostedApplicationStoragesRequest.limit,
+      "page": listHostedApplicationStoragesRequest.page,
+      "sortOrder": listHostedApplicationStoragesRequest.sortOrder,
+      "sortBy": listHostedApplicationStoragesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listHostedApplicationStoragesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listHostedApplicationStoragesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/hostedApplicationStorages",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListHostedApplicationStoragesResponse>{},
+        body: await response.json(),
+        bodyKey: "hostedApplicationStorageCollection",
+        bodyModel: model.HostedApplicationStorageCollection,
+        type: "model.HostedApplicationStorageCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists the hosted applications in a specific compartment.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListHostedApplicationsRequest
+   * @return ListHostedApplicationsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/ListHostedApplications.ts.html |here} to see how to use ListHostedApplications API.
+   */
+  public async listHostedApplications(
+    listHostedApplicationsRequest: requests.ListHostedApplicationsRequest
+  ): Promise<responses.ListHostedApplicationsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GenerativeAiClient#listHostedApplications.");
+    const operationName = "listHostedApplications";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listHostedApplicationsRequest.compartmentId,
+      "lifecycleState": listHostedApplicationsRequest.lifecycleState,
+      "displayName": listHostedApplicationsRequest.displayName,
+      "id": listHostedApplicationsRequest.id,
+      "limit": listHostedApplicationsRequest.limit,
+      "page": listHostedApplicationsRequest.page,
+      "sortOrder": listHostedApplicationsRequest.sortOrder,
+      "sortBy": listHostedApplicationsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listHostedApplicationsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listHostedApplicationsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/hostedApplications",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListHostedApplicationsResponse>{},
+        body: await response.json(),
+        bodyKey: "hostedApplicationCollection",
+        bodyModel: model.HostedApplicationCollection,
+        type: "model.HostedApplicationCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists the hosted applications in a specific compartment.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListHostedDeploymentsRequest
+   * @return ListHostedDeploymentsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/ListHostedDeployments.ts.html |here} to see how to use ListHostedDeployments API.
+   */
+  public async listHostedDeployments(
+    listHostedDeploymentsRequest: requests.ListHostedDeploymentsRequest
+  ): Promise<responses.ListHostedDeploymentsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GenerativeAiClient#listHostedDeployments.");
+    const operationName = "listHostedDeployments";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listHostedDeploymentsRequest.compartmentId,
+      "applicationId": listHostedDeploymentsRequest.applicationId,
+      "lifecycleState": listHostedDeploymentsRequest.lifecycleState,
+      "displayName": listHostedDeploymentsRequest.displayName,
+      "id": listHostedDeploymentsRequest.id,
+      "limit": listHostedDeploymentsRequest.limit,
+      "page": listHostedDeploymentsRequest.page,
+      "sortOrder": listHostedDeploymentsRequest.sortOrder,
+      "sortBy": listHostedDeploymentsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listHostedDeploymentsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listHostedDeploymentsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/hostedDeployments",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListHostedDeploymentsResponse>{},
+        body: await response.json(),
+        bodyKey: "hostedDeploymentCollection",
+        bodyModel: model.HostedDeploymentCollection,
+        type: "model.HostedDeploymentCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2674,6 +5194,427 @@ You can only delete clusters without attached resources. Before you delete a hos
         bodyKey: "modelCollection",
         bodyModel: model.ModelCollection,
         type: "model.ModelCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists the SemanticStores given specific filter.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListSemanticStoresRequest
+   * @return ListSemanticStoresResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/ListSemanticStores.ts.html |here} to see how to use ListSemanticStores API.
+   */
+  public async listSemanticStores(
+    listSemanticStoresRequest: requests.ListSemanticStoresRequest
+  ): Promise<responses.ListSemanticStoresResponse> {
+    if (this.logger) this.logger.debug("Calling operation GenerativeAiClient#listSemanticStores.");
+    const operationName = "listSemanticStores";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listSemanticStoresRequest.compartmentId,
+      "lifecycleState": listSemanticStoresRequest.lifecycleState,
+      "displayName": listSemanticStoresRequest.displayName,
+      "id": listSemanticStoresRequest.id,
+      "limit": listSemanticStoresRequest.limit,
+      "page": listSemanticStoresRequest.page,
+      "sortOrder": listSemanticStoresRequest.sortOrder,
+      "sortBy": listSemanticStoresRequest.sortBy,
+      "dataSourceQueryingConnectionId": listSemanticStoresRequest.dataSourceQueryingConnectionId
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listSemanticStoresRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSemanticStoresRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/semanticStores",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListSemanticStoresResponse>{},
+        body: await response.json(),
+        bodyKey: "semanticStoreCollection",
+        bodyModel: model.SemanticStoreCollection,
+        type: "model.SemanticStoreCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets Ingestion logs for a vectorStoreConnectorFileSync operation.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListVectorStoreConnectorFileSyncIngestionLogsRequest
+   * @return ListVectorStoreConnectorFileSyncIngestionLogsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/ListVectorStoreConnectorFileSyncIngestionLogs.ts.html |here} to see how to use ListVectorStoreConnectorFileSyncIngestionLogs API.
+   */
+  public async listVectorStoreConnectorFileSyncIngestionLogs(
+    listVectorStoreConnectorFileSyncIngestionLogsRequest: requests.ListVectorStoreConnectorFileSyncIngestionLogsRequest
+  ): Promise<responses.ListVectorStoreConnectorFileSyncIngestionLogsResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation GenerativeAiClient#listVectorStoreConnectorFileSyncIngestionLogs."
+      );
+    const operationName = "listVectorStoreConnectorFileSyncIngestionLogs";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{vectorStoreConnectorFileSyncId}":
+        listVectorStoreConnectorFileSyncIngestionLogsRequest.vectorStoreConnectorFileSyncId
+    };
+
+    const queryParams = {
+      "lifecycleState": listVectorStoreConnectorFileSyncIngestionLogsRequest.lifecycleState,
+      "limit": listVectorStoreConnectorFileSyncIngestionLogsRequest.limit,
+      "page": listVectorStoreConnectorFileSyncIngestionLogsRequest.page,
+      "sortBy": listVectorStoreConnectorFileSyncIngestionLogsRequest.sortBy,
+      "sortOrder": listVectorStoreConnectorFileSyncIngestionLogsRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listVectorStoreConnectorFileSyncIngestionLogsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listVectorStoreConnectorFileSyncIngestionLogsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/vectorStoreConnectorFileSyncs/{vectorStoreConnectorFileSyncId}/ingestionLogs",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListVectorStoreConnectorFileSyncIngestionLogsResponse>{},
+        body: await response.json(),
+        bodyKey: "fileSyncIngestionLogsCollection",
+        bodyModel: model.FileSyncIngestionLogsCollection,
+        type: "model.FileSyncIngestionLogsCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists the vectorStoreConnectorFileSyncs of a specific compartment.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListVectorStoreConnectorFileSyncsRequest
+   * @return ListVectorStoreConnectorFileSyncsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/ListVectorStoreConnectorFileSyncs.ts.html |here} to see how to use ListVectorStoreConnectorFileSyncs API.
+   */
+  public async listVectorStoreConnectorFileSyncs(
+    listVectorStoreConnectorFileSyncsRequest: requests.ListVectorStoreConnectorFileSyncsRequest
+  ): Promise<responses.ListVectorStoreConnectorFileSyncsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GenerativeAiClient#listVectorStoreConnectorFileSyncs.");
+    const operationName = "listVectorStoreConnectorFileSyncs";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listVectorStoreConnectorFileSyncsRequest.compartmentId,
+      "lifecycleState": listVectorStoreConnectorFileSyncsRequest.lifecycleState,
+      "id": listVectorStoreConnectorFileSyncsRequest.id,
+      "vectorStoreConnectorId": listVectorStoreConnectorFileSyncsRequest.vectorStoreConnectorId,
+      "limit": listVectorStoreConnectorFileSyncsRequest.limit,
+      "page": listVectorStoreConnectorFileSyncsRequest.page,
+      "displayName": listVectorStoreConnectorFileSyncsRequest.displayName,
+      "sortOrder": listVectorStoreConnectorFileSyncsRequest.sortOrder,
+      "sortBy": listVectorStoreConnectorFileSyncsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listVectorStoreConnectorFileSyncsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listVectorStoreConnectorFileSyncsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/vectorStoreConnectorFileSyncs",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListVectorStoreConnectorFileSyncsResponse>{},
+        body: await response.json(),
+        bodyKey: "vectorStoreConnectorFileSyncCollection",
+        bodyModel: model.VectorStoreConnectorFileSyncCollection,
+        type: "model.VectorStoreConnectorFileSyncCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets Ingestion logs for a vectorStoreConnector.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListVectorStoreConnectorIngestionLogsRequest
+   * @return ListVectorStoreConnectorIngestionLogsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/ListVectorStoreConnectorIngestionLogs.ts.html |here} to see how to use ListVectorStoreConnectorIngestionLogs API.
+   */
+  public async listVectorStoreConnectorIngestionLogs(
+    listVectorStoreConnectorIngestionLogsRequest: requests.ListVectorStoreConnectorIngestionLogsRequest
+  ): Promise<responses.ListVectorStoreConnectorIngestionLogsResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation GenerativeAiClient#listVectorStoreConnectorIngestionLogs."
+      );
+    const operationName = "listVectorStoreConnectorIngestionLogs";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{vectorStoreConnectorId}":
+        listVectorStoreConnectorIngestionLogsRequest.vectorStoreConnectorId
+    };
+
+    const queryParams = {
+      "status": listVectorStoreConnectorIngestionLogsRequest.status,
+      "limit": listVectorStoreConnectorIngestionLogsRequest.limit,
+      "page": listVectorStoreConnectorIngestionLogsRequest.page,
+      "sortBy": listVectorStoreConnectorIngestionLogsRequest.sortBy,
+      "sortOrder": listVectorStoreConnectorIngestionLogsRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listVectorStoreConnectorIngestionLogsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listVectorStoreConnectorIngestionLogsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/vectorStoreConnectors/{vectorStoreConnectorId}/ingestionLogs",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListVectorStoreConnectorIngestionLogsResponse>{},
+        body: await response.json(),
+        bodyKey: "vectorStoreConnectorIngestionLogsCollection",
+        bodyModel: model.VectorStoreConnectorIngestionLogsCollection,
+        type: "model.VectorStoreConnectorIngestionLogsCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists the vectorStoreConnectors of a specific compartment.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListVectorStoreConnectorsRequest
+   * @return ListVectorStoreConnectorsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/ListVectorStoreConnectors.ts.html |here} to see how to use ListVectorStoreConnectors API.
+   */
+  public async listVectorStoreConnectors(
+    listVectorStoreConnectorsRequest: requests.ListVectorStoreConnectorsRequest
+  ): Promise<responses.ListVectorStoreConnectorsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GenerativeAiClient#listVectorStoreConnectors.");
+    const operationName = "listVectorStoreConnectors";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listVectorStoreConnectorsRequest.compartmentId,
+      "vectorStoreId": listVectorStoreConnectorsRequest.vectorStoreId,
+      "lifecycleState": listVectorStoreConnectorsRequest.lifecycleState,
+      "displayName": listVectorStoreConnectorsRequest.displayName,
+      "id": listVectorStoreConnectorsRequest.id,
+      "limit": listVectorStoreConnectorsRequest.limit,
+      "page": listVectorStoreConnectorsRequest.page,
+      "sortOrder": listVectorStoreConnectorsRequest.sortOrder,
+      "sortBy": listVectorStoreConnectorsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listVectorStoreConnectorsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listVectorStoreConnectorsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/vectorStoreConnectors",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListVectorStoreConnectorsResponse>{},
+        body: await response.json(),
+        bodyKey: "vectorStoreConnectorCollection",
+        bodyModel: model.VectorStoreConnectorCollection,
+        type: "model.VectorStoreConnectorCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3445,6 +6386,259 @@ You can only delete clusters without attached resources. Before you delete a hos
   }
 
   /**
+   * Updates the properties of a generativeAiProject.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateGenerativeAiProjectRequest
+   * @return UpdateGenerativeAiProjectResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/UpdateGenerativeAiProject.ts.html |here} to see how to use UpdateGenerativeAiProject API.
+   */
+  public async updateGenerativeAiProject(
+    updateGenerativeAiProjectRequest: requests.UpdateGenerativeAiProjectRequest
+  ): Promise<responses.UpdateGenerativeAiProjectResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GenerativeAiClient#updateGenerativeAiProject.");
+    const operationName = "updateGenerativeAiProject";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{generativeAiProjectId}": updateGenerativeAiProjectRequest.generativeAiProjectId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateGenerativeAiProjectRequest.ifMatch,
+      "opc-request-id": updateGenerativeAiProjectRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateGenerativeAiProjectRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/generativeAiProjects/{generativeAiProjectId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateGenerativeAiProjectRequest.updateGenerativeAiProjectDetails,
+        "UpdateGenerativeAiProjectDetails",
+        model.UpdateGenerativeAiProjectDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateGenerativeAiProjectResponse>{},
+        body: await response.json(),
+        bodyKey: "generativeAiProject",
+        bodyModel: model.GenerativeAiProject,
+        type: "model.GenerativeAiProject",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates a hosted application.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateHostedApplicationRequest
+   * @return UpdateHostedApplicationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/UpdateHostedApplication.ts.html |here} to see how to use UpdateHostedApplication API.
+   */
+  public async updateHostedApplication(
+    updateHostedApplicationRequest: requests.UpdateHostedApplicationRequest
+  ): Promise<responses.UpdateHostedApplicationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GenerativeAiClient#updateHostedApplication.");
+    const operationName = "updateHostedApplication";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{hostedApplicationId}": updateHostedApplicationRequest.hostedApplicationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateHostedApplicationRequest.ifMatch,
+      "opc-request-id": updateHostedApplicationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateHostedApplicationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/hostedApplications/{hostedApplicationId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateHostedApplicationRequest.updateHostedApplicationDetails,
+        "UpdateHostedApplicationDetails",
+        model.UpdateHostedApplicationDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateHostedApplicationResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates a hosted deployment.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateHostedDeploymentRequest
+   * @return UpdateHostedDeploymentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/UpdateHostedDeployment.ts.html |here} to see how to use UpdateHostedDeployment API.
+   */
+  public async updateHostedDeployment(
+    updateHostedDeploymentRequest: requests.UpdateHostedDeploymentRequest
+  ): Promise<responses.UpdateHostedDeploymentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GenerativeAiClient#updateHostedDeployment.");
+    const operationName = "updateHostedDeployment";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{hostedDeploymentId}": updateHostedDeploymentRequest.hostedDeploymentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateHostedDeploymentRequest.ifMatch,
+      "opc-retry-token": updateHostedDeploymentRequest.opcRetryToken,
+      "opc-request-id": updateHostedDeploymentRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateHostedDeploymentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/hostedDeployments/{hostedDeploymentId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateHostedDeploymentRequest.updateHostedDeploymentDetails,
+        "UpdateHostedDeploymentDetails",
+        model.UpdateHostedDeploymentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateHostedDeploymentResponse>{},
+        body: await response.json(),
+        bodyKey: "hostedDeployment",
+        bodyModel: model.HostedDeployment,
+        type: "model.HostedDeployment",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Updates the properties of an imported model such as name, description, freeform tags, and defined tags.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateImportedModelRequest
@@ -3600,6 +6794,174 @@ You can only delete clusters without attached resources. Before you delete a hos
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the properties of a SemanticStore.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateSemanticStoreRequest
+   * @return UpdateSemanticStoreResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/UpdateSemanticStore.ts.html |here} to see how to use UpdateSemanticStore API.
+   */
+  public async updateSemanticStore(
+    updateSemanticStoreRequest: requests.UpdateSemanticStoreRequest
+  ): Promise<responses.UpdateSemanticStoreResponse> {
+    if (this.logger) this.logger.debug("Calling operation GenerativeAiClient#updateSemanticStore.");
+    const operationName = "updateSemanticStore";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{semanticStoreId}": updateSemanticStoreRequest.semanticStoreId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateSemanticStoreRequest.ifMatch,
+      "opc-request-id": updateSemanticStoreRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateSemanticStoreRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/semanticStores/{semanticStoreId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateSemanticStoreRequest.updateSemanticStoreDetails,
+        "UpdateSemanticStoreDetails",
+        model.UpdateSemanticStoreDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateSemanticStoreResponse>{},
+        body: await response.json(),
+        bodyKey: "semanticStore",
+        bodyModel: model.SemanticStore,
+        type: "model.SemanticStore",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the properties of a vectorStoreConnector.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateVectorStoreConnectorRequest
+   * @return UpdateVectorStoreConnectorResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/UpdateVectorStoreConnector.ts.html |here} to see how to use UpdateVectorStoreConnector API.
+   */
+  public async updateVectorStoreConnector(
+    updateVectorStoreConnectorRequest: requests.UpdateVectorStoreConnectorRequest
+  ): Promise<responses.UpdateVectorStoreConnectorResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GenerativeAiClient#updateVectorStoreConnector.");
+    const operationName = "updateVectorStoreConnector";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{vectorStoreConnectorId}": updateVectorStoreConnectorRequest.vectorStoreConnectorId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateVectorStoreConnectorRequest.ifMatch,
+      "opc-request-id": updateVectorStoreConnectorRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateVectorStoreConnectorRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/vectorStoreConnectors/{vectorStoreConnectorId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateVectorStoreConnectorRequest.updateVectorStoreConnectorDetails,
+        "UpdateVectorStoreConnectorDetails",
+        model.UpdateVectorStoreConnectorDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateVectorStoreConnectorResponse>{},
+        body: await response.json(),
+        bodyKey: "vectorStoreConnector",
+        bodyModel: model.VectorStoreConnector,
+        type: "model.VectorStoreConnector",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
             dataType: "string"
           }
         ]

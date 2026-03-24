@@ -93,6 +93,7 @@ export namespace ApiKey {
   export enum LifecycleState {
     Creating = "CREATING",
     Active = "ACTIVE",
+    Inactive = "INACTIVE",
     Updating = "UPDATING",
     Deleting = "DELETING",
     Deleted = "DELETED",

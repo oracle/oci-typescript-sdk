@@ -31,6 +31,10 @@ export interface NodeReplaceConfiguration {
    * A user-friendly name. Only ASCII alphanumeric characters with no spaces allowed. The name does not have to be unique, and it may be changed. Avoid entering confidential information.
    */
   "displayName": string;
+  /**
+   * The secretId for the clusterAdminPassword.
+   */
+  "secretId"?: string;
   "levelTypeDetails": model.NodeTypeLevelDetails | model.NodeLevelDetails;
   /**
    * The state of the NodeReplaceConfiguration.

@@ -27,7 +27,11 @@ export interface CreateNodeReplaceConfigurationDetails {
   /**
    * Base-64 encoded password for the cluster admin user.
    */
-  "clusterAdminPassword": string;
+  "clusterAdminPassword"?: string;
+  /**
+   * The secretId for the clusterAdminPassword.
+   */
+  "secretId"?: string;
   /**
    * Type of compute instance health metric to use for node replacement
    */

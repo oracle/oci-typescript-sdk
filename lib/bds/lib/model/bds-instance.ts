@@ -40,6 +40,14 @@ export interface BdsInstance {
    */
   "clusterVersion"?: BdsInstance.ClusterVersion;
   /**
+   * The secretId for the clusterAdminPassword.
+   */
+  "secretId"?: string;
+  /**
+   * Boolean flag specifying whether or not to persist the provided secret OCID and reuse it for future operations.
+   */
+  "isSecretReused"?: boolean;
+  /**
    * Boolean flag specifying whether or not the cluster is highly available (HA)
    */
   "isHighAvailability": boolean;
@@ -107,6 +115,10 @@ export interface BdsInstance {
    */
   "clusterProfile"?: BdsInstance.ClusterProfile;
   "bdsClusterVersionSummary"?: model.BdsClusterVersionSummary;
+  /**
+   * The earliest time of certificate expiration date across the certificates of all current nodes under this cluster.
+   */
+  "timeEarliestCertificateExpiration"?: Date;
 }
 
 export namespace BdsInstance {
