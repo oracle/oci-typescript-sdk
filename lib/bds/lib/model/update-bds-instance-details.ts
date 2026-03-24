@@ -20,6 +20,14 @@ import common = require("oci-common");
  */
 export interface UpdateBdsInstanceDetails {
   /**
+   * The secretId for the clusterAdminPassword.
+   */
+  "secretId"?: string;
+  /**
+   * Boolean flag specifying whether or not to persist the provided secret OCID and reuse it for future operations.
+   */
+  "isSecretReused"?: boolean;
+  /**
    * Name of the cluster.
    */
   "displayName"?: string;

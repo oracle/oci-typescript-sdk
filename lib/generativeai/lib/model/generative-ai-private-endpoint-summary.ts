@@ -86,6 +86,11 @@ export interface GenerativeAiPrivateEndpointSummary {
    */
   "timeUpdated": Date;
   /**
+   * The resource type that Generative AI private endpoint can be used for.
+   *
+   */
+  "resourceType"?: string;
+  /**
     * Defined tags for this resource. Each key is predefined and scoped to a namespace.
 * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>

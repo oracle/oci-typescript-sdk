@@ -22,7 +22,11 @@ export interface ExecuteBootstrapScriptDetails {
   /**
    * Base-64 encoded password for the cluster admin user.
    */
-  "clusterAdminPassword": string;
+  "clusterAdminPassword"?: string;
+  /**
+   * The secretId for the clusterAdminPassword.
+   */
+  "secretId"?: string;
   /**
    * pre-authenticated URL of the bootstrap script in Object Store that can be downloaded and executed.
    */

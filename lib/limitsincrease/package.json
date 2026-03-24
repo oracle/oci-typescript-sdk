@@ -1,6 +1,6 @@
 {
   "name": "oci-limitsincrease",
-  "version": "2.126.2",
+  "version": "2.126.3",
   "description": "OCI NodeJS client for Limits Increase Service",
   "repository": {
     "type": "git",

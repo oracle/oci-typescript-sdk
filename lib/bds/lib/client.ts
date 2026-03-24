@@ -565,7 +565,7 @@ export class BdsClient {
   }
 
   /**
-   * Adds block storage to existing worker/compute only worker nodes. The same amount of  storage will be added to all worker/compute only worker nodes. No change will be made to storage that is already attached. Block storage cannot be removed.
+   * Adds block storage to existing worker/compute only worker nodes. The same amount of storage will be added to all worker/compute only worker nodes. No change will be made to storage that is already attached. Block storage cannot be removed.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param AddBlockStorageRequest
@@ -965,7 +965,7 @@ export class BdsClient {
   }
 
   /**
-   * Increases the size (scales out) a cluster by adding worker nodes(data/compute). The added worker nodes will have the same shape and will have the same amount of attached block storage as other worker nodes in the cluster.
+   * Increases the size (scales out) of a cluster by adding worker nodes (data/compute/edge). The added worker and compute only worker nodes will have the same amount of attached block storage as other nodes of the same type in the cluster. Edge nodes can have different block storage sizes within the valid range (50GB-10TB).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param AddWorkerNodesRequest
@@ -1104,6 +1104,90 @@ export class BdsClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.BackupNodeResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Admin function which allows the password reset of indicated service.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param BdsInstanceResetPasswordRequest
+   * @return BdsInstanceResetPasswordResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/BdsInstanceResetPassword.ts.html |here} to see how to use BdsInstanceResetPassword API.
+   */
+  public async bdsInstanceResetPassword(
+    bdsInstanceResetPasswordRequest: requests.BdsInstanceResetPasswordRequest
+  ): Promise<responses.BdsInstanceResetPasswordResponse> {
+    if (this.logger) this.logger.debug("Calling operation BdsClient#bdsInstanceResetPassword.");
+    const operationName = "bdsInstanceResetPassword";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/BdsInstanceResetPassword";
+    const pathParams = {
+      "{bdsInstanceId}": bdsInstanceResetPasswordRequest.bdsInstanceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": bdsInstanceResetPasswordRequest.opcRequestId,
+      "if-match": bdsInstanceResetPasswordRequest.ifMatch,
+      "opc-retry-token": bdsInstanceResetPasswordRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      bdsInstanceResetPasswordRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/bdsInstances/{bdsInstanceId}/actions/resetPassword",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        bdsInstanceResetPasswordRequest.bdsInstanceResetPasswordDetails,
+        "BdsInstanceResetPasswordDetails",
+        model.BdsInstanceResetPasswordDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.BdsInstanceResetPasswordResponse>{},
+        body: await response.json(),
+        bodyKey: "passwordSummary",
+        bodyModel: model.PasswordSummary,
+        type: "model.PasswordSummary",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1512,6 +1596,86 @@ export class BdsClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Create a BDS certificate configuration for the cluster.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateBdsCertificateConfigurationRequest
+   * @return CreateBdsCertificateConfigurationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/CreateBdsCertificateConfiguration.ts.html |here} to see how to use CreateBdsCertificateConfiguration API.
+   */
+  public async createBdsCertificateConfiguration(
+    createBdsCertificateConfigurationRequest: requests.CreateBdsCertificateConfigurationRequest
+  ): Promise<responses.CreateBdsCertificateConfigurationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation BdsClient#createBdsCertificateConfiguration.");
+    const operationName = "createBdsCertificateConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/CreateBdsCertificateConfiguration";
+    const pathParams = {
+      "{bdsInstanceId}": createBdsCertificateConfigurationRequest.bdsInstanceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createBdsCertificateConfigurationRequest.opcRequestId,
+      "opc-retry-token": createBdsCertificateConfigurationRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createBdsCertificateConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/bdsInstances/{bdsInstanceId}/bdsCertificateConfigurations",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createBdsCertificateConfigurationRequest.createBdsCertificateConfigurationDetails,
+        "CreateBdsCertificateConfigurationDetails",
+        model.CreateBdsCertificateConfigurationDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateBdsCertificateConfigurationResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           }
         ]
@@ -2236,6 +2400,84 @@ export class BdsClient {
   }
 
   /**
+   * Delete the BDS certificate configuration for the given ID.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteBdsCertificateConfigurationRequest
+   * @return DeleteBdsCertificateConfigurationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/DeleteBdsCertificateConfiguration.ts.html |here} to see how to use DeleteBdsCertificateConfiguration API.
+   */
+  public async deleteBdsCertificateConfiguration(
+    deleteBdsCertificateConfigurationRequest: requests.DeleteBdsCertificateConfigurationRequest
+  ): Promise<responses.DeleteBdsCertificateConfigurationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation BdsClient#deleteBdsCertificateConfiguration.");
+    const operationName = "deleteBdsCertificateConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsCertificateConfiguration/DeleteBdsCertificateConfiguration";
+    const pathParams = {
+      "{bdsInstanceId}": deleteBdsCertificateConfigurationRequest.bdsInstanceId,
+      "{bdsCertificateConfigurationId}":
+        deleteBdsCertificateConfigurationRequest.bdsCertificateConfigurationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": deleteBdsCertificateConfigurationRequest.opcRetryToken,
+      "opc-request-id": deleteBdsCertificateConfigurationRequest.opcRequestId,
+      "if-match": deleteBdsCertificateConfigurationRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteBdsCertificateConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/bdsInstances/{bdsInstanceId}/bdsCertificateConfigurations/{bdsCertificateConfigurationId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteBdsCertificateConfigurationResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes the cluster identified by the given ID.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteBdsInstanceRequest
@@ -2931,6 +3173,86 @@ export class BdsClient {
   }
 
   /**
+   * Generating certificates under BDS cluster nodes.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GenerateBdsCertificateRequest
+   * @return GenerateBdsCertificateResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/GenerateBdsCertificate.ts.html |here} to see how to use GenerateBdsCertificate API.
+   */
+  public async generateBdsCertificate(
+    generateBdsCertificateRequest: requests.GenerateBdsCertificateRequest
+  ): Promise<responses.GenerateBdsCertificateResponse> {
+    if (this.logger) this.logger.debug("Calling operation BdsClient#generateBdsCertificate.");
+    const operationName = "generateBdsCertificate";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/GenerateBdsCertificate";
+    const pathParams = {
+      "{bdsInstanceId}": generateBdsCertificateRequest.bdsInstanceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": generateBdsCertificateRequest.opcRequestId,
+      "if-match": generateBdsCertificateRequest.ifMatch,
+      "opc-retry-token": generateBdsCertificateRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      generateBdsCertificateRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/bdsInstances/{bdsInstanceId}/actions/generateBdsCertificate",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        generateBdsCertificateRequest.generateBdsCertificateDetails,
+        "GenerateBdsCertificateDetails",
+        model.GenerateBdsCertificateDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GenerateBdsCertificateResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Returns details of the autoscale configuration identified by the given ID.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -3065,6 +3387,87 @@ export class BdsClient {
         bodyKey: "bdsApiKey",
         bodyModel: model.BdsApiKey,
         type: "model.BdsApiKey",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns details of the BdsCertificateConfiguration identified by the given ID.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetBdsCertificateConfigurationRequest
+   * @return GetBdsCertificateConfigurationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/GetBdsCertificateConfiguration.ts.html |here} to see how to use GetBdsCertificateConfiguration API.
+   */
+  public async getBdsCertificateConfiguration(
+    getBdsCertificateConfigurationRequest: requests.GetBdsCertificateConfigurationRequest
+  ): Promise<responses.GetBdsCertificateConfigurationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation BdsClient#getBdsCertificateConfiguration.");
+    const operationName = "getBdsCertificateConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsCertificateConfiguration/GetBdsCertificateConfiguration";
+    const pathParams = {
+      "{bdsInstanceId}": getBdsCertificateConfigurationRequest.bdsInstanceId,
+      "{bdsCertificateConfigurationId}":
+        getBdsCertificateConfigurationRequest.bdsCertificateConfigurationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getBdsCertificateConfigurationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getBdsCertificateConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/bdsInstances/{bdsInstanceId}/bdsCertificateConfigurations/{bdsCertificateConfigurationId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetBdsCertificateConfigurationResponse>{},
+        body: await response.json(),
+        bodyKey: "bdsCertificateConfiguration",
+        bodyModel: model.BdsCertificateConfiguration,
+        type: "model.BdsCertificateConfiguration",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -4384,6 +4787,143 @@ export class BdsClient {
     request: requests.ListBdsApiKeysRequest
   ): AsyncIterableIterator<responses.ListBdsApiKeysResponse> {
     return paginateResponses(request, req => this.listBdsApiKeys(req));
+  }
+
+  /**
+   * Returns a list of BDS certificate configurations associated with this Big Data Service cluster.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListBdsCertificateConfigurationsRequest
+   * @return ListBdsCertificateConfigurationsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/ListBdsCertificateConfigurations.ts.html |here} to see how to use ListBdsCertificateConfigurations API.
+   */
+  public async listBdsCertificateConfigurations(
+    listBdsCertificateConfigurationsRequest: requests.ListBdsCertificateConfigurationsRequest
+  ): Promise<responses.ListBdsCertificateConfigurationsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation BdsClient#listBdsCertificateConfigurations.");
+    const operationName = "listBdsCertificateConfigurations";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsCertificateConfiguration/ListBdsCertificateConfigurations";
+    const pathParams = {
+      "{bdsInstanceId}": listBdsCertificateConfigurationsRequest.bdsInstanceId
+    };
+
+    const queryParams = {
+      "page": listBdsCertificateConfigurationsRequest.page,
+      "limit": listBdsCertificateConfigurationsRequest.limit,
+      "sortBy": listBdsCertificateConfigurationsRequest.sortBy,
+      "sortOrder": listBdsCertificateConfigurationsRequest.sortOrder,
+      "displayName": listBdsCertificateConfigurationsRequest.displayName,
+      "lifecycleState": listBdsCertificateConfigurationsRequest.lifecycleState
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listBdsCertificateConfigurationsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listBdsCertificateConfigurationsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/bdsInstances/{bdsInstanceId}/bdsCertificateConfigurations",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListBdsCertificateConfigurationsResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.BdsCertificateConfigurationSummary,
+        type: "Array<model.BdsCertificateConfigurationSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listBdsCertificateConfigurationsRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.BdsCertificateConfigurationSummary objects
+   * contained in responses from the listBdsCertificateConfigurations operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllBdsCertificateConfigurations(
+    request: requests.ListBdsCertificateConfigurationsRequest
+  ): AsyncIterableIterator<model.BdsCertificateConfigurationSummary> {
+    return paginateRecords(request, req => this.listBdsCertificateConfigurations(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listBdsCertificateConfigurationsResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listBdsCertificateConfigurations operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllBdsCertificateConfigurationsResponses(
+    request: requests.ListBdsCertificateConfigurationsRequest
+  ): AsyncIterableIterator<responses.ListBdsCertificateConfigurationsResponse> {
+    return paginateResponses(request, req => this.listBdsCertificateConfigurations(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.BdsCertificateConfigurationSummary objects
+   * contained in responses from the listBdsCertificateConfigurations operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listBdsCertificateConfigurationsRecordIterator(
+    request: requests.ListBdsCertificateConfigurationsRequest
+  ): AsyncIterableIterator<model.BdsCertificateConfigurationSummary> {
+    return paginateRecords(request, req => this.listBdsCertificateConfigurations(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listBdsCertificateConfigurations operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listBdsCertificateConfigurationsResponseIterator(
+    request: requests.ListBdsCertificateConfigurationsRequest
+  ): AsyncIterableIterator<responses.ListBdsCertificateConfigurationsResponse> {
+    return paginateResponses(request, req => this.listBdsCertificateConfigurations(req));
   }
 
   /**
@@ -6943,6 +7483,86 @@ export class BdsClient {
   }
 
   /**
+   * Removes list of nodes from a Big Data Service cluster
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param RemoveNodesRequest
+   * @return RemoveNodesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/RemoveNodes.ts.html |here} to see how to use RemoveNodes API.
+   */
+  public async removeNodes(
+    removeNodesRequest: requests.RemoveNodesRequest
+  ): Promise<responses.RemoveNodesResponse> {
+    if (this.logger) this.logger.debug("Calling operation BdsClient#removeNodes.");
+    const operationName = "removeNodes";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/RemoveNodes";
+    const pathParams = {
+      "{bdsInstanceId}": removeNodesRequest.bdsInstanceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": removeNodesRequest.opcRequestId,
+      "if-match": removeNodesRequest.ifMatch,
+      "opc-retry-token": removeNodesRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removeNodesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/bdsInstances/{bdsInstanceId}/actions/removeNodes",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        removeNodesRequest.removeNodesDetails,
+        "RemoveNodesDetails",
+        model.RemoveNodesDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RemoveNodesResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Delete the resource principal configuration for the cluster.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -7005,6 +7625,86 @@ export class BdsClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.RemoveResourcePrincipalConfigurationResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Renewing certificates under BDS cluster nodes.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param RenewBdsCertificateRequest
+   * @return RenewBdsCertificateResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/RenewBdsCertificate.ts.html |here} to see how to use RenewBdsCertificate API.
+   */
+  public async renewBdsCertificate(
+    renewBdsCertificateRequest: requests.RenewBdsCertificateRequest
+  ): Promise<responses.RenewBdsCertificateResponse> {
+    if (this.logger) this.logger.debug("Calling operation BdsClient#renewBdsCertificate.");
+    const operationName = "renewBdsCertificate";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/RenewBdsCertificate";
+    const pathParams = {
+      "{bdsInstanceId}": renewBdsCertificateRequest.bdsInstanceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": renewBdsCertificateRequest.opcRequestId,
+      "if-match": renewBdsCertificateRequest.ifMatch,
+      "opc-retry-token": renewBdsCertificateRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      renewBdsCertificateRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/bdsInstances/{bdsInstanceId}/actions/renewBdsCertificate",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        renewBdsCertificateRequest.renewBdsCertificateDetails,
+        "RenewBdsCertificateDetails",
+        model.RenewBdsCertificateDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RenewBdsCertificateResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -7245,6 +7945,90 @@ export class BdsClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.RestartNodeResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Set specified BDS certificate configuration as default configuration.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param SetDefaultBdsCertificateConfigurationRequest
+   * @return SetDefaultBdsCertificateConfigurationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/SetDefaultBdsCertificateConfiguration.ts.html |here} to see how to use SetDefaultBdsCertificateConfiguration API.
+   */
+  public async setDefaultBdsCertificateConfiguration(
+    setDefaultBdsCertificateConfigurationRequest: requests.SetDefaultBdsCertificateConfigurationRequest
+  ): Promise<responses.SetDefaultBdsCertificateConfigurationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation BdsClient#setDefaultBdsCertificateConfiguration.");
+    const operationName = "setDefaultBdsCertificateConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsCertificateConfiguration/SetDefaultBdsCertificateConfiguration";
+    const pathParams = {
+      "{bdsInstanceId}": setDefaultBdsCertificateConfigurationRequest.bdsInstanceId,
+      "{bdsCertificateConfigurationId}":
+        setDefaultBdsCertificateConfigurationRequest.bdsCertificateConfigurationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": setDefaultBdsCertificateConfigurationRequest.opcRequestId,
+      "opc-retry-token": setDefaultBdsCertificateConfigurationRequest.opcRetryToken,
+      "if-match": setDefaultBdsCertificateConfigurationRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      setDefaultBdsCertificateConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/bdsInstances/{bdsInstanceId}/bdsCertificateConfigurations/{bdsCertificateConfigurationId}/actions/setDefault",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        setDefaultBdsCertificateConfigurationRequest.setDefaultBdsCertificateConfigurationDetails,
+        "SetDefaultBdsCertificateConfigurationDetails",
+        model.SetDefaultBdsCertificateConfigurationDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SetDefaultBdsCertificateConfigurationResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),

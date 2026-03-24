@@ -22,7 +22,11 @@ export interface ActivateIamUserSyncConfigurationDetails {
   /**
    * Base-64 encoded password for the cluster admin user.
    */
-  "clusterAdminPassword": string;
+  "clusterAdminPassword"?: string;
+  /**
+   * The secretId for the clusterAdminPassword.
+   */
+  "secretId"?: string;
   /**
    * whether posix attribute needs to be appended to users
    */

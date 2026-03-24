@@ -22,10 +22,16 @@ export interface AddBlockStorageDetails {
   /**
    * Base-64 encoded password for the cluster (and Cloudera Manager) admin user.
    */
-  "clusterAdminPassword": string;
+  "clusterAdminPassword"?: string;
   /**
-   * The size of block volume in GB to be added to each worker node. All the
-   * details needed for attaching the block volume are managed by service itself.
+   * The secretId for the clusterAdminPassword.
+   */
+  "secretId"?: string;
+  /**
+   * The size of block volume in GB to be added. For WORKER, COMPUTE_ONLY_WORKER, and KAFKA_BROKER nodes,
+   * the same size will be added to all nodes of that type. For EDGE nodes, this size can be different
+   * per node when nodeId is specified. All the details needed for attaching the block volume are managed
+   * by service itself.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "blockVolumeSizeInGBs": number;
@@ -33,13 +39,21 @@ export interface AddBlockStorageDetails {
    * Worker node types.
    */
   "nodeType": AddBlockStorageDetails.NodeType;
+  /**
+   * Optional. List of OCIDs of specific nodes to add storage to.
+   * Only supported for EDGE nodes.
+   * When omitted, storage is added to all nodes of the specified type.
+   *
+   */
+  "nodeIds"?: Array<string>;
 }
 
 export namespace AddBlockStorageDetails {
   export enum NodeType {
     Worker = "WORKER",
     ComputeOnlyWorker = "COMPUTE_ONLY_WORKER",
-    KafkaBroker = "KAFKA_BROKER"
+    KafkaBroker = "KAFKA_BROKER",
+    Edge = "EDGE"
   }
 
   export function getJsonObj(obj: AddBlockStorageDetails): object {

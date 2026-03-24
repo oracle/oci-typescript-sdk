@@ -22,7 +22,11 @@ export interface ActivateUpstConfigurationDetails {
   /**
    * Base-64 encoded password for the cluster admin user.
    */
-  "clusterAdminPassword": string;
+  "clusterAdminPassword"?: string;
+  /**
+   * The secretId for the clusterAdminPassword.
+   */
+  "secretId"?: string;
   /**
    * OCID of the vault to store token exchange service principal keyta, required for creating UPST configb
    */

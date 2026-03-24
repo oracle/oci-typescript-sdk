@@ -28,6 +28,10 @@ export interface AutoScalingConfiguration {
    */
   "displayName": string;
   /**
+   * The secretId for the clusterAdminPassword.
+   */
+  "secretId"?: string;
+  /**
    * A node type that is managed by an autoscale configuration. The only supported types are WORKER and COMPUTE_ONLY_WORKER.
    */
   "nodeType": string;

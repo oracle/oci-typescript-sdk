@@ -1,6 +1,6 @@
 {
   "name": "oci-dblm",
-  "version": "2.126.2",
+  "version": "2.126.3",
   "description": "OCI NodeJS client for Dblm Service",
   "repository": {
     "type": "git",
