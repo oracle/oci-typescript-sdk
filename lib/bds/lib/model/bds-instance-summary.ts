@@ -72,6 +72,10 @@ export interface BdsInstanceSummary {
    */
   "timeCreated": Date;
   /**
+   * The earliest time of certificate expiration date across the certificates of all current nodes under this cluster.
+   */
+  "timeEarliestCertificateExpiration"?: Date;
+  /**
    * Simple key-value pair that is applied without any predefined name, type, or scope.
    * Exists for cross-compatibility only. For example, {@code {\"bar-key\": \"value\"}}
    *

@@ -20,7 +20,7 @@ import common = require("oci-common");
  */
 export interface ResourcePrincipalConfiguration {
   /**
-   * The id of the ResourcePrincipalConfiguration.
+   * The id of the ResourcePrincipalConfiguration defined under BDS resources, not OCID.
    */
   "id": string;
   /**
@@ -31,6 +31,10 @@ export interface ResourcePrincipalConfiguration {
    * A user-friendly name. Only ASCII alphanumeric characters with no spaces allowed. The name does not have to be unique, and it may be changed. Avoid entering confidential information.
    */
   "displayName": string;
+  /**
+   * The secretId for the clusterAdminPassword.
+   */
+  "secretId"?: string;
   /**
    * Life span in hours of each resource principal session token. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */

@@ -93,6 +93,11 @@ export interface GenerativeAiPrivateEndpoint {
   "timeUpdated": Date;
   "previousState"?: model.GenerativeAiPrivateEndpoint;
   /**
+   * The resource type that Generative AI private endpoint can be used for.
+   *
+   */
+  "resourceType"?: GenerativeAiPrivateEndpoint.ResourceType;
+  /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
 * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
@@ -132,6 +137,16 @@ export namespace GenerativeAiPrivateEndpoint {
     Deleting = "DELETING",
     Deleted = "DELETED",
     Failed = "FAILED",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum ResourceType {
+    Application = "APPLICATION",
+    Endpoint = "ENDPOINT",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

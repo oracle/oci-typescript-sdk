@@ -26,7 +26,11 @@ export interface CreateResourcePrincipalConfigurationDetails {
   /**
    * Base-64 encoded Cluster Admin Password for cluster admin user.
    */
-  "clusterAdminPassword": string;
+  "clusterAdminPassword"?: string;
+  /**
+   * The secretId for the clusterAdminPassword.
+   */
+  "secretId"?: string;
   /**
    * Life span in hours for the resource principal session token. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */

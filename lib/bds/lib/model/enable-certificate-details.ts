@@ -22,7 +22,11 @@ export interface EnableCertificateDetails {
   /**
    * Base-64 encoded password for the cluster admin user.
    */
-  "clusterAdminPassword": string;
+  "clusterAdminPassword"?: string;
+  /**
+   * The secretId for the clusterAdminPassword.
+   */
+  "secretId"?: string;
   /**
    * List of services for which certificate needs to be enabled.
    */

@@ -32,7 +32,7 @@ export interface AddCloudSqlDetails {
   /**
    * Base-64 encoded password for the cluster (and Cloudera Manager) admin user.
    */
-  "clusterAdminPassword": string;
+  "clusterAdminPassword"?: string;
 }
 
 export namespace AddCloudSqlDetails {

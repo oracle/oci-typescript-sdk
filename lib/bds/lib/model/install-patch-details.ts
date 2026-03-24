@@ -26,7 +26,11 @@ export interface InstallPatchDetails {
   /**
    * Base-64 encoded password for the cluster admin user.
    */
-  "clusterAdminPassword": string;
+  "clusterAdminPassword"?: string;
+  /**
+   * The secretId for the clusterAdminPassword.
+   */
+  "secretId"?: string;
   "patchingConfig"?:
     | model.DowntimeBasedOdhPatchingConfig
     | model.DomainBasedOdhPatchingConfig

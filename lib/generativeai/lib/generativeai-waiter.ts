@@ -107,6 +107,82 @@ export class GenerativeAiWaiter {
   }
 
   /**
+   * Waits forGenerativeAiProject till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetGenerativeAiProjectResponse | null (null in case of 404 response)
+   */
+  public async forGenerativeAiProject(
+    request: serviceRequests.GetGenerativeAiProjectRequest,
+    ...targetStates: models.GenerativeAiProject.LifecycleState[]
+  ): Promise<serviceResponses.GetGenerativeAiProjectResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getGenerativeAiProject(request),
+      response => targetStates.includes(response.generativeAiProject.lifecycleState!),
+      targetStates.includes(models.GenerativeAiProject.LifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forHostedApplication till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetHostedApplicationResponse | null (null in case of 404 response)
+   */
+  public async forHostedApplication(
+    request: serviceRequests.GetHostedApplicationRequest,
+    ...targetStates: models.HostedApplication.LifecycleState[]
+  ): Promise<serviceResponses.GetHostedApplicationResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getHostedApplication(request),
+      response => targetStates.includes(response.hostedApplication.lifecycleState!),
+      targetStates.includes(models.HostedApplication.LifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forHostedApplicationStorage till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetHostedApplicationStorageResponse | null (null in case of 404 response)
+   */
+  public async forHostedApplicationStorage(
+    request: serviceRequests.GetHostedApplicationStorageRequest,
+    ...targetStates: models.HostedApplicationStorage.LifecycleState[]
+  ): Promise<serviceResponses.GetHostedApplicationStorageResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getHostedApplicationStorage(request),
+      response => targetStates.includes(response.hostedApplicationStorage.lifecycleState!),
+      targetStates.includes(models.HostedApplicationStorage.LifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forHostedDeployment till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetHostedDeploymentResponse | null (null in case of 404 response)
+   */
+  public async forHostedDeployment(
+    request: serviceRequests.GetHostedDeploymentRequest,
+    ...targetStates: models.HostedDeployment.LifecycleState[]
+  ): Promise<serviceResponses.GetHostedDeploymentResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getHostedDeployment(request),
+      response => targetStates.includes(response.hostedDeployment.lifecycleState!),
+      targetStates.includes(models.HostedDeployment.LifecycleState.Deleted)
+    );
+  }
+
+  /**
    * Waits forImportedModel till it reaches any of the provided states
    *
    * @param request the request to send
@@ -141,6 +217,62 @@ export class GenerativeAiWaiter {
       () => this.client.getModel(request),
       response => targetStates.includes(response.model.lifecycleState!),
       targetStates.includes(models.Model.LifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forSemanticStore till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetSemanticStoreResponse | null (null in case of 404 response)
+   */
+  public async forSemanticStore(
+    request: serviceRequests.GetSemanticStoreRequest,
+    ...targetStates: models.SemanticStore.LifecycleState[]
+  ): Promise<serviceResponses.GetSemanticStoreResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getSemanticStore(request),
+      response => targetStates.includes(response.semanticStore.lifecycleState!),
+      targetStates.includes(models.SemanticStore.LifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forVectorStoreConnector till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetVectorStoreConnectorResponse | null (null in case of 404 response)
+   */
+  public async forVectorStoreConnector(
+    request: serviceRequests.GetVectorStoreConnectorRequest,
+    ...targetStates: models.VectorStoreConnector.LifecycleState[]
+  ): Promise<serviceResponses.GetVectorStoreConnectorResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getVectorStoreConnector(request),
+      response => targetStates.includes(response.vectorStoreConnector.lifecycleState!),
+      targetStates.includes(models.VectorStoreConnector.LifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forVectorStoreConnectorFileSync till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetVectorStoreConnectorFileSyncResponse
+   */
+  public async forVectorStoreConnectorFileSync(
+    request: serviceRequests.GetVectorStoreConnectorFileSyncRequest,
+    ...targetStates: models.VectorStoreConnectorFileSync.LifecycleState[]
+  ): Promise<serviceResponses.GetVectorStoreConnectorFileSyncResponse> {
+    return genericWaiter(
+      this.config,
+      () => this.client.getVectorStoreConnectorFileSync(request),
+      response => targetStates.includes(response.vectorStoreConnectorFileSync.lifecycleState!)
     );
   }
 

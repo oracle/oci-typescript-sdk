@@ -20,7 +20,7 @@ import common = require("oci-common");
  */
 export interface AutoScalingConfigurationSummary {
   /**
-   * The OCID of the autoscale configuration.
+   * The ID of the autoscale configuration defined under BDS resources, not OCID.
    */
   "id": string;
   /**

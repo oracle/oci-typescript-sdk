@@ -22,7 +22,11 @@ export interface RemoveResourcePrincipalConfigurationDetails {
   /**
    * Base-64 encoded Cluster Admin Password for cluster admin user.
    */
-  "clusterAdminPassword": string;
+  "clusterAdminPassword"?: string;
+  /**
+   * The secretId for the clusterAdminPassword.
+   */
+  "secretId"?: string;
 }
 
 export namespace RemoveResourcePrincipalConfigurationDetails {

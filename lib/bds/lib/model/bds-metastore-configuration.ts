@@ -28,6 +28,10 @@ export interface BdsMetastoreConfiguration {
    */
   "displayName": string;
   /**
+   * The secretId for the clusterAdminPassword.
+   */
+  "secretId"?: string;
+  /**
    * The type of the metastore in the metastore configuration.
    */
   "metastoreType": BdsMetastoreConfiguration.MetastoreType;

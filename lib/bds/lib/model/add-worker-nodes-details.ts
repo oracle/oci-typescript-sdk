@@ -22,7 +22,11 @@ export interface AddWorkerNodesDetails {
   /**
    * Base-64 encoded password for the cluster (and Cloudera Manager) admin user.
    */
-  "clusterAdminPassword": string;
+  "clusterAdminPassword"?: string;
+  /**
+   * The secretId for the clusterAdminPassword.
+   */
+  "secretId"?: string;
   /**
    * Number of additional worker nodes for the cluster. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
@@ -36,7 +40,8 @@ export interface AddWorkerNodesDetails {
    */
   "shape"?: string;
   /**
-   * The size of block volume in GB to be attached to the given node. This has to be specified when adding compute only worker node at the first time. Otherwise, it's a read-only property.
+   * The size of block volume in GB to be attached to the given node. This has to be specified when adding compute only worker or edge node at the first time.
+   * For EDGE nodes. Each node can have a different block storage size within the valid range (50GB-10TB) and the value must be specified.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "blockVolumeSizeInGBs"?: number;

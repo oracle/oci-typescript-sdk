@@ -58,6 +58,7 @@ export interface ApiKeySummary {
 * <p>
 Allowed values are:
 * - ACTIVE
+* - INACTIVE
 * - CREATING
 * - UPDATING
 * - DELETING

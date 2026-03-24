@@ -20,7 +20,7 @@ import common = require("oci-common");
  */
 export interface ResourcePrincipalConfigurationSummary {
   /**
-   * the ID of the ResourcePrincipalConfiguration.
+   * the ID of the ResourcePrincipalConfiguration defined under BDS resources, not OCID.
    */
   "id": string;
   /**

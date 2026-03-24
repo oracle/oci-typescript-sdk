@@ -36,9 +36,17 @@ export interface CreateBdsInstanceDetails {
    */
   "clusterPublicKey": string;
   /**
-   * Base-64 encoded password for the cluster (and Cloudera Manager) admin user.
+   * Base-64 encoded password for the cluster (and Cloudera Manager) admin user. Not required if the secretId is specified.
    */
-  "clusterAdminPassword": string;
+  "clusterAdminPassword"?: string;
+  /**
+   * The secretId for the clusterAdminPassword.
+   */
+  "secretId"?: string;
+  /**
+   * Boolean flag specifying whether or not to persist the provided secret OCID and reuse it for future operations.
+   */
+  "isSecretReused"?: boolean;
   /**
    * Boolean flag specifying whether or not the cluster is highly available (HA).
    */

@@ -30,7 +30,11 @@ export interface ReplaceNodeDetails {
   /**
    * Base-64 encoded password for the cluster admin user.
    */
-  "clusterAdminPassword": string;
+  "clusterAdminPassword"?: string;
+  /**
+   * The secretId for the clusterAdminPassword.
+   */
+  "secretId"?: string;
   /**
    * Shape of the new vm when replacing the node. If not provided, BDS will attempt to replace the node with the shape of current node.
    */
