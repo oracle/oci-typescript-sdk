@@ -2228,7 +2228,7 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
       "if-match": getObjectRequest.ifMatch,
       "if-none-match": getObjectRequest.ifNoneMatch,
       "opc-client-request-id": getObjectRequest.opcClientRequestId,
-      "range": getObjectRequest.range,
+      "range": getObjectRequest.range?.toHeaderValue(),
       "opc-sse-customer-algorithm": getObjectRequest.opcSseCustomerAlgorithm,
       "opc-sse-customer-key": getObjectRequest.opcSseCustomerKey,
       "opc-sse-customer-key-sha256": getObjectRequest.opcSseCustomerKeySha256
