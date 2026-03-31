@@ -1,6 +1,6 @@
 {
   "name": "oci-iot",
-  "version": "2.126.3",
+  "version": "2.127.0",
   "description": "OCI NodeJS client for Iot Service",
   "repository": {
     "type": "git",

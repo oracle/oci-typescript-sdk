@@ -55,6 +55,11 @@ export interface MigrationSummary {
    */
   "replicationScheduleId"?: string;
   /**
+   * Type of migration project (OCI/OLVM). This determines the target environment for the migration.
+   */
+  "migrationType"?: string;
+  "migrationConfig"?: model.MigrationConfig;
+  /**
    * Simple key-value pair that is applied without any predefined name, type or scope. It exists only for cross-compatibility.
    * Example: {@code {\"bar-key\": \"value\"}}
    *
@@ -76,12 +81,26 @@ export interface MigrationSummary {
 
 export namespace MigrationSummary {
   export function getJsonObj(obj: MigrationSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "migrationConfig": obj.migrationConfig
+          ? model.MigrationConfig.getJsonObj(obj.migrationConfig)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: MigrationSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "migrationConfig": obj.migrationConfig
+          ? model.MigrationConfig.getDeserializedJsonObj(obj.migrationConfig)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

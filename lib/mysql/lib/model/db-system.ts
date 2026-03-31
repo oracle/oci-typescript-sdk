@@ -100,6 +100,7 @@ For a standalone DB System, this defines the fault domain in which the DB System
    * Name of the MySQL Version in use for the DB System.
    */
   "mysqlVersion": string;
+  "controlledUpdate"?: model.ControlledUpdate;
   "backupPolicy"?: model.BackupPolicy;
   "source"?:
     | model.DbSystemSourceFromBackup
@@ -284,6 +285,9 @@ export namespace DbSystem {
           ? model.HeatWaveClusterSummary.getJsonObj(obj.heatWaveCluster)
           : undefined,
 
+        "controlledUpdate": obj.controlledUpdate
+          ? model.ControlledUpdate.getJsonObj(obj.controlledUpdate)
+          : undefined,
         "backupPolicy": obj.backupPolicy
           ? model.BackupPolicy.getJsonObj(obj.backupPolicy)
           : undefined,
@@ -353,6 +357,9 @@ export namespace DbSystem {
           ? model.HeatWaveClusterSummary.getDeserializedJsonObj(obj.heatWaveCluster)
           : undefined,
 
+        "controlledUpdate": obj.controlledUpdate
+          ? model.ControlledUpdate.getDeserializedJsonObj(obj.controlledUpdate)
+          : undefined,
         "backupPolicy": obj.backupPolicy
           ? model.BackupPolicy.getDeserializedJsonObj(obj.backupPolicy)
           : undefined,

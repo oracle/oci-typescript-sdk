@@ -55,6 +55,11 @@ export interface Migration {
    */
   "isCompleted"?: boolean;
   /**
+   * Type of migration project (OCI/OLVM). This determines the target environment for the migration.
+   */
+  "migrationType"?: Migration.MigrationType;
+  "migrationConfig"?: model.MigrationConfig;
+  /**
    * Simple key-value pair that is applied without any predefined name, type or scope. It exists only for cross-compatibility.
    * Example: {@code {\"bar-key\": \"value\"}}
    *
@@ -90,13 +95,37 @@ export namespace Migration {
     UnknownValue = "UNKNOWN_VALUE"
   }
 
+  export enum MigrationType {
+    Oci = "OCI",
+    Olvm = "OLVM",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: Migration): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "migrationConfig": obj.migrationConfig
+          ? model.MigrationConfig.getJsonObj(obj.migrationConfig)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: Migration): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "migrationConfig": obj.migrationConfig
+          ? model.MigrationConfig.getDeserializedJsonObj(obj.migrationConfig)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
