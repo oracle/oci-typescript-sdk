@@ -47,6 +47,10 @@ export interface ReplicationProgress {
    */
   "lastReplicationStatus"?: ReplicationProgress.LastReplicationStatus;
   /**
+   * The child status of the last replication task.
+   */
+  "lastReplicationSubStatus"?: string;
+  /**
    * Error message if the last finished replication failed.
    */
   "lastReplicationError"?: string;

@@ -1,5 +1,5 @@
 /**
- * Generative AI Service Nl2sql API
+ * Generative AI Service NL2SQL API
  * A description of the ReferenceService API. in progress
  * OpenAPI spec version: 20260325
  *
@@ -25,10 +25,6 @@ export interface GenerateSqlFromNlJob {
    * Unique identifier that is immutable on creation.
    */
   "id": string;
-  /**
-   * Owning compartmentId [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) for a GenerateSqlFromNlJob.
-   */
-  "compartmentId"?: string;
   /**
    * An optional description of the GenerateSqlFromNlJob.
    */

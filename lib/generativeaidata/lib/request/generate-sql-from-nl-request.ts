@@ -40,10 +40,6 @@ export interface GenerateSqlFromNlRequest extends common.BaseRequest {
    */
   "opcRequestId"?: string;
   /**
-   * The ID of the compartment.
-   */
-  "opcCompartmentId"?: string;
-  /**
    * For optimistic concurrency control. In the PUT or DELETE call
    * for a resource, set the {@code if-match} parameter to the value of the
    * etag from a previous GET or POST response for that resource.

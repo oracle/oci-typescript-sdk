@@ -27,6 +27,8 @@ export interface MigrationPlanStats {
    * The total count of VMs in migration Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "vmCount"?: number;
+  "currentMonthlyCost"?: model.CurrentMonthlyCost;
+  "costToMigrate"?: model.CostToMigrate;
 }
 
 export namespace MigrationPlanStats {
@@ -36,6 +38,13 @@ export namespace MigrationPlanStats {
       ...{
         "totalEstimatedCost": obj.totalEstimatedCost
           ? model.CostEstimation.getJsonObj(obj.totalEstimatedCost)
+          : undefined,
+
+        "currentMonthlyCost": obj.currentMonthlyCost
+          ? model.CurrentMonthlyCost.getJsonObj(obj.currentMonthlyCost)
+          : undefined,
+        "costToMigrate": obj.costToMigrate
+          ? model.CostToMigrate.getJsonObj(obj.costToMigrate)
           : undefined
       }
     };
@@ -48,6 +57,13 @@ export namespace MigrationPlanStats {
       ...{
         "totalEstimatedCost": obj.totalEstimatedCost
           ? model.CostEstimation.getDeserializedJsonObj(obj.totalEstimatedCost)
+          : undefined,
+
+        "currentMonthlyCost": obj.currentMonthlyCost
+          ? model.CurrentMonthlyCost.getDeserializedJsonObj(obj.currentMonthlyCost)
+          : undefined,
+        "costToMigrate": obj.costToMigrate
+          ? model.CostToMigrate.getDeserializedJsonObj(obj.costToMigrate)
           : undefined
       }
     };

@@ -22,11 +22,23 @@ export interface ConvertInstanceDetails {
    * Convert given instance to specified DR instance
    */
   "conversionType": ConvertInstanceDetails.ConversionType;
+  /**
+   * Conversion phase for convert instance operation.
+   */
+  "conversionPhase"?: ConvertInstanceDetails.ConversionPhase;
 }
 
 export namespace ConvertInstanceDetails {
   export enum ConversionType {
-    DisasterRecovery = "DISASTER_RECOVERY"
+    DisasterRecovery = "DISASTER_RECOVERY",
+    DevelopmentShape = "DEVELOPMENT_SHAPE",
+    ProductionShape = "PRODUCTION_SHAPE"
+  }
+
+  export enum ConversionPhase {
+    BeginMigration = "BEGIN_MIGRATION",
+    CompleteMigration = "COMPLETE_MIGRATION",
+    RollbackMigration = "ROLLBACK_MIGRATION"
   }
 
   export function getJsonObj(obj: ConvertInstanceDetails): object {

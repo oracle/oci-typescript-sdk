@@ -19,6 +19,10 @@ import common = require("oci-common");
  */
 export interface CreateMigrationDetails {
   /**
+   * Type of migration project (OCI/OLVM). This determines the target environment for the migration.
+   */
+  "migrationType"?: string;
+  /**
    * Migration identifier
    */
   "displayName": string;
@@ -34,6 +38,7 @@ export interface CreateMigrationDetails {
    * Indicates whether migration is marked as complete.
    */
   "isCompleted"?: boolean;
+  "migrationConfig"?: model.MigrationConfig;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. It exists only for cross-compatibility.
    * Example: {@code {\"bar-key\": \"value\"}}
@@ -50,12 +55,26 @@ export interface CreateMigrationDetails {
 
 export namespace CreateMigrationDetails {
   export function getJsonObj(obj: CreateMigrationDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "migrationConfig": obj.migrationConfig
+          ? model.MigrationConfig.getJsonObj(obj.migrationConfig)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: CreateMigrationDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "migrationConfig": obj.migrationConfig
+          ? model.MigrationConfig.getDeserializedJsonObj(obj.migrationConfig)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

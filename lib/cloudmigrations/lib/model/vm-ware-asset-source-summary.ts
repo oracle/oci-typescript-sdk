@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Description of an asset source.
+ * Summary of an VMware asset source provided in the list.
  */
 export interface VmWareAssetSourceSummary extends model.AssetSourceSummary {
   /**

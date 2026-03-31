@@ -35,6 +35,10 @@ export interface UpdateOcirModelDeploymentEnvironmentConfigurationDetails
    */
   "imageDigest"?: string;
   /**
+   * OCID of the container image signature
+   */
+  "imageSignatureId"?: string;
+  /**
    * The container image run [CMD](https://docs.docker.com/engine/reference/builder/#cmd) as a list of strings.
    * Use {@code CMD} as arguments to the {@code ENTRYPOINT} or the only command to run in the absence of an {@code ENTRYPOINT}.
    * The combined size of {@code CMD} and {@code ENTRYPOINT} must be less than 2048 bytes.

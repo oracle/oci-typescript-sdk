@@ -36,6 +36,10 @@ export interface BackupDestinationDetails {
    */
   "vpcPassword"?: string;
   /**
+   * Indicates whether Zero Data Loss functionality is enabled for a Recovery Appliance backup destination in an Autonomous Container Database. When enabled, the database automatically ships all redo logs in real-time to the Recovery Appliance for a Zero Data Loss recovery setup (sub-second RPO). Defaults to {@code TRUE} if no value is given.
+   */
+  "isZeroDataLossEnabled"?: boolean;
+  /**
    * Proxy URL to connect to object store.
    */
   "internetProxy"?: string;
