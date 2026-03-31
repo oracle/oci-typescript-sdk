@@ -98,6 +98,11 @@ export interface MigrationAssetSummary {
    * Tenancy Identifier
    */
   "tenancyId"?: string;
+  "replicationLocationDetail"?: model.ReplicationLocationDetail;
+  /**
+   * Mapping of source disk id to destination disk details
+   */
+  "destinationDisks"?: { [key: string]: model.DestinationDisk };
 }
 
 export namespace MigrationAssetSummary {
@@ -117,6 +122,13 @@ export namespace MigrationAssetSummary {
       ...{
         "snapshots": obj.snapshots
           ? common.mapContainer(obj.snapshots, model.HydratedVolume.getJsonObj)
+          : undefined,
+
+        "replicationLocationDetail": obj.replicationLocationDetail
+          ? model.ReplicationLocationDetail.getJsonObj(obj.replicationLocationDetail)
+          : undefined,
+        "destinationDisks": obj.destinationDisks
+          ? common.mapContainer(obj.destinationDisks, model.DestinationDisk.getJsonObj)
           : undefined
       }
     };
@@ -129,6 +141,13 @@ export namespace MigrationAssetSummary {
       ...{
         "snapshots": obj.snapshots
           ? common.mapContainer(obj.snapshots, model.HydratedVolume.getDeserializedJsonObj)
+          : undefined,
+
+        "replicationLocationDetail": obj.replicationLocationDetail
+          ? model.ReplicationLocationDetail.getDeserializedJsonObj(obj.replicationLocationDetail)
+          : undefined,
+        "destinationDisks": obj.destinationDisks
+          ? common.mapContainer(obj.destinationDisks, model.DestinationDisk.getDeserializedJsonObj)
           : undefined
       }
     };

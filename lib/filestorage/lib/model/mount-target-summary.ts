@@ -61,6 +61,10 @@ Example: {@code My mount target}
    */
   "privateIpIds": Array<string>;
   /**
+   * The OCIDs of the IPv6 addresses associated with this mount target.
+   */
+  "mountTargetIpv6Ids"?: Array<string>;
+  /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subnet the mount target is in.
    */
   "subnetId": string;
@@ -73,8 +77,8 @@ Example: {@code My mount target}
    */
   "nsgIds"?: Array<string>;
   /**
-    * The date and time the mount target current billing cycle will end, expressed in 
-* [RFC 3339](https://tools.ietf.org/rfc/rfc3339) timestamp format. Once a cycle ends, it is updated 
+    * The date and time the mount target current billing cycle will end, expressed in
+* [RFC 3339](https://tools.ietf.org/rfc/rfc3339) timestamp format. Once a cycle ends, it is updated
 * automatically to next timestamp which is after 30 days.
 * <p>
   Example: {@code 2016-08-25T21:10:29.600Z}

@@ -51,6 +51,8 @@ import * as ValidateBackupRequest from "./validate-backup-request";
 export import ValidateBackupRequest = ValidateBackupRequest.ValidateBackupRequest;
 import * as AddHeatWaveClusterRequest from "./add-heat-wave-cluster-request";
 export import AddHeatWaveClusterRequest = AddHeatWaveClusterRequest.AddHeatWaveClusterRequest;
+import * as ControlledUpdateDbSystemRequest from "./controlled-update-db-system-request";
+export import ControlledUpdateDbSystemRequest = ControlledUpdateDbSystemRequest.ControlledUpdateDbSystemRequest;
 import * as CreateDbSystemRequest from "./create-db-system-request";
 export import CreateDbSystemRequest = CreateDbSystemRequest.CreateDbSystemRequest;
 import * as DeleteDbSystemRequest from "./delete-db-system-request";

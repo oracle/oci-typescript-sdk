@@ -1,5 +1,5 @@
 /**
- * Generative AI Service Nl2sql API
+ * Generative AI Service NL2SQL API
  * A description of the ReferenceService API. in progress
  * OpenAPI spec version: 20260325
  *
@@ -254,8 +254,7 @@ export class CancelEnrichmentJobClient {
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
-      path:
-        "/20260325/semanticStores/{semanticStoreId}/enrichmentJobs/{enrichmentJobId}/actions/cancel",
+      path: "/semanticStores/{semanticStoreId}/enrichmentJobs/{enrichmentJobId}/actions/cancel",
       method: "POST",
       pathParams: pathParams,
       headerParams: headerParams,
@@ -516,7 +515,7 @@ export class GenerateEnrichmentJobClient {
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
-      path: "/20260325/semanticStores/{semanticStoreId}/actions/enrich",
+      path: "/semanticStores/{semanticStoreId}/actions/enrich",
       method: "POST",
       bodyContent: common.ObjectSerializer.serialize(
         generateEnrichmentJobRequest.generateEnrichmentJobDetails,
@@ -778,7 +777,6 @@ export class GenerateSqlFromNlJobClient {
       "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-retry-token": generateSqlFromNlRequest.opcRetryToken,
       "opc-request-id": generateSqlFromNlRequest.opcRequestId,
-      "opc-compartment-id": generateSqlFromNlRequest.opcCompartmentId,
       "if-match": generateSqlFromNlRequest.ifMatch
     };
 
@@ -792,7 +790,7 @@ export class GenerateSqlFromNlJobClient {
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
-      path: "/20260325/semanticStores/{semanticStoreId}/actions/generateSqlFromNl",
+      path: "/semanticStores/{semanticStoreId}/actions/generateSqlFromNl",
       method: "POST",
       bodyContent: common.ObjectSerializer.serialize(
         generateSqlFromNlRequest.generateSqlFromNlDetails,
@@ -1089,7 +1087,7 @@ export class GetEnrichmentJobClient {
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
-      path: "/20260325/semanticStores/{semanticStoreId}/enrichmentJobs/{enrichmentJobId}",
+      path: "/semanticStores/{semanticStoreId}/enrichmentJobs/{enrichmentJobId}",
       method: "GET",
       pathParams: pathParams,
       headerParams: headerParams,
@@ -1359,7 +1357,7 @@ export class ListEnrichmentJobsClient {
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
-      path: "/20260325/semanticStores/{semanticStoreId}/enrichmentJobs",
+      path: "/semanticStores/{semanticStoreId}/enrichmentJobs",
       method: "GET",
       pathParams: pathParams,
       headerParams: headerParams,
