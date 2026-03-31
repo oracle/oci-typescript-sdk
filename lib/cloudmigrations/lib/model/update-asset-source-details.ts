@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The information about the new asset source.
+ * Asset source update request.
  */
 export interface UpdateAssetSourceDetails {
   /**
@@ -28,6 +28,10 @@ export interface UpdateAssetSourceDetails {
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment that is going to be used to create assets.
    */
   "assetsCompartmentId"?: string;
+  /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the discovery schedule that is going to be assigned to an asset source.
+   */
+  "discoveryScheduleId"?: string;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. It exists only for cross-compatibility.
    * Example: {@code {\"bar-key\": \"value\"}}
@@ -46,6 +50,10 @@ export interface UpdateAssetSourceDetails {
    *
    */
   "systemTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * Specifies if this is the Source or Destination point for migration - different assets may be discovered depending on setting.
+   */
+  "environmentType"?: model.EnvironmentType;
 
   "type": string;
 }
@@ -59,6 +67,16 @@ export namespace UpdateAssetSourceDetails {
         case "VMWARE":
           return model.UpdateVmWareAssetSourceDetails.getJsonObj(
             <model.UpdateVmWareAssetSourceDetails>(<object>jsonObj),
+            true
+          );
+        case "OLVM":
+          return model.UpdateOlvmAssetSourceDetails.getJsonObj(
+            <model.UpdateOlvmAssetSourceDetails>(<object>jsonObj),
+            true
+          );
+        case "AWS":
+          return model.UpdateAwsAssetSourceDetails.getJsonObj(
+            <model.UpdateAwsAssetSourceDetails>(<object>jsonObj),
             true
           );
         default:
@@ -75,6 +93,16 @@ export namespace UpdateAssetSourceDetails {
         case "VMWARE":
           return model.UpdateVmWareAssetSourceDetails.getDeserializedJsonObj(
             <model.UpdateVmWareAssetSourceDetails>(<object>jsonObj),
+            true
+          );
+        case "OLVM":
+          return model.UpdateOlvmAssetSourceDetails.getDeserializedJsonObj(
+            <model.UpdateOlvmAssetSourceDetails>(<object>jsonObj),
+            true
+          );
+        case "AWS":
+          return model.UpdateAwsAssetSourceDetails.getDeserializedJsonObj(
+            <model.UpdateAwsAssetSourceDetails>(<object>jsonObj),
             true
           );
         default:

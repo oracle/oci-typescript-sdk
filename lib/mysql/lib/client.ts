@@ -2381,6 +2381,87 @@ export class DbSystemClient {
   }
 
   /**
+   * Update the chosen subset of MySQL instances based on their role.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ControlledUpdateDbSystemRequest
+   * @return ControlledUpdateDbSystemResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/ControlledUpdateDbSystem.ts.html |here} to see how to use ControlledUpdateDbSystem API.
+   */
+  public async controlledUpdateDbSystem(
+    controlledUpdateDbSystemRequest: requests.ControlledUpdateDbSystemRequest
+  ): Promise<responses.ControlledUpdateDbSystemResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbSystemClient#controlledUpdateDbSystem.");
+    const operationName = "controlledUpdateDbSystem";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/DbSystem/ControlledUpdateDbSystem";
+    const pathParams = {
+      "{dbSystemId}": controlledUpdateDbSystemRequest.dbSystemId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": controlledUpdateDbSystemRequest.ifMatch,
+      "opc-request-id": controlledUpdateDbSystemRequest.opcRequestId,
+      "opc-retry-token": controlledUpdateDbSystemRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      controlledUpdateDbSystemRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dbSystems/{dbSystemId}/actions/controlledUpdate",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        controlledUpdateDbSystemRequest.controlledUpdateDbSystemDetails,
+        "ControlledUpdateDbSystemDetails",
+        model.ControlledUpdateDbSystemDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ControlledUpdateDbSystemResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates and launches a DB System.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.

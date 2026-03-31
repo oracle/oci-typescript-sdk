@@ -18,7 +18,8 @@ import common = require("oci-common");
  * The type of credentials for an asset source.
  **/
 export enum AssetSourceCredentialsType {
-  Basic = "BASIC"
+  Basic = "BASIC",
+  ApiKey = "API_KEY"
 }
 
 export namespace AssetSourceCredentialsType {

@@ -36,9 +36,24 @@ export interface InstanceConfiguration {
    *
    */
   "privateEndpointId"?: string;
+  /**
+   * Network Access type of model deployment.
+   */
+  "networkAccessType"?: InstanceConfiguration.NetworkAccessType;
 }
 
 export namespace InstanceConfiguration {
+  export enum NetworkAccessType {
+    ManagedNetworkingNoInternetAccess = "MANAGED_NETWORKING_NO_INTERNET_ACCESS",
+    ManagedNetworkingInternetAccess = "MANAGED_NETWORKING_INTERNET_ACCESS",
+    CustomNetworking = "CUSTOM_NETWORKING",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: InstanceConfiguration): object {
     const jsonObj = {
       ...obj,

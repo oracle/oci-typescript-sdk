@@ -1,6 +1,6 @@
 {
   "name": "oci-sdk",
-  "version": "2.126.3",
+  "version": "2.127.0",
   "author": {
     "name": "Oracle Cloud Infrastructure",
     "email": ""
@@ -185,7 +185,9 @@
     "oci-wlms": "file:lib/wlms",
     "oci-workrequests": "file:lib/workrequests",
     "oci-zpr": "file:lib/zpr",
-    "oci-generativeaidata": "file:lib/generativeaidata"
+    "oci-generativeaidata": "file:lib/generativeaidata",
+    "oci-containerregistry": "file:lib/containerregistry",
+    "oci-self": "file:lib/self"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"

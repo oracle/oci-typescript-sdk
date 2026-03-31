@@ -46,6 +46,7 @@ export interface CreateMigrationAssetDetails {
    * Name of snapshot bucket
    */
   "snapShotBucketName": string;
+  "replicationLocationDetail"?: model.ReplicationLocationDetail;
   /**
    * List of migration assets that depends on this asset.
    */
@@ -54,12 +55,26 @@ export interface CreateMigrationAssetDetails {
 
 export namespace CreateMigrationAssetDetails {
   export function getJsonObj(obj: CreateMigrationAssetDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "replicationLocationDetail": obj.replicationLocationDetail
+          ? model.ReplicationLocationDetail.getJsonObj(obj.replicationLocationDetail)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: CreateMigrationAssetDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "replicationLocationDetail": obj.replicationLocationDetail
+          ? model.ReplicationLocationDetail.getDeserializedJsonObj(obj.replicationLocationDetail)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

@@ -51,6 +51,8 @@ import * as ValidateBackupResponse from "./validate-backup-response";
 export import ValidateBackupResponse = ValidateBackupResponse.ValidateBackupResponse;
 import * as AddHeatWaveClusterResponse from "./add-heat-wave-cluster-response";
 export import AddHeatWaveClusterResponse = AddHeatWaveClusterResponse.AddHeatWaveClusterResponse;
+import * as ControlledUpdateDbSystemResponse from "./controlled-update-db-system-response";
+export import ControlledUpdateDbSystemResponse = ControlledUpdateDbSystemResponse.ControlledUpdateDbSystemResponse;
 import * as CreateDbSystemResponse from "./create-db-system-response";
 export import CreateDbSystemResponse = CreateDbSystemResponse.CreateDbSystemResponse;
 import * as DeleteDbSystemResponse from "./delete-db-system-response";

@@ -41,6 +41,7 @@ export enum OperationType {
   CreateTargetAsset = "CREATE_TARGET_ASSET",
   UpdateTargetAsset = "UPDATE_TARGET_ASSET",
   DeleteTargetAsset = "DELETE_TARGET_ASSET",
+  PrepareTargetAsset = "PREPARE_TARGET_ASSET",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this
