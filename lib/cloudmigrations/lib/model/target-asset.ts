@@ -111,6 +111,8 @@ export namespace TargetAsset {
       switch (obj.type) {
         case "INSTANCE":
           return model.VmTargetAsset.getJsonObj(<model.VmTargetAsset>(<object>jsonObj), true);
+        case "OLVM_INSTANCE":
+          return model.OlvmTargetAsset.getJsonObj(<model.OlvmTargetAsset>(<object>jsonObj), true);
         default:
           if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.type}`);
       }
@@ -141,6 +143,11 @@ export namespace TargetAsset {
         case "INSTANCE":
           return model.VmTargetAsset.getDeserializedJsonObj(
             <model.VmTargetAsset>(<object>jsonObj),
+            true
+          );
+        case "OLVM_INSTANCE":
+          return model.OlvmTargetAsset.getDeserializedJsonObj(
+            <model.OlvmTargetAsset>(<object>jsonObj),
             true
           );
         default:

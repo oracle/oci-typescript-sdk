@@ -36,6 +36,11 @@ export namespace CreateTargetAssetDetails {
 
     if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
+        case "OLVM_INSTANCE":
+          return model.CreateOlvmTargetAssetDetails.getJsonObj(
+            <model.CreateOlvmTargetAssetDetails>(<object>jsonObj),
+            true
+          );
         case "INSTANCE":
           return model.CreateVmTargetAssetDetails.getJsonObj(
             <model.CreateVmTargetAssetDetails>(<object>jsonObj),
@@ -52,6 +57,11 @@ export namespace CreateTargetAssetDetails {
 
     if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
+        case "OLVM_INSTANCE":
+          return model.CreateOlvmTargetAssetDetails.getDeserializedJsonObj(
+            <model.CreateOlvmTargetAssetDetails>(<object>jsonObj),
+            true
+          );
         case "INSTANCE":
           return model.CreateVmTargetAssetDetails.getDeserializedJsonObj(
             <model.CreateVmTargetAssetDetails>(<object>jsonObj),

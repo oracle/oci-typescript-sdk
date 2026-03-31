@@ -15,7 +15,8 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Description of an asset source.
+ * VMware asset source. Used for discovery of virtual machines (VMs) registered in the VMware vCenter installation.
+ *
  */
 export interface VmWareAssetSource extends model.AssetSource {
   /**

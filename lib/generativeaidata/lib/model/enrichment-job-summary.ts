@@ -1,5 +1,5 @@
 /**
- * Generative AI Service Nl2sql API
+ * Generative AI Service NL2SQL API
  * A description of the ReferenceService API. in progress
  * OpenAPI spec version: 20260325
  *

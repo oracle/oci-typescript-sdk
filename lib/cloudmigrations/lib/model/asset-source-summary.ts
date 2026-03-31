@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface AssetSourceSummary {
   /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the resourse.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the resource.
    */
   "id": string;
   /**
@@ -78,6 +78,10 @@ export interface AssetSourceSummary {
    *
    */
   "systemTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * Specifies if this is the Source or Destination point for migration - different assets may be discovered depending on setting.
+   */
+  "environmentType"?: model.EnvironmentType;
 
   "type": string;
 }
@@ -91,6 +95,16 @@ export namespace AssetSourceSummary {
         case "VMWARE":
           return model.VmWareAssetSourceSummary.getJsonObj(
             <model.VmWareAssetSourceSummary>(<object>jsonObj),
+            true
+          );
+        case "OLVM":
+          return model.OlvmAssetSourceSummary.getJsonObj(
+            <model.OlvmAssetSourceSummary>(<object>jsonObj),
+            true
+          );
+        case "AWS":
+          return model.AwsAssetSourceSummary.getJsonObj(
+            <model.AwsAssetSourceSummary>(<object>jsonObj),
             true
           );
         default:
@@ -107,6 +121,16 @@ export namespace AssetSourceSummary {
         case "VMWARE":
           return model.VmWareAssetSourceSummary.getDeserializedJsonObj(
             <model.VmWareAssetSourceSummary>(<object>jsonObj),
+            true
+          );
+        case "OLVM":
+          return model.OlvmAssetSourceSummary.getDeserializedJsonObj(
+            <model.OlvmAssetSourceSummary>(<object>jsonObj),
+            true
+          );
+        case "AWS":
+          return model.AwsAssetSourceSummary.getDeserializedJsonObj(
+            <model.AwsAssetSourceSummary>(<object>jsonObj),
             true
           );
         default:

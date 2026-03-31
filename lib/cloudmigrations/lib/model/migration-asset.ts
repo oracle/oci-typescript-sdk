@@ -106,6 +106,11 @@ export interface MigrationAsset {
    * List of migration assets that depends on the asset.
    */
   "dependsOn"?: Array<string>;
+  "replicationLocationDetail"?: model.ReplicationLocationDetail;
+  /**
+   * Mapping of source disk id to destination disk details
+   */
+  "destinationDisks"?: { [key: string]: model.DestinationDisk };
 }
 
 export namespace MigrationAsset {
@@ -140,6 +145,13 @@ export namespace MigrationAsset {
       ...{
         "snapshots": obj.snapshots
           ? common.mapContainer(obj.snapshots, model.HydratedVolume.getJsonObj)
+          : undefined,
+
+        "replicationLocationDetail": obj.replicationLocationDetail
+          ? model.ReplicationLocationDetail.getJsonObj(obj.replicationLocationDetail)
+          : undefined,
+        "destinationDisks": obj.destinationDisks
+          ? common.mapContainer(obj.destinationDisks, model.DestinationDisk.getJsonObj)
           : undefined
       }
     };
@@ -152,6 +164,13 @@ export namespace MigrationAsset {
       ...{
         "snapshots": obj.snapshots
           ? common.mapContainer(obj.snapshots, model.HydratedVolume.getDeserializedJsonObj)
+          : undefined,
+
+        "replicationLocationDetail": obj.replicationLocationDetail
+          ? model.ReplicationLocationDetail.getDeserializedJsonObj(obj.replicationLocationDetail)
+          : undefined,
+        "destinationDisks": obj.destinationDisks
+          ? common.mapContainer(obj.destinationDisks, model.DestinationDisk.getDeserializedJsonObj)
           : undefined
       }
     };

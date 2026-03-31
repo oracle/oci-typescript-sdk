@@ -7,11 +7,12 @@ export namespace ObjectSerializer {
   export type BodyType = string | ReadableStream | Blob;
 
   export function serialize(data: any, type: string, getJsonObj?: (obj: any) => object): string {
+    let jsonString: string;
     if (getJsonObj) {
       if (isList(type)) {
         // constuct List of json object first, such as: List<NonPrimaryType>
         // then return JSON.stringify of it
-        return JSON.stringify(
+        jsonString = JSON.stringify(
           data.map((item: object) => {
             return getJsonObj(item);
           })
@@ -24,14 +25,36 @@ export namespace ObjectSerializer {
         Object.keys(data).forEach((key: string | number) => {
           obj[key] = getJsonObj(data[key]);
         });
-        return JSON.stringify(obj);
+        jsonString = JSON.stringify(obj);
       } else {
-        return JSON.stringify(getJsonObj(data));
+        jsonString = JSON.stringify(getJsonObj(data));
       }
+    } else {
+      // for type without getJsonObj callback use native stringify
+      jsonString = JSON.stringify(data);
     }
 
-    // for type without getJsonObj callback use native stringify
-    return JSON.stringify(data);
+    // Safely escape non-ASCII characters if OCI_SDK_ESCAPE_JSON_ASCII is set to true.
+    if (process.env.OCI_SDK_ESCAPE_JSON_ASCII === "true") {
+      return escapeNonAscii(jsonString);
+    }
+
+    return jsonString;
+  }
+
+  /**
+   * Escapes non-ASCII characters in a string to \uXXXX unicode escapes.
+   * @param str The input string
+   * @returns ASCII-safe unicode-escaped string
+   */
+  function escapeNonAscii(str: string): string {
+    return str.replace(/[\u0080-\uFFFF]/g, function(ch) {
+      const hex = ch
+        .charCodeAt(0)
+        .toString(16)
+        .padStart(4, "0");
+      return "\\u" + hex;
+    });
   }
 
   export function deserialize<T>(data: any, type?: any, bodyModel?: any): T {

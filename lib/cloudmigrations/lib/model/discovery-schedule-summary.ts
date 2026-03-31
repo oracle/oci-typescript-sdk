@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Sumarized information about a discovery schedule.
+ * Summarized information about a discovery schedule.
  */
 export interface DiscoveryScheduleSummary {
   /**

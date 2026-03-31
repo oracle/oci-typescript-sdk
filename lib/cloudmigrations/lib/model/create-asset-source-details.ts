@@ -63,6 +63,10 @@ export interface CreateAssetSourceDetails {
    *
    */
   "systemTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * Specifies if this is the Source or Destination point for migration - different assets may be discovered depending on setting.
+   */
+  "environmentType"?: model.EnvironmentType;
 
   "type": string;
 }
@@ -76,6 +80,16 @@ export namespace CreateAssetSourceDetails {
         case "VMWARE":
           return model.CreateVmWareAssetSourceDetails.getJsonObj(
             <model.CreateVmWareAssetSourceDetails>(<object>jsonObj),
+            true
+          );
+        case "OLVM":
+          return model.CreateOlvmAssetSourceDetails.getJsonObj(
+            <model.CreateOlvmAssetSourceDetails>(<object>jsonObj),
+            true
+          );
+        case "AWS":
+          return model.CreateAwsAssetSourceDetails.getJsonObj(
+            <model.CreateAwsAssetSourceDetails>(<object>jsonObj),
             true
           );
         default:
@@ -92,6 +106,16 @@ export namespace CreateAssetSourceDetails {
         case "VMWARE":
           return model.CreateVmWareAssetSourceDetails.getDeserializedJsonObj(
             <model.CreateVmWareAssetSourceDetails>(<object>jsonObj),
+            true
+          );
+        case "OLVM":
+          return model.CreateOlvmAssetSourceDetails.getDeserializedJsonObj(
+            <model.CreateOlvmAssetSourceDetails>(<object>jsonObj),
+            true
+          );
+        case "AWS":
+          return model.CreateAwsAssetSourceDetails.getDeserializedJsonObj(
+            <model.CreateAwsAssetSourceDetails>(<object>jsonObj),
             true
           );
         default:

@@ -28,6 +28,10 @@ export interface ListWorkRequestsRequest extends common.BaseRequest {
    */
   "id"?: string;
   /**
+   * <b>Filter</b> results by the [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the resource associated with the work request.
+   */
+  "resourceId"?: string;
+  /**
    * <b>Filter</b> results by the type of the operation associated with the work request.
    */
   "operationType"?: ListWorkRequestsRequest.OperationType;

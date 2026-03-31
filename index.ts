@@ -243,3 +243,5 @@ export import marketplaceprivateoffer = require("oci-marketplaceprivateoffer");
 export import gdp = require("oci-gdp");
 export import limitsincrease = require("oci-limitsincrease");
 export import generativeaidata = require("oci-generativeaidata");
+export import containerregistry = require("oci-containerregistry");
+export import self = require("oci-self");

@@ -39,6 +39,14 @@ export interface CreateLdapBindAccountDetails extends model.CreateOutboundConnec
    * Version of the password secret in the Vault to use. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "passwordSecretVersion"?: number;
+  /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the trusted certificate for the LDAP server in the Vault.
+   */
+  "trustedCertificateSecretId"?: string;
+  /**
+   * Version of the trusted certificate secret in the Vault to use. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "trustedCertificateSecretVersion"?: number;
 
   "connectorType": string;
 }
