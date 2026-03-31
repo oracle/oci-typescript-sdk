@@ -57,8 +57,8 @@ Example: {@code 3}
     */
   "weight"?: number;
   /**
-    * Whether the network load balancer should drain this server. Servers marked \"isDrain\" receive no
-* incoming traffic.
+    * Whether the network load balancer should drain this server. 
+* Servers marked \"isDrain\" stop receiving new connections but will continue to receive traffic on existing connections until the connection is terminated.
 * <p>
 Example: {@code false}
 * 

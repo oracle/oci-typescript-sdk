@@ -12460,6 +12460,7 @@ export class DataScienceClient {
     const queryParams = {
       "compartmentId": listWorkRequestsRequest.compartmentId,
       "id": listWorkRequestsRequest.id,
+      "resourceId": listWorkRequestsRequest.resourceId,
       "operationType": listWorkRequestsRequest.operationType,
       "status": listWorkRequestsRequest.status,
       "limit": listWorkRequestsRequest.limit,

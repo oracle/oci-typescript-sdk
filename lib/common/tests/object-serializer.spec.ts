@@ -110,4 +110,66 @@ describe("Test ObjectSerializer", () => {
     expect(serializedJson).to.have.string("name1");
     expect(serializedJson).to.have.string("name2");
   });
+
+  it("serializes with ASCII-safe unicode escaping when OCI_SDK_ESCAPE_JSON_ASCII=true", function() {
+    const originalEscapeJsonAscii = process.env.OCI_SDK_ESCAPE_JSON_ASCII;
+    process.env.OCI_SDK_ESCAPE_JSON_ASCII = "true";
+    const simpleData = {
+      normal: "test",
+      nonascii: "こんにちは", // Japanese for "hello"
+      emoji: "A🙂B"
+    };
+    const serialized = ObjectSerializer.serialize(simpleData, "Object");
+    // Confirm all non-ASCII characters are unicode escaped
+    expect(serialized).to.have.string("\\u3053\\u3093\\u306b\\u3061\\u306f"); // こんにちは
+    expect(serialized).to.have.string("\\ud83d\\ude42"); // 🙂 emoji
+    expect(serialized).to.not.have.string("こんにちは");
+    expect(serialized).to.not.have.string("🙂");
+
+    // Test on more complex nested object
+    const complexData = {
+      nested: {
+        nonascii: "こんにちは",
+        emoji: "🙂",
+        nestedList: [
+          {
+            nonascii: "日本語",
+            emoji: "✅"
+          }
+        ]
+      },
+      list: ["さようなら", "❌"],
+      min: String.fromCodePoint(0x0000), // U+0000
+      max: String.fromCodePoint(0x10ffff) // U+10FFFF
+    };
+    const serializedComplex = ObjectSerializer.serialize(complexData, "Object");
+    expect(serializedComplex).to.have.string("\\u3053\\u3093\\u306b\\u3061\\u306f"); // こんにちは
+    expect(serializedComplex).to.have.string("\\ud83d\\ude42"); // 🙂 emoji
+    expect(serializedComplex).to.have.string("\\u0000"); // U+0000
+    expect(serializedComplex).to.have.string("\\udbff\\udfff"); // U+10FFFF
+    expect(serializedComplex).to.have.string("\\u65e5\\u672c\\u8a9e"); // 日本語
+    expect(serializedComplex).to.have.string("\\u3055\\u3088\\u3046\\u306a\\u3089"); // さようなら
+    expect(serializedComplex).to.have.string("\\u2705"); // ✅ emoji
+    expect(serializedComplex).to.have.string("\\u274c"); // ❌ emoji
+    expect(serializedComplex).to.not.have.string("こんにちは");
+    expect(serializedComplex).to.not.have.string("🙂");
+    expect(serializedComplex).to.not.have.string("日本語");
+    expect(serializedComplex).to.not.have.string("✅");
+    expect(serializedComplex).to.not.have.string("❌");
+    expect(serializedComplex).to.not.have.string("さようなら");
+    process.env.OCI_SDK_ESCAPE_JSON_ASCII = originalEscapeJsonAscii;
+  });
+
+  it("serializes without ASCII-safe escaping by default", function() {
+    const originalEscapeJsonAscii = process.env.OCI_SDK_ESCAPE_JSON_ASCII;
+    delete process.env.OCI_SDK_ESCAPE_JSON_ASCII;
+    const data = {
+      nonascii: "こんにちは",
+      emoji: "🙂"
+    };
+    const serialized = ObjectSerializer.serialize(data, "Object");
+    expect(serialized).to.have.string("こんにちは");
+    expect(serialized).to.have.string("🙂");
+    process.env.OCI_SDK_ESCAPE_JSON_ASCII = originalEscapeJsonAscii;
+  });
 });

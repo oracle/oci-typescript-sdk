@@ -32,6 +32,11 @@ export namespace TargetEnvironment {
 
     if (obj && "targetEnvironmentType" in obj && obj.targetEnvironmentType) {
       switch (obj.targetEnvironmentType) {
+        case "OLVM_TARGET_ENV":
+          return model.OlvmTargetEnvironment.getJsonObj(
+            <model.OlvmTargetEnvironment>(<object>jsonObj),
+            true
+          );
         case "VM_TARGET_ENV":
           return model.VmTargetEnvironment.getJsonObj(
             <model.VmTargetEnvironment>(<object>jsonObj),
@@ -49,6 +54,11 @@ export namespace TargetEnvironment {
 
     if (obj && "targetEnvironmentType" in obj && obj.targetEnvironmentType) {
       switch (obj.targetEnvironmentType) {
+        case "OLVM_TARGET_ENV":
+          return model.OlvmTargetEnvironment.getDeserializedJsonObj(
+            <model.OlvmTargetEnvironment>(<object>jsonObj),
+            true
+          );
         case "VM_TARGET_ENV":
           return model.VmTargetEnvironment.getDeserializedJsonObj(
             <model.VmTargetEnvironment>(<object>jsonObj),

@@ -82,6 +82,10 @@ export interface AssetSource {
    *
    */
   "systemTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * Specifies if this is the Source or Destination point for migration - different assets may be discovered depending on setting.
+   */
+  "environmentType"?: model.EnvironmentType;
 
   "type": string;
 }
@@ -97,6 +101,10 @@ export namespace AssetSource {
             <model.VmWareAssetSource>(<object>jsonObj),
             true
           );
+        case "OLVM":
+          return model.OlvmAssetSource.getJsonObj(<model.OlvmAssetSource>(<object>jsonObj), true);
+        case "AWS":
+          return model.AwsAssetSource.getJsonObj(<model.AwsAssetSource>(<object>jsonObj), true);
         default:
           if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.type}`);
       }
@@ -111,6 +119,16 @@ export namespace AssetSource {
         case "VMWARE":
           return model.VmWareAssetSource.getDeserializedJsonObj(
             <model.VmWareAssetSource>(<object>jsonObj),
+            true
+          );
+        case "OLVM":
+          return model.OlvmAssetSource.getDeserializedJsonObj(
+            <model.OlvmAssetSource>(<object>jsonObj),
+            true
+          );
+        case "AWS":
+          return model.AwsAssetSource.getDeserializedJsonObj(
+            <model.AwsAssetSource>(<object>jsonObj),
             true
           );
         default:
