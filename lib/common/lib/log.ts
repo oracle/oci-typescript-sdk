@@ -16,7 +16,7 @@ export interface Logger {
   trace(message?: any, ...optionalParams: any[]): void;
 }
 
-export module LOG {
+export namespace LOG {
   var _logger: Logger;
 
   export declare var logger: Logger;
