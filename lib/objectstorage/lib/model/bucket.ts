@@ -148,6 +148,15 @@ export interface Bucket {
    *
    */
   "autoTiering"?: Bucket.AutoTiering;
+  /**
+   * Scope in which the bucket is unique. Default value is NAMESPACE.
+   * Bucket scope as NAMESPACE means that the bucket is unique only in the owning namespace/tenancy. Other
+   * tenancies can have a bucket with same name in their namespace.
+   * Bucket scope as REGION means that the bucket is regionally unique. No other tenancy can have a bucket with
+   * same name and scope REGION.
+   *
+   */
+  "bucketScope"?: Bucket.BucketScope;
 }
 
 export namespace Bucket {
@@ -186,6 +195,16 @@ export namespace Bucket {
   export enum AutoTiering {
     Disabled = "Disabled",
     InfrequentAccess = "InfrequentAccess",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum BucketScope {
+    Namespace = "NAMESPACE",
+    Region = "REGION",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

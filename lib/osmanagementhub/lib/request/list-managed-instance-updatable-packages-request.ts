@@ -42,6 +42,11 @@ Example: {@code ELSA-2020-5804}
  */
   "advisoryName"?: Array<string>;
   /**
+   * The advisory severity.
+   *
+   */
+  "advisorySeverity"?: Array<model.AdvisorySeverity>;
+  /**
    * The OCID of the compartment that contains the resources to list. This filter returns only resources contained within the specified compartment.
    */
   "compartmentId"?: string;

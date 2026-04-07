@@ -117,6 +117,14 @@ export interface NodePoolSummary {
   "systemTags"?: { [key: string]: { [key: string]: any } };
   "nodeEvictionNodePoolSettings"?: model.NodeEvictionNodePoolSettings;
   "nodePoolCyclingDetails"?: model.NodePoolCyclingDetails;
+  /**
+   * A list of secondary vnics to attach to nodes
+   */
+  "secondaryVnics"?: Array<model.NodePoolSecondaryVnicDetails>;
+  /**
+   * Emulation type for the physical network interface card (NIC) for nodes
+   */
+  "networkLaunchType"?: model.NetworkLaunchType;
 }
 
 export namespace NodePoolSummary {
@@ -149,6 +157,11 @@ export namespace NodePoolSummary {
           : undefined,
         "nodePoolCyclingDetails": obj.nodePoolCyclingDetails
           ? model.NodePoolCyclingDetails.getJsonObj(obj.nodePoolCyclingDetails)
+          : undefined,
+        "secondaryVnics": obj.secondaryVnics
+          ? obj.secondaryVnics.map(item => {
+              return model.NodePoolSecondaryVnicDetails.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -186,6 +199,11 @@ export namespace NodePoolSummary {
           : undefined,
         "nodePoolCyclingDetails": obj.nodePoolCyclingDetails
           ? model.NodePoolCyclingDetails.getDeserializedJsonObj(obj.nodePoolCyclingDetails)
+          : undefined,
+        "secondaryVnics": obj.secondaryVnics
+          ? obj.secondaryVnics.map(item => {
+              return model.NodePoolSecondaryVnicDetails.getDeserializedJsonObj(item);
+            })
           : undefined
       }
     };

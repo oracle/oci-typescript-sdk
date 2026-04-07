@@ -21,6 +21,10 @@ import common = require("oci-common");
  */
 export interface SysadminEventData {
   /**
+   * Brief description on how this error is categorized.
+   */
+  "errorSummary"?: string;
+  /**
    * The commands executed by the agent that caused the error.
    */
   "errorCause": string;

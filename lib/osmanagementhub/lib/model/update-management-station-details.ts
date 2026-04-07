@@ -36,6 +36,14 @@ export interface UpdateManagementStationDetails {
    * When enabled, the station setup script automatically runs to configure the firewall and SELinux settings on the station.
    */
   "isAutoConfigEnabled"?: boolean;
+  /**
+   * The operating system family.
+   */
+  "osFamily"?: model.OsFamily;
+  /**
+   * The architecture type.
+   */
+  "archType"?: model.ArchType;
   "proxy"?: model.UpdateProxyConfigurationDetails;
   "mirror"?: model.UpdateMirrorConfigurationDetails;
   /**

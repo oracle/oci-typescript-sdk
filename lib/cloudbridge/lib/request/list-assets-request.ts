@@ -71,6 +71,14 @@ export interface ListAssetsRequest extends common.BaseRequest {
    * Unique Inventory identifier.
    */
   "inventoryId"?: string;
+  /**
+   * The name of the asset class.
+   */
+  "assetClassName"?: string;
+  /**
+   * The version of the asset class.
+   */
+  "assetClassVersion"?: string;
 }
 
 export namespace ListAssetsRequest {
