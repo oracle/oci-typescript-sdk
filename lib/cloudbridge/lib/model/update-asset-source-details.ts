@@ -53,6 +53,10 @@ export interface UpdateAssetSourceDetails {
    *
    */
   "systemTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * Specifies if this is the Source or Destination point for migration - different assets may be discovered depending on setting.
+   */
+  "environmentType"?: model.EnvironmentType;
 
   "type": string;
 }
@@ -66,6 +70,11 @@ export namespace UpdateAssetSourceDetails {
         case "VMWARE":
           return model.UpdateVmWareAssetSourceDetails.getJsonObj(
             <model.UpdateVmWareAssetSourceDetails>(<object>jsonObj),
+            true
+          );
+        case "OLVM":
+          return model.UpdateOlvmAssetSourceDetails.getJsonObj(
+            <model.UpdateOlvmAssetSourceDetails>(<object>jsonObj),
             true
           );
         case "AWS":
@@ -87,6 +96,11 @@ export namespace UpdateAssetSourceDetails {
         case "VMWARE":
           return model.UpdateVmWareAssetSourceDetails.getDeserializedJsonObj(
             <model.UpdateVmWareAssetSourceDetails>(<object>jsonObj),
+            true
+          );
+        case "OLVM":
+          return model.UpdateOlvmAssetSourceDetails.getDeserializedJsonObj(
+            <model.UpdateOlvmAssetSourceDetails>(<object>jsonObj),
             true
           );
         case "AWS":

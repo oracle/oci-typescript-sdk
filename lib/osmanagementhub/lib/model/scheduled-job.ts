@@ -53,7 +53,10 @@ export interface ScheduledJob {
    */
   "timeLastExecution"?: Date;
   /**
-   * The frequency schedule for a recurring scheduled job.
+   * The frequency schedule for a recurring scheduled job in the [RFC5535](https://www.rfc-editor.org/rfc/rfc5535) format.
+   * Currently, only FREQ/INTERVAL/BYMONTHDAY/BYDAY/BYSETPOS/BYMONTH/BYHOUR/BYMINUTE/BYSECOND rules are supported.
+   * In FREQ, only YEARLY, MONTHLY, WEEKLY, DAILY\", HOURLY are supported.
+   *
    */
   "recurringRule"?: string;
   /**
@@ -74,10 +77,17 @@ export interface ScheduledJob {
   /**
    * The lifecycle stage [OCIDs](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) that this scheduled job operates on.
    * A scheduled job can only operate on one type of target, therefore this parameter is mutually exclusive with
-   * managedInstanceIds, managedInstanceGroupIds, and managedCompartmentIds.
+   * managedInstanceIds, managedInstanceGroupIds, managedCompartmentIds, and dynamicSetIds.
    *
    */
   "lifecycleStageIds"?: Array<string>;
+  /**
+   * The dynamic set [OCIDs](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) that this scheduled job operates on.
+   * A scheduled job can only operate on one type of target. therefore this parameter is mutually exclusive with
+   * managedInstanceIds, managedInstanceGroupIds, and managedCompartmentIds.
+   *
+   */
+  "dynamicSetIds"?: Array<string>;
   /**
    * Indicates whether to apply the scheduled job to all compartments in the tenancy when managedCompartmentIds specifies the tenancy [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) (root compartment).
    *

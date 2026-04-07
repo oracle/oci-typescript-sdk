@@ -2241,7 +2241,9 @@ export class InventoryClient {
       "sortOrder": analyzeAssetsRequest.sortOrder,
       "aggregationProperties": analyzeAssetsRequest.aggregationProperties,
       "groupBy": analyzeAssetsRequest.groupBy,
-      "inventoryId": analyzeAssetsRequest.inventoryId
+      "inventoryId": analyzeAssetsRequest.inventoryId,
+      "assetClassName": analyzeAssetsRequest.assetClassName,
+      "assetClassVersion": analyzeAssetsRequest.assetClassVersion
     };
 
     let headerParams = {
@@ -3008,7 +3010,9 @@ export class InventoryClient {
       "displayName": listAssetsRequest.displayName,
       "sortOrder": listAssetsRequest.sortOrder,
       "sortBy": listAssetsRequest.sortBy,
-      "inventoryId": listAssetsRequest.inventoryId
+      "inventoryId": listAssetsRequest.inventoryId,
+      "assetClassName": listAssetsRequest.assetClassName,
+      "assetClassVersion": listAssetsRequest.assetClassVersion
     };
 
     let headerParams = {

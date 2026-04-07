@@ -79,6 +79,10 @@ export interface Asset {
    *
    */
   "systemTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * Specifies if this is the Source or Destination point for migration - different assets may be discovered depending on setting.
+   */
+  "environmentType"?: model.EnvironmentType;
 
   "assetType": string;
 }
@@ -101,6 +105,8 @@ export namespace Asset {
       switch (obj.assetType) {
         case "AWS_EC2":
           return model.AwsEc2Asset.getJsonObj(<model.AwsEc2Asset>(<object>jsonObj), true);
+        case "INVENTORY_ASSET":
+          return model.InventoryAsset.getJsonObj(<model.InventoryAsset>(<object>jsonObj), true);
         case "VMWARE_VM":
           return model.VmwareVmAsset.getJsonObj(<model.VmwareVmAsset>(<object>jsonObj), true);
         case "AWS_EBS":
@@ -121,6 +127,11 @@ export namespace Asset {
         case "AWS_EC2":
           return model.AwsEc2Asset.getDeserializedJsonObj(
             <model.AwsEc2Asset>(<object>jsonObj),
+            true
+          );
+        case "INVENTORY_ASSET":
+          return model.InventoryAsset.getDeserializedJsonObj(
+            <model.InventoryAsset>(<object>jsonObj),
             true
           );
         case "VMWARE_VM":

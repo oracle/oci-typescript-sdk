@@ -81,6 +81,11 @@ export interface WorkRequestSummary {
    * The number of minutes the service waits for the reboot to complete. If the managed instance doesn't reboot within the timeout, the service marks the reboot job as failed. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "rebootTimeoutInMins"?: number;
+  /**
+   * The date and time the work request completed (in [RFC 3339](https://tools.ietf.org/rfc/rfc3339) format).
+   *
+   */
+  "timeFinished"?: Date;
 }
 
 export namespace WorkRequestSummary {

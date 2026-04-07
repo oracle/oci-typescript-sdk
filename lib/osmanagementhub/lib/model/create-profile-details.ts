@@ -21,7 +21,7 @@ import common = require("oci-common");
  */
 export interface CreateProfileDetails {
   /**
-   * A user-friendly name. Does not have to be unique and you can change the name later. Avoid entering
+   * A user-friendly name. Must be unique and you can change the name later. Avoid entering
    * confidential information.
    *
    */
@@ -36,7 +36,7 @@ export interface CreateProfileDetails {
   "description"?: string;
   /**
    * description: The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the management station to associate
-   * with an instance once registered. This is required when creating a profile for non-OCI instances.
+   * with an instance once registered. This is used when creating a profile for non-OCI instances.
    *
    */
   "managementStationId"?: string;
@@ -73,6 +73,11 @@ export namespace CreateProfileDetails {
 
     if (obj && "profileType" in obj && obj.profileType) {
       switch (obj.profileType) {
+        case "UBUNTU_STANDALONE":
+          return model.CreateUbuntuStandAloneProfileDetails.getJsonObj(
+            <model.CreateUbuntuStandAloneProfileDetails>(<object>jsonObj),
+            true
+          );
         case "GROUP":
           return model.CreateGroupProfileDetails.getJsonObj(
             <model.CreateGroupProfileDetails>(<object>jsonObj),
@@ -109,6 +114,11 @@ export namespace CreateProfileDetails {
 
     if (obj && "profileType" in obj && obj.profileType) {
       switch (obj.profileType) {
+        case "UBUNTU_STANDALONE":
+          return model.CreateUbuntuStandAloneProfileDetails.getDeserializedJsonObj(
+            <model.CreateUbuntuStandAloneProfileDetails>(<object>jsonObj),
+            true
+          );
         case "GROUP":
           return model.CreateGroupProfileDetails.getDeserializedJsonObj(
             <model.CreateGroupProfileDetails>(<object>jsonObj),

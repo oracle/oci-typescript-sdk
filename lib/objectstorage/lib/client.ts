@@ -5414,7 +5414,7 @@ See [Special Instructions for Object Storage PUT](https://docs.oracle.com/iaas/C
 * master encryption key to the bucket, you can call this API to re-encrypt all data encryption keys with the newly 
 * assigned key. Similarly, you might want to re-encrypt all data encryption keys if the assigned key has been rotated to 
 * a new key version since objects were last added to the bucket. If you call this API and there is no kmsKeyId associated 
-* with the bucket, the call will fail.
+* with the bucket, the call will fail. 
 * <p>
 Calling this API starts a work request task to re-encrypt the data encryption key of all objects in the bucket. Only 
 * objects created before the time of the API call will be re-encrypted. The call can take a long time, depending on how many 

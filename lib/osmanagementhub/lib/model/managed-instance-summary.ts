@@ -88,6 +88,11 @@ export interface ManagedInstanceSummary {
    * The version of osmh-agent running on the managed instance
    */
   "agentVersion"?: string;
+  /**
+   * Time that the instance last booted (in [RFC 3339](https://tools.ietf.org/rfc/rfc3339) format).
+   *
+   */
+  "timeLastBoot"?: Date;
 }
 
 export namespace ManagedInstanceSummary {

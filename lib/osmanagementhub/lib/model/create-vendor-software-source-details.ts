@@ -23,7 +23,11 @@ export interface CreateVendorSoftwareSourceDetails extends model.CreateSoftwareS
   /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the vendor software source in the root compartment that is being replicated.
    */
-  "originSoftwareSourceId": string;
+  "originSoftwareSourceId"?: string;
+  /**
+   * The display name of the software source to be replicated
+   */
+  "originDisplayName"?: string;
 
   "softwareSourceType": string;
 }

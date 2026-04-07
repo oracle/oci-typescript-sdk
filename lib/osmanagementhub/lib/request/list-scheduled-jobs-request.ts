@@ -126,6 +126,10 @@ Example: {@code 3}
    *
    */
   "isManagedByAutonomousLinux"?: boolean;
+  /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the dynamic set. This filter returns resources associated with this dynamic set.
+   */
+  "dynamicSetId"?: string;
 }
 
 export namespace ListScheduledJobsRequest {

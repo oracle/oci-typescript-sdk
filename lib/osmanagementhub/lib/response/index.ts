@@ -13,6 +13,30 @@ For more information, see [Overview of OS Management Hub](https://docs.oracle.co
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as ChangeDynamicSetCompartmentResponse from "./change-dynamic-set-compartment-response";
+export import ChangeDynamicSetCompartmentResponse = ChangeDynamicSetCompartmentResponse.ChangeDynamicSetCompartmentResponse;
+import * as CreateDynamicSetResponse from "./create-dynamic-set-response";
+export import CreateDynamicSetResponse = CreateDynamicSetResponse.CreateDynamicSetResponse;
+import * as DeleteDynamicSetResponse from "./delete-dynamic-set-response";
+export import DeleteDynamicSetResponse = DeleteDynamicSetResponse.DeleteDynamicSetResponse;
+import * as GetDynamicSetResponse from "./get-dynamic-set-response";
+export import GetDynamicSetResponse = GetDynamicSetResponse.GetDynamicSetResponse;
+import * as InstallPackagesOnDynamicSetResponse from "./install-packages-on-dynamic-set-response";
+export import InstallPackagesOnDynamicSetResponse = InstallPackagesOnDynamicSetResponse.InstallPackagesOnDynamicSetResponse;
+import * as ListDynamicSetsResponse from "./list-dynamic-sets-response";
+export import ListDynamicSetsResponse = ListDynamicSetsResponse.ListDynamicSetsResponse;
+import * as ListManagedInstancesInDynamicSetResponse from "./list-managed-instances-in-dynamic-set-response";
+export import ListManagedInstancesInDynamicSetResponse = ListManagedInstancesInDynamicSetResponse.ListManagedInstancesInDynamicSetResponse;
+import * as PreviewManagedInstancesResponse from "./preview-managed-instances-response";
+export import PreviewManagedInstancesResponse = PreviewManagedInstancesResponse.PreviewManagedInstancesResponse;
+import * as RebootDynamicSetResponse from "./reboot-dynamic-set-response";
+export import RebootDynamicSetResponse = RebootDynamicSetResponse.RebootDynamicSetResponse;
+import * as RemovePackagesFromDynamicSetResponse from "./remove-packages-from-dynamic-set-response";
+export import RemovePackagesFromDynamicSetResponse = RemovePackagesFromDynamicSetResponse.RemovePackagesFromDynamicSetResponse;
+import * as UpdateDynamicSetResponse from "./update-dynamic-set-response";
+export import UpdateDynamicSetResponse = UpdateDynamicSetResponse.UpdateDynamicSetResponse;
+import * as UpdatePackagesOnDynamicSetResponse from "./update-packages-on-dynamic-set-response";
+export import UpdatePackagesOnDynamicSetResponse = UpdatePackagesOnDynamicSetResponse.UpdatePackagesOnDynamicSetResponse;
 import * as ChangeEventCompartmentResponse from "./change-event-compartment-response";
 export import ChangeEventCompartmentResponse = ChangeEventCompartmentResponse.ChangeEventCompartmentResponse;
 import * as DeleteEventResponse from "./delete-event-response";
@@ -81,6 +105,8 @@ import * as InstallModuleStreamProfileOnManagedInstanceResponse from "./install-
 export import InstallModuleStreamProfileOnManagedInstanceResponse = InstallModuleStreamProfileOnManagedInstanceResponse.InstallModuleStreamProfileOnManagedInstanceResponse;
 import * as InstallPackagesOnManagedInstanceResponse from "./install-packages-on-managed-instance-response";
 export import InstallPackagesOnManagedInstanceResponse = InstallPackagesOnManagedInstanceResponse.InstallPackagesOnManagedInstanceResponse;
+import * as InstallSnapsOnManagedInstanceResponse from "./install-snaps-on-managed-instance-response";
+export import InstallSnapsOnManagedInstanceResponse = InstallSnapsOnManagedInstanceResponse.InstallSnapsOnManagedInstanceResponse;
 import * as InstallWindowsUpdatesOnManagedInstanceResponse from "./install-windows-updates-on-managed-instance-response";
 export import InstallWindowsUpdatesOnManagedInstanceResponse = InstallWindowsUpdatesOnManagedInstanceResponse.InstallWindowsUpdatesOnManagedInstanceResponse;
 import * as ListManagedInstanceAvailablePackagesResponse from "./list-managed-instance-available-packages-response";
@@ -97,6 +123,8 @@ import * as ListManagedInstanceInstalledWindowsUpdatesResponse from "./list-mana
 export import ListManagedInstanceInstalledWindowsUpdatesResponse = ListManagedInstanceInstalledWindowsUpdatesResponse.ListManagedInstanceInstalledWindowsUpdatesResponse;
 import * as ListManagedInstanceModulesResponse from "./list-managed-instance-modules-response";
 export import ListManagedInstanceModulesResponse = ListManagedInstanceModulesResponse.ListManagedInstanceModulesResponse;
+import * as ListManagedInstanceSnapsResponse from "./list-managed-instance-snaps-response";
+export import ListManagedInstanceSnapsResponse = ListManagedInstanceSnapsResponse.ListManagedInstanceSnapsResponse;
 import * as ListManagedInstanceUpdatablePackagesResponse from "./list-managed-instance-updatable-packages-response";
 export import ListManagedInstanceUpdatablePackagesResponse = ListManagedInstanceUpdatablePackagesResponse.ListManagedInstanceUpdatablePackagesResponse;
 import * as ListManagedInstancesResponse from "./list-managed-instances-response";
@@ -113,8 +141,12 @@ import * as RemoveModuleStreamProfileFromManagedInstanceResponse from "./remove-
 export import RemoveModuleStreamProfileFromManagedInstanceResponse = RemoveModuleStreamProfileFromManagedInstanceResponse.RemoveModuleStreamProfileFromManagedInstanceResponse;
 import * as RemovePackagesFromManagedInstanceResponse from "./remove-packages-from-managed-instance-response";
 export import RemovePackagesFromManagedInstanceResponse = RemovePackagesFromManagedInstanceResponse.RemovePackagesFromManagedInstanceResponse;
+import * as RemoveSnapsFromManagedInstanceResponse from "./remove-snaps-from-managed-instance-response";
+export import RemoveSnapsFromManagedInstanceResponse = RemoveSnapsFromManagedInstanceResponse.RemoveSnapsFromManagedInstanceResponse;
 import * as SwitchModuleStreamOnManagedInstanceResponse from "./switch-module-stream-on-managed-instance-response";
 export import SwitchModuleStreamOnManagedInstanceResponse = SwitchModuleStreamOnManagedInstanceResponse.SwitchModuleStreamOnManagedInstanceResponse;
+import * as SwitchSnapChannelOnManagedInstanceResponse from "./switch-snap-channel-on-managed-instance-response";
+export import SwitchSnapChannelOnManagedInstanceResponse = SwitchSnapChannelOnManagedInstanceResponse.SwitchSnapChannelOnManagedInstanceResponse;
 import * as UpdateAllPackagesOnManagedInstancesInCompartmentResponse from "./update-all-packages-on-managed-instances-in-compartment-response";
 export import UpdateAllPackagesOnManagedInstancesInCompartmentResponse = UpdateAllPackagesOnManagedInstancesInCompartmentResponse.UpdateAllPackagesOnManagedInstancesInCompartmentResponse;
 import * as UpdateManagedInstanceResponse from "./update-managed-instance-response";
@@ -155,6 +187,8 @@ import * as ListManagedInstanceGroupAvailableSoftwareSourcesResponse from "./lis
 export import ListManagedInstanceGroupAvailableSoftwareSourcesResponse = ListManagedInstanceGroupAvailableSoftwareSourcesResponse.ListManagedInstanceGroupAvailableSoftwareSourcesResponse;
 import * as ListManagedInstanceGroupInstalledPackagesResponse from "./list-managed-instance-group-installed-packages-response";
 export import ListManagedInstanceGroupInstalledPackagesResponse = ListManagedInstanceGroupInstalledPackagesResponse.ListManagedInstanceGroupInstalledPackagesResponse;
+import * as ListManagedInstanceGroupManagedInstancesResponse from "./list-managed-instance-group-managed-instances-response";
+export import ListManagedInstanceGroupManagedInstancesResponse = ListManagedInstanceGroupManagedInstancesResponse.ListManagedInstanceGroupManagedInstancesResponse;
 import * as ListManagedInstanceGroupModulesResponse from "./list-managed-instance-group-modules-response";
 export import ListManagedInstanceGroupModulesResponse = ListManagedInstanceGroupModulesResponse.ListManagedInstanceGroupModulesResponse;
 import * as ListManagedInstanceGroupsResponse from "./list-managed-instance-groups-response";
@@ -163,6 +197,8 @@ import * as ManageModuleStreamsOnManagedInstanceGroupResponse from "./manage-mod
 export import ManageModuleStreamsOnManagedInstanceGroupResponse = ManageModuleStreamsOnManagedInstanceGroupResponse.ManageModuleStreamsOnManagedInstanceGroupResponse;
 import * as RebootManagedInstanceGroupResponse from "./reboot-managed-instance-group-response";
 export import RebootManagedInstanceGroupResponse = RebootManagedInstanceGroupResponse.RebootManagedInstanceGroupResponse;
+import * as RefreshSoftwareOnManagedInstanceGroupResponse from "./refresh-software-on-managed-instance-group-response";
+export import RefreshSoftwareOnManagedInstanceGroupResponse = RefreshSoftwareOnManagedInstanceGroupResponse.RefreshSoftwareOnManagedInstanceGroupResponse;
 import * as RemoveModuleStreamProfileFromManagedInstanceGroupResponse from "./remove-module-stream-profile-from-managed-instance-group-response";
 export import RemoveModuleStreamProfileFromManagedInstanceGroupResponse = RemoveModuleStreamProfileFromManagedInstanceGroupResponse.RemoveModuleStreamProfileFromManagedInstanceGroupResponse;
 import * as RemovePackagesFromManagedInstanceGroupResponse from "./remove-packages-from-managed-instance-group-response";
@@ -207,6 +243,8 @@ import * as CreateProfileResponse from "./create-profile-response";
 export import CreateProfileResponse = CreateProfileResponse.CreateProfileResponse;
 import * as DeleteProfileResponse from "./delete-profile-response";
 export import DeleteProfileResponse = DeleteProfileResponse.DeleteProfileResponse;
+import * as DetachManagementStationFromProfileResponse from "./detach-management-station-from-profile-response";
+export import DetachManagementStationFromProfileResponse = DetachManagementStationFromProfileResponse.DetachManagementStationFromProfileResponse;
 import * as DetachSoftwareSourcesFromProfileResponse from "./detach-software-sources-from-profile-response";
 export import DetachSoftwareSourcesFromProfileResponse = DetachSoftwareSourcesFromProfileResponse.DetachSoftwareSourcesFromProfileResponse;
 import * as GetProfileResponse from "./get-profile-response";
@@ -271,6 +309,8 @@ import * as ListAllSoftwarePackagesResponse from "./list-all-software-packages-r
 export import ListAllSoftwarePackagesResponse = ListAllSoftwarePackagesResponse.ListAllSoftwarePackagesResponse;
 import * as ListAvailableSoftwarePackagesResponse from "./list-available-software-packages-response";
 export import ListAvailableSoftwarePackagesResponse = ListAvailableSoftwarePackagesResponse.ListAvailableSoftwarePackagesResponse;
+import * as ListAvailableSoftwareSourcesToAddResponse from "./list-available-software-sources-to-add-response";
+export import ListAvailableSoftwareSourcesToAddResponse = ListAvailableSoftwareSourcesToAddResponse.ListAvailableSoftwareSourcesToAddResponse;
 import * as ListEntitlementsResponse from "./list-entitlements-response";
 export import ListEntitlementsResponse = ListEntitlementsResponse.ListEntitlementsResponse;
 import * as ListErrataResponse from "./list-errata-response";

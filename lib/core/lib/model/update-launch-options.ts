@@ -48,6 +48,7 @@ If the instance is running when you change the boot volume attachment type, it w
 * * {@code VFIO} - Direct attached Virtual Function network controller. This is the networking type
 * when you launch an instance using hardware-assisted (SR-IOV) networking.
 * * {@code PARAVIRTUALIZED} - VM instances launch with paravirtualized devices using VirtIO drivers.
+* * {@code ACCELERATEDPV} - VM instances launch with accelerated paravirtualized networking type.
 * <p>
 Before you change the networking type, detach all VNICs and block volumes except for the primary
 * VNIC and the boot volume.
@@ -88,7 +89,8 @@ export namespace UpdateLaunchOptions {
 
   export enum NetworkType {
     Vfio = "VFIO",
-    Paravirtualized = "PARAVIRTUALIZED"
+    Paravirtualized = "PARAVIRTUALIZED",
+    Acceleratedpv = "ACCELERATEDPV"
   }
 
   export function getJsonObj(obj: UpdateLaunchOptions): object {

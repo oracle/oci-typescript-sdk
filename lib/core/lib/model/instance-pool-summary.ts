@@ -77,6 +77,10 @@ Example: {@code {\"Department\": \"Finance\"}}
 * 
     */
   "freeformTags"?: { [key: string]: string };
+  /**
+   * Count of instance in running state associated to the Instance Pool. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "currentSize"?: number;
 }
 
 export namespace InstancePoolSummary {

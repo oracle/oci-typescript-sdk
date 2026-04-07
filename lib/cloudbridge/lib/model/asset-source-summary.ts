@@ -81,6 +81,10 @@ export interface AssetSourceSummary {
    *
    */
   "systemTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * Specifies if this is the Source or Destination point for migration - different assets may be discovered depending on setting.
+   */
+  "environmentType"?: model.EnvironmentType;
 
   "type": string;
 }
@@ -94,6 +98,11 @@ export namespace AssetSourceSummary {
         case "VMWARE":
           return model.VmWareAssetSourceSummary.getJsonObj(
             <model.VmWareAssetSourceSummary>(<object>jsonObj),
+            true
+          );
+        case "OLVM":
+          return model.OlvmAssetSourceSummary.getJsonObj(
+            <model.OlvmAssetSourceSummary>(<object>jsonObj),
             true
           );
         case "AWS":
@@ -115,6 +124,11 @@ export namespace AssetSourceSummary {
         case "VMWARE":
           return model.VmWareAssetSourceSummary.getDeserializedJsonObj(
             <model.VmWareAssetSourceSummary>(<object>jsonObj),
+            true
+          );
+        case "OLVM":
+          return model.OlvmAssetSourceSummary.getDeserializedJsonObj(
+            <model.OlvmAssetSourceSummary>(<object>jsonObj),
             true
           );
         case "AWS":
