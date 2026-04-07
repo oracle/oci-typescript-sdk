@@ -35,6 +35,14 @@ export interface AvailableSoftwareSourceSummary {
    * User-friendly name for the software source.
    */
   "displayName": string;
+  /**
+   * Type of the software source.
+   */
+  "softwareSourceType": model.SoftwareSourceType;
+  /**
+   * Software source description.
+   */
+  "description"?: string;
 }
 
 export namespace AvailableSoftwareSourceSummary {

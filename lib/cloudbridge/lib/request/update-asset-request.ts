@@ -28,6 +28,7 @@ export interface UpdateAssetRequest extends common.BaseRequest {
   "updateAssetDetails":
     | model.UpdateVmAssetDetails
     | model.UpdateAwsEbsAssetDetails
+    | model.UpdateInventoryAssetDetails
     | model.UpdateVmwareVmAssetDetails
     | model.UpdateAwsEc2AssetDetails;
   /**

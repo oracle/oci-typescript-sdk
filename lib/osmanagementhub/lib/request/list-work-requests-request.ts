@@ -110,6 +110,10 @@ Example: {@code 50}
    *
    */
   "isManagedByAutonomousLinux"?: boolean;
+  /**
+   * Indicates whether to include subcompartments in the returned results. Default is false.
+   */
+  "compartmentIdInSubtree"?: boolean;
 }
 
 export namespace ListWorkRequestsRequest {

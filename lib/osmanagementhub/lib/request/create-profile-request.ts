@@ -22,6 +22,7 @@ export interface CreateProfileRequest extends common.BaseRequest {
    * Provides the information used to create the registration profile.
    */
   "createProfileDetails":
+    | model.CreateUbuntuStandAloneProfileDetails
     | model.CreateGroupProfileDetails
     | model.CreateWindowsStandAloneProfileDetails
     | model.CreateStationProfileDetails

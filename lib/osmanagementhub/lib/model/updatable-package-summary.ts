@@ -36,6 +36,10 @@ export interface UpdatablePackageSummary extends model.PackageSummary {
    * List of CVEs applicable to this erratum.
    */
   "relatedCves"?: Array<string>;
+  /**
+   * The severity level of the security update. Only applicable when updateType is SECURITY.
+   */
+  "advisorySeverity"?: model.AdvisorySeverity;
 
   "packageClassification": string;
 }

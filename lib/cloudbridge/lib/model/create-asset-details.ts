@@ -76,6 +76,11 @@ export namespace CreateAssetDetails {
             <model.CreateVmwareVmAssetDetails>(<object>jsonObj),
             true
           );
+        case "INVENTORY_ASSET":
+          return model.CreateInventoryAssetDetails.getJsonObj(
+            <model.CreateInventoryAssetDetails>(<object>jsonObj),
+            true
+          );
         case "AWS_EC2":
           return model.CreateAwsEc2AssetDetails.getJsonObj(
             <model.CreateAwsEc2AssetDetails>(<object>jsonObj),
@@ -100,6 +105,11 @@ export namespace CreateAssetDetails {
         case "VMWARE_VM":
           return model.CreateVmwareVmAssetDetails.getDeserializedJsonObj(
             <model.CreateVmwareVmAssetDetails>(<object>jsonObj),
+            true
+          );
+        case "INVENTORY_ASSET":
+          return model.CreateInventoryAssetDetails.getDeserializedJsonObj(
+            <model.CreateInventoryAssetDetails>(<object>jsonObj),
             true
           );
         case "AWS_EC2":

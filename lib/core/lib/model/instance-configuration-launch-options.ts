@@ -54,6 +54,7 @@ export interface InstanceConfigurationLaunchOptions {
    * * {@code VFIO} - Direct attached Virtual Function network controller. This is the networking type
    * when you launch an instance using hardware-assisted (SR-IOV) networking.
    * * {@code PARAVIRTUALIZED} - VM instances launch with paravirtualized devices using VirtIO drivers.
+   * * {@code ACCELERATEDPV} - VM instances launch with accelerated paravirtualized networking type.
    *
    */
   "networkType"?: InstanceConfigurationLaunchOptions.NetworkType;
@@ -109,6 +110,7 @@ export namespace InstanceConfigurationLaunchOptions {
     E1000 = "E1000",
     Vfio = "VFIO",
     Paravirtualized = "PARAVIRTUALIZED",
+    Acceleratedpv = "ACCELERATEDPV",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

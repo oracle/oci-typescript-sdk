@@ -147,6 +147,8 @@ export namespace Event {
           return model.KernelCrashEvent.getJsonObj(<model.KernelCrashEvent>(<object>jsonObj), true);
         case "SYSADMIN":
           return model.SysadminEvent.getJsonObj(<model.SysadminEvent>(<object>jsonObj), true);
+        case "SNAP_UPDATE":
+          return model.SnapUpdateEvent.getJsonObj(<model.SnapUpdateEvent>(<object>jsonObj), true);
         case "REBOOT":
           return model.RebootEvent.getJsonObj(<model.RebootEvent>(<object>jsonObj), true);
         case "EXPLOIT_ATTEMPT":
@@ -207,6 +209,11 @@ export namespace Event {
         case "SYSADMIN":
           return model.SysadminEvent.getDeserializedJsonObj(
             <model.SysadminEvent>(<object>jsonObj),
+            true
+          );
+        case "SNAP_UPDATE":
+          return model.SnapUpdateEvent.getDeserializedJsonObj(
+            <model.SnapUpdateEvent>(<object>jsonObj),
             true
           );
         case "REBOOT":

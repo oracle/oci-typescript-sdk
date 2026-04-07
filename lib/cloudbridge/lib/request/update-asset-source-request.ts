@@ -27,6 +27,7 @@ export interface UpdateAssetSourceRequest extends common.BaseRequest {
    */
   "updateAssetSourceDetails":
     | model.UpdateVmWareAssetSourceDetails
+    | model.UpdateOlvmAssetSourceDetails
     | model.UpdateAwsAssetSourceDetails;
   /**
    * For optimistic concurrency control. In the PUT or DELETE call
