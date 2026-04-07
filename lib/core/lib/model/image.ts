@@ -86,6 +86,7 @@ Example: {@code {\"Department\": \"Finance\"}}
    * * {@code NATIVE} - VM instances launch with iSCSI boot and VFIO devices. The default value for platform images.
    * * {@code EMULATED} - VM instances launch with emulated devices, such as the E1000 network driver and emulated SCSI disk controller.
    * * {@code PARAVIRTUALIZED} - VM instances launch with paravirtualized devices using VirtIO drivers.
+   * * {@code ACCELERATEDPV} - VM instances launch with accelerated paravirtualized networking type.
    * * {@code CUSTOM} - VM instances launch with custom configuration settings specified in the {@code LaunchOptions} parameter.
    *
    */
@@ -140,6 +141,7 @@ export namespace Image {
     Native = "NATIVE",
     Emulated = "EMULATED",
     Paravirtualized = "PARAVIRTUALIZED",
+    Acceleratedpv = "ACCELERATEDPV",
     Custom = "CUSTOM",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this

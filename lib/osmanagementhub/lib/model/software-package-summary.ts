@@ -41,6 +41,10 @@ export interface SoftwarePackageSummary {
    */
   "architecture"?: model.SoftwarePackageArchitecture;
   /**
+   * The date and time the package was last modified (in [RFC 3339](https://tools.ietf.org/rfc/rfc3339) format).
+   */
+  "lastModifiedDate"?: string;
+  /**
    * Checksum of the package.
    */
   "checksum"?: string;

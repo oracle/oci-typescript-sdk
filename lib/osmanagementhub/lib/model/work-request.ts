@@ -149,6 +149,10 @@ export interface WorkRequest {
    * The number of minutes the service waits for the reboot to complete. If the managed instance doesn't reboot within the timeout, the service marks the reboot job as failed. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "rebootTimeoutInMins"?: number;
+  /**
+   * The details about the snap.
+   */
+  "snapSpecs"?: Array<model.SnapSpecDetails>;
 }
 
 export namespace WorkRequest {
@@ -170,6 +174,12 @@ export namespace WorkRequest {
 
         "managementStation": obj.managementStation
           ? model.WorkRequestManagementStationDetails.getJsonObj(obj.managementStation)
+          : undefined,
+
+        "snapSpecs": obj.snapSpecs
+          ? obj.snapSpecs.map(item => {
+              return model.SnapSpecDetails.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -194,6 +204,12 @@ export namespace WorkRequest {
 
         "managementStation": obj.managementStation
           ? model.WorkRequestManagementStationDetails.getDeserializedJsonObj(obj.managementStation)
+          : undefined,
+
+        "snapSpecs": obj.snapSpecs
+          ? obj.snapSpecs.map(item => {
+              return model.SnapSpecDetails.getDeserializedJsonObj(item);
+            })
           : undefined
       }
     };

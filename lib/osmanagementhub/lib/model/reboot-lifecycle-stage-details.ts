@@ -17,7 +17,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * PProvides the information used for the reboot job.
+ * Provides the information used for the reboot job.
  */
 export interface RebootLifecycleStageDetails {
   /**

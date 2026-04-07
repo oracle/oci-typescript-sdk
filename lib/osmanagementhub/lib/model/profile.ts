@@ -146,6 +146,11 @@ export namespace Profile {
             <model.WindowsStandaloneProfile>(<object>jsonObj),
             true
           );
+        case "UBUNTU_STANDALONE":
+          return model.UbuntuStandaloneProfile.getJsonObj(
+            <model.UbuntuStandaloneProfile>(<object>jsonObj),
+            true
+          );
         case "LIFECYCLE":
           return model.LifecycleProfile.getJsonObj(<model.LifecycleProfile>(<object>jsonObj), true);
         case "SOFTWARESOURCE":
@@ -171,6 +176,11 @@ export namespace Profile {
         case "WINDOWS_STANDALONE":
           return model.WindowsStandaloneProfile.getDeserializedJsonObj(
             <model.WindowsStandaloneProfile>(<object>jsonObj),
+            true
+          );
+        case "UBUNTU_STANDALONE":
+          return model.UbuntuStandaloneProfile.getDeserializedJsonObj(
+            <model.UbuntuStandaloneProfile>(<object>jsonObj),
             true
           );
         case "LIFECYCLE":

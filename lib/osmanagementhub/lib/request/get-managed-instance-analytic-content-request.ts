@@ -25,9 +25,17 @@ export interface GetManagedInstanceAnalyticContentRequest extends common.BaseReq
    */
   "compartmentId"?: string;
   /**
+   * Indicates whether to include subcompartments in the returned results. Default is false.
+   */
+  "compartmentIdInSubtree"?: boolean;
+  /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the managed instance group. This filter returns resources associated with this group.
    */
   "managedInstanceGroupId"?: string;
+  /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the dynamic set. This filter returns resources associated with this dynamic set.
+   */
+  "dynamicSetId"?: string;
   /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the lifecycle environment. This filter returns only resource contained with the specified lifecycle environment.
    */
@@ -57,6 +65,10 @@ export interface GetManagedInstanceAnalyticContentRequest extends common.BaseReq
    */
   "bugUpdatesAvailableEqualsTo"?: number;
   /**
+   * A filter to return instances that have the specified number of available other updates.
+   */
+  "otherUpdatesAvailableEqualsTo"?: number;
+  /**
    * A filter to return instances that have more available security updates than the number specified.
    */
   "securityUpdatesAvailableGreaterThan"?: number;
@@ -64,6 +76,10 @@ export interface GetManagedInstanceAnalyticContentRequest extends common.BaseReq
    * A filter to return instances that have more available bug updates than the number specified.
    */
   "bugUpdatesAvailableGreaterThan"?: number;
+  /**
+   * A filter to return instances that have more available other updates than the number specified.
+   */
+  "otherUpdatesAvailableGreaterThan"?: number;
   /**
    * A filter to return only resources whose location matches the given value.
    */
@@ -106,6 +122,7 @@ export namespace GetManagedInstanceAnalyticContentRequest {
     Security = "SECURITY",
     Bugfix = "BUGFIX",
     Activity = "ACTIVITY",
+    Other = "OTHER",
     All = "ALL"
   }
 }

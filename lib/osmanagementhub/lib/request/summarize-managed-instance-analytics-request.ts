@@ -29,9 +29,17 @@ export interface SummarizeManagedInstanceAnalyticsRequest extends common.BaseReq
    */
   "compartmentId"?: string;
   /**
+   * Indicates whether to include subcompartments in the returned results. Default is false.
+   */
+  "compartmentIdInSubtree"?: boolean;
+  /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the managed instance group. This filter returns resources associated with this group.
    */
   "managedInstanceGroupId"?: string;
+  /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the dynamic set. This filter returns resources associated with this dynamic set.
+   */
+  "dynamicSetId"?: string;
   /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the lifecycle environment. This filter returns only resource contained with the specified lifecycle environment.
    */

@@ -59,31 +59,38 @@ export interface ScheduledJobSummary {
   /**
    * The managed instance [OCIDs](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) that this scheduled job operates on.
    * A scheduled job can only operate on one type of target, therefore this parameter is mutually exclusive with
-   * managedInstanceGroupIds, managedCompartmentIds, and lifecycleStageIds.
+   * managedInstanceGroupIds, managedCompartmentIds, lifecycleStageIds, and dynamicSetIds.
    *
    */
   "managedInstanceIds"?: Array<string>;
   /**
    * The managed instance group [OCIDs](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) that this scheduled job operates on.
    * A scheduled job can only operate on one type of target, therefore this parameter is mutually exclusive with
-   * managedInstanceIds, managedCompartmentIds, and lifecycleStageIds.
+   * managedInstanceIds, managedCompartmentIds, lifecycleStageIds, and dynamicSetIds.
    *
    */
   "managedInstanceGroupIds"?: Array<string>;
   /**
    * The compartment [OCIDs](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) that this scheduled job operates on.
    * A scheduled job can only operate on one type of target, therefore this parameter is mutually exclusive with
-   * managedInstanceIds, managedInstanceGroupIds, and lifecycleStageIds.
+   * managedInstanceIds, managedInstanceGroupIds, lifecycleStageIds, and dynamicSetIds.
    *
    */
   "managedCompartmentIds"?: Array<string>;
   /**
    * The lifecycle stage [OCIDs](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) that this scheduled job operates on.
    * A scheduled job can only operate on one type of target, therefore this parameter is mutually exclusive with
-   * managedInstanceIds, managedInstanceGroupIds, and managedCompartmentIds.
+   * managedInstanceIds, managedInstanceGroupIds, managedCompartmentIds, and dynamicSetIds.
    *
    */
   "lifecycleStageIds"?: Array<string>;
+  /**
+   * The dynamic set [OCIDs](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) that this scheduled job operates on.
+   * A scheduled job can only operate on one type of target. therefore this parameter is mutually exclusive with
+   * managedInstanceIds, managedInstanceGroupIds, managedCompartmentIds.
+   *
+   */
+  "dynamicSetIds"?: Array<string>;
   /**
    * The list of operations this scheduled job needs to perform.
    * A scheduled job supports only one operation type, unless it is one of the following:

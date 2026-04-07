@@ -79,6 +79,10 @@ Example: {@code 3}
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the management station. A filter that returns information about the specified management station.
    */
   "id"?: string;
+  /**
+   * A filter that returns information for management stations in the specified health state.
+   */
+  "healthState"?: model.HealthState;
 }
 
 export namespace ListManagementStationsRequest {

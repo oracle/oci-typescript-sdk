@@ -49,6 +49,9 @@ export interface ScheduledJobOperation {
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "rebootTimeoutInMins"?: number;
+  "installSnapDetails"?: model.InstallSnapDetails;
+  "removeSnapDetails"?: model.RemoveSnapDetails;
+  "switchSnapChannelDetails"?: model.SwitchSnapChannelDetails;
 }
 
 export namespace ScheduledJobOperation {
@@ -63,6 +66,16 @@ export namespace ScheduledJobOperation {
           : undefined,
         "switchModuleStreamsDetails": obj.switchModuleStreamsDetails
           ? model.ModuleStreamDetails.getJsonObj(obj.switchModuleStreamsDetails)
+          : undefined,
+
+        "installSnapDetails": obj.installSnapDetails
+          ? model.InstallSnapDetails.getJsonObj(obj.installSnapDetails)
+          : undefined,
+        "removeSnapDetails": obj.removeSnapDetails
+          ? model.RemoveSnapDetails.getJsonObj(obj.removeSnapDetails)
+          : undefined,
+        "switchSnapChannelDetails": obj.switchSnapChannelDetails
+          ? model.SwitchSnapChannelDetails.getJsonObj(obj.switchSnapChannelDetails)
           : undefined
       }
     };
@@ -80,6 +93,16 @@ export namespace ScheduledJobOperation {
           : undefined,
         "switchModuleStreamsDetails": obj.switchModuleStreamsDetails
           ? model.ModuleStreamDetails.getDeserializedJsonObj(obj.switchModuleStreamsDetails)
+          : undefined,
+
+        "installSnapDetails": obj.installSnapDetails
+          ? model.InstallSnapDetails.getDeserializedJsonObj(obj.installSnapDetails)
+          : undefined,
+        "removeSnapDetails": obj.removeSnapDetails
+          ? model.RemoveSnapDetails.getDeserializedJsonObj(obj.removeSnapDetails)
+          : undefined,
+        "switchSnapChannelDetails": obj.switchSnapChannelDetails
+          ? model.SwitchSnapChannelDetails.getDeserializedJsonObj(obj.switchSnapChannelDetails)
           : undefined
       }
     };
