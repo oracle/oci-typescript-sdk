@@ -96,6 +96,15 @@ export interface CreateBucketDetails {
    *
    */
   "autoTiering"?: string;
+  /**
+   * Scope in which the bucket is unique. Default value is NAMESPACE.
+   * Bucket scope as NAMESPACE means that the bucket is unique only in the owning namespace/tenancy. Other
+   * tenancies can have a bucket with same name in their namespace.
+   * Bucket scope as REGION means that the bucket is regionally unique. No other tenancy can have a bucket with
+   * same name and scope REGION.
+   *
+   */
+  "bucketScope"?: string;
 }
 
 export namespace CreateBucketDetails {

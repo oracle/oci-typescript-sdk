@@ -83,6 +83,18 @@ export interface AssetSummary {
    *
    */
   "systemTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * The name of the asset class.
+   */
+  "assetClassName"?: string;
+  /**
+   * The version of the asset class.
+   */
+  "assetClassVersion"?: string;
+  /**
+   * Specifies if this is the Source or Destination point for migration - different assets may be discovered depending on setting.
+   */
+  "environmentType"?: model.EnvironmentType;
 }
 
 export namespace AssetSummary {

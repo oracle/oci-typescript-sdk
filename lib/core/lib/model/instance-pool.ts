@@ -102,6 +102,10 @@ Example: {@code {\"Department\": \"Finance\"}}
    */
   "instanceHostnameFormatter"?: string;
   "lifecycleManagement"?: model.InstancePoolLifecycleManagementDetails;
+  /**
+   * Count of instance in running state associated to the Instance Pool. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "currentSize"?: number;
 }
 
 export namespace InstancePool {

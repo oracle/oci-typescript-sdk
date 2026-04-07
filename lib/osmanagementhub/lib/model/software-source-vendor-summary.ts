@@ -36,6 +36,7 @@ export interface SoftwareSourceVendorSummary {
 
 export namespace SoftwareSourceVendorSummary {
   export enum OsFamilies {
+    OracleLinux10 = "ORACLE_LINUX_10",
     OracleLinux9 = "ORACLE_LINUX_9",
     OracleLinux8 = "ORACLE_LINUX_8",
     OracleLinux7 = "ORACLE_LINUX_7",
@@ -43,7 +44,12 @@ export namespace SoftwareSourceVendorSummary {
     WindowsServer2016 = "WINDOWS_SERVER_2016",
     WindowsServer2019 = "WINDOWS_SERVER_2019",
     WindowsServer2022 = "WINDOWS_SERVER_2022",
+    WindowsServer2025 = "WINDOWS_SERVER_2025",
+    Windows11 = "WINDOWS_11",
     All = "ALL",
+    Ubuntu2004 = "UBUNTU_20_04",
+    Ubuntu2204 = "UBUNTU_22_04",
+    Ubuntu2404 = "UBUNTU_24_04",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
@@ -58,6 +64,9 @@ export namespace SoftwareSourceVendorSummary {
     Noarch = "NOARCH",
     Src = "SRC",
     I386 = "I386",
+    Amd64 = "AMD64",
+    Arm64 = "ARM64",
+    All = "ALL",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

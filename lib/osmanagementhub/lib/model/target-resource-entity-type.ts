@@ -25,6 +25,7 @@ export enum TargetResourceEntityType {
   Compartment = "COMPARTMENT",
   LifecycleEnvironment = "LIFECYCLE_ENVIRONMENT",
   SoftwareSource = "SOFTWARE_SOURCE",
+  DynamicSet = "DYNAMIC_SET",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

@@ -178,6 +178,16 @@ export interface ManagedInstance {
    * The version of osmh-agent running on the managed instance
    */
   "agentVersion"?: string;
+  /**
+   * Controls whether OSMH manages software sources for this instance. This defaults to false for Ubuntu and Windows instances.
+   *
+   */
+  "areSourcesManaged"?: boolean;
+  /**
+   * The date and time the instance's software information was last refreshed (in [RFC 3339](https://tools.ietf.org/rfc/rfc3339) format).
+   *
+   */
+  "timeLastSoftwareRefresh"?: Date;
 }
 
 export namespace ManagedInstance {

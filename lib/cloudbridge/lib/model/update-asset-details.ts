@@ -60,6 +60,11 @@ export namespace UpdateAssetDetails {
             <model.UpdateAwsEbsAssetDetails>(<object>jsonObj),
             true
           );
+        case "INVENTORY_ASSET":
+          return model.UpdateInventoryAssetDetails.getJsonObj(
+            <model.UpdateInventoryAssetDetails>(<object>jsonObj),
+            true
+          );
         case "VMWARE_VM":
           return model.UpdateVmwareVmAssetDetails.getJsonObj(
             <model.UpdateVmwareVmAssetDetails>(<object>jsonObj),
@@ -89,6 +94,11 @@ export namespace UpdateAssetDetails {
         case "AWS_EBS":
           return model.UpdateAwsEbsAssetDetails.getDeserializedJsonObj(
             <model.UpdateAwsEbsAssetDetails>(<object>jsonObj),
+            true
+          );
+        case "INVENTORY_ASSET":
+          return model.UpdateInventoryAssetDetails.getDeserializedJsonObj(
+            <model.UpdateInventoryAssetDetails>(<object>jsonObj),
             true
           );
         case "VMWARE_VM":
