@@ -1,6 +1,6 @@
 /**
  * Oracle Multicloud API
- * Use the Oracle Multicloud API to retrieve resource anchors and network anchors, and the metadata mappings related a Cloud Service Provider. For more information, see <link to docs>.
+ * Use the Oracle Multicloud API to retrieve resource anchors and network anchors, and the metadata mappings related a Cloud Service Provider. For more information, see [Oracle Multicloud Hub](https://docs.oracle.com/iaas/Content/multicloud-hub/home.htm).
  * OpenAPI spec version: 20180828
  *
  *
@@ -15,15 +15,17 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Multicloud subscription object
+ * A Multicloud subscription.
  */
 export interface MulticloudSubscriptionSummary {
   /**
-   * Subscription ID for OCI and Partner cloud in classic format.
+   * Subscription ID for OCI and partner cloud in classic format.
    */
   "classicSubscriptionId": string;
   /**
-   * URL to the subscription page https://{console-url}/org-mgmt/subscription/ocid1.organizationssubscription.oc1.iad.amaaaaaapf266qyaqohz27zvh45jzaielgwojo53bh24s7cy5q5g7fiknpxa?region=us-ashburn-1.
+   * URL to the subscription details page.
+   * Example: {@code https://{console-url}/org-mgmt/subscription/ocid1.organizationssubscription.oc1.iad.exampleuniqueid?region=us-ashburn-1}.
+   *
    */
   "subscriptionId"?: string;
   /**
@@ -31,11 +33,15 @@ export interface MulticloudSubscriptionSummary {
    */
   "partnerCloudAccountIdentifier": string;
   /**
-   * The serviceName that externalLocation map object belongs to.
+   * The partner cloud tenant ID.
+   */
+  "partnerCloudTenantIdentifier"?: string;
+  /**
+   * The cloud service provider.
    */
   "serviceName"?: model.SubscriptionType;
   /**
-   * The date and time for when the multicloud was created, in the format defined by
+   * The date and time that the Multicloud base compartment was created, in the format defined by
    * [RFC 3339](https://tools.ietf.org/rfc/rfc3339).
    *
    */
@@ -49,7 +55,7 @@ export interface MulticloudSubscriptionSummary {
    */
   "activeCommitment"?: string;
   /**
-   * The date and time for when the subscription is finishing, in the format defined by
+   * The end date and time for the subscription, in the format defined by
    * [RFC 3339](https://tools.ietf.org/rfc/rfc3339).
    *
    */
@@ -59,17 +65,18 @@ export interface MulticloudSubscriptionSummary {
    */
   "lifecycleState"?: MulticloudSubscriptionSummary.LifecycleState;
   /**
-   * CSP Specific Additional Properties, AzureSubnetId for Azure
+   * Properties specific to the cloud service provider. For example, AzureSubnetId for Azure.
+   *
    */
   "cspAdditionalProperties"?: { [key: string]: string };
   /**
-   * The date and time the subscription was created, in the format defined by
+   * The date and time that the subscription was created, in the format defined by
    * [RFC 3339](https://tools.ietf.org/rfc/rfc3339).
    *
    */
   "timeCreated": Date;
   /**
-   * The date and time the subscription was updated, in the format defined by
+   * The date and time that the subscription was updated, in the format defined by
    * [RFC 3339](https://tools.ietf.org/rfc/rfc3339).
    *
    */

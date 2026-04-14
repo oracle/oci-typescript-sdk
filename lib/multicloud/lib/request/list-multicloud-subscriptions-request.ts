@@ -56,6 +56,8 @@ export interface ListMulticloudSubscriptionsRequest extends common.BaseRequest {
   "sortBy"?: ListMulticloudSubscriptionsRequest.SortBy;
   /**
    * The sort order to use, either ascending ({@code ASC}) or descending ({@code DESC}).
+   * In general, the sort order is {@code DESC} when sorting by time and {@code ASC} otherwise.
+   *
    */
   "sortOrder"?: model.SortOrder;
 }

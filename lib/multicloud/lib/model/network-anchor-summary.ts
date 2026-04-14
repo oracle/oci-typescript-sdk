@@ -1,6 +1,6 @@
 /**
  * Oracle Multicloud API
- * Use the Oracle Multicloud API to retrieve resource anchors and network anchors, and the metadata mappings related a Cloud Service Provider. For more information, see <link to docs>.
+ * Use the Oracle Multicloud API to retrieve resource anchors and network anchors, and the metadata mappings related a Cloud Service Provider. For more information, see [Oracle Multicloud Hub](https://docs.oracle.com/iaas/Content/multicloud-hub/home.htm).
  * OpenAPI spec version: 20180828
  *
  *
@@ -113,6 +113,10 @@ Example: {@code {\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}}
    * Oracle Cloud Infrastructure Subscription Type.
    */
   "subscriptionType"?: model.SubscriptionType;
+  /**
+   * An Azure/GCP/AWS cidrBlocks
+   */
+  "cidrBlocks"?: Array<string>;
 }
 
 export namespace NetworkAnchorSummary {

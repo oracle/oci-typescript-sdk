@@ -1,6 +1,6 @@
 /**
  * Oracle Multicloud API
- * Use the Oracle Multicloud API to retrieve resource anchors and network anchors, and the metadata mappings related a Cloud Service Provider. For more information, see <link to docs>.
+ * Use the Oracle Multicloud API to retrieve resource anchors and network anchors, and the metadata mappings related a Cloud Service Provider. For more information, see [Oracle Multicloud Hub](https://docs.oracle.com/iaas/Content/multicloud-hub/home.htm).
  * OpenAPI spec version: 20180828
  *
  *
@@ -15,7 +15,10 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The multicloud resource, for eg. VMCluster, ExaInfra, and its attributes. The resource and network anchor that represents
+ * The properties that define the Multicloud resource.
+ * Details for each resource include Multicloud base compartment, name, state, resource type, and network anchor.
+ * For more information, see
+ * [Multicloud Resources](https://docs.oracle.com/iaas/Content/multicloud-hub/list-resources.htm).
  *
  */
 export interface MulticloudResourceSummary {
@@ -24,39 +27,39 @@ export interface MulticloudResourceSummary {
    */
   "resourceId": string;
   /**
-   * Endpoint used to retrieve displayName and lifeCycleState of the resource.
+   * Endpoint used to retrieve the resource's display name and lifecycle state.
    */
   "resourceDisplayName"?: string;
   /**
-   * What resource it refers to. Eg. VMCluster, ExaInfra, etc.
+   * Type of resource, such as {@code VMCluster} or {@code ExaInfra},
    */
   "resourceType"?: string;
   /**
-   * Compartment name associated the resource.
+   * Name of the compartment associated with the resource.
    */
   "compartmentName"?: string;
   /**
-   * Compartment Id of the resource.
+   * Id of the compartment associated with the resource.
    */
   "compartmentId"?: string;
   /**
-   * Resource Anchor name.
+   * Name of the virtual cloud network (VCN) associated with the resource.
    */
   "vcnName"?: string;
   /**
-   * Id of the Virtual Cloud Network associated to the resource.
+   * Id of the virtual cloud network (VCN) associated with the resource.
    */
   "vcnId"?: string;
   /**
-   * Name of the network anchor associated to the resource.
+   * Name of the network anchor associated with the resource.
    */
   "networkAnchorName"?: string;
   /**
-   * OCID of the Network Anchor
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the network anchor associated with the resource.
    */
   "networkAnchorId"?: string;
   /**
-   * Resource Id that comes from the Multi Cloud Control Plane
+   * The resource Id that comes from the Multicloud control plane.
    */
   "cspResourceId"?: string;
   /**
@@ -66,9 +69,13 @@ export interface MulticloudResourceSummary {
    */
   "timeCreated": Date;
   /**
-   * CSP Specific Additional Properties, AzureSubnetId for Azure
+   * Properties specific to the cloud service provider. For example, AzureSubnetId for Azure.
    */
   "cspAdditionalProperties"?: { [key: string]: string };
+  /**
+   * Additional attributes specific to certain resource types, used to construct a URL for accessing the resource in the OCI console.
+   */
+  "resourceAdditionalProperties"?: { [key: string]: any };
   /**
    * The date and time the subscription was updated, in the format defined by
    * [RFC 3339](https://tools.ietf.org/rfc/rfc3339).
@@ -76,7 +83,7 @@ export interface MulticloudResourceSummary {
    */
   "timeUpdated"?: Date;
   /**
-   * The current state of the multicloud resource.
+   * The current state of the Multicloud resource.
    */
   "lifecycleState"?: MulticloudResourceSummary.LifecycleState;
   /**

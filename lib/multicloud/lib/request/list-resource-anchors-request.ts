@@ -20,7 +20,7 @@ import common = require("oci-common");
 export interface ListResourceAnchorsRequest extends common.BaseRequest {
   /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Multicloud base compartment or sub-compartment in which to list resources.
-   * A Multicloud base compartment is an OCI compartment that maps to a subscription in a Cloud Service Provider (such as Azure, AWS, or Google Cloud).
+   * A Multicloud base compartment is an OCI compartment that maps to a subscription in a cloud service provider (such as Azure or AWS).
    *
    */
   "compartmentId"?: string;
@@ -39,7 +39,7 @@ export interface ListResourceAnchorsRequest extends common.BaseRequest {
    */
   "displayName"?: string;
   /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the ResourceAnchor.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the resource anchor.
    */
   "id"?: string;
   /**
@@ -58,6 +58,8 @@ export interface ListResourceAnchorsRequest extends common.BaseRequest {
   "page"?: string;
   /**
    * The sort order to use, either ascending ({@code ASC}) or descending ({@code DESC}).
+   * In general, the sort order is {@code DESC} when sorting by time and {@code ASC} otherwise.
+   *
    */
   "sortOrder"?: model.SortOrder;
   /**
@@ -67,15 +69,17 @@ export interface ListResourceAnchorsRequest extends common.BaseRequest {
    */
   "sortBy"?: ListResourceAnchorsRequest.SortBy;
   /**
-   * Check the sub-compartments of a given compartmentId
+   * Check the sub-compartments of a given {@code compartmentId}.
    */
   "isCompartmentIdInSubtree"?: boolean;
   /**
-   * Whether to fetch and include the compartment name, setting this field to yes may introduce additional latency.
+   * Whether to fetch and include the compartment name.
+   * Setting this field to {@code true} might introduce additional latency.
+   *
    */
   "shouldFetchCompartmentName"?: boolean;
   /**
-   * The subscription service name of the Cloud Service Provider.
+   * The cloud service provider.
    */
   "subscriptionServiceName"?: model.SubscriptionType;
   /**

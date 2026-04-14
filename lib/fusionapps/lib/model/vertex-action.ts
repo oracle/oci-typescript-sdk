@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Vertex update action
+ * Vertex update action.
  */
 export interface VertexAction extends model.Action {
   /**
-   * patch that delivered the vertex update prerequisite
+   * Patch that delivered the Vertex update prerequisite.
    */
   "artifact"?: string;
 

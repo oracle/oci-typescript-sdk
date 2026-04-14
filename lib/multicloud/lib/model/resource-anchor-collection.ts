@@ -1,6 +1,6 @@
 /**
  * Oracle Multicloud API
- * Use the Oracle Multicloud API to retrieve resource anchors and network anchors, and the metadata mappings related a Cloud Service Provider. For more information, see <link to docs>.
+ * Use the Oracle Multicloud API to retrieve resource anchors and network anchors, and the metadata mappings related a Cloud Service Provider. For more information, see [Oracle Multicloud Hub](https://docs.oracle.com/iaas/Content/multicloud-hub/home.htm).
  * OpenAPI spec version: 20180828
  *
  *
@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Results of a resourceAnchor search. Contains both ResourceAnchorSummary items and other information, such as metadata.
+ * List of resource anchors in the indicated Multicloud subscription.
  */
 export interface ResourceAnchorCollection {
   /**
-   * List of resourceAnchors.
+   * List of resource anchors.
    */
   "items": Array<model.ResourceAnchorSummary>;
 }

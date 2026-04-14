@@ -23,7 +23,7 @@ export interface GetNetworkAnchorRequest extends common.BaseRequest {
    */
   "networkAnchorId": string;
   /**
-   * The subscription service name of the Cloud Service Provider.
+   * The cloud service provider.
    */
   "subscriptionServiceName": model.SubscriptionType;
   /**
@@ -39,7 +39,7 @@ export interface GetNetworkAnchorRequest extends common.BaseRequest {
    */
   "opcRequestId"?: string;
   /**
-   * The Cloud Service Provider region.
+   * The cloud service provider region.
    */
   "externalLocation"?: string;
   /**

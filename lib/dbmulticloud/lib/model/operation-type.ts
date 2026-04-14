@@ -34,7 +34,7 @@ It relies on both the Oracle Azure Connector and the Oracle Azure Blob Container
 <b>AWS</b>:<br>
 <b>Oracle AWS Connector Resource:</b>&nbsp;&nbsp;The Oracle AWS Connector Resource is used to install the AWS Identity Connector on an Exadata VM cluster in Oracle Exadata Database Service on Dedicated Infrastructure (ExaDB-D).
 
-<b>Google AWS Key Resource:</b>&nbsp;&nbsp;The Oracle AWS Key Resource is used to register and manage a AWS Key within Oracle Cloud Infrastructure (OCI).
+<b>Oracle AWS Key Resource:</b>&nbsp;&nbsp;The Oracle AWS Key Resource is used to register and manage a AWS Key within Oracle Cloud Infrastructure (OCI).
 
  * OpenAPI spec version: 20240501
  * 
@@ -103,6 +103,12 @@ export enum OperationType {
   UpdateAwsKey = "UPDATE_AWS_KEY",
   MoveAwsKey = "MOVE_AWS_KEY",
   RefreshAwsKey = "REFRESH_AWS_KEY",
+  CreateReplicateResource = "CREATE_REPLICATE_RESOURCE",
+  UpdateReplicateResource = "UPDATE_REPLICATE_RESOURCE",
+  DeleteReplicateResource = "DELETE_REPLICATE_RESOURCE",
+  MoveReplicateResource = "MOVE_REPLICATE_RESOURCE",
+  RefreshReplicateResource = "REFRESH_REPLICATE_RESOURCE",
+  Replicate = "REPLICATE",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

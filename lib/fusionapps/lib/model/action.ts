@@ -15,15 +15,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Action details
+ * Action details.
  */
 export interface Action {
   /**
-   * Unique identifier of the object that represents the action
+   * Unique identifier of the object that represents the action.
    */
   "referenceKey"?: string;
   /**
-   * A string that describes whether the change is applied hot or cold
+   * A string that describes whether the change is applied hot or cold.
    */
   "state"?: Action.State;
   /**

@@ -42,16 +42,31 @@ Example: {@code Thu Jan 01 01:00:00 GMT 1970}
 * 
     */
   "expirationTime"?: Date;
+  "lockDurationDetails"?: model.LockDurationDetails;
 }
 
 export namespace UpdateSnapshotDetails {
   export function getJsonObj(obj: UpdateSnapshotDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "lockDurationDetails": obj.lockDurationDetails
+          ? model.LockDurationDetails.getJsonObj(obj.lockDurationDetails)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: UpdateSnapshotDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "lockDurationDetails": obj.lockDurationDetails
+          ? model.LockDurationDetails.getDeserializedJsonObj(obj.lockDurationDetails)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

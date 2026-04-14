@@ -78,6 +78,7 @@ Example: {@code compliance1}
    *
    */
   "month"?: SnapshotSchedule.Month;
+  "lockDurationDetails"?: model.LockDurationDetails;
 }
 
 export namespace SnapshotSchedule {
@@ -140,12 +141,26 @@ export namespace SnapshotSchedule {
   }
 
   export function getJsonObj(obj: SnapshotSchedule): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "lockDurationDetails": obj.lockDurationDetails
+          ? model.LockDurationDetails.getJsonObj(obj.lockDurationDetails)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: SnapshotSchedule): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "lockDurationDetails": obj.lockDurationDetails
+          ? model.LockDurationDetails.getDeserializedJsonObj(obj.lockDurationDetails)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

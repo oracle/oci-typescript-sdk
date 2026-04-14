@@ -1,6 +1,6 @@
 /**
  * Oracle Multicloud API
- * Use the Oracle Multicloud API to retrieve resource anchors and network anchors, and the metadata mappings related a Cloud Service Provider. For more information, see <link to docs>.
+ * Use the Oracle Multicloud API to retrieve resource anchors and network anchors, and the metadata mappings related a Cloud Service Provider. For more information, see [Oracle Multicloud Hub](https://docs.oracle.com/iaas/Content/multicloud-hub/home.htm).
  * OpenAPI spec version: 20180828
  *
  *
@@ -43,6 +43,18 @@ import * as MultiCloudMetadataCollection from "./multi-cloud-metadata-collection
 export import MultiCloudMetadataCollection = MultiCloudMetadataCollection.MultiCloudMetadataCollection;
 import * as MultiCloudMetadataSummary from "./multi-cloud-metadata-summary";
 export import MultiCloudMetadataSummary = MultiCloudMetadataSummary.MultiCloudMetadataSummary;
+import * as MulticloudAlert from "./multicloud-alert";
+export import MulticloudAlert = MulticloudAlert.MulticloudAlert;
+import * as MulticloudAlertCollection from "./multicloud-alert-collection";
+export import MulticloudAlertCollection = MulticloudAlertCollection.MulticloudAlertCollection;
+import * as MulticloudAlertSummary from "./multicloud-alert-summary";
+export import MulticloudAlertSummary = MulticloudAlertSummary.MulticloudAlertSummary;
+import * as MulticloudPolicy from "./multicloud-policy";
+export import MulticloudPolicy = MulticloudPolicy.MulticloudPolicy;
+import * as MulticloudPolicyCollection from "./multicloud-policy-collection";
+export import MulticloudPolicyCollection = MulticloudPolicyCollection.MulticloudPolicyCollection;
+import * as MulticloudPolicySummary from "./multicloud-policy-summary";
+export import MulticloudPolicySummary = MulticloudPolicySummary.MulticloudPolicySummary;
 import * as MulticloudResourceCollection from "./multicloud-resource-collection";
 export import MulticloudResourceCollection = MulticloudResourceCollection.MulticloudResourceCollection;
 import * as MulticloudResourceSummary from "./multicloud-resource-summary";

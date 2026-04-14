@@ -1,6 +1,6 @@
 /**
  * Oracle Multicloud API
- * Use the Oracle Multicloud API to retrieve resource anchors and network anchors, and the metadata mappings related a Cloud Service Provider. For more information, see <link to docs>.
+ * Use the Oracle Multicloud API to retrieve resource anchors and network anchors, and the metadata mappings related a Cloud Service Provider. For more information, see [Oracle Multicloud Hub](https://docs.oracle.com/iaas/Content/multicloud-hub/home.htm).
  * OpenAPI spec version: 20180828
  *
  *
@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Summary information about a ResourceAnchor.
+ * The properties that define a resource anchor.
  */
 export interface ResourceAnchorSummary {
   /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the ResourceAnchor.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the resource anchor.
    */
   "id": string;
   /**
@@ -35,41 +35,41 @@ export interface ResourceAnchorSummary {
    */
   "compartmentName"?: string;
   /**
-   * Partner Cloud Account Identifier of the Cloud Service Provider.
+   * Partner cloud account identifier of the cloud service provider.
    */
   "partnerCloudAccountIdentifier"?: string;
   /**
-   * Resource Anchor Id in the Cloud Service Provider.
+   * Resource anchor ID in the cloud service provider.
    */
   "cspResourceAnchorId"?: string;
   /**
-   * Resource Anchor Name in the Cloud Service Provider.
+   * Resource anchor name in the cloud service provider.
    */
   "cspResourceAnchorName"?: string;
   /**
-   * CSP Specific Additional Properties, AzureSubnetId for Azure
+   * Cloud service provider-specific properties, such as AzureSubnetId for Azure.
    */
   "cspAdditionalProperties"?: { [key: string]: string };
   /**
-    * The date and time the ResourceAnchor was created, in the format defined by [RFC 3339](https://tools.ietf.org/html/rfc3339).
+    * The date and time the resource anchor was created, in the format defined by [RFC 3339](https://tools.ietf.org/html/rfc3339).
 * <p>
 Example: {@code 2016-08-25T21:10:29.600Z}
 * 
     */
   "timeCreated": Date;
   /**
-    * The date and time the ResourceAnchor was updated, in the format defined by [RFC 3339](https://tools.ietf.org/html/rfc3339).
+    * The date and time the resource anchor was updated, in the format defined by [RFC 3339](https://tools.ietf.org/html/rfc3339).
 * <p>
 Example: {@code 2016-08-25T21:10:29.600Z}
 * 
     */
   "timeUpdated"?: Date;
   /**
-   * The current state of the ResourceAnchor.
+   * The current state of the resource anchor.
    */
   "lifecycleState": string;
   /**
-   * A message that describes the current state of the ResourceAnchor in more detail. For example,
+   * A message that describes the current state of the resource anchor in more detail. For example,
    * can be used to provide actionable information for a resource in the Failed state.
    *
    */
@@ -102,15 +102,21 @@ Example: {@code {\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}}
     */
   "systemTags"?: { [key: string]: { [key: string]: any } };
   /**
-   * Optional - Oracle Cloud Infrastructure compartment Id (OCID) which was created or linked by customer with resource anchor.
-   * This compartmentId is different from where resource Anchor live.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the optional OCI compartment that was created or linked with the resource anchor.
+   * This compartment is different from the compartment that contains the resource anchor.
    *
    */
   "linkedCompartmentId"?: string;
   /**
-   * The name assigned to the compartment which was created or linked by customer with resource anchor. This compartment is different from where resource Anchor live.
+   * The name of the optional OCI compartment that was created or linked with the resource anchor.
+   * This compartment is different from the compartment that contains the resource anchor.
+   *
    */
   "linkedCompartmentName"?: string;
+  /**
+   * URI for the cloud service provider's resource anchor.
+   */
+  "resourceAnchorUri"?: string;
 }
 
 export namespace ResourceAnchorSummary {

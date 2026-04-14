@@ -1,6 +1,6 @@
 /**
  * Oracle Multicloud API
- * Use the Oracle Multicloud API to retrieve resource anchors and network anchors, and the metadata mappings related a Cloud Service Provider. For more information, see <link to docs>.
+ * Use the Oracle Multicloud API to retrieve resource anchors and network anchors, and the metadata mappings related a Cloud Service Provider. For more information, see [Oracle Multicloud Hub](https://docs.oracle.com/iaas/Content/multicloud-hub/home.htm).
  * OpenAPI spec version: 20180828
  *
  *
@@ -21,6 +21,10 @@ import * as GetMultiCloudMetadataRequest from "./get-multi-cloud-metadata-reques
 export import GetMultiCloudMetadataRequest = GetMultiCloudMetadataRequest.GetMultiCloudMetadataRequest;
 import * as ListMultiCloudMetadataRequest from "./list-multi-cloud-metadata-request";
 export import ListMultiCloudMetadataRequest = ListMultiCloudMetadataRequest.ListMultiCloudMetadataRequest;
+import * as ListMulticloudAlertsRequest from "./list-multicloud-alerts-request";
+export import ListMulticloudAlertsRequest = ListMulticloudAlertsRequest.ListMulticloudAlertsRequest;
+import * as ListMulticloudPoliciesRequest from "./list-multicloud-policies-request";
+export import ListMulticloudPoliciesRequest = ListMulticloudPoliciesRequest.ListMulticloudPoliciesRequest;
 import * as ListMulticloudResourcesRequest from "./list-multicloud-resources-request";
 export import ListMulticloudResourcesRequest = ListMulticloudResourcesRequest.ListMulticloudResourcesRequest;
 import * as ListMulticloudSubscriptionsRequest from "./list-multicloud-subscriptions-request";

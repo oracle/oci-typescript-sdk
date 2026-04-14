@@ -20,7 +20,7 @@ import common = require("oci-common");
 export interface ListNetworkAnchorsRequest extends common.BaseRequest {
   /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Multicloud base compartment or sub-compartment in which to list resources.
-   * A Multicloud base compartment is an OCI compartment that maps to a subscription in a Cloud Service Provider (such as Azure, AWS, or Google Cloud).
+   * A Multicloud base compartment is an OCI compartment that maps to a subscription in a cloud service provider (such as Azure or AWS).
    *
    */
   "compartmentId"?: string;
@@ -29,7 +29,7 @@ export interface ListNetworkAnchorsRequest extends common.BaseRequest {
    */
   "subscriptionId"?: string;
   /**
-   * The subscription service name of the Cloud Service Provider.
+   * The cloud service provider.
    */
   "subscriptionServiceName"?: model.SubscriptionType;
   /**
@@ -43,17 +43,13 @@ export interface ListNetworkAnchorsRequest extends common.BaseRequest {
    */
   "displayName"?: string;
   /**
-   * The Cloud Service Provider region.
+   * The cloud service provider region.
    */
   "externalLocation"?: string;
   /**
    * A filter to return only NetworkAnchor resources that match the given OCI subnet Id.
    */
   "networkAnchorOciSubnetId"?: string;
-  /**
-   * If set to true, a list operation will return NetworkAnchors from all child compartments in the provided compartmentId parameter.
-   */
-  "compartmentIdInSubtree"?: boolean;
   /**
    * A filter to return only NetworkAnchor resources that match the given OCI Vcn Id.
    */
@@ -82,6 +78,8 @@ export interface ListNetworkAnchorsRequest extends common.BaseRequest {
   "shouldFetchVcnName"?: boolean;
   /**
    * The sort order to use, either ascending ({@code ASC}) or descending ({@code DESC}).
+   * In general, the sort order is {@code DESC} when sorting by time and {@code ASC} otherwise.
+   *
    */
   "sortOrder"?: model.SortOrder;
   /**
