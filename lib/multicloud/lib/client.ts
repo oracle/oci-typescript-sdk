@@ -1,6 +1,6 @@
 /**
  * Oracle Multicloud API
- * Use the Oracle Multicloud API to retrieve resource anchors and network anchors, and the metadata mappings related a Cloud Service Provider. For more information, see <link to docs>.
+ * Use the Oracle Multicloud API to retrieve resource anchors and network anchors, and the metadata mappings related a Cloud Service Provider. For more information, see [Oracle Multicloud Hub](https://docs.oracle.com/iaas/Content/multicloud-hub/home.htm).
  * OpenAPI spec version: 20180828
  *
  *
@@ -301,7 +301,13 @@ export class MetadataClient {
   }
 
   /**
-   * List externalLocation metadata from OCI to the Cloud Service Provider for regions, Physical Availability Zones.
+   * List mapped partner cloud regions and zones across cloud service providers
+   * for the specified Multicloud base compartment and subscription service name.
+   * Each mapping includes the OCI region, logical availability domain, and physical availability domain,
+   * along with mapped partner cloud details that depend on the partner cloud.
+   * For example, Azure includes a logical zone while AWS doesn't.
+   * For more information, see
+   * [Cross-Cloud Region-Zone Mapping](https://docs.oracle.com/iaas/Content/multicloud-hub/view-cloud-mapping.htm).
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListExternalLocationMappingMetadataRequest
@@ -654,8 +660,10 @@ export class MultiCloudsMetadataClient {
   }
 
   /**
-   * Gets information about the Multicloud base compartment for a given tenancy Id.
-   * A Multicloud base compartment is an OCI compartment that maps to a subscription in a Cloud Service Provider (such as Azure, AWS, or Google Cloud).
+   * Gets details for Multicloud metadata for the specified Multicloud subscription.
+   * Multicloud metadata for a subscription includes the Multicloud base compartment (top-level OCI compartment).
+   * For more information, see
+   * [Getting Details for Multicloud Metadata](https://docs.oracle.com/iaas/Content/multicloud-hub/get-subscription-metadata.htm).
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetMultiCloudMetadataRequest
@@ -734,8 +742,10 @@ export class MultiCloudsMetadataClient {
   }
 
   /**
-   * Gets a list of multicloud metadata with pairs of Multicloud base compartment and subscription across Cloud Service Providers from a tenancy Id.
-   * A Multicloud base compartment is an OCI compartment that maps to a subscription in a Cloud Service Provider (such as Azure, AWS, or Google Cloud).
+   * Lists Multicloud metadata for Multicloud subscriptions in the specified compartment.
+   * Multicloud metadata for a subscription includes the Multicloud base compartment (top-level OCI compartment).
+   * For more information, see
+   * [Listing Multicloud Metadata for a Subscription](https://docs.oracle.com/iaas/Content/multicloud-hub/list-subscription-metadata.htm).
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListMultiCloudMetadataRequest
@@ -795,6 +805,550 @@ export class MultiCloudsMetadataClient {
         bodyKey: "multiCloudMetadataCollection",
         bodyModel: model.MultiCloudMetadataCollection,
         type: "model.MultiCloudMetadataCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+}
+export enum MulticloudAlertsApiKeys {}
+/**
+ * This service client uses {@link common.CircuitBreaker.DefaultConfiguration} for all the operations by default if no circuit breaker configuration is defined by the user.
+ */
+export class MulticloudAlertsClient {
+  protected static serviceEndpointTemplate = "https://multicloud.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
+  protected "_endpoint": string = "";
+  protected "_defaultHeaders": any = {};
+  protected "_clientConfiguration": common.ClientConfiguration;
+  protected _circuitBreaker: typeof Breaker | null = null;
+  protected _httpOptions: any = undefined;
+  protected _bodyDuplexMode: any = undefined;
+  public targetService = "MulticloudAlerts";
+  protected _regionId: string = "";
+  protected "_region": common.Region;
+  protected _lastSetRegionOrRegionId: string = "";
+
+  protected _httpClient: common.HttpClient;
+  protected _authProvider: common.AuthenticationDetailsProvider | undefined;
+
+  constructor(params: common.AuthParams, clientConfiguration?: common.ClientConfiguration) {
+    const requestSigner = params.authenticationDetailsProvider
+      ? new common.DefaultRequestSigner(params.authenticationDetailsProvider)
+      : null;
+    this._authProvider = params.authenticationDetailsProvider;
+    if (clientConfiguration) {
+      this._clientConfiguration = clientConfiguration;
+      this._circuitBreaker = clientConfiguration.circuitBreaker
+        ? clientConfiguration.circuitBreaker!.circuit
+        : null;
+      this._httpOptions = clientConfiguration.httpOptions
+        ? clientConfiguration.httpOptions
+        : undefined;
+      this._bodyDuplexMode = clientConfiguration.bodyDuplexMode
+        ? clientConfiguration.bodyDuplexMode
+        : undefined;
+    }
+
+    if (!developerToolConfiguration.isServiceEnabled("multicloud")) {
+      let errmsg =
+        "The developerToolConfiguration configuration disabled this service, this behavior is controlled by developerToolConfiguration.ociEnabledServiceSet variable. Please check if your local developer_tool_configuration file has configured the service you're targeting or contact the cloud provider on the availability of this service : ";
+      throw errmsg.concat("multicloud");
+    }
+
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = true;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
+    }
+    this._httpClient =
+      params.httpClient ||
+      new common.FetchHttpClient(
+        requestSigner,
+        this._circuitBreaker,
+        this._httpOptions,
+        this._bodyDuplexMode
+      );
+
+    if (
+      params.authenticationDetailsProvider &&
+      common.isRegionProvider(params.authenticationDetailsProvider)
+    ) {
+      const provider: common.RegionProvider = params.authenticationDetailsProvider;
+      if (provider.getRegion()) {
+        this.region = provider.getRegion();
+      }
+    }
+  }
+
+  /**
+   * Get the endpoint that is being used to call (ex, https://www.example.com).
+   */
+  public get endpoint() {
+    return this._endpoint;
+  }
+
+  /**
+   * Sets the endpoint to call (ex, https://www.example.com).
+   * @param endpoint The endpoint of the service.
+   */
+  public set endpoint(endpoint: string) {
+    this._endpoint = endpoint;
+    this._endpoint = this._endpoint + "/20180828";
+    if (this.logger) this.logger.info(`MulticloudAlertsClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
+  }
+
+  /**
+   * Determines whether realm specific endpoint should be used or not.
+   * Set realmSpecificEndpointTemplateEnabled to "true" if the user wants to enable use of realm specific endpoint template, otherwise set it to "false"
+   * @param realmSpecificEndpointTemplateEnabled flag to enable the use of realm specific endpoint template
+   */
+  public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
+    this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
+    if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
+      this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
+        MulticloudAlertsClient.serviceEndpointTemplate,
+        this._region,
+        MulticloudAlertsClient.endpointServiceName
+      );
+    } else if (this._lastSetRegionOrRegionId === common.Region.REGION_ID_STRING) {
+      this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
+        MulticloudAlertsClient.serviceEndpointTemplate,
+        this._regionId,
+        MulticloudAlertsClient.endpointServiceName
+      );
+    }
+  }
+
+  /**
+   * Sets the region to call (ex, Region.US_PHOENIX_1).
+   * Note, this will call {@link #endpoint(String) endpoint} after resolving the endpoint.
+   * @param region The region of the service.
+   */
+  public set region(region: common.Region) {
+    this._region = region;
+    this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
+      MulticloudAlertsClient.serviceEndpointTemplate,
+      region,
+      MulticloudAlertsClient.endpointServiceName
+    );
+    this._lastSetRegionOrRegionId = common.Region.REGION_STRING;
+  }
+
+  /**
+   * Sets the regionId to call (ex, 'us-phoenix-1').
+   *
+   * Note, this will first try to map the region ID to a known Region and call {@link #region(Region) region}.
+   * If no known Region could be determined, it will create an endpoint assuming its in default Realm OC1
+   * and then call {@link #endpoint(String) endpoint}.
+   * @param regionId The public region ID.
+   */
+  public set regionId(regionId: string) {
+    this._regionId = regionId;
+    this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
+      MulticloudAlertsClient.serviceEndpointTemplate,
+      regionId,
+      MulticloudAlertsClient.endpointServiceName
+    );
+    this._lastSetRegionOrRegionId = common.Region.REGION_ID_STRING;
+  }
+
+  /**
+   * Shutdown the circuit breaker used by the client when it is no longer needed
+   */
+  public shutdownCircuitBreaker() {
+    if (this._circuitBreaker) {
+      this._circuitBreaker.shutdown();
+    }
+  }
+
+  /**
+   * Close the provider if possible which in turn shuts down any associated circuit breaker
+   */
+  public closeProvider() {
+    if (this._authProvider) {
+      if (this._authProvider instanceof common.AbstractRequestingAuthenticationDetailsProvider)
+        (<common.AbstractRequestingAuthenticationDetailsProvider>(
+          this._authProvider
+        )).closeProvider();
+    }
+  }
+
+  /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+    this.closeProvider();
+  }
+
+  /**
+   * Gets a list of Multicloud Alerts for a given root compartment.
+   * Optional query parameters can be used to filter alerts by resource,
+   * subscription, severity, lifecycle state, and alert status.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListMulticloudAlertsRequest
+   * @return ListMulticloudAlertsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/multicloud/ListMulticloudAlerts.ts.html |here} to see how to use ListMulticloudAlerts API.
+   */
+  public async listMulticloudAlerts(
+    listMulticloudAlertsRequest: requests.ListMulticloudAlertsRequest
+  ): Promise<responses.ListMulticloudAlertsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation MulticloudAlertsClient#listMulticloudAlerts.");
+    const operationName = "listMulticloudAlerts";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listMulticloudAlertsRequest.compartmentId,
+      "resourceId": listMulticloudAlertsRequest.resourceId,
+      "resourceType": listMulticloudAlertsRequest.resourceType,
+      "alertType": listMulticloudAlertsRequest.alertType,
+      "alertFunctionName": listMulticloudAlertsRequest.alertFunctionName,
+      "severity": listMulticloudAlertsRequest.severity,
+      "alertStatus": listMulticloudAlertsRequest.alertStatus,
+      "subscriptionServiceName": listMulticloudAlertsRequest.subscriptionServiceName,
+      "subscriptionId": listMulticloudAlertsRequest.subscriptionId,
+      "limit": listMulticloudAlertsRequest.limit,
+      "page": listMulticloudAlertsRequest.page,
+      "displayName": listMulticloudAlertsRequest.displayName,
+      "sortBy": listMulticloudAlertsRequest.sortBy,
+      "sortOrder": listMulticloudAlertsRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listMulticloudAlertsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listMulticloudAlertsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/multicloudalerts",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListMulticloudAlertsResponse>{},
+        body: await response.json(),
+        bodyKey: "multicloudAlertCollection",
+        bodyModel: model.MulticloudAlertCollection,
+        type: "model.MulticloudAlertCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+}
+export enum MulticloudPoliciesApiKeys {}
+/**
+ * This service client uses {@link common.CircuitBreaker.DefaultConfiguration} for all the operations by default if no circuit breaker configuration is defined by the user.
+ */
+export class MulticloudPoliciesClient {
+  protected static serviceEndpointTemplate = "https://multicloud.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
+  protected "_endpoint": string = "";
+  protected "_defaultHeaders": any = {};
+  protected "_clientConfiguration": common.ClientConfiguration;
+  protected _circuitBreaker: typeof Breaker | null = null;
+  protected _httpOptions: any = undefined;
+  protected _bodyDuplexMode: any = undefined;
+  public targetService = "MulticloudPolicies";
+  protected _regionId: string = "";
+  protected "_region": common.Region;
+  protected _lastSetRegionOrRegionId: string = "";
+
+  protected _httpClient: common.HttpClient;
+  protected _authProvider: common.AuthenticationDetailsProvider | undefined;
+
+  constructor(params: common.AuthParams, clientConfiguration?: common.ClientConfiguration) {
+    const requestSigner = params.authenticationDetailsProvider
+      ? new common.DefaultRequestSigner(params.authenticationDetailsProvider)
+      : null;
+    this._authProvider = params.authenticationDetailsProvider;
+    if (clientConfiguration) {
+      this._clientConfiguration = clientConfiguration;
+      this._circuitBreaker = clientConfiguration.circuitBreaker
+        ? clientConfiguration.circuitBreaker!.circuit
+        : null;
+      this._httpOptions = clientConfiguration.httpOptions
+        ? clientConfiguration.httpOptions
+        : undefined;
+      this._bodyDuplexMode = clientConfiguration.bodyDuplexMode
+        ? clientConfiguration.bodyDuplexMode
+        : undefined;
+    }
+
+    if (!developerToolConfiguration.isServiceEnabled("multicloud")) {
+      let errmsg =
+        "The developerToolConfiguration configuration disabled this service, this behavior is controlled by developerToolConfiguration.ociEnabledServiceSet variable. Please check if your local developer_tool_configuration file has configured the service you're targeting or contact the cloud provider on the availability of this service : ";
+      throw errmsg.concat("multicloud");
+    }
+
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = true;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
+    }
+    this._httpClient =
+      params.httpClient ||
+      new common.FetchHttpClient(
+        requestSigner,
+        this._circuitBreaker,
+        this._httpOptions,
+        this._bodyDuplexMode
+      );
+
+    if (
+      params.authenticationDetailsProvider &&
+      common.isRegionProvider(params.authenticationDetailsProvider)
+    ) {
+      const provider: common.RegionProvider = params.authenticationDetailsProvider;
+      if (provider.getRegion()) {
+        this.region = provider.getRegion();
+      }
+    }
+  }
+
+  /**
+   * Get the endpoint that is being used to call (ex, https://www.example.com).
+   */
+  public get endpoint() {
+    return this._endpoint;
+  }
+
+  /**
+   * Sets the endpoint to call (ex, https://www.example.com).
+   * @param endpoint The endpoint of the service.
+   */
+  public set endpoint(endpoint: string) {
+    this._endpoint = endpoint;
+    this._endpoint = this._endpoint + "/20180828";
+    if (this.logger) this.logger.info(`MulticloudPoliciesClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
+  }
+
+  /**
+   * Determines whether realm specific endpoint should be used or not.
+   * Set realmSpecificEndpointTemplateEnabled to "true" if the user wants to enable use of realm specific endpoint template, otherwise set it to "false"
+   * @param realmSpecificEndpointTemplateEnabled flag to enable the use of realm specific endpoint template
+   */
+  public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
+    this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
+    if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
+      this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
+        MulticloudPoliciesClient.serviceEndpointTemplate,
+        this._region,
+        MulticloudPoliciesClient.endpointServiceName
+      );
+    } else if (this._lastSetRegionOrRegionId === common.Region.REGION_ID_STRING) {
+      this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
+        MulticloudPoliciesClient.serviceEndpointTemplate,
+        this._regionId,
+        MulticloudPoliciesClient.endpointServiceName
+      );
+    }
+  }
+
+  /**
+   * Sets the region to call (ex, Region.US_PHOENIX_1).
+   * Note, this will call {@link #endpoint(String) endpoint} after resolving the endpoint.
+   * @param region The region of the service.
+   */
+  public set region(region: common.Region) {
+    this._region = region;
+    this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
+      MulticloudPoliciesClient.serviceEndpointTemplate,
+      region,
+      MulticloudPoliciesClient.endpointServiceName
+    );
+    this._lastSetRegionOrRegionId = common.Region.REGION_STRING;
+  }
+
+  /**
+   * Sets the regionId to call (ex, 'us-phoenix-1').
+   *
+   * Note, this will first try to map the region ID to a known Region and call {@link #region(Region) region}.
+   * If no known Region could be determined, it will create an endpoint assuming its in default Realm OC1
+   * and then call {@link #endpoint(String) endpoint}.
+   * @param regionId The public region ID.
+   */
+  public set regionId(regionId: string) {
+    this._regionId = regionId;
+    this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
+      MulticloudPoliciesClient.serviceEndpointTemplate,
+      regionId,
+      MulticloudPoliciesClient.endpointServiceName
+    );
+    this._lastSetRegionOrRegionId = common.Region.REGION_ID_STRING;
+  }
+
+  /**
+   * Shutdown the circuit breaker used by the client when it is no longer needed
+   */
+  public shutdownCircuitBreaker() {
+    if (this._circuitBreaker) {
+      this._circuitBreaker.shutdown();
+    }
+  }
+
+  /**
+   * Close the provider if possible which in turn shuts down any associated circuit breaker
+   */
+  public closeProvider() {
+    if (this._authProvider) {
+      if (this._authProvider instanceof common.AbstractRequestingAuthenticationDetailsProvider)
+        (<common.AbstractRequestingAuthenticationDetailsProvider>(
+          this._authProvider
+        )).closeProvider();
+    }
+  }
+
+  /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+    this.closeProvider();
+  }
+
+  /**
+   * Gets a list of Multicloud IAM Policies.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListMulticloudPoliciesRequest
+   * @return ListMulticloudPoliciesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/multicloud/ListMulticloudPolicies.ts.html |here} to see how to use ListMulticloudPolicies API.
+   */
+  public async listMulticloudPolicies(
+    listMulticloudPoliciesRequest: requests.ListMulticloudPoliciesRequest
+  ): Promise<responses.ListMulticloudPoliciesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation MulticloudPoliciesClient#listMulticloudPolicies.");
+    const operationName = "listMulticloudPolicies";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listMulticloudPoliciesRequest.compartmentId,
+      "isForceRefresh": listMulticloudPoliciesRequest.isForceRefresh,
+      "subscriptionId": listMulticloudPoliciesRequest.subscriptionId,
+      "limit": listMulticloudPoliciesRequest.limit,
+      "page": listMulticloudPoliciesRequest.page,
+      "displayName": listMulticloudPoliciesRequest.displayName,
+      "sortBy": listMulticloudPoliciesRequest.sortBy,
+      "sortOrder": listMulticloudPoliciesRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listMulticloudPoliciesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listMulticloudPoliciesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/multicloudpolicies",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListMulticloudPoliciesResponse>{},
+        body: await response.json(),
+        bodyKey: "multicloudPolicyCollection",
+        bodyModel: model.MulticloudPolicyCollection,
+        type: "model.MulticloudPolicyCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1001,7 +1555,10 @@ export class MulticloudResourcesClient {
   }
 
   /**
-   * Gets a list of multicloud resources with multicloud base compartment and subscription across Cloud Service Providers.
+   * Lists Multicloud resources in the specified Multicloud subscription.
+   * Details for each resource include Multicloud base compartment, name, state, resource type, and network anchor.
+   * For more information, see
+   * [Multicloud Resources](https://docs.oracle.com/iaas/Content/multicloud-hub/list-resources.htm).
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListMulticloudResourcesRequest
@@ -1027,7 +1584,8 @@ export class MulticloudResourcesClient {
       "sortBy": listMulticloudResourcesRequest.sortBy,
       "subscriptionServiceName": listMulticloudResourcesRequest.subscriptionServiceName,
       "subscriptionId": listMulticloudResourcesRequest.subscriptionId,
-      "externalLocation": listMulticloudResourcesRequest.externalLocation
+      "externalLocation": listMulticloudResourcesRequest.externalLocation,
+      "resourceType": listMulticloudResourcesRequest.resourceType
     };
 
     let headerParams = {
@@ -1271,7 +1829,8 @@ export class MulticloudsubscriptionsClient {
   }
 
   /**
-   * Gets a list of Multicloud Resources.
+   * Lists activated Multicloud subscriptions in the specified compartment. For more information, see
+   * [Listing Multicloud Subscriptions](https://docs.oracle.com/iaas/Content/multicloud-hub/list-subscriptions.htm).
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListMulticloudSubscriptionsRequest
@@ -1539,7 +2098,10 @@ export class OmhubNetworkAnchorClient {
   }
 
   /**
-   * Gets information about a NetworkAnchor.
+   * Gets details for the specified network anchor. The subscription OCID and service name are required.
+   * For more information, see
+   * [Getting a Network Anchor's Details](https://docs.oracle.com/iaas/Content/multicloud-hub/get-network-anchor.htm).
+   *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetNetworkAnchorRequest
    * @return GetNetworkAnchorResponse
@@ -1620,7 +2182,10 @@ export class OmhubNetworkAnchorClient {
   }
 
   /**
-   * Gets a list of NetworkAnchors.
+   * Lists network anchors in the specified Multicloud subscription, Multicloud compartment, and partner cloud region.
+   * Details listed for each resource include name, state, VCN, and ODB network ID.
+   * For more information, see
+   * [Listing Network Anchors](https://docs.oracle.com/iaas/Content/multicloud-hub/list-network-anchors.htm).
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListNetworkAnchorsRequest
@@ -1645,7 +2210,6 @@ export class OmhubNetworkAnchorClient {
       "displayName": listNetworkAnchorsRequest.displayName,
       "externalLocation": listNetworkAnchorsRequest.externalLocation,
       "networkAnchorOciSubnetId": listNetworkAnchorsRequest.networkAnchorOciSubnetId,
-      "compartmentIdInSubtree": listNetworkAnchorsRequest.compartmentIdInSubtree,
       "networkAnchorOciVcnId": listNetworkAnchorsRequest.networkAnchorOciVcnId,
       "id": listNetworkAnchorsRequest.id,
       "limit": listNetworkAnchorsRequest.limit,
@@ -1920,7 +2484,10 @@ export class OmhubResourceAnchorClient {
   }
 
   /**
-   * Gets information about a ResourceAnchor.
+   * Gets details for the specified resource anchor. The subscription OCID and service name are required.
+   * For more information, see
+   * [Getting a Resource Anchor's Details (OCI)](https://docs.oracle.com/iaas/Content/multicloud-hub/get-resource-anchor.htm).
+   *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetResourceAnchorRequest
    * @return GetResourceAnchorResponse
@@ -2000,7 +2567,10 @@ export class OmhubResourceAnchorClient {
   }
 
   /**
-   * Gets a list of ResourceAnchors.
+   * Lists resource anchors in the specified Multicloud subscription.
+   * Details listed for each resource anchor include name, state, and the related Multicloud compartment.
+   * For more information, see
+   * [Listing Resource Anchors](https://docs.oracle.com/iaas/Content/multicloud-hub/list-resource-anchors.htm).
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListResourceAnchorsRequest

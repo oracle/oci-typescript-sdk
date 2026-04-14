@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface GetResourceAnchorRequest extends common.BaseRequest {
   /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the ResourceAnchor.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the resource anchor.
    */
   "resourceAnchorId": string;
   /**
-   * The subscription service name of the Cloud Service Provider.
+   * The cloud service provider.
    */
   "subscriptionServiceName": model.SubscriptionType;
   /**
@@ -39,7 +39,9 @@ export interface GetResourceAnchorRequest extends common.BaseRequest {
    */
   "opcRequestId"?: string;
   /**
-   * Whether to fetch and include the compartment name, setting this field to yes may introduce additional latency.
+   * Whether to fetch and include the compartment name.
+   * Setting this field to {@code true} might introduce additional latency.
+   *
    */
   "shouldFetchCompartmentName"?: boolean;
 }

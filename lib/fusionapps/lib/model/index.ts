@@ -13,6 +13,8 @@
 
 import * as Action from "./action";
 export import Action = Action.Action;
+import * as AdditionalEgressRule from "./additional-egress-rule";
+export import AdditionalEgressRule = AdditionalEgressRule.AdditionalEgressRule;
 import * as AdminUserCollection from "./admin-user-collection";
 export import AdminUserCollection = AdminUserCollection.AdminUserCollection;
 import * as AdminUserSummary from "./admin-user-summary";

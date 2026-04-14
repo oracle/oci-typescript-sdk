@@ -71,6 +71,8 @@ import * as KeyTabSecretDetails from "./key-tab-secret-details";
 export import KeyTabSecretDetails = KeyTabSecretDetails.KeyTabSecretDetails;
 import * as LdapIdmap from "./ldap-idmap";
 export import LdapIdmap = LdapIdmap.LdapIdmap;
+import * as LockDurationDetails from "./lock-duration-details";
+export import LockDurationDetails = LockDurationDetails.LockDurationDetails;
 import * as MountTarget from "./mount-target";
 export import MountTarget = MountTarget.MountTarget;
 import * as MountTargetSummary from "./mount-target-summary";

@@ -11,10 +11,14 @@
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as BaseResourceConfiguration from "./base-resource-configuration";
+export import BaseResourceConfiguration = BaseResourceConfiguration.BaseResourceConfiguration;
 import * as ChangeOccDemandSignalCompartmentDetails from "./change-occ-demand-signal-compartment-details";
 export import ChangeOccDemandSignalCompartmentDetails = ChangeOccDemandSignalCompartmentDetails.ChangeOccDemandSignalCompartmentDetails;
 import * as CreateOccDemandSignalDetails from "./create-occ-demand-signal-details";
 export import CreateOccDemandSignalDetails = CreateOccDemandSignalDetails.CreateOccDemandSignalDetails;
+import * as CreateOccMetricAlarmDetails from "./create-occ-metric-alarm-details";
+export import CreateOccMetricAlarmDetails = CreateOccMetricAlarmDetails.CreateOccMetricAlarmDetails;
 import * as OccDemandSignal from "./occ-demand-signal";
 export import OccDemandSignal = OccDemandSignal.OccDemandSignal;
 import * as OccDemandSignalCollection from "./occ-demand-signal-collection";
@@ -25,6 +29,12 @@ import * as OccDemandSignalSummary from "./occ-demand-signal-summary";
 export import OccDemandSignalSummary = OccDemandSignalSummary.OccDemandSignalSummary;
 import * as OccDemandSignalValue from "./occ-demand-signal-value";
 export import OccDemandSignalValue = OccDemandSignalValue.OccDemandSignalValue;
+import * as OccMetricAlarm from "./occ-metric-alarm";
+export import OccMetricAlarm = OccMetricAlarm.OccMetricAlarm;
+import * as OccMetricAlarmCollection from "./occ-metric-alarm-collection";
+export import OccMetricAlarmCollection = OccMetricAlarmCollection.OccMetricAlarmCollection;
+import * as OccMetricAlarmSummary from "./occ-metric-alarm-summary";
+export import OccMetricAlarmSummary = OccMetricAlarmSummary.OccMetricAlarmSummary;
 import * as PatchInstruction from "./patch-instruction";
 export import PatchInstruction = PatchInstruction.PatchInstruction;
 import * as PatchOccDemandSignalDetails from "./patch-occ-demand-signal-details";
@@ -33,7 +43,15 @@ import * as SortOrder from "./sort-order";
 export import SortOrder = SortOrder.SortOrder;
 import * as UpdateOccDemandSignalDetails from "./update-occ-demand-signal-details";
 export import UpdateOccDemandSignalDetails = UpdateOccDemandSignalDetails.UpdateOccDemandSignalDetails;
+import * as UpdateOccMetricAlarmDetails from "./update-occ-metric-alarm-details";
+export import UpdateOccMetricAlarmDetails = UpdateOccMetricAlarmDetails.UpdateOccMetricAlarmDetails;
 
+import * as ComputeResourceConfiguration from "./compute-resource-configuration";
+export import ComputeResourceConfiguration = ComputeResourceConfiguration.ComputeResourceConfiguration;
+import * as ExadataResourceConfiguration from "./exadata-resource-configuration";
+export import ExadataResourceConfiguration = ExadataResourceConfiguration.ExadataResourceConfiguration;
+import * as NetworkResourceConfiguration from "./network-resource-configuration";
+export import NetworkResourceConfiguration = NetworkResourceConfiguration.NetworkResourceConfiguration;
 import * as PatchInsertInstruction from "./patch-insert-instruction";
 export import PatchInsertInstruction = PatchInsertInstruction.PatchInsertInstruction;
 import * as PatchInsertMultipleInstruction from "./patch-insert-multiple-instruction";
@@ -50,3 +68,5 @@ import * as PatchReplaceInstruction from "./patch-replace-instruction";
 export import PatchReplaceInstruction = PatchReplaceInstruction.PatchReplaceInstruction;
 import * as PatchRequireInstruction from "./patch-require-instruction";
 export import PatchRequireInstruction = PatchRequireInstruction.PatchRequireInstruction;
+import * as StorageResourceConfiguration from "./storage-resource-configuration";
+export import StorageResourceConfiguration = StorageResourceConfiguration.StorageResourceConfiguration;

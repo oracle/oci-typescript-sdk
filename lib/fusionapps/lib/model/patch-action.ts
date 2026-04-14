@@ -19,15 +19,15 @@ import common = require("oci-common");
  */
 export interface PatchAction extends model.Action {
   /**
-   * A string that describes whether the change is applied hot or cold
+   * A string that describes whether the change is applied hot or cold.
    */
   "mode"?: PatchAction.Mode;
   /**
-   * patch artifact category
+   * Patch artifact category.
    */
   "category"?: PatchAction.Category;
   /**
-   * patch bundle name
+   * Patch bundle name.
    */
   "artifact"?: string;
 

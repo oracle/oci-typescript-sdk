@@ -39,6 +39,7 @@ Example: {@code Sunday}
    * The time when this snapshot will be deleted.
    */
   "expirationTime"?: Date;
+  "lockDurationDetails"?: model.LockDurationDetails;
   /**
    * Free-form tags for this resource. Each tag is a simple key-value pair
    *  with no predefined name, type, or namespace.
@@ -65,6 +66,10 @@ export namespace CreateSnapshotDetails {
     const jsonObj = {
       ...obj,
       ...{
+        "lockDurationDetails": obj.lockDurationDetails
+          ? model.LockDurationDetails.getJsonObj(obj.lockDurationDetails)
+          : undefined,
+
         "locks": obj.locks
           ? obj.locks.map(item => {
               return model.ResourceLock.getJsonObj(item);
@@ -79,6 +84,10 @@ export namespace CreateSnapshotDetails {
     const jsonObj = {
       ...obj,
       ...{
+        "lockDurationDetails": obj.lockDurationDetails
+          ? model.LockDurationDetails.getDeserializedJsonObj(obj.lockDurationDetails)
+          : undefined,
+
         "locks": obj.locks
           ? obj.locks.map(item => {
               return model.ResourceLock.getDeserializedJsonObj(item);

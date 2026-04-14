@@ -34,7 +34,7 @@ It relies on both the Oracle Azure Connector and the Oracle Azure Blob Container
 <b>AWS</b>:<br>
 <b>Oracle AWS Connector Resource:</b>&nbsp;&nbsp;The Oracle AWS Connector Resource is used to install the AWS Identity Connector on an Exadata VM cluster in Oracle Exadata Database Service on Dedicated Infrastructure (ExaDB-D).
 
-<b>Google AWS Key Resource:</b>&nbsp;&nbsp;The Oracle AWS Key Resource is used to register and manage a AWS Key within Oracle Cloud Infrastructure (OCI).
+<b>Oracle AWS Key Resource:</b>&nbsp;&nbsp;The Oracle AWS Key Resource is used to register and manage a AWS Key within Oracle Cloud Infrastructure (OCI).
 
  * OpenAPI spec version: 20240501
  * 
@@ -1262,6 +1262,86 @@ export class DbMulticloudAwsProviderClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.RefreshOracleDbAwsKeyResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Replicate Oracle AWS Key resource to target region.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ReplicateOracleDbAwsKeyRequest
+   * @return ReplicateOracleDbAwsKeyResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dbmulticloud/ReplicateOracleDbAwsKey.ts.html |here} to see how to use ReplicateOracleDbAwsKey API.
+   */
+  public async replicateOracleDbAwsKey(
+    replicateOracleDbAwsKeyRequest: requests.ReplicateOracleDbAwsKeyRequest
+  ): Promise<responses.ReplicateOracleDbAwsKeyResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbMulticloudAwsProviderClient#replicateOracleDbAwsKey.");
+    const operationName = "replicateOracleDbAwsKey";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{oracleDbAwsKeyId}": replicateOracleDbAwsKeyRequest.oracleDbAwsKeyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": replicateOracleDbAwsKeyRequest.opcRetryToken,
+      "if-match": replicateOracleDbAwsKeyRequest.ifMatch,
+      "opc-request-id": replicateOracleDbAwsKeyRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      replicateOracleDbAwsKeyRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/oracleDbAwsKey/{oracleDbAwsKeyId}/actions/replicate",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        replicateOracleDbAwsKeyRequest.replicateOracleDbAwsKeyDetails,
+        "ReplicateOracleDbAwsKeyDetails",
+        model.ReplicateOracleDbAwsKeyDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ReplicateOracleDbAwsKeyResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2801,6 +2881,88 @@ export class DbMulticloudGCPProviderClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.RefreshOracleDbGcpKeyRingResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Replicate Oracle GCP Key Ring details to target region.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ReplicateOracleDbGcpKeyRingRequest
+   * @return ReplicateOracleDbGcpKeyRingResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dbmulticloud/ReplicateOracleDbGcpKeyRing.ts.html |here} to see how to use ReplicateOracleDbGcpKeyRing API.
+   */
+  public async replicateOracleDbGcpKeyRing(
+    replicateOracleDbGcpKeyRingRequest: requests.ReplicateOracleDbGcpKeyRingRequest
+  ): Promise<responses.ReplicateOracleDbGcpKeyRingResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbMulticloudGCPProviderClient#replicateOracleDbGcpKeyRing."
+      );
+    const operationName = "replicateOracleDbGcpKeyRing";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{oracleDbGcpKeyRingId}": replicateOracleDbGcpKeyRingRequest.oracleDbGcpKeyRingId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": replicateOracleDbGcpKeyRingRequest.opcRetryToken,
+      "if-match": replicateOracleDbGcpKeyRingRequest.ifMatch,
+      "opc-request-id": replicateOracleDbGcpKeyRingRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      replicateOracleDbGcpKeyRingRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/oracleDbGcpKeyRing/{oracleDbGcpKeyRingId}/actions/replicate",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        replicateOracleDbGcpKeyRingRequest.replicateOracleDbGcpKeyRingDetails,
+        "ReplicateOracleDbGcpKeyRingDetails",
+        model.ReplicateOracleDbGcpKeyRingDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ReplicateOracleDbGcpKeyRingResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -7091,6 +7253,86 @@ export class OracleDbAzureVaultClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.RefreshOracleDbAzureVaultResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Replicate the Oracle DB Azure Vault resource to target region.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ReplicateOracleDbAzureVaultRequest
+   * @return ReplicateOracleDbAzureVaultResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dbmulticloud/ReplicateOracleDbAzureVault.ts.html |here} to see how to use ReplicateOracleDbAzureVault API.
+   */
+  public async replicateOracleDbAzureVault(
+    replicateOracleDbAzureVaultRequest: requests.ReplicateOracleDbAzureVaultRequest
+  ): Promise<responses.ReplicateOracleDbAzureVaultResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OracleDbAzureVaultClient#replicateOracleDbAzureVault.");
+    const operationName = "replicateOracleDbAzureVault";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{oracleDbAzureVaultId}": replicateOracleDbAzureVaultRequest.oracleDbAzureVaultId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": replicateOracleDbAzureVaultRequest.opcRetryToken,
+      "if-match": replicateOracleDbAzureVaultRequest.ifMatch,
+      "opc-request-id": replicateOracleDbAzureVaultRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      replicateOracleDbAzureVaultRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/oracleDbAzureVault/{oracleDbAzureVaultId}/actions/replicate",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        replicateOracleDbAzureVaultRequest.replicateOracleDbAzureVaultDetails,
+        "ReplicateOracleDbAzureVaultDetails",
+        model.ReplicateOracleDbAzureVaultDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ReplicateOracleDbAzureVaultResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),

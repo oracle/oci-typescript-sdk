@@ -54,6 +54,10 @@ export interface AutonomousDatabaseConnectionUrls {
    * The URL of the Database Transforms for the Autonomous AI Database.
    */
   "databaseTransformsUrl"?: string;
+  /**
+   * The URL of the Spatial Studio for the Autonomous AI Database.
+   */
+  "spatialStudioUrl"?: string;
 }
 
 export namespace AutonomousDatabaseConnectionUrls {

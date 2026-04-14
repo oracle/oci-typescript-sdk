@@ -19,15 +19,7 @@ import common = require("oci-common");
  */
 export interface ListMulticloudResourcesRequest extends common.BaseRequest {
   /**
-   * The subscription service name of the Cloud Service Provider.
-   */
-  "subscriptionServiceName": model.SubscriptionType;
-  /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Multicloud subscription in which to list resources.
-   */
-  "subscriptionId": string;
-  /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the ResourceAnchor.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the resource anchor.
    */
   "resourceAnchorId"?: string;
   /**
@@ -50,6 +42,8 @@ export interface ListMulticloudResourcesRequest extends common.BaseRequest {
   "page"?: string;
   /**
    * The sort order to use, either ascending ({@code ASC}) or descending ({@code DESC}).
+   * In general, the sort order is {@code DESC} when sorting by time and {@code ASC} otherwise.
+   *
    */
   "sortOrder"?: model.SortOrder;
   /**
@@ -59,9 +53,21 @@ export interface ListMulticloudResourcesRequest extends common.BaseRequest {
    */
   "sortBy"?: ListMulticloudResourcesRequest.SortBy;
   /**
-   * The Cloud Service Provider region.
+   * The cloud service provider.
+   */
+  "subscriptionServiceName"?: model.SubscriptionType;
+  /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Multicloud subscription in which to list resources.
+   */
+  "subscriptionId"?: string;
+  /**
+   * The cloud service provider region.
    */
   "externalLocation"?: string;
+  /**
+   * Filter alerts by resource type (e.g. ADBD, VMCluster).
+   */
+  "resourceType"?: string;
   /**
    * Unique Oracle-assigned identifier for the request. If you need to contact
    * Oracle about a particular request, please provide the request ID.

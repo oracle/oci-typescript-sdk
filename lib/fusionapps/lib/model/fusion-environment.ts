@@ -84,7 +84,7 @@ export interface FusionEnvironment {
    */
   "additionalLanguagePacks"?: Array<string>;
   /**
-   * Enable IPv4/IPv6 dual stack support for the environment.  Setting to true will assign an IPv6 address to the environment in addition to an IPv4 address.
+   * Enable IPv4/IPv6 dual stack support for the environment (where available). Setting to true will assign an IPv6 address to the environment in addition to an IPv4 address.
    */
   "isIPv6DualStackEnabled"?: boolean;
   /**
@@ -137,6 +137,10 @@ export interface FusionEnvironment {
    * Environment suspended status
    */
   "isSuspended"?: boolean;
+  /**
+   * Additional egress rules that should be applied to the environment. Some standard ports are open for general use; see [Securing Network Access to a Fusion Applications Environment][iaas/Content/fusion-applications/plan-environment.htm#internet-cache]. If access to a non-standard port is required, however, they can be listed here.
+   */
+  "additionalEgressRules"?: Array<model.AdditionalEgressRule>;
 }
 
 export namespace FusionEnvironment {
@@ -183,6 +187,12 @@ export namespace FusionEnvironment {
 
         "environmentRole": obj.environmentRole
           ? model.EnvironmentRole.getJsonObj(obj.environmentRole)
+          : undefined,
+
+        "additionalEgressRules": obj.additionalEgressRules
+          ? obj.additionalEgressRules.map(item => {
+              return model.AdditionalEgressRule.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -208,6 +218,12 @@ export namespace FusionEnvironment {
 
         "environmentRole": obj.environmentRole
           ? model.EnvironmentRole.getDeserializedJsonObj(obj.environmentRole)
+          : undefined,
+
+        "additionalEgressRules": obj.additionalEgressRules
+          ? obj.additionalEgressRules.map(item => {
+              return model.AdditionalEgressRule.getDeserializedJsonObj(item);
+            })
           : undefined
       }
     };

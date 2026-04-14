@@ -48,13 +48,17 @@ export interface CreateFusionEnvironmentDetails {
    */
   "additionalLanguagePacks"?: Array<string>;
   /**
-   * Enable IPv4/IPv6 dual stack support for the environment.  Setting to true will assign an IPv6 address to the environment in addition to an IPv4 address. Default value will be false if not set
+   * Enable IPv4/IPv6 dual stack support for the environment (where available). Setting to true will assign an IPv6 address to the environment in addition to an IPv4 address. The default value is false.
    */
   "isIPv6DualStackEnabled"?: boolean;
   /**
    * Rules.
    */
   "rules"?: Array<model.Rule>;
+  /**
+   * Additional egress rules that should be applied to the environment. Some standard ports are open for general use; see [Securing Network Access to a Fusion Applications Environment][iaas/Content/fusion-applications/plan-environment.htm#internet-cache]. If access to a non-standard port is required, however, they can be listed here.
+   */
+  "additionalEgressRules"?: Array<model.AdditionalEgressRule>;
   "createFusionEnvironmentAdminUserDetails": model.CreateFusionEnvironmentAdminUserDetails;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
@@ -84,6 +88,11 @@ export namespace CreateFusionEnvironmentDetails {
               return model.Rule.getJsonObj(item);
             })
           : undefined,
+        "additionalEgressRules": obj.additionalEgressRules
+          ? obj.additionalEgressRules.map(item => {
+              return model.AdditionalEgressRule.getJsonObj(item);
+            })
+          : undefined,
         "createFusionEnvironmentAdminUserDetails": obj.createFusionEnvironmentAdminUserDetails
           ? model.CreateFusionEnvironmentAdminUserDetails.getJsonObj(
               obj.createFusionEnvironmentAdminUserDetails
@@ -105,6 +114,11 @@ export namespace CreateFusionEnvironmentDetails {
         "rules": obj.rules
           ? obj.rules.map(item => {
               return model.Rule.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "additionalEgressRules": obj.additionalEgressRules
+          ? obj.additionalEgressRules.map(item => {
+              return model.AdditionalEgressRule.getDeserializedJsonObj(item);
             })
           : undefined,
         "createFusionEnvironmentAdminUserDetails": obj.createFusionEnvironmentAdminUserDetails

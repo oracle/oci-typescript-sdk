@@ -23,16 +23,16 @@ export interface ListExternalLocationDetailsMetadataRequest extends common.BaseR
    */
   "subscriptionId": string;
   /**
-   * The subscription service name of the Cloud Service Provider.
+   * The cloud service provider.
    */
   "subscriptionServiceName": model.SubscriptionType;
   /**
-   * The resource type query (i.e. dbsystem, instance etc.)
+   * The resource type query (for example, dbsystem or instance).
    */
   "entityType"?: ListExternalLocationDetailsMetadataRequest.EntityType;
   /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Multicloud base compartment in which to list resources.
-   * A Multicloud base compartment is an OCI compartment that maps to a subscription in a Cloud Service Provider (such as Azure, AWS, or Google Cloud).
+   * A Multicloud base compartment is an OCI compartment that maps to a subscription in a cloud service provider (such as Azure or AWS).
    *
    */
   "compartmentId"?: string;
@@ -41,15 +41,15 @@ export interface ListExternalLocationDetailsMetadataRequest extends common.BaseR
    */
   "linkedCompartmentId"?: string;
   /**
-   * The Cloud Service Provider region.
+   * The cloud service provider region.
    */
   "externalLocation"?: string;
   /**
-   * OCI Logical AD to filter the response.
+   * OCI logical availability domain (AD) to filter the response.
    */
   "logicalZone"?: string;
   /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Cluster Placement Group.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the cluster placement group.
    */
   "clusterPlacementGroupId"?: string;
   /**
@@ -68,6 +68,8 @@ export interface ListExternalLocationDetailsMetadataRequest extends common.BaseR
   "page"?: string;
   /**
    * The sort order to use, either ascending ({@code ASC}) or descending ({@code DESC}).
+   * In general, the sort order is {@code DESC} when sorting by time and {@code ASC} otherwise.
+   *
    */
   "sortOrder"?: model.SortOrder;
   /**

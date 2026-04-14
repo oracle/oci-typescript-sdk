@@ -34,7 +34,7 @@ It relies on both the Oracle Azure Connector and the Oracle Azure Blob Container
 <b>AWS</b>:<br>
 <b>Oracle AWS Connector Resource:</b>&nbsp;&nbsp;The Oracle AWS Connector Resource is used to install the AWS Identity Connector on an Exadata VM cluster in Oracle Exadata Database Service on Dedicated Infrastructure (ExaDB-D).
 
-<b>Google AWS Key Resource:</b>&nbsp;&nbsp;The Oracle AWS Key Resource is used to register and manage a AWS Key within Oracle Cloud Infrastructure (OCI).
+<b>Oracle AWS Key Resource:</b>&nbsp;&nbsp;The Oracle AWS Key Resource is used to register and manage a AWS Key within Oracle Cloud Infrastructure (OCI).
 
  * OpenAPI spec version: 20240501
  * 
@@ -90,6 +90,7 @@ export interface OracleDbAzureVaultSummary {
    * Oracle DB Azure Vault resource's properties.
    */
   "properties"?: { [key: string]: string };
+  "replicationMetadata"?: model.ReplicationMetadata;
   /**
    * The current lifecycle state of the Azure Arc Agent resource.
    */
@@ -139,12 +140,26 @@ Example: {@code {\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}}
 
 export namespace OracleDbAzureVaultSummary {
   export function getJsonObj(obj: OracleDbAzureVaultSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "replicationMetadata": obj.replicationMetadata
+          ? model.ReplicationMetadata.getJsonObj(obj.replicationMetadata)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: OracleDbAzureVaultSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "replicationMetadata": obj.replicationMetadata
+          ? model.ReplicationMetadata.getDeserializedJsonObj(obj.replicationMetadata)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

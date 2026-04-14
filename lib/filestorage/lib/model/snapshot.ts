@@ -92,6 +92,13 @@ Example: {@code 2020-08-25T21:10:29.600Z}
    * Locks associated with this resource.
    */
   "locks"?: Array<model.ResourceLock>;
+  "lockDurationDetails"?: model.LockDurationDetails;
+  /**
+   * The date and time as per [RFC 3339](https://tools.ietf.org/html/rfc3339) when this snapshot was locked.
+   * It is a read-only property because the user should not be able to set it, it is set by our service.
+   *
+   */
+  "timeLocked"?: Date;
   /**
    * Free-form tags for this resource. Each tag is a simple key-value pair
    *  with no predefined name, type, or namespace.
@@ -156,6 +163,9 @@ export namespace Snapshot {
           ? obj.locks.map(item => {
               return model.ResourceLock.getJsonObj(item);
             })
+          : undefined,
+        "lockDurationDetails": obj.lockDurationDetails
+          ? model.LockDurationDetails.getJsonObj(obj.lockDurationDetails)
           : undefined
       }
     };
@@ -170,6 +180,9 @@ export namespace Snapshot {
           ? obj.locks.map(item => {
               return model.ResourceLock.getDeserializedJsonObj(item);
             })
+          : undefined,
+        "lockDurationDetails": obj.lockDurationDetails
+          ? model.LockDurationDetails.getDeserializedJsonObj(obj.lockDurationDetails)
           : undefined
       }
     };
