@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface UpgradeAction extends model.Action {
   /**
-   * name of the repo
+   * Name of the repo.
    */
   "version"?: string;
   /**
-   * month qualifier
+   * Month qualifier.
    */
   "qualifier"?: string;
 

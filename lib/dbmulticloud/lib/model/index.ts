@@ -34,7 +34,7 @@ It relies on both the Oracle Azure Connector and the Oracle Azure Blob Container
 <b>AWS</b>:<br>
 <b>Oracle AWS Connector Resource:</b>&nbsp;&nbsp;The Oracle AWS Connector Resource is used to install the AWS Identity Connector on an Exadata VM cluster in Oracle Exadata Database Service on Dedicated Infrastructure (ExaDB-D).
 
-<b>Google AWS Key Resource:</b>&nbsp;&nbsp;The Oracle AWS Key Resource is used to register and manage a AWS Key within Oracle Cloud Infrastructure (OCI).
+<b>Oracle AWS Key Resource:</b>&nbsp;&nbsp;The Oracle AWS Key Resource is used to register and manage a AWS Key within Oracle Cloud Infrastructure (OCI).
 
  * OpenAPI spec version: 20240501
  * 
@@ -178,6 +178,18 @@ import * as RefreshOracleDbAzureVaultDetails from "./refresh-oracle-db-azure-vau
 export import RefreshOracleDbAzureVaultDetails = RefreshOracleDbAzureVaultDetails.RefreshOracleDbAzureVaultDetails;
 import * as RefreshOracleDbGcpKeyRingDetails from "./refresh-oracle-db-gcp-key-ring-details";
 export import RefreshOracleDbGcpKeyRingDetails = RefreshOracleDbGcpKeyRingDetails.RefreshOracleDbGcpKeyRingDetails;
+import * as ReplicateOracleDbAwsKeyDetails from "./replicate-oracle-db-aws-key-details";
+export import ReplicateOracleDbAwsKeyDetails = ReplicateOracleDbAwsKeyDetails.ReplicateOracleDbAwsKeyDetails;
+import * as ReplicateOracleDbAzureVaultDetails from "./replicate-oracle-db-azure-vault-details";
+export import ReplicateOracleDbAzureVaultDetails = ReplicateOracleDbAzureVaultDetails.ReplicateOracleDbAzureVaultDetails;
+import * as ReplicateOracleDbGcpKeyRingDetails from "./replicate-oracle-db-gcp-key-ring-details";
+export import ReplicateOracleDbGcpKeyRingDetails = ReplicateOracleDbGcpKeyRingDetails.ReplicateOracleDbGcpKeyRingDetails;
+import * as ReplicationActions from "./replication-actions";
+export import ReplicationActions = ReplicationActions.ReplicationActions;
+import * as ReplicationDetails from "./replication-details";
+export import ReplicationDetails = ReplicationDetails.ReplicationDetails;
+import * as ReplicationMetadata from "./replication-metadata";
+export import ReplicationMetadata = ReplicationMetadata.ReplicationMetadata;
 import * as Resources from "./resources";
 export import Resources = Resources.Resources;
 import * as ServiceRoleDetail from "./service-role-detail";

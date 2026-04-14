@@ -38,6 +38,8 @@ export interface ListMultiCloudMetadataRequest extends common.BaseRequest {
   "page"?: string;
   /**
    * The sort order to use, either ascending ({@code ASC}) or descending ({@code DESC}).
+   * In general, the sort order is {@code DESC} when sorting by time and {@code ASC} otherwise.
+   *
    */
   "sortOrder"?: model.SortOrder;
   /**

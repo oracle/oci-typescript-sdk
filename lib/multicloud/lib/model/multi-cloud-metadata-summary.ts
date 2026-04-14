@@ -1,6 +1,6 @@
 /**
  * Oracle Multicloud API
- * Use the Oracle Multicloud API to retrieve resource anchors and network anchors, and the metadata mappings related a Cloud Service Provider. For more information, see <link to docs>.
+ * Use the Oracle Multicloud API to retrieve resource anchors and network anchors, and the metadata mappings related a Cloud Service Provider. For more information, see [Oracle Multicloud Hub](https://docs.oracle.com/iaas/Content/multicloud-hub/home.htm).
  * OpenAPI spec version: 20180828
  *
  *
@@ -15,23 +15,26 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Multicloud metadata information including base multicloud compartments information.
+ * The Multicloud metadata for the indicated subscription.
+ * Multicloud metadata for a subscription includes the Multicloud base compartment (top-level OCI compartment).
+ * For more information, see
+ * [Getting Details for Multicloud Metadata](https://docs.oracle.com/iaas/Content/multicloud-hub/get-subscription-metadata.htm).
  *
  */
 export interface MultiCloudMetadataSummary {
   /**
-   * MultiCloud base compartment OCID associated with subscriptionId.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Multicloud base compartment associated with the indicated subscription ({@code subscriptionId}).
    */
   "compartmentId": string;
   /**
-    * The date and time the multicloud compartment was created, in the format defined by [RFC 3339](https://tools.ietf.org/html/rfc3339).
+    * The date and time that the Multicloud base compartment was created, in the format defined by [RFC 3339](https://tools.ietf.org/html/rfc3339).
 * <p>
 Example: {@code 2016-08-25T21:10:29.600Z}
 * 
     */
   "timeCreated": Date;
   /**
-   * Oracle Cloud Infrastructure subscriptionId.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the OCI subscription.
    */
   "subscriptionId": string;
   /**

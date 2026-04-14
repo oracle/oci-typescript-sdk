@@ -46,9 +46,24 @@ export interface InstanceReservationShapeConfigDetails {
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "memoryInGBs"?: number;
+  /**
+   * This field is reserved for internal use.
+   *
+   */
+  "resourceManagement"?: InstanceReservationShapeConfigDetails.ResourceManagement;
 }
 
 export namespace InstanceReservationShapeConfigDetails {
+  export enum ResourceManagement {
+    Dynamic = "DYNAMIC",
+    Static = "STATIC",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: InstanceReservationShapeConfigDetails): object {
     const jsonObj = { ...obj, ...{} };
 

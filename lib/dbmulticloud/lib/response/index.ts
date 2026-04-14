@@ -34,7 +34,7 @@ It relies on both the Oracle Azure Connector and the Oracle Azure Blob Container
 <b>AWS</b>:<br>
 <b>Oracle AWS Connector Resource:</b>&nbsp;&nbsp;The Oracle AWS Connector Resource is used to install the AWS Identity Connector on an Exadata VM cluster in Oracle Exadata Database Service on Dedicated Infrastructure (ExaDB-D).
 
-<b>Google AWS Key Resource:</b>&nbsp;&nbsp;The Oracle AWS Key Resource is used to register and manage a AWS Key within Oracle Cloud Infrastructure (OCI).
+<b>Oracle AWS Key Resource:</b>&nbsp;&nbsp;The Oracle AWS Key Resource is used to register and manage a AWS Key within Oracle Cloud Infrastructure (OCI).
 
  * OpenAPI spec version: 20240501
  * 
@@ -70,6 +70,8 @@ import * as RefreshOracleDbAwsIdentityConnectorResponse from "./refresh-oracle-d
 export import RefreshOracleDbAwsIdentityConnectorResponse = RefreshOracleDbAwsIdentityConnectorResponse.RefreshOracleDbAwsIdentityConnectorResponse;
 import * as RefreshOracleDbAwsKeyResponse from "./refresh-oracle-db-aws-key-response";
 export import RefreshOracleDbAwsKeyResponse = RefreshOracleDbAwsKeyResponse.RefreshOracleDbAwsKeyResponse;
+import * as ReplicateOracleDbAwsKeyResponse from "./replicate-oracle-db-aws-key-response";
+export import ReplicateOracleDbAwsKeyResponse = ReplicateOracleDbAwsKeyResponse.ReplicateOracleDbAwsKeyResponse;
 import * as UpdateOracleDbAwsIdentityConnectorResponse from "./update-oracle-db-aws-identity-connector-response";
 export import UpdateOracleDbAwsIdentityConnectorResponse = UpdateOracleDbAwsIdentityConnectorResponse.UpdateOracleDbAwsIdentityConnectorResponse;
 import * as UpdateOracleDbAwsKeyResponse from "./update-oracle-db-aws-key-response";
@@ -102,6 +104,8 @@ import * as RefreshOracleDbGcpIdentityConnectorResponse from "./refresh-oracle-d
 export import RefreshOracleDbGcpIdentityConnectorResponse = RefreshOracleDbGcpIdentityConnectorResponse.RefreshOracleDbGcpIdentityConnectorResponse;
 import * as RefreshOracleDbGcpKeyRingResponse from "./refresh-oracle-db-gcp-key-ring-response";
 export import RefreshOracleDbGcpKeyRingResponse = RefreshOracleDbGcpKeyRingResponse.RefreshOracleDbGcpKeyRingResponse;
+import * as ReplicateOracleDbGcpKeyRingResponse from "./replicate-oracle-db-gcp-key-ring-response";
+export import ReplicateOracleDbGcpKeyRingResponse = ReplicateOracleDbGcpKeyRingResponse.ReplicateOracleDbGcpKeyRingResponse;
 import * as UpdateOracleDbGcpIdentityConnectorResponse from "./update-oracle-db-gcp-identity-connector-response";
 export import UpdateOracleDbGcpIdentityConnectorResponse = UpdateOracleDbGcpIdentityConnectorResponse.UpdateOracleDbGcpIdentityConnectorResponse;
 import * as UpdateOracleDbGcpKeyRingResponse from "./update-oracle-db-gcp-key-ring-response";
@@ -174,6 +178,8 @@ import * as ListOracleDbAzureVaultsResponse from "./list-oracle-db-azure-vaults-
 export import ListOracleDbAzureVaultsResponse = ListOracleDbAzureVaultsResponse.ListOracleDbAzureVaultsResponse;
 import * as RefreshOracleDbAzureVaultResponse from "./refresh-oracle-db-azure-vault-response";
 export import RefreshOracleDbAzureVaultResponse = RefreshOracleDbAzureVaultResponse.RefreshOracleDbAzureVaultResponse;
+import * as ReplicateOracleDbAzureVaultResponse from "./replicate-oracle-db-azure-vault-response";
+export import ReplicateOracleDbAzureVaultResponse = ReplicateOracleDbAzureVaultResponse.ReplicateOracleDbAzureVaultResponse;
 import * as UpdateOracleDbAzureVaultResponse from "./update-oracle-db-azure-vault-response";
 export import UpdateOracleDbAzureVaultResponse = UpdateOracleDbAzureVaultResponse.UpdateOracleDbAzureVaultResponse;
 import * as CascadingDeleteOracleDbAzureVaultAssociationResponse from "./cascading-delete-oracle-db-azure-vault-association-response";

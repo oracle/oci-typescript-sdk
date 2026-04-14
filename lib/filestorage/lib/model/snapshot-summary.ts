@@ -55,6 +55,7 @@ Example: {@code 2016-08-25T21:10:29.600Z}
    * Locks associated with this resource.
    */
   "locks"?: Array<model.ResourceLock>;
+  "lockDurationDetails"?: model.LockDurationDetails;
   /**
    * Specifies the generation type of the snapshot.
    *
@@ -150,6 +151,9 @@ export namespace SnapshotSummary {
           ? obj.locks.map(item => {
               return model.ResourceLock.getJsonObj(item);
             })
+          : undefined,
+        "lockDurationDetails": obj.lockDurationDetails
+          ? model.LockDurationDetails.getJsonObj(obj.lockDurationDetails)
           : undefined
       }
     };
@@ -164,6 +168,9 @@ export namespace SnapshotSummary {
           ? obj.locks.map(item => {
               return model.ResourceLock.getDeserializedJsonObj(item);
             })
+          : undefined,
+        "lockDurationDetails": obj.lockDurationDetails
+          ? model.LockDurationDetails.getDeserializedJsonObj(obj.lockDurationDetails)
           : undefined
       }
     };

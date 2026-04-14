@@ -16,9 +16,12 @@ import * as models from "./lib/model";
 import * as responses from "./lib/response";
 import * as client from "./lib/client";
 import * as occdemandsignal_waiter from "./lib/occdemandsignal-waiter";
+import * as occmetricalarm_waiter from "./lib/occmetricalarm-waiter";
 
 export { models };
 export { requests };
 export { responses };
 export import OccDemandSignalClient = client.OccDemandSignalClient;
 export import OccDemandSignalWaiter = occdemandsignal_waiter.OccDemandSignalWaiter;
+export import OccMetricAlarmClient = client.OccMetricAlarmClient;
+export import OccMetricAlarmWaiter = occmetricalarm_waiter.OccMetricAlarmWaiter;

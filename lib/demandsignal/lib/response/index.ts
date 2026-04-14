@@ -25,3 +25,13 @@ import * as PatchOccDemandSignalResponse from "./patch-occ-demand-signal-respons
 export import PatchOccDemandSignalResponse = PatchOccDemandSignalResponse.PatchOccDemandSignalResponse;
 import * as UpdateOccDemandSignalResponse from "./update-occ-demand-signal-response";
 export import UpdateOccDemandSignalResponse = UpdateOccDemandSignalResponse.UpdateOccDemandSignalResponse;
+import * as CreateOccMetricAlarmResponse from "./create-occ-metric-alarm-response";
+export import CreateOccMetricAlarmResponse = CreateOccMetricAlarmResponse.CreateOccMetricAlarmResponse;
+import * as DeleteOccMetricAlarmResponse from "./delete-occ-metric-alarm-response";
+export import DeleteOccMetricAlarmResponse = DeleteOccMetricAlarmResponse.DeleteOccMetricAlarmResponse;
+import * as GetOccMetricAlarmResponse from "./get-occ-metric-alarm-response";
+export import GetOccMetricAlarmResponse = GetOccMetricAlarmResponse.GetOccMetricAlarmResponse;
+import * as ListOccMetricAlarmsResponse from "./list-occ-metric-alarms-response";
+export import ListOccMetricAlarmsResponse = ListOccMetricAlarmsResponse.ListOccMetricAlarmsResponse;
+import * as UpdateOccMetricAlarmResponse from "./update-occ-metric-alarm-response";
+export import UpdateOccMetricAlarmResponse = UpdateOccMetricAlarmResponse.UpdateOccMetricAlarmResponse;

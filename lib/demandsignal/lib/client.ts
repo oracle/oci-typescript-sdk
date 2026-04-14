@@ -16,6 +16,7 @@ import * as requests from "./request";
 import * as model from "./model";
 import * as responses from "./response";
 import { OccDemandSignalWaiter } from "./occdemandsignal-waiter";
+import { OccMetricAlarmWaiter } from "./occmetricalarm-waiter";
 import {
   composeResponse,
   composeRequest,
@@ -801,6 +802,607 @@ export class OccDemandSignalClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+}
+export enum OccMetricAlarmApiKeys {}
+/**
+ * This service client uses {@link common.CircuitBreaker.DefaultConfiguration} for all the operations by default if no circuit breaker configuration is defined by the user.
+ */
+export class OccMetricAlarmClient {
+  protected static serviceEndpointTemplate =
+    "https://control-center-ds.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "control-center-ds";
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
+  protected "_endpoint": string = "";
+  protected "_defaultHeaders": any = {};
+  protected "_waiters": OccMetricAlarmWaiter;
+  protected "_clientConfiguration": common.ClientConfiguration;
+  protected _circuitBreaker: typeof Breaker | null = null;
+  protected _httpOptions: any = undefined;
+  protected _bodyDuplexMode: any = undefined;
+  public targetService = "OccMetricAlarm";
+  protected _regionId: string = "";
+  protected "_region": common.Region;
+  protected _lastSetRegionOrRegionId: string = "";
+
+  protected _httpClient: common.HttpClient;
+  protected _authProvider: common.AuthenticationDetailsProvider | undefined;
+
+  constructor(params: common.AuthParams, clientConfiguration?: common.ClientConfiguration) {
+    const requestSigner = params.authenticationDetailsProvider
+      ? new common.DefaultRequestSigner(params.authenticationDetailsProvider)
+      : null;
+    this._authProvider = params.authenticationDetailsProvider;
+    if (clientConfiguration) {
+      this._clientConfiguration = clientConfiguration;
+      this._circuitBreaker = clientConfiguration.circuitBreaker
+        ? clientConfiguration.circuitBreaker!.circuit
+        : null;
+      this._httpOptions = clientConfiguration.httpOptions
+        ? clientConfiguration.httpOptions
+        : undefined;
+      this._bodyDuplexMode = clientConfiguration.bodyDuplexMode
+        ? clientConfiguration.bodyDuplexMode
+        : undefined;
+    }
+
+    if (!developerToolConfiguration.isServiceEnabled("demandsignal")) {
+      let errmsg =
+        "The developerToolConfiguration configuration disabled this service, this behavior is controlled by developerToolConfiguration.ociEnabledServiceSet variable. Please check if your local developer_tool_configuration file has configured the service you're targeting or contact the cloud provider on the availability of this service : ";
+      throw errmsg.concat("demandsignal");
+    }
+
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = true;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
+    }
+    this._httpClient =
+      params.httpClient ||
+      new common.FetchHttpClient(
+        requestSigner,
+        this._circuitBreaker,
+        this._httpOptions,
+        this._bodyDuplexMode
+      );
+
+    if (
+      params.authenticationDetailsProvider &&
+      common.isRegionProvider(params.authenticationDetailsProvider)
+    ) {
+      const provider: common.RegionProvider = params.authenticationDetailsProvider;
+      if (provider.getRegion()) {
+        this.region = provider.getRegion();
+      }
+    }
+  }
+
+  /**
+   * Get the endpoint that is being used to call (ex, https://www.example.com).
+   */
+  public get endpoint() {
+    return this._endpoint;
+  }
+
+  /**
+   * Sets the endpoint to call (ex, https://www.example.com).
+   * @param endpoint The endpoint of the service.
+   */
+  public set endpoint(endpoint: string) {
+    this._endpoint = endpoint;
+    this._endpoint = this._endpoint + "/20240430";
+    if (this.logger) this.logger.info(`OccMetricAlarmClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
+  }
+
+  /**
+   * Determines whether realm specific endpoint should be used or not.
+   * Set realmSpecificEndpointTemplateEnabled to "true" if the user wants to enable use of realm specific endpoint template, otherwise set it to "false"
+   * @param realmSpecificEndpointTemplateEnabled flag to enable the use of realm specific endpoint template
+   */
+  public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
+    this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
+    if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
+      this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
+        OccMetricAlarmClient.serviceEndpointTemplate,
+        this._region,
+        OccMetricAlarmClient.endpointServiceName
+      );
+    } else if (this._lastSetRegionOrRegionId === common.Region.REGION_ID_STRING) {
+      this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
+        OccMetricAlarmClient.serviceEndpointTemplate,
+        this._regionId,
+        OccMetricAlarmClient.endpointServiceName
+      );
+    }
+  }
+
+  /**
+   * Sets the region to call (ex, Region.US_PHOENIX_1).
+   * Note, this will call {@link #endpoint(String) endpoint} after resolving the endpoint.
+   * @param region The region of the service.
+   */
+  public set region(region: common.Region) {
+    this._region = region;
+    this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
+      OccMetricAlarmClient.serviceEndpointTemplate,
+      region,
+      OccMetricAlarmClient.endpointServiceName
+    );
+    this._lastSetRegionOrRegionId = common.Region.REGION_STRING;
+  }
+
+  /**
+   * Sets the regionId to call (ex, 'us-phoenix-1').
+   *
+   * Note, this will first try to map the region ID to a known Region and call {@link #region(Region) region}.
+   * If no known Region could be determined, it will create an endpoint assuming its in default Realm OC1
+   * and then call {@link #endpoint(String) endpoint}.
+   * @param regionId The public region ID.
+   */
+  public set regionId(regionId: string) {
+    this._regionId = regionId;
+    this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
+      OccMetricAlarmClient.serviceEndpointTemplate,
+      regionId,
+      OccMetricAlarmClient.endpointServiceName
+    );
+    this._lastSetRegionOrRegionId = common.Region.REGION_ID_STRING;
+  }
+
+  /**
+   * Creates a new OccMetricAlarmWaiter for resources for this service.
+   *
+   * @param config The waiter configuration for termination and delay strategy
+   * @return The service waiters.
+   */
+  public createWaiters(config?: common.WaiterConfiguration): OccMetricAlarmWaiter {
+    this._waiters = new OccMetricAlarmWaiter(this, config);
+    return this._waiters;
+  }
+
+  /**
+   * Gets the waiters available for resources for this service.
+   *
+   * @return The service waiters.
+   */
+  public getWaiters(): OccMetricAlarmWaiter {
+    if (this._waiters) {
+      return this._waiters;
+    }
+    throw Error("Waiters do not exist. Please create waiters.");
+  }
+
+  /**
+   * Shutdown the circuit breaker used by the client when it is no longer needed
+   */
+  public shutdownCircuitBreaker() {
+    if (this._circuitBreaker) {
+      this._circuitBreaker.shutdown();
+    }
+  }
+
+  /**
+   * Close the provider if possible which in turn shuts down any associated circuit breaker
+   */
+  public closeProvider() {
+    if (this._authProvider) {
+      if (this._authProvider instanceof common.AbstractRequestingAuthenticationDetailsProvider)
+        (<common.AbstractRequestingAuthenticationDetailsProvider>(
+          this._authProvider
+        )).closeProvider();
+    }
+  }
+
+  /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+    this.closeProvider();
+  }
+
+  /**
+   * Creates a new OccMetricAlarm resource in the specified compartment with the provided configuration details.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateOccMetricAlarmRequest
+   * @return CreateOccMetricAlarmResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/demandsignal/CreateOccMetricAlarm.ts.html |here} to see how to use CreateOccMetricAlarm API.
+   */
+  public async createOccMetricAlarm(
+    createOccMetricAlarmRequest: requests.CreateOccMetricAlarmRequest
+  ): Promise<responses.CreateOccMetricAlarmResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OccMetricAlarmClient#createOccMetricAlarm.");
+    const operationName = "createOccMetricAlarm";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createOccMetricAlarmRequest.opcRetryToken,
+      "opc-request-id": createOccMetricAlarmRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createOccMetricAlarmRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/occMetricAlarms",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createOccMetricAlarmRequest.createOccMetricAlarmDetails,
+        "CreateOccMetricAlarmDetails",
+        model.CreateOccMetricAlarmDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateOccMetricAlarmResponse>{},
+        body: await response.json(),
+        bodyKey: "occMetricAlarm",
+        bodyModel: model.OccMetricAlarm,
+        type: "model.OccMetricAlarm",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the specified OccMetricAlarm resource.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteOccMetricAlarmRequest
+   * @return DeleteOccMetricAlarmResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/demandsignal/DeleteOccMetricAlarm.ts.html |here} to see how to use DeleteOccMetricAlarm API.
+   */
+  public async deleteOccMetricAlarm(
+    deleteOccMetricAlarmRequest: requests.DeleteOccMetricAlarmRequest
+  ): Promise<responses.DeleteOccMetricAlarmResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OccMetricAlarmClient#deleteOccMetricAlarm.");
+    const operationName = "deleteOccMetricAlarm";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{occMetricAlarmId}": deleteOccMetricAlarmRequest.occMetricAlarmId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteOccMetricAlarmRequest.ifMatch,
+      "opc-request-id": deleteOccMetricAlarmRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteOccMetricAlarmRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/occMetricAlarms/{occMetricAlarmId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteOccMetricAlarmResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Retrieves the specified OccMetricAlarm resource based on its identifier.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetOccMetricAlarmRequest
+   * @return GetOccMetricAlarmResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/demandsignal/GetOccMetricAlarm.ts.html |here} to see how to use GetOccMetricAlarm API.
+   */
+  public async getOccMetricAlarm(
+    getOccMetricAlarmRequest: requests.GetOccMetricAlarmRequest
+  ): Promise<responses.GetOccMetricAlarmResponse> {
+    if (this.logger) this.logger.debug("Calling operation OccMetricAlarmClient#getOccMetricAlarm.");
+    const operationName = "getOccMetricAlarm";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{occMetricAlarmId}": getOccMetricAlarmRequest.occMetricAlarmId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getOccMetricAlarmRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getOccMetricAlarmRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/occMetricAlarms/{occMetricAlarmId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetOccMetricAlarmResponse>{},
+        body: await response.json(),
+        bodyKey: "occMetricAlarm",
+        bodyModel: model.OccMetricAlarm,
+        type: "model.OccMetricAlarm",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a list of OccMetricAlarms.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListOccMetricAlarmsRequest
+   * @return ListOccMetricAlarmsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/demandsignal/ListOccMetricAlarms.ts.html |here} to see how to use ListOccMetricAlarms API.
+   */
+  public async listOccMetricAlarms(
+    listOccMetricAlarmsRequest: requests.ListOccMetricAlarmsRequest
+  ): Promise<responses.ListOccMetricAlarmsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OccMetricAlarmClient#listOccMetricAlarms.");
+    const operationName = "listOccMetricAlarms";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listOccMetricAlarmsRequest.compartmentId,
+      "displayName": listOccMetricAlarmsRequest.displayName,
+      "isActive": listOccMetricAlarmsRequest.isActive,
+      "limit": listOccMetricAlarmsRequest.limit,
+      "page": listOccMetricAlarmsRequest.page,
+      "sortOrder": listOccMetricAlarmsRequest.sortOrder,
+      "sortBy": listOccMetricAlarmsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listOccMetricAlarmsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listOccMetricAlarmsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/occMetricAlarms",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListOccMetricAlarmsResponse>{},
+        body: await response.json(),
+        bodyKey: "occMetricAlarmCollection",
+        bodyModel: model.OccMetricAlarmCollection,
+        type: "model.OccMetricAlarmCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates an existing OccMetricAlarm resource with new or modified configuration details.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateOccMetricAlarmRequest
+   * @return UpdateOccMetricAlarmResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/demandsignal/UpdateOccMetricAlarm.ts.html |here} to see how to use UpdateOccMetricAlarm API.
+   */
+  public async updateOccMetricAlarm(
+    updateOccMetricAlarmRequest: requests.UpdateOccMetricAlarmRequest
+  ): Promise<responses.UpdateOccMetricAlarmResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OccMetricAlarmClient#updateOccMetricAlarm.");
+    const operationName = "updateOccMetricAlarm";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{occMetricAlarmId}": updateOccMetricAlarmRequest.occMetricAlarmId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateOccMetricAlarmRequest.ifMatch,
+      "opc-request-id": updateOccMetricAlarmRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateOccMetricAlarmRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/occMetricAlarms/{occMetricAlarmId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateOccMetricAlarmRequest.updateOccMetricAlarmDetails,
+        "UpdateOccMetricAlarmDetails",
+        model.UpdateOccMetricAlarmDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateOccMetricAlarmResponse>{},
+        body: await response.json(),
+        bodyKey: "occMetricAlarm",
+        bodyModel: model.OccMetricAlarm,
+        type: "model.OccMetricAlarm",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
             dataType: "string"
           }
         ]

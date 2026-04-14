@@ -34,7 +34,7 @@ It relies on both the Oracle Azure Connector and the Oracle Azure Blob Container
 <b>AWS</b>:<br>
 <b>Oracle AWS Connector Resource:</b>&nbsp;&nbsp;The Oracle AWS Connector Resource is used to install the AWS Identity Connector on an Exadata VM cluster in Oracle Exadata Database Service on Dedicated Infrastructure (ExaDB-D).
 
-<b>Google AWS Key Resource:</b>&nbsp;&nbsp;The Oracle AWS Key Resource is used to register and manage a AWS Key within Oracle Cloud Infrastructure (OCI).
+<b>Oracle AWS Key Resource:</b>&nbsp;&nbsp;The Oracle AWS Key Resource is used to register and manage a AWS Key within Oracle Cloud Infrastructure (OCI).
 
  * OpenAPI spec version: 20240501
  * 
@@ -70,6 +70,8 @@ import * as RefreshOracleDbAwsIdentityConnectorRequest from "./refresh-oracle-db
 export import RefreshOracleDbAwsIdentityConnectorRequest = RefreshOracleDbAwsIdentityConnectorRequest.RefreshOracleDbAwsIdentityConnectorRequest;
 import * as RefreshOracleDbAwsKeyRequest from "./refresh-oracle-db-aws-key-request";
 export import RefreshOracleDbAwsKeyRequest = RefreshOracleDbAwsKeyRequest.RefreshOracleDbAwsKeyRequest;
+import * as ReplicateOracleDbAwsKeyRequest from "./replicate-oracle-db-aws-key-request";
+export import ReplicateOracleDbAwsKeyRequest = ReplicateOracleDbAwsKeyRequest.ReplicateOracleDbAwsKeyRequest;
 import * as UpdateOracleDbAwsIdentityConnectorRequest from "./update-oracle-db-aws-identity-connector-request";
 export import UpdateOracleDbAwsIdentityConnectorRequest = UpdateOracleDbAwsIdentityConnectorRequest.UpdateOracleDbAwsIdentityConnectorRequest;
 import * as UpdateOracleDbAwsKeyRequest from "./update-oracle-db-aws-key-request";
@@ -102,6 +104,8 @@ import * as RefreshOracleDbGcpIdentityConnectorRequest from "./refresh-oracle-db
 export import RefreshOracleDbGcpIdentityConnectorRequest = RefreshOracleDbGcpIdentityConnectorRequest.RefreshOracleDbGcpIdentityConnectorRequest;
 import * as RefreshOracleDbGcpKeyRingRequest from "./refresh-oracle-db-gcp-key-ring-request";
 export import RefreshOracleDbGcpKeyRingRequest = RefreshOracleDbGcpKeyRingRequest.RefreshOracleDbGcpKeyRingRequest;
+import * as ReplicateOracleDbGcpKeyRingRequest from "./replicate-oracle-db-gcp-key-ring-request";
+export import ReplicateOracleDbGcpKeyRingRequest = ReplicateOracleDbGcpKeyRingRequest.ReplicateOracleDbGcpKeyRingRequest;
 import * as UpdateOracleDbGcpIdentityConnectorRequest from "./update-oracle-db-gcp-identity-connector-request";
 export import UpdateOracleDbGcpIdentityConnectorRequest = UpdateOracleDbGcpIdentityConnectorRequest.UpdateOracleDbGcpIdentityConnectorRequest;
 import * as UpdateOracleDbGcpKeyRingRequest from "./update-oracle-db-gcp-key-ring-request";
@@ -174,6 +178,8 @@ import * as ListOracleDbAzureVaultsRequest from "./list-oracle-db-azure-vaults-r
 export import ListOracleDbAzureVaultsRequest = ListOracleDbAzureVaultsRequest.ListOracleDbAzureVaultsRequest;
 import * as RefreshOracleDbAzureVaultRequest from "./refresh-oracle-db-azure-vault-request";
 export import RefreshOracleDbAzureVaultRequest = RefreshOracleDbAzureVaultRequest.RefreshOracleDbAzureVaultRequest;
+import * as ReplicateOracleDbAzureVaultRequest from "./replicate-oracle-db-azure-vault-request";
+export import ReplicateOracleDbAzureVaultRequest = ReplicateOracleDbAzureVaultRequest.ReplicateOracleDbAzureVaultRequest;
 import * as UpdateOracleDbAzureVaultRequest from "./update-oracle-db-azure-vault-request";
 export import UpdateOracleDbAzureVaultRequest = UpdateOracleDbAzureVaultRequest.UpdateOracleDbAzureVaultRequest;
 import * as CascadingDeleteOracleDbAzureVaultAssociationRequest from "./cascading-delete-oracle-db-azure-vault-association-request";
