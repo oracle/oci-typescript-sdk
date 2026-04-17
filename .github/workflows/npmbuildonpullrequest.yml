@@ -4,9 +4,6 @@ on:
   pull_request:
     types: [opened, synchronize]
 
-permissions:
-  contents: read
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -20,9 +17,12 @@ jobs:
           ref: ${{ github.event.pull_request.head.ref }}
 
       - name: Log GitHub event
+        env:
+          PR_HEAD_REF: ${{ github.event.pull_request.head.ref }}
+          PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
         run: |
-          echo "PR head ref: ${{ github.event.pull_request.head.ref }}"
-          echo "PR head sha: ${{ github.event.pull_request.head.sha }}"
+          printf 'PR head ref: %s\n' "$PR_HEAD_REF"
+          printf 'PR head sha: %s\n' "$PR_HEAD_SHA"
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
