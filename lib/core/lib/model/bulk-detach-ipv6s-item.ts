@@ -22,7 +22,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Secondary IPv6 object to detach as part of bulk detach operation.
+ * A secondary IPv6 object to detach as part of a bulk detach operation.
  */
 export interface BulkDetachIpv6sItem {
   /**

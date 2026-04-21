@@ -132,6 +132,31 @@ Example: {@code {\"Department\": \"Finance\"}}
    * Specifies the type of VM Backups Storage and supported values are LOCAL and EXASCALE. Storage Type can only be changed once from LOCAL to EXASCALE. EXASCALE to LOCAL is not permitted.
    */
   "vmBackupStorageType"?: UpdateCloudVmClusterDetails.VmBackupStorageType;
+  /**
+   * The percentage assigned to DATA storage (user data and database files). See [Storage Configuration](https://docs.oracle.com/iaas/Content/Database/Concepts/exaoverview.htm#Exadata) in the Exadata documentation for details on the impact of the configuration settings on storage.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "dataStoragePercentage"?: number;
+  /**
+   * The percentage assigned to RECO storage (database redo logs, archive logs, and recovery manager backups). See [Storage Configuration](https://docs.oracle.com/iaas/Content/Database/Concepts/exaoverview.htm#Exadata) in the Exadata documentation for details on the impact of the configuration settings on storage.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "recoStoragePercentage"?: number;
+  /**
+   * The percentage assigned to SPARSE storage (Exadata snapshots). See [Storage Configuration](https://docs.oracle.com/iaas/Content/Database/Concepts/exaoverview.htm#Exadata) in the Exadata documentation for details on the impact of the configuration settings on storage.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "sparseStoragePercentage"?: number;
+  /**
+   * If true, database backup on local Exadata storage is configured for the cloud VM cluster. If false, database backup on local Exadata storage is not available in the cloud VM cluster.
+   *
+   */
+  "isLocalBackupEnabled"?: boolean;
+  /**
+   * If true, sparse disk group is configured for the cloud VM cluster. If false, sparse disk group is not created.
+   *
+   */
+  "isSparseDiskgroupEnabled"?: boolean;
 }
 
 export namespace UpdateCloudVmClusterDetails {

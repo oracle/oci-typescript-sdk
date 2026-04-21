@@ -14,6 +14,8 @@
 
 import * as Application from "./application";
 export import Application = Application.Application;
+import * as ApplicationLoggingConfig from "./application-logging-config";
+export import ApplicationLoggingConfig = ApplicationLoggingConfig.ApplicationLoggingConfig;
 import * as ApplicationSummary from "./application-summary";
 export import ApplicationSummary = ApplicationSummary.ApplicationSummary;
 import * as ApplicationTraceConfig from "./application-trace-config";

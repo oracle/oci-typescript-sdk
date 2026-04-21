@@ -51,6 +51,7 @@ export interface RequestSummarizedUsagesDetails {
    * Credit - Query the credit adjustments data.
    * ExpiredCredit - Query the expired credits data.
    * AllCredit - Query the credit adjustments and expired credit.
+   * Usage_Only - Query the only usage data without cost or currency.
    *
    */
   "queryType"?: RequestSummarizedUsagesDetails.QueryType;
@@ -90,7 +91,8 @@ export namespace RequestSummarizedUsagesDetails {
     Cost = "COST",
     Credit = "CREDIT",
     Expiredcredit = "EXPIREDCREDIT",
-    Allcredit = "ALLCREDIT"
+    Allcredit = "ALLCREDIT",
+    UsageOnly = "USAGE_ONLY"
   }
 
   export function getJsonObj(obj: RequestSummarizedUsagesDetails): object {

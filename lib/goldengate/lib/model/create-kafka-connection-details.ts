@@ -43,7 +43,7 @@ export interface CreateKafkaConnectionDetails extends model.CreateConnectionDeta
    * Example: {@code \"server1.example.com:9092,server2.example.com:9092\"}
    *
    */
-  "bootstrapServers"?: Array<model.KafkaBootstrapServer>;
+  "bootstrapServers"?: Array<model.CreateKafkaBootstrapServer>;
   /**
    * Security Type for Kafka.
    *
@@ -165,7 +165,7 @@ export namespace CreateKafkaConnectionDetails {
       ...{
         "bootstrapServers": obj.bootstrapServers
           ? obj.bootstrapServers.map(item => {
-              return model.KafkaBootstrapServer.getJsonObj(item);
+              return model.CreateKafkaBootstrapServer.getJsonObj(item);
             })
           : undefined
       }
@@ -187,7 +187,7 @@ export namespace CreateKafkaConnectionDetails {
       ...{
         "bootstrapServers": obj.bootstrapServers
           ? obj.bootstrapServers.map(item => {
-              return model.KafkaBootstrapServer.getDeserializedJsonObj(item);
+              return model.CreateKafkaBootstrapServer.getDeserializedJsonObj(item);
             })
           : undefined
       }

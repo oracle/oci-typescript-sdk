@@ -108,13 +108,13 @@ export class GoldenGateWaiter {
    */
   public async forDeployment(
     request: serviceRequests.GetDeploymentRequest,
-    ...targetStates: models.LifecycleState[]
+    ...targetStates: models.Deployment.LifecycleState[]
   ): Promise<serviceResponses.GetDeploymentResponse | null> {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getDeployment(request),
       response => targetStates.includes(response.deployment.lifecycleState!),
-      targetStates.includes(models.LifecycleState.Deleted)
+      targetStates.includes(models.Deployment.LifecycleState.Deleted)
     );
   }
 
@@ -127,13 +127,13 @@ export class GoldenGateWaiter {
    */
   public async forDeploymentBackup(
     request: serviceRequests.GetDeploymentBackupRequest,
-    ...targetStates: models.LifecycleState[]
+    ...targetStates: models.DeploymentBackup.LifecycleState[]
   ): Promise<serviceResponses.GetDeploymentBackupResponse | null> {
     return genericTerminalConditionWaiter(
       this.config,
       () => this.client.getDeploymentBackup(request),
       response => targetStates.includes(response.deploymentBackup.lifecycleState!),
-      targetStates.includes(models.LifecycleState.Deleted)
+      targetStates.includes(models.DeploymentBackup.LifecycleState.Deleted)
     );
   }
 
@@ -142,17 +142,16 @@ export class GoldenGateWaiter {
    *
    * @param request the request to send
    * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
-   * @return response returns GetDeploymentUpgradeResponse | null (null in case of 404 response)
+   * @return response returns GetDeploymentUpgradeResponse
    */
   public async forDeploymentUpgrade(
     request: serviceRequests.GetDeploymentUpgradeRequest,
-    ...targetStates: models.LifecycleState[]
-  ): Promise<serviceResponses.GetDeploymentUpgradeResponse | null> {
-    return genericTerminalConditionWaiter(
+    ...targetStates: models.DeploymentUpgrade.LifecycleState[]
+  ): Promise<serviceResponses.GetDeploymentUpgradeResponse> {
+    return genericWaiter(
       this.config,
       () => this.client.getDeploymentUpgrade(request),
-      response => targetStates.includes(response.deploymentUpgrade.lifecycleState!),
-      targetStates.includes(models.LifecycleState.Deleted)
+      response => targetStates.includes(response.deploymentUpgrade.lifecycleState!)
     );
   }
 

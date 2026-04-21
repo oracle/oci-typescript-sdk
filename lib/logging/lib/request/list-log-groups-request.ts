@@ -39,7 +39,7 @@ export interface ListLogGroupsRequest extends common.BaseRequest {
    */
   "page"?: string;
   /**
-   * The maximum number of items to return in a paginated \"List\" call.
+   * When setting the page limit, specifies the maximum number of unfiltered records that can be fetched from the data store in one request. Filtering happens after the records are retrieved. Subsequent pages might include results that match the query criteria.
    *
    */
   "limit"?: number;

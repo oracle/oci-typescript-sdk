@@ -25,6 +25,12 @@ export interface CreateGoogleCloudStorageConnectionDetails extends model.CreateC
    */
   "technologyType": string;
   /**
+   * A legal URL to connect to Google Cloud Storage including scheme, server name and port (if not the default port).
+   * Default: https://storage.googleapis.com
+   *
+   */
+  "endpoint"?: string;
+  /**
    * The base64 encoded content of the service account key file containing
    * the credentials required to use Google Cloud Storage.
    * Deprecated: This field is deprecated and replaced by \"serviceAccountKeyFileSecretId\". This field will be removed after February 15 2026.

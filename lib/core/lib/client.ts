@@ -10493,6 +10493,83 @@ See [Object Storage URLs](https://docs.oracle.com/iaas/Content/Compute/Tasks/ima
   }
 
   /**
+   * Gets information about the specified compute host
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetComputeHostRequest
+   * @return GetComputeHostResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetComputeHost.ts.html |here} to see how to use GetComputeHost API.
+   */
+  public async getComputeHost(
+    getComputeHostRequest: requests.GetComputeHostRequest
+  ): Promise<responses.GetComputeHostResponse> {
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#getComputeHost.");
+    const operationName = "getComputeHost";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeHost/GetComputeHost";
+    const pathParams = {
+      "{computeHostId}": getComputeHostRequest.computeHostId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getComputeHostRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getComputeHostRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/computeHosts/{computeHostId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetComputeHostResponse>{},
+        body: await response.json(),
+        bodyKey: "computeHost",
+        bodyModel: model.ComputeHost,
+        type: "model.ComputeHost",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets information about the specified compute host group
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetComputeHostGroupRequest
@@ -10548,83 +10625,6 @@ See [Object Storage URLs](https://docs.oracle.com/iaas/Content/Compute/Tasks/ima
         bodyKey: "computeHostGroup",
         bodyModel: model.ComputeHostGroup,
         type: "model.ComputeHostGroup",
-        responseHeaders: [
-          {
-            value: response.headers.get("etag"),
-            key: "etag",
-            dataType: "string"
-          },
-          {
-            value: response.headers.get("opc-request-id"),
-            key: "opcRequestId",
-            dataType: "string"
-          }
-        ]
-      });
-
-      return sdkResponse;
-    } catch (err) {
-      throw err;
-    }
-  }
-
-  /**
-   * Gets information about the specified compute host
-   *
-   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-   * @param GetComputeHostsRequest
-   * @return GetComputeHostsResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetComputeHosts.ts.html |here} to see how to use GetComputeHosts API.
-   */
-  public async getComputeHosts(
-    getComputeHostsRequest: requests.GetComputeHostsRequest
-  ): Promise<responses.GetComputeHostsResponse> {
-    if (this.logger) this.logger.debug("Calling operation ComputeClient#getComputeHosts.");
-    const operationName = "getComputeHosts";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeHost/GetComputeHosts";
-    const pathParams = {
-      "{computeHostId}": getComputeHostsRequest.computeHostId
-    };
-
-    const queryParams = {};
-
-    let headerParams = {
-      "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": getComputeHostsRequest.opcRequestId
-    };
-
-    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-      getComputeHostsRequest.retryConfiguration,
-      specRetryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
-    const request = await composeRequest({
-      baseEndpoint: this._endpoint,
-      defaultHeaders: this._defaultHeaders,
-      path: "/computeHosts/{computeHostId}",
-      method: "GET",
-      pathParams: pathParams,
-      headerParams: headerParams,
-      queryParams: queryParams
-    });
-    try {
-      const response = await retrier.makeServiceCall(
-        this._httpClient,
-        request,
-        this.targetService,
-        operationName,
-        apiReferenceLink
-      );
-      const sdkResponse = composeResponse({
-        responseObject: <responses.GetComputeHostsResponse>{},
-        body: await response.json(),
-        bodyKey: "computeHost",
-        bodyModel: model.ComputeHost,
-        type: "model.ComputeHost",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -16866,6 +16866,91 @@ To delete instances from a compute cluster, use the {@link #terminateInstance(Te
   }
 
   /**
+   * Customer can update the some fields for ComputeHost record
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateComputeHostRequest
+   * @return UpdateComputeHostResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateComputeHost.ts.html |here} to see how to use UpdateComputeHost API.
+   */
+  public async updateComputeHost(
+    updateComputeHostRequest: requests.UpdateComputeHostRequest
+  ): Promise<responses.UpdateComputeHostResponse> {
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#updateComputeHost.");
+    const operationName = "updateComputeHost";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeHost/UpdateComputeHost";
+    const pathParams = {
+      "{computeHostId}": updateComputeHostRequest.computeHostId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateComputeHostRequest.ifMatch,
+      "opc-request-id": updateComputeHostRequest.opcRequestId,
+      "opc-retry-token": updateComputeHostRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateComputeHostRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/computeHosts/{computeHostId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateComputeHostRequest.updateComputeHostDetails,
+        "UpdateComputeHostDetails",
+        model.UpdateComputeHostDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateComputeHostResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Updates the specified compute host group details.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateComputeHostGroupRequest
@@ -16937,91 +17022,6 @@ To delete instances from a compute cluster, use the {@link #terminateInstance(Te
           {
             value: response.headers.get("location"),
             key: "location",
-            dataType: "string"
-          },
-          {
-            value: response.headers.get("opc-request-id"),
-            key: "opcRequestId",
-            dataType: "string"
-          },
-          {
-            value: response.headers.get("opc-work-request-id"),
-            key: "opcWorkRequestId",
-            dataType: "string"
-          }
-        ]
-      });
-
-      return sdkResponse;
-    } catch (err) {
-      throw err;
-    }
-  }
-
-  /**
-   * Customer can update the some fields for ComputeHost record
-   *
-   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-   * @param UpdateComputeHostsRequest
-   * @return UpdateComputeHostsResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateComputeHosts.ts.html |here} to see how to use UpdateComputeHosts API.
-   */
-  public async updateComputeHosts(
-    updateComputeHostsRequest: requests.UpdateComputeHostsRequest
-  ): Promise<responses.UpdateComputeHostsResponse> {
-    if (this.logger) this.logger.debug("Calling operation ComputeClient#updateComputeHosts.");
-    const operationName = "updateComputeHosts";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeHost/UpdateComputeHosts";
-    const pathParams = {
-      "{computeHostId}": updateComputeHostsRequest.computeHostId
-    };
-
-    const queryParams = {};
-
-    let headerParams = {
-      "Content-Type": common.Constants.APPLICATION_JSON,
-      "if-match": updateComputeHostsRequest.ifMatch,
-      "opc-request-id": updateComputeHostsRequest.opcRequestId,
-      "opc-retry-token": updateComputeHostsRequest.opcRetryToken
-    };
-
-    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-      updateComputeHostsRequest.retryConfiguration,
-      specRetryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
-    const request = await composeRequest({
-      baseEndpoint: this._endpoint,
-      defaultHeaders: this._defaultHeaders,
-      path: "/computeHosts/{computeHostId}",
-      method: "PUT",
-      bodyContent: common.ObjectSerializer.serialize(
-        updateComputeHostsRequest.updateComputeHostsDetails,
-        "UpdateComputeHostsDetails",
-        model.UpdateComputeHostsDetails.getJsonObj
-      ),
-      pathParams: pathParams,
-      headerParams: headerParams,
-      queryParams: queryParams
-    });
-    try {
-      const response = await retrier.makeServiceCall(
-        this._httpClient,
-        request,
-        this.targetService,
-        operationName,
-        apiReferenceLink
-      );
-      const sdkResponse = composeResponse({
-        responseObject: <responses.UpdateComputeHostsResponse>{},
-        responseHeaders: [
-          {
-            value: response.headers.get("etag"),
-            key: "etag",
             dataType: "string"
           },
           {
@@ -22014,7 +22014,7 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
   }
 
   /**
-   * Create new IPv6s for a VNIC or Subnet.
+   * Create new IPv6s in bulk for a VNIC or subnet.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param BulkCreateIpv6sRequest
@@ -22169,7 +22169,7 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
   }
 
   /**
-   * Unassigns and deletes IPv6s for a VNIC.
+   * Unassign and delete IPv6s for a VNIC in bulk.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param BulkDeleteIpv6sRequest
@@ -22246,7 +22246,7 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
   }
 
   /**
-   * Unassigns and deletes secondary private IPv4s for a VNIC.
+   * Unassign and delete secondary private IPv4s for a VNIC.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param BulkDeletePrivateIpsRequest
@@ -22396,7 +22396,7 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
   }
 
   /**
-   * detach the specified IPv6s.
+   * Detach the specified IPv6s.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param BulkDetachIpv6sRequest
@@ -22473,7 +22473,7 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
   }
 
   /**
-   * Unassign the specified PrivateIP address from Virtual Network Interface Card (VNIC). You must specify the PrivateIP [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   * Unassign the specified private IP addresses from the Virtual Network Interface Card (VNIC). You must specify the PrivateIP object's [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param BulkDetachPrivateIpsRequest
@@ -22551,7 +22551,7 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
   }
 
   /**
-   * Updates the specified IPv6s.
+   * Updates the specified IPv6s in bulk.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param BulkUpdateIpv6sRequest
@@ -22628,7 +22628,7 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
   }
 
   /**
-   * Updates existing secondary Private IPv4s for a VNIC.
+   * Update existing secondary private IPv4s for a VNIC.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param BulkUpdatePrivateIpsRequest
    * @return BulkUpdatePrivateIpsResponse

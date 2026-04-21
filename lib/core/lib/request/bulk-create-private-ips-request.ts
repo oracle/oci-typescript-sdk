@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface BulkCreatePrivateIpsRequest extends common.BaseRequest {
   /**
-   * Create private IPs details.
+   * Details used to create secondary private IPs.
    */
   "bulkCreatePrivateIpsDetails": model.BulkCreatePrivateIpsDetails;
   /**

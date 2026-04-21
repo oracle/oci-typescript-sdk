@@ -80,10 +80,10 @@ export interface DeploymentUpgrade {
    */
   "timeUpdated"?: Date;
   /**
-   * Possible lifecycle states.
+   * Possible lifecycle states for a Deployment Upgrade.
    *
    */
-  "lifecycleState"?: model.LifecycleState;
+  "lifecycleState"?: DeploymentUpgrade.LifecycleState;
   /**
    * Possible GGS lifecycle sub-states.
    *
@@ -190,6 +190,19 @@ Example: {@code {orcl-cloud: {free-tier-retain: true}}}
 }
 
 export namespace DeploymentUpgrade {
+  export enum LifecycleState {
+    Waiting = "WAITING",
+    InProgress = "IN_PROGRESS",
+    Failed = "FAILED",
+    Succeeded = "SUCCEEDED",
+    Canceled = "CANCELED",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: DeploymentUpgrade): object {
     const jsonObj = { ...obj, ...{} };
 

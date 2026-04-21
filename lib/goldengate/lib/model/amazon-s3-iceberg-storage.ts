@@ -39,7 +39,7 @@ export interface AmazonS3IcebergStorage extends model.IcebergStorage {
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Secret where the Secret Access Key is stored.
    *
    */
-  "secretAccessKeySecretId": string;
+  "secretAccessKeySecretId"?: string;
   /**
    * The AMAZON region where the S3 bucket is hosted.
    * e.g.: 'us-east-2'

@@ -1,6 +1,6 @@
 /**
  * Logging Ingestion API
- * Use the Logging Ingestion API to ingest your application logs.
+ * Use the Logging Ingestion API to ingest your application logs. For more information, see [Logging Overview](https://docs.oracle.com/iaas/Content/Logging/Concepts/loggingoverview.htm).
  * OpenAPI spec version: 20200831
  *
  *

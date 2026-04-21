@@ -33,7 +33,13 @@ export interface GoogleCloudStorageIcebergStorageSummary extends model.IcebergSt
    * which contains the credentials required to use Google Cloud Storage.
    *
    */
-  "serviceAccountKeyFileSecretId": string;
+  "serviceAccountKeyFileSecretId"?: string;
+  /**
+   * A legal URL to connect to Google Cloud Storage including scheme, server name and port (if not the default port).
+   * Default: https://storage.googleapis.com
+   *
+   */
+  "endpoint"?: string;
 
   "storageType": string;
 }

@@ -33,7 +33,7 @@ export interface AzureDataLakeStorageIcebergStorageSummary extends model.Iceberg
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Secret where the account key is stored.
    *
    */
-  "accountKeySecretId": string;
+  "accountKeySecretId"?: string;
   /**
    * The Azure Blob Storage endpoint where Iceberg data is stored.
    * e.g.: 'https://my-azure-storage-account.blob.core.windows.net'

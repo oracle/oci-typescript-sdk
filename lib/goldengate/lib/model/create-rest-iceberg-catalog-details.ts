@@ -32,7 +32,12 @@ export interface CreateRestIcebergCatalogDetails extends model.CreateIcebergCata
    * See documentation: https://docs.oracle.com/en-us/iaas/Content/Identity/Tasks/managingcredentials.htm
    *
    */
-  "propertiesSecretId": string;
+  "propertiesSecretId"?: string;
+  /**
+   * The base64 encoded content of the configuration file containing additional properties for the REST catalog.
+   *
+   */
+  "properties"?: string;
 
   "catalogType": string;
 }

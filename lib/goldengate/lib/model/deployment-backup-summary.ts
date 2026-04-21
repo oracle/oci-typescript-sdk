@@ -58,10 +58,10 @@ export interface DeploymentBackupSummary {
    */
   "backupSourceType"?: DeploymentBackupSummary.BackupSourceType;
   /**
-   * Possible lifecycle states.
+   * Possible lifecycle states for a Deployment Backup.
    *
    */
-  "lifecycleState": model.LifecycleState;
+  "lifecycleState": string;
   /**
    * Describes the object's current state in detail. For example, it can be used to provide
    * actionable information for a resource in a Failed state.

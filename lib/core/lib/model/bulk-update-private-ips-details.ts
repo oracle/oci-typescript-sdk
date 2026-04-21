@@ -22,7 +22,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Bulk Secondary IPv4 addresses update object.
+ * Details used for a secondary IPv4 address bulk update.
  */
 export interface BulkUpdatePrivateIpsDetails {
   /**
@@ -32,7 +32,7 @@ export interface BulkUpdatePrivateIpsDetails {
    */
   "vnicId"?: string;
   /**
-   * Secondary IPv4 addresses to updated.
+   * A secondary IPv4 address to update.
    *
    */
   "bulkUpdatePrivateIpItem": Array<model.BulkUpdatePrivateIpItem>;

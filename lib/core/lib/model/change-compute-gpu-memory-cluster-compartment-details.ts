@@ -22,7 +22,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Specifies the compartment to move the compute GPU memory cluster to.
+ * Specifies the compartment to move the compute GPU Memory Cluster to.
  */
 export interface ChangeComputeGpuMemoryClusterCompartmentDetails {
   /**

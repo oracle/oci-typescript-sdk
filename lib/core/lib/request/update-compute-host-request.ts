@@ -15,9 +15,9 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateComputeHosts.ts.html |here} to see how to use UpdateComputeHostsRequest.
+ * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateComputeHost.ts.html |here} to see how to use UpdateComputeHostRequest.
  */
-export interface UpdateComputeHostsRequest extends common.BaseRequest {
+export interface UpdateComputeHostRequest extends common.BaseRequest {
   /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compute host.
    *
@@ -26,7 +26,7 @@ export interface UpdateComputeHostsRequest extends common.BaseRequest {
   /**
    * Update compute capacity topology details.
    */
-  "updateComputeHostsDetails": model.UpdateComputeHostsDetails;
+  "updateComputeHostDetails": model.UpdateComputeHostDetails;
   /**
    * For optimistic concurrency control. In the PUT or DELETE call for a resource, set the {@code if-match}
    * parameter to the value of the etag from a previous GET or POST response for that resource. The resource

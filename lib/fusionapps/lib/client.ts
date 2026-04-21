@@ -483,6 +483,90 @@ export class FusionApplicationsClient {
   }
 
   /**
+   * Creates an email Subdomain for a brand
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateEmailSubdomainRequest
+   * @return CreateEmailSubdomainResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/CreateEmailSubdomain.ts.html |here} to see how to use CreateEmailSubdomain API.
+   */
+  public async createEmailSubdomain(
+    createEmailSubdomainRequest: requests.CreateEmailSubdomainRequest
+  ): Promise<responses.CreateEmailSubdomainResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FusionApplicationsClient#createEmailSubdomain.");
+    const operationName = "createEmailSubdomain";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{fusionEnvironmentId}": createEmailSubdomainRequest.fusionEnvironmentId,
+      "{marketingBrandId}": createEmailSubdomainRequest.marketingBrandId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createEmailSubdomainRequest.opcRetryToken,
+      "opc-request-id": createEmailSubdomainRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createEmailSubdomainRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/fusionEnvironments/{fusionEnvironmentId}/marketingBrands/{marketingBrandId}/emailSubdomains",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createEmailSubdomainRequest.createEmailSubdomainDetails,
+        "CreateEmailSubdomainDetails",
+        model.CreateEmailSubdomainDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateEmailSubdomainResponse>{},
+        body: await response.json(),
+        bodyKey: "emailSubdomain",
+        bodyModel: model.EmailSubdomain,
+        type: "model.EmailSubdomain",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates a new FusionEnvironment.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -719,6 +803,172 @@ export class FusionApplicationsClient {
   }
 
   /**
+   * Creates a marketing brand for fusion environment
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateMarketingBrandRequest
+   * @return CreateMarketingBrandResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/CreateMarketingBrand.ts.html |here} to see how to use CreateMarketingBrand API.
+   */
+  public async createMarketingBrand(
+    createMarketingBrandRequest: requests.CreateMarketingBrandRequest
+  ): Promise<responses.CreateMarketingBrandResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FusionApplicationsClient#createMarketingBrand.");
+    const operationName = "createMarketingBrand";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{fusionEnvironmentId}": createMarketingBrandRequest.fusionEnvironmentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createMarketingBrandRequest.opcRetryToken,
+      "opc-request-id": createMarketingBrandRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createMarketingBrandRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fusionEnvironments/{fusionEnvironmentId}/marketingBrands",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createMarketingBrandRequest.createMarketingBrandDetails,
+        "CreateMarketingBrandDetails",
+        model.CreateMarketingBrandDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateMarketingBrandResponse>{},
+        body: await response.json(),
+        bodyKey: "marketingBrand",
+        bodyModel: model.MarketingBrand,
+        type: "model.MarketingBrand",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a microsite for brand
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateMicrositeRequest
+   * @return CreateMicrositeResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/CreateMicrosite.ts.html |here} to see how to use CreateMicrosite API.
+   */
+  public async createMicrosite(
+    createMicrositeRequest: requests.CreateMicrositeRequest
+  ): Promise<responses.CreateMicrositeResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FusionApplicationsClient#createMicrosite.");
+    const operationName = "createMicrosite";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{fusionEnvironmentId}": createMicrositeRequest.fusionEnvironmentId,
+      "{marketingBrandId}": createMicrositeRequest.marketingBrandId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createMicrositeRequest.opcRequestId,
+      "opc-retry-token": createMicrositeRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createMicrositeRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/fusionEnvironments/{fusionEnvironmentId}/marketingBrands/{marketingBrandId}/microsites",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createMicrositeRequest.createMicrositeDetails,
+        "CreateMicrositeDetails",
+        model.CreateMicrositeDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateMicrositeResponse>{},
+        body: await response.json(),
+        bodyKey: "microsite",
+        bodyModel: model.Microsite,
+        type: "model.Microsite",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates a new RefreshActivity.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -856,6 +1106,82 @@ export class FusionApplicationsClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateServiceAttachmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Delete an email subdomain for a brand
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteEmailSubdomainRequest
+   * @return DeleteEmailSubdomainResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/DeleteEmailSubdomain.ts.html |here} to see how to use DeleteEmailSubdomain API.
+   */
+  public async deleteEmailSubdomain(
+    deleteEmailSubdomainRequest: requests.DeleteEmailSubdomainRequest
+  ): Promise<responses.DeleteEmailSubdomainResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FusionApplicationsClient#deleteEmailSubdomain.");
+    const operationName = "deleteEmailSubdomain";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{fusionEnvironmentId}": deleteEmailSubdomainRequest.fusionEnvironmentId,
+      "{marketingBrandId}": deleteEmailSubdomainRequest.marketingBrandId,
+      "{emailSubdomainId}": deleteEmailSubdomainRequest.emailSubdomainId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteEmailSubdomainRequest.ifMatch,
+      "opc-request-id": deleteEmailSubdomainRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteEmailSubdomainRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/fusionEnvironments/{fusionEnvironmentId}/marketingBrands/{marketingBrandId}/emailSubdomains/{emailSubdomainId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteEmailSubdomainResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -1080,6 +1406,156 @@ export class FusionApplicationsClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteFusionEnvironmentFamilyResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes a Marketing brand for fusion Environment
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteMarketingBrandRequest
+   * @return DeleteMarketingBrandResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/DeleteMarketingBrand.ts.html |here} to see how to use DeleteMarketingBrand API.
+   */
+  public async deleteMarketingBrand(
+    deleteMarketingBrandRequest: requests.DeleteMarketingBrandRequest
+  ): Promise<responses.DeleteMarketingBrandResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FusionApplicationsClient#deleteMarketingBrand.");
+    const operationName = "deleteMarketingBrand";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{fusionEnvironmentId}": deleteMarketingBrandRequest.fusionEnvironmentId,
+      "{marketingBrandId}": deleteMarketingBrandRequest.marketingBrandId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteMarketingBrandRequest.ifMatch,
+      "opc-request-id": deleteMarketingBrandRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteMarketingBrandRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fusionEnvironments/{fusionEnvironmentId}/marketingBrands/{marketingBrandId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteMarketingBrandResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Delete microsite for a brand
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteMicrositeRequest
+   * @return DeleteMicrositeResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/DeleteMicrosite.ts.html |here} to see how to use DeleteMicrosite API.
+   */
+  public async deleteMicrosite(
+    deleteMicrositeRequest: requests.DeleteMicrositeRequest
+  ): Promise<responses.DeleteMicrositeResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FusionApplicationsClient#deleteMicrosite.");
+    const operationName = "deleteMicrosite";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{fusionEnvironmentId}": deleteMicrositeRequest.fusionEnvironmentId,
+      "{marketingBrandId}": deleteMicrositeRequest.marketingBrandId,
+      "{micrositeId}": deleteMicrositeRequest.micrositeId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteMicrositeRequest.ifMatch,
+      "opc-request-id": deleteMicrositeRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteMicrositeRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/fusionEnvironments/{fusionEnvironmentId}/marketingBrands/{marketingBrandId}/microsites/{micrositeId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteMicrositeResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -1384,6 +1860,238 @@ export class FusionApplicationsClient {
             key: "etag",
             dataType: "string"
           },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets an email subdomain for the brand
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetEmailSubdomainRequest
+   * @return GetEmailSubdomainResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/GetEmailSubdomain.ts.html |here} to see how to use GetEmailSubdomain API.
+   */
+  public async getEmailSubdomain(
+    getEmailSubdomainRequest: requests.GetEmailSubdomainRequest
+  ): Promise<responses.GetEmailSubdomainResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FusionApplicationsClient#getEmailSubdomain.");
+    const operationName = "getEmailSubdomain";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{fusionEnvironmentId}": getEmailSubdomainRequest.fusionEnvironmentId,
+      "{marketingBrandId}": getEmailSubdomainRequest.marketingBrandId,
+      "{emailSubdomainId}": getEmailSubdomainRequest.emailSubdomainId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getEmailSubdomainRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getEmailSubdomainRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/fusionEnvironments/{fusionEnvironmentId}/marketingBrands/{marketingBrandId}/emailSubdomains/{emailSubdomainId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetEmailSubdomainResponse>{},
+        body: await response.json(),
+        bodyKey: "emailSubdomain",
+        bodyModel: model.EmailSubdomain,
+        type: "model.EmailSubdomain",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a CSR for email subdomain for a brand
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetEmailSubdomainCsrRequest
+   * @return GetEmailSubdomainCsrResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/GetEmailSubdomainCsr.ts.html |here} to see how to use GetEmailSubdomainCsr API.
+   */
+  public async getEmailSubdomainCsr(
+    getEmailSubdomainCsrRequest: requests.GetEmailSubdomainCsrRequest
+  ): Promise<responses.GetEmailSubdomainCsrResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FusionApplicationsClient#getEmailSubdomainCsr.");
+    const operationName = "getEmailSubdomainCsr";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{fusionEnvironmentId}": getEmailSubdomainCsrRequest.fusionEnvironmentId,
+      "{marketingBrandId}": getEmailSubdomainCsrRequest.marketingBrandId,
+      "{emailSubdomainId}": getEmailSubdomainCsrRequest.emailSubdomainId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getEmailSubdomainCsrRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getEmailSubdomainCsrRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/fusionEnvironments/{fusionEnvironmentId}/marketingBrands/{marketingBrandId}/emailSubdomains/{emailSubdomainId}/csr",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetEmailSubdomainCsrResponse>{},
+        body: await response.json(),
+        bodyKey: "marketingBrandEmailSubdomainCsr",
+        bodyModel: model.MarketingBrandEmailSubdomainCsr,
+        type: "model.MarketingBrandEmailSubdomainCsr",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get all DNS records for emailSubdomain
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetEmailSubdomainDnsConfigRequest
+   * @return GetEmailSubdomainDnsConfigResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/GetEmailSubdomainDnsConfig.ts.html |here} to see how to use GetEmailSubdomainDnsConfig API.
+   */
+  public async getEmailSubdomainDnsConfig(
+    getEmailSubdomainDnsConfigRequest: requests.GetEmailSubdomainDnsConfigRequest
+  ): Promise<responses.GetEmailSubdomainDnsConfigResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FusionApplicationsClient#getEmailSubdomainDnsConfig.");
+    const operationName = "getEmailSubdomainDnsConfig";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{fusionEnvironmentId}": getEmailSubdomainDnsConfigRequest.fusionEnvironmentId,
+      "{marketingBrandId}": getEmailSubdomainDnsConfigRequest.marketingBrandId,
+      "{emailSubdomainId}": getEmailSubdomainDnsConfigRequest.emailSubdomainId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getEmailSubdomainDnsConfigRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getEmailSubdomainDnsConfigRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/fusionEnvironments/{fusionEnvironmentId}/marketingBrands/{marketingBrandId}/emailSubdomains/{emailSubdomainId}/dnsConfig",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetEmailSubdomainDnsConfigResponse>{},
+        body: await response.json(),
+        bodyKey: "marketingBrandEmailSubdomainDnsConfig",
+        bodyModel: model.MarketingBrandEmailSubdomainDnsConfig,
+        type: "model.MarketingBrandEmailSubdomainDnsConfig",
+        responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -1764,6 +2472,235 @@ export class FusionApplicationsClient {
         bodyKey: "fusionEnvironmentStatus",
         bodyModel: model.FusionEnvironmentStatus,
         type: "model.FusionEnvironmentStatus",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a Marketing Brand by identifier
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetMarketingBrandRequest
+   * @return GetMarketingBrandResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/GetMarketingBrand.ts.html |here} to see how to use GetMarketingBrand API.
+   */
+  public async getMarketingBrand(
+    getMarketingBrandRequest: requests.GetMarketingBrandRequest
+  ): Promise<responses.GetMarketingBrandResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FusionApplicationsClient#getMarketingBrand.");
+    const operationName = "getMarketingBrand";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{fusionEnvironmentId}": getMarketingBrandRequest.fusionEnvironmentId,
+      "{marketingBrandId}": getMarketingBrandRequest.marketingBrandId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getMarketingBrandRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getMarketingBrandRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fusionEnvironments/{fusionEnvironmentId}/marketingBrands/{marketingBrandId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetMarketingBrandResponse>{},
+        body: await response.json(),
+        bodyKey: "marketingBrand",
+        bodyModel: model.MarketingBrand,
+        type: "model.MarketingBrand",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get the microsite for the brand
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetMicrositeRequest
+   * @return GetMicrositeResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/GetMicrosite.ts.html |here} to see how to use GetMicrosite API.
+   */
+  public async getMicrosite(
+    getMicrositeRequest: requests.GetMicrositeRequest
+  ): Promise<responses.GetMicrositeResponse> {
+    if (this.logger) this.logger.debug("Calling operation FusionApplicationsClient#getMicrosite.");
+    const operationName = "getMicrosite";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{fusionEnvironmentId}": getMicrositeRequest.fusionEnvironmentId,
+      "{marketingBrandId}": getMicrositeRequest.marketingBrandId,
+      "{micrositeId}": getMicrositeRequest.micrositeId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getMicrositeRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getMicrositeRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/fusionEnvironments/{fusionEnvironmentId}/marketingBrands/{marketingBrandId}/microsites/{micrositeId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetMicrositeResponse>{},
+        body: await response.json(),
+        bodyKey: "microsite",
+        bodyModel: model.Microsite,
+        type: "model.Microsite",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get DNS records for microsite
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetMicrositeDnsConfigRequest
+   * @return GetMicrositeDnsConfigResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/GetMicrositeDnsConfig.ts.html |here} to see how to use GetMicrositeDnsConfig API.
+   */
+  public async getMicrositeDnsConfig(
+    getMicrositeDnsConfigRequest: requests.GetMicrositeDnsConfigRequest
+  ): Promise<responses.GetMicrositeDnsConfigResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FusionApplicationsClient#getMicrositeDnsConfig.");
+    const operationName = "getMicrositeDnsConfig";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{fusionEnvironmentId}": getMicrositeDnsConfigRequest.fusionEnvironmentId,
+      "{marketingBrandId}": getMicrositeDnsConfigRequest.marketingBrandId,
+      "{micrositeId}": getMicrositeDnsConfigRequest.micrositeId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getMicrositeDnsConfigRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getMicrositeDnsConfigRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/fusionEnvironments/{fusionEnvironmentId}/marketingBrands/{marketingBrandId}/microsites/{micrositeId}/dnsConfig",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetMicrositeDnsConfigResponse>{},
+        body: await response.json(),
+        bodyKey: "marketingBrandMicrositeDnsConfig",
+        bodyModel: model.MarketingBrandMicrositeDnsConfig,
+        type: "model.MarketingBrandMicrositeDnsConfig",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2319,6 +3256,92 @@ export class FusionApplicationsClient {
   }
 
   /**
+   * Returns a list of email subdomains for a brand
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListEmailSubdomainsRequest
+   * @return ListEmailSubdomainsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/ListEmailSubdomains.ts.html |here} to see how to use ListEmailSubdomains API.
+   */
+  public async listEmailSubdomains(
+    listEmailSubdomainsRequest: requests.ListEmailSubdomainsRequest
+  ): Promise<responses.ListEmailSubdomainsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FusionApplicationsClient#listEmailSubdomains.");
+    const operationName = "listEmailSubdomains";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{fusionEnvironmentId}": listEmailSubdomainsRequest.fusionEnvironmentId,
+      "{marketingBrandId}": listEmailSubdomainsRequest.marketingBrandId
+    };
+
+    const queryParams = {
+      "emailSubdomainId": listEmailSubdomainsRequest.emailSubdomainId,
+      "name": listEmailSubdomainsRequest.name,
+      "lifecycleState": listEmailSubdomainsRequest.lifecycleState,
+      "sortOrder": listEmailSubdomainsRequest.sortOrder,
+      "sortBy": listEmailSubdomainsRequest.sortBy,
+      "limit": listEmailSubdomainsRequest.limit,
+      "page": listEmailSubdomainsRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listEmailSubdomainsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listEmailSubdomainsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/fusionEnvironments/{fusionEnvironmentId}/marketingBrands/{marketingBrandId}/emailSubdomains",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListEmailSubdomainsResponse>{},
+        body: await response.json(),
+        bodyKey: "emailSubdomainCollection",
+        bodyModel: model.EmailSubdomainCollection,
+        type: "model.EmailSubdomainCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Returns a list of FusionEnvironmentFamilies.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -2468,6 +3491,176 @@ export class FusionApplicationsClient {
         bodyKey: "fusionEnvironmentCollection",
         bodyModel: model.FusionEnvironmentCollection,
         type: "model.FusionEnvironmentCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns a list of marketing brands
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListMarketingBrandsRequest
+   * @return ListMarketingBrandsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/ListMarketingBrands.ts.html |here} to see how to use ListMarketingBrands API.
+   */
+  public async listMarketingBrands(
+    listMarketingBrandsRequest: requests.ListMarketingBrandsRequest
+  ): Promise<responses.ListMarketingBrandsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FusionApplicationsClient#listMarketingBrands.");
+    const operationName = "listMarketingBrands";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{fusionEnvironmentId}": listMarketingBrandsRequest.fusionEnvironmentId
+    };
+
+    const queryParams = {
+      "marketingBrandId": listMarketingBrandsRequest.marketingBrandId,
+      "name": listMarketingBrandsRequest.name,
+      "lifecycleState": listMarketingBrandsRequest.lifecycleState,
+      "limit": listMarketingBrandsRequest.limit,
+      "page": listMarketingBrandsRequest.page,
+      "sortOrder": listMarketingBrandsRequest.sortOrder,
+      "sortBy": listMarketingBrandsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listMarketingBrandsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listMarketingBrandsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fusionEnvironments/{fusionEnvironmentId}/marketingBrands",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListMarketingBrandsResponse>{},
+        body: await response.json(),
+        bodyKey: "marketingBrandCollection",
+        bodyModel: model.MarketingBrandCollection,
+        type: "model.MarketingBrandCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns a list of microsites
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListMicrositesRequest
+   * @return ListMicrositesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/ListMicrosites.ts.html |here} to see how to use ListMicrosites API.
+   */
+  public async listMicrosites(
+    listMicrositesRequest: requests.ListMicrositesRequest
+  ): Promise<responses.ListMicrositesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FusionApplicationsClient#listMicrosites.");
+    const operationName = "listMicrosites";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{fusionEnvironmentId}": listMicrositesRequest.fusionEnvironmentId,
+      "{marketingBrandId}": listMicrositesRequest.marketingBrandId
+    };
+
+    const queryParams = {
+      "micrositeId": listMicrositesRequest.micrositeId,
+      "name": listMicrositesRequest.name,
+      "lifecycleState": listMicrositesRequest.lifecycleState,
+      "sortOrder": listMicrositesRequest.sortOrder,
+      "sortBy": listMicrositesRequest.sortBy,
+      "limit": listMicrositesRequest.limit,
+      "page": listMicrositesRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listMicrositesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listMicrositesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/fusionEnvironments/{fusionEnvironmentId}/marketingBrands/{marketingBrandId}/microsites",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListMicrositesResponse>{},
+        body: await response.json(),
+        bodyKey: "micrositeCollection",
+        bodyModel: model.MicrositeCollection,
+        type: "model.MicrositeCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3084,6 +4277,91 @@ export class FusionApplicationsClient {
   }
 
   /**
+   * Request Email Subdomain CSR
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param RequestEmailSubdomainCsrRequest
+   * @return RequestEmailSubdomainCsrResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/RequestEmailSubdomainCsr.ts.html |here} to see how to use RequestEmailSubdomainCsr API.
+   */
+  public async requestEmailSubdomainCsr(
+    requestEmailSubdomainCsrRequest: requests.RequestEmailSubdomainCsrRequest
+  ): Promise<responses.RequestEmailSubdomainCsrResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FusionApplicationsClient#requestEmailSubdomainCsr.");
+    const operationName = "requestEmailSubdomainCsr";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{fusionEnvironmentId}": requestEmailSubdomainCsrRequest.fusionEnvironmentId,
+      "{marketingBrandId}": requestEmailSubdomainCsrRequest.marketingBrandId,
+      "{emailSubdomainId}": requestEmailSubdomainCsrRequest.emailSubdomainId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": requestEmailSubdomainCsrRequest.ifMatch,
+      "opc-request-id": requestEmailSubdomainCsrRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      requestEmailSubdomainCsrRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/fusionEnvironments/{fusionEnvironmentId}/marketingBrands/{marketingBrandId}/emailSubdomains/{emailSubdomainId}/actions/requestEmailSubdomainCsr",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        requestEmailSubdomainCsrRequest.requestEmailSubdomainCsrDetails,
+        "RequestEmailSubdomainCsrDetails",
+        model.RequestEmailSubdomainCsrDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RequestEmailSubdomainCsrResponse>{},
+        body: await response.json(),
+        bodyKey: "marketingBrandEmailSubdomainCsr",
+        bodyModel: model.MarketingBrandEmailSubdomainCsr,
+        type: "model.MarketingBrandEmailSubdomainCsr",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Reset FusionEnvironment admin password. This API will be deprecated on Mon, 15 Jan 2024 01:00:00 GMT. Users can reset password themselves, FAaaS will no longer provide an API for this.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ResetFusionEnvironmentPasswordRequest
@@ -3155,6 +4433,91 @@ export class FusionApplicationsClient {
           {
             value: response.headers.get("opc-work-request-id"),
             key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates an email subdomain
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateEmailSubdomainRequest
+   * @return UpdateEmailSubdomainResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/UpdateEmailSubdomain.ts.html |here} to see how to use UpdateEmailSubdomain API.
+   */
+  public async updateEmailSubdomain(
+    updateEmailSubdomainRequest: requests.UpdateEmailSubdomainRequest
+  ): Promise<responses.UpdateEmailSubdomainResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FusionApplicationsClient#updateEmailSubdomain.");
+    const operationName = "updateEmailSubdomain";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{fusionEnvironmentId}": updateEmailSubdomainRequest.fusionEnvironmentId,
+      "{marketingBrandId}": updateEmailSubdomainRequest.marketingBrandId,
+      "{emailSubdomainId}": updateEmailSubdomainRequest.emailSubdomainId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateEmailSubdomainRequest.ifMatch,
+      "opc-request-id": updateEmailSubdomainRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateEmailSubdomainRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/fusionEnvironments/{fusionEnvironmentId}/marketingBrands/{marketingBrandId}/emailSubdomains/{emailSubdomainId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateEmailSubdomainRequest.updateEmailSubdomainDetails,
+        "UpdateEmailSubdomainDetails",
+        model.UpdateEmailSubdomainDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateEmailSubdomainResponse>{},
+        body: await response.json(),
+        bodyKey: "emailSubdomain",
+        bodyModel: model.EmailSubdomain,
+        type: "model.EmailSubdomain",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           }
         ]
@@ -3325,6 +4688,174 @@ export class FusionApplicationsClient {
   }
 
   /**
+   * Updates a Marketing Brand
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateMarketingBrandRequest
+   * @return UpdateMarketingBrandResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/UpdateMarketingBrand.ts.html |here} to see how to use UpdateMarketingBrand API.
+   */
+  public async updateMarketingBrand(
+    updateMarketingBrandRequest: requests.UpdateMarketingBrandRequest
+  ): Promise<responses.UpdateMarketingBrandResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FusionApplicationsClient#updateMarketingBrand.");
+    const operationName = "updateMarketingBrand";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{fusionEnvironmentId}": updateMarketingBrandRequest.fusionEnvironmentId,
+      "{marketingBrandId}": updateMarketingBrandRequest.marketingBrandId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateMarketingBrandRequest.ifMatch,
+      "opc-request-id": updateMarketingBrandRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateMarketingBrandRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fusionEnvironments/{fusionEnvironmentId}/marketingBrands/{marketingBrandId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateMarketingBrandRequest.updateMarketingBrandDetails,
+        "UpdateMarketingBrandDetails",
+        model.UpdateMarketingBrandDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateMarketingBrandResponse>{},
+        body: await response.json(),
+        bodyKey: "marketingBrand",
+        bodyModel: model.MarketingBrand,
+        type: "model.MarketingBrand",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates an microsite
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateMicrositeRequest
+   * @return UpdateMicrositeResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/UpdateMicrosite.ts.html |here} to see how to use UpdateMicrosite API.
+   */
+  public async updateMicrosite(
+    updateMicrositeRequest: requests.UpdateMicrositeRequest
+  ): Promise<responses.UpdateMicrositeResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FusionApplicationsClient#updateMicrosite.");
+    const operationName = "updateMicrosite";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{fusionEnvironmentId}": updateMicrositeRequest.fusionEnvironmentId,
+      "{marketingBrandId}": updateMicrositeRequest.marketingBrandId,
+      "{micrositeId}": updateMicrositeRequest.micrositeId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateMicrositeRequest.ifMatch,
+      "opc-request-id": updateMicrositeRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateMicrositeRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/fusionEnvironments/{fusionEnvironmentId}/marketingBrands/{marketingBrandId}/microsites/{micrositeId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateMicrositeRequest.updateMicrositeDetails,
+        "UpdateMicrositeDetails",
+        model.UpdateMicrositeDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateMicrositeResponse>{},
+        body: await response.json(),
+        bodyKey: "microsite",
+        bodyModel: model.Microsite,
+        type: "model.Microsite",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Updates a scheduled RefreshActivity.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -3392,6 +4923,319 @@ export class FusionApplicationsClient {
           {
             value: response.headers.get("etag"),
             key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * upload certificate for emailSubdomain
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UploadEmailSubdomainCertificateRequest
+   * @return UploadEmailSubdomainCertificateResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/UploadEmailSubdomainCertificate.ts.html |here} to see how to use UploadEmailSubdomainCertificate API.
+   */
+  public async uploadEmailSubdomainCertificate(
+    uploadEmailSubdomainCertificateRequest: requests.UploadEmailSubdomainCertificateRequest
+  ): Promise<responses.UploadEmailSubdomainCertificateResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation FusionApplicationsClient#uploadEmailSubdomainCertificate."
+      );
+    const operationName = "uploadEmailSubdomainCertificate";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{fusionEnvironmentId}": uploadEmailSubdomainCertificateRequest.fusionEnvironmentId,
+      "{marketingBrandId}": uploadEmailSubdomainCertificateRequest.marketingBrandId,
+      "{emailSubdomainId}": uploadEmailSubdomainCertificateRequest.emailSubdomainId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": uploadEmailSubdomainCertificateRequest.ifMatch,
+      "opc-request-id": uploadEmailSubdomainCertificateRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      uploadEmailSubdomainCertificateRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/fusionEnvironments/{fusionEnvironmentId}/marketingBrands/{marketingBrandId}/emailSubdomains/{emailSubdomainId}/actions/uploadEmailSubdomainCertificate",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        uploadEmailSubdomainCertificateRequest.uploadEmailSubdomainCertificateDetails,
+        "UploadEmailSubdomainCertificateDetails",
+        model.UploadEmailSubdomainCertificateDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UploadEmailSubdomainCertificateResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Validate and configure certificate for emailSubdomain
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ValidateAndConfigureEmailSubdomainCertificateRequest
+   * @return ValidateAndConfigureEmailSubdomainCertificateResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/ValidateAndConfigureEmailSubdomainCertificate.ts.html |here} to see how to use ValidateAndConfigureEmailSubdomainCertificate API.
+   */
+  public async validateAndConfigureEmailSubdomainCertificate(
+    validateAndConfigureEmailSubdomainCertificateRequest: requests.ValidateAndConfigureEmailSubdomainCertificateRequest
+  ): Promise<responses.ValidateAndConfigureEmailSubdomainCertificateResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation FusionApplicationsClient#validateAndConfigureEmailSubdomainCertificate."
+      );
+    const operationName = "validateAndConfigureEmailSubdomainCertificate";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{fusionEnvironmentId}":
+        validateAndConfigureEmailSubdomainCertificateRequest.fusionEnvironmentId,
+      "{marketingBrandId}": validateAndConfigureEmailSubdomainCertificateRequest.marketingBrandId,
+      "{emailSubdomainId}": validateAndConfigureEmailSubdomainCertificateRequest.emailSubdomainId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": validateAndConfigureEmailSubdomainCertificateRequest.ifMatch,
+      "opc-request-id": validateAndConfigureEmailSubdomainCertificateRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      validateAndConfigureEmailSubdomainCertificateRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/fusionEnvironments/{fusionEnvironmentId}/marketingBrands/{marketingBrandId}/emailSubdomains/{emailSubdomainId}/actions/validateAndConfigureCertificate",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ValidateAndConfigureEmailSubdomainCertificateResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Validate and configure DNS records for emailSubdomain
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ValidateAndConfigureEmailSubdomainDnsRequest
+   * @return ValidateAndConfigureEmailSubdomainDnsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/ValidateAndConfigureEmailSubdomainDns.ts.html |here} to see how to use ValidateAndConfigureEmailSubdomainDns API.
+   */
+  public async validateAndConfigureEmailSubdomainDns(
+    validateAndConfigureEmailSubdomainDnsRequest: requests.ValidateAndConfigureEmailSubdomainDnsRequest
+  ): Promise<responses.ValidateAndConfigureEmailSubdomainDnsResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation FusionApplicationsClient#validateAndConfigureEmailSubdomainDns."
+      );
+    const operationName = "validateAndConfigureEmailSubdomainDns";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{fusionEnvironmentId}": validateAndConfigureEmailSubdomainDnsRequest.fusionEnvironmentId,
+      "{marketingBrandId}": validateAndConfigureEmailSubdomainDnsRequest.marketingBrandId,
+      "{emailSubdomainId}": validateAndConfigureEmailSubdomainDnsRequest.emailSubdomainId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": validateAndConfigureEmailSubdomainDnsRequest.ifMatch,
+      "opc-request-id": validateAndConfigureEmailSubdomainDnsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      validateAndConfigureEmailSubdomainDnsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/fusionEnvironments/{fusionEnvironmentId}/marketingBrands/{marketingBrandId}/emailSubdomains/{emailSubdomainId}/actions/validateAndConfigureDns",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ValidateAndConfigureEmailSubdomainDnsResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Validate and configure DNS records for microsite
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ValidateAndConfigureMicrositeDnsRequest
+   * @return ValidateAndConfigureMicrositeDnsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/ValidateAndConfigureMicrositeDns.ts.html |here} to see how to use ValidateAndConfigureMicrositeDns API.
+   */
+  public async validateAndConfigureMicrositeDns(
+    validateAndConfigureMicrositeDnsRequest: requests.ValidateAndConfigureMicrositeDnsRequest
+  ): Promise<responses.ValidateAndConfigureMicrositeDnsResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation FusionApplicationsClient#validateAndConfigureMicrositeDns."
+      );
+    const operationName = "validateAndConfigureMicrositeDns";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{fusionEnvironmentId}": validateAndConfigureMicrositeDnsRequest.fusionEnvironmentId,
+      "{marketingBrandId}": validateAndConfigureMicrositeDnsRequest.marketingBrandId,
+      "{micrositeId}": validateAndConfigureMicrositeDnsRequest.micrositeId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": validateAndConfigureMicrositeDnsRequest.ifMatch,
+      "opc-request-id": validateAndConfigureMicrositeDnsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      validateAndConfigureMicrositeDnsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/fusionEnvironments/{fusionEnvironmentId}/marketingBrands/{marketingBrandId}/microsites/{micrositeId}/actions/validateAndConfigureDns",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ValidateAndConfigureMicrositeDnsResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           },
           {

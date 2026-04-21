@@ -87,10 +87,10 @@ export interface Deployment {
    */
   "timeUpdated"?: Date;
   /**
-   * Possible lifecycle states.
+   * Possible lifecycle states for a Deployment.
    *
    */
-  "lifecycleState"?: model.LifecycleState;
+  "lifecycleState"?: Deployment.LifecycleState;
   /**
    * Possible GGS lifecycle sub-states.
    *
@@ -134,11 +134,20 @@ Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
    */
   "subnetId": string;
   /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of a public subnet in the customer tenancy.
-   * Can be provided only for public deployments. If provided, the loadbalancer will be created in this subnet instead of the service tenancy.
-   * For backward compatibility, this is an optional property. It will become mandatory for public deployments after October 1, 2024.
-   *
-   */
+    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of a public subnet in the customer tenancy used to host the public load balancer of the deployment.
+* <p>
+Rules:
+* - Create: Mandatory when isPublic is true. Must be a public, regional subnet in the same VCN as subnetId.
+* - Update:
+*   - For public deployments, this property must be present and is immutable once set (cannot be changed to a different subnet).
+*   - Legacy exception: a public deployment created without this property may continue to be updated without providing it; once set, it becomes immutable.
+* <p>
+Validation:
+* - Must reference a public subnet.
+* - Must be a regional subnet.
+* - Must be in the same VCN as subnetId.
+* 
+    */
   "loadBalancerSubnetId"?: string;
   /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the loadbalancer in the customer's subnet.
@@ -230,17 +239,6 @@ Example: {@code {orcl-cloud: {free-tier-retain: true}}}
    */
   "isLatestVersion"?: boolean;
   /**
-   * Note: Deprecated: Use timeOfNextMaintenance instead, or related upgrade records
-   * to check, when deployment will be forced to upgrade to a newer version.
-   * Old description:
-   * The date the existing version in use will no longer be considered as usable
-   * and an upgrade will be required.  This date is typically 6 months after the
-   * version was released for use by GGS.  The format is defined by
-   * [RFC3339](https://tools.ietf.org/html/rfc3339), such as {@code 2016-08-25T21:10:29.600Z}.
-   *
-   */
-  "timeUpgradeRequired"?: Date;
-  /**
    * The amount of storage being utilized (in bytes)
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
@@ -325,6 +323,22 @@ Example: {@code {\"Oracle-ZPR\": {\"MaxEgressCount\": {\"value\": \"42\", \"mode
 }
 
 export namespace Deployment {
+  export enum LifecycleState {
+    Creating = "CREATING",
+    Updating = "UPDATING",
+    Active = "ACTIVE",
+    Inactive = "INACTIVE",
+    Deleting = "DELETING",
+    Deleted = "DELETED",
+    Failed = "FAILED",
+    NeedsAttention = "NEEDS_ATTENTION",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: Deployment): object {
     const jsonObj = {
       ...obj,

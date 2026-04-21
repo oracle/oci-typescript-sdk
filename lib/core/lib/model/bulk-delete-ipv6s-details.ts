@@ -22,7 +22,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Bulk Secondary IPv6 addresses deletion object.
+ * A secondary IPv6 address bulk deletion object.
  */
 export interface BulkDeleteIpv6sDetails {
   /**
@@ -32,12 +32,12 @@ export interface BulkDeleteIpv6sDetails {
    */
   "vnicId"?: string;
   /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subnet from which the IPv6s addresses are to be deleted.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subnet from which the IPv6s addresses are deleted.
    *
    */
   "subnetId"?: string;
   /**
-   * IPv6 addresses to deleted.
+   * An IPv6 address to delete.
    *
    */
   "bulkDeleteIpv6sItem": Array<model.BulkDeleteIpv6sItem>;

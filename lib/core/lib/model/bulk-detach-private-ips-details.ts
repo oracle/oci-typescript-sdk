@@ -22,7 +22,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Bulk Secondary IPv4 addresses detach object.
+ * An object used to detatch Secondary IPv4 addresses with a bulk operation.
  */
 export interface BulkDetachPrivateIpsDetails {
   /**
@@ -31,7 +31,7 @@ export interface BulkDetachPrivateIpsDetails {
    */
   "vnicId"?: string;
   /**
-   * Secondary IPv4 addresses to detached.
+   * Secondary IPv4 addresses to detach.
    *
    */
   "bulkDetachPrivateIpItem": Array<model.BulkDetachPrivateIpItem>;

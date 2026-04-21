@@ -80,10 +80,10 @@ export interface DeploymentUpgradeSummary {
    */
   "timeUpdated"?: Date;
   /**
-   * Possible lifecycle states.
+   * Possible lifecycle states for a Deployment Upgrade.
    *
    */
-  "lifecycleState"?: model.LifecycleState;
+  "lifecycleState"?: string;
   /**
    * Possible GGS lifecycle sub-states.
    *

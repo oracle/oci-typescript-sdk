@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface BulkDetachPrivateIpsRequest extends common.BaseRequest {
   /**
-   * Secondary IPv4 addresses to detach.
+   * The secondary IPv4 addresses to detach.
    */
   "bulkDetachPrivateIpsDetails": model.BulkDetachPrivateIpsDetails;
   /**
