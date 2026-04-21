@@ -22,16 +22,16 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Bulk Secondary IPv6 addresses detach object.
+ * Details needed to bulk detach secondary IPv6 addresses.
  */
 export interface BulkDetachIpv6sDetails {
   /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the VNIC of which IPv6s should be detached. The VNIC and IPv6s must be in the same subnet.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the VNIC from which multiple IPv6s should be detached. The VNIC and IPv6s must be in the same subnet.
    *
    */
   "vnicId"?: string;
   /**
-   * Secondary IPv6 addresses to detached.
+   * A secondary IPv6 address to detach.
    *
    */
   "bulkDetachIpv6sItem": Array<model.BulkDetachIpv6sItem>;

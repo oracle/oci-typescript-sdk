@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface BulkDetachIpv6sRequest extends common.BaseRequest {
   /**
-   * detach IPv6s details.
+   * Details needed to detach IPv6s in bulk.
    */
   "bulkDetachIpv6sDetails": model.BulkDetachIpv6sDetails;
   /**

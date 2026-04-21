@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface BulkUpdateIpv6sRequest extends common.BaseRequest {
   /**
-   * Update IPv6s details.
+   * Details of the IPv6s to update.
    */
   "bulkUpdateIpv6sDetails": model.BulkUpdateIpv6sDetails;
   /**

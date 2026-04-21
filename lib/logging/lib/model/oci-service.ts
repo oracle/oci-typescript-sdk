@@ -27,7 +27,7 @@ export interface OciService extends model.Source {
    */
   "service": string;
   /**
-   * The unique identifier of the resource emitting the log.
+   * The unique identifier of the resource emitting the log. The resource can be updated, and the resource value can vary depending on the OCI service to which the resource belongs to.
    */
   "resource": string;
   /**
@@ -35,7 +35,7 @@ export interface OciService extends model.Source {
    */
   "category": string;
   /**
-   * Log category parameters are stored here.
+   * Log category parameters are stored here. The resource for a service log can't be updated.
    */
   "parameters"?: { [key: string]: string };
 

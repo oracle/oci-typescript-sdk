@@ -22,7 +22,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Secondary private IPv4 address object to delete as part of bulk deletion.
+ * Secondary private IPv4 address object to delete as part of a bulk operation.
  */
 export interface BulkDeletePrivateIpItem {
   /**

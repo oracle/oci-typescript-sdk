@@ -25,6 +25,12 @@ export interface GoogleCloudStorageConnection extends model.Connection {
    */
   "technologyType": GoogleCloudStorageConnection.TechnologyType;
   /**
+   * A legal URL to connect to Google Cloud Storage including scheme, server name and port (if not the default port).
+   * Default: https://storage.googleapis.com
+   *
+   */
+  "endpoint"?: string;
+  /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Secret where the content of the service account key file is stored,
    * which contains the credentials required to use Google Cloud Storage.
    * Note: When provided, 'serviceAccountKeyFile' field must not be provided.

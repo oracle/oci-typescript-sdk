@@ -22,17 +22,17 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The customer facing object includes GPU memory cluster details.
+ * The customer facing object includes GPU Memory Cluster details.
  *
  */
 export interface ComputeGpuMemoryCluster {
   /**
-   * The availability domain of the GPU memory cluster.
+   * The availability domain of the GPU Memory Cluster.
    *
    */
   "availabilityDomain": string;
   /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) for the Customer-unique GPU memory cluster
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) for the Customer-unique GPU Memory Cluster
    *
    */
   "id": string;
@@ -47,7 +47,7 @@ export interface ComputeGpuMemoryCluster {
    */
   "compartmentId": string;
   /**
-   * The lifecycle state of the GPU memory cluster
+   * The lifecycle state of the GPU Memory Cluster
    *
    */
   "lifecycleState": ComputeGpuMemoryCluster.LifecycleState;
@@ -62,11 +62,15 @@ export interface ComputeGpuMemoryCluster {
    */
   "computeClusterId": string;
   /**
-   * The number of instances currently running in the GpuMemoryCluster
+   * The size represents the total number of instances in the GPU Memory Cluster, including both running instances and those still in the process of launching.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "size": number;
   "gpuMemoryClusterScaleConfig"?: model.ComputeGpuMemoryClusterScaleConfig;
+  /**
+   * Unique list of OCIDs for private IPs (IPv4/IPv6) associated with the GPU Memory Cluster
+   */
+  "privateIpIds"?: Array<string>;
   /**
     * Defined tags for this resource. Each key is predefined and scoped to a
 * namespace. For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
@@ -96,7 +100,7 @@ Example: {@code {\"Department\": \"Finance\"}}
    */
   "displayName"?: string;
   /**
-    * The date and time the GPU memory cluster was created.
+    * The date and time the GPU Memory Cluster was created.
 * <p>
 Example: {@code 2016-09-15T21:10:29.600Z}
 * 

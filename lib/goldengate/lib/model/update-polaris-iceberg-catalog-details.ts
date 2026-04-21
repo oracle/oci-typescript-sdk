@@ -35,10 +35,15 @@ export interface UpdatePolarisIcebergCatalogDetails extends model.UpdateIcebergC
    */
   "clientId"?: string;
   /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Secret that stores the password Oracle GoldenGate uses to connect to Snowflake platform.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Secret that stores the password Oracle GoldenGate uses to connect to Polaris.
    *
    */
   "clientSecretSecretId"?: string;
+  /**
+   * Client secret required to connect to Polaris.
+   *
+   */
+  "clientSecret"?: string;
   /**
    * The Snowflake role used to access Polaris.
    */

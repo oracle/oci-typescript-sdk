@@ -22,12 +22,12 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Bulk Secondary IPv6 addresses creation object.
+ * Details needed to create secondary IPv6 addresses with a bulk operation.
  */
 export interface BulkCreateIpv6sDetails {
   /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the VNIC to assign the IPv6s to. The
-   * IPv6 will be in the VNIC's subnet.
+   * IPv6s will be in the VNIC's subnet.
    *
    */
   "vnicId"?: string;
@@ -38,7 +38,7 @@ export interface BulkCreateIpv6sDetails {
    */
   "subnetId"?: string;
   /**
-   * Secondary IPv6 addresses to assign.
+   * A secondary IPv6 address to assign.
    *
    */
   "bulkCreateIpv6sItem": Array<model.BulkCreateIpv6sItem>;

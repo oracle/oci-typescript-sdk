@@ -88,11 +88,20 @@ The API specification for flexible shape values is https://docs.oracle.com/en-us
    */
   "clusterName"?: string;
   /**
-   * The percentage assigned to DATA storage (user data and database files).
-   * The remaining percentage is assigned to RECO storage (database redo logs, archive logs, and recovery manager backups). Accepted values are 35, 40, 60 and 80. The default is 80 percent assigned to DATA storage. See [Storage Configuration](https://docs.oracle.com/iaas/Content/Database/Concepts/exaoverview.htm#Exadata) in the Exadata documentation for details on the impact of the configuration settings on storage.
+   * The percentage assigned to DATA storage (user data and database files). See [Storage Configuration](https://docs.oracle.com/iaas/Content/Database/Concepts/exaoverview.htm#Exadata) in the Exadata documentation for details on the impact of the configuration settings on storage.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "dataStoragePercentage"?: number;
+  /**
+   * The percentage assigned to RECO storage (database redo logs, archive logs, and recovery manager backups). See [Storage Configuration](https://docs.oracle.com/iaas/Content/Database/Concepts/exaoverview.htm#Exadata) in the Exadata documentation for details on the impact of the configuration settings on storage.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "recoStoragePercentage"?: number;
+  /**
+   * The percentage assigned to SPARSE storage (Exadata snapshots). See [Storage Configuration](https://docs.oracle.com/iaas/Content/Database/Concepts/exaoverview.htm#Exadata) in the Exadata documentation for details on the impact of the configuration settings on storage.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "sparseStoragePercentage"?: number;
   /**
    * The user-friendly name for the cloud VM cluster. The name does not need to be unique.
    */

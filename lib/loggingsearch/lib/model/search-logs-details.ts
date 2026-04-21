@@ -1,6 +1,6 @@
 /**
  * Logging Search API
- * Search for logs in your compartments, log groups, and log objects.
+ * Use the Logging Search API to search for logs in your compartments, log groups, and log objects. For more information, see [Logging Overview](https://docs.oracle.com/iaas/Content/Logging/Concepts/loggingoverview.htm).
  * OpenAPI spec version: 20190909
  *
  *
@@ -19,12 +19,12 @@ import common = require("oci-common");
  */
 export interface SearchLogsDetails {
   /**
-   * Start filter log's date and time, in the format defined by RFC3339.
+   * Start filter log's date and time, in the format defined by RFC 3339.
    *
    */
   "timeStart": Date;
   /**
-   * End filter log's date and time, in the format defined by RFC3339.
+   * End filter log's date and time, in the format defined by RFC 3339.
    *
    */
   "timeEnd": Date;

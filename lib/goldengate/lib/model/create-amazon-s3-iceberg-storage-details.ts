@@ -40,7 +40,14 @@ export interface CreateAmazonS3IcebergStorageDetails extends model.CreateIceberg
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Secret where the Secret Access Key is stored.
    *
    */
-  "secretAccessKeySecretId": string;
+  "secretAccessKeySecretId"?: string;
+  /**
+   * Secret access key to access the Amazon S3 bucket.
+   * e.g.: \"this-is-not-the-secret\"
+   * Deprecated: This field is deprecated and replaced by \"secretAccessKeySecretId\". This field will be removed after February 15 2026.
+   *
+   */
+  "secretAccessKey"?: string;
   /**
    * The AMAZON region where the S3 bucket is hosted.
    * e.g.: 'us-east-2'

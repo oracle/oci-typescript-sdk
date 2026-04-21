@@ -129,10 +129,6 @@ Example: {@code 2016-08-25T21:10:29.600Z}
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "remainingMemoryInGBs"?: number;
-  /**
-   * A list of total and remaining CPU and memory per capacity bucket.
-   *
-   */
   "capacityBins"?: Array<model.CapacityBin>;
   /**
    * The compute bare metal host OCID of the dedicated virtual machine host.

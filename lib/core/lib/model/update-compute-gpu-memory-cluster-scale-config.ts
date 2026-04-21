@@ -37,7 +37,7 @@ export interface UpdateComputeGpuMemoryClusterScaleConfig {
    */
   "isDownsizeEnabled"?: boolean;
   /**
-   * The configured target size for the GPU Memory cluster.
+   * The configured target size for the GPU Memory Cluster.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "targetSize"?: number;

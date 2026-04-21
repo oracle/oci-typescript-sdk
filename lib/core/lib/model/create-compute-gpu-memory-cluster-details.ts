@@ -22,17 +22,17 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The customer facing object includes GPU memory cluster details.
+ * The customer facing object includes GPU Memory Cluster details.
  *
  */
 export interface CreateComputeGpuMemoryClusterDetails {
   /**
-   * The availability domain of the GPU memory cluster.
+   * The availability domain of the GPU Memory Cluster.
    *
    */
   "availabilityDomain": string;
   /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment that contains the compute GPU memory cluster.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment that contains the compute GPU Memory Cluster.
    * compartment.
    *
    */
@@ -53,7 +53,7 @@ export interface CreateComputeGpuMemoryClusterDetails {
    */
   "instanceConfigurationId": string;
   /**
-   * The number of instances currently running in the GpuMemoryCluster
+   * The desired number of instances for the GPU Memory Cluster.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "size"?: number;
@@ -80,6 +80,10 @@ Example: {@code {\"Department\": \"Finance\"}}
    */
   "displayName"?: string;
   "gpuMemoryClusterScaleConfig"?: model.CreateComputeGpuMemoryClusterScaleConfig;
+  /**
+   * Unique list of OCIDs for private IPs (IPv4/IPv6) associated with the GPU Memory Cluster
+   */
+  "privateIpIds"?: Array<string>;
 }
 
 export namespace CreateComputeGpuMemoryClusterDetails {

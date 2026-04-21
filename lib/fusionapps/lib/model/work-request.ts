@@ -96,6 +96,8 @@ export namespace WorkRequest {
     SubscriptionUpdate = "SUBSCRIPTION_UPDATE",
     SubscriptionResume = "SUBSCRIPTION_RESUME",
     SubscriptionTerminate = "SUBSCRIPTION_TERMINATE",
+    ConfigureEmailSubdomain = "CONFIGURE_EMAIL_SUBDOMAIN",
+    ConfigureMicrosite = "CONFIGURE_MICROSITE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

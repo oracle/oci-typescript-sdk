@@ -22,11 +22,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * secondary ip object to delete as part of bulk deletion .
+ * A secondary IPv6 object to delete as part of a bulk deletion.
  */
 export interface BulkDeleteIpv6sItem {
   /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the IPv6 to be deleted.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the IPv6 to delete.
    */
   "ipv6Id": string;
 }

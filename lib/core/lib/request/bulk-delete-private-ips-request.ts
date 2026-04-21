@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface BulkDeletePrivateIpsRequest extends common.BaseRequest {
   /**
-   * Details of secondary IPv4 addresses to deleted.
+   * Details of the secondary IPv4 addresses to delete.
    */
   "bulkDeletePrivateIpsDetails": model.BulkDeletePrivateIpsDetails;
   /**

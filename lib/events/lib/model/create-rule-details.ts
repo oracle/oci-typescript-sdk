@@ -17,7 +17,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Object used to create a rule.
+ * Object used to create an events1.0 rule and events2.0 system rule.
  */
 export interface CreateRuleDetails {
   /**

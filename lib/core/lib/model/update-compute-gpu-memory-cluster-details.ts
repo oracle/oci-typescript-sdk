@@ -22,7 +22,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Updates compute GPU memory cluster details.
+ * Updates compute GPU Memory Cluster details.
  *
  */
 export interface UpdateComputeGpuMemoryClusterDetails {
@@ -32,7 +32,7 @@ export interface UpdateComputeGpuMemoryClusterDetails {
    */
   "instanceConfigurationId"?: string;
   /**
-   * The number of instances currently running in the GpuMemoryCluster
+   * The desired number of instances for the GPU Memory Cluster.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "size"?: number;
@@ -59,6 +59,10 @@ Example: {@code {\"Department\": \"Finance\"}}
    */
   "displayName"?: string;
   "gpuMemoryClusterScaleConfig"?: model.UpdateComputeGpuMemoryClusterScaleConfig;
+  /**
+   * Unique list of OCIDs for private IPs (IPv4/IPv6) associated with the GPU Memory Cluster
+   */
+  "privateIpIds"?: Array<string>;
 }
 
 export namespace UpdateComputeGpuMemoryClusterDetails {

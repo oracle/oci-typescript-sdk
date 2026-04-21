@@ -22,17 +22,17 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The customer facing GPU memory cluster instance object details.
+ * The customer facing GPU Memory Cluster instance object details.
  *
  */
 export interface ComputeGpuMemoryClusterInstanceSummary {
   /**
-   * The availability domain of the GPU memory cluster instance.
+   * The availability domain of the GPU Memory Cluster instance.
    *
    */
   "availabilityDomain"?: string;
   /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) for the Customer-unique GPU memory cluster instance
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) for the Customer-unique GPU Memory Cluster instance
    *
    */
   "id"?: string;
@@ -43,7 +43,7 @@ export interface ComputeGpuMemoryClusterInstanceSummary {
    */
   "compartmentId"?: string;
   /**
-   * The fault domain the GPU memory cluster instance is running in.
+   * The fault domain the GPU Memory Cluster instance is running in.
    */
   "faultDomain"?: string;
   /**
@@ -64,7 +64,7 @@ export interface ComputeGpuMemoryClusterInstanceSummary {
    */
   "instanceShape"?: string;
   /**
-   * The lifecycle state of the GPU memory cluster instance
+   * The lifecycle state of the GPU Memory Cluster instance
    *
    */
   "lifecycleState"?: ComputeGpuMemoryClusterInstanceSummary.LifecycleState;
@@ -75,7 +75,7 @@ export interface ComputeGpuMemoryClusterInstanceSummary {
    */
   "displayName"?: string;
   /**
-    * The date and time the GPU memory cluster instance was created.
+    * The date and time the GPU Memory Cluster instance was created.
 * <p>
 Example: {@code 2016-09-15T21:10:29.600Z}
 * 

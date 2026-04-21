@@ -1,6 +1,6 @@
 /**
  * Logging Ingestion API
- * Use the Logging Ingestion API to ingest your application logs.
+ * Use the Logging Ingestion API to ingest your application logs. For more information, see [Logging Overview](https://docs.oracle.com/iaas/Content/Logging/Concepts/loggingoverview.htm).
  * OpenAPI spec version: 20200831
  *
  *
@@ -33,7 +33,7 @@ export enum LoggingApiKeys {}
  */
 export class LoggingClient {
   protected static serviceEndpointTemplate =
-    "https://ingestion.logging.{region}.oci.{secondLevelDomain}";
+    "https://ingestion.logging.{region}.{dualStack?ds.:}oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
   protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
@@ -46,6 +46,8 @@ export class LoggingClient {
   protected _regionId: string = "";
   protected "_region": common.Region;
   protected _lastSetRegionOrRegionId: string = "";
+  protected _enableDualstackEndpoint: boolean | undefined = undefined;
+  protected _serviceUsesDualStackByDefault: boolean = false;
 
   protected _httpClient: common.HttpClient;
   protected _authProvider: common.AuthenticationDetailsProvider | undefined;
@@ -183,6 +185,10 @@ export class LoggingClient {
     this._lastSetRegionOrRegionId = common.Region.REGION_ID_STRING;
   }
 
+  public set enableDualstackEndpoint(enableDualstackEndpoint: boolean) {
+    this._enableDualstackEndpoint = enableDualstackEndpoint;
+  }
+
   /**
    * Shutdown the circuit breaker used by the client when it is no longer needed
    */
@@ -242,6 +248,19 @@ export class LoggingClient {
       "opc-request-id": putLogsRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["logId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -250,7 +269,7 @@ export class LoggingClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/logs/{logId}/actions/push",
       method: "POST",

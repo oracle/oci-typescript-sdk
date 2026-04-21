@@ -22,12 +22,12 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A list of compute GPU memory cluster instances.
+ * A list of compute GPU Memory Cluster instances.
  *
  */
 export interface ComputeGpuMemoryClusterInstanceCollection {
   /**
-   * The list of compute GPU memory cluster instances.
+   * The list of compute GPU Memory Cluster instances.
    */
   "items": Array<model.ComputeGpuMemoryClusterInstanceSummary>;
 }

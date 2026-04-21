@@ -22,7 +22,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Secondary private IPv4 address object to detach as part of bulk detach operation.
+ * An object used to detatch secondary private IPv4 addresses with a bulk operation.
  */
 export interface BulkDetachPrivateIpItem {
   /**

@@ -168,6 +168,12 @@ Example: {@code {orcl-cloud: {free-tier-retain: true}}}
    *
    */
   "secretId"?: string;
+  /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the connection being
+   * referenced as the successor resource of the deprecated database registration.
+   *
+   */
+  "connectionId"?: string;
 }
 
 export namespace DatabaseRegistration {

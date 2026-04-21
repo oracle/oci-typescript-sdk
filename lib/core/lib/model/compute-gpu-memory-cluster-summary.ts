@@ -26,25 +26,25 @@ import common = require("oci-common");
  */
 export interface ComputeGpuMemoryClusterSummary {
   /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) for the Customer-unique GPU memory cluster
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) for the Customer-unique GPU Memory Cluster
    *
    */
   "id": string;
   /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment that contains the compute GPU memory cluster.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment that contains the compute GPU Memory Cluster.
    * compartment.
    *
    */
   "compartmentId": string;
   /**
-    * The availability domain of GPU memory cluster.
+    * The availability domain of GPU Memory Cluster.
 * <p>
 Example: {@code Uocm:PHX-AD-1}
 * 
     */
   "availabilityDomain": string;
   /**
-   * The current state of the compute GPU memory cluster.
+   * The current state of the compute GPU Memory Cluster.
    */
   "lifecycleState": string;
   /**

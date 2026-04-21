@@ -27,7 +27,7 @@ export interface UnifiedAgentMonitoringUrlSource {
    */
   "name": string;
   /**
-   * List of UnifiedAgentKubernetesScrapeTarget.
+   * List of UnifiedAgentUrlScrapeTarget.
    */
   "scrapeTargets": Array<model.UnifiedAgentUrlScrapeTarget>;
 }
