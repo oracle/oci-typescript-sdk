@@ -22,7 +22,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Bulk Secondary IPv4 deletion object.
+ * Details used tp delete Secondary IPv4 objects in a bulk operation.
  */
 export interface BulkDeletePrivateIpsDetails {
   /**
@@ -43,7 +43,7 @@ export interface BulkDeletePrivateIpsDetails {
    */
   "subnetId"?: string;
   /**
-   * Secondary IPv4 addresses to deleted
+   * A secondary IPv4 address to delete.
    *
    */
   "bulkDeletePrivateIpItem": Array<model.BulkDeletePrivateIpItem>;

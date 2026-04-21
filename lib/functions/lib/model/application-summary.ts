@@ -60,6 +60,7 @@ export interface ApplicationSummary {
    */
   "networkSecurityGroupIds"?: Array<string>;
   "traceConfig"?: model.ApplicationTraceConfig;
+  "logging"?: model.ApplicationLoggingConfig;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
 * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
@@ -120,6 +121,7 @@ export namespace ApplicationSummary {
         "traceConfig": obj.traceConfig
           ? model.ApplicationTraceConfig.getJsonObj(obj.traceConfig)
           : undefined,
+        "logging": obj.logging ? model.ApplicationLoggingConfig.getJsonObj(obj.logging) : undefined,
 
         "imagePolicyConfig": obj.imagePolicyConfig
           ? model.ImagePolicyConfig.getJsonObj(obj.imagePolicyConfig)
@@ -135,6 +137,9 @@ export namespace ApplicationSummary {
       ...{
         "traceConfig": obj.traceConfig
           ? model.ApplicationTraceConfig.getDeserializedJsonObj(obj.traceConfig)
+          : undefined,
+        "logging": obj.logging
+          ? model.ApplicationLoggingConfig.getDeserializedJsonObj(obj.logging)
           : undefined,
 
         "imagePolicyConfig": obj.imagePolicyConfig

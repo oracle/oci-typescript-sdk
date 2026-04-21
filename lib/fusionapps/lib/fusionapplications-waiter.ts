@@ -42,6 +42,24 @@ export class FusionApplicationsWaiter {
   }
 
   /**
+   * Waits forEmailSubdomain till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetEmailSubdomainResponse
+   */
+  public async forEmailSubdomain(
+    request: serviceRequests.GetEmailSubdomainRequest,
+    ...targetStates: models.EmailSubdomain.LifecycleState[]
+  ): Promise<serviceResponses.GetEmailSubdomainResponse> {
+    return genericWaiter(
+      this.config,
+      () => this.client.getEmailSubdomain(request),
+      response => targetStates.includes(response.emailSubdomain.lifecycleState!)
+    );
+  }
+
+  /**
    * Waits forFusionEnvironment till it reaches any of the provided states
    *
    * @param request the request to send
@@ -76,6 +94,42 @@ export class FusionApplicationsWaiter {
       () => this.client.getFusionEnvironmentFamily(request),
       response => targetStates.includes(response.fusionEnvironmentFamily.lifecycleState!),
       targetStates.includes(models.FusionEnvironmentFamily.LifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forMarketingBrand till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetMarketingBrandResponse
+   */
+  public async forMarketingBrand(
+    request: serviceRequests.GetMarketingBrandRequest,
+    ...targetStates: models.MarketingBrand.LifecycleState[]
+  ): Promise<serviceResponses.GetMarketingBrandResponse> {
+    return genericWaiter(
+      this.config,
+      () => this.client.getMarketingBrand(request),
+      response => targetStates.includes(response.marketingBrand.lifecycleState!)
+    );
+  }
+
+  /**
+   * Waits forMicrosite till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetMicrositeResponse
+   */
+  public async forMicrosite(
+    request: serviceRequests.GetMicrositeRequest,
+    ...targetStates: models.Microsite.LifecycleState[]
+  ): Promise<serviceResponses.GetMicrositeResponse> {
+    return genericWaiter(
+      this.config,
+      () => this.client.getMicrosite(request),
+      response => targetStates.includes(response.microsite.lifecycleState!)
     );
   }
 

@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface BulkDeleteIpv6sRequest extends common.BaseRequest {
   /**
-   * Delete IPv6s details.
+   * Details of the IPv6s to delete.
    */
   "bulkDeleteIpv6sDetails": model.BulkDeleteIpv6sDetails;
   /**

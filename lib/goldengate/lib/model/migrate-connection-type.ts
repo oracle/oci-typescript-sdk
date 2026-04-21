@@ -16,28 +16,18 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Possible deploymentUpgrade lifecycle states.
+ * The Connection migrate type.
  *
  **/
-export enum DeploymentUpgradeLifecycleState {
-  Waiting = "WAITING",
-  InProgress = "IN_PROGRESS",
-  Failed = "FAILED",
-  Succeeded = "SUCCEEDED",
-  Canceling = "CANCELING",
-  Canceled = "CANCELED",
-  NeedsAttention = "NEEDS_ATTENTION"
+export enum MigrateConnectionType {
+  Secret = "SECRET"
 }
 
-export namespace DeploymentUpgradeLifecycleState {
-  export function getJsonObj(
-    obj: DeploymentUpgradeLifecycleState
-  ): DeploymentUpgradeLifecycleState {
+export namespace MigrateConnectionType {
+  export function getJsonObj(obj: MigrateConnectionType): MigrateConnectionType {
     return obj;
   }
-  export function getDeserializedJsonObj(
-    obj: DeploymentUpgradeLifecycleState
-  ): DeploymentUpgradeLifecycleState {
+  export function getDeserializedJsonObj(obj: MigrateConnectionType): MigrateConnectionType {
     return obj;
   }
 }

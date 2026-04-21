@@ -23,7 +23,7 @@ import common = require("oci-common");
  */
 export interface SourceUpdateDetails {
   /**
-   * Log category parameters are stored here.
+   * Log category parameters are stored here. The resource for a service log can't be updated.
    */
   "parameters"?: { [key: string]: string };
 }

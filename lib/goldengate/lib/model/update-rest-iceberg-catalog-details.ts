@@ -33,6 +33,11 @@ export interface UpdateRestIcebergCatalogDetails extends model.UpdateIcebergCata
    *
    */
   "propertiesSecretId"?: string;
+  /**
+   * The base64 encoded content of the configuration file containing additional properties for the REST catalog.
+   *
+   */
+  "properties"?: string;
 
   "catalogType": string;
 }

@@ -5992,6 +5992,87 @@ export class GoldenGateClient {
   }
 
   /**
+   * Migrate Connection attributes.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param MigrateConnectionRequest
+   * @return MigrateConnectionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/MigrateConnection.ts.html |here} to see how to use MigrateConnection API.
+   */
+  public async migrateConnection(
+    migrateConnectionRequest: requests.MigrateConnectionRequest
+  ): Promise<responses.MigrateConnectionResponse> {
+    if (this.logger) this.logger.debug("Calling operation GoldenGateClient#migrateConnection.");
+    const operationName = "migrateConnection";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/Connection/MigrateConnection";
+    const pathParams = {
+      "{connectionId}": migrateConnectionRequest.connectionId
+    };
+
+    const queryParams = {
+      "isLockOverride": migrateConnectionRequest.isLockOverride
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": migrateConnectionRequest.ifMatch,
+      "opc-request-id": migrateConnectionRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      migrateConnectionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/connections/{connectionId}/actions/migrate",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        migrateConnectionRequest.migrateConnectionDetails,
+        "MigrateConnectionDetails",
+        model.MigrateConnectionDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.MigrateConnectionResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Pauses the pipeline.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.

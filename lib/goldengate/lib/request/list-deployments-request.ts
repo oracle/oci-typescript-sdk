@@ -42,10 +42,10 @@ export interface ListDeploymentsRequest extends common.BaseRequest {
    */
   "assignableConnectionId"?: string;
   /**
-   * A filter to return only the resources that match the 'lifecycleState' given.
+   * A filter to return only the deployments having the 'lifecycleState' given.
    *
    */
-  "lifecycleState"?: model.LifecycleState;
+  "lifecycleState"?: string;
   /**
    * A filter to return only the resources that match the 'lifecycleSubState' given.
    *

@@ -19,6 +19,12 @@ import common = require("oci-common");
  */
 export interface ListServicesRequest extends common.BaseRequest {
   /**
+   * Compartment OCID to list resources in. Please see compartmentIdInSubtree
+   *      for nested compartments traversal.
+   *
+   */
+  "compartmentId"?: string;
+  /**
    * Unique Oracle-assigned identifier for the request. If you need to contact Oracle about
    * a particular request, please provide the request ID.
    *

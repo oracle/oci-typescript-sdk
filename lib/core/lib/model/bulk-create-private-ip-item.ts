@@ -22,7 +22,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Secondary private IPv4 address object to create as part of bulk creation.
+ * An object used to create secondary private IPv4 addresses in a bulk operation.
  */
 export interface BulkCreatePrivateIpItem {
   /**

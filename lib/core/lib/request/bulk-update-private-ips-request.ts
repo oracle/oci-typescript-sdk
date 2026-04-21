@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface BulkUpdatePrivateIpsRequest extends common.BaseRequest {
   /**
-   * Details of secondary IPv4 addresses to be updated.
+   * Details of the secondary IPv4 addresses to update.
    */
   "bulkUpdatePrivateIpsDetails": model.BulkUpdatePrivateIpsDetails;
   /**

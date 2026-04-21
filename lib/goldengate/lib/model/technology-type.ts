@@ -71,6 +71,7 @@ export enum TechnologyType {
   Db2I = "DB2_I",
   Db2Zos = "DB2_ZOS",
   Elasticsearch = "ELASTICSEARCH",
+  EdbPostgresAdvancedServer = "EDB_POSTGRES_ADVANCED_SERVER",
   GoogleAlloyDbForPostgresql = "GOOGLE_ALLOY_DB_FOR_POSTGRESQL",
   GoogleBigquery = "GOOGLE_BIGQUERY",
   GoogleCloudStorage = "GOOGLE_CLOUD_STORAGE",
@@ -81,6 +82,7 @@ export enum TechnologyType {
   Hdfs = "HDFS",
   Mariadb = "MARIADB",
   MicrosoftSqlserver = "MICROSOFT_SQLSERVER",
+  MicrosoftFabricEventstream = "MICROSOFT_FABRIC_EVENTSTREAM",
   MicrosoftFabricLakehouse = "MICROSOFT_FABRIC_LAKEHOUSE",
   MicrosoftFabricMirror = "MICROSOFT_FABRIC_MIRROR",
   Mongodb = "MONGODB",
@@ -92,6 +94,7 @@ export enum TechnologyType {
   Singlestoredb = "SINGLESTOREDB",
   SinglestoredbCloud = "SINGLESTOREDB_CLOUD",
   Snowflake = "SNOWFLAKE",
+  YugabyteDb = "YUGABYTE_DB",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

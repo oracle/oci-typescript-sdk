@@ -58,10 +58,10 @@ export interface DeploymentBackup {
    */
   "backupSourceType"?: DeploymentBackup.BackupSourceType;
   /**
-   * Possible lifecycle states.
+   * Possible lifecycle states for a Deployment Backup.
    *
    */
-  "lifecycleState": model.LifecycleState;
+  "lifecycleState": DeploymentBackup.LifecycleState;
   /**
    * Describes the object's current state in detail. For example, it can be used to provide
    * actionable information for a resource in a Failed state.
@@ -158,6 +158,21 @@ export namespace DeploymentBackup {
     Manual = "MANUAL",
     Automatic = "AUTOMATIC",
     Scheduled = "SCHEDULED",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum LifecycleState {
+    Creating = "CREATING",
+    Active = "ACTIVE",
+    Deleting = "DELETING",
+    Deleted = "DELETED",
+    Failed = "FAILED",
+    Canceling = "CANCELING",
+    Canceled = "CANCELED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

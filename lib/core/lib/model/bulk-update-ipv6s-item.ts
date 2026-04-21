@@ -22,7 +22,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Secondary IPv6 object to update as part of bulk update.
+ * A secondary IPv6 object to update as part of a bulk update.
  */
 export interface BulkUpdateIpv6sItem {
   /**
@@ -48,7 +48,7 @@ Example: {@code {\"Department\": \"Finance\"}}
     */
   "freeformTags"?: { [key: string]: string };
   /**
-   * The OCID of the IPv6.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the IPv6 object.
    *
    */
   "ipv6Id": string;

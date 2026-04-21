@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface BulkCreateIpv6sRequest extends common.BaseRequest {
   /**
-   * Bulk Create Ipv6s.
+   * Create Ipv6s in bulk.
    */
   "bulkCreateIpv6sDetails": model.BulkCreateIpv6sDetails;
   /**

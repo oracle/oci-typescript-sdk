@@ -124,7 +124,7 @@ Example: {@code {\"Department\": \"Finance\"}}
    */
   "providerServiceId"?: string;
   /**
-   * The service key name offered by the provider (if the customer is connecting via a provider).
+   * The service key name or activation key offered by the provider (if the customer is connecting via a provider).
    *
    */
   "providerServiceKeyName"?: string;

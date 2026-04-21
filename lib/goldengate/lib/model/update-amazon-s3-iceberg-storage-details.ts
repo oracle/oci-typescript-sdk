@@ -42,6 +42,13 @@ export interface UpdateAmazonS3IcebergStorageDetails extends model.UpdateIceberg
    */
   "secretAccessKeySecretId"?: string;
   /**
+   * Secret access key to access the Amazon S3 bucket.
+   * e.g.: \"this-is-not-the-secret\"
+   * Deprecated: This field is deprecated and replaced by \"secretAccessKeySecretId\". This field will be removed after February 15 2026.
+   *
+   */
+  "secretAccessKey"?: string;
+  /**
    * The AMAZON region where the S3 bucket is hosted.
    * e.g.: 'us-east-2'
    *

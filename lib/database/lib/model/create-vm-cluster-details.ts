@@ -71,6 +71,21 @@ export interface CreateVmClusterDetails {
    */
   "licenseModel"?: CreateVmClusterDetails.LicenseModel;
   /**
+   * The percentage assigned to DATA storage (user data and database files). See [Storage Configuration](https://docs.oracle.com/iaas/Content/Database/Concepts/exaoverview.htm#Exadata) in the Exadata documentation for details on the impact of the configuration settings on storage.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "dataStoragePercentage"?: number;
+  /**
+   * The percentage assigned to RECO storage (database redo logs, archive logs, and recovery manager backups). See [Storage Configuration](https://docs.oracle.com/iaas/Content/Database/Concepts/exaoverview.htm#Exadata) in the Exadata documentation for details on the impact of the configuration settings on storage.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "recoStoragePercentage"?: number;
+  /**
+   * The percentage assigned to SPARSE storage (Exadata snapshots). See [Storage Configuration](https://docs.oracle.com/iaas/Content/Database/Concepts/exaoverview.htm#Exadata) in the Exadata documentation for details on the impact of the configuration settings on storage.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "sparseStoragePercentage"?: number;
+  /**
    * If true, the sparse disk group is configured for the VM cluster. If false, the sparse disk group is not created.
    *
    */

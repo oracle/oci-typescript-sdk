@@ -22,7 +22,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Secondary IPv6 object to creation as part of bulk creation .
+ * Secondary IPv6 object to use as part of bulk IPv6 object creation.
  */
 export interface BulkCreateIpv6sItem {
   /**
@@ -77,7 +77,7 @@ Example: {@code 2001:DB8::}
    */
   "ipv6SubnetCidr"?: string;
   /**
-   * Length of cidr range. Optional field to specify flexible cidr. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Length of the CIDR range. Optional field to specify a flexible CIDR. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "cidrPrefixLength"?: number;
 }

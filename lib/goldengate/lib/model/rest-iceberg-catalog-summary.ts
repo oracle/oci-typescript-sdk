@@ -32,7 +32,7 @@ export interface RestIcebergCatalogSummary extends model.IcebergCatalogSummary {
    * See documentation: https://docs.oracle.com/en-us/iaas/Content/Identity/Tasks/managingcredentials.htm
    *
    */
-  "propertiesSecretId": string;
+  "propertiesSecretId"?: string;
 
   "catalogType": string;
 }

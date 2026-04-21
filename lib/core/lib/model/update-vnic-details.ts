@@ -92,7 +92,8 @@ For more information about NSGs, see
 If the VNIC belongs to a VLAN as part of the Oracle Cloud VMware Solution (instead of
 * belonging to a subnet), the value of the {@code skipSourceDestCheck} attribute is ignored.
 * This is because the source/destination check is always disabled for VNICs in a VLAN.
-* Example: {@code true}
+* <p>
+Example: {@code true}
 * 
     */
   "skipSourceDestCheck"?: boolean;

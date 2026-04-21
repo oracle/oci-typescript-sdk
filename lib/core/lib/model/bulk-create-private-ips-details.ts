@@ -22,7 +22,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Bulk Secondary IPv4 addresses creation object.
+ * Details used to create secondary private IPv4 addresses in a bulk operation.
  */
 export interface BulkCreatePrivateIpsDetails {
   /**
@@ -42,7 +42,7 @@ export interface BulkCreatePrivateIpsDetails {
    */
   "subnetId"?: string;
   /**
-   * Secondary IPv4 addresses to assign.
+   * A secondary IPv4 address to assign.
    *
    */
   "bulkCreatePrivateIpItem": Array<model.BulkCreatePrivateIpItem>;
