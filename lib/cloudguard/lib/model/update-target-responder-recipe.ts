@@ -28,7 +28,7 @@ export interface UpdateTargetResponderRecipe {
   /**
    * List of responder rules to be updated in the target responder recipe
    */
-  "responderRules": Array<model.UpdateTargetRecipeResponderRuleDetails>;
+  "responderRules"?: Array<model.UpdateTargetRecipeResponderRuleDetails>;
 }
 
 export namespace UpdateTargetResponderRecipe {

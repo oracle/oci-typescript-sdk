@@ -32,7 +32,7 @@ export interface UpdateOracleInitialLoadSettings {
   /**
    * Oracle Job Mode
    */
-  "jobMode": model.JobModeOracle;
+  "jobMode"?: model.JobModeOracle;
   /**
    * Defines remapping to be applied to objects as they are processed.
    *

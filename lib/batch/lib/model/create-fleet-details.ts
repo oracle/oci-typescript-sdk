@@ -27,6 +27,11 @@ export namespace CreateFleetDetails {
 
     if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
+        case "SERVICE_MANAGED_GPU_FLEET":
+          return model.CreateServiceManagedGpuFleetDetails.getJsonObj(
+            <model.CreateServiceManagedGpuFleetDetails>(<object>jsonObj),
+            true
+          );
         case "SERVICE_MANAGED_FLEET":
           return model.CreateServiceManagedFleetDetails.getJsonObj(
             <model.CreateServiceManagedFleetDetails>(<object>jsonObj),
@@ -43,6 +48,11 @@ export namespace CreateFleetDetails {
 
     if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
+        case "SERVICE_MANAGED_GPU_FLEET":
+          return model.CreateServiceManagedGpuFleetDetails.getDeserializedJsonObj(
+            <model.CreateServiceManagedGpuFleetDetails>(<object>jsonObj),
+            true
+          );
         case "SERVICE_MANAGED_FLEET":
           return model.CreateServiceManagedFleetDetails.getDeserializedJsonObj(
             <model.CreateServiceManagedFleetDetails>(<object>jsonObj),

@@ -43,16 +43,31 @@ export interface CreateHsmClusterDetails {
    *
    */
   "freeformTags"?: { [key: string]: string };
+  "auditLogConfig"?: model.AuditLoggingConfig;
 }
 
 export namespace CreateHsmClusterDetails {
   export function getJsonObj(obj: CreateHsmClusterDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "auditLogConfig": obj.auditLogConfig
+          ? model.AuditLoggingConfig.getJsonObj(obj.auditLogConfig)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: CreateHsmClusterDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "auditLogConfig": obj.auditLogConfig
+          ? model.AuditLoggingConfig.getDeserializedJsonObj(obj.auditLogConfig)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

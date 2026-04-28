@@ -16,6 +16,9 @@ import common = require("oci-common");
 
 /**
  * List of TLS versions to be disabled.
+ * The following versions are deprecated and won't perform any action if specified in the payload:
+ * TLS_1_0, TLS_1_1
+ *
  **/
 export enum TlsVersions {
   Tls10 = "TLS_1_0",

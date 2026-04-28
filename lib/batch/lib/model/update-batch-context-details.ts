@@ -54,6 +54,7 @@ Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
    * Mapping of concurrent/shared resources used in job tasks to their limits.
    */
   "entitlements"?: { [key: string]: number };
+  "loggingConfiguration"?: model.UpdateOciLoggingConfiguration;
 }
 
 export namespace UpdateBatchContextDetails {
@@ -65,6 +66,10 @@ export namespace UpdateBatchContextDetails {
           ? obj.jobPriorityConfigurations.map(item => {
               return model.JobPriorityConfiguration.getJsonObj(item);
             })
+          : undefined,
+
+        "loggingConfiguration": obj.loggingConfiguration
+          ? model.UpdateLoggingConfigurationDetails.getJsonObj(obj.loggingConfiguration)
           : undefined
       }
     };
@@ -79,6 +84,10 @@ export namespace UpdateBatchContextDetails {
           ? obj.jobPriorityConfigurations.map(item => {
               return model.JobPriorityConfiguration.getDeserializedJsonObj(item);
             })
+          : undefined,
+
+        "loggingConfiguration": obj.loggingConfiguration
+          ? model.UpdateLoggingConfigurationDetails.getDeserializedJsonObj(obj.loggingConfiguration)
           : undefined
       }
     };

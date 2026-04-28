@@ -34,8 +34,8 @@ export enum JmsUtilsApiKeys {}
  */
 export class JmsUtilsClient {
   protected static serviceEndpointTemplate =
-    "https://javamanagement-utils.{region}.oci.{secondLevelDomain}";
-  protected static endpointServiceName = "";
+    "https://utils.javamanagement.{region}.{dualStack?ds.:}oci.{secondLevelDomain}";
+  protected static endpointServiceName = "utils.javamanagement";
   protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
@@ -48,6 +48,8 @@ export class JmsUtilsClient {
   protected _regionId: string = "";
   protected "_region": common.Region;
   protected _lastSetRegionOrRegionId: string = "";
+  protected _enableDualstackEndpoint: boolean | undefined = undefined;
+  protected _serviceUsesDualStackByDefault: boolean = false;
 
   protected _httpClient: common.HttpClient;
   protected _authProvider: common.AuthenticationDetailsProvider | undefined;
@@ -185,6 +187,10 @@ export class JmsUtilsClient {
     this._lastSetRegionOrRegionId = common.Region.REGION_ID_STRING;
   }
 
+  public set enableDualstackEndpoint(enableDualstackEndpoint: boolean) {
+    this._enableDualstackEndpoint = enableDualstackEndpoint;
+  }
+
   /**
    * Creates a new JmsUtilsWaiter for resources for this service.
    *
@@ -263,6 +269,19 @@ export class JmsUtilsClient {
       "opc-request-id": cancelWorkRequestRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["workRequestId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -271,7 +290,7 @@ export class JmsUtilsClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/workRequests/{workRequestId}",
       method: "DELETE",
@@ -331,6 +350,19 @@ export class JmsUtilsClient {
       "opc-request-id": deleteJavaMigrationAnalysisRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["javaMigrationAnalysisId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -339,7 +371,7 @@ export class JmsUtilsClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/javaMigrationAnalysis/{javaMigrationAnalysisId}",
       method: "DELETE",
@@ -400,6 +432,19 @@ export class JmsUtilsClient {
       "opc-request-id": deletePerformanceTuningAnalysisRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["performanceTuningAnalysisId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -408,7 +453,7 @@ export class JmsUtilsClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/performanceTuningAnalysis/{performanceTuningAnalysisId}",
       method: "DELETE",
@@ -468,6 +513,19 @@ export class JmsUtilsClient {
       "opc-request-id": getAnalyzeApplicationsConfigurationRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>([]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -476,7 +534,7 @@ export class JmsUtilsClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/analyzeApplicationsConfiguration",
       method: "GET",
@@ -544,6 +602,19 @@ export class JmsUtilsClient {
       "opc-request-id": getJavaMigrationAnalysisRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["javaMigrationAnalysisId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -552,7 +623,7 @@ export class JmsUtilsClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/javaMigrationAnalysis/{javaMigrationAnalysisId}",
       method: "GET",
@@ -621,6 +692,19 @@ export class JmsUtilsClient {
       "opc-request-id": getPerformanceTuningAnalysisRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["performanceTuningAnalysisId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -629,7 +713,7 @@ export class JmsUtilsClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/performanceTuningAnalysis/{performanceTuningAnalysisId}",
       method: "GET",
@@ -700,6 +784,19 @@ export class JmsUtilsClient {
       "opc-request-id": getSubscriptionAcknowledgmentConfigurationRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>([]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -708,7 +805,7 @@ export class JmsUtilsClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/subscriptionAcknowledgmentConfiguration",
       method: "GET",
@@ -775,6 +872,19 @@ export class JmsUtilsClient {
       "opc-request-id": getWorkRequestRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["workRequestId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -783,7 +893,7 @@ export class JmsUtilsClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/workRequests/{workRequestId}",
       method: "GET",
@@ -863,6 +973,19 @@ export class JmsUtilsClient {
       "opc-request-id": listJavaMigrationAnalysisRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>([]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -871,7 +994,7 @@ export class JmsUtilsClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/javaMigrationAnalysis",
       method: "GET",
@@ -948,6 +1071,19 @@ export class JmsUtilsClient {
       "opc-request-id": listPerformanceTuningAnalysisRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>([]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -956,7 +1092,7 @@ export class JmsUtilsClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/performanceTuningAnalysis",
       method: "GET",
@@ -1027,6 +1163,19 @@ export class JmsUtilsClient {
       "opc-request-id": listWorkItemsRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["workRequestId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -1035,7 +1184,7 @@ export class JmsUtilsClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/workRequests/{workRequestId}/workItems",
       method: "GET",
@@ -1108,6 +1257,19 @@ export class JmsUtilsClient {
       "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["workRequestId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -1116,7 +1278,7 @@ export class JmsUtilsClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/workRequests/{workRequestId}/errors",
       method: "GET",
@@ -1189,6 +1351,19 @@ export class JmsUtilsClient {
       "opc-request-id": listWorkRequestLogsRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["workRequestId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -1197,7 +1372,7 @@ export class JmsUtilsClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/workRequests/{workRequestId}/logs",
       method: "GET",
@@ -1272,6 +1447,19 @@ export class JmsUtilsClient {
       "opc-request-id": listWorkRequestsRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>([]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -1280,7 +1468,7 @@ export class JmsUtilsClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/workRequests",
       method: "GET",
@@ -1348,6 +1536,19 @@ export class JmsUtilsClient {
       "opc-request-id": requestJavaMigrationAnalysisRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>([]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -1356,7 +1557,7 @@ export class JmsUtilsClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/javaMigrationAnalysis/actions/requestJavaMigrationAnalysis",
       method: "POST",
@@ -1425,6 +1626,19 @@ export class JmsUtilsClient {
       "opc-request-id": requestPerformanceTuningAnalysisRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>([]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -1433,7 +1647,7 @@ export class JmsUtilsClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/performanceTuningAnalysis/actions/requestPerformanceTuningAnalysis",
       method: "POST",
@@ -1503,6 +1717,19 @@ export class JmsUtilsClient {
       "opc-request-id": updateAnalyzeApplicationsConfigurationRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>([]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -1511,7 +1738,7 @@ export class JmsUtilsClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/analyzeApplicationsConfiguration",
       method: "PUT",
@@ -1587,6 +1814,19 @@ export class JmsUtilsClient {
       "opc-request-id": updateSubscriptionAcknowledgmentConfigurationRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>([]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -1595,7 +1835,7 @@ export class JmsUtilsClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/subscriptionAcknowledgmentConfiguration",
       method: "PUT",

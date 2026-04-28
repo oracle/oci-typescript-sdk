@@ -1717,6 +1717,82 @@ export class KmsHsmClusterClient {
   }
 
   /**
+   * Disables management audit logging for the given HSM Cluster resource. This requires the Crypto Officer (CO) password. This operation is idempotent: if audit logging is already disabled, the call is a no-op and returns success.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DisableAuditMgmtLoggingRequest
+   * @return DisableAuditMgmtLoggingResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/DisableAuditMgmtLogging.ts.html |here} to see how to use DisableAuditMgmtLogging API.
+   */
+  public async disableAuditMgmtLogging(
+    disableAuditMgmtLoggingRequest: requests.DisableAuditMgmtLoggingRequest
+  ): Promise<responses.DisableAuditMgmtLoggingResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation KmsHsmClusterClient#disableAuditMgmtLogging.");
+    const operationName = "disableAuditMgmtLogging";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/key/release/HsmCluster/DisableAuditMgmtLogging";
+    const pathParams = {
+      "{hsmClusterId}": disableAuditMgmtLoggingRequest.hsmClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": disableAuditMgmtLoggingRequest.ifMatch,
+      "opc-request-id": disableAuditMgmtLoggingRequest.opcRequestId,
+      "opc-retry-token": disableAuditMgmtLoggingRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      disableAuditMgmtLoggingRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/20180608/hsmClusters/{hsmClusterId}/actions/disableAuditMgmtLogging",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DisableAuditMgmtLoggingResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Retrieves the certificate signing request for the designated HSM Cluster resource.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -1785,6 +1861,93 @@ export class KmsHsmClusterClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Validates that the Dynamic Group and bucket policy supplied during EnableAuditLogging / CreateHsmCluster are now in place.
+   * If the cluster is in WAITING_FOR_CUSTOMER, and validation is successful, status is progressed and a work request is started.
+   * If the cluster has already progressed past that gate, the call is idempotent and returns 202 with the current cluster representation.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param EnableAuditMgmtLoggingRequest
+   * @return EnableAuditMgmtLoggingResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/EnableAuditMgmtLogging.ts.html |here} to see how to use EnableAuditMgmtLogging API.
+   */
+  public async enableAuditMgmtLogging(
+    enableAuditMgmtLoggingRequest: requests.EnableAuditMgmtLoggingRequest
+  ): Promise<responses.EnableAuditMgmtLoggingResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation KmsHsmClusterClient#enableAuditMgmtLogging.");
+    const operationName = "enableAuditMgmtLogging";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/key/release/HsmCluster/EnableAuditMgmtLogging";
+    const pathParams = {
+      "{hsmClusterId}": enableAuditMgmtLoggingRequest.hsmClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": enableAuditMgmtLoggingRequest.ifMatch,
+      "opc-retry-token": enableAuditMgmtLoggingRequest.opcRetryToken,
+      "opc-request-id": enableAuditMgmtLoggingRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      enableAuditMgmtLoggingRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/20180608/hsmClusters/{hsmClusterId}/actions/enableAuditMgmtLogging",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.EnableAuditMgmtLoggingResponse>{},
+        body: await response.json(),
+        bodyKey: "enableAuditMgmtLogging",
+        bodyModel: model.EnableAuditMgmtLogging,
+        type: "model.EnableAuditMgmtLogging",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
             dataType: "string"
           }
         ]
@@ -2016,6 +2179,90 @@ As a provisioning operation, this call is subject to a Key Management limit that
         bodyKey: "preCoUserCredentials",
         bodyModel: model.PreCoUserCredentials,
         type: "model.PreCoUserCredentials",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Initiates the process of enabling audit logs for a HSM cluster resource by taking in the required parameters.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param InitiateAuditLoggingRequest
+   * @return InitiateAuditLoggingResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/InitiateAuditLogging.ts.html |here} to see how to use InitiateAuditLogging API.
+   */
+  public async initiateAuditLogging(
+    initiateAuditLoggingRequest: requests.InitiateAuditLoggingRequest
+  ): Promise<responses.InitiateAuditLoggingResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation KmsHsmClusterClient#initiateAuditLogging.");
+    const operationName = "initiateAuditLogging";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/key/release/HsmCluster/InitiateAuditLogging";
+    const pathParams = {
+      "{hsmClusterId}": initiateAuditLoggingRequest.hsmClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": initiateAuditLoggingRequest.opcRequestId,
+      "if-match": initiateAuditLoggingRequest.ifMatch,
+      "opc-retry-token": initiateAuditLoggingRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      initiateAuditLoggingRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/20180608/hsmClusters/{hsmClusterId}/actions/initiateAuditLogging",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        initiateAuditLoggingRequest.initiateAuditLoggingDetails,
+        "InitiateAuditLoggingDetails",
+        model.InitiateAuditLoggingDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.InitiateAuditLoggingResponse>{},
+        body: await response.json(),
+        bodyKey: "auditLogging",
+        bodyModel: model.AuditLogging,
+        type: "model.AuditLogging",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -2280,6 +2527,95 @@ As a provisioning operation, this call is subject to a Key Management limit that
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * update bucket details of management audit logs for a HSM cluster resource by hsmClusterId.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateAuditLoggingDestinationRequest
+   * @return UpdateAuditLoggingDestinationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/UpdateAuditLoggingDestination.ts.html |here} to see how to use UpdateAuditLoggingDestination API.
+   */
+  public async updateAuditLoggingDestination(
+    updateAuditLoggingDestinationRequest: requests.UpdateAuditLoggingDestinationRequest
+  ): Promise<responses.UpdateAuditLoggingDestinationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation KmsHsmClusterClient#updateAuditLoggingDestination.");
+    const operationName = "updateAuditLoggingDestination";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/key/release/HsmCluster/UpdateAuditLoggingDestination";
+    const pathParams = {
+      "{hsmClusterId}": updateAuditLoggingDestinationRequest.hsmClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateAuditLoggingDestinationRequest.opcRequestId,
+      "opc-retry-token": updateAuditLoggingDestinationRequest.opcRetryToken,
+      "if-match": updateAuditLoggingDestinationRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateAuditLoggingDestinationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/20180608/hsmClusters/{hsmClusterId}/actions/updateAuditLoggingDestination",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateAuditLoggingDestinationRequest.updateAuditLoggingDestinationDetails,
+        "UpdateAuditLoggingDestinationDetails",
+        model.UpdateAuditLoggingDestinationDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateAuditLoggingDestinationResponse>{},
+        body: await response.json(),
+        bodyKey: "auditLogging",
+        bodyModel: model.AuditLogging,
+        type: "model.AuditLogging",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           }
         ]
@@ -5958,6 +6294,90 @@ As a provisioning operation, this call is subject to a Key Management limit that
         bodyKey: "vault",
         bodyModel: model.Vault,
         type: "model.Vault",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Update fleet ids for the registered mTLS vault.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateRegisteredVaultForMtlsRequest
+   * @return UpdateRegisteredVaultForMtlsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/keymanagement/UpdateRegisteredVaultForMtls.ts.html |here} to see how to use UpdateRegisteredVaultForMtls API.
+   */
+  public async updateRegisteredVaultForMtls(
+    updateRegisteredVaultForMtlsRequest: requests.UpdateRegisteredVaultForMtlsRequest
+  ): Promise<responses.UpdateRegisteredVaultForMtlsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation KmsVaultClient#updateRegisteredVaultForMtls.");
+    const operationName = "updateRegisteredVaultForMtls";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/key/release/UpdateRegisteredVaultForMtlsDetails/UpdateRegisteredVaultForMtls";
+    const pathParams = {
+      "{vaultId}": updateRegisteredVaultForMtlsRequest.vaultId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateRegisteredVaultForMtlsRequest.ifMatch,
+      "opc-request-id": updateRegisteredVaultForMtlsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateRegisteredVaultForMtlsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/20180608/vaults/{vaultId}/updateRegisteredVaultForMtls",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateRegisteredVaultForMtlsRequest.updateRegisteredVaultForMtlsDetails,
+        "UpdateRegisteredVaultForMtlsDetails",
+        model.UpdateRegisteredVaultForMtlsDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateRegisteredVaultForMtlsResponse>{},
+        body: await response.json(),
+        bodyKey: "vaultMtlsUpdateResponse",
+        bodyModel: model.VaultMtlsUpdateResponse,
+        type: "model.VaultMtlsUpdateResponse",
         responseHeaders: [
           {
             value: response.headers.get("etag"),

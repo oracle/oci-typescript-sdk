@@ -18,6 +18,11 @@ import common = require("oci-common");
  * Update Oracle Assessment resource parameters.
  */
 export interface UpdateOracleAssessmentDetails extends model.UpdateAssessmentDetails {
+  /**
+   * Assessment migration scope.
+   */
+  "migrationScope"?: model.MigrationScopeOracle;
+
   "databaseCombination": string;
 }
 

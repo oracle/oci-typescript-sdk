@@ -19,6 +19,10 @@ import common = require("oci-common");
  */
 export interface OracleAssessmentSummary extends model.AssessmentSummary {
   /**
+   * Assessment migration scope.
+   */
+  "migrationScope": model.MigrationScopeOracle;
+  /**
    * True if CDB should be defined, false otherwise.
    */
   "isCdbSupported"?: boolean;

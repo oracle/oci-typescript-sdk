@@ -28,7 +28,12 @@ export interface EmbedTextDetails {
   /**
    * Provide a list of strings or one base64 encoded image with {@code input_type} setting to {@code IMAGE}. If text embedding, each string can be words, a phrase, or a paragraph. The maximum length of each string entry in the list is 512 tokens.
    */
-  "inputs": Array<string>;
+  "inputs"?: Array<string>;
+  /**
+   * An array of text/image inputs to be embedded. Supported for Embed v4 models.
+   *
+   */
+  "embedContents"?: Array<model.EmbedContent>;
   "servingMode": model.DedicatedServingMode | model.OnDemandServingMode;
   /**
    * The OCID of compartment in which to call the Generative AI service to create text embeddings.
@@ -84,6 +89,11 @@ export namespace EmbedTextDetails {
     const jsonObj = {
       ...obj,
       ...{
+        "embedContents": obj.embedContents
+          ? obj.embedContents.map(item => {
+              return model.EmbedContent.getJsonObj(item);
+            })
+          : undefined,
         "servingMode": obj.servingMode ? model.ServingMode.getJsonObj(obj.servingMode) : undefined
       }
     };
@@ -94,6 +104,11 @@ export namespace EmbedTextDetails {
     const jsonObj = {
       ...obj,
       ...{
+        "embedContents": obj.embedContents
+          ? obj.embedContents.map(item => {
+              return model.EmbedContent.getDeserializedJsonObj(item);
+            })
+          : undefined,
         "servingMode": obj.servingMode
           ? model.ServingMode.getDeserializedJsonObj(obj.servingMode)
           : undefined

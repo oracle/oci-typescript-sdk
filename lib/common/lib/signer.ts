@@ -5,7 +5,7 @@
 
 import auth = require("./auth/auth");
 import { getStringFromRequestBody } from "./helper";
-import jssha = require("jssha");
+import jsSHA from "jssha";
 import { parsePrivateKey } from "sshpk";
 import UrlParser = require("url");
 import { Method } from "./request-generator";
@@ -134,7 +134,7 @@ export class DefaultRequestSigner implements RequestSigner {
       }
 
       let contentLen = 0;
-      const shaObj = new jssha("SHA-256", "TEXT");
+      const shaObj = new jsSHA("SHA-256", "TEXT");
       if (request.body) {
         const bodyStringContent: string = await getStringFromRequestBody(request.body);
         shaObj.update(bodyStringContent);
