@@ -21,6 +21,7 @@ export interface FusionEnvironmentFamilyLimitsAndUsage {
   "productionLimitAndUsage": model.LimitAndUsage;
   "testLimitAndUsage": model.LimitAndUsage;
   "developmentLimitAndUsage": model.LimitAndUsage;
+  "demoLimitAndUsage": model.LimitAndUsage;
 }
 
 export namespace FusionEnvironmentFamilyLimitsAndUsage {
@@ -36,6 +37,9 @@ export namespace FusionEnvironmentFamilyLimitsAndUsage {
           : undefined,
         "developmentLimitAndUsage": obj.developmentLimitAndUsage
           ? model.LimitAndUsage.getJsonObj(obj.developmentLimitAndUsage)
+          : undefined,
+        "demoLimitAndUsage": obj.demoLimitAndUsage
+          ? model.LimitAndUsage.getJsonObj(obj.demoLimitAndUsage)
           : undefined
       }
     };
@@ -54,6 +58,9 @@ export namespace FusionEnvironmentFamilyLimitsAndUsage {
           : undefined,
         "developmentLimitAndUsage": obj.developmentLimitAndUsage
           ? model.LimitAndUsage.getDeserializedJsonObj(obj.developmentLimitAndUsage)
+          : undefined,
+        "demoLimitAndUsage": obj.demoLimitAndUsage
+          ? model.LimitAndUsage.getDeserializedJsonObj(obj.demoLimitAndUsage)
           : undefined
       }
     };

@@ -32,7 +32,7 @@ export interface ServiceManagedFleet extends model.Fleet {
    */
   "state"?: string;
   /**
-   * A message that describes the current state of the service manage fleet configuration in more detail.
+   * A message that describes the current state of the service managed fleet configuration in more detail.
    */
   "details"?: string;
 

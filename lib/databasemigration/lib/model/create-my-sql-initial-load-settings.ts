@@ -50,7 +50,7 @@ export interface CreateMySqlInitialLoadSettings {
   /**
    * MySql Job Mode
    */
-  "jobMode": model.JobModeMySql;
+  "jobMode"?: model.JobModeMySql;
 }
 
 export namespace CreateMySqlInitialLoadSettings {

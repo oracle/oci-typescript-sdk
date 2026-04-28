@@ -23,7 +23,7 @@ export interface GetBatchTaskRequest extends common.BaseRequest {
    */
   "batchJobId": string;
   /**
-   * The name of the batch task.
+   * The hierarchical name of the batch task. Mutually exclusive with the task id query parameter: you can't pass both.
    */
   "taskName": string;
   /**

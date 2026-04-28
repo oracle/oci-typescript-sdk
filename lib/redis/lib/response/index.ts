@@ -11,6 +11,20 @@
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as ChangeOciCacheBackupCompartmentResponse from "./change-oci-cache-backup-compartment-response";
+export import ChangeOciCacheBackupCompartmentResponse = ChangeOciCacheBackupCompartmentResponse.ChangeOciCacheBackupCompartmentResponse;
+import * as CreateOciCacheBackupResponse from "./create-oci-cache-backup-response";
+export import CreateOciCacheBackupResponse = CreateOciCacheBackupResponse.CreateOciCacheBackupResponse;
+import * as DeleteOciCacheBackupResponse from "./delete-oci-cache-backup-response";
+export import DeleteOciCacheBackupResponse = DeleteOciCacheBackupResponse.DeleteOciCacheBackupResponse;
+import * as ExportOciCacheBackupToObjectStorageResponse from "./export-oci-cache-backup-to-object-storage-response";
+export import ExportOciCacheBackupToObjectStorageResponse = ExportOciCacheBackupToObjectStorageResponse.ExportOciCacheBackupToObjectStorageResponse;
+import * as GetOciCacheBackupResponse from "./get-oci-cache-backup-response";
+export import GetOciCacheBackupResponse = GetOciCacheBackupResponse.GetOciCacheBackupResponse;
+import * as ListOciCacheBackupsResponse from "./list-oci-cache-backups-response";
+export import ListOciCacheBackupsResponse = ListOciCacheBackupsResponse.ListOciCacheBackupsResponse;
+import * as UpdateOciCacheBackupResponse from "./update-oci-cache-backup-response";
+export import UpdateOciCacheBackupResponse = UpdateOciCacheBackupResponse.UpdateOciCacheBackupResponse;
 import * as ChangeOciCacheConfigSetCompartmentResponse from "./change-oci-cache-config-set-compartment-response";
 export import ChangeOciCacheConfigSetCompartmentResponse = ChangeOciCacheConfigSetCompartmentResponse.ChangeOciCacheConfigSetCompartmentResponse;
 import * as CreateOciCacheConfigSetResponse from "./create-oci-cache-config-set-response";

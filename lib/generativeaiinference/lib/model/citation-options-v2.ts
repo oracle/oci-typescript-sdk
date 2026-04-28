@@ -22,11 +22,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Options for controlling citation generation in RAG flows.
+ * Options for controlling citation generation.
  */
 export interface CitationOptionsV2 {
   /**
-   * Dictates the approach taken to generating citations as part of the RAG flow. Defaults to \"accurate\".   - \"ACCURATE\": More precise citation generation.   - \"FAST\": Faster but may be less precise.   - \"OFF\": Disables citation generation.   Note: {@code command-r7b-12-2024} and {@code command-a-03-2025} only support \"FAST\" and \"OFF\".
+   * Dictates the approach taken to generating citations.   - \"ACCURATE\": More precise citation generation.   - \"FAST\": Faster but may be less precise.   - \"OFF\": Disables citation generation.
    *
    */
   "mode"?: CitationOptionsV2.Mode;

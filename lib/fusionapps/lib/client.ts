@@ -1127,6 +1127,178 @@ export class FusionApplicationsClient {
   }
 
   /**
+   * Create a VanityDomain
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateVanityDomainRequest
+   * @return CreateVanityDomainResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/CreateVanityDomain.ts.html |here} to see how to use CreateVanityDomain API.
+   */
+  public async createVanityDomain(
+    createVanityDomainRequest: requests.CreateVanityDomainRequest
+  ): Promise<responses.CreateVanityDomainResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FusionApplicationsClient#createVanityDomain.");
+    const operationName = "createVanityDomain";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{fusionEnvironmentId}": createVanityDomainRequest.fusionEnvironmentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createVanityDomainRequest.opcRetryToken,
+      "opc-request-id": createVanityDomainRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createVanityDomainRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fusionEnvironments/{fusionEnvironmentId}/vanityDomains",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createVanityDomainRequest.createVanityDomainDetails,
+        "CreateVanityDomainDetails",
+        model.CreateVanityDomainDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateVanityDomainResponse>{},
+        body: await response.json(),
+        bodyKey: "vanityDomain",
+        bodyModel: model.VanityDomain,
+        type: "model.VanityDomain",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Create a VanityDomainActivity
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateVanityDomainActivityRequest
+   * @return CreateVanityDomainActivityResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/CreateVanityDomainActivity.ts.html |here} to see how to use CreateVanityDomainActivity API.
+   */
+  public async createVanityDomainActivity(
+    createVanityDomainActivityRequest: requests.CreateVanityDomainActivityRequest
+  ): Promise<responses.CreateVanityDomainActivityResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FusionApplicationsClient#createVanityDomainActivity.");
+    const operationName = "createVanityDomainActivity";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{fusionEnvironmentId}": createVanityDomainActivityRequest.fusionEnvironmentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createVanityDomainActivityRequest.opcRetryToken,
+      "opc-request-id": createVanityDomainActivityRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createVanityDomainActivityRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fusionEnvironments/{fusionEnvironmentId}/vanityDomainActivities",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createVanityDomainActivityRequest.createVanityDomainActivityDetails,
+        "CreateVanityDomainActivityDetails",
+        model.CreateVanityDomainActivityDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateVanityDomainActivityResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("vanity-activity-id"),
+            key: "vanityActivityId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Delete an email subdomain for a brand
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteEmailSubdomainRequest
@@ -1704,6 +1876,82 @@ export class FusionApplicationsClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteServiceAttachmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes a VanityDomainActivity
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteVanityDomainActivityRequest
+   * @return DeleteVanityDomainActivityResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/DeleteVanityDomainActivity.ts.html |here} to see how to use DeleteVanityDomainActivity API.
+   */
+  public async deleteVanityDomainActivity(
+    deleteVanityDomainActivityRequest: requests.DeleteVanityDomainActivityRequest
+  ): Promise<responses.DeleteVanityDomainActivityResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FusionApplicationsClient#deleteVanityDomainActivity.");
+    const operationName = "deleteVanityDomainActivity";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{fusionEnvironmentId}": deleteVanityDomainActivityRequest.fusionEnvironmentId,
+      "{vanityDomainActivityId}": deleteVanityDomainActivityRequest.vanityDomainActivityId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteVanityDomainActivityRequest.ifMatch,
+      "opc-request-id": deleteVanityDomainActivityRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteVanityDomainActivityRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/fusionEnvironments/{fusionEnvironmentId}/vanityDomainActivities/{vanityDomainActivityId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteVanityDomainActivityResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -2948,6 +3196,166 @@ export class FusionApplicationsClient {
   }
 
   /**
+   * Gets a VanityDomain
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetVanityDomainRequest
+   * @return GetVanityDomainResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/GetVanityDomain.ts.html |here} to see how to use GetVanityDomain API.
+   */
+  public async getVanityDomain(
+    getVanityDomainRequest: requests.GetVanityDomainRequest
+  ): Promise<responses.GetVanityDomainResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FusionApplicationsClient#getVanityDomain.");
+    const operationName = "getVanityDomain";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{fusionEnvironmentId}": getVanityDomainRequest.fusionEnvironmentId,
+      "{vanityDomainId}": getVanityDomainRequest.vanityDomainId
+    };
+
+    const queryParams = {
+      "doesDownloadOriginCsr": getVanityDomainRequest.doesDownloadOriginCsr,
+      "doesDownloadAkamaiCsr": getVanityDomainRequest.doesDownloadAkamaiCsr
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getVanityDomainRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getVanityDomainRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fusionEnvironments/{fusionEnvironmentId}/vanityDomains/{vanityDomainId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetVanityDomainResponse>{},
+        body: await response.json(),
+        bodyKey: "vanityDomain",
+        bodyModel: model.VanityDomain,
+        type: "model.VanityDomain",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a VanityDomainActivity
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetVanityDomainActivityRequest
+   * @return GetVanityDomainActivityResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/GetVanityDomainActivity.ts.html |here} to see how to use GetVanityDomainActivity API.
+   */
+  public async getVanityDomainActivity(
+    getVanityDomainActivityRequest: requests.GetVanityDomainActivityRequest
+  ): Promise<responses.GetVanityDomainActivityResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FusionApplicationsClient#getVanityDomainActivity.");
+    const operationName = "getVanityDomainActivity";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{fusionEnvironmentId}": getVanityDomainActivityRequest.fusionEnvironmentId,
+      "{vanityDomainActivityId}": getVanityDomainActivityRequest.vanityDomainActivityId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getVanityDomainActivityRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getVanityDomainActivityRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/fusionEnvironments/{fusionEnvironmentId}/vanityDomainActivities/{vanityDomainActivityId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetVanityDomainActivityResponse>{},
+        body: await response.json(),
+        bodyKey: "vanityDomainActivity",
+        bodyModel: model.VanityDomainActivity,
+        type: "model.VanityDomainActivity",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets the status of the work request with the given ID.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetWorkRequestRequest
@@ -4030,6 +4438,90 @@ export class FusionApplicationsClient {
   }
 
   /**
+   * Lists all VanityDomains.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListVanityDomainsRequest
+   * @return ListVanityDomainsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/ListVanityDomains.ts.html |here} to see how to use ListVanityDomains API.
+   */
+  public async listVanityDomains(
+    listVanityDomainsRequest: requests.ListVanityDomainsRequest
+  ): Promise<responses.ListVanityDomainsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FusionApplicationsClient#listVanityDomains.");
+    const operationName = "listVanityDomains";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{fusionEnvironmentId}": listVanityDomainsRequest.fusionEnvironmentId
+    };
+
+    const queryParams = {
+      "limit": listVanityDomainsRequest.limit,
+      "page": listVanityDomainsRequest.page,
+      "compartmentId": listVanityDomainsRequest.compartmentId,
+      "sortOrder": listVanityDomainsRequest.sortOrder,
+      "sortBy": listVanityDomainsRequest.sortBy,
+      "isFullVanityDomain": listVanityDomainsRequest.isFullVanityDomain
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listVanityDomainsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listVanityDomainsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fusionEnvironments/{fusionEnvironmentId}/vanityDomains",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListVanityDomainsResponse>{},
+        body: await response.json(),
+        bodyKey: "vanityDomainCollection",
+        bodyModel: model.VanityDomainCollection,
+        type: "model.VanityDomainCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Return a (paginated) list of errors for a given work request.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -4433,6 +4925,82 @@ export class FusionApplicationsClient {
           {
             value: response.headers.get("opc-work-request-id"),
             key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Submit Vanity Domain Validation
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param SubmitVanityDomainValidationRequest
+   * @return SubmitVanityDomainValidationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/SubmitVanityDomainValidation.ts.html |here} to see how to use SubmitVanityDomainValidation API.
+   */
+  public async submitVanityDomainValidation(
+    submitVanityDomainValidationRequest: requests.SubmitVanityDomainValidationRequest
+  ): Promise<responses.SubmitVanityDomainValidationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FusionApplicationsClient#submitVanityDomainValidation.");
+    const operationName = "submitVanityDomainValidation";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{vanityDomainId}": submitVanityDomainValidationRequest.vanityDomainId,
+      "{fusionEnvironmentId}": submitVanityDomainValidationRequest.fusionEnvironmentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": submitVanityDomainValidationRequest.opcRequestId,
+      "if-match": submitVanityDomainValidationRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      submitVanityDomainValidationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/fusionEnvironments/{fusionEnvironmentId}/vanityDomains/{vanityDomainId}/actions/submitValidation",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SubmitVanityDomainValidationResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           }
         ]
@@ -4940,6 +5508,167 @@ export class FusionApplicationsClient {
   }
 
   /**
+   * Updates a VanityDomain
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateVanityDomainRequest
+   * @return UpdateVanityDomainResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/UpdateVanityDomain.ts.html |here} to see how to use UpdateVanityDomain API.
+   */
+  public async updateVanityDomain(
+    updateVanityDomainRequest: requests.UpdateVanityDomainRequest
+  ): Promise<responses.UpdateVanityDomainResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FusionApplicationsClient#updateVanityDomain.");
+    const operationName = "updateVanityDomain";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{fusionEnvironmentId}": updateVanityDomainRequest.fusionEnvironmentId,
+      "{vanityDomainId}": updateVanityDomainRequest.vanityDomainId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateVanityDomainRequest.opcRequestId,
+      "if-match": updateVanityDomainRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateVanityDomainRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fusionEnvironments/{fusionEnvironmentId}/vanityDomains/{vanityDomainId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateVanityDomainRequest.updateVanityDomainDetails,
+        "UpdateVanityDomainDetails",
+        model.UpdateVanityDomainDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateVanityDomainResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates a VanityDomainActivity
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateVanityDomainActivityRequest
+   * @return UpdateVanityDomainActivityResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/UpdateVanityDomainActivity.ts.html |here} to see how to use UpdateVanityDomainActivity API.
+   */
+  public async updateVanityDomainActivity(
+    updateVanityDomainActivityRequest: requests.UpdateVanityDomainActivityRequest
+  ): Promise<responses.UpdateVanityDomainActivityResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FusionApplicationsClient#updateVanityDomainActivity.");
+    const operationName = "updateVanityDomainActivity";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{fusionEnvironmentId}": updateVanityDomainActivityRequest.fusionEnvironmentId,
+      "{vanityDomainActivityId}": updateVanityDomainActivityRequest.vanityDomainActivityId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateVanityDomainActivityRequest.opcRequestId,
+      "if-match": updateVanityDomainActivityRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateVanityDomainActivityRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/fusionEnvironments/{fusionEnvironmentId}/vanityDomainActivities/{vanityDomainActivityId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateVanityDomainActivityRequest.updateVanityDomainActivityDetails,
+        "UpdateVanityDomainActivityDetails",
+        model.UpdateVanityDomainActivityDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateVanityDomainActivityResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * upload certificate for emailSubdomain
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UploadEmailSubdomainCertificateRequest
@@ -5003,6 +5732,89 @@ export class FusionApplicationsClient {
       const sdkResponse = composeResponse({
         responseObject: <responses.UploadEmailSubdomainCertificateResponse>{},
         responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Upload Vanity Domain certificate
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UploadVanityDomainCertificateRequest
+   * @return UploadVanityDomainCertificateResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/UploadVanityDomainCertificate.ts.html |here} to see how to use UploadVanityDomainCertificate API.
+   */
+  public async uploadVanityDomainCertificate(
+    uploadVanityDomainCertificateRequest: requests.UploadVanityDomainCertificateRequest
+  ): Promise<responses.UploadVanityDomainCertificateResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation FusionApplicationsClient#uploadVanityDomainCertificate."
+      );
+    const operationName = "uploadVanityDomainCertificate";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{vanityDomainId}": uploadVanityDomainCertificateRequest.vanityDomainId,
+      "{fusionEnvironmentId}": uploadVanityDomainCertificateRequest.fusionEnvironmentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": uploadVanityDomainCertificateRequest.opcRequestId,
+      "if-match": uploadVanityDomainCertificateRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      uploadVanityDomainCertificateRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/fusionEnvironments/{fusionEnvironmentId}/vanityDomains/{vanityDomainId}/actions/uploadCertificate",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        uploadVanityDomainCertificateRequest.uploadVanityDomainCertificateDetails,
+        "UploadVanityDomainCertificateDetails",
+        model.UploadVanityDomainCertificateDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UploadVanityDomainCertificateResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",

@@ -54,7 +54,7 @@ Example: {@code 2016-08-25T21:10:29.600Z}
    */
   "lifecycleState": string;
   /**
-   * A message that describes the current state in more detail. For example,   can be used to provide actionable information for a resource in the Failed state.
+   * A message that describes the current state in more detail. For example, can be used to provide actionable information for a resource in the Failed state.
    *
    */
   "lifecycleDetails"?: string;

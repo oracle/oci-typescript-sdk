@@ -41,6 +41,10 @@ export interface ListBatchContextShapesRequest extends common.BaseRequest {
    */
   "page"?: string;
   /**
+   * The type of a shape.
+   */
+  "shapeType"?: model.ShapeType;
+  /**
    * Unique Oracle-assigned identifier for the request. If you need to contact
    * Oracle about a particular request, please provide the request ID.
    * The only valid characters for request IDs are letters, numbers,

@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The limit and usage for a specific environment type, for example, production, development, or test.
+ * The limit and usage for a specific environment type, for example, production, development, demo or test.
  */
 export interface LimitAndUsage {
   /**

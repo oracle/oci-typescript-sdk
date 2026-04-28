@@ -31,7 +31,7 @@ export interface CreateBatchTaskDetails {
    */
   "entitlementClaims"?: Array<string>;
   /**
-   * A list of tasks from the same job this task depends on referenced by name.
+   * A list of tasks on which this tasks depends, referenced by name. Dependencies must be within the same parent (job or group task). For tasks within a group task, all dependencies must also be within that same group task.
    */
   "dependencies"?: Array<string>;
   /**
@@ -62,6 +62,11 @@ export namespace CreateBatchTaskDetails {
             <model.CreateComputeTaskDetails>(<object>jsonObj),
             true
           );
+        case "GROUP":
+          return model.CreateGroupTaskDetails.getJsonObj(
+            <model.CreateGroupTaskDetails>(<object>jsonObj),
+            true
+          );
         default:
           if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.type}`);
       }
@@ -85,6 +90,11 @@ export namespace CreateBatchTaskDetails {
         case "COMPUTE":
           return model.CreateComputeTaskDetails.getDeserializedJsonObj(
             <model.CreateComputeTaskDetails>(<object>jsonObj),
+            true
+          );
+        case "GROUP":
+          return model.CreateGroupTaskDetails.getDeserializedJsonObj(
+            <model.CreateGroupTaskDetails>(<object>jsonObj),
             true
           );
         default:

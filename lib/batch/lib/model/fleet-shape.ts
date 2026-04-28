@@ -23,13 +23,17 @@ export interface FleetShape {
    */
   "shapeName": string;
   /**
-   * Number of OCPUs required by the shape. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Number of OCPUs required for the shape. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "ocpus": number;
   /**
-   * Amount of memory in GBs required by the shape. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Amount of memory in GBs required for the shape. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "memoryInGBs": number;
+  /**
+   * Amount of disk space in GBs required for the shape. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "diskSizeInGBs"?: number;
 }
 
 export namespace FleetShape {

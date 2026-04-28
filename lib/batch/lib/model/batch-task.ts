@@ -27,6 +27,14 @@ export interface BatchTask {
    */
   "name": string;
   /**
+   * The hierarchical name of the task, which incorporates names of all parent group tasks, separated by \".\" (dot symbol). Maximum nesting depth is 4 levels. Example: groupTaskA.nestedGroupTaskB.thisTaskName
+   */
+  "hierarchicalName"?: string;
+  /**
+   * The hierarchical name of the group task. Null for top-level tasks.
+   */
+  "groupTaskName"?: string;
+  /**
    * An optional description that provides additional context next to the displayName.
    */
   "description"?: string;
@@ -44,7 +52,7 @@ export interface BatchTask {
    */
   "entitlementClaims": Array<string>;
   /**
-   * A list of tasks from the same job this task depends on referenced by name.
+   * A list of tasks on which this tasks depends, referenced by name. Dependencies must be within the same parent (job or group task). For tasks within a group task, all dependencies must also be within that same group task.
    */
   "dependencies": Array<string>;
   /**
@@ -87,6 +95,8 @@ export namespace BatchTask {
       switch (obj.type) {
         case "COMPUTE":
           return model.ComputeTask.getJsonObj(<model.ComputeTask>(<object>jsonObj), true);
+        case "GROUP":
+          return model.GroupTask.getJsonObj(<model.GroupTask>(<object>jsonObj), true);
         default:
           if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.type}`);
       }
@@ -112,6 +122,8 @@ export namespace BatchTask {
             <model.ComputeTask>(<object>jsonObj),
             true
           );
+        case "GROUP":
+          return model.GroupTask.getDeserializedJsonObj(<model.GroupTask>(<object>jsonObj), true);
         default:
           if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.type}`);
       }

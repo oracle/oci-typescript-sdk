@@ -189,6 +189,43 @@ export class FusionApplicationsWaiter {
   }
 
   /**
+   * Waits forVanityDomain till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetVanityDomainResponse | null (null in case of 404 response)
+   */
+  public async forVanityDomain(
+    request: serviceRequests.GetVanityDomainRequest,
+    ...targetStates: models.VanityDomain.LifecycleState[]
+  ): Promise<serviceResponses.GetVanityDomainResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getVanityDomain(request),
+      response => targetStates.includes(response.vanityDomain.lifecycleState!),
+      targetStates.includes(models.VanityDomain.LifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forVanityDomainActivity till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetVanityDomainActivityResponse
+   */
+  public async forVanityDomainActivity(
+    request: serviceRequests.GetVanityDomainActivityRequest,
+    ...targetStates: models.VanityDomainActivity.LifecycleState[]
+  ): Promise<serviceResponses.GetVanityDomainActivityResponse> {
+    return genericWaiter(
+      this.config,
+      () => this.client.getVanityDomainActivity(request),
+      response => targetStates.includes(response.vanityDomainActivity.lifecycleState!)
+    );
+  }
+
+  /**
    * Waits forWorkRequest
    *
    * @param request the request to send

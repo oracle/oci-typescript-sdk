@@ -78,6 +78,8 @@ Example: {@code ACTIVE}
    *
    */
   "freeformTags"?: { [key: string]: string };
+  "auditLogConfig"?: model.HsmClusterAuditLoggingInfo;
+  "pendingInstructions"?: model.HsmClusterPendingInstructions;
 }
 
 export namespace HsmCluster {
@@ -101,12 +103,32 @@ export namespace HsmCluster {
   }
 
   export function getJsonObj(obj: HsmCluster): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "auditLogConfig": obj.auditLogConfig
+          ? model.HsmClusterAuditLoggingInfo.getJsonObj(obj.auditLogConfig)
+          : undefined,
+        "pendingInstructions": obj.pendingInstructions
+          ? model.HsmClusterPendingInstructions.getJsonObj(obj.pendingInstructions)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: HsmCluster): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "auditLogConfig": obj.auditLogConfig
+          ? model.HsmClusterAuditLoggingInfo.getDeserializedJsonObj(obj.auditLogConfig)
+          : undefined,
+        "pendingInstructions": obj.pendingInstructions
+          ? model.HsmClusterPendingInstructions.getDeserializedJsonObj(obj.pendingInstructions)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

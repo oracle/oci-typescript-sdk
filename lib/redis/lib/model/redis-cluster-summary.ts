@@ -107,6 +107,10 @@ export interface RedisClusterSummary {
    */
   "nsgIds"?: Array<string>;
   /**
+   * The ID of the OCI Cache Backup from which this cluster was created.
+   */
+  "backupId"?: string;
+  /**
     * Security attributes for redis cluster resource. Each key is predefined and scoped to a namespace.
 * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>

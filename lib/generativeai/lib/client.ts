@@ -41,8 +41,8 @@ export enum GenerativeAiApiKeys {}
  */
 export class GenerativeAiClient {
   protected static serviceEndpointTemplate =
-    "https://generativeai.{region}.oci.{secondLevelDomain}";
-  protected static endpointServiceName = "";
+    "https://generativeai.{region}.{dualStack?ds.:}oci.{secondLevelDomain}";
+  protected static endpointServiceName = "generativeai";
   protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
@@ -55,6 +55,8 @@ export class GenerativeAiClient {
   protected _regionId: string = "";
   protected "_region": common.Region;
   protected _lastSetRegionOrRegionId: string = "";
+  protected _enableDualstackEndpoint: boolean | undefined = undefined;
+  protected _serviceUsesDualStackByDefault: boolean = false;
 
   protected _httpClient: common.HttpClient;
   protected _authProvider: common.AuthenticationDetailsProvider | undefined;
@@ -192,6 +194,10 @@ export class GenerativeAiClient {
     this._lastSetRegionOrRegionId = common.Region.REGION_ID_STRING;
   }
 
+  public set enableDualstackEndpoint(enableDualstackEndpoint: boolean) {
+    this._enableDualstackEndpoint = enableDualstackEndpoint;
+  }
+
   /**
    * Creates a new GenerativeAiWaiter for resources for this service.
    *
@@ -271,6 +277,19 @@ export class GenerativeAiClient {
       "opc-retry-token": addArtifactRequest.opcRetryToken
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["hostedDeploymentId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -279,7 +298,7 @@ export class GenerativeAiClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/hostedDeployments/{hostedDeploymentId}/artifacts",
       method: "POST",
@@ -350,6 +369,19 @@ export class GenerativeAiClient {
       "opc-request-id": cancelVectorStoreConnectorFileSyncRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["vectorStoreConnectorFileSyncId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -358,7 +390,7 @@ export class GenerativeAiClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/vectorStoreConnectorFileSyncs/{vectorStoreConnectorFileSyncId}",
       method: "DELETE",
@@ -424,6 +456,19 @@ export class GenerativeAiClient {
       "opc-retry-token": changeApiKeyCompartmentRequest.opcRetryToken
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["apiKeyId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -432,7 +477,7 @@ export class GenerativeAiClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/apikeys/{apiKeyId}/actions/changeCompartment",
       method: "POST",
@@ -500,6 +545,19 @@ export class GenerativeAiClient {
       "opc-retry-token": changeDedicatedAiClusterCompartmentRequest.opcRetryToken
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["dedicatedAiClusterId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -508,7 +566,7 @@ export class GenerativeAiClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/dedicatedAiClusters/{dedicatedAiClusterId}/actions/changeCompartment",
       method: "POST",
@@ -574,6 +632,19 @@ export class GenerativeAiClient {
       "opc-retry-token": changeEndpointCompartmentRequest.opcRetryToken
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["endpointId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -582,7 +653,7 @@ export class GenerativeAiClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/endpoints/{endpointId}/actions/changeCompartment",
       method: "POST",
@@ -652,6 +723,19 @@ export class GenerativeAiClient {
       "opc-retry-token": changeGenerativeAiPrivateEndpointCompartmentRequest.opcRetryToken
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["generativeAiPrivateEndpointId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -660,7 +744,7 @@ export class GenerativeAiClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path:
         "/generativeAiPrivateEndpoints/{generativeAiPrivateEndpointId}/actions/changeCompartment",
@@ -734,6 +818,19 @@ export class GenerativeAiClient {
       "opc-retry-token": changeGenerativeAiProjectCompartmentRequest.opcRetryToken
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["generativeAiProjectId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -742,7 +839,7 @@ export class GenerativeAiClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/generativeAiProjects/{generativeAiProjectId}/actions/changeCompartment",
       method: "POST",
@@ -808,6 +905,19 @@ export class GenerativeAiClient {
       "opc-retry-token": changeHostedApplicationCompartmentRequest.opcRetryToken
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["hostedApplicationId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -816,7 +926,7 @@ export class GenerativeAiClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/hostedApplications/{hostedApplicationId}/actions/changeCompartment",
       method: "POST",
@@ -885,6 +995,19 @@ export class GenerativeAiClient {
       "opc-retry-token": changeHostedApplicationStorageCompartmentRequest.opcRetryToken
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["hostedApplicationStorageId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -893,7 +1016,7 @@ export class GenerativeAiClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/hostedApplicationStorages/{hostedApplicationStorageId}/actions/changeCompartment",
       method: "POST",
@@ -959,6 +1082,19 @@ export class GenerativeAiClient {
       "opc-retry-token": changeImportedModelCompartmentRequest.opcRetryToken
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["importedModelId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -967,7 +1103,7 @@ export class GenerativeAiClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/importedModels/{importedModelId}/actions/changeCompartment",
       method: "POST",
@@ -1033,6 +1169,19 @@ export class GenerativeAiClient {
       "opc-retry-token": changeModelCompartmentRequest.opcRetryToken
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["modelId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -1041,7 +1190,7 @@ export class GenerativeAiClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/models/{modelId}/actions/changeCompartment",
       method: "POST",
@@ -1107,6 +1256,19 @@ export class GenerativeAiClient {
       "opc-retry-token": changeSemanticStoreCompartmentRequest.opcRetryToken
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["semanticStoreId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -1115,7 +1277,7 @@ export class GenerativeAiClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/semanticStores/{semanticStoreId}/actions/changeCompartment",
       method: "POST",
@@ -1182,6 +1344,19 @@ export class GenerativeAiClient {
       "opc-request-id": createApiKeyRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>([]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -1190,7 +1365,7 @@ export class GenerativeAiClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/apikeys",
       method: "POST",
@@ -1262,6 +1437,19 @@ export class GenerativeAiClient {
       "opc-request-id": createDedicatedAiClusterRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>([]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -1270,7 +1458,7 @@ export class GenerativeAiClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/dedicatedAiClusters",
       method: "POST",
@@ -1354,6 +1542,19 @@ The header contains an opc-work-request-id, which is the id for the WorkRequest 
       "opc-request-id": createEndpointRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>([]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -1362,7 +1563,7 @@ The header contains an opc-work-request-id, which is the id for the WorkRequest 
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/endpoints",
       method: "POST",
@@ -1445,6 +1646,19 @@ The header contains an opc-work-request-id, which is the id for the WorkRequest 
       "opc-request-id": createGenerativeAiPrivateEndpointRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>([]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -1453,7 +1667,7 @@ The header contains an opc-work-request-id, which is the id for the WorkRequest 
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/generativeAiPrivateEndpoints",
       method: "POST",
@@ -1532,6 +1746,19 @@ The header contains an opc-work-request-id, which is the id for the WorkRequest 
       "opc-request-id": createGenerativeAiProjectRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>([]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -1540,7 +1767,7 @@ The header contains an opc-work-request-id, which is the id for the WorkRequest 
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/generativeAiProjects",
       method: "POST",
@@ -1617,6 +1844,19 @@ The header contains an opc-work-request-id, which is the id for the WorkRequest 
       "opc-request-id": createHostedApplicationRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>([]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -1625,7 +1865,7 @@ The header contains an opc-work-request-id, which is the id for the WorkRequest 
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/hostedApplications",
       method: "POST",
@@ -1702,6 +1942,19 @@ The header contains an opc-work-request-id, which is the id for the WorkRequest 
       "opc-request-id": createHostedApplicationStorageRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>([]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -1710,7 +1963,7 @@ The header contains an opc-work-request-id, which is the id for the WorkRequest 
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/hostedApplicationStorages",
       method: "POST",
@@ -1787,6 +2040,19 @@ The header contains an opc-work-request-id, which is the id for the WorkRequest 
       "opc-request-id": createHostedDeploymentRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>([]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -1795,7 +2061,7 @@ The header contains an opc-work-request-id, which is the id for the WorkRequest 
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/hostedDeployments",
       method: "POST",
@@ -1874,6 +2140,19 @@ The header contains an opc-work-request-id, which is the id for the WorkRequest 
       "opc-request-id": createImportedModelRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>([]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -1882,7 +2161,7 @@ The header contains an opc-work-request-id, which is the id for the WorkRequest 
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/importedModels",
       method: "POST",
@@ -1961,6 +2240,19 @@ The header contains an opc-work-request-id, which is the id for the WorkRequest 
       "opc-request-id": createModelRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>([]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -1969,7 +2261,7 @@ The header contains an opc-work-request-id, which is the id for the WorkRequest 
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/models",
       method: "POST",
@@ -2051,6 +2343,19 @@ The header contains an opc-work-request-id, which is the id for the WorkRequest 
       "opc-request-id": createSemanticStoreRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>([]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -2059,7 +2364,7 @@ The header contains an opc-work-request-id, which is the id for the WorkRequest 
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/semanticStores",
       method: "POST",
@@ -2138,6 +2443,19 @@ The header contains an opc-work-request-id, which is the id for the WorkRequest 
       "opc-request-id": createVectorStoreConnectorRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>([]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -2146,7 +2464,7 @@ The header contains an opc-work-request-id, which is the id for the WorkRequest 
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/vectorStoreConnectors",
       method: "POST",
@@ -2225,6 +2543,19 @@ The header contains an opc-work-request-id, which is the id for the WorkRequest 
       "opc-request-id": createVectorStoreConnectorFileSyncRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>([]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -2233,7 +2564,7 @@ The header contains an opc-work-request-id, which is the id for the WorkRequest 
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/vectorStoreConnectorFileSyncs",
       method: "POST",
@@ -2311,6 +2642,19 @@ The header contains an opc-work-request-id, which is the id for the WorkRequest 
       "opc-request-id": deleteApiKeyRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["apiKeyId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -2319,7 +2663,7 @@ The header contains an opc-work-request-id, which is the id for the WorkRequest 
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/apikeys/{apiKeyId}",
       method: "DELETE",
@@ -2382,6 +2726,19 @@ You can only delete clusters without attached resources. Before you delete a hos
       "opc-request-id": deleteDedicatedAiClusterRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["dedicatedAiClusterId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -2390,7 +2747,7 @@ You can only delete clusters without attached resources. Before you delete a hos
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/dedicatedAiClusters/{dedicatedAiClusterId}",
       method: "DELETE",
@@ -2454,6 +2811,19 @@ You can only delete clusters without attached resources. Before you delete a hos
       "opc-request-id": deleteEndpointRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["endpointId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -2462,7 +2832,7 @@ You can only delete clusters without attached resources. Before you delete a hos
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/endpoints/{endpointId}",
       method: "DELETE",
@@ -2529,6 +2899,19 @@ You can only delete clusters without attached resources. Before you delete a hos
       "if-match": deleteGenerativeAiPrivateEndpointRequest.ifMatch
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["generativeAiPrivateEndpointId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -2537,7 +2920,7 @@ You can only delete clusters without attached resources. Before you delete a hos
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/generativeAiPrivateEndpoints/{generativeAiPrivateEndpointId}",
       method: "DELETE",
@@ -2602,6 +2985,19 @@ You can only delete clusters without attached resources. Before you delete a hos
       "opc-request-id": deleteGenerativeAiProjectRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["generativeAiProjectId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -2610,7 +3006,7 @@ You can only delete clusters without attached resources. Before you delete a hos
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/generativeAiProjects/{generativeAiProjectId}",
       method: "DELETE",
@@ -2677,6 +3073,19 @@ You can only delete clusters without attached resources. Before you delete a hos
       "opc-request-id": deleteHostedApplicationRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["hostedApplicationId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -2685,7 +3094,7 @@ You can only delete clusters without attached resources. Before you delete a hos
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/hostedApplications/{hostedApplicationId}",
       method: "DELETE",
@@ -2753,6 +3162,19 @@ You can only delete clusters without attached resources. Before you delete a hos
       "opc-request-id": deleteHostedApplicationStorageRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["hostedApplicationStorageId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -2761,7 +3183,7 @@ You can only delete clusters without attached resources. Before you delete a hos
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/hostedApplicationStorages/{hostedApplicationStorageId}",
       method: "DELETE",
@@ -2828,6 +3250,19 @@ You can only delete clusters without attached resources. Before you delete a hos
       "opc-request-id": deleteHostedDeploymentRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["hostedDeploymentId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -2836,7 +3271,7 @@ You can only delete clusters without attached resources. Before you delete a hos
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/hostedDeployments/{hostedDeploymentId}",
       method: "DELETE",
@@ -2902,6 +3337,19 @@ You can only delete clusters without attached resources. Before you delete a hos
       "opc-request-id": deleteHostedDeploymentArtifactRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["hostedDeploymentId", "artifactId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -2910,7 +3358,7 @@ You can only delete clusters without attached resources. Before you delete a hos
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/hostedDeployments/{hostedDeploymentId}/artifacts/{artifactId}",
       method: "DELETE",
@@ -2974,6 +3422,19 @@ You can only delete clusters without attached resources. Before you delete a hos
       "opc-request-id": deleteImportedModelRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["importedModelId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -2982,7 +3443,7 @@ You can only delete clusters without attached resources. Before you delete a hos
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/importedModels/{importedModelId}",
       method: "DELETE",
@@ -3046,6 +3507,19 @@ You can only delete clusters without attached resources. Before you delete a hos
       "opc-request-id": deleteModelRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["modelId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -3054,7 +3528,7 @@ You can only delete clusters without attached resources. Before you delete a hos
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/models/{modelId}",
       method: "DELETE",
@@ -3118,6 +3592,19 @@ You can only delete clusters without attached resources. Before you delete a hos
       "opc-request-id": deleteSemanticStoreRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["semanticStoreId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -3126,7 +3613,7 @@ You can only delete clusters without attached resources. Before you delete a hos
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/semanticStores/{semanticStoreId}",
       method: "DELETE",
@@ -3191,6 +3678,19 @@ You can only delete clusters without attached resources. Before you delete a hos
       "opc-request-id": deleteVectorStoreConnectorRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["vectorStoreConnectorId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -3199,7 +3699,7 @@ You can only delete clusters without attached resources. Before you delete a hos
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/vectorStoreConnectors/{vectorStoreConnectorId}",
       method: "DELETE",
@@ -3262,6 +3762,19 @@ You can only delete clusters without attached resources. Before you delete a hos
       "opc-request-id": getApiKeyRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["apiKeyId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -3270,7 +3783,7 @@ You can only delete clusters without attached resources. Before you delete a hos
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/apikeys/{apiKeyId}",
       method: "GET",
@@ -3338,6 +3851,19 @@ You can only delete clusters without attached resources. Before you delete a hos
       "opc-request-id": getDedicatedAiClusterRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["dedicatedAiClusterId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -3346,7 +3872,7 @@ You can only delete clusters without attached resources. Before you delete a hos
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/dedicatedAiClusters/{dedicatedAiClusterId}",
       method: "GET",
@@ -3413,6 +3939,19 @@ You can only delete clusters without attached resources. Before you delete a hos
       "opc-request-id": getEndpointRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["endpointId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -3421,7 +3960,7 @@ You can only delete clusters without attached resources. Before you delete a hos
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/endpoints/{endpointId}",
       method: "GET",
@@ -3491,6 +4030,19 @@ You can only delete clusters without attached resources. Before you delete a hos
       "opc-request-id": getGenerativeAiPrivateEndpointRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["generativeAiPrivateEndpointId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -3499,7 +4051,7 @@ You can only delete clusters without attached resources. Before you delete a hos
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/generativeAiPrivateEndpoints/{generativeAiPrivateEndpointId}",
       method: "GET",
@@ -3567,6 +4119,19 @@ You can only delete clusters without attached resources. Before you delete a hos
       "opc-request-id": getGenerativeAiProjectRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["generativeAiProjectId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -3575,7 +4140,7 @@ You can only delete clusters without attached resources. Before you delete a hos
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/generativeAiProjects/{generativeAiProjectId}",
       method: "GET",
@@ -3643,6 +4208,19 @@ You can only delete clusters without attached resources. Before you delete a hos
       "opc-request-id": getHostedApplicationRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["hostedApplicationId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -3651,7 +4229,7 @@ You can only delete clusters without attached resources. Before you delete a hos
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/hostedApplications/{hostedApplicationId}",
       method: "GET",
@@ -3719,6 +4297,19 @@ You can only delete clusters without attached resources. Before you delete a hos
       "opc-request-id": getHostedApplicationStorageRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["hostedApplicationStorageId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -3727,7 +4318,7 @@ You can only delete clusters without attached resources. Before you delete a hos
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/hostedApplicationStorages/{hostedApplicationStorageId}",
       method: "GET",
@@ -3794,6 +4385,19 @@ You can only delete clusters without attached resources. Before you delete a hos
       "opc-request-id": getHostedDeploymentRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["hostedDeploymentId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -3802,7 +4406,7 @@ You can only delete clusters without attached resources. Before you delete a hos
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/hostedDeployments/{hostedDeploymentId}",
       method: "GET",
@@ -3869,6 +4473,19 @@ You can only delete clusters without attached resources. Before you delete a hos
       "opc-request-id": getImportedModelRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["importedModelId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -3877,7 +4494,7 @@ You can only delete clusters without attached resources. Before you delete a hos
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/importedModels/{importedModelId}",
       method: "GET",
@@ -3944,6 +4561,19 @@ You can only delete clusters without attached resources. Before you delete a hos
       "opc-request-id": getModelRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["modelId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -3952,7 +4582,7 @@ You can only delete clusters without attached resources. Before you delete a hos
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/models/{modelId}",
       method: "GET",
@@ -4019,6 +4649,19 @@ You can only delete clusters without attached resources. Before you delete a hos
       "opc-request-id": getSemanticStoreRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["semanticStoreId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -4027,7 +4670,7 @@ You can only delete clusters without attached resources. Before you delete a hos
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/semanticStores/{semanticStoreId}",
       method: "GET",
@@ -4095,6 +4738,19 @@ You can only delete clusters without attached resources. Before you delete a hos
       "opc-request-id": getVectorStoreConnectorRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["vectorStoreConnectorId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -4103,7 +4759,7 @@ You can only delete clusters without attached resources. Before you delete a hos
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/vectorStoreConnectors/{vectorStoreConnectorId}",
       method: "GET",
@@ -4172,6 +4828,19 @@ You can only delete clusters without attached resources. Before you delete a hos
       "opc-request-id": getVectorStoreConnectorFileSyncRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["vectorStoreConnectorFileSyncId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -4180,7 +4849,7 @@ You can only delete clusters without attached resources. Before you delete a hos
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/vectorStoreConnectorFileSyncs/{vectorStoreConnectorFileSyncId}",
       method: "GET",
@@ -4248,6 +4917,19 @@ You can only delete clusters without attached resources. Before you delete a hos
       "opc-request-id": getVectorStoreConnectorStatsRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["vectorStoreConnectorId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -4256,7 +4938,7 @@ You can only delete clusters without attached resources. Before you delete a hos
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/vectorStoreConnectors/{vectorStoreConnectorId}/stats",
       method: "GET",
@@ -4323,6 +5005,19 @@ You can only delete clusters without attached resources. Before you delete a hos
       "opc-request-id": getWorkRequestRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["workRequestId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -4331,7 +5026,7 @@ You can only delete clusters without attached resources. Before you delete a hos
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/workRequests/{workRequestId}",
       method: "GET",
@@ -4410,6 +5105,19 @@ You can only delete clusters without attached resources. Before you delete a hos
       "opc-request-id": listApiKeysRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["compartmentId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -4418,7 +5126,7 @@ You can only delete clusters without attached resources. Before you delete a hos
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/apikeys",
       method: "GET",
@@ -4493,6 +5201,19 @@ You can only delete clusters without attached resources. Before you delete a hos
       "opc-request-id": listDedicatedAiClustersRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["compartmentId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -4501,7 +5222,7 @@ You can only delete clusters without attached resources. Before you delete a hos
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/dedicatedAiClusters",
       method: "GET",
@@ -4576,6 +5297,19 @@ You can only delete clusters without attached resources. Before you delete a hos
       "opc-request-id": listEndpointsRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["compartmentId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -4584,7 +5318,7 @@ You can only delete clusters without attached resources. Before you delete a hos
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/endpoints",
       method: "GET",
@@ -4661,6 +5395,19 @@ You can only delete clusters without attached resources. Before you delete a hos
       "opc-request-id": listGenerativeAiPrivateEndpointsRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["compartmentId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -4669,7 +5416,7 @@ You can only delete clusters without attached resources. Before you delete a hos
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/generativeAiPrivateEndpoints",
       method: "GET",
@@ -4744,6 +5491,19 @@ You can only delete clusters without attached resources. Before you delete a hos
       "opc-request-id": listGenerativeAiProjectsRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["compartmentId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -4752,7 +5512,7 @@ You can only delete clusters without attached resources. Before you delete a hos
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/generativeAiProjects",
       method: "GET",
@@ -4829,6 +5589,19 @@ You can only delete clusters without attached resources. Before you delete a hos
       "opc-request-id": listHostedApplicationStoragesRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["compartmentId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -4837,7 +5610,7 @@ You can only delete clusters without attached resources. Before you delete a hos
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/hostedApplicationStorages",
       method: "GET",
@@ -4912,6 +5685,19 @@ You can only delete clusters without attached resources. Before you delete a hos
       "opc-request-id": listHostedApplicationsRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["compartmentId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -4920,7 +5706,7 @@ You can only delete clusters without attached resources. Before you delete a hos
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/hostedApplications",
       method: "GET",
@@ -4996,6 +5782,19 @@ You can only delete clusters without attached resources. Before you delete a hos
       "opc-request-id": listHostedDeploymentsRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["compartmentId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -5004,7 +5803,7 @@ You can only delete clusters without attached resources. Before you delete a hos
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/hostedDeployments",
       method: "GET",
@@ -5080,6 +5879,19 @@ You can only delete clusters without attached resources. Before you delete a hos
       "opc-request-id": listImportedModelsRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["compartmentId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -5088,7 +5900,7 @@ You can only delete clusters without attached resources. Before you delete a hos
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/importedModels",
       method: "GET",
@@ -5164,6 +5976,19 @@ You can only delete clusters without attached resources. Before you delete a hos
       "opc-request-id": listModelsRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["compartmentId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -5172,7 +5997,7 @@ You can only delete clusters without attached resources. Before you delete a hos
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/models",
       method: "GET",
@@ -5247,6 +6072,19 @@ You can only delete clusters without attached resources. Before you delete a hos
       "opc-request-id": listSemanticStoresRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>([]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -5255,7 +6093,7 @@ You can only delete clusters without attached resources. Before you delete a hos
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/semanticStores",
       method: "GET",
@@ -5332,6 +6170,19 @@ You can only delete clusters without attached resources. Before you delete a hos
       "opc-request-id": listVectorStoreConnectorFileSyncIngestionLogsRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["vectorStoreConnectorFileSyncId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -5340,7 +6191,7 @@ You can only delete clusters without attached resources. Before you delete a hos
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/vectorStoreConnectorFileSyncs/{vectorStoreConnectorFileSyncId}/ingestionLogs",
       method: "GET",
@@ -5416,6 +6267,19 @@ You can only delete clusters without attached resources. Before you delete a hos
       "opc-request-id": listVectorStoreConnectorFileSyncsRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["compartmentId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -5424,7 +6288,7 @@ You can only delete clusters without attached resources. Before you delete a hos
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/vectorStoreConnectorFileSyncs",
       method: "GET",
@@ -5501,6 +6365,19 @@ You can only delete clusters without attached resources. Before you delete a hos
       "opc-request-id": listVectorStoreConnectorIngestionLogsRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["vectorStoreConnectorId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -5509,7 +6386,7 @@ You can only delete clusters without attached resources. Before you delete a hos
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/vectorStoreConnectors/{vectorStoreConnectorId}/ingestionLogs",
       method: "GET",
@@ -5585,6 +6462,19 @@ You can only delete clusters without attached resources. Before you delete a hos
       "opc-request-id": listVectorStoreConnectorsRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["compartmentId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -5593,7 +6483,7 @@ You can only delete clusters without attached resources. Before you delete a hos
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/vectorStoreConnectors",
       method: "GET",
@@ -5666,6 +6556,19 @@ You can only delete clusters without attached resources. Before you delete a hos
       "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["workRequestId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -5674,7 +6577,7 @@ You can only delete clusters without attached resources. Before you delete a hos
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/workRequests/{workRequestId}/errors",
       method: "GET",
@@ -5746,6 +6649,19 @@ You can only delete clusters without attached resources. Before you delete a hos
       "opc-request-id": listWorkRequestLogsRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["workRequestId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -5754,7 +6670,7 @@ You can only delete clusters without attached resources. Before you delete a hos
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/workRequests/{workRequestId}/logs",
       method: "GET",
@@ -5828,6 +6744,19 @@ You can only delete clusters without attached resources. Before you delete a hos
       "opc-request-id": listWorkRequestsRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["compartmentId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -5836,7 +6765,7 @@ You can only delete clusters without attached resources. Before you delete a hos
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/workRequests",
       method: "GET",
@@ -5905,6 +6834,19 @@ You can only delete clusters without attached resources. Before you delete a hos
       "opc-retry-token": renewApiKeyRequest.opcRetryToken
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["apiKeyId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -5913,7 +6855,7 @@ You can only delete clusters without attached resources. Before you delete a hos
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/apikeys/{apiKeyId}/actions/renew",
       method: "POST",
@@ -5987,6 +6929,19 @@ You can only delete clusters without attached resources. Before you delete a hos
       "opc-retry-token": setApiKeyStateRequest.opcRetryToken
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["apiKeyId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -5995,7 +6950,7 @@ You can only delete clusters without attached resources. Before you delete a hos
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/apikeys/{apiKeyId}/actions/setstate",
       method: "POST",
@@ -6068,6 +7023,19 @@ You can only delete clusters without attached resources. Before you delete a hos
       "opc-request-id": updateApiKeyRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["apiKeyId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -6076,7 +7044,7 @@ You can only delete clusters without attached resources. Before you delete a hos
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/apikeys/{apiKeyId}",
       method: "PUT",
@@ -6150,6 +7118,19 @@ You can only delete clusters without attached resources. Before you delete a hos
       "opc-request-id": updateDedicatedAiClusterRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["dedicatedAiClusterId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -6158,7 +7139,7 @@ You can only delete clusters without attached resources. Before you delete a hos
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/dedicatedAiClusters/{dedicatedAiClusterId}",
       method: "PUT",
@@ -6236,6 +7217,19 @@ You can only delete clusters without attached resources. Before you delete a hos
       "opc-request-id": updateEndpointRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["endpointId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -6244,7 +7238,7 @@ You can only delete clusters without attached resources. Before you delete a hos
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/endpoints/{endpointId}",
       method: "PUT",
@@ -6325,6 +7319,19 @@ You can only delete clusters without attached resources. Before you delete a hos
       "if-match": updateGenerativeAiPrivateEndpointRequest.ifMatch
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["generativeAiPrivateEndpointId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -6333,7 +7340,7 @@ You can only delete clusters without attached resources. Before you delete a hos
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/generativeAiPrivateEndpoints/{generativeAiPrivateEndpointId}",
       method: "PUT",
@@ -6412,6 +7419,19 @@ You can only delete clusters without attached resources. Before you delete a hos
       "opc-request-id": updateGenerativeAiProjectRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["generativeAiProjectId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -6420,7 +7440,7 @@ You can only delete clusters without attached resources. Before you delete a hos
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/generativeAiProjects/{generativeAiProjectId}",
       method: "PUT",
@@ -6499,6 +7519,19 @@ You can only delete clusters without attached resources. Before you delete a hos
       "opc-request-id": updateHostedApplicationRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["hostedApplicationId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -6507,7 +7540,7 @@ You can only delete clusters without attached resources. Before you delete a hos
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/hostedApplications/{hostedApplicationId}",
       method: "PUT",
@@ -6578,6 +7611,19 @@ You can only delete clusters without attached resources. Before you delete a hos
       "opc-request-id": updateHostedDeploymentRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["hostedDeploymentId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -6586,7 +7632,7 @@ You can only delete clusters without attached resources. Before you delete a hos
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/hostedDeployments/{hostedDeploymentId}",
       method: "PUT",
@@ -6664,6 +7710,19 @@ You can only delete clusters without attached resources. Before you delete a hos
       "opc-request-id": updateImportedModelRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["importedModelId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -6672,7 +7731,7 @@ You can only delete clusters without attached resources. Before you delete a hos
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/importedModels/{importedModelId}",
       method: "PUT",
@@ -6750,6 +7809,19 @@ You can only delete clusters without attached resources. Before you delete a hos
       "opc-request-id": updateModelRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["modelId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -6758,7 +7830,7 @@ You can only delete clusters without attached resources. Before you delete a hos
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/models/{modelId}",
       method: "PUT",
@@ -6831,6 +7903,19 @@ You can only delete clusters without attached resources. Before you delete a hos
       "opc-request-id": updateSemanticStoreRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["semanticStoreId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -6839,7 +7924,7 @@ You can only delete clusters without attached resources. Before you delete a hos
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/semanticStores/{semanticStoreId}",
       method: "PUT",
@@ -6913,6 +7998,19 @@ You can only delete clusters without attached resources. Before you delete a hos
       "opc-request-id": updateVectorStoreConnectorRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["vectorStoreConnectorId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -6921,7 +8019,7 @@ You can only delete clusters without attached resources. Before you delete a hos
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/vectorStoreConnectors/{vectorStoreConnectorId}",
       method: "PUT",

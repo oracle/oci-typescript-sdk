@@ -70,6 +70,11 @@ Example: {@code {\"Oracle-ZPR\": {\"MaxEgressCount\": {\"value\": \"42\", \"mode
     */
   "securityAttributes"?: { [key: string]: { [key: string]: any } };
   /**
+   * The ID of the OCI Cache Backup from which this cluster was created.Mutually exclusive with 'importFromObjectStorageDetails'.
+   */
+  "backupId"?: string;
+  "importFromObjectStorageDetails"?: model.ImportOciCacheFromObjectStorageDetails;
+  /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
    * Example: {@code {\"bar-key\": \"value\"}}
    *
@@ -85,12 +90,30 @@ Example: {@code {\"Oracle-ZPR\": {\"MaxEgressCount\": {\"value\": \"42\", \"mode
 
 export namespace CreateRedisClusterDetails {
   export function getJsonObj(obj: CreateRedisClusterDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "importFromObjectStorageDetails": obj.importFromObjectStorageDetails
+          ? model.ImportOciCacheFromObjectStorageDetails.getJsonObj(
+              obj.importFromObjectStorageDetails
+            )
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: CreateRedisClusterDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "importFromObjectStorageDetails": obj.importFromObjectStorageDetails
+          ? model.ImportOciCacheFromObjectStorageDetails.getDeserializedJsonObj(
+              obj.importFromObjectStorageDetails
+            )
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

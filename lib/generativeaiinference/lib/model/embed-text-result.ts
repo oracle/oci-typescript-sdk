@@ -34,6 +34,10 @@ export interface EmbedTextResult {
    */
   "inputs"?: Array<string>;
   /**
+   * The original inputs. Only present if \"isEcho\" is set to true.
+   */
+  "embedContents"?: Array<model.EmbedContent>;
+  /**
    * The embeddings corresponding to float.
    */
   "embeddings": Array<Array<number>>;
@@ -57,6 +61,12 @@ export namespace EmbedTextResult {
     const jsonObj = {
       ...obj,
       ...{
+        "embedContents": obj.embedContents
+          ? obj.embedContents.map(item => {
+              return model.EmbedContent.getJsonObj(item);
+            })
+          : undefined,
+
         "usage": obj.usage ? model.Usage.getJsonObj(obj.usage) : undefined
       }
     };
@@ -67,6 +77,12 @@ export namespace EmbedTextResult {
     const jsonObj = {
       ...obj,
       ...{
+        "embedContents": obj.embedContents
+          ? obj.embedContents.map(item => {
+              return model.EmbedContent.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
         "usage": obj.usage ? model.Usage.getDeserializedJsonObj(obj.usage) : undefined
       }
     };

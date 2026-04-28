@@ -26,6 +26,10 @@ export interface OciLoggingConfiguration extends model.LoggingConfiguration {
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the log.
    */
   "logId": string;
+  /**
+   * A switch to enable or disable propagation of job and task events to the customer's logs in OCI logging service.
+   */
+  "isJobTaskEventsPropagationEnabled"?: boolean;
 
   "type": string;
 }

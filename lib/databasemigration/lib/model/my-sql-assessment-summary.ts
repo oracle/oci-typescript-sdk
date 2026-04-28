@@ -18,6 +18,11 @@ import common = require("oci-common");
  * MySql Assessment Summary
  */
 export interface MySqlAssessmentSummary extends model.AssessmentSummary {
+  /**
+   * Assessment migration scope.
+   */
+  "migrationScope": model.MigrationScopeMySql;
+
   "databaseCombination": string;
 }
 
