@@ -34,8 +34,8 @@ export enum JavaManagementServiceApiKeys {}
  */
 export class JavaManagementServiceClient {
   protected static serviceEndpointTemplate =
-    "https://javamanagement.{region}.oci.{secondLevelDomain}";
-  protected static endpointServiceName = "";
+    "https://javamanagement.{region}.{dualStack?ds.:}oci.{secondLevelDomain}";
+  protected static endpointServiceName = "javamanagement";
   protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
@@ -48,6 +48,8 @@ export class JavaManagementServiceClient {
   protected _regionId: string = "";
   protected "_region": common.Region;
   protected _lastSetRegionOrRegionId: string = "";
+  protected _enableDualstackEndpoint: boolean | undefined = undefined;
+  protected _serviceUsesDualStackByDefault: boolean = false;
 
   protected _httpClient: common.HttpClient;
   protected _authProvider: common.AuthenticationDetailsProvider | undefined;
@@ -186,6 +188,10 @@ export class JavaManagementServiceClient {
     this._lastSetRegionOrRegionId = common.Region.REGION_ID_STRING;
   }
 
+  public set enableDualstackEndpoint(enableDualstackEndpoint: boolean) {
+    this._enableDualstackEndpoint = enableDualstackEndpoint;
+  }
+
   /**
    * Creates a new JavaManagementServiceWaiter for resources for this service.
    *
@@ -266,6 +272,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": addFleetInstallationSitesRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["fleetId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -274,7 +293,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/fleets/{fleetId}/actions/addInstallationSites",
       method: "POST",
@@ -344,6 +363,19 @@ export class JavaManagementServiceClient {
       "if-match": cancelWorkRequestRequest.ifMatch
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["workRequestId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -352,7 +384,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/workRequests/{workRequestId}",
       method: "DELETE",
@@ -414,6 +446,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": changeFleetCompartmentRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["fleetId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -422,7 +467,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/fleets/{fleetId}/actions/changeCompartment",
       method: "POST",
@@ -493,6 +538,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": createBlocklistRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["fleetId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -501,7 +559,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/fleets/{fleetId}/blocklists",
       method: "POST",
@@ -577,6 +635,19 @@ export class JavaManagementServiceClient {
       "opc-retry-token": createDrsFileRequest.opcRetryToken
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["fleetId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -585,7 +656,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/fleets/{fleetId}/drsFiles",
       method: "POST",
@@ -660,6 +731,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": createFleetRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>([]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -668,7 +752,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/fleets",
       method: "POST",
@@ -739,6 +823,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": createJmsPluginRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>([]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -747,7 +844,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/jmsPlugins",
       method: "POST",
@@ -819,6 +916,19 @@ export class JavaManagementServiceClient {
       "opc-retry-token": createTaskScheduleRequest.opcRetryToken
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>([]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -827,7 +937,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/taskSchedules",
       method: "POST",
@@ -902,6 +1012,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": deleteBlocklistRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["fleetId", "blocklistKey"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -910,7 +1033,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/fleets/{fleetId}/blocklists/{blocklistKey}",
       method: "DELETE",
@@ -973,6 +1096,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": deleteCryptoAnalysisResultRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["fleetId", "cryptoAnalysisResultId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -981,7 +1117,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/fleets/{fleetId}/cryptoAnalysisResults/{cryptoAnalysisResultId}",
       method: "DELETE",
@@ -1048,6 +1184,19 @@ export class JavaManagementServiceClient {
       "if-match": deleteDrsFileRequest.ifMatch
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["fleetId", "drsFileKey"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -1056,7 +1205,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/fleets/{fleetId}/drsFiles/{drsFileKey}",
       method: "DELETE",
@@ -1121,6 +1270,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": deleteFleetRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["fleetId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -1129,7 +1291,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/fleets/{fleetId}",
       method: "DELETE",
@@ -1198,6 +1360,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": deleteJavaMigrationAnalysisResultRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["fleetId", "javaMigrationAnalysisResultId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -1206,7 +1381,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/fleets/{fleetId}/javaMigrationAnalysisResults/{javaMigrationAnalysisResultId}",
       method: "DELETE",
@@ -1273,6 +1448,19 @@ export class JavaManagementServiceClient {
       "if-match": deleteJmsPluginRequest.ifMatch
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["jmsPluginId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -1281,7 +1469,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/jmsPlugins/{jmsPluginId}",
       method: "DELETE",
@@ -1345,6 +1533,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": deletePerformanceTuningAnalysisResultRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["fleetId", "performanceTuningAnalysisResultId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -1353,7 +1554,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path:
         "/fleets/{fleetId}/performanceTuningAnalysisResults/{performanceTuningAnalysisResultId}",
@@ -1421,6 +1622,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": deleteTaskScheduleRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["taskScheduleId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -1429,7 +1643,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/taskSchedules/{taskScheduleId}",
       method: "DELETE",
@@ -1490,6 +1704,19 @@ export class JavaManagementServiceClient {
       "opc-retry-token": disableDrsRequest.opcRetryToken
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["fleetId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -1498,7 +1725,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/fleets/{fleetId}/actions/disableDrs",
       method: "POST",
@@ -1569,6 +1796,19 @@ export class JavaManagementServiceClient {
       "opc-retry-token": enableDrsRequest.opcRetryToken
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["fleetId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -1577,7 +1817,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/fleets/{fleetId}/actions/enableDrs",
       method: "POST",
@@ -1647,6 +1887,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": generateAgentDeployScriptRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["fleetId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -1655,7 +1908,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/fleets/{fleetId}/actions/generateAgentDeployScript",
       method: "POST",
@@ -1734,6 +1987,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": generateAgentInstallerConfigurationRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>([]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -1742,7 +2008,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/agentInstallers/actions/generateAgentInstallerConfiguration",
       method: "POST",
@@ -1823,6 +2089,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": generateLoadPipelineScriptRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["fleetId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -1831,7 +2110,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/fleets/{fleetId}/actions/generateLoadPipelineScript",
       method: "POST",
@@ -1910,6 +2189,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": getCryptoAnalysisResultRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["fleetId", "cryptoAnalysisResultId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -1918,7 +2210,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/fleets/{fleetId}/cryptoAnalysisResults/{cryptoAnalysisResultId}",
       method: "GET",
@@ -1988,6 +2280,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": getDrsFileRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["fleetId", "drsFileKey"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -1996,7 +2301,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/fleets/{fleetId}/drsFiles/{drsFileKey}",
       method: "GET",
@@ -2064,6 +2369,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": getExportSettingRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["fleetId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -2072,7 +2390,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/fleets/{fleetId}/exportSetting",
       method: "GET",
@@ -2140,6 +2458,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": getExportStatusRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["fleetId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -2148,7 +2479,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/fleets/{fleetId}/exportStatus",
       method: "GET",
@@ -2215,6 +2546,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": getFleetRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["fleetId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -2223,7 +2567,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/fleets/{fleetId}",
       method: "GET",
@@ -2295,6 +2639,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": getFleetAdvancedFeatureConfigurationRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["fleetId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -2303,7 +2660,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/fleets/{fleetId}/advancedFeatureConfiguration",
       method: "GET",
@@ -2373,6 +2730,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": getFleetAgentConfigurationRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["fleetId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -2381,7 +2751,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/fleets/{fleetId}/agentConfiguration",
       method: "GET",
@@ -2450,6 +2820,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": getJavaFamilyRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["familyVersion"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -2458,7 +2841,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/javaFamilies/{familyVersion}",
       method: "GET",
@@ -2525,6 +2908,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": getJavaMigrationAnalysisResultRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["fleetId", "javaMigrationAnalysisResultId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -2533,7 +2929,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/fleets/{fleetId}/javaMigrationAnalysisResults/{javaMigrationAnalysisResultId}",
       method: "GET",
@@ -2601,6 +2997,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": getJavaReleaseRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["releaseVersion"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -2609,7 +3018,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/javaReleases/{releaseVersion}",
       method: "GET",
@@ -2672,6 +3081,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": getJmsPluginRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["jmsPluginId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -2680,7 +3102,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/jmsPlugins/{jmsPluginId}",
       method: "GET",
@@ -2757,6 +3179,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": getPerformanceTuningAnalysisResultRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["fleetId", "performanceTuningAnalysisResultId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -2765,7 +3200,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path:
         "/fleets/{fleetId}/performanceTuningAnalysisResults/{performanceTuningAnalysisResultId}",
@@ -2837,6 +3272,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": getTaskScheduleRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["taskScheduleId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -2845,7 +3293,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/taskSchedules/{taskScheduleId}",
       method: "GET",
@@ -2913,6 +3361,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": getWorkRequestRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["workRequestId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -2921,7 +3382,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/workRequests/{workRequestId}",
       method: "GET",
@@ -3002,6 +3463,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": listAgentInstallersRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>([]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -3010,7 +3484,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/agentInstallers",
       method: "GET",
@@ -3084,6 +3558,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": listAnnouncementsRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>([]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -3092,7 +3579,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/announcements",
       method: "GET",
@@ -3168,6 +3655,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": listBlocklistsRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["fleetId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -3176,7 +3676,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/fleets/{fleetId}/blocklists",
       method: "GET",
@@ -3256,6 +3756,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": listContainersRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["fleetId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -3264,7 +3777,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/fleets/{fleetId}/containers",
       method: "GET",
@@ -3347,6 +3860,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": listCryptoAnalysisResultsRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["fleetId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -3355,7 +3881,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/fleets/{fleetId}/cryptoAnalysisResults",
       method: "GET",
@@ -3428,6 +3954,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": listDrsFilesRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["fleetId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -3436,7 +3975,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/fleets/{fleetId}/drsFiles",
       method: "GET",
@@ -3508,6 +4047,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": listFleetDiagnosesRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["fleetId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -3516,7 +4068,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/fleets/{fleetId}/diagnoses",
       method: "GET",
@@ -3594,6 +4146,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": listFleetErrorsRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>([]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -3602,7 +4167,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/fleetErrors",
       method: "GET",
@@ -3679,6 +4244,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": listFleetsRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>([]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -3687,7 +4265,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/fleets",
       method: "GET",
@@ -3771,6 +4349,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": listInstallationSitesRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["fleetId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -3779,7 +4370,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/fleets/{fleetId}/installationSites",
       method: "GET",
@@ -3855,6 +4446,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": listJavaFamiliesRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>([]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -3863,7 +4467,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/javaFamilies",
       method: "GET",
@@ -3943,6 +4547,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": listJavaMigrationAnalysisResultsRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["fleetId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -3951,7 +4568,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/fleets/{fleetId}/javaMigrationAnalysisResults",
       method: "GET",
@@ -4028,6 +4645,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": listJavaReleasesRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>([]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -4036,7 +4666,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/javaReleases",
       method: "GET",
@@ -4118,6 +4748,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": listJmsPluginsRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>([]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -4126,7 +4769,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/jmsPlugins",
       method: "GET",
@@ -4203,6 +4846,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": listJreUsageRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>([]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -4211,7 +4867,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/listJreUsage",
       method: "GET",
@@ -4294,6 +4950,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": listLibraryApplicationUsageRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["fleetId", "libraryKey"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -4302,7 +4971,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/fleets/{fleetId}/libraries/{libraryKey}/applications",
       method: "GET",
@@ -4385,6 +5054,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": listLibraryManagedInstanceUsageRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["fleetId", "libraryKey"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -4393,7 +5075,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/fleets/{fleetId}/libraries/{libraryKey}/managedInstances",
       method: "GET",
@@ -4474,6 +5156,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": listPerformanceTuningAnalysisResultsRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["fleetId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -4482,7 +5177,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/fleets/{fleetId}/performanceTuningAnalysisResults",
       method: "GET",
@@ -4561,6 +5256,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": listPluginErrorsRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>([]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -4569,7 +5277,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/pluginErrors",
       method: "GET",
@@ -4646,6 +5354,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": listTaskSchedulesRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>([]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -4654,7 +5375,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/taskSchedules",
       method: "GET",
@@ -4735,6 +5456,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": listUncorrelatedPackageApplicationUsageRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["fleetId", "packageName"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -4743,7 +5477,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/fleets/{fleetId}/uncorrelatedPackages/{packageName}/applications",
       method: "GET",
@@ -4824,6 +5558,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": listUncorrelatedPackageManagedInstanceUsageRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["fleetId", "packageName"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -4832,7 +5579,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/fleets/{fleetId}/uncorrelatedPackages/{packageName}/managedInstances",
       method: "GET",
@@ -4913,6 +5660,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": listUncorrelatedPackageUsageRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["fleetId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -4921,7 +5681,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/fleets/{fleetId}/uncorrelatedPackages",
       method: "GET",
@@ -4993,6 +5753,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": listWorkItemsRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["workRequestId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -5001,7 +5774,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/workRequests/{workRequestId}/workItems",
       method: "GET",
@@ -5073,6 +5846,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["workRequestId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -5081,7 +5867,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/workRequests/{workRequestId}/errors",
       method: "GET",
@@ -5153,6 +5939,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": listWorkRequestLogsRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["workRequestId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -5161,7 +5960,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/workRequests/{workRequestId}/logs",
       method: "GET",
@@ -5237,6 +6036,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": listWorkRequestsRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>([]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -5245,7 +6057,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/workRequests",
       method: "GET",
@@ -5317,6 +6129,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": removeFleetInstallationSitesRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["fleetId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -5325,7 +6150,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/fleets/{fleetId}/actions/removeInstallationSites",
       method: "POST",
@@ -5395,6 +6220,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": requestCryptoAnalysesRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["fleetId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -5403,7 +6241,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/fleets/{fleetId}/actions/requestCryptoAnalyses",
       method: "POST",
@@ -5476,6 +6314,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": requestDeployedApplicationMigrationAnalysesRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["fleetId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -5484,7 +6335,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/fleets/{fleetId}/actions/requestDeployedApplicationMigrationAnalyses",
       method: "POST",
@@ -5557,6 +6408,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": requestJavaMigrationAnalysesRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["fleetId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -5565,7 +6429,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/fleets/{fleetId}/actions/requestJavaMigrationAnalyses",
       method: "POST",
@@ -5635,6 +6499,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": requestJfrRecordingsRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["fleetId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -5643,7 +6520,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/fleets/{fleetId}/actions/requestJfrRecordings",
       method: "POST",
@@ -5716,6 +6593,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": requestPerformanceTuningAnalysesRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["fleetId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -5724,7 +6614,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/fleets/{fleetId}/actions/requestPerformanceTuningAnalyses",
       method: "POST",
@@ -5795,6 +6685,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": scanJavaServerUsageRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["fleetId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -5803,7 +6706,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/fleets/{fleetId}/actions/scanJavaServerUsage",
       method: "POST",
@@ -5874,6 +6777,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": scanLibraryUsageRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["fleetId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -5882,7 +6798,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/fleets/{fleetId}/actions/scanLibraryUsage",
       method: "POST",
@@ -5976,6 +6892,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": summarizeApplicationInstallationUsageRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["fleetId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -5984,7 +6913,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/fleets/{fleetId}/actions/summarizeApplicationInstallationUsage",
       method: "GET",
@@ -6071,6 +7000,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": summarizeApplicationUsageRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["fleetId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -6079,7 +7021,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/fleets/{fleetId}/actions/summarizeApplicationUsage",
       method: "GET",
@@ -6169,6 +7111,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": summarizeDeployedApplicationInstallationUsageRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["fleetId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -6177,7 +7132,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/fleets/{fleetId}/actions/summarizeDeployedApplicationInstallationUsage",
       method: "GET",
@@ -6262,6 +7217,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": summarizeDeployedApplicationUsageRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["fleetId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -6270,7 +7238,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/fleets/{fleetId}/actions/summarizeDeployedApplicationUsage",
       method: "GET",
@@ -6341,6 +7309,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": summarizeFleetErrorsRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>([]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -6349,7 +7330,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/fleetErrorAnalytics",
       method: "GET",
@@ -6427,7 +7408,8 @@ export class JavaManagementServiceClient {
       "sortOrder": summarizeInstallationUsageRequest.sortOrder,
       "sortBy": summarizeInstallationUsageRequest.sortBy,
       "osFamily": summarizeInstallationUsageRequest.osFamily,
-      "pathContains": summarizeInstallationUsageRequest.pathContains
+      "pathContains": summarizeInstallationUsageRequest.pathContains,
+      "jreSecurityStatus": summarizeInstallationUsageRequest.jreSecurityStatus
     };
 
     let headerParams = {
@@ -6435,6 +7417,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": summarizeInstallationUsageRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["fleetId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -6443,7 +7438,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/fleets/{fleetId}/actions/summarizeInstallationUsage",
       method: "GET",
@@ -6529,6 +7524,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": summarizeJavaServerInstanceUsageRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["fleetId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -6537,7 +7545,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/fleets/{fleetId}/actions/summarizeJavaServerInstanceUsage",
       method: "GET",
@@ -6617,6 +7625,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": summarizeJavaServerUsageRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["fleetId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -6625,7 +7646,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/fleets/{fleetId}/actions/summarizeJavaServerUsage",
       method: "GET",
@@ -6709,6 +7730,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": summarizeJreUsageRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["fleetId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -6717,7 +7751,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/fleets/{fleetId}/actions/summarizeJreUsage",
       method: "GET",
@@ -6791,6 +7825,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": summarizeLibraryInventoryRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["fleetId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -6799,7 +7846,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/fleets/{fleetId}/summarizeLibraryInventory",
       method: "GET",
@@ -6883,6 +7930,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": summarizeLibraryUsageRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["fleetId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -6891,7 +7951,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/fleets/{fleetId}/actions/summarizeLibraryUsage",
       method: "GET",
@@ -6979,6 +8039,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": summarizeManagedInstanceUsageRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["fleetId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -6987,7 +8060,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/fleets/{fleetId}/actions/summarizeManagedInstanceUsage",
       method: "GET",
@@ -7058,6 +8131,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": summarizePluginErrorsRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>([]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -7066,7 +8152,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/pluginErrorAnalytics",
       method: "GET",
@@ -7140,6 +8226,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": summarizeResourceInventoryRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>([]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -7148,7 +8247,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/summarizeResourceInventory",
       method: "GET",
@@ -7215,6 +8314,19 @@ export class JavaManagementServiceClient {
       "opc-retry-token": updateDrsFileRequest.opcRetryToken
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["fleetId", "drsFileKey"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -7223,7 +8335,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/fleets/{fleetId}/drsFiles/{drsFileKey}",
       method: "PUT",
@@ -7293,6 +8405,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": updateExportSettingRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["fleetId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -7301,7 +8426,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/fleets/{fleetId}/exportSetting",
       method: "PUT",
@@ -7375,6 +8500,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": updateFleetRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["fleetId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -7383,7 +8521,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/fleets/{fleetId}",
       method: "PUT",
@@ -7458,6 +8596,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": updateFleetAdvancedFeatureConfigurationRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["fleetId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -7466,7 +8617,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/fleets/{fleetId}/advancedFeatureConfiguration",
       method: "PUT",
@@ -7542,6 +8693,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": updateFleetAgentConfigurationRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["fleetId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -7550,7 +8714,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/fleets/{fleetId}/agentConfiguration",
       method: "PUT",
@@ -7620,6 +8784,19 @@ export class JavaManagementServiceClient {
       "opc-request-id": updateJmsPluginRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["jmsPluginId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -7628,7 +8805,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/jmsPlugins/{jmsPluginId}",
       method: "PUT",
@@ -7704,6 +8881,19 @@ export class JavaManagementServiceClient {
       "opc-retry-token": updateTaskScheduleRequest.opcRetryToken
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["taskScheduleId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -7712,7 +8902,7 @@ export class JavaManagementServiceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/taskSchedules/{taskScheduleId}",
       method: "PUT",

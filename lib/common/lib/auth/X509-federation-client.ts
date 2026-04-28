@@ -5,7 +5,7 @@
 
 import UrlParser = require("url");
 const httpSignature: any = require("http-signature");
-import jssha = require("jssha");
+import jsSHA from "jssha";
 import FederationClient from "./models/federation-client";
 import SessionKeySupplier from "./models/session-key-supplier";
 import X509CertificateSupplier from "./models/X509-certificate-supplier";
@@ -328,7 +328,7 @@ class AuthTokenRequestSigner implements RequestSigner {
     }
 
     let contentLen = 0;
-    const shaObj = new jssha("SHA-256", "TEXT");
+    const shaObj = new jsSHA("SHA-256", "TEXT");
     if (request.body) {
       const bodyStringContent: string = await getStringFromRequestBody(request.body);
       shaObj.update(bodyStringContent);

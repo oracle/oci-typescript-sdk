@@ -31,6 +31,14 @@ export interface BatchTaskSummary {
    */
   "name": string;
   /**
+   * The hierarchical name of the task, which incorporates names of all parent group tasks, separated by \".\" (dot symbol). Maximum nesting depth is 4 levels. Example: groupTaskA.nestedGroupTaskB.thisTaskName
+   */
+  "hierarchicalName"?: string;
+  /**
+   * The hierarchical name of the group task. Null for top-level tasks.
+   */
+  "groupTaskName"?: string;
+  /**
    * An optional description that provides additional context next to the displayName.
    */
   "description"?: string;
@@ -58,6 +66,8 @@ export namespace BatchTaskSummary {
             <model.ComputeTaskSummary>(<object>jsonObj),
             true
           );
+        case "GROUP":
+          return model.GroupTaskSummary.getJsonObj(<model.GroupTaskSummary>(<object>jsonObj), true);
         default:
           if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.type}`);
       }
@@ -72,6 +82,11 @@ export namespace BatchTaskSummary {
         case "COMPUTE":
           return model.ComputeTaskSummary.getDeserializedJsonObj(
             <model.ComputeTaskSummary>(<object>jsonObj),
+            true
+          );
+        case "GROUP":
+          return model.GroupTaskSummary.getDeserializedJsonObj(
+            <model.GroupTaskSummary>(<object>jsonObj),
             true
           );
         default:

@@ -11,6 +11,20 @@
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as ChangeOciCacheBackupCompartmentRequest from "./change-oci-cache-backup-compartment-request";
+export import ChangeOciCacheBackupCompartmentRequest = ChangeOciCacheBackupCompartmentRequest.ChangeOciCacheBackupCompartmentRequest;
+import * as CreateOciCacheBackupRequest from "./create-oci-cache-backup-request";
+export import CreateOciCacheBackupRequest = CreateOciCacheBackupRequest.CreateOciCacheBackupRequest;
+import * as DeleteOciCacheBackupRequest from "./delete-oci-cache-backup-request";
+export import DeleteOciCacheBackupRequest = DeleteOciCacheBackupRequest.DeleteOciCacheBackupRequest;
+import * as ExportOciCacheBackupToObjectStorageRequest from "./export-oci-cache-backup-to-object-storage-request";
+export import ExportOciCacheBackupToObjectStorageRequest = ExportOciCacheBackupToObjectStorageRequest.ExportOciCacheBackupToObjectStorageRequest;
+import * as GetOciCacheBackupRequest from "./get-oci-cache-backup-request";
+export import GetOciCacheBackupRequest = GetOciCacheBackupRequest.GetOciCacheBackupRequest;
+import * as ListOciCacheBackupsRequest from "./list-oci-cache-backups-request";
+export import ListOciCacheBackupsRequest = ListOciCacheBackupsRequest.ListOciCacheBackupsRequest;
+import * as UpdateOciCacheBackupRequest from "./update-oci-cache-backup-request";
+export import UpdateOciCacheBackupRequest = UpdateOciCacheBackupRequest.UpdateOciCacheBackupRequest;
 import * as ChangeOciCacheConfigSetCompartmentRequest from "./change-oci-cache-config-set-compartment-request";
 export import ChangeOciCacheConfigSetCompartmentRequest = ChangeOciCacheConfigSetCompartmentRequest.ChangeOciCacheConfigSetCompartmentRequest;
 import * as CreateOciCacheConfigSetRequest from "./create-oci-cache-config-set-request";

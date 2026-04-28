@@ -32,7 +32,7 @@ export interface CreateFusionEnvironmentDetails {
    */
   "fusionEnvironmentFamilyId": string;
   /**
-   * The type of environment. Valid values are Production, Test, or Development.
+   * The type of environment. Valid values are Production, Test, Development, or Demo.
    */
   "fusionEnvironmentType": string;
   /**
@@ -56,7 +56,7 @@ export interface CreateFusionEnvironmentDetails {
    */
   "rules"?: Array<model.Rule>;
   /**
-   * Additional egress rules that should be applied to the environment. Some standard ports are open for general use; see [Securing Network Access to a Fusion Applications Environment][iaas/Content/fusion-applications/plan-environment.htm#internet-cache]. If access to a non-standard port is required, however, they can be listed here.
+   * Additional egress rules that should be applied to the environment. Some standard ports are open for general use; see [Securing Network Access to a Fusion Applications Environment](https://docs.oracle.com/iaas/Content/fusion-applications/plan-environment.htm#internet-cache). If access to a non-standard port is required, however, they can be listed here.
    */
   "additionalEgressRules"?: Array<model.AdditionalEgressRule>;
   "createFusionEnvironmentAdminUserDetails": model.CreateFusionEnvironmentAdminUserDetails;

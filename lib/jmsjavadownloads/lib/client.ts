@@ -34,8 +34,8 @@ export enum JavaDownloadApiKeys {}
  */
 export class JavaDownloadClient {
   protected static serviceEndpointTemplate =
-    "https://javamanagementservice-download.{region}.oci.{secondLevelDomain}";
-  protected static endpointServiceName = "";
+    "https://{dualStack?download.javamanagement:javamanagementservice-download}.{region}.{dualStack?ds.:}oci.{secondLevelDomain}";
+  protected static endpointServiceName = "download.javamanagement";
   protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
@@ -48,6 +48,8 @@ export class JavaDownloadClient {
   protected _regionId: string = "";
   protected "_region": common.Region;
   protected _lastSetRegionOrRegionId: string = "";
+  protected _enableDualstackEndpoint: boolean | undefined = undefined;
+  protected _serviceUsesDualStackByDefault: boolean = false;
 
   protected _httpClient: common.HttpClient;
   protected _authProvider: common.AuthenticationDetailsProvider | undefined;
@@ -184,6 +186,10 @@ export class JavaDownloadClient {
     this._lastSetRegionOrRegionId = common.Region.REGION_ID_STRING;
   }
 
+  public set enableDualstackEndpoint(enableDualstackEndpoint: boolean) {
+    this._enableDualstackEndpoint = enableDualstackEndpoint;
+  }
+
   /**
    * Creates a new JavaDownloadWaiter for resources for this service.
    *
@@ -262,6 +268,19 @@ export class JavaDownloadClient {
       "opc-request-id": cancelWorkRequestRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["workRequestId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -270,7 +289,7 @@ export class JavaDownloadClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/20230601/workRequests/{workRequestId}",
       method: "DELETE",
@@ -330,6 +349,19 @@ export class JavaDownloadClient {
       "opc-request-id": createJavaDownloadReportRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>([]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -338,7 +370,7 @@ export class JavaDownloadClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/20230601/javaDownloadReports",
       method: "POST",
@@ -408,6 +440,19 @@ export class JavaDownloadClient {
       "opc-request-id": createJavaDownloadTokenRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>([]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -416,7 +461,7 @@ export class JavaDownloadClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/20230601/javaDownloadTokens",
       method: "POST",
@@ -494,6 +539,19 @@ export class JavaDownloadClient {
       "opc-request-id": createJavaLicenseAcceptanceRecordRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>([]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -502,7 +560,7 @@ export class JavaDownloadClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/20230601/javaLicenseAcceptanceRecords",
       method: "POST",
@@ -576,6 +634,19 @@ export class JavaDownloadClient {
       "opc-request-id": deleteJavaDownloadReportRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["javaDownloadReportId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -584,7 +655,7 @@ export class JavaDownloadClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/20230601/javaDownloadReports/{javaDownloadReportId}",
       method: "DELETE",
@@ -649,6 +720,19 @@ export class JavaDownloadClient {
       "opc-request-id": deleteJavaDownloadTokenRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["javaDownloadTokenId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -657,7 +741,7 @@ export class JavaDownloadClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/20230601/javaDownloadTokens/{javaDownloadTokenId}",
       method: "DELETE",
@@ -724,6 +808,19 @@ export class JavaDownloadClient {
       "opc-request-id": deleteJavaLicenseAcceptanceRecordRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["javaLicenseAcceptanceRecordId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -732,7 +829,7 @@ export class JavaDownloadClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/20230601/javaLicenseAcceptanceRecords/{javaLicenseAcceptanceRecordId}",
       method: "DELETE",
@@ -795,6 +892,19 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
       "opc-request-id": generateArtifactDownloadUrlRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>([]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -803,7 +913,7 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/20230601/actions/generateArtifactDownloadUrl",
       method: "POST",
@@ -871,6 +981,19 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
       "opc-request-id": getJavaDownloadReportRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["javaDownloadReportId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -879,7 +1002,7 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/20230601/javaDownloadReports/{javaDownloadReportId}",
       method: "GET",
@@ -947,6 +1070,19 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
       "opc-request-id": getJavaDownloadReportContentRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["javaDownloadReportId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -955,7 +1091,7 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/20230601/javaDownloadReports/{javaDownloadReportId}/content",
       method: "GET",
@@ -1023,6 +1159,19 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
       "opc-request-id": getJavaDownloadTokenRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["javaDownloadTokenId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -1031,7 +1180,7 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/20230601/javaDownloadTokens/{javaDownloadTokenId}",
       method: "GET",
@@ -1099,6 +1248,19 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
       "opc-request-id": getJavaLicenseRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["licenseType"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -1107,7 +1269,7 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/20230601/javaLicenses/{licenseType}",
       method: "GET",
@@ -1172,6 +1334,19 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
       "opc-request-id": getJavaLicenseAcceptanceRecordRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["javaLicenseAcceptanceRecordId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -1180,7 +1355,7 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/20230601/javaLicenseAcceptanceRecords/{javaLicenseAcceptanceRecordId}",
       method: "GET",
@@ -1247,6 +1422,19 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
       "opc-request-id": getWorkRequestRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["workRequestId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -1255,7 +1443,7 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/20230601/workRequests/{workRequestId}",
       method: "GET",
@@ -1342,6 +1530,19 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
       "opc-request-id": listJavaDownloadRecordsRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["compartmentId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -1350,7 +1551,7 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/20230601/javaDownloadRecords",
       method: "GET",
@@ -1426,6 +1627,19 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
       "opc-request-id": listJavaDownloadReportsRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["compartmentId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -1434,7 +1648,7 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/20230601/javaDownloadReports",
       method: "GET",
@@ -1513,6 +1727,19 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
       "opc-request-id": listJavaDownloadTokensRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["compartmentId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -1521,7 +1748,7 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/20230601/javaDownloadTokens",
       method: "GET",
@@ -1598,6 +1825,19 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
       "opc-request-id": listJavaLicenseAcceptanceRecordsRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["compartmentId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -1606,7 +1846,7 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/20230601/javaLicenseAcceptanceRecords",
       method: "GET",
@@ -1679,6 +1919,19 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
       "opc-request-id": listJavaLicensesRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>([]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -1687,7 +1940,7 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/20230601/javaLicenses",
       method: "GET",
@@ -1761,6 +2014,19 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
       "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["workRequestId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -1769,7 +2035,7 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/20230601/workRequests/{workRequestId}/errors",
       method: "GET",
@@ -1842,6 +2108,19 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
       "opc-request-id": listWorkRequestLogsRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["workRequestId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -1850,7 +2129,7 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/20230601/workRequests/{workRequestId}/logs",
       method: "GET",
@@ -1925,6 +2204,19 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
       "opc-request-id": listWorkRequestsRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["compartmentId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -1933,7 +2225,7 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/20230601/workRequests",
       method: "GET",
@@ -2002,6 +2294,19 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
       "opc-request-id": requestSummarizedJavaDownloadCountsRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>([]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -2010,7 +2315,7 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/20230601/actions/requestSummarizedJavaDownloadCounts",
       method: "POST",
@@ -2084,6 +2389,19 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
       "opc-request-id": updateJavaDownloadTokenRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["javaDownloadTokenId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -2092,7 +2410,7 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/20230601/javaDownloadTokens/{javaDownloadTokenId}",
       method: "PUT",
@@ -2164,6 +2482,19 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
       "opc-request-id": updateJavaLicenseAcceptanceRecordRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["javaLicenseAcceptanceRecordId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -2172,7 +2503,7 @@ Use the {@link #getJavaRelease(GetJavaReleaseRequest) getJavaRelease} API
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/20230601/javaLicenseAcceptanceRecords/{javaLicenseAcceptanceRecordId}",
       method: "PUT",

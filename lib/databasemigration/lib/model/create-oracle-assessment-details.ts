@@ -19,6 +19,10 @@ import common = require("oci-common");
  */
 export interface CreateOracleAssessmentDetails extends model.CreateAssessmentDetails {
   /**
+   * Assessment migration scope.
+   */
+  "migrationScope": model.MigrationScopeOracle;
+  /**
    * Database objects to exclude from migration, cannot be specified alongside 'includeObjects'
    *
    */

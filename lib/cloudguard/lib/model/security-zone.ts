@@ -69,6 +69,10 @@ export interface SecurityZone {
    */
   "lifecycleDetails"?: string;
   /**
+   * Indicates if upon deletion of the security zone the comparment should inherit parent security zone
+   */
+  "isInheritanceAfterDeleteEnabled"?: boolean;
+  /**
     * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
 * Example: {@code {\"bar-key\": \"value\"}}
 * <p>

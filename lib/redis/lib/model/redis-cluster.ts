@@ -107,6 +107,11 @@ export interface RedisCluster {
    */
   "nsgIds"?: Array<string>;
   /**
+   * The ID of the OCI Cache Backup from which this cluster was created.
+   */
+  "backupId"?: string;
+  "importFromObjectStorageDetails"?: model.ImportOciCacheFromObjectStorageDetails;
+  /**
     * Security attributes for redis cluster resource. Each key is predefined and scoped to a namespace.
 * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
@@ -177,6 +182,12 @@ export namespace RedisCluster {
       ...{
         "nodeCollection": obj.nodeCollection
           ? model.NodeCollection.getJsonObj(obj.nodeCollection)
+          : undefined,
+
+        "importFromObjectStorageDetails": obj.importFromObjectStorageDetails
+          ? model.ImportOciCacheFromObjectStorageDetails.getJsonObj(
+              obj.importFromObjectStorageDetails
+            )
           : undefined
       }
     };
@@ -189,6 +200,12 @@ export namespace RedisCluster {
       ...{
         "nodeCollection": obj.nodeCollection
           ? model.NodeCollection.getDeserializedJsonObj(obj.nodeCollection)
+          : undefined,
+
+        "importFromObjectStorageDetails": obj.importFromObjectStorageDetails
+          ? model.ImportOciCacheFromObjectStorageDetails.getDeserializedJsonObj(
+              obj.importFromObjectStorageDetails
+            )
           : undefined
       }
     };

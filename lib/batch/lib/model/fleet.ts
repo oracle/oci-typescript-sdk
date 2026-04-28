@@ -32,6 +32,11 @@ export namespace Fleet {
             <model.ServiceManagedFleet>(<object>jsonObj),
             true
           );
+        case "SERVICE_MANAGED_GPU_FLEET":
+          return model.ServiceManagedGpuFleet.getJsonObj(
+            <model.ServiceManagedGpuFleet>(<object>jsonObj),
+            true
+          );
         default:
           if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.type}`);
       }
@@ -46,6 +51,11 @@ export namespace Fleet {
         case "SERVICE_MANAGED_FLEET":
           return model.ServiceManagedFleet.getDeserializedJsonObj(
             <model.ServiceManagedFleet>(<object>jsonObj),
+            true
+          );
+        case "SERVICE_MANAGED_GPU_FLEET":
+          return model.ServiceManagedGpuFleet.getDeserializedJsonObj(
+            <model.ServiceManagedGpuFleet>(<object>jsonObj),
             true
           );
         default:

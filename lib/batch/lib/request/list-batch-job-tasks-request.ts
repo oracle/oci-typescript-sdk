@@ -29,9 +29,25 @@ export interface ListBatchJobTasksRequest extends common.BaseRequest {
    */
   "lifecycleState"?: string;
   /**
-   * The name of the task.
+   * The hierarchical name of the batch task. Mutually exclusive with the task id query parameter: you can't pass both.
    */
   "name"?: string;
+  /**
+   * The UUID of the batch task. Mutually exclusive with the task name and group task name query parameters: you can't pass both.
+   */
+  "taskId"?: string;
+  /**
+   * Hierarchical name of the group task. A filter to return only tasks contained within the selected group task. Omit to return top-level tasks only. Can be combined with task name query parameter, in which case task name becomes a hierarchical name relative to the selected group task, e.g. ?groupTaskName=A.B&taskName=C.D is equal to ?taskName=A.B.C.D. Mutually exclusive with the task id query parameter: you can't pass both.
+   */
+  "groupTaskName"?: string;
+  /**
+   * Filter tasks by type. Valid values are: COMPUTE, GROUP.
+   */
+  "type"?: string;
+  /**
+   * Defines the hierarchical scope of the tasks to be returned. When set to SHALLOW, which is default, only tasks contained directly (non-recursively) within current hierarchy entry are returned. When set to DEEP, tasks contained within current hierarchy entry and all its descendants recursively are returned. The default hierarchy entry is root, i.e. batch job itself. To use a different hierarchy entry, provide the group task name as a query parameter.  The specified group task becomes the entry point instead of the batch job.
+   */
+  "hierarchyView"?: model.BatchTaskHierarchyView;
   /**
    * For list pagination. The maximum number of results per page, or items to return in a
    * paginated \"List\" call. For important details about how pagination works, see

@@ -7,7 +7,7 @@
 
 import { version } from "../package.json";
 import { isBrowser, isEmpty } from "./utils";
-const uuidv1 = require("uuid/v1");
+import { v1 as uuidv1 } from "uuid";
 
 const OPC_REQUEST_ID_HEADER: string = "opc-request-id";
 const USER_AGENT_HEADER: string = "User-Agent";

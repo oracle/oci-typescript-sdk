@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Start policy for continuous query
+ * DEPRECATED - Start policy for continuous query
  */
 export interface ContinuousQueryStartPolicy {
   "startPolicyType": string;

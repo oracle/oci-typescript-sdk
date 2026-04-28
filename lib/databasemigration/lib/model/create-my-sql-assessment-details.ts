@@ -19,6 +19,10 @@ import common = require("oci-common");
  */
 export interface CreateMySqlAssessmentDetails extends model.CreateAssessmentDetails {
   /**
+   * Assessment migration scope.
+   */
+  "migrationScope": model.MigrationScopeMySql;
+  /**
    * Database objects to exclude from migration, cannot be specified alongside 'includeObjects'
    */
   "excludeObjects"?: Array<model.MySqlDatabaseObject>;

@@ -35,6 +35,10 @@ export interface ComputeTask extends model.BatchTask {
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the BatchTaskEnvironment.
    */
   "batchTaskEnvironmentId": string;
+  /**
+   * List of up to 30 most recent execution history entries, from newest to oldest. Be aware that the maximum number of items returned may change in the future.
+   */
+  "mostRecentExecutionHistory"?: Array<model.BatchTaskExecutionDetails>;
 
   "type": string;
 }
@@ -46,6 +50,12 @@ export namespace ComputeTask {
       ...{
         "fleetAssignmentPolicy": obj.fleetAssignmentPolicy
           ? model.FleetAssignmentPolicy.getJsonObj(obj.fleetAssignmentPolicy)
+          : undefined,
+
+        "mostRecentExecutionHistory": obj.mostRecentExecutionHistory
+          ? obj.mostRecentExecutionHistory.map(item => {
+              return model.BatchTaskExecutionDetails.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -59,6 +69,12 @@ export namespace ComputeTask {
       ...{
         "fleetAssignmentPolicy": obj.fleetAssignmentPolicy
           ? model.FleetAssignmentPolicy.getDeserializedJsonObj(obj.fleetAssignmentPolicy)
+          : undefined,
+
+        "mostRecentExecutionHistory": obj.mostRecentExecutionHistory
+          ? obj.mostRecentExecutionHistory.map(item => {
+              return model.BatchTaskExecutionDetails.getDeserializedJsonObj(item);
+            })
           : undefined
       }
     };

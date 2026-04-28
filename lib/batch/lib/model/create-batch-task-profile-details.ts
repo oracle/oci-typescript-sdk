@@ -37,11 +37,19 @@ export interface CreateBatchTaskProfileDetails {
   /**
    * The minimum required OCPUs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
-  "minOcpus": number;
+  "minOcpus"?: number;
   /**
    * The minimum required memory. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
-  "minMemoryInGBs": number;
+  "minMemoryInGBs"?: number;
+  /**
+   * The minimum required size of disk space in GBs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "minDiskSizeInGBs"?: number;
+  "extendedInformation"?:
+    | model.CreateGpuShapeTaskProfileExtendedInformationDetails
+    | model.CreateCpuShapeTaskProfileExtendedInformationDetails
+    | model.CreateCpuArchitectureTaskProfileExtendedInformationDetails;
   /**
     * Defined tags for this resource. Each key is predefined and scoped to a namespace.
 * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
@@ -62,12 +70,30 @@ Example: {@code {\"Department\": \"Finance\"}}
 
 export namespace CreateBatchTaskProfileDetails {
   export function getJsonObj(obj: CreateBatchTaskProfileDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "extendedInformation": obj.extendedInformation
+          ? model.CreateBatchTaskProfileExtendedInformationDetails.getJsonObj(
+              obj.extendedInformation
+            )
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: CreateBatchTaskProfileDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "extendedInformation": obj.extendedInformation
+          ? model.CreateBatchTaskProfileExtendedInformationDetails.getDeserializedJsonObj(
+              obj.extendedInformation
+            )
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

@@ -43,6 +43,14 @@ export interface BatchTaskProfileSummary {
    */
   "minMemoryInGBs"?: number;
   /**
+   * The minimum required size of disk space in GBs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "minDiskSizeInGBs"?: number;
+  "extendedInformation"?:
+    | model.CpuArchitectureTaskProfileExtendedInformation
+    | model.CpuShapeTaskProfileExtendedInformation
+    | model.GpuShapeTaskProfileExtendedInformation;
+  /**
    * The current state of the batch task profile.
    *
    */
@@ -88,12 +96,28 @@ Example: {@code {\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}}
 
 export namespace BatchTaskProfileSummary {
   export function getJsonObj(obj: BatchTaskProfileSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "extendedInformation": obj.extendedInformation
+          ? model.BatchTaskProfileExtendedInformation.getJsonObj(obj.extendedInformation)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: BatchTaskProfileSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "extendedInformation": obj.extendedInformation
+          ? model.BatchTaskProfileExtendedInformation.getDeserializedJsonObj(
+              obj.extendedInformation
+            )
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

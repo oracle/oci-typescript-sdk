@@ -94,4 +94,8 @@ export interface SummarizeInstallationUsageRequest extends common.BaseRequest {
    *
    */
   "pathContains"?: string;
+  /**
+   * The security status of the Java Runtime.
+   */
+  "jreSecurityStatus"?: model.JreSecurityStatus;
 }

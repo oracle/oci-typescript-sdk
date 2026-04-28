@@ -1958,7 +1958,8 @@ export class BatchComputingClient {
       "compartmentId": listBatchContextShapesRequest.compartmentId,
       "availabilityDomain": listBatchContextShapesRequest.availabilityDomain,
       "limit": listBatchContextShapesRequest.limit,
-      "page": listBatchContextShapesRequest.page
+      "page": listBatchContextShapesRequest.page,
+      "shapeType": listBatchContextShapesRequest.shapeType
     };
 
     let headerParams = {
@@ -2203,6 +2204,10 @@ export class BatchComputingClient {
     const queryParams = {
       "lifecycleState": listBatchJobTasksRequest.lifecycleState,
       "name": listBatchJobTasksRequest.name,
+      "taskId": listBatchJobTasksRequest.taskId,
+      "groupTaskName": listBatchJobTasksRequest.groupTaskName,
+      "type": listBatchJobTasksRequest.type,
+      "hierarchyView": listBatchJobTasksRequest.hierarchyView,
       "limit": listBatchJobTasksRequest.limit,
       "page": listBatchJobTasksRequest.page,
       "sortOrder": listBatchJobTasksRequest.sortOrder,
@@ -2265,7 +2270,7 @@ export class BatchComputingClient {
   }
 
   /**
-   * Lists the batch jobs by compartment or job [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm). You can filter and sort them by various properties like lifecycle state, display name and also ocid. All properties require an exact match.  List operation only provides a summary information, use GetBatchJob to get the full details on a specific context
+   * Lists the batch jobs by compartment or job [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm). You can filter and sort them by various properties like lifecycle state, display name and also ocid. All properties require an exact match. List operation only provides a summary information, use GetBatchJob to get the full details on a specific context
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListBatchJobsRequest
    * @return ListBatchJobsResponse
@@ -2534,6 +2539,7 @@ export class BatchComputingClient {
       "batchJobId": listBatchTasksRequest.batchJobId,
       "lifecycleState": listBatchTasksRequest.lifecycleState,
       "name": listBatchTasksRequest.name,
+      "taskId": listBatchTasksRequest.taskId,
       "limit": listBatchTasksRequest.limit,
       "page": listBatchTasksRequest.page,
       "sortOrder": listBatchTasksRequest.sortOrder,

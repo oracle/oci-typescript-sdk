@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Logging configuration for batch context.
+ * Logging configuration of the batch context.
  */
 export interface LoggingConfiguration {
   "type": string;

@@ -34,12 +34,12 @@ export interface LoggingQueryDataSourceDetails extends model.DataSourceDetails {
    */
   "intervalInMinutes"?: number;
   /**
-   * The integer value that must be exceeded, fall below or equal to (depending on the operator), for the query result to trigger an event Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * DEPRECATED - The integer value that must be exceeded, fall below or equal to (depending on the operator), for the query result to trigger an event Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "threshold"?: number;
   "queryStartTime"?: model.AbsoluteTimeStartPolicy | model.NoDelayStartPolicy;
   /**
-   * Operator used in data source
+   * DEPRECATED - Operator used in data source
    */
   "operator"?: model.LoggingQueryOperatorType;
   /**

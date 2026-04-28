@@ -30,7 +30,7 @@ export interface ScheduledQueryDataSourceObjDetails extends model.DataSourceDeta
    */
   "description"?: string;
   /**
-   * Interval in minutes which query is run periodically. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Interval in seconds which query is run periodically. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "intervalInSeconds"?: number;
   /**

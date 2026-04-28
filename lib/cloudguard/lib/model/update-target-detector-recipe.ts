@@ -28,7 +28,7 @@ export interface UpdateTargetDetectorRecipe {
   /**
    * Updates to be applied to detector rules in target detector recipe
    */
-  "detectorRules": Array<model.UpdateTargetRecipeDetectorRuleDetails>;
+  "detectorRules"?: Array<model.UpdateTargetRecipeDetectorRuleDetails>;
 }
 
 export namespace UpdateTargetDetectorRecipe {
