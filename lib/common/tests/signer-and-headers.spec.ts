@@ -63,7 +63,7 @@ describe("Signer and header helpers", () => {
     const headers = new Headers();
     addOpcRequestId(headers);
 
-    expect(headers.get("opc-request-id")).to.equal("A747C0002C29-11EA-8607-010102030405");
+    expect(headers.get("opc-request-id")).to.equal("A747C0002C29-11EA-8809-0B0B0C0D0E0F");
   });
 
   it("should generate the expected x-content-sha256 for a JSON request body", async function() {
