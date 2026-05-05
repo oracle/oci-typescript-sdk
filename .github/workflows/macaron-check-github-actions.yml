@@ -7,13 +7,7 @@
 name: Run Macaron to Check Supply Chain Security Issues
 on:
   pull_request:
-  push:
-    branches:
-      - master
-    paths:
-      - ".github/workflows/**"
-      - ".github/actions/**"
-  workflow_dispatch:
+    types: [opened, synchronize]
 
 permissions:
   contents: read
