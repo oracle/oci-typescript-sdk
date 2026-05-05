@@ -3,7 +3,7 @@
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
-import { OciError } from "..";
+import { OciError } from "./error";
 
 export interface DelayStrategy {
   delay(context: WaitContext): number;
