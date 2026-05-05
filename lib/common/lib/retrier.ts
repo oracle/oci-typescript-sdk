@@ -16,7 +16,7 @@ import { HttpClient } from "./http";
 import { HttpRequest } from "./http-request";
 import { isReadableStream } from "./helper";
 import { handleErrorBody, handleErrorResponse } from "./helper";
-import { OciError } from "..";
+import { OciError } from "./error";
 import { Logger } from "./log";
 import { BooleanString } from "./constants";
 
