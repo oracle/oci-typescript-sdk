@@ -29,6 +29,10 @@ export interface DigitalTwinInstanceSummary {
    */
   "iotDomainId": string;
   /**
+   * Connectivity type of the digital twin instance
+   */
+  "connectivityType": model.DigitalTwinInstanceConnectivityType;
+  /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the resource (like VaultSecret, ClientCertificate etc.,) used to authenticate the digital twin instance.
    */
   "authId"?: string;
@@ -60,6 +64,11 @@ export interface DigitalTwinInstanceSummary {
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the digital twin adapter.
    */
   "digitalTwinAdapterId"?: string;
+  /**
+   * An array of unique ids ([OCIDs](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm)) of the IoT digital twin instances with connectivityType equals to GATEWAY.
+   *
+   */
+  "gateways"?: Array<string>;
   /**
    * The current state of the digital twin instance.
    */

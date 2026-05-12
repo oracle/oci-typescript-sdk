@@ -1,5 +1,5 @@
 /**
- * Database Tools
+ * Database Tools API
  * Use the Database Tools API to manage connections, private endpoints, and work requests in the Database Tools service.
  * OpenAPI spec version: 20201005
  *
@@ -250,8 +250,7 @@ export class DatabaseToolsClient {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseToolsClient#addDatabaseToolsConnectionLock.");
     const operationName = "addDatabaseToolsConnectionLock";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/database-tools/20201005/DatabaseToolsConnection/AddDatabaseToolsConnectionLock";
+    const apiReferenceLink = "";
     const pathParams = {
       "{databaseToolsConnectionId}": addDatabaseToolsConnectionLockRequest.databaseToolsConnectionId
     };
@@ -320,6 +319,92 @@ export class DatabaseToolsClient {
   }
 
   /**
+   * Adds a lock to a DatabaseToolsDatabaseApiGatewayConfig resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param AddDatabaseToolsDatabaseApiGatewayConfigLockRequest
+   * @return AddDatabaseToolsDatabaseApiGatewayConfigLockResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/AddDatabaseToolsDatabaseApiGatewayConfigLock.ts.html |here} to see how to use AddDatabaseToolsDatabaseApiGatewayConfigLock API.
+   */
+  public async addDatabaseToolsDatabaseApiGatewayConfigLock(
+    addDatabaseToolsDatabaseApiGatewayConfigLockRequest: requests.AddDatabaseToolsDatabaseApiGatewayConfigLockRequest
+  ): Promise<responses.AddDatabaseToolsDatabaseApiGatewayConfigLockResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseToolsClient#addDatabaseToolsDatabaseApiGatewayConfigLock."
+      );
+    const operationName = "addDatabaseToolsDatabaseApiGatewayConfigLock";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{databaseToolsDatabaseApiGatewayConfigId}":
+        addDatabaseToolsDatabaseApiGatewayConfigLockRequest.databaseToolsDatabaseApiGatewayConfigId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": addDatabaseToolsDatabaseApiGatewayConfigLockRequest.opcRequestId,
+      "if-match": addDatabaseToolsDatabaseApiGatewayConfigLockRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      addDatabaseToolsDatabaseApiGatewayConfigLockRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/databaseToolsDatabaseApiGatewayConfigs/{databaseToolsDatabaseApiGatewayConfigId}/actions/addLock",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        addDatabaseToolsDatabaseApiGatewayConfigLockRequest.addResourceLockDetails,
+        "AddResourceLockDetails",
+        model.AddResourceLockDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AddDatabaseToolsDatabaseApiGatewayConfigLockResponse>{},
+        body: await response.json(),
+        bodyKey: "databaseToolsDatabaseApiGatewayConfig",
+        bodyModel: model.DatabaseToolsDatabaseApiGatewayConfig,
+        type: "model.DatabaseToolsDatabaseApiGatewayConfig",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Adds a lock to a DatabaseToolsIdentity resource.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param AddDatabaseToolsIdentityLockRequest
@@ -333,8 +418,7 @@ export class DatabaseToolsClient {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseToolsClient#addDatabaseToolsIdentityLock.");
     const operationName = "addDatabaseToolsIdentityLock";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/database-tools/20201005/DatabaseToolsIdentity/AddDatabaseToolsIdentityLock";
+    const apiReferenceLink = "";
     const pathParams = {
       "{databaseToolsIdentityId}": addDatabaseToolsIdentityLockRequest.databaseToolsIdentityId
     };
@@ -403,6 +487,170 @@ export class DatabaseToolsClient {
   }
 
   /**
+   * Adds a lock to a DatabaseToolsMcpServer resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param AddDatabaseToolsMcpServerLockRequest
+   * @return AddDatabaseToolsMcpServerLockResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/AddDatabaseToolsMcpServerLock.ts.html |here} to see how to use AddDatabaseToolsMcpServerLock API.
+   */
+  public async addDatabaseToolsMcpServerLock(
+    addDatabaseToolsMcpServerLockRequest: requests.AddDatabaseToolsMcpServerLockRequest
+  ): Promise<responses.AddDatabaseToolsMcpServerLockResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseToolsClient#addDatabaseToolsMcpServerLock.");
+    const operationName = "addDatabaseToolsMcpServerLock";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{databaseToolsMcpServerId}": addDatabaseToolsMcpServerLockRequest.databaseToolsMcpServerId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": addDatabaseToolsMcpServerLockRequest.opcRequestId,
+      "if-match": addDatabaseToolsMcpServerLockRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      addDatabaseToolsMcpServerLockRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseToolsMcpServers/{databaseToolsMcpServerId}/actions/addLock",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        addDatabaseToolsMcpServerLockRequest.addResourceLockDetails,
+        "AddResourceLockDetails",
+        model.AddResourceLockDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AddDatabaseToolsMcpServerLockResponse>{},
+        body: await response.json(),
+        bodyKey: "databaseToolsMcpServer",
+        bodyModel: model.DatabaseToolsMcpServer,
+        type: "model.DatabaseToolsMcpServer",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Adds a lock to a DatabaseToolsMcpToolset resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param AddDatabaseToolsMcpToolsetLockRequest
+   * @return AddDatabaseToolsMcpToolsetLockResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/AddDatabaseToolsMcpToolsetLock.ts.html |here} to see how to use AddDatabaseToolsMcpToolsetLock API.
+   */
+  public async addDatabaseToolsMcpToolsetLock(
+    addDatabaseToolsMcpToolsetLockRequest: requests.AddDatabaseToolsMcpToolsetLockRequest
+  ): Promise<responses.AddDatabaseToolsMcpToolsetLockResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseToolsClient#addDatabaseToolsMcpToolsetLock.");
+    const operationName = "addDatabaseToolsMcpToolsetLock";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{databaseToolsMcpToolsetId}": addDatabaseToolsMcpToolsetLockRequest.databaseToolsMcpToolsetId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": addDatabaseToolsMcpToolsetLockRequest.opcRequestId,
+      "if-match": addDatabaseToolsMcpToolsetLockRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      addDatabaseToolsMcpToolsetLockRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseToolsMcpToolsets/{databaseToolsMcpToolsetId}/actions/addLock",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        addDatabaseToolsMcpToolsetLockRequest.addResourceLockDetails,
+        "AddResourceLockDetails",
+        model.AddResourceLockDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AddDatabaseToolsMcpToolsetLockResponse>{},
+        body: await response.json(),
+        bodyKey: "databaseToolsMcpToolset",
+        bodyModel: model.DatabaseToolsMcpToolset,
+        type: "model.DatabaseToolsMcpToolset",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Adds a lock to a DatabaseToolsPrivateEndpoint resource.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param AddDatabaseToolsPrivateEndpointLockRequest
@@ -418,8 +666,7 @@ export class DatabaseToolsClient {
         "Calling operation DatabaseToolsClient#addDatabaseToolsPrivateEndpointLock."
       );
     const operationName = "addDatabaseToolsPrivateEndpointLock";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/database-tools/20201005/DatabaseToolsPrivateEndpoint/AddDatabaseToolsPrivateEndpointLock";
+    const apiReferenceLink = "";
     const pathParams = {
       "{databaseToolsPrivateEndpointId}":
         addDatabaseToolsPrivateEndpointLockRequest.databaseToolsPrivateEndpointId
@@ -489,6 +736,165 @@ export class DatabaseToolsClient {
   }
 
   /**
+   * Adds a lock to a DatabaseToolsSqlReport resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param AddDatabaseToolsSqlReportLockRequest
+   * @return AddDatabaseToolsSqlReportLockResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/AddDatabaseToolsSqlReportLock.ts.html |here} to see how to use AddDatabaseToolsSqlReportLock API.
+   */
+  public async addDatabaseToolsSqlReportLock(
+    addDatabaseToolsSqlReportLockRequest: requests.AddDatabaseToolsSqlReportLockRequest
+  ): Promise<responses.AddDatabaseToolsSqlReportLockResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseToolsClient#addDatabaseToolsSqlReportLock.");
+    const operationName = "addDatabaseToolsSqlReportLock";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{databaseToolsSqlReportId}": addDatabaseToolsSqlReportLockRequest.databaseToolsSqlReportId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": addDatabaseToolsSqlReportLockRequest.opcRequestId,
+      "if-match": addDatabaseToolsSqlReportLockRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      addDatabaseToolsSqlReportLockRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseToolsSqlReports/{databaseToolsSqlReportId}/actions/addLock",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        addDatabaseToolsSqlReportLockRequest.addResourceLockDetails,
+        "AddResourceLockDetails",
+        model.AddResourceLockDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AddDatabaseToolsSqlReportLockResponse>{},
+        body: await response.json(),
+        bodyKey: "databaseToolsSqlReport",
+        bodyModel: model.DatabaseToolsSqlReport,
+        type: "model.DatabaseToolsSqlReport",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes Database Tools McpServer resource.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CascadingDeleteDatabaseToolsMcpServerRequest
+   * @return CascadingDeleteDatabaseToolsMcpServerResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/CascadingDeleteDatabaseToolsMcpServer.ts.html |here} to see how to use CascadingDeleteDatabaseToolsMcpServer API.
+   */
+  public async cascadingDeleteDatabaseToolsMcpServer(
+    cascadingDeleteDatabaseToolsMcpServerRequest: requests.CascadingDeleteDatabaseToolsMcpServerRequest
+  ): Promise<responses.CascadingDeleteDatabaseToolsMcpServerResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseToolsClient#cascadingDeleteDatabaseToolsMcpServer."
+      );
+    const operationName = "cascadingDeleteDatabaseToolsMcpServer";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{databaseToolsMcpServerId}":
+        cascadingDeleteDatabaseToolsMcpServerRequest.databaseToolsMcpServerId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": cascadingDeleteDatabaseToolsMcpServerRequest.ifMatch,
+      "opc-request-id": cascadingDeleteDatabaseToolsMcpServerRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      cascadingDeleteDatabaseToolsMcpServerRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseToolsMcpServers/{databaseToolsMcpServerId}/actions/cascadingDelete",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CascadingDeleteDatabaseToolsMcpServerResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Moves the specified Database Tools connection to a different compartment in the same tenancy.
    * For information about moving resources between compartments, see
    * [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
@@ -507,8 +913,7 @@ export class DatabaseToolsClient {
         "Calling operation DatabaseToolsClient#changeDatabaseToolsConnectionCompartment."
       );
     const operationName = "changeDatabaseToolsConnectionCompartment";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/database-tools/20201005/DatabaseToolsConnection/ChangeDatabaseToolsConnectionCompartment";
+    const apiReferenceLink = "";
     const pathParams = {
       "{databaseToolsConnectionId}":
         changeDatabaseToolsConnectionCompartmentRequest.databaseToolsConnectionId
@@ -576,6 +981,90 @@ export class DatabaseToolsClient {
   }
 
   /**
+   * Moves the specified Database Tools database API gateway config to a different compartment in the same tenancy.
+   * For information about moving resources between compartments, see
+   * [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/DbApiGatewayConfig/Tasks/managingcompartments.htm#moveRes).
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ChangeDatabaseToolsDatabaseApiGatewayConfigCompartmentRequest
+   * @return ChangeDatabaseToolsDatabaseApiGatewayConfigCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/ChangeDatabaseToolsDatabaseApiGatewayConfigCompartment.ts.html |here} to see how to use ChangeDatabaseToolsDatabaseApiGatewayConfigCompartment API.
+   */
+  public async changeDatabaseToolsDatabaseApiGatewayConfigCompartment(
+    changeDatabaseToolsDatabaseApiGatewayConfigCompartmentRequest: requests.ChangeDatabaseToolsDatabaseApiGatewayConfigCompartmentRequest
+  ): Promise<responses.ChangeDatabaseToolsDatabaseApiGatewayConfigCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseToolsClient#changeDatabaseToolsDatabaseApiGatewayConfigCompartment."
+      );
+    const operationName = "changeDatabaseToolsDatabaseApiGatewayConfigCompartment";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{databaseToolsDatabaseApiGatewayConfigId}":
+        changeDatabaseToolsDatabaseApiGatewayConfigCompartmentRequest.databaseToolsDatabaseApiGatewayConfigId
+    };
+
+    const queryParams = {
+      "isLockOverride": changeDatabaseToolsDatabaseApiGatewayConfigCompartmentRequest.isLockOverride
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeDatabaseToolsDatabaseApiGatewayConfigCompartmentRequest.ifMatch,
+      "opc-request-id": changeDatabaseToolsDatabaseApiGatewayConfigCompartmentRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeDatabaseToolsDatabaseApiGatewayConfigCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/databaseToolsDatabaseApiGatewayConfigs/{databaseToolsDatabaseApiGatewayConfigId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeDatabaseToolsDatabaseApiGatewayConfigCompartmentRequest.changeDatabaseToolsDatabaseApiGatewayConfigCompartmentDetails,
+        "ChangeDatabaseToolsDatabaseApiGatewayConfigCompartmentDetails",
+        model.ChangeDatabaseToolsDatabaseApiGatewayConfigCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <
+          responses.ChangeDatabaseToolsDatabaseApiGatewayConfigCompartmentResponse
+        >{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Moves the specified Database Tools identity to a different compartment in the same tenancy.
    * For information about moving resources between compartments, see
    * [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
@@ -594,8 +1083,7 @@ export class DatabaseToolsClient {
         "Calling operation DatabaseToolsClient#changeDatabaseToolsIdentityCompartment."
       );
     const operationName = "changeDatabaseToolsIdentityCompartment";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/database-tools/20201005/DatabaseToolsIdentity/ChangeDatabaseToolsIdentityCompartment";
+    const apiReferenceLink = "";
     const pathParams = {
       "{databaseToolsIdentityId}":
         changeDatabaseToolsIdentityCompartmentRequest.databaseToolsIdentityId
@@ -663,6 +1151,169 @@ export class DatabaseToolsClient {
   }
 
   /**
+   * Moves the specified Database Tools mcpserver to a different compartment in the same tenancy.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ChangeDatabaseToolsMcpServerCompartmentRequest
+   * @return ChangeDatabaseToolsMcpServerCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/ChangeDatabaseToolsMcpServerCompartment.ts.html |here} to see how to use ChangeDatabaseToolsMcpServerCompartment API.
+   */
+  public async changeDatabaseToolsMcpServerCompartment(
+    changeDatabaseToolsMcpServerCompartmentRequest: requests.ChangeDatabaseToolsMcpServerCompartmentRequest
+  ): Promise<responses.ChangeDatabaseToolsMcpServerCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseToolsClient#changeDatabaseToolsMcpServerCompartment."
+      );
+    const operationName = "changeDatabaseToolsMcpServerCompartment";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{databaseToolsMcpServerId}":
+        changeDatabaseToolsMcpServerCompartmentRequest.databaseToolsMcpServerId
+    };
+
+    const queryParams = {
+      "isLockOverride": changeDatabaseToolsMcpServerCompartmentRequest.isLockOverride
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeDatabaseToolsMcpServerCompartmentRequest.ifMatch,
+      "opc-request-id": changeDatabaseToolsMcpServerCompartmentRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeDatabaseToolsMcpServerCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseToolsMcpServers/{databaseToolsMcpServerId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeDatabaseToolsMcpServerCompartmentRequest.changeDatabaseToolsMcpServerCompartmentDetails,
+        "ChangeDatabaseToolsMcpServerCompartmentDetails",
+        model.ChangeDatabaseToolsMcpServerCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeDatabaseToolsMcpServerCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Moves the specified Database Tools MCP Toolset to a different compartment in the same tenancy.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ChangeDatabaseToolsMcpToolsetCompartmentRequest
+   * @return ChangeDatabaseToolsMcpToolsetCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/ChangeDatabaseToolsMcpToolsetCompartment.ts.html |here} to see how to use ChangeDatabaseToolsMcpToolsetCompartment API.
+   */
+  public async changeDatabaseToolsMcpToolsetCompartment(
+    changeDatabaseToolsMcpToolsetCompartmentRequest: requests.ChangeDatabaseToolsMcpToolsetCompartmentRequest
+  ): Promise<responses.ChangeDatabaseToolsMcpToolsetCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseToolsClient#changeDatabaseToolsMcpToolsetCompartment."
+      );
+    const operationName = "changeDatabaseToolsMcpToolsetCompartment";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{databaseToolsMcpToolsetId}":
+        changeDatabaseToolsMcpToolsetCompartmentRequest.databaseToolsMcpToolsetId
+    };
+
+    const queryParams = {
+      "isLockOverride": changeDatabaseToolsMcpToolsetCompartmentRequest.isLockOverride
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeDatabaseToolsMcpToolsetCompartmentRequest.ifMatch,
+      "opc-request-id": changeDatabaseToolsMcpToolsetCompartmentRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeDatabaseToolsMcpToolsetCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseToolsMcpToolsets/{databaseToolsMcpToolsetId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeDatabaseToolsMcpToolsetCompartmentRequest.changeDatabaseToolsMcpToolsetCompartmentDetails,
+        "ChangeDatabaseToolsMcpToolsetCompartmentDetails",
+        model.ChangeDatabaseToolsMcpToolsetCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeDatabaseToolsMcpToolsetCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Moves a Database Tools private endpoint into a different compartment in the same tenancy.
    * For information about moving resources between compartments, see
    * [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
@@ -681,8 +1332,7 @@ export class DatabaseToolsClient {
         "Calling operation DatabaseToolsClient#changeDatabaseToolsPrivateEndpointCompartment."
       );
     const operationName = "changeDatabaseToolsPrivateEndpointCompartment";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/database-tools/20201005/DatabaseToolsPrivateEndpoint/ChangeDatabaseToolsPrivateEndpointCompartment";
+    const apiReferenceLink = "";
     const pathParams = {
       "{databaseToolsPrivateEndpointId}":
         changeDatabaseToolsPrivateEndpointCompartmentRequest.databaseToolsPrivateEndpointId
@@ -736,6 +1386,85 @@ export class DatabaseToolsClient {
             key: "opcWorkRequestId",
             dataType: "string"
           },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Moves the specified Database Tools SQL Report to a different compartment in the same tenancy.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ChangeDatabaseToolsSqlReportCompartmentRequest
+   * @return ChangeDatabaseToolsSqlReportCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/ChangeDatabaseToolsSqlReportCompartment.ts.html |here} to see how to use ChangeDatabaseToolsSqlReportCompartment API.
+   */
+  public async changeDatabaseToolsSqlReportCompartment(
+    changeDatabaseToolsSqlReportCompartmentRequest: requests.ChangeDatabaseToolsSqlReportCompartmentRequest
+  ): Promise<responses.ChangeDatabaseToolsSqlReportCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseToolsClient#changeDatabaseToolsSqlReportCompartment."
+      );
+    const operationName = "changeDatabaseToolsSqlReportCompartment";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{databaseToolsSqlReportId}":
+        changeDatabaseToolsSqlReportCompartmentRequest.databaseToolsSqlReportId
+    };
+
+    const queryParams = {
+      "isLockOverride": changeDatabaseToolsSqlReportCompartmentRequest.isLockOverride
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeDatabaseToolsSqlReportCompartmentRequest.ifMatch,
+      "opc-request-id": changeDatabaseToolsSqlReportCompartmentRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeDatabaseToolsSqlReportCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseToolsSqlReports/{databaseToolsSqlReportId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeDatabaseToolsSqlReportCompartmentRequest.changeDatabaseToolsSqlReportCompartmentDetails,
+        "ChangeDatabaseToolsSqlReportCompartmentDetails",
+        model.ChangeDatabaseToolsSqlReportCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeDatabaseToolsSqlReportCompartmentResponse>{},
+        responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -842,6 +1571,94 @@ export class DatabaseToolsClient {
   }
 
   /**
+   * Creates a new Database Tools database API gateway config.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateDatabaseToolsDatabaseApiGatewayConfigRequest
+   * @return CreateDatabaseToolsDatabaseApiGatewayConfigResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/CreateDatabaseToolsDatabaseApiGatewayConfig.ts.html |here} to see how to use CreateDatabaseToolsDatabaseApiGatewayConfig API.
+   */
+  public async createDatabaseToolsDatabaseApiGatewayConfig(
+    createDatabaseToolsDatabaseApiGatewayConfigRequest: requests.CreateDatabaseToolsDatabaseApiGatewayConfigRequest
+  ): Promise<responses.CreateDatabaseToolsDatabaseApiGatewayConfigResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseToolsClient#createDatabaseToolsDatabaseApiGatewayConfig."
+      );
+    const operationName = "createDatabaseToolsDatabaseApiGatewayConfig";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createDatabaseToolsDatabaseApiGatewayConfigRequest.opcRetryToken,
+      "opc-request-id": createDatabaseToolsDatabaseApiGatewayConfigRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createDatabaseToolsDatabaseApiGatewayConfigRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseToolsDatabaseApiGatewayConfigs",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createDatabaseToolsDatabaseApiGatewayConfigRequest.createDatabaseToolsDatabaseApiGatewayConfigDetails,
+        "CreateDatabaseToolsDatabaseApiGatewayConfigDetails",
+        model.CreateDatabaseToolsDatabaseApiGatewayConfigDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateDatabaseToolsDatabaseApiGatewayConfigResponse>{},
+        body: await response.json(),
+        bodyKey: "databaseToolsDatabaseApiGatewayConfig",
+        bodyModel: model.DatabaseToolsDatabaseApiGatewayConfig,
+        type: "model.DatabaseToolsDatabaseApiGatewayConfig",
+        responseHeaders: [
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates a new Database Tools identity.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -902,6 +1719,188 @@ export class DatabaseToolsClient {
         bodyKey: "databaseToolsIdentity",
         bodyModel: model.DatabaseToolsIdentity,
         type: "model.DatabaseToolsIdentity",
+        responseHeaders: [
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new Database Tools MCP server.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateDatabaseToolsMcpServerRequest
+   * @return CreateDatabaseToolsMcpServerResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/CreateDatabaseToolsMcpServer.ts.html |here} to see how to use CreateDatabaseToolsMcpServer API.
+   */
+  public async createDatabaseToolsMcpServer(
+    createDatabaseToolsMcpServerRequest: requests.CreateDatabaseToolsMcpServerRequest
+  ): Promise<responses.CreateDatabaseToolsMcpServerResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseToolsClient#createDatabaseToolsMcpServer.");
+    const operationName = "createDatabaseToolsMcpServer";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createDatabaseToolsMcpServerRequest.opcRetryToken,
+      "opc-request-id": createDatabaseToolsMcpServerRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createDatabaseToolsMcpServerRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseToolsMcpServers",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createDatabaseToolsMcpServerRequest.createDatabaseToolsMcpServerDetails,
+        "CreateDatabaseToolsMcpServerDetails",
+        model.CreateDatabaseToolsMcpServerDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateDatabaseToolsMcpServerResponse>{},
+        body: await response.json(),
+        bodyKey: "databaseToolsMcpServer",
+        bodyModel: model.DatabaseToolsMcpServer,
+        type: "model.DatabaseToolsMcpServer",
+        responseHeaders: [
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new Database Tools MCP Toolset.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateDatabaseToolsMcpToolsetRequest
+   * @return CreateDatabaseToolsMcpToolsetResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/CreateDatabaseToolsMcpToolset.ts.html |here} to see how to use CreateDatabaseToolsMcpToolset API.
+   */
+  public async createDatabaseToolsMcpToolset(
+    createDatabaseToolsMcpToolsetRequest: requests.CreateDatabaseToolsMcpToolsetRequest
+  ): Promise<responses.CreateDatabaseToolsMcpToolsetResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseToolsClient#createDatabaseToolsMcpToolset.");
+    const operationName = "createDatabaseToolsMcpToolset";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createDatabaseToolsMcpToolsetRequest.opcRetryToken,
+      "opc-request-id": createDatabaseToolsMcpToolsetRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createDatabaseToolsMcpToolsetRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseToolsMcpToolsets",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createDatabaseToolsMcpToolsetRequest.createDatabaseToolsMcpToolsetDetails,
+        "CreateDatabaseToolsMcpToolsetDetails",
+        model.CreateDatabaseToolsMcpToolsetDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateDatabaseToolsMcpToolsetResponse>{},
+        body: await response.json(),
+        bodyKey: "databaseToolsMcpToolset",
+        bodyModel: model.DatabaseToolsMcpToolset,
+        type: "model.DatabaseToolsMcpToolset",
         responseHeaders: [
           {
             value: response.headers.get("location"),
@@ -1026,6 +2025,97 @@ export class DatabaseToolsClient {
   }
 
   /**
+   * Creates a new Database Tools  Sql Report.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateDatabaseToolsSqlReportRequest
+   * @return CreateDatabaseToolsSqlReportResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/CreateDatabaseToolsSqlReport.ts.html |here} to see how to use CreateDatabaseToolsSqlReport API.
+   */
+  public async createDatabaseToolsSqlReport(
+    createDatabaseToolsSqlReportRequest: requests.CreateDatabaseToolsSqlReportRequest
+  ): Promise<responses.CreateDatabaseToolsSqlReportResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseToolsClient#createDatabaseToolsSqlReport.");
+    const operationName = "createDatabaseToolsSqlReport";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createDatabaseToolsSqlReportRequest.opcRetryToken,
+      "opc-request-id": createDatabaseToolsSqlReportRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createDatabaseToolsSqlReportRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseToolsSqlReports",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createDatabaseToolsSqlReportRequest.createDatabaseToolsSqlReportDetails,
+        "CreateDatabaseToolsSqlReportDetails",
+        model.CreateDatabaseToolsSqlReportDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateDatabaseToolsSqlReportResponse>{},
+        body: await response.json(),
+        bodyKey: "databaseToolsSqlReport",
+        bodyModel: model.DatabaseToolsSqlReport,
+        type: "model.DatabaseToolsSqlReport",
+        responseHeaders: [
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes the specified Database Tools connection resource.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteDatabaseToolsConnectionRequest
@@ -1039,8 +2129,7 @@ export class DatabaseToolsClient {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseToolsClient#deleteDatabaseToolsConnection.");
     const operationName = "deleteDatabaseToolsConnection";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/database-tools/20201005/DatabaseToolsConnection/DeleteDatabaseToolsConnection";
+    const apiReferenceLink = "";
     const pathParams = {
       "{databaseToolsConnectionId}": deleteDatabaseToolsConnectionRequest.databaseToolsConnectionId
     };
@@ -1102,6 +2191,79 @@ export class DatabaseToolsClient {
   }
 
   /**
+   * Deletes the specified Database Tools database API gateway config resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteDatabaseToolsDatabaseApiGatewayConfigRequest
+   * @return DeleteDatabaseToolsDatabaseApiGatewayConfigResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/DeleteDatabaseToolsDatabaseApiGatewayConfig.ts.html |here} to see how to use DeleteDatabaseToolsDatabaseApiGatewayConfig API.
+   */
+  public async deleteDatabaseToolsDatabaseApiGatewayConfig(
+    deleteDatabaseToolsDatabaseApiGatewayConfigRequest: requests.DeleteDatabaseToolsDatabaseApiGatewayConfigRequest
+  ): Promise<responses.DeleteDatabaseToolsDatabaseApiGatewayConfigResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseToolsClient#deleteDatabaseToolsDatabaseApiGatewayConfig."
+      );
+    const operationName = "deleteDatabaseToolsDatabaseApiGatewayConfig";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{databaseToolsDatabaseApiGatewayConfigId}":
+        deleteDatabaseToolsDatabaseApiGatewayConfigRequest.databaseToolsDatabaseApiGatewayConfigId
+    };
+
+    const queryParams = {
+      "isLockOverride": deleteDatabaseToolsDatabaseApiGatewayConfigRequest.isLockOverride
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteDatabaseToolsDatabaseApiGatewayConfigRequest.ifMatch,
+      "opc-request-id": deleteDatabaseToolsDatabaseApiGatewayConfigRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteDatabaseToolsDatabaseApiGatewayConfigRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseToolsDatabaseApiGatewayConfigs/{databaseToolsDatabaseApiGatewayConfigId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteDatabaseToolsDatabaseApiGatewayConfigResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes the specified Database Tools identity resource.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteDatabaseToolsIdentityRequest
@@ -1115,8 +2277,7 @@ export class DatabaseToolsClient {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseToolsClient#deleteDatabaseToolsIdentity.");
     const operationName = "deleteDatabaseToolsIdentity";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/database-tools/20201005/DatabaseToolsIdentity/DeleteDatabaseToolsIdentity";
+    const apiReferenceLink = "";
     const pathParams = {
       "{databaseToolsIdentityId}": deleteDatabaseToolsIdentityRequest.databaseToolsIdentityId
     };
@@ -1178,6 +2339,156 @@ export class DatabaseToolsClient {
   }
 
   /**
+   * Deletes the specified Database Tools MCP server resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteDatabaseToolsMcpServerRequest
+   * @return DeleteDatabaseToolsMcpServerResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/DeleteDatabaseToolsMcpServer.ts.html |here} to see how to use DeleteDatabaseToolsMcpServer API.
+   */
+  public async deleteDatabaseToolsMcpServer(
+    deleteDatabaseToolsMcpServerRequest: requests.DeleteDatabaseToolsMcpServerRequest
+  ): Promise<responses.DeleteDatabaseToolsMcpServerResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseToolsClient#deleteDatabaseToolsMcpServer.");
+    const operationName = "deleteDatabaseToolsMcpServer";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{databaseToolsMcpServerId}": deleteDatabaseToolsMcpServerRequest.databaseToolsMcpServerId
+    };
+
+    const queryParams = {
+      "isLockOverride": deleteDatabaseToolsMcpServerRequest.isLockOverride
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteDatabaseToolsMcpServerRequest.ifMatch,
+      "opc-request-id": deleteDatabaseToolsMcpServerRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteDatabaseToolsMcpServerRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseToolsMcpServers/{databaseToolsMcpServerId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteDatabaseToolsMcpServerResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the specified Database Tools MCP Toolset resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteDatabaseToolsMcpToolsetRequest
+   * @return DeleteDatabaseToolsMcpToolsetResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/DeleteDatabaseToolsMcpToolset.ts.html |here} to see how to use DeleteDatabaseToolsMcpToolset API.
+   */
+  public async deleteDatabaseToolsMcpToolset(
+    deleteDatabaseToolsMcpToolsetRequest: requests.DeleteDatabaseToolsMcpToolsetRequest
+  ): Promise<responses.DeleteDatabaseToolsMcpToolsetResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseToolsClient#deleteDatabaseToolsMcpToolset.");
+    const operationName = "deleteDatabaseToolsMcpToolset";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{databaseToolsMcpToolsetId}": deleteDatabaseToolsMcpToolsetRequest.databaseToolsMcpToolsetId
+    };
+
+    const queryParams = {
+      "isLockOverride": deleteDatabaseToolsMcpToolsetRequest.isLockOverride
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteDatabaseToolsMcpToolsetRequest.ifMatch,
+      "opc-request-id": deleteDatabaseToolsMcpToolsetRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteDatabaseToolsMcpToolsetRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseToolsMcpToolsets/{databaseToolsMcpToolsetId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteDatabaseToolsMcpToolsetResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes the specified Database Tools private endpoint.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteDatabaseToolsPrivateEndpointRequest
@@ -1193,8 +2504,7 @@ export class DatabaseToolsClient {
         "Calling operation DatabaseToolsClient#deleteDatabaseToolsPrivateEndpoint."
       );
     const operationName = "deleteDatabaseToolsPrivateEndpoint";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/database-tools/20201005/DatabaseToolsPrivateEndpoint/DeleteDatabaseToolsPrivateEndpoint";
+    const apiReferenceLink = "";
     const pathParams = {
       "{databaseToolsPrivateEndpointId}":
         deleteDatabaseToolsPrivateEndpointRequest.databaseToolsPrivateEndpointId
@@ -1257,6 +2567,76 @@ export class DatabaseToolsClient {
   }
 
   /**
+   * Deletes the specified Database Tools SQL Report resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteDatabaseToolsSqlReportRequest
+   * @return DeleteDatabaseToolsSqlReportResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/DeleteDatabaseToolsSqlReport.ts.html |here} to see how to use DeleteDatabaseToolsSqlReport API.
+   */
+  public async deleteDatabaseToolsSqlReport(
+    deleteDatabaseToolsSqlReportRequest: requests.DeleteDatabaseToolsSqlReportRequest
+  ): Promise<responses.DeleteDatabaseToolsSqlReportResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseToolsClient#deleteDatabaseToolsSqlReport.");
+    const operationName = "deleteDatabaseToolsSqlReport";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{databaseToolsSqlReportId}": deleteDatabaseToolsSqlReportRequest.databaseToolsSqlReportId
+    };
+
+    const queryParams = {
+      "isLockOverride": deleteDatabaseToolsSqlReportRequest.isLockOverride
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteDatabaseToolsSqlReportRequest.ifMatch,
+      "opc-request-id": deleteDatabaseToolsSqlReportRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteDatabaseToolsSqlReportRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseToolsSqlReports/{databaseToolsSqlReportId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteDatabaseToolsSqlReportResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets details of the specified Database Tools connection.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetDatabaseToolsConnectionRequest
@@ -1270,8 +2650,7 @@ export class DatabaseToolsClient {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseToolsClient#getDatabaseToolsConnection.");
     const operationName = "getDatabaseToolsConnection";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/database-tools/20201005/DatabaseToolsConnection/GetDatabaseToolsConnection";
+    const apiReferenceLink = "";
     const pathParams = {
       "{databaseToolsConnectionId}": getDatabaseToolsConnectionRequest.databaseToolsConnectionId
     };
@@ -1334,6 +2713,85 @@ export class DatabaseToolsClient {
   }
 
   /**
+   * Gets details of the specified Database Tools database API gateway config.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetDatabaseToolsDatabaseApiGatewayConfigRequest
+   * @return GetDatabaseToolsDatabaseApiGatewayConfigResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/GetDatabaseToolsDatabaseApiGatewayConfig.ts.html |here} to see how to use GetDatabaseToolsDatabaseApiGatewayConfig API.
+   */
+  public async getDatabaseToolsDatabaseApiGatewayConfig(
+    getDatabaseToolsDatabaseApiGatewayConfigRequest: requests.GetDatabaseToolsDatabaseApiGatewayConfigRequest
+  ): Promise<responses.GetDatabaseToolsDatabaseApiGatewayConfigResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseToolsClient#getDatabaseToolsDatabaseApiGatewayConfig."
+      );
+    const operationName = "getDatabaseToolsDatabaseApiGatewayConfig";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{databaseToolsDatabaseApiGatewayConfigId}":
+        getDatabaseToolsDatabaseApiGatewayConfigRequest.databaseToolsDatabaseApiGatewayConfigId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getDatabaseToolsDatabaseApiGatewayConfigRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDatabaseToolsDatabaseApiGatewayConfigRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseToolsDatabaseApiGatewayConfigs/{databaseToolsDatabaseApiGatewayConfigId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetDatabaseToolsDatabaseApiGatewayConfigResponse>{},
+        body: await response.json(),
+        bodyKey: "databaseToolsDatabaseApiGatewayConfig",
+        bodyModel: model.DatabaseToolsDatabaseApiGatewayConfig,
+        type: "model.DatabaseToolsDatabaseApiGatewayConfig",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets details for the specified Database Tools endpoint service.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetDatabaseToolsEndpointServiceRequest
@@ -1347,8 +2805,7 @@ export class DatabaseToolsClient {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseToolsClient#getDatabaseToolsEndpointService.");
     const operationName = "getDatabaseToolsEndpointService";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/database-tools/20201005/DatabaseToolsEndpointService/GetDatabaseToolsEndpointService";
+    const apiReferenceLink = "";
     const pathParams = {
       "{databaseToolsEndpointServiceId}":
         getDatabaseToolsEndpointServiceRequest.databaseToolsEndpointServiceId
@@ -1425,8 +2882,7 @@ export class DatabaseToolsClient {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseToolsClient#getDatabaseToolsIdentity.");
     const operationName = "getDatabaseToolsIdentity";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/database-tools/20201005/DatabaseToolsIdentity/GetDatabaseToolsIdentity";
+    const apiReferenceLink = "";
     const pathParams = {
       "{databaseToolsIdentityId}": getDatabaseToolsIdentityRequest.databaseToolsIdentityId
     };
@@ -1489,6 +2945,158 @@ export class DatabaseToolsClient {
   }
 
   /**
+   * Gets details of the specified Database Tools MCP server.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetDatabaseToolsMcpServerRequest
+   * @return GetDatabaseToolsMcpServerResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/GetDatabaseToolsMcpServer.ts.html |here} to see how to use GetDatabaseToolsMcpServer API.
+   */
+  public async getDatabaseToolsMcpServer(
+    getDatabaseToolsMcpServerRequest: requests.GetDatabaseToolsMcpServerRequest
+  ): Promise<responses.GetDatabaseToolsMcpServerResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseToolsClient#getDatabaseToolsMcpServer.");
+    const operationName = "getDatabaseToolsMcpServer";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{databaseToolsMcpServerId}": getDatabaseToolsMcpServerRequest.databaseToolsMcpServerId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getDatabaseToolsMcpServerRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDatabaseToolsMcpServerRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseToolsMcpServers/{databaseToolsMcpServerId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetDatabaseToolsMcpServerResponse>{},
+        body: await response.json(),
+        bodyKey: "databaseToolsMcpServer",
+        bodyModel: model.DatabaseToolsMcpServer,
+        type: "model.DatabaseToolsMcpServer",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets details of the specified Database Tools MCP Toolset.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetDatabaseToolsMcpToolsetRequest
+   * @return GetDatabaseToolsMcpToolsetResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/GetDatabaseToolsMcpToolset.ts.html |here} to see how to use GetDatabaseToolsMcpToolset API.
+   */
+  public async getDatabaseToolsMcpToolset(
+    getDatabaseToolsMcpToolsetRequest: requests.GetDatabaseToolsMcpToolsetRequest
+  ): Promise<responses.GetDatabaseToolsMcpToolsetResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseToolsClient#getDatabaseToolsMcpToolset.");
+    const operationName = "getDatabaseToolsMcpToolset";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{databaseToolsMcpToolsetId}": getDatabaseToolsMcpToolsetRequest.databaseToolsMcpToolsetId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getDatabaseToolsMcpToolsetRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDatabaseToolsMcpToolsetRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseToolsMcpToolsets/{databaseToolsMcpToolsetId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetDatabaseToolsMcpToolsetResponse>{},
+        body: await response.json(),
+        bodyKey: "databaseToolsMcpToolset",
+        bodyModel: model.DatabaseToolsMcpToolset,
+        type: "model.DatabaseToolsMcpToolset",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets details of a specified Database Tools private endpoint.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetDatabaseToolsPrivateEndpointRequest
@@ -1502,8 +3110,7 @@ export class DatabaseToolsClient {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseToolsClient#getDatabaseToolsPrivateEndpoint.");
     const operationName = "getDatabaseToolsPrivateEndpoint";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/database-tools/20201005/DatabaseToolsPrivateEndpoint/GetDatabaseToolsPrivateEndpoint";
+    const apiReferenceLink = "";
     const pathParams = {
       "{databaseToolsPrivateEndpointId}":
         getDatabaseToolsPrivateEndpointRequest.databaseToolsPrivateEndpointId
@@ -1567,6 +3174,82 @@ export class DatabaseToolsClient {
   }
 
   /**
+   * Gets details of the specified Database Tools SQL report.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetDatabaseToolsSqlReportRequest
+   * @return GetDatabaseToolsSqlReportResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/GetDatabaseToolsSqlReport.ts.html |here} to see how to use GetDatabaseToolsSqlReport API.
+   */
+  public async getDatabaseToolsSqlReport(
+    getDatabaseToolsSqlReportRequest: requests.GetDatabaseToolsSqlReportRequest
+  ): Promise<responses.GetDatabaseToolsSqlReportResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseToolsClient#getDatabaseToolsSqlReport.");
+    const operationName = "getDatabaseToolsSqlReport";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{databaseToolsSqlReportId}": getDatabaseToolsSqlReportRequest.databaseToolsSqlReportId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getDatabaseToolsSqlReportRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDatabaseToolsSqlReportRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseToolsSqlReports/{databaseToolsSqlReportId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetDatabaseToolsSqlReportResponse>{},
+        body: await response.json(),
+        bodyKey: "databaseToolsSqlReport",
+        bodyModel: model.DatabaseToolsSqlReport,
+        type: "model.DatabaseToolsSqlReport",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets the status of the specified work request.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetWorkRequestRequest
@@ -1579,8 +3262,7 @@ export class DatabaseToolsClient {
   ): Promise<responses.GetWorkRequestResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseToolsClient#getWorkRequest.");
     const operationName = "getWorkRequest";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/database-tools/20201005/WorkRequest/GetWorkRequest";
+    const apiReferenceLink = "";
     const pathParams = {
       "{workRequestId}": getWorkRequestRequest.workRequestId
     };
@@ -1657,8 +3339,7 @@ export class DatabaseToolsClient {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseToolsClient#listDatabaseToolsConnections.");
     const operationName = "listDatabaseToolsConnections";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/database-tools/20201005/DatabaseToolsConnection/ListDatabaseToolsConnections";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -1731,6 +3412,91 @@ export class DatabaseToolsClient {
   }
 
   /**
+   * Returns a list of Database Tools database API gateway configs.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListDatabaseToolsDatabaseApiGatewayConfigsRequest
+   * @return ListDatabaseToolsDatabaseApiGatewayConfigsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/ListDatabaseToolsDatabaseApiGatewayConfigs.ts.html |here} to see how to use ListDatabaseToolsDatabaseApiGatewayConfigs API.
+   */
+  public async listDatabaseToolsDatabaseApiGatewayConfigs(
+    listDatabaseToolsDatabaseApiGatewayConfigsRequest: requests.ListDatabaseToolsDatabaseApiGatewayConfigsRequest
+  ): Promise<responses.ListDatabaseToolsDatabaseApiGatewayConfigsResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseToolsClient#listDatabaseToolsDatabaseApiGatewayConfigs."
+      );
+    const operationName = "listDatabaseToolsDatabaseApiGatewayConfigs";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listDatabaseToolsDatabaseApiGatewayConfigsRequest.compartmentId,
+      "lifecycleState": listDatabaseToolsDatabaseApiGatewayConfigsRequest.lifecycleState,
+      "displayName": listDatabaseToolsDatabaseApiGatewayConfigsRequest.displayName,
+      "limit": listDatabaseToolsDatabaseApiGatewayConfigsRequest.limit,
+      "page": listDatabaseToolsDatabaseApiGatewayConfigsRequest.page,
+      "sortOrder": listDatabaseToolsDatabaseApiGatewayConfigsRequest.sortOrder,
+      "sortBy": listDatabaseToolsDatabaseApiGatewayConfigsRequest.sortBy,
+      "type": listDatabaseToolsDatabaseApiGatewayConfigsRequest.type
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listDatabaseToolsDatabaseApiGatewayConfigsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDatabaseToolsDatabaseApiGatewayConfigsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseToolsDatabaseApiGatewayConfigs",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListDatabaseToolsDatabaseApiGatewayConfigsResponse>{},
+        body: await response.json(),
+        bodyKey: "databaseToolsDatabaseApiGatewayConfigCollection",
+        bodyModel: model.DatabaseToolsDatabaseApiGatewayConfigCollection,
+        type: "model.DatabaseToolsDatabaseApiGatewayConfigCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Returns a list of Database Tools endpoint services.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -1745,8 +3511,7 @@ export class DatabaseToolsClient {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseToolsClient#listDatabaseToolsEndpointServices.");
     const operationName = "listDatabaseToolsEndpointServices";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/database-tools/20201005/DatabaseToolsEndpointService/ListDatabaseToolsEndpointServices";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -1829,8 +3594,7 @@ export class DatabaseToolsClient {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseToolsClient#listDatabaseToolsIdentities.");
     const operationName = "listDatabaseToolsIdentities";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/database-tools/20201005/DatabaseToolsIdentity/ListDatabaseToolsIdentities";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -1901,6 +3665,256 @@ export class DatabaseToolsClient {
   }
 
   /**
+   * Returns a list of Database Tools MCP servers.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListDatabaseToolsMcpServersRequest
+   * @return ListDatabaseToolsMcpServersResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/ListDatabaseToolsMcpServers.ts.html |here} to see how to use ListDatabaseToolsMcpServers API.
+   */
+  public async listDatabaseToolsMcpServers(
+    listDatabaseToolsMcpServersRequest: requests.ListDatabaseToolsMcpServersRequest
+  ): Promise<responses.ListDatabaseToolsMcpServersResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseToolsClient#listDatabaseToolsMcpServers.");
+    const operationName = "listDatabaseToolsMcpServers";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listDatabaseToolsMcpServersRequest.compartmentId,
+      "lifecycleState": listDatabaseToolsMcpServersRequest.lifecycleState,
+      "displayName": listDatabaseToolsMcpServersRequest.displayName,
+      "databaseToolsConnectionId": listDatabaseToolsMcpServersRequest.databaseToolsConnectionId,
+      "relatedResourceIdentifier": listDatabaseToolsMcpServersRequest.relatedResourceIdentifier,
+      "limit": listDatabaseToolsMcpServersRequest.limit,
+      "page": listDatabaseToolsMcpServersRequest.page,
+      "sortOrder": listDatabaseToolsMcpServersRequest.sortOrder,
+      "sortBy": listDatabaseToolsMcpServersRequest.sortBy,
+      "type": listDatabaseToolsMcpServersRequest.type
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listDatabaseToolsMcpServersRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDatabaseToolsMcpServersRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseToolsMcpServers",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListDatabaseToolsMcpServersResponse>{},
+        body: await response.json(),
+        bodyKey: "databaseToolsMcpServerCollection",
+        bodyModel: model.DatabaseToolsMcpServerCollection,
+        type: "model.DatabaseToolsMcpServerCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns a list of Database Tools Toolset versions
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListDatabaseToolsMcpToolsetVersionsRequest
+   * @return ListDatabaseToolsMcpToolsetVersionsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/ListDatabaseToolsMcpToolsetVersions.ts.html |here} to see how to use ListDatabaseToolsMcpToolsetVersions API.
+   */
+  public async listDatabaseToolsMcpToolsetVersions(
+    listDatabaseToolsMcpToolsetVersionsRequest: requests.ListDatabaseToolsMcpToolsetVersionsRequest
+  ): Promise<responses.ListDatabaseToolsMcpToolsetVersionsResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseToolsClient#listDatabaseToolsMcpToolsetVersions."
+      );
+    const operationName = "listDatabaseToolsMcpToolsetVersions";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listDatabaseToolsMcpToolsetVersionsRequest.compartmentId,
+      "databaseToolsMcpServerId":
+        listDatabaseToolsMcpToolsetVersionsRequest.databaseToolsMcpServerId,
+      "displayName": listDatabaseToolsMcpToolsetVersionsRequest.displayName
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listDatabaseToolsMcpToolsetVersionsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDatabaseToolsMcpToolsetVersionsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseToolsMcpToolsetVersions",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListDatabaseToolsMcpToolsetVersionsResponse>{},
+        body: await response.json(),
+        bodyKey: "databaseToolsMcpToolsetVersionCollection",
+        bodyModel: model.DatabaseToolsMcpToolsetVersionCollection,
+        type: "model.DatabaseToolsMcpToolsetVersionCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns a list of Database Tools Toolsets.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListDatabaseToolsMcpToolsetsRequest
+   * @return ListDatabaseToolsMcpToolsetsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/ListDatabaseToolsMcpToolsets.ts.html |here} to see how to use ListDatabaseToolsMcpToolsets API.
+   */
+  public async listDatabaseToolsMcpToolsets(
+    listDatabaseToolsMcpToolsetsRequest: requests.ListDatabaseToolsMcpToolsetsRequest
+  ): Promise<responses.ListDatabaseToolsMcpToolsetsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseToolsClient#listDatabaseToolsMcpToolsets.");
+    const operationName = "listDatabaseToolsMcpToolsets";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listDatabaseToolsMcpToolsetsRequest.compartmentId,
+      "lifecycleState": listDatabaseToolsMcpToolsetsRequest.lifecycleState,
+      "displayName": listDatabaseToolsMcpToolsetsRequest.displayName,
+      "limit": listDatabaseToolsMcpToolsetsRequest.limit,
+      "page": listDatabaseToolsMcpToolsetsRequest.page,
+      "sortOrder": listDatabaseToolsMcpToolsetsRequest.sortOrder,
+      "sortBy": listDatabaseToolsMcpToolsetsRequest.sortBy,
+      "type": listDatabaseToolsMcpToolsetsRequest.type,
+      "databaseToolsMcpServerId": listDatabaseToolsMcpToolsetsRequest.databaseToolsMcpServerId
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listDatabaseToolsMcpToolsetsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDatabaseToolsMcpToolsetsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseToolsMcpToolsets",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListDatabaseToolsMcpToolsetsResponse>{},
+        body: await response.json(),
+        bodyKey: "databaseToolsMcpToolsetCollection",
+        bodyModel: model.DatabaseToolsMcpToolsetCollection,
+        type: "model.DatabaseToolsMcpToolsetCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Returns a list of Database Tools private endpoints.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -1915,8 +3929,7 @@ export class DatabaseToolsClient {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseToolsClient#listDatabaseToolsPrivateEndpoints.");
     const operationName = "listDatabaseToolsPrivateEndpoints";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/database-tools/20201005/DatabaseToolsPrivateEndpoint/ListDatabaseToolsPrivateEndpoints";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -1987,6 +4000,89 @@ export class DatabaseToolsClient {
   }
 
   /**
+   * Returns a list of Database Tools SQL reports.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListDatabaseToolsSqlReportsRequest
+   * @return ListDatabaseToolsSqlReportsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/ListDatabaseToolsSqlReports.ts.html |here} to see how to use ListDatabaseToolsSqlReports API.
+   */
+  public async listDatabaseToolsSqlReports(
+    listDatabaseToolsSqlReportsRequest: requests.ListDatabaseToolsSqlReportsRequest
+  ): Promise<responses.ListDatabaseToolsSqlReportsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseToolsClient#listDatabaseToolsSqlReports.");
+    const operationName = "listDatabaseToolsSqlReports";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listDatabaseToolsSqlReportsRequest.compartmentId,
+      "lifecycleState": listDatabaseToolsSqlReportsRequest.lifecycleState,
+      "displayName": listDatabaseToolsSqlReportsRequest.displayName,
+      "limit": listDatabaseToolsSqlReportsRequest.limit,
+      "page": listDatabaseToolsSqlReportsRequest.page,
+      "sortOrder": listDatabaseToolsSqlReportsRequest.sortOrder,
+      "sortBy": listDatabaseToolsSqlReportsRequest.sortBy,
+      "type": listDatabaseToolsSqlReportsRequest.type
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listDatabaseToolsSqlReportsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDatabaseToolsSqlReportsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseToolsSqlReports",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListDatabaseToolsSqlReportsResponse>{},
+        body: await response.json(),
+        bodyKey: "databaseToolsSqlReportCollection",
+        bodyModel: model.DatabaseToolsSqlReportCollection,
+        type: "model.DatabaseToolsSqlReportCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Returns a paginated list of errors for the specified work request.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -2001,8 +4097,7 @@ export class DatabaseToolsClient {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseToolsClient#listWorkRequestErrors.");
     const operationName = "listWorkRequestErrors";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/database-tools/20201005/WorkRequestError/ListWorkRequestErrors";
+    const apiReferenceLink = "";
     const pathParams = {
       "{workRequestId}": listWorkRequestErrorsRequest.workRequestId
     };
@@ -2084,8 +4179,7 @@ export class DatabaseToolsClient {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseToolsClient#listWorkRequestLogs.");
     const operationName = "listWorkRequestLogs";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/database-tools/20201005/WorkRequestLogEntry/ListWorkRequestLogs";
+    const apiReferenceLink = "";
     const pathParams = {
       "{workRequestId}": listWorkRequestLogsRequest.workRequestId
     };
@@ -2166,8 +4260,7 @@ export class DatabaseToolsClient {
   ): Promise<responses.ListWorkRequestsResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseToolsClient#listWorkRequests.");
     const operationName = "listWorkRequests";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/database-tools/20201005/WorkRequest/ListWorkRequests";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -2251,8 +4344,7 @@ export class DatabaseToolsClient {
         "Calling operation DatabaseToolsClient#refreshDatabaseToolsIdentityCredential."
       );
     const operationName = "refreshDatabaseToolsIdentityCredential";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/database-tools/20201005/DatabaseToolsIdentity/RefreshDatabaseToolsIdentityCredential";
+    const apiReferenceLink = "";
     const pathParams = {
       "{databaseToolsIdentityId}":
         refreshDatabaseToolsIdentityCredentialRequest.databaseToolsIdentityId
@@ -2331,8 +4423,7 @@ export class DatabaseToolsClient {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseToolsClient#removeDatabaseToolsConnectionLock.");
     const operationName = "removeDatabaseToolsConnectionLock";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/database-tools/20201005/DatabaseToolsConnection/RemoveDatabaseToolsConnectionLock";
+    const apiReferenceLink = "";
     const pathParams = {
       "{databaseToolsConnectionId}":
         removeDatabaseToolsConnectionLockRequest.databaseToolsConnectionId
@@ -2402,6 +4493,92 @@ export class DatabaseToolsClient {
   }
 
   /**
+   * Removes a lock from a DatabaseToolsDatabaseApiGatewayConfig resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param RemoveDatabaseToolsDatabaseApiGatewayConfigLockRequest
+   * @return RemoveDatabaseToolsDatabaseApiGatewayConfigLockResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/RemoveDatabaseToolsDatabaseApiGatewayConfigLock.ts.html |here} to see how to use RemoveDatabaseToolsDatabaseApiGatewayConfigLock API.
+   */
+  public async removeDatabaseToolsDatabaseApiGatewayConfigLock(
+    removeDatabaseToolsDatabaseApiGatewayConfigLockRequest: requests.RemoveDatabaseToolsDatabaseApiGatewayConfigLockRequest
+  ): Promise<responses.RemoveDatabaseToolsDatabaseApiGatewayConfigLockResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseToolsClient#removeDatabaseToolsDatabaseApiGatewayConfigLock."
+      );
+    const operationName = "removeDatabaseToolsDatabaseApiGatewayConfigLock";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{databaseToolsDatabaseApiGatewayConfigId}":
+        removeDatabaseToolsDatabaseApiGatewayConfigLockRequest.databaseToolsDatabaseApiGatewayConfigId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": removeDatabaseToolsDatabaseApiGatewayConfigLockRequest.opcRequestId,
+      "if-match": removeDatabaseToolsDatabaseApiGatewayConfigLockRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removeDatabaseToolsDatabaseApiGatewayConfigLockRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/databaseToolsDatabaseApiGatewayConfigs/{databaseToolsDatabaseApiGatewayConfigId}/actions/removeLock",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        removeDatabaseToolsDatabaseApiGatewayConfigLockRequest.removeResourceLockDetails,
+        "RemoveResourceLockDetails",
+        model.RemoveResourceLockDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RemoveDatabaseToolsDatabaseApiGatewayConfigLockResponse>{},
+        body: await response.json(),
+        bodyKey: "databaseToolsDatabaseApiGatewayConfig",
+        bodyModel: model.DatabaseToolsDatabaseApiGatewayConfig,
+        type: "model.DatabaseToolsDatabaseApiGatewayConfig",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Removes a lock from a DatabaseToolsIdentity resource.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param RemoveDatabaseToolsIdentityLockRequest
@@ -2415,8 +4592,7 @@ export class DatabaseToolsClient {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseToolsClient#removeDatabaseToolsIdentityLock.");
     const operationName = "removeDatabaseToolsIdentityLock";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/database-tools/20201005/DatabaseToolsIdentity/RemoveDatabaseToolsIdentityLock";
+    const apiReferenceLink = "";
     const pathParams = {
       "{databaseToolsIdentityId}": removeDatabaseToolsIdentityLockRequest.databaseToolsIdentityId
     };
@@ -2485,6 +4661,171 @@ export class DatabaseToolsClient {
   }
 
   /**
+   * Removes a lock from a DatabaseToolsMcpServer resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param RemoveDatabaseToolsMcpServerLockRequest
+   * @return RemoveDatabaseToolsMcpServerLockResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/RemoveDatabaseToolsMcpServerLock.ts.html |here} to see how to use RemoveDatabaseToolsMcpServerLock API.
+   */
+  public async removeDatabaseToolsMcpServerLock(
+    removeDatabaseToolsMcpServerLockRequest: requests.RemoveDatabaseToolsMcpServerLockRequest
+  ): Promise<responses.RemoveDatabaseToolsMcpServerLockResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseToolsClient#removeDatabaseToolsMcpServerLock.");
+    const operationName = "removeDatabaseToolsMcpServerLock";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{databaseToolsMcpServerId}": removeDatabaseToolsMcpServerLockRequest.databaseToolsMcpServerId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": removeDatabaseToolsMcpServerLockRequest.opcRequestId,
+      "if-match": removeDatabaseToolsMcpServerLockRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removeDatabaseToolsMcpServerLockRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseToolsMcpServers/{databaseToolsMcpServerId}/actions/removeLock",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        removeDatabaseToolsMcpServerLockRequest.removeResourceLockDetails,
+        "RemoveResourceLockDetails",
+        model.RemoveResourceLockDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RemoveDatabaseToolsMcpServerLockResponse>{},
+        body: await response.json(),
+        bodyKey: "databaseToolsMcpServer",
+        bodyModel: model.DatabaseToolsMcpServer,
+        type: "model.DatabaseToolsMcpServer",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Removes a lock from a DatabaseToolsMcpToolset resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param RemoveDatabaseToolsMcpToolsetLockRequest
+   * @return RemoveDatabaseToolsMcpToolsetLockResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/RemoveDatabaseToolsMcpToolsetLock.ts.html |here} to see how to use RemoveDatabaseToolsMcpToolsetLock API.
+   */
+  public async removeDatabaseToolsMcpToolsetLock(
+    removeDatabaseToolsMcpToolsetLockRequest: requests.RemoveDatabaseToolsMcpToolsetLockRequest
+  ): Promise<responses.RemoveDatabaseToolsMcpToolsetLockResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseToolsClient#removeDatabaseToolsMcpToolsetLock.");
+    const operationName = "removeDatabaseToolsMcpToolsetLock";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{databaseToolsMcpToolsetId}":
+        removeDatabaseToolsMcpToolsetLockRequest.databaseToolsMcpToolsetId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": removeDatabaseToolsMcpToolsetLockRequest.opcRequestId,
+      "if-match": removeDatabaseToolsMcpToolsetLockRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removeDatabaseToolsMcpToolsetLockRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseToolsMcpToolsets/{databaseToolsMcpToolsetId}/actions/removeLock",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        removeDatabaseToolsMcpToolsetLockRequest.removeResourceLockDetails,
+        "RemoveResourceLockDetails",
+        model.RemoveResourceLockDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RemoveDatabaseToolsMcpToolsetLockResponse>{},
+        body: await response.json(),
+        bodyKey: "databaseToolsMcpToolset",
+        bodyModel: model.DatabaseToolsMcpToolset,
+        type: "model.DatabaseToolsMcpToolset",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Removes a lock from a DatabaseToolsPrivateEndpoint resource.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param RemoveDatabaseToolsPrivateEndpointLockRequest
@@ -2500,8 +4841,7 @@ export class DatabaseToolsClient {
         "Calling operation DatabaseToolsClient#removeDatabaseToolsPrivateEndpointLock."
       );
     const operationName = "removeDatabaseToolsPrivateEndpointLock";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/database-tools/20201005/DatabaseToolsPrivateEndpoint/RemoveDatabaseToolsPrivateEndpointLock";
+    const apiReferenceLink = "";
     const pathParams = {
       "{databaseToolsPrivateEndpointId}":
         removeDatabaseToolsPrivateEndpointLockRequest.databaseToolsPrivateEndpointId
@@ -2571,6 +4911,88 @@ export class DatabaseToolsClient {
   }
 
   /**
+   * Removes a lock from a DatabaseToolsSqlReport resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param RemoveDatabaseToolsSqlReportLockRequest
+   * @return RemoveDatabaseToolsSqlReportLockResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/RemoveDatabaseToolsSqlReportLock.ts.html |here} to see how to use RemoveDatabaseToolsSqlReportLock API.
+   */
+  public async removeDatabaseToolsSqlReportLock(
+    removeDatabaseToolsSqlReportLockRequest: requests.RemoveDatabaseToolsSqlReportLockRequest
+  ): Promise<responses.RemoveDatabaseToolsSqlReportLockResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseToolsClient#removeDatabaseToolsSqlReportLock.");
+    const operationName = "removeDatabaseToolsSqlReportLock";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{databaseToolsSqlReportId}": removeDatabaseToolsSqlReportLockRequest.databaseToolsSqlReportId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": removeDatabaseToolsSqlReportLockRequest.opcRequestId,
+      "if-match": removeDatabaseToolsSqlReportLockRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removeDatabaseToolsSqlReportLockRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseToolsSqlReports/{databaseToolsSqlReportId}/actions/removeLock",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        removeDatabaseToolsSqlReportLockRequest.removeResourceLockDetails,
+        "RemoveResourceLockDetails",
+        model.RemoveResourceLockDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RemoveDatabaseToolsSqlReportLockResponse>{},
+        body: await response.json(),
+        bodyKey: "databaseToolsSqlReport",
+        bodyModel: model.DatabaseToolsSqlReport,
+        type: "model.DatabaseToolsSqlReport",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Updates the specified Database Tools connection.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateDatabaseToolsConnectionRequest
@@ -2584,8 +5006,7 @@ export class DatabaseToolsClient {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseToolsClient#updateDatabaseToolsConnection.");
     const operationName = "updateDatabaseToolsConnection";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/database-tools/20201005/DatabaseToolsConnection/UpdateDatabaseToolsConnection";
+    const apiReferenceLink = "";
     const pathParams = {
       "{databaseToolsConnectionId}": updateDatabaseToolsConnectionRequest.databaseToolsConnectionId
     };
@@ -2652,6 +5073,93 @@ export class DatabaseToolsClient {
   }
 
   /**
+   * Updates the specified Database Tools database API gateway config.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateDatabaseToolsDatabaseApiGatewayConfigRequest
+   * @return UpdateDatabaseToolsDatabaseApiGatewayConfigResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/UpdateDatabaseToolsDatabaseApiGatewayConfig.ts.html |here} to see how to use UpdateDatabaseToolsDatabaseApiGatewayConfig API.
+   */
+  public async updateDatabaseToolsDatabaseApiGatewayConfig(
+    updateDatabaseToolsDatabaseApiGatewayConfigRequest: requests.UpdateDatabaseToolsDatabaseApiGatewayConfigRequest
+  ): Promise<responses.UpdateDatabaseToolsDatabaseApiGatewayConfigResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseToolsClient#updateDatabaseToolsDatabaseApiGatewayConfig."
+      );
+    const operationName = "updateDatabaseToolsDatabaseApiGatewayConfig";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{databaseToolsDatabaseApiGatewayConfigId}":
+        updateDatabaseToolsDatabaseApiGatewayConfigRequest.databaseToolsDatabaseApiGatewayConfigId
+    };
+
+    const queryParams = {
+      "isLockOverride": updateDatabaseToolsDatabaseApiGatewayConfigRequest.isLockOverride
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateDatabaseToolsDatabaseApiGatewayConfigRequest.ifMatch,
+      "opc-request-id": updateDatabaseToolsDatabaseApiGatewayConfigRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateDatabaseToolsDatabaseApiGatewayConfigRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseToolsDatabaseApiGatewayConfigs/{databaseToolsDatabaseApiGatewayConfigId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateDatabaseToolsDatabaseApiGatewayConfigRequest.updateDatabaseToolsDatabaseApiGatewayConfigDetails,
+        "UpdateDatabaseToolsDatabaseApiGatewayConfigDetails",
+        model.UpdateDatabaseToolsDatabaseApiGatewayConfigDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateDatabaseToolsDatabaseApiGatewayConfigResponse>{},
+        body: await response.json(),
+        bodyKey: "databaseToolsDatabaseApiGatewayConfig",
+        bodyModel: model.DatabaseToolsDatabaseApiGatewayConfig,
+        type: "model.DatabaseToolsDatabaseApiGatewayConfig",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Updates the specified Database Tools identity.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateDatabaseToolsIdentityRequest
@@ -2665,8 +5173,7 @@ export class DatabaseToolsClient {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseToolsClient#updateDatabaseToolsIdentity.");
     const operationName = "updateDatabaseToolsIdentity";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/database-tools/20201005/DatabaseToolsIdentity/UpdateDatabaseToolsIdentity";
+    const apiReferenceLink = "";
     const pathParams = {
       "{databaseToolsIdentityId}": updateDatabaseToolsIdentityRequest.databaseToolsIdentityId
     };
@@ -2733,6 +5240,166 @@ export class DatabaseToolsClient {
   }
 
   /**
+   * Updates the specified Database Tools MCP server.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateDatabaseToolsMcpServerRequest
+   * @return UpdateDatabaseToolsMcpServerResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/UpdateDatabaseToolsMcpServer.ts.html |here} to see how to use UpdateDatabaseToolsMcpServer API.
+   */
+  public async updateDatabaseToolsMcpServer(
+    updateDatabaseToolsMcpServerRequest: requests.UpdateDatabaseToolsMcpServerRequest
+  ): Promise<responses.UpdateDatabaseToolsMcpServerResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseToolsClient#updateDatabaseToolsMcpServer.");
+    const operationName = "updateDatabaseToolsMcpServer";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{databaseToolsMcpServerId}": updateDatabaseToolsMcpServerRequest.databaseToolsMcpServerId
+    };
+
+    const queryParams = {
+      "isLockOverride": updateDatabaseToolsMcpServerRequest.isLockOverride
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateDatabaseToolsMcpServerRequest.ifMatch,
+      "opc-request-id": updateDatabaseToolsMcpServerRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateDatabaseToolsMcpServerRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseToolsMcpServers/{databaseToolsMcpServerId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateDatabaseToolsMcpServerRequest.updateDatabaseToolsMcpServerDetails,
+        "UpdateDatabaseToolsMcpServerDetails",
+        model.UpdateDatabaseToolsMcpServerDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateDatabaseToolsMcpServerResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the specified Database Tools MCP Toolset.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateDatabaseToolsMcpToolsetRequest
+   * @return UpdateDatabaseToolsMcpToolsetResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/UpdateDatabaseToolsMcpToolset.ts.html |here} to see how to use UpdateDatabaseToolsMcpToolset API.
+   */
+  public async updateDatabaseToolsMcpToolset(
+    updateDatabaseToolsMcpToolsetRequest: requests.UpdateDatabaseToolsMcpToolsetRequest
+  ): Promise<responses.UpdateDatabaseToolsMcpToolsetResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseToolsClient#updateDatabaseToolsMcpToolset.");
+    const operationName = "updateDatabaseToolsMcpToolset";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{databaseToolsMcpToolsetId}": updateDatabaseToolsMcpToolsetRequest.databaseToolsMcpToolsetId
+    };
+
+    const queryParams = {
+      "isLockOverride": updateDatabaseToolsMcpToolsetRequest.isLockOverride
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateDatabaseToolsMcpToolsetRequest.ifMatch,
+      "opc-request-id": updateDatabaseToolsMcpToolsetRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateDatabaseToolsMcpToolsetRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseToolsMcpToolsets/{databaseToolsMcpToolsetId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateDatabaseToolsMcpToolsetRequest.updateDatabaseToolsMcpToolsetDetails,
+        "UpdateDatabaseToolsMcpToolsetDetails",
+        model.UpdateDatabaseToolsMcpToolsetDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateDatabaseToolsMcpToolsetResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Updates the specified Database Tools private endpoint.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateDatabaseToolsPrivateEndpointRequest
@@ -2748,8 +5415,7 @@ export class DatabaseToolsClient {
         "Calling operation DatabaseToolsClient#updateDatabaseToolsPrivateEndpoint."
       );
     const operationName = "updateDatabaseToolsPrivateEndpoint";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/database-tools/20201005/DatabaseToolsPrivateEndpoint/UpdateDatabaseToolsPrivateEndpoint";
+    const apiReferenceLink = "";
     const pathParams = {
       "{databaseToolsPrivateEndpointId}":
         updateDatabaseToolsPrivateEndpointRequest.databaseToolsPrivateEndpointId
@@ -2817,6 +5483,90 @@ export class DatabaseToolsClient {
   }
 
   /**
+   * Updates the specified Database Tools SQL Report.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateDatabaseToolsSqlReportRequest
+   * @return UpdateDatabaseToolsSqlReportResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasetools/UpdateDatabaseToolsSqlReport.ts.html |here} to see how to use UpdateDatabaseToolsSqlReport API.
+   */
+  public async updateDatabaseToolsSqlReport(
+    updateDatabaseToolsSqlReportRequest: requests.UpdateDatabaseToolsSqlReportRequest
+  ): Promise<responses.UpdateDatabaseToolsSqlReportResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseToolsClient#updateDatabaseToolsSqlReport.");
+    const operationName = "updateDatabaseToolsSqlReport";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{databaseToolsSqlReportId}": updateDatabaseToolsSqlReportRequest.databaseToolsSqlReportId
+    };
+
+    const queryParams = {
+      "isLockOverride": updateDatabaseToolsSqlReportRequest.isLockOverride
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateDatabaseToolsSqlReportRequest.ifMatch,
+      "opc-request-id": updateDatabaseToolsSqlReportRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateDatabaseToolsSqlReportRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseToolsSqlReports/{databaseToolsSqlReportId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateDatabaseToolsSqlReportRequest.updateDatabaseToolsSqlReportDetails,
+        "UpdateDatabaseToolsSqlReportDetails",
+        model.UpdateDatabaseToolsSqlReportDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateDatabaseToolsSqlReportResponse>{},
+        body: await response.json(),
+        bodyKey: "databaseToolsSqlReport",
+        bodyModel: model.DatabaseToolsSqlReport,
+        type: "model.DatabaseToolsSqlReport",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Validates the Database Tools connection details by establishing a connection to the database.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -2831,8 +5581,7 @@ export class DatabaseToolsClient {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseToolsClient#validateDatabaseToolsConnection.");
     const operationName = "validateDatabaseToolsConnection";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/database-tools/20201005/DatabaseToolsConnection/ValidateDatabaseToolsConnection";
+    const apiReferenceLink = "";
     const pathParams = {
       "{databaseToolsConnectionId}":
         validateDatabaseToolsConnectionRequest.databaseToolsConnectionId
@@ -2914,8 +5663,7 @@ export class DatabaseToolsClient {
         "Calling operation DatabaseToolsClient#validateDatabaseToolsIdentityCredential."
       );
     const operationName = "validateDatabaseToolsIdentityCredential";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/database-tools/20201005/DatabaseToolsIdentity/ValidateDatabaseToolsIdentityCredential";
+    const apiReferenceLink = "";
     const pathParams = {
       "{databaseToolsIdentityId}":
         validateDatabaseToolsIdentityCredentialRequest.databaseToolsIdentityId

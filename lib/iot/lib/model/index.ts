@@ -57,6 +57,8 @@ import * as DigitalTwinInstance from "./digital-twin-instance";
 export import DigitalTwinInstance = DigitalTwinInstance.DigitalTwinInstance;
 import * as DigitalTwinInstanceCollection from "./digital-twin-instance-collection";
 export import DigitalTwinInstanceCollection = DigitalTwinInstanceCollection.DigitalTwinInstanceCollection;
+import * as DigitalTwinInstanceConnectivityType from "./digital-twin-instance-connectivity-type";
+export import DigitalTwinInstanceConnectivityType = DigitalTwinInstanceConnectivityType.DigitalTwinInstanceConnectivityType;
 import * as DigitalTwinInstanceSummary from "./digital-twin-instance-summary";
 export import DigitalTwinInstanceSummary = DigitalTwinInstanceSummary.DigitalTwinInstanceSummary;
 import * as DigitalTwinModel from "./digital-twin-model";

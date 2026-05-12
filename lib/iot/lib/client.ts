@@ -2440,6 +2440,7 @@ export class IotClient {
       "sortBy": listDigitalTwinInstancesRequest.sortBy,
       "digitalTwinModelId": listDigitalTwinInstancesRequest.digitalTwinModelId,
       "digitalTwinModelSpecUri": listDigitalTwinInstancesRequest.digitalTwinModelSpecUri,
+      "connectivityType": listDigitalTwinInstancesRequest.connectivityType,
       "iotDomainId": listDigitalTwinInstancesRequest.iotDomainId,
       "id": listDigitalTwinInstancesRequest.id
     };

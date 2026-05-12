@@ -1,6 +1,6 @@
 {
   "name": "oci-sdk",
-  "version": "2.131.1",
+  "version": "2.131.2",
   "author": {
     "name": "Oracle Cloud Infrastructure",
     "email": ""
@@ -188,7 +188,10 @@
     "oci-zpr": "file:lib/zpr",
     "oci-generativeaidata": "file:lib/generativeaidata",
     "oci-containerregistry": "file:lib/containerregistry",
-    "oci-self": "file:lib/self"
+    "oci-self": "file:lib/self",
+    "oci-databasetoolsruntime": "file:lib/databasetoolsruntime",
+    "oci-waa": "file:lib/waa",
+    "oci-usage": "file:lib/usage"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"

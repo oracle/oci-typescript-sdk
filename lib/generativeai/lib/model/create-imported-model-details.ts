@@ -74,7 +74,15 @@ export namespace CreateImportedModelDetails {
     ImageTextToText = "IMAGE_TEXT_TO_TEXT",
     Embedding = "EMBEDDING",
     Rerank = "RERANK",
-    TextToImage = "TEXT_TO_IMAGE"
+    TextToImage = "TEXT_TO_IMAGE",
+    ImageTextToImage = "IMAGE_TEXT_TO_IMAGE",
+    ImageTextToVideo = "IMAGE_TEXT_TO_VIDEO",
+    ImageToImage = "IMAGE_TO_IMAGE",
+    Realtime = "REALTIME",
+    AudioToAudio = "AUDIO_TO_AUDIO",
+    AudioToText = "AUDIO_TO_TEXT",
+    TextToAudio = "TEXT_TO_AUDIO",
+    TextToVideo = "TEXT_TO_VIDEO"
   }
 
   export function getJsonObj(obj: CreateImportedModelDetails): object {

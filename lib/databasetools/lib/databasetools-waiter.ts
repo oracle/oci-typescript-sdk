@@ -1,5 +1,5 @@
 /**
- * Database Tools
+ * Database Tools API
  * Use the Database Tools API to manage connections, private endpoints, and work requests in the Database Tools service.
  * OpenAPI spec version: 20201005
  *
@@ -43,6 +43,26 @@ export class DatabaseToolsWaiter {
   }
 
   /**
+   * Waits forDatabaseToolsDatabaseApiGatewayConfig till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetDatabaseToolsDatabaseApiGatewayConfigResponse | null (null in case of 404 response)
+   */
+  public async forDatabaseToolsDatabaseApiGatewayConfig(
+    request: serviceRequests.GetDatabaseToolsDatabaseApiGatewayConfigRequest,
+    ...targetStates: models.DatabaseToolsDatabaseApiGatewayConfigLifecycleState[]
+  ): Promise<serviceResponses.GetDatabaseToolsDatabaseApiGatewayConfigResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getDatabaseToolsDatabaseApiGatewayConfig(request),
+      response =>
+        targetStates.includes(response.databaseToolsDatabaseApiGatewayConfig.lifecycleState!),
+      targetStates.includes(models.DatabaseToolsDatabaseApiGatewayConfigLifecycleState.Deleted)
+    );
+  }
+
+  /**
    * Waits forDatabaseToolsEndpointService till it reaches any of the provided states
    *
    * @param request the request to send
@@ -81,6 +101,44 @@ export class DatabaseToolsWaiter {
   }
 
   /**
+   * Waits forDatabaseToolsMcpServer till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetDatabaseToolsMcpServerResponse | null (null in case of 404 response)
+   */
+  public async forDatabaseToolsMcpServer(
+    request: serviceRequests.GetDatabaseToolsMcpServerRequest,
+    ...targetStates: models.DatabaseToolsMcpServerLifecycleState[]
+  ): Promise<serviceResponses.GetDatabaseToolsMcpServerResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getDatabaseToolsMcpServer(request),
+      response => targetStates.includes(response.databaseToolsMcpServer.lifecycleState!),
+      targetStates.includes(models.DatabaseToolsMcpServerLifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forDatabaseToolsMcpToolset till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetDatabaseToolsMcpToolsetResponse | null (null in case of 404 response)
+   */
+  public async forDatabaseToolsMcpToolset(
+    request: serviceRequests.GetDatabaseToolsMcpToolsetRequest,
+    ...targetStates: models.DatabaseToolsMcpToolsetLifecycleState[]
+  ): Promise<serviceResponses.GetDatabaseToolsMcpToolsetResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getDatabaseToolsMcpToolset(request),
+      response => targetStates.includes(response.databaseToolsMcpToolset.lifecycleState!),
+      targetStates.includes(models.DatabaseToolsMcpToolsetLifecycleState.Deleted)
+    );
+  }
+
+  /**
    * Waits forDatabaseToolsPrivateEndpoint till it reaches any of the provided states
    *
    * @param request the request to send
@@ -96,6 +154,25 @@ export class DatabaseToolsWaiter {
       () => this.client.getDatabaseToolsPrivateEndpoint(request),
       response => targetStates.includes(response.databaseToolsPrivateEndpoint.lifecycleState!),
       targetStates.includes(models.LifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forDatabaseToolsSqlReport till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetDatabaseToolsSqlReportResponse | null (null in case of 404 response)
+   */
+  public async forDatabaseToolsSqlReport(
+    request: serviceRequests.GetDatabaseToolsSqlReportRequest,
+    ...targetStates: models.DatabaseToolsSqlReportLifecycleState[]
+  ): Promise<serviceResponses.GetDatabaseToolsSqlReportResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getDatabaseToolsSqlReport(request),
+      response => targetStates.includes(response.databaseToolsSqlReport.lifecycleState!),
+      targetStates.includes(models.DatabaseToolsSqlReportLifecycleState.Deleted)
     );
   }
 
