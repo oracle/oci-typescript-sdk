@@ -1,5 +1,5 @@
 /**
- * Database Tools
+ * Database Tools API
  * Use the Database Tools API to manage connections, private endpoints, and work requests in the Database Tools service.
  * OpenAPI spec version: 20201005
  *
@@ -25,7 +25,7 @@ export interface DatabaseToolsConnectionOracleDatabaseSummary
    */
   "connectionString": string;
   /**
-   * The database user name.
+   * The database user name. When authenticationType is TOKEN, if provided, userName must be in square brackets (for example, [proxyClient]).
    */
   "userName"?: string;
   "userPassword"?: model.DatabaseToolsUserPasswordSecretIdSummary;
@@ -45,7 +45,12 @@ export interface DatabaseToolsConnectionOracleDatabaseSummary
   "privateEndpointId"?: string;
   "proxyClient"?:
     | model.DatabaseToolsConnectionOracleDatabaseProxyClientNoProxySummary
-    | model.DatabaseToolsConnectionOracleDatabaseProxyClientUserNameSummary;
+    | model.DatabaseToolsConnectionOracleDatabaseProxyClientUserNameSummary
+    | model.DatabaseToolsConnectionOracleDatabaseProxyClientUserNameAutoDetectSummary;
+  /**
+   * Specifies the authentication type used by the Database Tools service to authenticate with the database.
+   */
+  "authenticationType": model.AuthenticationType;
 
   "type": string;
 }

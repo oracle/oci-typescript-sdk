@@ -894,6 +894,10 @@ import * as ModifyIpv4SubnetCidrResponse from "./modify-ipv4-subnet-cidr-respons
 export import ModifyIpv4SubnetCidrResponse = ModifyIpv4SubnetCidrResponse.ModifyIpv4SubnetCidrResponse;
 import * as ModifyVcnCidrResponse from "./modify-vcn-cidr-response";
 export import ModifyVcnCidrResponse = ModifyVcnCidrResponse.ModifyVcnCidrResponse;
+import * as PatchSubnetResponse from "./patch-subnet-response";
+export import PatchSubnetResponse = PatchSubnetResponse.PatchSubnetResponse;
+import * as PatchVcnResponse from "./patch-vcn-response";
+export import PatchVcnResponse = PatchVcnResponse.PatchVcnResponse;
 import * as PrivateIpVnicDetachResponse from "./private-ip-vnic-detach-response";
 export import PrivateIpVnicDetachResponse = PrivateIpVnicDetachResponse.PrivateIpVnicDetachResponse;
 import * as RemoveDrgRouteDistributionStatementsResponse from "./remove-drg-route-distribution-statements-response";

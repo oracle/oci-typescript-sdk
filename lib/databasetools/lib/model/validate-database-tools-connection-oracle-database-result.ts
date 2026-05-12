@@ -1,5 +1,5 @@
 /**
- * Database Tools
+ * Database Tools API
  * Use the Database Tools API to manage connections, private endpoints, and work requests in the Database Tools service.
  * OpenAPI spec version: 20201005
  *
@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Connection validaton result for the Oracle Database.
+ * Connection validation result for the Oracle Database.
  */
 export interface ValidateDatabaseToolsConnectionOracleDatabaseResult
   extends model.ValidateDatabaseToolsConnectionResult {
@@ -28,6 +28,26 @@ export interface ValidateDatabaseToolsConnectionOracleDatabaseResult
    */
   "databaseVersion": string;
   /**
+   * The name of the currently active default schema.
+   */
+  "currentSchema"?: string;
+  /**
+   * The name of the session user (the user who logged on).
+   */
+  "sessionUser"?: string;
+  /**
+   * Name of the database user who opened the current session on behalf of sessionUser.
+   */
+  "proxyUser"?: string;
+  /**
+   * Returns the identity used in authentication.
+   */
+  "authenticatedIdentity"?: string;
+  /**
+   * Returns the method of authentication.
+   */
+  "authenticationMethod"?: string;
+  /**
    * The DBMS_CLOUD package installation status.
    */
   "dbmsCloudStatus": model.DbmsCloudStatus;
@@ -39,6 +59,18 @@ export interface ValidateDatabaseToolsConnectionOracleDatabaseResult
    * Status on whether a Database Tools identity type can be used with this connection or not.
    */
   "databaseToolsIdentityStatuses"?: Array<model.ValidationIdentityStatus>;
+  /**
+   * Displays the enterprise identity value within the USERENV context
+   */
+  "enterpriseIdentity"?: string;
+  /**
+   * Displays the proxy enterprise identity value within the USERENV context
+   */
+  "proxyEnterpriseIdentity"?: string;
+  /**
+   * Status on whether an external authentication can be used with this connection or not.
+   */
+  "externalAuthenticationStatuses"?: Array<model.ValidationExternalAuthenticationStatus>;
 
   "type": string;
 }
@@ -58,6 +90,12 @@ export namespace ValidateDatabaseToolsConnectionOracleDatabaseResult {
         "databaseToolsIdentityStatuses": obj.databaseToolsIdentityStatuses
           ? obj.databaseToolsIdentityStatuses.map(item => {
               return model.ValidationIdentityStatus.getJsonObj(item);
+            })
+          : undefined,
+
+        "externalAuthenticationStatuses": obj.externalAuthenticationStatuses
+          ? obj.externalAuthenticationStatuses.map(item => {
+              return model.ValidationExternalAuthenticationStatus.getJsonObj(item);
             })
           : undefined
       }
@@ -80,6 +118,12 @@ export namespace ValidateDatabaseToolsConnectionOracleDatabaseResult {
         "databaseToolsIdentityStatuses": obj.databaseToolsIdentityStatuses
           ? obj.databaseToolsIdentityStatuses.map(item => {
               return model.ValidationIdentityStatus.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "externalAuthenticationStatuses": obj.externalAuthenticationStatuses
+          ? obj.externalAuthenticationStatuses.map(item => {
+              return model.ValidationExternalAuthenticationStatus.getDeserializedJsonObj(item);
             })
           : undefined
       }

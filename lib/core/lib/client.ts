@@ -40839,6 +40839,188 @@ To list the ephemeral public IPs assigned to private IPs:
   }
 
   /**
+   * Updates a Subnet by evaluating a sequence of patch instructions (JSON List Patch).
+   * This operation is restricted to IPv6 CIDR-related fields only.
+   * Supported selections (exact match) are:
+   *   - ipv6CidrBlock
+   *   - ipv6CidrBlocks
+   * Only the REPLACE operation is supported.
+   * The request must include the If-Match header for optimistic concurrency control.
+   * This is an asynchronous operation. The subnet\u2019s lifecycleState is set to UPDATING while the patch work request
+   * is in progress, and changes back to AVAILABLE after the patch operation is complete.
+   * All patch instructions are applied atomically as a single operation; either all succeed or none are applied.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param PatchSubnetRequest
+   * @return PatchSubnetResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/PatchSubnet.ts.html |here} to see how to use PatchSubnet API.
+   */
+  public async patchSubnet(
+    patchSubnetRequest: requests.PatchSubnetRequest
+  ): Promise<responses.PatchSubnetResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#patchSubnet.");
+    const operationName = "patchSubnet";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Subnet/PatchSubnet";
+    const pathParams = {
+      "{subnetId}": patchSubnetRequest.subnetId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": patchSubnetRequest.opcRetryToken,
+      "if-match": patchSubnetRequest.ifMatch,
+      "opc-request-id": patchSubnetRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      patchSubnetRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/subnets/{subnetId}",
+      method: "PATCH",
+      bodyContent: common.ObjectSerializer.serialize(
+        patchSubnetRequest.patchSubnetDetails,
+        "PatchSubnetDetails",
+        model.PatchSubnetDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.PatchSubnetResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates a VCN by evaluating a sequence of patch instructions (JSON List Patch).
+   * This operation is restricted to IPv6 CIDR-related fields only.
+   * Supported selections (exact match) are:
+   *   - ipv6CidrBlock
+   *   - ipv6PublicCidrBlock
+   *   - ipv6PrivateCidrBlocks
+   *   - byoipv6CidrDetails
+   * Only the REPLACE operation is supported.
+   * The request must include the If-Match header for optimistic concurrency control.
+   * This is an asynchronous operation. The VCN\u2019s lifecycleState is set to UPDATING while the patch work request
+   * is in progress, and changes back to AVAILABLE after the patch operation is complete.
+   * All patch instructions are applied atomically as a single operation; either all succeed or none are applied.
+   * NOTE:
+   * `ipv6PublicCidrBlock` represents Oracle provided GUA on VCN. With PATCH API, customer can only remove it if present.
+   * Since this is Oracle provided CIDR, there is no concept of replacing with customer provided CIDR.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param PatchVcnRequest
+   * @return PatchVcnResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/PatchVcn.ts.html |here} to see how to use PatchVcn API.
+   */
+  public async patchVcn(
+    patchVcnRequest: requests.PatchVcnRequest
+  ): Promise<responses.PatchVcnResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#patchVcn.");
+    const operationName = "patchVcn";
+    const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Vcn/PatchVcn";
+    const pathParams = {
+      "{vcnId}": patchVcnRequest.vcnId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": patchVcnRequest.opcRequestId,
+      "opc-retry-token": patchVcnRequest.opcRetryToken,
+      "if-match": patchVcnRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      patchVcnRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/vcns/{vcnId}",
+      method: "PATCH",
+      bodyContent: common.ObjectSerializer.serialize(
+        patchVcnRequest.patchVcnDetails,
+        "PatchVcnDetails",
+        model.PatchVcnDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.PatchVcnResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Unassign the specified PrivateIP address from Virtual Network Interface Card (VNIC). You must specify the PrivateIP [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.

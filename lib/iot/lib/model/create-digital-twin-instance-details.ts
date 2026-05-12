@@ -25,6 +25,10 @@ export interface CreateDigitalTwinInstanceDetails {
    */
   "iotDomainId": string;
   /**
+   * Connectivity type of the digital twin instance
+   */
+  "connectivityType"?: model.DigitalTwinInstanceConnectivityType;
+  /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the resource (like VaultSecret, ClientCertificate etc.,) used to authenticate the digital twin instance.
    */
   "authId"?: string;
@@ -56,6 +60,11 @@ export interface CreateDigitalTwinInstanceDetails {
    * The URI of the digital twin model specification.
    */
   "digitalTwinModelSpecUri"?: string;
+  /**
+   * An array of unique ids ([OCIDs](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm)) of the IoT digital twin instances with connectivityType equals to GATEWAY.
+   *
+   */
+  "gateways"?: Array<string>;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
 * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).

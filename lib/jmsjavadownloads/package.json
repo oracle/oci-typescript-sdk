@@ -1,6 +1,6 @@
 {
   "name": "oci-jmsjavadownloads",
-  "version": "2.131.1",
+  "version": "2.131.2",
   "description": "OCI NodeJS client for Jms Java Downloads Service",
   "repository": {
     "type": "git",

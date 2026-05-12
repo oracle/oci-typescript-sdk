@@ -71,6 +71,11 @@ export interface ListDigitalTwinInstancesRequest extends common.BaseRequest {
    */
   "digitalTwinModelSpecUri"?: string;
   /**
+   * Filter resources whose connectivityType matches the specified value.
+   *
+   */
+  "connectivityType"?: model.DigitalTwinInstanceConnectivityType;
+  /**
    * Filter resources by [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm). Must be a valid OCID of the resource type.
    *
    */
