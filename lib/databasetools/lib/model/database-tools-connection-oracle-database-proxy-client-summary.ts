@@ -1,5 +1,5 @@
 /**
- * Database Tools
+ * Database Tools API
  * Use the Database Tools API to manage connections, private endpoints, and work requests in the Database Tools service.
  * OpenAPI spec version: 20201005
  *
@@ -39,6 +39,13 @@ export namespace DatabaseToolsConnectionOracleDatabaseProxyClientSummary {
             ),
             true
           );
+        case "USER_NAME_AUTO_DETECT":
+          return model.DatabaseToolsConnectionOracleDatabaseProxyClientUserNameAutoDetectSummary.getJsonObj(
+            <model.DatabaseToolsConnectionOracleDatabaseProxyClientUserNameAutoDetectSummary>(
+              (<object>jsonObj)
+            ),
+            true
+          );
         default:
           if (common.LOG.logger)
             common.LOG.logger.info(`Unknown value for: ${obj.proxyAuthenticationType}`);
@@ -61,6 +68,13 @@ export namespace DatabaseToolsConnectionOracleDatabaseProxyClientSummary {
         case "USER_NAME":
           return model.DatabaseToolsConnectionOracleDatabaseProxyClientUserNameSummary.getDeserializedJsonObj(
             <model.DatabaseToolsConnectionOracleDatabaseProxyClientUserNameSummary>(
+              (<object>jsonObj)
+            ),
+            true
+          );
+        case "USER_NAME_AUTO_DETECT":
+          return model.DatabaseToolsConnectionOracleDatabaseProxyClientUserNameAutoDetectSummary.getDeserializedJsonObj(
+            <model.DatabaseToolsConnectionOracleDatabaseProxyClientUserNameAutoDetectSummary>(
               (<object>jsonObj)
             ),
             true

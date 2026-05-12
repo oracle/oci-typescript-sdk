@@ -112,6 +112,7 @@ export import resourcesearch = require("oci-resourcesearch");
 export import streaming = require("oci-streaming");
 
 // WAAS
+export import waa = require("oci-waa");
 export import waas = require("oci-waas");
 
 // Work Requests
@@ -125,6 +126,7 @@ export import vault = require("oci-vault");
 export import secrets = require("oci-secrets");
 export import dataintegration = require("oci-dataintegration");
 export import ocvp = require("oci-ocvp");
+export import usage = require("oci-usage");
 export import usageapi = require("oci-usageapi");
 export import blockchain = require("oci-blockchain");
 export import loganalytics = require("oci-loganalytics");
@@ -245,3 +247,4 @@ export import limitsincrease = require("oci-limitsincrease");
 export import generativeaidata = require("oci-generativeaidata");
 export import containerregistry = require("oci-containerregistry");
 export import self = require("oci-self");
+export import databasetoolsruntime = require("oci-databasetoolsruntime");

@@ -1,5 +1,5 @@
 /**
- * Database Tools
+ * Database Tools API
  * Use the Database Tools API to manage connections, private endpoints, and work requests in the Database Tools service.
  * OpenAPI spec version: 20201005
  *
@@ -19,6 +19,7 @@ import common = require("oci-common");
  **/
 export enum ProxyAuthenticationType {
   UserName = "USER_NAME",
+  UserNameAutoDetect = "USER_NAME_AUTO_DETECT",
   NoProxy = "NO_PROXY",
 
   /**

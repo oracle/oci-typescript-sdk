@@ -1,5 +1,5 @@
 /**
- * Database Tools
+ * Database Tools API
  * Use the Database Tools API to manage connections, private endpoints, and work requests in the Database Tools service.
  * OpenAPI spec version: 20201005
  *
@@ -77,7 +77,8 @@ export interface DatabaseToolsConnectionSummary {
    */
   "runtimeEndpoint": string;
   /**
-   * Specifies the identity used by the Database Tools service to issue requests to other OCI services (e.g., Secrets in Vault).
+   * Specifies the identity used when accessing OCI resources at runtime. AUTHENTICATED_PRINCIPAL to use the caller\u2019s identity (On-Behalf-Of token), or RESOURCE_PRINCIPAL to use the connection\u2019s resource principal (RPST).
+   *
    */
   "runtimeIdentity": model.RuntimeIdentity;
 

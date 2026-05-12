@@ -1203,6 +1203,52 @@ export class VirtualNetworkWaiter {
   }
 
   /**
+   * Waits forPatchSubnet
+   *
+   * @param request the request to send
+   * @return response returns PatchSubnetResponse, GetWorkRequestResponse tuple
+   */
+  public async forPatchSubnet(
+    request: serviceRequests.PatchSubnetRequest
+  ): Promise<{
+    response: serviceResponses.PatchSubnetResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const patchSubnetResponse = await this.client.patchSubnet(request);
+    if (patchSubnetResponse.opcWorkRequestId === undefined)
+      return { response: patchSubnetResponse, workRequestResponse: undefined as any };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      patchSubnetResponse.opcWorkRequestId
+    );
+    return { response: patchSubnetResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forPatchVcn
+   *
+   * @param request the request to send
+   * @return response returns PatchVcnResponse, GetWorkRequestResponse tuple
+   */
+  public async forPatchVcn(
+    request: serviceRequests.PatchVcnRequest
+  ): Promise<{
+    response: serviceResponses.PatchVcnResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const patchVcnResponse = await this.client.patchVcn(request);
+    if (patchVcnResponse.opcWorkRequestId === undefined)
+      return { response: patchVcnResponse, workRequestResponse: undefined as any };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      patchVcnResponse.opcWorkRequestId
+    );
+    return { response: patchVcnResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
    * Waits forRemoveIpv4SubnetCidr
    *
    * @param request the request to send
