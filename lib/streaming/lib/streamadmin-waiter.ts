@@ -79,4 +79,20 @@ export class StreamAdminWaiter {
       targetStates.includes(models.StreamPool.LifecycleState.Deleted)
     );
   }
+
+  /**
+   * Waits forWorkRequest
+   *
+   * @param request the request to send
+   * @return response returns GetWorkRequestResponse
+   */
+  public async forWorkRequest(
+    request: serviceRequests.GetWorkRequestRequest
+  ): Promise<serviceResponses.GetWorkRequestResponse> {
+    return genericWaiter(
+      this.config,
+      () => this.client.getWorkRequest(request),
+      response => (response.workRequest.timeFinished ? true : false)
+    );
+  }
 }

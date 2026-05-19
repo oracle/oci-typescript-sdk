@@ -39,6 +39,24 @@ export interface TenancyAttachmentSummary {
    */
   "isReportingTenancy": boolean;
   /**
+   * The overall status of the data population from the tenancy.
+   */
+  "dataPopulationStatus"?: string;
+  /**
+    * The date and time the data population tasks started, in the format defined by [RFC 3339](https://tools.ietf.org/html/rfc3339).
+* <p>
+Example: {@code 2016-08-25T21:10:29.600Z}
+* 
+    */
+  "timeDataPopulationStarted"?: Date;
+  /**
+    * The date and time the data population tasks completed, in the format defined by [RFC 3339](https://tools.ietf.org/html/rfc3339).
+* <p>
+Example: {@code 2016-08-25T21:10:29.600Z}
+* 
+    */
+  "timeDataPopulationEnded"?: Date;
+  /**
     * The date and time the TenancyAttachment was created, in the format defined by [RFC 3339](https://tools.ietf.org/html/rfc3339).
 * <p>
 Example: {@code 2016-08-25T21:10:29.600Z}

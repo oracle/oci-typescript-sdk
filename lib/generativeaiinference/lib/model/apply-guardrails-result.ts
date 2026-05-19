@@ -26,6 +26,7 @@ import common = require("oci-common");
  */
 export interface ApplyGuardrailsResult {
   "results": model.GuardrailsResults;
+  "guardrailVersion"?: model.GuardrailVersionResponse;
 }
 
 export namespace ApplyGuardrailsResult {
@@ -33,7 +34,10 @@ export namespace ApplyGuardrailsResult {
     const jsonObj = {
       ...obj,
       ...{
-        "results": obj.results ? model.GuardrailsResults.getJsonObj(obj.results) : undefined
+        "results": obj.results ? model.GuardrailsResults.getJsonObj(obj.results) : undefined,
+        "guardrailVersion": obj.guardrailVersion
+          ? model.GuardrailVersionResponse.getJsonObj(obj.guardrailVersion)
+          : undefined
       }
     };
 
@@ -45,6 +49,9 @@ export namespace ApplyGuardrailsResult {
       ...{
         "results": obj.results
           ? model.GuardrailsResults.getDeserializedJsonObj(obj.results)
+          : undefined,
+        "guardrailVersion": obj.guardrailVersion
+          ? model.GuardrailVersionResponse.getDeserializedJsonObj(obj.guardrailVersion)
           : undefined
       }
     };
