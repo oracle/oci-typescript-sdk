@@ -35,14 +35,6 @@ export interface CreateBdsCertificateConfigurationDetails {
    * The OCID of the compartment of the certificate authority connecting to this certificate configuration.
    */
   "compartmentId"?: string;
-  /**
-   * Base-64 encoded password for the cluster admin user.
-   */
-  "clusterAdminPassword"?: string;
-  /**
-   * The secretId for the clusterAdminPassword.
-   */
-  "secretId"?: string;
 }
 
 export namespace CreateBdsCertificateConfigurationDetails {

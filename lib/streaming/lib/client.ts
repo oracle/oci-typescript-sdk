@@ -1043,6 +1043,11 @@ export class StreamAdminClient {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
             dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
           }
         ]
       });
@@ -1120,6 +1125,11 @@ export class StreamAdminClient {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
             dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
           }
         ]
       });
@@ -1193,6 +1203,11 @@ export class StreamAdminClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           }
         ]
@@ -1270,6 +1285,11 @@ export class StreamAdminClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           },
           {
@@ -1357,6 +1377,11 @@ export class StreamAdminClient {
             dataType: "string"
           },
           {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
             value: response.headers.get("etag"),
             key: "etag",
             dataType: "string"
@@ -1440,6 +1465,11 @@ export class StreamAdminClient {
             dataType: "string"
           },
           {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
             value: response.headers.get("etag"),
             key: "etag",
             dataType: "string"
@@ -1516,6 +1546,11 @@ export class StreamAdminClient {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
             dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
           }
         ]
       });
@@ -1589,6 +1624,11 @@ export class StreamAdminClient {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
             dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
           }
         ]
       });
@@ -1658,6 +1698,11 @@ export class StreamAdminClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           }
         ]
@@ -1886,6 +1931,77 @@ export class StreamAdminClient {
           {
             value: response.headers.get("etag"),
             key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the details of a work request.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetWorkRequestRequest
+   * @return GetWorkRequestResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/streaming/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
+   */
+  public async getWorkRequest(
+    getWorkRequestRequest: requests.GetWorkRequestRequest
+  ): Promise<responses.GetWorkRequestResponse> {
+    if (this.logger) this.logger.debug("Calling operation StreamAdminClient#getWorkRequest.");
+    const operationName = "getWorkRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/streaming/20180418/WorkRequest/GetWorkRequest";
+    const pathParams = {
+      "{workRequestId}": getWorkRequestRequest.workRequestId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getWorkRequestRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getWorkRequestRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workRequests/{workRequestId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetWorkRequestResponse>{},
+        body: await response.json(),
+        bodyKey: "workRequest",
+        bodyModel: model.WorkRequest,
+        type: "model.WorkRequest",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           }
         ]
@@ -2323,6 +2439,269 @@ export class StreamAdminClient {
   }
 
   /**
+   * Lists the errors for a work request.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListWorkRequestErrorsRequest
+   * @return ListWorkRequestErrorsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/streaming/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
+   */
+  public async listWorkRequestErrors(
+    listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
+  ): Promise<responses.ListWorkRequestErrorsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation StreamAdminClient#listWorkRequestErrors.");
+    const operationName = "listWorkRequestErrors";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/streaming/20180418/WorkRequestErrorCollection/ListWorkRequestErrors";
+    const pathParams = {
+      "{workRequestId}": listWorkRequestErrorsRequest.workRequestId
+    };
+
+    const queryParams = {
+      "page": listWorkRequestErrorsRequest.page,
+      "limit": listWorkRequestErrorsRequest.limit,
+      "sortOrder": listWorkRequestErrorsRequest.sortOrder,
+      "sortBy": listWorkRequestErrorsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestErrorsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workRequests/{workRequestId}/errors",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListWorkRequestErrorsResponse>{},
+        body: await response.json(),
+        bodyKey: "workRequestErrorCollection",
+        bodyModel: model.WorkRequestErrorCollection,
+        type: "model.WorkRequestErrorCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists the logs for a work request.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListWorkRequestLogsRequest
+   * @return ListWorkRequestLogsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/streaming/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
+   */
+  public async listWorkRequestLogs(
+    listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
+  ): Promise<responses.ListWorkRequestLogsResponse> {
+    if (this.logger) this.logger.debug("Calling operation StreamAdminClient#listWorkRequestLogs.");
+    const operationName = "listWorkRequestLogs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/streaming/20180418/WorkRequestLogEntry/ListWorkRequestLogs";
+    const pathParams = {
+      "{workRequestId}": listWorkRequestLogsRequest.workRequestId
+    };
+
+    const queryParams = {
+      "page": listWorkRequestLogsRequest.page,
+      "limit": listWorkRequestLogsRequest.limit,
+      "sortOrder": listWorkRequestLogsRequest.sortOrder,
+      "sortBy": listWorkRequestLogsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listWorkRequestLogsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestLogsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workRequests/{workRequestId}/logs",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListWorkRequestLogsResponse>{},
+        body: await response.json(),
+        bodyKey: "workRequestLogEntryCollection",
+        bodyModel: model.WorkRequestLogEntryCollection,
+        type: "model.WorkRequestLogEntryCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists the work requests in a compartment.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListWorkRequestsRequest
+   * @return ListWorkRequestsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/streaming/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
+   */
+  public async listWorkRequests(
+    listWorkRequestsRequest: requests.ListWorkRequestsRequest
+  ): Promise<responses.ListWorkRequestsResponse> {
+    if (this.logger) this.logger.debug("Calling operation StreamAdminClient#listWorkRequests.");
+    const operationName = "listWorkRequests";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/streaming/20180418/WorkRequestSummaryCollection/ListWorkRequests";
+    const pathParams = {};
+
+    const queryParams = {
+      "workRequestId": listWorkRequestsRequest.workRequestId,
+      "compartmentId": listWorkRequestsRequest.compartmentId,
+      "page": listWorkRequestsRequest.page,
+      "limit": listWorkRequestsRequest.limit,
+      "sortOrder": listWorkRequestsRequest.sortOrder,
+      "sortBy": listWorkRequestsRequest.sortBy,
+      "resourceId": listWorkRequestsRequest.resourceId
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listWorkRequestsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workRequests",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListWorkRequestsResponse>{},
+        body: await response.json(),
+        bodyKey: "workRequestSummaryCollection",
+        bodyModel: model.WorkRequestSummaryCollection,
+        type: "model.WorkRequestSummaryCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Updates the tags applied to the connect harness.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -2389,6 +2768,11 @@ export class StreamAdminClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           },
           {
@@ -2475,6 +2859,11 @@ export class StreamAdminClient {
             dataType: "string"
           },
           {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
             value: response.headers.get("etag"),
             key: "etag",
             dataType: "string"
@@ -2555,6 +2944,11 @@ export class StreamAdminClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           },
           {

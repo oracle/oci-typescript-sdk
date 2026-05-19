@@ -51,7 +51,7 @@ OLDEST: Choose the oldest available MySQL version based on the current version o
   "versionTrackPreference"?: model.VersionTrackPreference;
   /**
    * The maintenance schedule type of the DB system.
-   * EARLY:   Maintenance schedule follows a cycle where upgrades are performed when versions become deprecated.
+   * EARLY: Maintenance schedule follows a cycle where upgrades are performed when versions become deprecated.
    * REGULAR: Maintenance schedule follows the normal cycle where upgrades are performed when versions become unavailable.
    *
    */

@@ -36,7 +36,7 @@ export interface CreateReadEndpointDetails {
   /**
     * The hostname for the read endpoint of the DB System. Used for DNS.
 * <p>
-The value is the hostname portion of the primary private IP's fully qualified domain name (FQDN) 
+The value is the hostname portion of the primary private IP's fully qualified domain name (FQDN)
 * (for example, \"dbsystem-1\" in FQDN \"dbsystem-1.subnet123.vcn1.oraclevcn.com\").
 * <p>
 Must be unique across all VNICs in the subnet and comply with RFC 952 and RFC 1123.

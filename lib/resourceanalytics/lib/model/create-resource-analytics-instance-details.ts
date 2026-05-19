@@ -48,6 +48,10 @@ Example: {@code [\"ocid...\", \"ocid...\"]}
     */
   "nsgIds"?: Array<string>;
   /**
+   * The compute amount (CPUs) available to the Autonomous Database. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "computeCount"?: number;
+  /**
    * The Oracle license model that applies to the ADW instance.
    */
   "licenseModel"?: CreateResourceAnalyticsInstanceDetails.LicenseModel;

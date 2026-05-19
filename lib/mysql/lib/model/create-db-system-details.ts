@@ -148,6 +148,7 @@ Must be unique across all VNICs in the subnet and comply with RFC 952 and RFC 11
   "portX"?: number;
   "backupPolicy"?: model.CreateBackupPolicyDetails;
   "source"?:
+    | model.CreateDbSystemSourceFromDbSystemDetails
     | model.CreateDbSystemSourceFromBackupDetails
     | model.CreateDbSystemSourceFromNoneDetails
     | model.CreateDbSystemSourceImportFromUrlDetails

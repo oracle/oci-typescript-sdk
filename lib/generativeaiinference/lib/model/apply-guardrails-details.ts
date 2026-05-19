@@ -27,6 +27,7 @@ import common = require("oci-common");
 export interface ApplyGuardrailsDetails {
   "input": model.GuardrailsTextInput;
   "guardrailConfigs": model.GuardrailConfigs;
+  "guardrailVersionConfig"?: model.GuardrailVersionConfig;
   /**
    * The OCID of the compartment to apply guardrails.
    */
@@ -41,6 +42,9 @@ export namespace ApplyGuardrailsDetails {
         "input": obj.input ? model.GuardrailsInput.getJsonObj(obj.input) : undefined,
         "guardrailConfigs": obj.guardrailConfigs
           ? model.GuardrailConfigs.getJsonObj(obj.guardrailConfigs)
+          : undefined,
+        "guardrailVersionConfig": obj.guardrailVersionConfig
+          ? model.GuardrailVersionConfig.getJsonObj(obj.guardrailVersionConfig)
           : undefined
       }
     };
@@ -54,6 +58,9 @@ export namespace ApplyGuardrailsDetails {
         "input": obj.input ? model.GuardrailsInput.getDeserializedJsonObj(obj.input) : undefined,
         "guardrailConfigs": obj.guardrailConfigs
           ? model.GuardrailConfigs.getDeserializedJsonObj(obj.guardrailConfigs)
+          : undefined,
+        "guardrailVersionConfig": obj.guardrailVersionConfig
+          ? model.GuardrailVersionConfig.getDeserializedJsonObj(obj.guardrailVersionConfig)
           : undefined
       }
     };

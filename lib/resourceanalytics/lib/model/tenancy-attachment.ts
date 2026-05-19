@@ -44,6 +44,28 @@ export interface TenancyAttachment {
    */
   "isReportingTenancy": boolean;
   /**
+   * List of monitored regions with their data population status.
+   */
+  "monitoredRegions": Array<model.TenancyAttachmentMonitoredRegionSummary>;
+  /**
+   * The overall status of the data population from the tenancy.
+   */
+  "dataPopulationStatus": TenancyAttachment.DataPopulationStatus;
+  /**
+    * The date and time the data population tasks started, in the format defined by [RFC 3339](https://tools.ietf.org/html/rfc3339).
+* <p>
+Example: {@code 2016-08-25T21:10:29.600Z}
+* 
+    */
+  "timeDataPopulationStarted"?: Date;
+  /**
+    * The date and time the data population tasks completed, in the format defined by [RFC 3339](https://tools.ietf.org/html/rfc3339).
+* <p>
+Example: {@code 2016-08-25T21:10:29.600Z}
+* 
+    */
+  "timeDataPopulationEnded"?: Date;
+  /**
     * The date and time the TenancyAttachment was created, in the format defined by [RFC 3339](https://tools.ietf.org/html/rfc3339).
 * <p>
 Example: {@code 2016-08-25T21:10:29.600Z}
@@ -77,6 +99,23 @@ Example: {@code {\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}}
 }
 
 export namespace TenancyAttachment {
+  export enum DataPopulationStatus {
+    Accepted = "ACCEPTED",
+    InProgress = "IN_PROGRESS",
+    Waiting = "WAITING",
+    Failed = "FAILED",
+    Succeeded = "SUCCEEDED",
+    Canceling = "CANCELING",
+    Canceled = "CANCELED",
+    NeedsAttention = "NEEDS_ATTENTION",
+    PartiallySucceeded = "PARTIALLY_SUCCEEDED",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export enum LifecycleState {
     Creating = "CREATING",
     Updating = "UPDATING",
@@ -93,12 +132,30 @@ export namespace TenancyAttachment {
   }
 
   export function getJsonObj(obj: TenancyAttachment): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "monitoredRegions": obj.monitoredRegions
+          ? obj.monitoredRegions.map(item => {
+              return model.TenancyAttachmentMonitoredRegionSummary.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: TenancyAttachment): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "monitoredRegions": obj.monitoredRegions
+          ? obj.monitoredRegions.map(item => {
+              return model.TenancyAttachmentMonitoredRegionSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
