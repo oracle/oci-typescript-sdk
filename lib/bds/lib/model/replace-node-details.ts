@@ -26,11 +26,15 @@ export interface ReplaceNodeDetails {
   /**
    * The id of the nodeBackup to use for replacing the node.
    */
-  "nodeBackupId": string;
+  "nodeBackupId"?: string;
   /**
    * Base-64 encoded password for the cluster admin user.
    */
   "clusterAdminPassword"?: string;
+  /**
+   * Heterogeneous shape of the node if the default shape is not available.
+   */
+  "heterogeneousShapes"?: Array<string>;
   /**
    * The secretId for the clusterAdminPassword.
    */

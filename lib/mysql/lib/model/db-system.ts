@@ -106,6 +106,7 @@ For a standalone DB System, this defines the fault domain in which the DB System
     | model.DbSystemSourceFromBackup
     | model.DbSystemSourceFromPitr
     | model.DbSystemSourceFromNone
+    | model.DbSystemSourceFromDbSystem
     | model.DbSystemSourceImportFromUrl;
   /**
    * The OCID of the Configuration to be used for Instances in this DB System.

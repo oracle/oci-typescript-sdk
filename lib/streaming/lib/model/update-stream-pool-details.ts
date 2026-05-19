@@ -18,6 +18,12 @@ import common = require("oci-common");
  * Object used to update the stream pool's details.
  */
 export interface UpdateStreamPoolDetails {
+  /**
+    * The name of the stream pool. Avoid entering confidential information.
+* <p>
+Example: {@code MyStreamPool}
+* 
+    */
   "name"?: string;
   "kafkaSettings"?: model.KafkaSettings;
   "customEncryptionKeyDetails"?: model.CustomEncryptionKeyDetails;

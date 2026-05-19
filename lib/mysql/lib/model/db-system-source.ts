@@ -43,6 +43,11 @@ export namespace DbSystemSource {
             <model.DbSystemSourceFromNone>(<object>jsonObj),
             true
           );
+        case "DBSYSTEM":
+          return model.DbSystemSourceFromDbSystem.getJsonObj(
+            <model.DbSystemSourceFromDbSystem>(<object>jsonObj),
+            true
+          );
         case "IMPORTURL":
           return model.DbSystemSourceImportFromUrl.getJsonObj(
             <model.DbSystemSourceImportFromUrl>(<object>jsonObj),
@@ -72,6 +77,11 @@ export namespace DbSystemSource {
         case "NONE":
           return model.DbSystemSourceFromNone.getDeserializedJsonObj(
             <model.DbSystemSourceFromNone>(<object>jsonObj),
+            true
+          );
+        case "DBSYSTEM":
+          return model.DbSystemSourceFromDbSystem.getDeserializedJsonObj(
+            <model.DbSystemSourceFromDbSystem>(<object>jsonObj),
             true
           );
         case "IMPORTURL":

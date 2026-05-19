@@ -28,6 +28,11 @@ export namespace CreateDbSystemSourceDetails {
 
     if (obj && "sourceType" in obj && obj.sourceType) {
       switch (obj.sourceType) {
+        case "DBSYSTEM":
+          return model.CreateDbSystemSourceFromDbSystemDetails.getJsonObj(
+            <model.CreateDbSystemSourceFromDbSystemDetails>(<object>jsonObj),
+            true
+          );
         case "BACKUP":
           return model.CreateDbSystemSourceFromBackupDetails.getJsonObj(
             <model.CreateDbSystemSourceFromBackupDetails>(<object>jsonObj),
@@ -59,6 +64,11 @@ export namespace CreateDbSystemSourceDetails {
 
     if (obj && "sourceType" in obj && obj.sourceType) {
       switch (obj.sourceType) {
+        case "DBSYSTEM":
+          return model.CreateDbSystemSourceFromDbSystemDetails.getDeserializedJsonObj(
+            <model.CreateDbSystemSourceFromDbSystemDetails>(<object>jsonObj),
+            true
+          );
         case "BACKUP":
           return model.CreateDbSystemSourceFromBackupDetails.getDeserializedJsonObj(
             <model.CreateDbSystemSourceFromBackupDetails>(<object>jsonObj),

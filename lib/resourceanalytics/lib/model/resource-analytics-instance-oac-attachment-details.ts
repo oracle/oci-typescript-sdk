@@ -38,12 +38,25 @@ export interface ResourceAnalyticsInstanceOacAttachmentDetails {
    * The Oracle license model that applies to the OAC instance.
    */
   "licenseModel"?: ResourceAnalyticsInstanceOacAttachmentDetails.LicenseModel;
+  /**
+   * The capacity model to use for the Analytics Instance.
+   */
+  "capacityType"?: ResourceAnalyticsInstanceOacAttachmentDetails.CapacityType;
+  /**
+   * The capacity value selected, either the number of OCPUs (OLPU_COUNT) or the number of users (USER_COUNT). This parameter affects the number of OCPUs, amount of memory, and other resources allocated to the Analytics Instance. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "capacityValue"?: number;
 }
 
 export namespace ResourceAnalyticsInstanceOacAttachmentDetails {
   export enum LicenseModel {
     LicenseIncluded = "LICENSE_INCLUDED",
     BringYourOwnLicense = "BRING_YOUR_OWN_LICENSE"
+  }
+
+  export enum CapacityType {
+    OlpuCount = "OLPU_COUNT",
+    UserCount = "USER_COUNT"
   }
 
   export function getJsonObj(obj: ResourceAnalyticsInstanceOacAttachmentDetails): object {

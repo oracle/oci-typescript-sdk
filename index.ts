@@ -248,3 +248,4 @@ export import generativeaidata = require("oci-generativeaidata");
 export import containerregistry = require("oci-containerregistry");
 export import self = require("oci-self");
 export import databasetoolsruntime = require("oci-databasetoolsruntime");
+export import costad = require("oci-costad");

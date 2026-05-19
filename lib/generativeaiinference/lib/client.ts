@@ -40,8 +40,8 @@ export enum GenerativeAiInferenceApiKeys {}
  */
 export class GenerativeAiInferenceClient {
   protected static serviceEndpointTemplate =
-    "https://inference.generativeai.{region}.oci.{secondLevelDomain}";
-  protected static endpointServiceName = "";
+    "https://inference.generativeai.{region}.{dualStack?ds.:}oci.{secondLevelDomain}";
+  protected static endpointServiceName = "inference.generativeai";
   protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
@@ -53,6 +53,8 @@ export class GenerativeAiInferenceClient {
   protected _regionId: string = "";
   protected "_region": common.Region;
   protected _lastSetRegionOrRegionId: string = "";
+  protected _enableDualstackEndpoint: boolean | undefined = undefined;
+  protected _serviceUsesDualStackByDefault: boolean = false;
 
   protected _httpClient: common.HttpClient;
   protected _authProvider: common.AuthenticationDetailsProvider | undefined;
@@ -191,6 +193,10 @@ export class GenerativeAiInferenceClient {
     this._lastSetRegionOrRegionId = common.Region.REGION_ID_STRING;
   }
 
+  public set enableDualstackEndpoint(enableDualstackEndpoint: boolean) {
+    this._enableDualstackEndpoint = enableDualstackEndpoint;
+  }
+
   /**
    * Shutdown the circuit breaker used by the client when it is no longer needed
    */
@@ -246,6 +252,19 @@ export class GenerativeAiInferenceClient {
       "opc-request-id": applyGuardrailsRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>([]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -254,7 +273,7 @@ export class GenerativeAiInferenceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/actions/applyGuardrails",
       method: "POST",
@@ -321,6 +340,19 @@ export class GenerativeAiInferenceClient {
       "opc-request-id": chatRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>([]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -329,7 +361,7 @@ export class GenerativeAiInferenceClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/actions/chat",
       method: "POST",
@@ -415,6 +447,19 @@ An embedding is numeric representation of a piece of text. This text can be a ph
       "opc-request-id": embedTextRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>([]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -423,7 +468,7 @@ An embedding is numeric representation of a piece of text. This text can be a ph
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/actions/embedText",
       method: "POST",
@@ -501,6 +546,19 @@ An embedding is numeric representation of a piece of text. This text can be a ph
       "opc-request-id": generateTextRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>([]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -509,7 +567,7 @@ An embedding is numeric representation of a piece of text. This text can be a ph
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/actions/generateText",
       method: "POST",
@@ -569,6 +627,99 @@ An embedding is numeric representation of a piece of text. This text can be a ph
   }
 
   /**
+   * List the available guardrail system versions.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListGuardrailVersionsRequest
+   * @return ListGuardrailVersionsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeaiinference/ListGuardrailVersions.ts.html |here} to see how to use ListGuardrailVersions API.
+   */
+  public async listGuardrailVersions(
+    listGuardrailVersionsRequest: requests.ListGuardrailVersionsRequest
+  ): Promise<responses.ListGuardrailVersionsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GenerativeAiInferenceClient#listGuardrailVersions.");
+    const operationName = "listGuardrailVersions";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "state": listGuardrailVersionsRequest.state,
+      "limit": listGuardrailVersionsRequest.limit,
+      "page": listGuardrailVersionsRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listGuardrailVersionsRequest.opcRequestId,
+      "opc-compartment-id": listGuardrailVersionsRequest.opcCompartmentId
+    };
+
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>([]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listGuardrailVersionsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/guardrailVersions",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListGuardrailVersionsResponse>{},
+        body: await response.json(),
+        bodyKey: "guardrailVersionCollection",
+        bodyModel: model.GuardrailVersionCollection,
+        type: "model.GuardrailVersionCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
      * Reranks the text responses based on the input documents and a prompt.
 * <p>
 Rerank assigns an index and a relevance score to each document, indicating which document is most related to the prompt.
@@ -595,6 +746,19 @@ Rerank assigns an index and a relevance score to each document, indicating which
       "opc-request-id": rerankTextRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>([]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -603,7 +767,7 @@ Rerank assigns an index and a relevance score to each document, indicating which
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/actions/rerankText",
       method: "POST",
@@ -681,6 +845,19 @@ Rerank assigns an index and a relevance score to each document, indicating which
       "opc-request-id": summarizeTextRequest.opcRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>([]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -689,7 +866,7 @@ Rerank assigns an index and a relevance score to each document, indicating which
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/actions/summarizeText",
       method: "POST",
