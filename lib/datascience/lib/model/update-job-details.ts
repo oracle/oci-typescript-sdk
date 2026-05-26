@@ -31,6 +31,7 @@ export interface UpdateJobDetails {
     | model.MultiNodeJobInfrastructureConfigurationDetails
     | model.EmptyJobInfrastructureConfigurationDetails
     | model.ManagedEgressStandaloneJobInfrastructureConfigurationDetails
+    | model.ManagedComputeClusterJobInfrastructureConfigurationDetails
     | model.StandaloneJobInfrastructureConfigurationDetails;
   /**
    * Collection of JobStorageMountConfigurationDetails.

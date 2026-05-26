@@ -175,6 +175,7 @@ export interface ExadataInfrastructureSummary {
    */
   "maintenanceSLOStatus"?: ExadataInfrastructureSummary.MaintenanceSLOStatus;
   "maintenanceWindow"?: model.MaintenanceWindow;
+  "maintenanceVersionPreferences"?: model.MaintenanceVersionPreferenceDetails;
   /**
    * The software version of the storage servers (cells) in the Exadata infrastructure.
    */
@@ -318,6 +319,9 @@ export namespace ExadataInfrastructureSummary {
         "maintenanceWindow": obj.maintenanceWindow
           ? model.MaintenanceWindow.getJsonObj(obj.maintenanceWindow)
           : undefined,
+        "maintenanceVersionPreferences": obj.maintenanceVersionPreferences
+          ? model.MaintenanceVersionPreferenceDetails.getJsonObj(obj.maintenanceVersionPreferences)
+          : undefined,
 
         "networkBondingModeDetails": obj.networkBondingModeDetails
           ? model.NetworkBondingModeDetails.getJsonObj(obj.networkBondingModeDetails)
@@ -349,6 +353,11 @@ export namespace ExadataInfrastructureSummary {
 
         "maintenanceWindow": obj.maintenanceWindow
           ? model.MaintenanceWindow.getDeserializedJsonObj(obj.maintenanceWindow)
+          : undefined,
+        "maintenanceVersionPreferences": obj.maintenanceVersionPreferences
+          ? model.MaintenanceVersionPreferenceDetails.getDeserializedJsonObj(
+              obj.maintenanceVersionPreferences
+            )
           : undefined,
 
         "networkBondingModeDetails": obj.networkBondingModeDetails

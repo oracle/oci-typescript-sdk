@@ -62,6 +62,7 @@ export interface JobRun {
     | model.MultiNodeJobInfrastructureConfigurationDetails
     | model.EmptyJobInfrastructureConfigurationDetails
     | model.ManagedEgressStandaloneJobInfrastructureConfigurationDetails
+    | model.ManagedComputeClusterJobInfrastructureConfigurationDetails
     | model.StandaloneJobInfrastructureConfigurationDetails;
   "jobEnvironmentConfigurationOverrideDetails"?: model.OcirContainerJobEnvironmentConfigurationDetails;
   "jobLogConfigurationOverrideDetails"?: model.JobLogConfigurationDetails;
@@ -78,6 +79,7 @@ export interface JobRun {
     | model.MultiNodeJobInfrastructureConfigurationDetails
     | model.EmptyJobInfrastructureConfigurationDetails
     | model.ManagedEgressStandaloneJobInfrastructureConfigurationDetails
+    | model.ManagedComputeClusterJobInfrastructureConfigurationDetails
     | model.StandaloneJobInfrastructureConfigurationDetails;
   "jobNodeConfigurationOverrideDetails"?: model.MultiNodeJobNodeConfigurationDetails;
   /**

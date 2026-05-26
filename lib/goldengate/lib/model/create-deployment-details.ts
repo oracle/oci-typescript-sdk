@@ -173,6 +173,12 @@ Example: {@code {\"Oracle-ZPR\": {\"MaxEgressCount\": {\"value\": \"42\", \"mode
 * 
     */
   "securityAttributes"?: { [key: string]: { [key: string]: any } };
+  /**
+   * Indicates if disaster recovery is enabled for a deployment.
+   * If not specified, disaster recovery is ENABLED when no clusterPlacementGroupId is provided, and DISABLED when a clusterPlacementGroupId is provided.
+   *
+   */
+  "disasterRecoveryStatus"?: model.DisasterRecoveryStatus;
   "oggData"?: model.CreateOggDeploymentDetails;
   "maintenanceWindow"?: model.CreateMaintenanceWindowDetails;
   "maintenanceConfiguration"?: model.CreateMaintenanceConfigurationDetails;

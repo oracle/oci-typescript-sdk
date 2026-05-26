@@ -44,6 +44,11 @@ export namespace JobInfrastructureConfigurationDetails {
             <model.ManagedEgressStandaloneJobInfrastructureConfigurationDetails>(<object>jsonObj),
             true
           );
+        case "MANAGED_COMPUTE_CLUSTER":
+          return model.ManagedComputeClusterJobInfrastructureConfigurationDetails.getJsonObj(
+            <model.ManagedComputeClusterJobInfrastructureConfigurationDetails>(<object>jsonObj),
+            true
+          );
         case "STANDALONE":
           return model.StandaloneJobInfrastructureConfigurationDetails.getJsonObj(
             <model.StandaloneJobInfrastructureConfigurationDetails>(<object>jsonObj),
@@ -74,6 +79,11 @@ export namespace JobInfrastructureConfigurationDetails {
         case "ME_STANDALONE":
           return model.ManagedEgressStandaloneJobInfrastructureConfigurationDetails.getDeserializedJsonObj(
             <model.ManagedEgressStandaloneJobInfrastructureConfigurationDetails>(<object>jsonObj),
+            true
+          );
+        case "MANAGED_COMPUTE_CLUSTER":
+          return model.ManagedComputeClusterJobInfrastructureConfigurationDetails.getDeserializedJsonObj(
+            <model.ManagedComputeClusterJobInfrastructureConfigurationDetails>(<object>jsonObj),
             true
           );
         case "STANDALONE":

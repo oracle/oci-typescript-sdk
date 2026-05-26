@@ -129,6 +129,20 @@ Example: {@code 2016-08-25T21:10:29.600Z}
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "remainingMemoryInGBs"?: number;
+  /**
+   * The total local volume of the dedicated VM host, in GBs.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "totalLocalVolumeInGBs"?: number;
+  /**
+   * The remaining local volume of the dedicated VM host, in GBs.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "remainingLocalVolumeInGBs"?: number;
+  /**
+   * A list of total and remaining CPU, memory, and local volume per capacity bucket.
+   *
+   */
   "capacityBins"?: Array<model.CapacityBin>;
   /**
    * The compute bare metal host OCID of the dedicated virtual machine host.

@@ -47,6 +47,7 @@ export interface ListRecommendedScheduledActionsRequest extends common.BaseReque
 
 export namespace ListRecommendedScheduledActionsRequest {
   export enum PlanIntent {
-    ExadataInfrastructureFullSoftwareUpdate = "EXADATA_INFRASTRUCTURE_FULL_SOFTWARE_UPDATE"
+    ExadataInfrastructureFullSoftwareUpdate = "EXADATA_INFRASTRUCTURE_FULL_SOFTWARE_UPDATE",
+    ExadataInfrastructureSecurityUpdate = "EXADATA_INFRASTRUCTURE_SECURITY_UPDATE"
   }
 }

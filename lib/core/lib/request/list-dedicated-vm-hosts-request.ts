@@ -92,6 +92,10 @@ Example: {@code 50}
    */
   "remainingOcpusGreaterThanOrEqualTo"?: number;
   /**
+   * The remaining local volume of the dedicated VM host, in GBs.
+   */
+  "remainingLocalVolumeInGBsGreaterThanOrEqualTo"?: number;
+  /**
    * A filter to return only confidential Dedicated VM hosts (DVMH) or confidential VM instances on DVMH.
    *
    */

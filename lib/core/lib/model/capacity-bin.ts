@@ -52,6 +52,16 @@ export interface CapacityBin {
    */
   "remainingMemoryInGBs": number;
   /**
+   * The total local volume of the capacity bucket, in GBs.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "totalLocalVolumeInGBs"?: number;
+  /**
+   * The remaining local volume of the capacity bucket, in GBs.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "remainingLocalVolumeInGBs"?: number;
+  /**
    * List of VMI shapes supported on each capacity bucket.
    *
    */

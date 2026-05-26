@@ -686,6 +686,8 @@ import * as MaintenanceRunHistorySummary from "./maintenance-run-history-summary
 export import MaintenanceRunHistorySummary = MaintenanceRunHistorySummary.MaintenanceRunHistorySummary;
 import * as MaintenanceRunSummary from "./maintenance-run-summary";
 export import MaintenanceRunSummary = MaintenanceRunSummary.MaintenanceRunSummary;
+import * as MaintenanceVersionPreferenceDetails from "./maintenance-version-preference-details";
+export import MaintenanceVersionPreferenceDetails = MaintenanceVersionPreferenceDetails.MaintenanceVersionPreferenceDetails;
 import * as MaintenanceWindow from "./maintenance-window";
 export import MaintenanceWindow = MaintenanceWindow.MaintenanceWindow;
 import * as MigrateVaultKeyDetails from "./migrate-vault-key-details";
@@ -994,6 +996,8 @@ import * as VolumeDetails from "./volume-details";
 export import VolumeDetails = VolumeDetails.VolumeDetails;
 import * as WindowPreferenceDetail from "./window-preference-detail";
 export import WindowPreferenceDetail = WindowPreferenceDetail.WindowPreferenceDetail;
+import * as WindowTypeDescription from "./window-type-description";
+export import WindowTypeDescription = WindowTypeDescription.WindowTypeDescription;
 import * as WorkloadType from "./workload-type";
 export import WorkloadType = WorkloadType.WorkloadType;
 

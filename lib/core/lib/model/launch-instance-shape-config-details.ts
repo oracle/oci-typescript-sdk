@@ -71,6 +71,13 @@ The following values are supported:
    *
    */
   "resourceManagement"?: LaunchInstanceShapeConfigDetails.ResourceManagement;
+  /**
+   * The NVMe-backed local storage capacity, in GB, for flexible dense (DenseLV) VM shapes. If the selected shape
+   * is DenseLV, the value must be greater than 0. For all other shapes, the value must be null (if specified);
+   * any non-null value for a non-DenseLV shape results in an error.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "localVolumeSizeInGBs"?: number;
 }
 
 export namespace LaunchInstanceShapeConfigDetails {

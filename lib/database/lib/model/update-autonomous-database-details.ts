@@ -159,6 +159,7 @@ Example: {@code {\"Department\": \"Finance\"}}
 * - LH - indicates an Oracle Autonomous AI Lakehouse database
 * <p>
 **Note** Starting December 2026, DW will not be supported as a valid value for this parameter.
+* When creating an Autonomous AI Database, if this parameter is not specified, the default value is {@code OLTP}.
 * <p>
 
 * This cannot be updated in parallel with any of the following: licenseModel, dbEdition, cpuCoreCount, computeCount, computeModel, adminPassword, whitelistedIps, isMTLSConnectionRequired, privateEndpointLabel, nsgIds, dbVersion, isRefreshable, dbName, scheduledOperations, dbToolsDetails, isLocalDataGuardEnabled, or isFreeTier.
@@ -275,6 +276,8 @@ To delete a cross-region standby database, provide the {@code peerDbId} for the 
     * The database OCID(/Content/General/Concepts/identifiers.htm) of the Disaster Recovery peer (source Primary) database, which is located in a different (remote) region from the current peer database.
 * <p>
 To create or delete a local (in-region) standby, see the {@code isDataGuardEnabled} parameter.
+* <p>
+When disconnecting a cross-region standby, specify the standby database OCID in this parameter together with {@code isDisconnectPeer=true}.
 * 
     */
   "peerDbId"?: string;
@@ -447,9 +450,11 @@ This cannot be updated in parallel with any of the following: licenseModel, dbEd
     | model.GcpKeyDetails
     | model.OracleManagedKeyDetails;
   /**
-    * If true, this will disconnect the Autonomous AI Database from its peer and the Autonomous AI Database can work permanently as a standalone database.
+    * If true, this disconnects the Autonomous AI Database from its peer. After the disconnect completes, the Autonomous AI Database works permanently as a standalone database.
 * <p>
-To disconnect a cross region standby, please also provide the OCID of the standby database in the {@code peerDbId} parameter.
+**Warning:** A disconnected standby is no longer part of the disaster recovery configuration. Operations and restrictions that apply to a connected standby do not apply in the same way after the database has been disconnected.
+* <p>
+To disconnect a cross region standby, also provide the OCID of the standby database in the {@code peerDbId} parameter.
 * 
     */
   "isDisconnectPeer"?: boolean;

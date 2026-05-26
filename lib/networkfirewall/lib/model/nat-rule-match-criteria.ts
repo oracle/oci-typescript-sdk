@@ -1,6 +1,6 @@
 /**
  * Network Firewall API
- * Use the Network Firewall API to create network firewalls and configure policies that regulates network traffic in and across VCNs.
+ * Use the Network Firewall API to create network firewalls and configure policies that regulates network traffic in and across VCNs. For more information, see [Overview of Network Firewall](https://docs.oracle.com/iaas/Content/network-firewall/overview.htm).
  * OpenAPI spec version: 20230501
  *
  *
@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface NatRuleMatchCriteria {
   /**
-   * An array of IP address list names to be evaluated against the traffic source address.
+   * An array of address list names to be evaluated against the traffic source address.
    */
   "sourceAddress"?: Array<string>;
   /**
-   * An array of IP address list names to be evaluated against the traffic destination address.
+   * An array of address list names to be evaluated against the traffic destination address.
    */
   "destinationAddress"?: Array<string>;
   /**

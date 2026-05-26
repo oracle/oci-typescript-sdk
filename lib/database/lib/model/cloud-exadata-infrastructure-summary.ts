@@ -119,6 +119,7 @@ export interface CloudExadataInfrastructureSummary {
    */
   "lifecycleDetails"?: string;
   "maintenanceWindow"?: model.MaintenanceWindow;
+  "maintenanceVersionPreferences"?: model.MaintenanceVersionPreferenceDetails;
   /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the last maintenance run.
    */
@@ -234,6 +235,9 @@ export namespace CloudExadataInfrastructureSummary {
         "maintenanceWindow": obj.maintenanceWindow
           ? model.MaintenanceWindow.getJsonObj(obj.maintenanceWindow)
           : undefined,
+        "maintenanceVersionPreferences": obj.maintenanceVersionPreferences
+          ? model.MaintenanceVersionPreferenceDetails.getJsonObj(obj.maintenanceVersionPreferences)
+          : undefined,
 
         "customerContacts": obj.customerContacts
           ? obj.customerContacts.map(item => {
@@ -261,6 +265,11 @@ export namespace CloudExadataInfrastructureSummary {
       ...{
         "maintenanceWindow": obj.maintenanceWindow
           ? model.MaintenanceWindow.getDeserializedJsonObj(obj.maintenanceWindow)
+          : undefined,
+        "maintenanceVersionPreferences": obj.maintenanceVersionPreferences
+          ? model.MaintenanceVersionPreferenceDetails.getDeserializedJsonObj(
+              obj.maintenanceVersionPreferences
+            )
           : undefined,
 
         "customerContacts": obj.customerContacts

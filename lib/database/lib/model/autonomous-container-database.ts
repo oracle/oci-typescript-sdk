@@ -253,7 +253,7 @@ Example: {@code {\"Department\": \"Finance\"}}
    */
   "dbSplitThreshold"?: number;
   /**
-   * The percentage of CPUs reserved across nodes to support node failover. Allowed values are 0%, 25%, and 50%, with 50% being the default option. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The percentage of CPUs reserved across nodes to support node failover. Allowed values are 0%, 25%, 50%, 75%, and 100%, with 50% being the default option. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "vmFailoverReservation"?: number;
   /**
@@ -381,6 +381,7 @@ export namespace AutonomousContainerDatabase {
   export enum NetServicesArchitecture {
     Dedicated = "DEDICATED",
     Shared = "SHARED",
+    Drcp = "DRCP",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

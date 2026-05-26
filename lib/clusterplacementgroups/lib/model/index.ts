@@ -13,6 +13,8 @@
 
 import * as ActionType from "./action-type";
 export import ActionType = ActionType.ActionType;
+import * as AdditionalCapabilityDetails from "./additional-capability-details";
+export import AdditionalCapabilityDetails = AdditionalCapabilityDetails.AdditionalCapabilityDetails;
 import * as CapabilitiesCollection from "./capabilities-collection";
 export import CapabilitiesCollection = CapabilitiesCollection.CapabilitiesCollection;
 import * as CapabilityDetails from "./capability-details";
@@ -57,3 +59,6 @@ import * as WorkRequestSummary from "./work-request-summary";
 export import WorkRequestSummary = WorkRequestSummary.WorkRequestSummary;
 import * as WorkRequestSummaryCollection from "./work-request-summary-collection";
 export import WorkRequestSummaryCollection = WorkRequestSummaryCollection.WorkRequestSummaryCollection;
+
+import * as AdditionalComputeCapabilityDetails from "./additional-compute-capability-details";
+export import AdditionalComputeCapabilityDetails = AdditionalComputeCapabilityDetails.AdditionalComputeCapabilityDetails;

@@ -54,13 +54,16 @@ export interface ModelDeployment {
   "compartmentId": string;
   "modelDeploymentConfigurationDetails"?:
     | model.SingleModelDeploymentConfigurationDetails
-    | model.ModelGroupDeploymentConfigurationDetails;
+    | model.ModelGroupDeploymentConfigurationDetails
+    | model.SingleModelDeploymentFlexConfigurationDetails;
   "categoryLogDetails"?: model.CategoryLogDetails;
   /**
    * The URL to interact with the model deployment.
    */
   "modelDeploymentUrl": string;
-  "modelDeploymentSystemData"?: model.InstancePoolModelDeploymentSystemData;
+  "modelDeploymentSystemData"?:
+    | model.ManagedComputeClusterModelDeploymentSystemData
+    | model.InstancePoolModelDeploymentSystemData;
   /**
    * The state of the model deployment.
    */

@@ -1,6 +1,6 @@
 {
   "name": "oci-databasetoolsruntime",
-  "version": "2.132.0",
+  "version": "2.133.0",
   "description": "OCI NodeJS client for Database Tools Runtime Service",
   "repository": {
     "type": "git",

@@ -56,6 +56,11 @@ export interface OggDeployment {
    *
    */
   "passwordSecretId"?: string;
+  /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Secret where the deployment ssl private key is stored in PEM format.
+   *
+   */
+  "keySecretId"?: string;
   "groupToRolesMapping"?: model.GroupToRolesMappingDetails;
 }
 

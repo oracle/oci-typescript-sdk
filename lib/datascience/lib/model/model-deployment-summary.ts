@@ -53,7 +53,8 @@ export interface ModelDeploymentSummary {
   "compartmentId": string;
   "modelDeploymentConfigurationDetails"?:
     | model.SingleModelDeploymentConfigurationDetails
-    | model.ModelGroupDeploymentConfigurationDetails;
+    | model.ModelGroupDeploymentConfigurationDetails
+    | model.SingleModelDeploymentFlexConfigurationDetails;
   "categoryLogDetails"?: model.CategoryLogDetails;
   /**
    * The URL to interact with the model deployment.
@@ -63,7 +64,9 @@ export interface ModelDeploymentSummary {
    * The state of the model deployment.
    */
   "lifecycleState": model.ModelDeploymentLifecycleState;
-  "modelDeploymentSystemData"?: model.InstancePoolModelDeploymentSystemData;
+  "modelDeploymentSystemData"?:
+    | model.ManagedComputeClusterModelDeploymentSystemData
+    | model.InstancePoolModelDeploymentSystemData;
   /**
    * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace. See [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
    * Example: {@code {\"Department\": \"Finance\"}}

@@ -93,6 +93,16 @@ export interface DeploymentPeerSummary {
    * Possible lifecycle states for deployment peer.
    */
   "lifecycleState": DeploymentPeerSummary.LifecycleState;
+  /**
+   * Status of the DR precheck result.
+   */
+  "precheckStatus"?: model.PrecheckStatus;
+  /**
+   * The timestamp when pre-check started. The format is defined by
+   * [RFC3339](https://tools.ietf.org/html/rfc3339), such as {@code 2024-10-26T20:19:29.600Z}.
+   *
+   */
+  "timeLastPrecheckPerformed"?: Date;
 }
 
 export namespace DeploymentPeerSummary {
@@ -102,6 +112,7 @@ export namespace DeploymentPeerSummary {
     Failed = "FAILED",
     Updating = "UPDATING",
     Deleting = "DELETING",
+    Inactive = "INACTIVE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

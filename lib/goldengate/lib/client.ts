@@ -1403,6 +1403,95 @@ export class GoldenGateClient {
   }
 
   /**
+   * Clones the pipeline.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ClonePipelineRequest
+   * @return ClonePipelineResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ClonePipeline.ts.html |here} to see how to use ClonePipeline API.
+   */
+  public async clonePipeline(
+    clonePipelineRequest: requests.ClonePipelineRequest
+  ): Promise<responses.ClonePipelineResponse> {
+    if (this.logger) this.logger.debug("Calling operation GoldenGateClient#clonePipeline.");
+    const operationName = "clonePipeline";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/Pipeline/ClonePipeline";
+    const pathParams = {};
+
+    const queryParams = {
+      "isLockOverride": clonePipelineRequest.isLockOverride
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": clonePipelineRequest.ifMatch,
+      "opc-request-id": clonePipelineRequest.opcRequestId,
+      "opc-retry-token": clonePipelineRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      clonePipelineRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pipelines/actions/clone",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        clonePipelineRequest.clonePipelineDetails,
+        "ClonePipelineDetails",
+        model.ClonePipelineDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ClonePipelineResponse>{},
+        body: await response.json(),
+        bodyKey: "pipeline",
+        bodyModel: model.Pipeline,
+        type: "model.Pipeline",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Collects the diagnostic of a Deployment. When provided, If-Match is checked against ETag values of the resource.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -2964,6 +3053,89 @@ export class GoldenGateClient {
   }
 
   /**
+   * Generates disaster recovery precheck report for standby peer.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GenerateDisasterRecoveryPrecheckReportRequest
+   * @return GenerateDisasterRecoveryPrecheckReportResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/GenerateDisasterRecoveryPrecheckReport.ts.html |here} to see how to use GenerateDisasterRecoveryPrecheckReport API.
+   */
+  public async generateDisasterRecoveryPrecheckReport(
+    generateDisasterRecoveryPrecheckReportRequest: requests.GenerateDisasterRecoveryPrecheckReportRequest
+  ): Promise<responses.GenerateDisasterRecoveryPrecheckReportResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation GoldenGateClient#generateDisasterRecoveryPrecheckReport."
+      );
+    const operationName = "generateDisasterRecoveryPrecheckReport";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/Deployment/GenerateDisasterRecoveryPrecheckReport";
+    const pathParams = {
+      "{deploymentId}": generateDisasterRecoveryPrecheckReportRequest.deploymentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": generateDisasterRecoveryPrecheckReportRequest.opcRequestId,
+      "if-match": generateDisasterRecoveryPrecheckReportRequest.ifMatch,
+      "opc-retry-token": generateDisasterRecoveryPrecheckReportRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      generateDisasterRecoveryPrecheckReportRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/deployments/{deploymentId}/actions/generateDisasterRecoveryPrecheckReport",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        generateDisasterRecoveryPrecheckReportRequest.generateDisasterRecoveryPrecheckReportDetails,
+        "GenerateDisasterRecoveryPrecheckReportDetails",
+        model.GenerateDisasterRecoveryPrecheckReportDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GenerateDisasterRecoveryPrecheckReportResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Generates a Pre-Authenticated Request Object URL to a DB2 for z/OS library that needs to be uploaded to your DB2 for z/OS server in order to establish GoldenGate connections to it. For licensing reasons, the URL is accessible for 10 minutes only.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -3583,6 +3755,82 @@ export class GoldenGateClient {
             key: "etag",
             dataType: "string"
           },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns DR precheck report for a standby peer with the specified placement (availabilityDomain and faultDomain).
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetDisasterRecoveryPrecheckReportRequest
+   * @return GetDisasterRecoveryPrecheckReportResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/GetDisasterRecoveryPrecheckReport.ts.html |here} to see how to use GetDisasterRecoveryPrecheckReport API.
+   */
+  public async getDisasterRecoveryPrecheckReport(
+    getDisasterRecoveryPrecheckReportRequest: requests.GetDisasterRecoveryPrecheckReportRequest
+  ): Promise<responses.GetDisasterRecoveryPrecheckReportResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GoldenGateClient#getDisasterRecoveryPrecheckReport.");
+    const operationName = "getDisasterRecoveryPrecheckReport";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/Deployment/GetDisasterRecoveryPrecheckReport";
+    const pathParams = {
+      "{deploymentId}": getDisasterRecoveryPrecheckReportRequest.deploymentId
+    };
+
+    const queryParams = {
+      "availabilityDomain": getDisasterRecoveryPrecheckReportRequest.availabilityDomain,
+      "faultDomain": getDisasterRecoveryPrecheckReportRequest.faultDomain
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getDisasterRecoveryPrecheckReportRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDisasterRecoveryPrecheckReportRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/deployments/{deploymentId}/disasterRecoveryPrecheckReport",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetDisasterRecoveryPrecheckReportResponse>{},
+        body: await response.json(),
+        bodyKey: "disasterRecoveryPrecheckReport",
+        bodyModel: model.DisasterRecoveryPrecheckReport,
+        type: "model.DisasterRecoveryPrecheckReport",
+        responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",

@@ -1,6 +1,6 @@
 /**
  * Network Firewall API
- * Use the Network Firewall API to create network firewalls and configure policies that regulates network traffic in and across VCNs.
+ * Use the Network Firewall API to create network firewalls and configure policies that regulates network traffic in and across VCNs. For more information, see [Overview of Network Firewall](https://docs.oracle.com/iaas/Content/network-firewall/overview.htm).
  * OpenAPI spec version: 20230501
  *
  *
@@ -16,8 +16,8 @@ import common = require("oci-common");
 
 /**
  * Application Type:
- * * ICMP - An ICMP application.
- * * ICMPv6 - An ICMPv6 support application.
+ * * ICMP - A user-defined ICMP application.
+ * * ICMPv6 - A user-defined ICMPv6 support application.
  *
  **/
 export enum AppType {

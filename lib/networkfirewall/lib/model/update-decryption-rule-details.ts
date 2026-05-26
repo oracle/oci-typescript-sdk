@@ -1,6 +1,6 @@
 /**
  * Network Firewall API
- * Use the Network Firewall API to create network firewalls and configure policies that regulates network traffic in and across VCNs.
+ * Use the Network Firewall API to create network firewalls and configure policies that regulates network traffic in and across VCNs. For more information, see [Overview of Network Firewall](https://docs.oracle.com/iaas/Content/network-firewall/overview.htm).
  * OpenAPI spec version: 20230501
  *
  *
@@ -41,6 +41,10 @@ export interface UpdateDecryptionRuleDetails {
    * The name of a mapped secret. Its {@code type} must match that of the specified decryption profile.
    */
   "secret"?: string;
+  /**
+   * An array of mapped secrets.
+   */
+  "secrets"?: Array<string>;
   "position"?: model.RulePosition;
 }
 

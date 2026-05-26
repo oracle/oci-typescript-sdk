@@ -145,6 +145,7 @@ export namespace ExecutionActionSummary {
     DbServerFullSoftwareUpdate = "DB_SERVER_FULL_SOFTWARE_UPDATE",
     StorageServerFullSoftwareUpdate = "STORAGE_SERVER_FULL_SOFTWARE_UPDATE",
     NetworkSwitchFullSoftwareUpdate = "NETWORK_SWITCH_FULL_SOFTWARE_UPDATE",
+    DbServerOnlineSoftwareUpdate = "DB_SERVER_ONLINE_SOFTWARE_UPDATE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

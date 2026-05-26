@@ -40,7 +40,8 @@ export interface CreateModelDeploymentDetails {
   "compartmentId": string;
   "modelDeploymentConfigurationDetails":
     | model.SingleModelDeploymentConfigurationDetails
-    | model.ModelGroupDeploymentConfigurationDetails;
+    | model.ModelGroupDeploymentConfigurationDetails
+    | model.SingleModelDeploymentFlexConfigurationDetails;
   "categoryLogDetails"?: model.CategoryLogDetails;
   /**
    * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace. See [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
