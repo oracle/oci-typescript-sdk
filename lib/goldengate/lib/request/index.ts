@@ -40,6 +40,8 @@ import * as ChangeDeploymentSubscriptionRequest from "./change-deployment-subscr
 export import ChangeDeploymentSubscriptionRequest = ChangeDeploymentSubscriptionRequest.ChangeDeploymentSubscriptionRequest;
 import * as ChangePipelineCompartmentRequest from "./change-pipeline-compartment-request";
 export import ChangePipelineCompartmentRequest = ChangePipelineCompartmentRequest.ChangePipelineCompartmentRequest;
+import * as ClonePipelineRequest from "./clone-pipeline-request";
+export import ClonePipelineRequest = ClonePipelineRequest.ClonePipelineRequest;
 import * as CollectDeploymentDiagnosticRequest from "./collect-deployment-diagnostic-request";
 export import CollectDeploymentDiagnosticRequest = CollectDeploymentDiagnosticRequest.CollectDeploymentDiagnosticRequest;
 import * as CollectPipelineDiagnosticRequest from "./collect-pipeline-diagnostic-request";
@@ -78,6 +80,8 @@ import * as DeploymentWalletExistsRequest from "./deployment-wallet-exists-reque
 export import DeploymentWalletExistsRequest = DeploymentWalletExistsRequest.DeploymentWalletExistsRequest;
 import * as ExportDeploymentWalletRequest from "./export-deployment-wallet-request";
 export import ExportDeploymentWalletRequest = ExportDeploymentWalletRequest.ExportDeploymentWalletRequest;
+import * as GenerateDisasterRecoveryPrecheckReportRequest from "./generate-disaster-recovery-precheck-report-request";
+export import GenerateDisasterRecoveryPrecheckReportRequest = GenerateDisasterRecoveryPrecheckReportRequest.GenerateDisasterRecoveryPrecheckReportRequest;
 import * as GenerateLibraryUrlRequest from "./generate-library-url-request";
 export import GenerateLibraryUrlRequest = GenerateLibraryUrlRequest.GenerateLibraryUrlRequest;
 import * as GetCertificateRequest from "./get-certificate-request";
@@ -94,6 +98,8 @@ import * as GetDeploymentBackupRequest from "./get-deployment-backup-request";
 export import GetDeploymentBackupRequest = GetDeploymentBackupRequest.GetDeploymentBackupRequest;
 import * as GetDeploymentUpgradeRequest from "./get-deployment-upgrade-request";
 export import GetDeploymentUpgradeRequest = GetDeploymentUpgradeRequest.GetDeploymentUpgradeRequest;
+import * as GetDisasterRecoveryPrecheckReportRequest from "./get-disaster-recovery-precheck-report-request";
+export import GetDisasterRecoveryPrecheckReportRequest = GetDisasterRecoveryPrecheckReportRequest.GetDisasterRecoveryPrecheckReportRequest;
 import * as GetPipelineRequest from "./get-pipeline-request";
 export import GetPipelineRequest = GetPipelineRequest.GetPipelineRequest;
 import * as GetWorkRequestRequest from "./get-work-request-request";

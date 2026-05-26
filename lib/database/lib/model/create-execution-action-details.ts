@@ -62,7 +62,8 @@ export namespace CreateExecutionActionDetails {
   export enum ActionType {
     DbServerFullSoftwareUpdate = "DB_SERVER_FULL_SOFTWARE_UPDATE",
     StorageServerFullSoftwareUpdate = "STORAGE_SERVER_FULL_SOFTWARE_UPDATE",
-    NetworkSwitchFullSoftwareUpdate = "NETWORK_SWITCH_FULL_SOFTWARE_UPDATE"
+    NetworkSwitchFullSoftwareUpdate = "NETWORK_SWITCH_FULL_SOFTWARE_UPDATE",
+    DbServerOnlineSoftwareUpdate = "DB_SERVER_ONLINE_SOFTWARE_UPDATE"
   }
 
   export function getJsonObj(obj: CreateExecutionActionDetails): object {

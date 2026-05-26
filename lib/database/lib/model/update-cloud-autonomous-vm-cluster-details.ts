@@ -73,6 +73,26 @@ Example: {@code {\"Department\": \"Finance\"}}
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
+   * The time zone to use for the Autonomous VM cluster. For details, see [DB System Time Zones](https://docs.oracle.com/iaas/Content/Database/References/timezones.htm).
+   */
+  "clusterTimeZone"?: string;
+  /**
+   * The SCAN Listener TLS port. Default is 2484. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "scanListenerPortTls"?: number;
+  /**
+   * The SCAN Listener Non TLS port. Default is 1521. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "scanListenerPortNonTls"?: number;
+  /**
+   * Enable mutual TLS(mTLS) authentication for database at time of provisioning a VMCluster. This is applicable to database TLS Certificates only. Default is TLS
+   */
+  "isMtlsEnabledVmCluster"?: boolean;
+  /**
+   * The distribution algorithm used for the Autonomous VM cluster.
+   */
+  "distributionAlgorithm"?: UpdateCloudAutonomousVmClusterDetails.DistributionAlgorithm;
+  /**
    * Security Attributes for this resource. Each key is predefined and scoped to a namespace.
    * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
    * Example: {@code {\"Oracle-ZPR\": {\"MaxEgressCount\": {\"value\": \"42\", \"mode\": \"audit\"}}}}
@@ -85,6 +105,11 @@ export namespace UpdateCloudAutonomousVmClusterDetails {
   export enum LicenseModel {
     LicenseIncluded = "LICENSE_INCLUDED",
     BringYourOwnLicense = "BRING_YOUR_OWN_LICENSE"
+  }
+
+  export enum DistributionAlgorithm {
+    ResourceOptimized = "RESOURCE_OPTIMIZED",
+    DistributionOptimized = "DISTRIBUTION_OPTIMIZED"
   }
 
   export function getJsonObj(obj: UpdateCloudAutonomousVmClusterDetails): object {

@@ -22,10 +22,11 @@ import common = require("oci-common");
 export interface CreateOggDeploymentDetails {
   /**
    * The name given to the GoldenGate service deployment.
-   * The name must be 1 to 32 characters long, must contain only alphanumeric characters and must start with a letter.
+   * The name must contain only alphanumeric characters and must start with a letter.
+   * For standby deployment the deployment name is inherited from primary.
    *
    */
-  "deploymentName": string;
+  "deploymentName"?: string;
   /**
    * The type of credential store for OGG.
    *
@@ -64,6 +65,11 @@ export interface CreateOggDeploymentDetails {
    *
    */
   "key"?: string;
+  /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Secret where the deployment ssl private key is stored in PEM format.
+   *
+   */
+  "keySecretId"?: string;
   /**
    * Version of OGG
    *

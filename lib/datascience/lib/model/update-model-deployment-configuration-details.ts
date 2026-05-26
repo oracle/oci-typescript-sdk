@@ -38,6 +38,11 @@ export namespace UpdateModelDeploymentConfigurationDetails {
             <model.UpdateSingleModelDeploymentConfigurationDetails>(<object>jsonObj),
             true
           );
+        case "SINGLE_MODEL_FLEX":
+          return model.UpdateSingleModelDeploymentFlexConfigurationDetails.getJsonObj(
+            <model.UpdateSingleModelDeploymentFlexConfigurationDetails>(<object>jsonObj),
+            true
+          );
         default:
           if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.deploymentType}`);
       }
@@ -57,6 +62,11 @@ export namespace UpdateModelDeploymentConfigurationDetails {
         case "SINGLE_MODEL":
           return model.UpdateSingleModelDeploymentConfigurationDetails.getDeserializedJsonObj(
             <model.UpdateSingleModelDeploymentConfigurationDetails>(<object>jsonObj),
+            true
+          );
+        case "SINGLE_MODEL_FLEX":
+          return model.UpdateSingleModelDeploymentFlexConfigurationDetails.getDeserializedJsonObj(
+            <model.UpdateSingleModelDeploymentFlexConfigurationDetails>(<object>jsonObj),
             true
           );
         default:

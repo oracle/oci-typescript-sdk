@@ -42,6 +42,11 @@ export interface CapacityBinPreview {
    */
   "totalMemoryInGBs": number;
   /**
+   * The total local volume of the capacity bucket, in GBs.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "totalLocalVolumeInGBs"?: number;
+  /**
    * List of VMI shapes supported on each capacity bucket.
    *
    */

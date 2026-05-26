@@ -43,10 +43,7 @@ export interface MlApplicationInstance {
    * The name of Ml Application Implementation (based on mlApplicationImplementationId)
    */
   "mlApplicationImplementationName": string;
-  "authConfiguration"?:
-    | model.IdcsAuthConfiguration
-    | model.IdcsCustomServiceAuthConfiguration
-    | model.IamAuthConfiguration;
+  "authConfiguration"?: model.IamAuthConfiguration;
   /**
    * Data that are used for provisioning of the given MlApplicationInstance. These are validated against configurationSchema defined in referenced MlApplicationImplementation.
    */

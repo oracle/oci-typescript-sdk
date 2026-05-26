@@ -45,6 +45,7 @@ export interface CreateJobRunDetails {
     | model.MultiNodeJobInfrastructureConfigurationDetails
     | model.EmptyJobInfrastructureConfigurationDetails
     | model.ManagedEgressStandaloneJobInfrastructureConfigurationDetails
+    | model.ManagedComputeClusterJobInfrastructureConfigurationDetails
     | model.StandaloneJobInfrastructureConfigurationDetails;
   "jobNodeConfigurationOverrideDetails"?: model.MultiNodeJobNodeConfigurationDetails;
   /**

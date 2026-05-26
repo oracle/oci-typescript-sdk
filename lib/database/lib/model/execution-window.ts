@@ -120,6 +120,14 @@ Example: {@code {\"Department\": \"Finance\"}}
    *
    */
   "systemTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * A message that gives a description of its creation. For example, if the window type is unplanned,
+   * the message must specify the window display name. If the window has been deferred from another window,
+   * the message should additionally reference the deferred window\u2019s display name and provide the justification
+   * for creating the unplanned window.
+   *
+   */
+  "windowDetails"?: string;
 }
 
 export namespace ExecutionWindow {

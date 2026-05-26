@@ -28,9 +28,19 @@ export interface SwitchoverDeploymentPeerDetails {
    * The fault domain of a placement.
    */
   "faultDomain": string;
+  /**
+   * Specifies the switchover mode. SWITCHOVER performs a planned role transition to the standby; FAILOVER performs a forced promotion when the primary is not available.
+   *
+   */
+  "mode"?: SwitchoverDeploymentPeerDetails.Mode;
 }
 
 export namespace SwitchoverDeploymentPeerDetails {
+  export enum Mode {
+    Switchover = "SWITCHOVER",
+    Failover = "FAILOVER"
+  }
+
   export function getJsonObj(obj: SwitchoverDeploymentPeerDetails): object {
     const jsonObj = { ...obj, ...{} };
 

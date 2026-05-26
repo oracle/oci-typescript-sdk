@@ -31,10 +31,7 @@ export interface CreateMlApplicationInstanceDetails {
    * The OCID of ML Application Implementation selected as a certain solution for a given ML problem (ML Application)
    */
   "mlApplicationImplementationId": string;
-  "authConfiguration"?:
-    | model.CreateIdcsAuthConfigurationDetails
-    | model.CreateIdcsCustomServiceAuthConfigurationDetails
-    | model.CreateIamAuthConfigurationCreateDetails;
+  "authConfiguration"?: model.CreateIamAuthConfigurationCreateDetails;
   /**
    * Data that are used for provisioning of the given MlApplicationInstance. These are validated against configurationSchema defined in referenced MlApplicationImplementation.
    */

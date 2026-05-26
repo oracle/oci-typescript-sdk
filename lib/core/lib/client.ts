@@ -14860,6 +14860,8 @@ You can limit the list by specifying a dedicated virtual machine host display na
         listDedicatedVmHostsRequest.remainingMemoryInGBsGreaterThanOrEqualTo,
       "remainingOcpusGreaterThanOrEqualTo":
         listDedicatedVmHostsRequest.remainingOcpusGreaterThanOrEqualTo,
+      "remainingLocalVolumeInGBsGreaterThanOrEqualTo":
+        listDedicatedVmHostsRequest.remainingLocalVolumeInGBsGreaterThanOrEqualTo,
       "isMemoryEncryptionEnabled": listDedicatedVmHostsRequest.isMemoryEncryptionEnabled
     };
 

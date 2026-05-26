@@ -43,6 +43,7 @@ export interface CreateJobDetails {
     | model.MultiNodeJobInfrastructureConfigurationDetails
     | model.EmptyJobInfrastructureConfigurationDetails
     | model.ManagedEgressStandaloneJobInfrastructureConfigurationDetails
+    | model.ManagedComputeClusterJobInfrastructureConfigurationDetails
     | model.StandaloneJobInfrastructureConfigurationDetails;
   "jobEnvironmentConfigurationDetails"?: model.OcirContainerJobEnvironmentConfigurationDetails;
   "jobLogConfigurationDetails"?: model.JobLogConfigurationDetails;

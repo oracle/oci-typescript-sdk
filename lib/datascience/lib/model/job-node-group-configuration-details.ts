@@ -35,6 +35,7 @@ export interface JobNodeGroupConfigurationDetails {
     | model.MultiNodeJobInfrastructureConfigurationDetails
     | model.EmptyJobInfrastructureConfigurationDetails
     | model.ManagedEgressStandaloneJobInfrastructureConfigurationDetails
+    | model.ManagedComputeClusterJobInfrastructureConfigurationDetails
     | model.StandaloneJobInfrastructureConfigurationDetails;
   "jobConfigurationDetails"?:
     | model.EmptyJobConfigurationDetails

@@ -54,6 +54,7 @@ export interface UpdateExadataInfrastructureDetails {
    */
   "contacts"?: Array<model.ExadataInfrastructureContact>;
   "maintenanceWindow"?: model.MaintenanceWindow;
+  "maintenanceVersionPreferences"?: model.MaintenanceVersionPreferenceDetails;
   /**
    * The requested number of additional storage servers for the Exadata infrastructure. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
@@ -136,6 +137,9 @@ export namespace UpdateExadataInfrastructureDetails {
         "maintenanceWindow": obj.maintenanceWindow
           ? model.MaintenanceWindow.getJsonObj(obj.maintenanceWindow)
           : undefined,
+        "maintenanceVersionPreferences": obj.maintenanceVersionPreferences
+          ? model.MaintenanceVersionPreferenceDetails.getJsonObj(obj.maintenanceVersionPreferences)
+          : undefined,
 
         "networkBondingModeDetails": obj.networkBondingModeDetails
           ? model.NetworkBondingModeDetails.getJsonObj(obj.networkBondingModeDetails)
@@ -156,6 +160,11 @@ export namespace UpdateExadataInfrastructureDetails {
           : undefined,
         "maintenanceWindow": obj.maintenanceWindow
           ? model.MaintenanceWindow.getDeserializedJsonObj(obj.maintenanceWindow)
+          : undefined,
+        "maintenanceVersionPreferences": obj.maintenanceVersionPreferences
+          ? model.MaintenanceVersionPreferenceDetails.getDeserializedJsonObj(
+              obj.maintenanceVersionPreferences
+            )
           : undefined,
 
         "networkBondingModeDetails": obj.networkBondingModeDetails

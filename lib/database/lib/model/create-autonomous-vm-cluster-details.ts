@@ -103,6 +103,14 @@ Example: {@code {\"Department\": \"Finance\"}}
    * Enable mutual TLS(mTLS) authentication for database while provisioning a VMCluster. Default is TLS.
    */
   "isMtlsEnabled"?: boolean;
+  /**
+   * The distribution algorithm used for the Autonomous VM cluster.
+   */
+  "distributionAlgorithm"?: CreateAutonomousVmClusterDetails.DistributionAlgorithm;
+  /**
+   * Percentage of ECPU memory allocated for SGA(System Global Area). Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "sgaPercentage"?: number;
 }
 
 export namespace CreateAutonomousVmClusterDetails {
@@ -114,6 +122,11 @@ export namespace CreateAutonomousVmClusterDetails {
   export enum ComputeModel {
     Ecpu = "ECPU",
     Ocpu = "OCPU"
+  }
+
+  export enum DistributionAlgorithm {
+    ResourceOptimized = "RESOURCE_OPTIMIZED",
+    DistributionOptimized = "DISTRIBUTION_OPTIMIZED"
   }
 
   export function getJsonObj(obj: CreateAutonomousVmClusterDetails): object {

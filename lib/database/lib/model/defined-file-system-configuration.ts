@@ -28,6 +28,10 @@ export interface DefinedFileSystemConfiguration {
    */
   "minSizeGb"?: number;
   /**
+   * The maximum size of file system. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "maxSizeGb"?: number;
+  /**
    * If true, the file system resize is allowed for the Exadata Infrastructure cluster. If false, the file system resize is not allowed.
    */
   "isResizable"?: boolean;

@@ -104,6 +104,16 @@ Example: {@code 2016-08-25T21:10:29.600Z}
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "remainingMemoryInGBs"?: number;
+  /**
+   * The current total local volume of the dedicated VM host, in GBs.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "totalLocalVolumeInGBs"?: number;
+  /**
+   * The current available local volume of the dedicated VM host, in GBs.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "remainingLocalVolumeInGBs"?: number;
 }
 
 export namespace DedicatedVmHostSummary {

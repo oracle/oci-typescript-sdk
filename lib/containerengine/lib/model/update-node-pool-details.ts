@@ -103,6 +103,7 @@ export interface UpdateNodePoolDetails {
    * Emulation type for the physical network interface card (NIC) for nodes
    */
   "networkLaunchType"?: model.NetworkLaunchType;
+  "primaryVnic"?: model.NodePoolPrimaryVnicDetails;
 }
 
 export namespace UpdateNodePoolDetails {
@@ -138,6 +139,10 @@ export namespace UpdateNodePoolDetails {
           ? obj.secondaryVnics.map(item => {
               return model.NodePoolSecondaryVnicDetails.getJsonObj(item);
             })
+          : undefined,
+
+        "primaryVnic": obj.primaryVnic
+          ? model.NodePoolPrimaryVnicDetails.getJsonObj(obj.primaryVnic)
           : undefined
       }
     };
@@ -178,6 +183,10 @@ export namespace UpdateNodePoolDetails {
           ? obj.secondaryVnics.map(item => {
               return model.NodePoolSecondaryVnicDetails.getDeserializedJsonObj(item);
             })
+          : undefined,
+
+        "primaryVnic": obj.primaryVnic
+          ? model.NodePoolPrimaryVnicDetails.getDeserializedJsonObj(obj.primaryVnic)
           : undefined
       }
     };
