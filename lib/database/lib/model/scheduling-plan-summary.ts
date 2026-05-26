@@ -53,8 +53,7 @@ export interface SchedulingPlanSummary {
    */
   "isUsingRecommendedScheduledActions"?: boolean;
   /**
-   * The current intent the Scheduling Plan. Valid states is EXADATA_INFRASTRUCTURE_FULL_SOFTWARE_UPDATE.
-   *
+   * The current intent of the Scheduling Plan. Valid states are EXADATA_INFRASTRUCTURE_FULL_SOFTWARE_UPDATE and EXADATA_INFRASTRUCTURE_SECURITY_UPDATE.
    */
   "planIntent"?: SchedulingPlanSummary.PlanIntent;
   /**
@@ -113,6 +112,7 @@ export namespace SchedulingPlanSummary {
 
   export enum PlanIntent {
     ExadataInfrastructureFullSoftwareUpdate = "EXADATA_INFRASTRUCTURE_FULL_SOFTWARE_UPDATE",
+    ExadataInfrastructureSecurityUpdate = "EXADATA_INFRASTRUCTURE_SECURITY_UPDATE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

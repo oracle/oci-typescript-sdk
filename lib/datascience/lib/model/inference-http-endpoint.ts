@@ -16,45 +16,47 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Configuration of IDCS AuthN/Z for online prediction
+ * Represents a custom HTTP endpoint detail for inferencing.
+ *
  */
-export interface CreateIdcsAuthConfigurationDetails extends model.CreateAuthConfigurationDetails {
+export interface InferenceHttpEndpoint {
   /**
-   * Identity Domain OCID
+   * The suffix part of the endpoint that will be allowed for invocation.
+   *
    */
-  "domainId": string;
-
-  "type": string;
+  "endpointUriSuffix": string;
+  /**
+   * List of HTTP methods acceptable by the URI.
+   *
+   */
+  "httpMethods": Array<model.HttpMethod>;
 }
 
-export namespace CreateIdcsAuthConfigurationDetails {
-  export function getJsonObj(
-    obj: CreateIdcsAuthConfigurationDetails,
-    isParentJsonObj?: boolean
-  ): object {
+export namespace InferenceHttpEndpoint {
+  export function getJsonObj(obj: InferenceHttpEndpoint): object {
     const jsonObj = {
-      ...(isParentJsonObj
-        ? obj
-        : (model.CreateAuthConfigurationDetails.getJsonObj(
-            obj
-          ) as CreateIdcsAuthConfigurationDetails)),
-      ...{}
+      ...obj,
+      ...{
+        "httpMethods": obj.httpMethods
+          ? obj.httpMethods.map(item => {
+              return model.HttpMethod.getJsonObj(item);
+            })
+          : undefined
+      }
     };
 
     return jsonObj;
   }
-  export const type = "IDCS";
-  export function getDeserializedJsonObj(
-    obj: CreateIdcsAuthConfigurationDetails,
-    isParentJsonObj?: boolean
-  ): object {
+  export function getDeserializedJsonObj(obj: InferenceHttpEndpoint): object {
     const jsonObj = {
-      ...(isParentJsonObj
-        ? obj
-        : (model.CreateAuthConfigurationDetails.getDeserializedJsonObj(
-            obj
-          ) as CreateIdcsAuthConfigurationDetails)),
-      ...{}
+      ...obj,
+      ...{
+        "httpMethods": obj.httpMethods
+          ? obj.httpMethods.map(item => {
+              return model.HttpMethod.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
     };
 
     return jsonObj;

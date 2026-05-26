@@ -24,6 +24,7 @@ export enum DeploymentCategory {
   DataReplication = "DATA_REPLICATION",
   StreamAnalytics = "STREAM_ANALYTICS",
   DataTransforms = "DATA_TRANSFORMS",
+  DataVerification = "DATA_VERIFICATION",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

@@ -135,8 +135,8 @@ Validation:
    */
   "environmentType"?: model.EnvironmentType;
   /**
-   * The deployment category defines the broad separation of the deployment type into three categories.
-   * Currently the separation is 'DATA_REPLICATION', 'STREAM_ANALYTICS' and 'DATA_TRANSFORMS'.
+   * The deployment category defines the broad separation of the deployment type into four categories.
+   * Currently the separation is 'DATA_REPLICATION', 'STREAM_ANALYTICS', 'DATA_TRANSFORMS' and 'DATA_VERIFICATION'.
    *
    */
   "category": model.DeploymentCategory;
@@ -227,6 +227,17 @@ Example: {@code {\"Oracle-ZPR\": {\"MaxEgressCount\": {\"value\": \"42\", \"mode
 * 
     */
   "securityAttributes"?: { [key: string]: { [key: string]: any } };
+  /**
+   * Indicates if disaster recovery is enabled for a deployment.
+   * If not specified, disaster recovery is ENABLED when no clusterPlacementGroupId is provided, and DISABLED when a clusterPlacementGroupId is provided.
+   *
+   */
+  "disasterRecoveryStatus"?: model.DisasterRecoveryStatus;
+  /**
+   * The type of the deployment role.
+   *
+   */
+  "deploymentRole"?: model.DeploymentRole;
   /**
    * Locks associated with this resource.
    */

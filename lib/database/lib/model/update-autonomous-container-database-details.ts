@@ -69,6 +69,22 @@ Example: {@code {\"Department\": \"Finance\"}}
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   "backupConfig"?: model.AutonomousContainerDatabaseBackupConfig;
+  /**
+   * The CPU value beyond which an Autonomous AI Database will be opened across multiple nodes. The default value of this attribute is 16 for OCPUs and 64 for ECPUs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "dbSplitThreshold"?: number;
+  /**
+   * The percentage of CPUs reserved across nodes to support node failover. Allowed values are 0%, 25%, 50%, 75%, and 100%, with 50% being the default option. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "vmFailoverReservation"?: number;
+  /**
+   * Determines whether an Autonomous AI Database must be opened across a minimum or maximum of nodes. By default, Minimum nodes is selected.
+   */
+  "distributionAffinity"?: UpdateAutonomousContainerDatabaseDetails.DistributionAffinity;
+  /**
+   * Enabling SHARED server architecture enables a database server to allow many client processes to share very few server processes, thereby increasing the number of supported users.
+   */
+  "netServicesArchitecture"?: UpdateAutonomousContainerDatabaseDetails.NetServicesArchitecture;
 }
 
 export namespace UpdateAutonomousContainerDatabaseDetails {
@@ -80,6 +96,17 @@ export namespace UpdateAutonomousContainerDatabaseDetails {
   export enum VersionPreference {
     NextReleaseUpdate = "NEXT_RELEASE_UPDATE",
     LatestReleaseUpdate = "LATEST_RELEASE_UPDATE"
+  }
+
+  export enum DistributionAffinity {
+    MinimumDistribution = "MINIMUM_DISTRIBUTION",
+    MaximumDistribution = "MAXIMUM_DISTRIBUTION"
+  }
+
+  export enum NetServicesArchitecture {
+    Dedicated = "DEDICATED",
+    Shared = "SHARED",
+    Drcp = "DRCP"
   }
 
   export function getJsonObj(obj: UpdateAutonomousContainerDatabaseDetails): object {

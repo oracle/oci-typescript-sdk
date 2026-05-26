@@ -16,58 +16,45 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Using existing Oracle Cloud Service for online prediction AuthN/Z
+ * Managed compute cluster type compute target based model deployment system data.
  */
-export interface IdcsCustomServiceAuthConfiguration extends model.AuthConfiguration {
+export interface ManagedComputeClusterModelDeploymentSystemData
+  extends model.ModelDeploymentSystemData {
   /**
-   * URI of IDCS Stripe
+   * This value is the current count of the model deployment instances. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
-  "idcsStripeUri": string;
-  /**
-   * Audience of the IDCS application
-   */
-  "audience": string;
-  /**
-   * Scope of the IDCS application
-   */
-  "scope": string;
-  /**
-   * Name of the IDCS application
-   */
-  "applicationName": string;
-  /**
-   * Name of the IDCS application role
-   */
-  "roleName": string;
+  "currentInstanceCount"?: number;
 
-  "type": string;
+  "systemInfraType": string;
 }
 
-export namespace IdcsCustomServiceAuthConfiguration {
+export namespace ManagedComputeClusterModelDeploymentSystemData {
   export function getJsonObj(
-    obj: IdcsCustomServiceAuthConfiguration,
+    obj: ManagedComputeClusterModelDeploymentSystemData,
     isParentJsonObj?: boolean
   ): object {
     const jsonObj = {
       ...(isParentJsonObj
         ? obj
-        : (model.AuthConfiguration.getJsonObj(obj) as IdcsCustomServiceAuthConfiguration)),
+        : (model.ModelDeploymentSystemData.getJsonObj(
+            obj
+          ) as ManagedComputeClusterModelDeploymentSystemData)),
       ...{}
     };
 
     return jsonObj;
   }
-  export const type = "IDCS_CUSTOM_SERVICE";
+  export const systemInfraType = "MANAGED_COMPUTE_CLUSTER";
   export function getDeserializedJsonObj(
-    obj: IdcsCustomServiceAuthConfiguration,
+    obj: ManagedComputeClusterModelDeploymentSystemData,
     isParentJsonObj?: boolean
   ): object {
     const jsonObj = {
       ...(isParentJsonObj
         ? obj
-        : (model.AuthConfiguration.getDeserializedJsonObj(
+        : (model.ModelDeploymentSystemData.getDeserializedJsonObj(
             obj
-          ) as IdcsCustomServiceAuthConfiguration)),
+          ) as ManagedComputeClusterModelDeploymentSystemData)),
       ...{}
     };
 

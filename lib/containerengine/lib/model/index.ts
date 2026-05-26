@@ -128,6 +128,8 @@ import * as NodePoolPlacementConfigDetails from "./node-pool-placement-config-de
 export import NodePoolPlacementConfigDetails = NodePoolPlacementConfigDetails.NodePoolPlacementConfigDetails;
 import * as NodePoolPodNetworkOptionDetails from "./node-pool-pod-network-option-details";
 export import NodePoolPodNetworkOptionDetails = NodePoolPodNetworkOptionDetails.NodePoolPodNetworkOptionDetails;
+import * as NodePoolPrimaryVnicDetails from "./node-pool-primary-vnic-details";
+export import NodePoolPrimaryVnicDetails = NodePoolPrimaryVnicDetails.NodePoolPrimaryVnicDetails;
 import * as NodePoolSecondaryVnicDetails from "./node-pool-secondary-vnic-details";
 export import NodePoolSecondaryVnicDetails = NodePoolSecondaryVnicDetails.NodePoolSecondaryVnicDetails;
 import * as NodePoolSummary from "./node-pool-summary";

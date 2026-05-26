@@ -64,6 +64,10 @@ export interface ListSchedulingPlansRequest extends common.BaseRequest {
    * A filter to return only resources that match the given Schedule Plan id exactly.
    */
   "id"?: string;
+  /**
+   * A filter to return only resources that match the given plan intent exactly.
+   */
+  "planIntent"?: ListSchedulingPlansRequest.PlanIntent;
 }
 
 export namespace ListSchedulingPlansRequest {
@@ -75,5 +79,10 @@ export namespace ListSchedulingPlansRequest {
   export enum SortOrder {
     Asc = "ASC",
     Desc = "DESC"
+  }
+
+  export enum PlanIntent {
+    ExadataInfrastructureFullSoftwareUpdate = "EXADATA_INFRASTRUCTURE_FULL_SOFTWARE_UPDATE",
+    ExadataInfrastructureSecurityUpdate = "EXADATA_INFRASTRUCTURE_SECURITY_UPDATE"
   }
 }

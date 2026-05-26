@@ -49,6 +49,14 @@ export interface AutonomousVmClusterSummary {
    */
   "timeZone"?: string;
   /**
+   * The distribution algorithm used for the Autonomous VM cluster.
+   */
+  "distributionAlgorithm"?: AutonomousVmClusterSummary.DistributionAlgorithm;
+  /**
+   * Percentage of ECPU memory allocated for SGA(System Global Area). Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "sgaPercentage"?: number;
+  /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Exadata infrastructure.
    */
   "exadataInfrastructureId": string;
@@ -253,6 +261,16 @@ export namespace AutonomousVmClusterSummary {
     Terminated = "TERMINATED",
     Failed = "FAILED",
     MaintenanceInProgress = "MAINTENANCE_IN_PROGRESS",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum DistributionAlgorithm {
+    ResourceOptimized = "RESOURCE_OPTIMIZED",
+    DistributionOptimized = "DISTRIBUTION_OPTIMIZED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

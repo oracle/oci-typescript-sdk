@@ -26331,7 +26331,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   }
 
   /**
-   * Gets a list of expected compute performance parameters for a virtual machine DB system based on system configuration.
+   * Gets a list of expected compute performance parameters for a virtual machine DB system based on system configuration. Adding compartmentId does not affect results.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListDbSystemComputePerformancesRequest
@@ -26350,7 +26350,8 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
     const pathParams = {};
 
     const queryParams = {
-      "dbSystemShape": listDbSystemComputePerformancesRequest.dbSystemShape
+      "dbSystemShape": listDbSystemComputePerformancesRequest.dbSystemShape,
+      "compartmentId": listDbSystemComputePerformancesRequest.compartmentId
     };
 
     let headerParams = {
@@ -30155,6 +30156,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
 
     const queryParams = {
       "type": listParamsForActionTypeRequest.type,
+      "planIntent": listParamsForActionTypeRequest.planIntent,
       "limit": listParamsForActionTypeRequest.limit,
       "page": listParamsForActionTypeRequest.page
     };
@@ -30902,7 +30904,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       "schedulingPolicyId": listSchedulingPlansRequest.schedulingPolicyId,
       "displayName": listSchedulingPlansRequest.displayName,
       "resourceId": listSchedulingPlansRequest.resourceId,
-      "id": listSchedulingPlansRequest.id
+      "id": listSchedulingPlansRequest.id,
+      "planIntent": listSchedulingPlansRequest.planIntent
     };
 
     let headerParams = {
@@ -30985,7 +30988,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       "sortBy": listSchedulingPoliciesRequest.sortBy,
       "sortOrder": listSchedulingPoliciesRequest.sortOrder,
       "lifecycleState": listSchedulingPoliciesRequest.lifecycleState,
-      "displayName": listSchedulingPoliciesRequest.displayName
+      "displayName": listSchedulingPoliciesRequest.displayName,
+      "cadence": listSchedulingPoliciesRequest.cadence
     };
 
     let headerParams = {

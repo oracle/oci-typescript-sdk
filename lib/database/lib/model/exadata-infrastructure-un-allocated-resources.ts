@@ -16,7 +16,8 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Un allocated resources details of the Exadata Cloud@Customer infrastructure. Applies to Exadata Cloud@Customer instances only.
+ * Displays details of unallocated resources for the Exadata Cloud@Customer infrastructure.
+ * Applies to Exadata Cloud@Customer instances only.
  *
  */
 export interface ExadataInfrastructureUnAllocatedResources {

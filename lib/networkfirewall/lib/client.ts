@@ -1,6 +1,6 @@
 /**
  * Network Firewall API
- * Use the Network Firewall API to create network firewalls and configure policies that regulates network traffic in and across VCNs.
+ * Use the Network Firewall API to create network firewalls and configure policies that regulates network traffic in and across VCNs. For more information, see [Overview of Network Firewall](https://docs.oracle.com/iaas/Content/network-firewall/overview.htm).
  * OpenAPI spec version: 20230501
  *
  *
@@ -4297,6 +4297,83 @@ export class NetworkFirewallClient {
         bodyKey: "networkFirewall",
         bodyModel: model.NetworkFirewall,
         type: "model.NetworkFirewall",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get Overall health status of Network Firewall
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetNetworkFirewallHealthStatusRequest
+   * @return GetNetworkFirewallHealthStatusResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/networkfirewall/GetNetworkFirewallHealthStatus.ts.html |here} to see how to use GetNetworkFirewallHealthStatus API.
+   */
+  public async getNetworkFirewallHealthStatus(
+    getNetworkFirewallHealthStatusRequest: requests.GetNetworkFirewallHealthStatusRequest
+  ): Promise<responses.GetNetworkFirewallHealthStatusResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation NetworkFirewallClient#getNetworkFirewallHealthStatus.");
+    const operationName = "getNetworkFirewallHealthStatus";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{networkFirewallId}": getNetworkFirewallHealthStatusRequest.networkFirewallId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getNetworkFirewallHealthStatusRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getNetworkFirewallHealthStatusRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/networkFirewalls/{networkFirewallId}/healthStatus",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetNetworkFirewallHealthStatusResponse>{},
+        body: await response.json(),
+        bodyKey: "networkFirewallHealthStatus",
+        bodyModel: model.NetworkFirewallHealthStatus,
+        type: "model.NetworkFirewallHealthStatus",
         responseHeaders: [
           {
             value: response.headers.get("etag"),

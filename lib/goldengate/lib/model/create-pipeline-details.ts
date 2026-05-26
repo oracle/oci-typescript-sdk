@@ -67,6 +67,16 @@ Example: {@code {\"foo-namespace\": {\"bar-key\": \"value\"}}}
    *
    */
   "subnetId"?: string;
+  /**
+   * The Minimum number of OCPUs to be made available for this Deployment.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "cpuCoreCount"?: number;
+  /**
+   * Indicates if auto scaling is enabled for the Deployment's CPU core count.
+   *
+   */
+  "isAutoScalingEnabled"?: boolean;
 
   "recipeType": string;
 }

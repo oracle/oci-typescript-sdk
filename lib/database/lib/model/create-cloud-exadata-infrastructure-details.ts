@@ -47,6 +47,7 @@ export interface CreateCloudExadataInfrastructureDetails {
    */
   "storageCount"?: number;
   "maintenanceWindow"?: model.MaintenanceWindow;
+  "maintenanceVersionPreferences"?: model.MaintenanceVersionPreferenceDetails;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
 * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
@@ -91,6 +92,9 @@ export namespace CreateCloudExadataInfrastructureDetails {
         "maintenanceWindow": obj.maintenanceWindow
           ? model.MaintenanceWindow.getJsonObj(obj.maintenanceWindow)
           : undefined,
+        "maintenanceVersionPreferences": obj.maintenanceVersionPreferences
+          ? model.MaintenanceVersionPreferenceDetails.getJsonObj(obj.maintenanceVersionPreferences)
+          : undefined,
 
         "customerContacts": obj.customerContacts
           ? obj.customerContacts.map(item => {
@@ -108,6 +112,11 @@ export namespace CreateCloudExadataInfrastructureDetails {
       ...{
         "maintenanceWindow": obj.maintenanceWindow
           ? model.MaintenanceWindow.getDeserializedJsonObj(obj.maintenanceWindow)
+          : undefined,
+        "maintenanceVersionPreferences": obj.maintenanceVersionPreferences
+          ? model.MaintenanceVersionPreferenceDetails.getDeserializedJsonObj(
+              obj.maintenanceVersionPreferences
+            )
           : undefined,
 
         "customerContacts": obj.customerContacts

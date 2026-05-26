@@ -24,8 +24,8 @@ Deprecated properties: {@code sourceTechnologies} and {@code targetTechnologies}
 */
 export interface DeploymentTypeSummary {
   /**
-   * The deployment category defines the broad separation of the deployment type into three categories.
-   * Currently the separation is 'DATA_REPLICATION', 'STREAM_ANALYTICS' and 'DATA_TRANSFORMS'.
+   * The deployment category defines the broad separation of the deployment type into four categories.
+   * Currently the separation is 'DATA_REPLICATION', 'STREAM_ANALYTICS', 'DATA_TRANSFORMS' and 'DATA_VERIFICATION'.
    *
    */
   "category": model.DeploymentCategory;
@@ -80,6 +80,11 @@ export interface DeploymentTypeSummary {
    *
    */
   "supportedCapabilities"?: Array<DeploymentTypeSummary.SupportedCapabilities>;
+  /**
+   * The list of Oracle license models supported by the deployment type.
+   *
+   */
+  "supportedLicenseTypes"?: Array<model.LicenseModel>;
 }
 
 export namespace DeploymentTypeSummary {
@@ -129,6 +134,13 @@ export namespace DeploymentTypeSummary {
     DisasterRecovery = "DISASTER_RECOVERY",
     ScheduleManualBackup = "SCHEDULE_MANUAL_BACKUP",
     Multicloud = "MULTICLOUD",
+    TrailFiles = "TRAIL_FILES",
+    MasterKeyOperations = "MASTER_KEY_OPERATIONS",
+    TruststoreCertificates = "TRUSTSTORE_CERTIFICATES",
+    DeploymentDiagnostics = "DEPLOYMENT_DIAGNOSTICS",
+    Credentials = "CREDENTIALS",
+    ConsoleAccess = "CONSOLE_ACCESS",
+    NetworkConfiguration = "NETWORK_CONFIGURATION",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
@@ -137,12 +149,30 @@ export namespace DeploymentTypeSummary {
   }
 
   export function getJsonObj(obj: DeploymentTypeSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "supportedLicenseTypes": obj.supportedLicenseTypes
+          ? obj.supportedLicenseTypes.map(item => {
+              return model.LicenseModel.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: DeploymentTypeSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "supportedLicenseTypes": obj.supportedLicenseTypes
+          ? obj.supportedLicenseTypes.map(item => {
+              return model.LicenseModel.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

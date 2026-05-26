@@ -16,61 +16,45 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Create configuration for existing Oracle Cloud Service
+ * The scaling configuration for the predefined metric expression rule.
  */
-export interface CreateIdcsCustomServiceAuthConfigurationDetails
-  extends model.CreateAuthConfigurationDetails {
+export interface ManagedComputeClusterPredefinedExpressionThresholdScalingConfiguration
+  extends model.ManagedComputeClusterScalingConfiguration {
   /**
-   * Audience of the IDCS application
+   * A metric value at which the scaling operation will be triggered. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
-  "audience": string;
-  /**
-   * Scope of the IDCS application
-   */
-  "scope": string;
-  /**
-   * Name of the IDCS application
-   */
-  "applicationName": string;
-  /**
-   * Name of the IDCS application role
-   */
-  "roleName"?: string;
-  /**
-   * Bearer token serving as Proof-of-Ownership for referenced IDCS stripe/application
-   */
-  "accessToken": string;
+  "threshold": number;
 
-  "type": string;
+  "scalingConfigurationType": string;
 }
 
-export namespace CreateIdcsCustomServiceAuthConfigurationDetails {
+export namespace ManagedComputeClusterPredefinedExpressionThresholdScalingConfiguration {
   export function getJsonObj(
-    obj: CreateIdcsCustomServiceAuthConfigurationDetails,
+    obj: ManagedComputeClusterPredefinedExpressionThresholdScalingConfiguration,
     isParentJsonObj?: boolean
   ): object {
     const jsonObj = {
       ...(isParentJsonObj
         ? obj
-        : (model.CreateAuthConfigurationDetails.getJsonObj(
+        : (model.ManagedComputeClusterScalingConfiguration.getJsonObj(
             obj
-          ) as CreateIdcsCustomServiceAuthConfigurationDetails)),
+          ) as ManagedComputeClusterPredefinedExpressionThresholdScalingConfiguration)),
       ...{}
     };
 
     return jsonObj;
   }
-  export const type = "IDCS_CUSTOM_SERVICE";
+  export const scalingConfigurationType = "THRESHOLD";
   export function getDeserializedJsonObj(
-    obj: CreateIdcsCustomServiceAuthConfigurationDetails,
+    obj: ManagedComputeClusterPredefinedExpressionThresholdScalingConfiguration,
     isParentJsonObj?: boolean
   ): object {
     const jsonObj = {
       ...(isParentJsonObj
         ? obj
-        : (model.CreateAuthConfigurationDetails.getDeserializedJsonObj(
+        : (model.ManagedComputeClusterScalingConfiguration.getDeserializedJsonObj(
             obj
-          ) as CreateIdcsCustomServiceAuthConfigurationDetails)),
+          ) as ManagedComputeClusterPredefinedExpressionThresholdScalingConfiguration)),
       ...{}
     };
 

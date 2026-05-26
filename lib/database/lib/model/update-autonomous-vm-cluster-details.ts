@@ -51,12 +51,37 @@ Example: {@code {\"Department\": \"Finance\"}}
    * The new value of maximum number of ACDs for the Autonomous VM cluster. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "totalContainerDatabases"?: number;
+  /**
+   * The time zone to use for the Autonomous VM cluster. For details, see [DB System Time Zones](https://docs.oracle.com/iaas/Content/Database/References/timezones.htm).
+   */
+  "timeZone"?: string;
+  /**
+   * The SCAN Listener TLS port number. Default value is 2484. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "scanListenerPortTls"?: number;
+  /**
+   * The SCAN Listener Non TLS port number. Default value is 1521. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "scanListenerPortNonTls"?: number;
+  /**
+   * Enable mutual TLS(mTLS) authentication for database. Default is TLS.
+   */
+  "isMtlsEnabled"?: boolean;
+  /**
+   * The distribution algorithm used for the Autonomous VM cluster.
+   */
+  "distributionAlgorithm"?: UpdateAutonomousVmClusterDetails.DistributionAlgorithm;
 }
 
 export namespace UpdateAutonomousVmClusterDetails {
   export enum LicenseModel {
     LicenseIncluded = "LICENSE_INCLUDED",
     BringYourOwnLicense = "BRING_YOUR_OWN_LICENSE"
+  }
+
+  export enum DistributionAlgorithm {
+    ResourceOptimized = "RESOURCE_OPTIMIZED",
+    DistributionOptimized = "DISTRIBUTION_OPTIMIZED"
   }
 
   export function getJsonObj(obj: UpdateAutonomousVmClusterDetails): object {

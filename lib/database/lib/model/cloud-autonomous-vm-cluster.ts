@@ -303,6 +303,14 @@ Example: {@code {\"Department\": \"Finance\"}}
    * TDE keystore type
    */
   "tdeKeyStoreType"?: CloudAutonomousVmCluster.TdeKeyStoreType;
+  /**
+   * The distribution algorithm used for the Autonomous VM cluster.
+   */
+  "distributionAlgorithm"?: CloudAutonomousVmCluster.DistributionAlgorithm;
+  /**
+   * Percentage of ECPU memory allocated for SGA(System Global Area). Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "sgaPercentage"?: number;
 }
 
 export namespace CloudAutonomousVmCluster {
@@ -346,6 +354,16 @@ export namespace CloudAutonomousVmCluster {
     Oci = "OCI",
     Gcp = "GCP",
     Aws = "AWS",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum DistributionAlgorithm {
+    ResourceOptimized = "RESOURCE_OPTIMIZED",
+    DistributionOptimized = "DISTRIBUTION_OPTIMIZED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

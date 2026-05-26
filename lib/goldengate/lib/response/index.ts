@@ -40,6 +40,8 @@ import * as ChangeDeploymentSubscriptionResponse from "./change-deployment-subsc
 export import ChangeDeploymentSubscriptionResponse = ChangeDeploymentSubscriptionResponse.ChangeDeploymentSubscriptionResponse;
 import * as ChangePipelineCompartmentResponse from "./change-pipeline-compartment-response";
 export import ChangePipelineCompartmentResponse = ChangePipelineCompartmentResponse.ChangePipelineCompartmentResponse;
+import * as ClonePipelineResponse from "./clone-pipeline-response";
+export import ClonePipelineResponse = ClonePipelineResponse.ClonePipelineResponse;
 import * as CollectDeploymentDiagnosticResponse from "./collect-deployment-diagnostic-response";
 export import CollectDeploymentDiagnosticResponse = CollectDeploymentDiagnosticResponse.CollectDeploymentDiagnosticResponse;
 import * as CollectPipelineDiagnosticResponse from "./collect-pipeline-diagnostic-response";
@@ -78,6 +80,8 @@ import * as DeploymentWalletExistsResponse from "./deployment-wallet-exists-resp
 export import DeploymentWalletExistsResponse = DeploymentWalletExistsResponse.DeploymentWalletExistsResponse;
 import * as ExportDeploymentWalletResponse from "./export-deployment-wallet-response";
 export import ExportDeploymentWalletResponse = ExportDeploymentWalletResponse.ExportDeploymentWalletResponse;
+import * as GenerateDisasterRecoveryPrecheckReportResponse from "./generate-disaster-recovery-precheck-report-response";
+export import GenerateDisasterRecoveryPrecheckReportResponse = GenerateDisasterRecoveryPrecheckReportResponse.GenerateDisasterRecoveryPrecheckReportResponse;
 import * as GenerateLibraryUrlResponse from "./generate-library-url-response";
 export import GenerateLibraryUrlResponse = GenerateLibraryUrlResponse.GenerateLibraryUrlResponse;
 import * as GetCertificateResponse from "./get-certificate-response";
@@ -94,6 +98,8 @@ import * as GetDeploymentBackupResponse from "./get-deployment-backup-response";
 export import GetDeploymentBackupResponse = GetDeploymentBackupResponse.GetDeploymentBackupResponse;
 import * as GetDeploymentUpgradeResponse from "./get-deployment-upgrade-response";
 export import GetDeploymentUpgradeResponse = GetDeploymentUpgradeResponse.GetDeploymentUpgradeResponse;
+import * as GetDisasterRecoveryPrecheckReportResponse from "./get-disaster-recovery-precheck-report-response";
+export import GetDisasterRecoveryPrecheckReportResponse = GetDisasterRecoveryPrecheckReportResponse.GetDisasterRecoveryPrecheckReportResponse;
 import * as GetPipelineResponse from "./get-pipeline-response";
 export import GetPipelineResponse = GetPipelineResponse.GetPipelineResponse;
 import * as GetWorkRequestResponse from "./get-work-request-response";

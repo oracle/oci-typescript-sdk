@@ -114,10 +114,10 @@ export class Region {
   public static ME_RIYADH_1: Region = Region.register("me-riyadh-1", Realm.OC1, "ruh");
   public static AP_DELHI_1: Region = Region.register("ap-delhi-1", Realm.OC1, "onm");
   public static AP_BATAM_1: Region = Region.register("ap-batam-1", Realm.OC1, "hsg");
-    public static EU_MADRID_3: Region = Region.register("eu-madrid-3", Realm.OC1, "orf");
-    public static EU_TURIN_1: Region = Region.register("eu-turin-1", Realm.OC1, "nrq");
-    public static AP_KULAI_2: Region = Region.register("ap-kulai-2", Realm.OC1, "jbp");
-    public static AF_CASABLANCA_1: Region = Region.register("af-casablanca-1", Realm.OC1, "lej");
+  public static EU_MADRID_3: Region = Region.register("eu-madrid-3", Realm.OC1, "orf");
+  public static EU_TURIN_1: Region = Region.register("eu-turin-1", Realm.OC1, "nrq");
+  public static AP_KULAI_2: Region = Region.register("ap-kulai-2", Realm.OC1, "jbp");
+  public static AF_CASABLANCA_1: Region = Region.register("af-casablanca-1", Realm.OC1, "lej");
 
   // OC2
   public static US_LANGLEY_1: Region = Region.register("us-langley-1", Realm.OC2, "lfi");
@@ -138,7 +138,7 @@ export class Region {
 
   // OC9
   public static ME_DCC_MUSCAT_1: Region = Region.register("me-dcc-muscat-1", Realm.OC9, "mct");
-    public static ME_IBRI_1: Region = Region.register("me-ibri-1", Realm.OC9, "ibr");
+  public static ME_IBRI_1: Region = Region.register("me-ibri-1", Realm.OC9, "ibr");
 
   // OC10
   public static AP_DCC_CANBERRA_1: Region = Region.register("ap-dcc-canberra-1", Realm.OC10, "wga");
@@ -164,6 +164,7 @@ export class Region {
 
   // OC21
   public static ME_DCC_DOHA_1: Region = Region.register("me-dcc-doha-1", Realm.OC21, "doh");
+  public static ME_ALRAYYAN_1: Region = Region.register("me-alrayyan-1", Realm.OC21, "vve");
 
   // OC26
   public static ME_ABUDHABI_3: Region = Region.register("me-abudhabi-3", Realm.OC26, "ahu");
@@ -187,13 +188,13 @@ export class Region {
 
   // OC42
   public static US_ASHBURN_2: Region = Region.register("us-ashburn-2", Realm.OC42, "yxj");
-    public static US_NEWARK_1: Region = Region.register("us-newark-1", Realm.OC42, "pgc");
+  public static US_NEWARK_1: Region = Region.register("us-newark-1", Realm.OC42, "pgc");
 
-    // OC51
-    public static EU_BUDAPEST_1: Region = Region.register("eu-budapest-1", Realm.OC51, "jsk");
+  // OC51
+  public static EU_BUDAPEST_1: Region = Region.register("eu-budapest-1", Realm.OC51, "jsk");
 
-    // OC52
-    public static SA_RIODEJANEIRO_1: Region = Region.register("sa-riodejaneiro-1", Realm.OC52, "hnw");
+  // OC52
+  public static SA_RIODEJANEIRO_1: Region = Region.register("sa-riodejaneiro-1", Realm.OC52, "hnw");
 
   /**
  * Return all known Regions in this version of the SDK, except possibly the region returned by IMDS (Instance Metadata

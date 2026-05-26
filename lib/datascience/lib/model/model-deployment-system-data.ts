@@ -33,6 +33,11 @@ export namespace ModelDeploymentSystemData {
 
     if (obj && "systemInfraType" in obj && obj.systemInfraType) {
       switch (obj.systemInfraType) {
+        case "MANAGED_COMPUTE_CLUSTER":
+          return model.ManagedComputeClusterModelDeploymentSystemData.getJsonObj(
+            <model.ManagedComputeClusterModelDeploymentSystemData>(<object>jsonObj),
+            true
+          );
         case "INSTANCE_POOL":
           return model.InstancePoolModelDeploymentSystemData.getJsonObj(
             <model.InstancePoolModelDeploymentSystemData>(<object>jsonObj),
@@ -50,6 +55,11 @@ export namespace ModelDeploymentSystemData {
 
     if (obj && "systemInfraType" in obj && obj.systemInfraType) {
       switch (obj.systemInfraType) {
+        case "MANAGED_COMPUTE_CLUSTER":
+          return model.ManagedComputeClusterModelDeploymentSystemData.getDeserializedJsonObj(
+            <model.ManagedComputeClusterModelDeploymentSystemData>(<object>jsonObj),
+            true
+          );
         case "INSTANCE_POOL":
           return model.InstancePoolModelDeploymentSystemData.getDeserializedJsonObj(
             <model.InstancePoolModelDeploymentSystemData>(<object>jsonObj),

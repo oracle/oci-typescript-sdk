@@ -822,6 +822,81 @@ export class DataScienceClient {
   }
 
   /**
+   * Moves a compute target into a different compartment. When provided, If-Match is checked against ETag values of the resource.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ChangeComputeTargetCompartmentRequest
+   * @return ChangeComputeTargetCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/ChangeComputeTargetCompartment.ts.html |here} to see how to use ChangeComputeTargetCompartment API.
+   */
+  public async changeComputeTargetCompartment(
+    changeComputeTargetCompartmentRequest: requests.ChangeComputeTargetCompartmentRequest
+  ): Promise<responses.ChangeComputeTargetCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#changeComputeTargetCompartment.");
+    const operationName = "changeComputeTargetCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/ComputeTarget/ChangeComputeTargetCompartment";
+    const pathParams = {
+      "{computeTargetId}": changeComputeTargetCompartmentRequest.computeTargetId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeComputeTargetCompartmentRequest.ifMatch,
+      "opc-request-id": changeComputeTargetCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeComputeTargetCompartmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeComputeTargetCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/computeTargets/{computeTargetId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeComputeTargetCompartmentRequest.changeComputeTargetCompartmentDetails,
+        "ChangeComputeTargetCompartmentDetails",
+        model.ChangeComputeTargetCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeComputeTargetCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Moves a private endpoint into a different compartment. When provided, If-Match is checked against ETag values of the resource.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -2127,6 +2202,96 @@ export class DataScienceClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new compute target resource.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateComputeTargetRequest
+   * @return CreateComputeTargetResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/CreateComputeTarget.ts.html |here} to see how to use CreateComputeTarget API.
+   */
+  public async createComputeTarget(
+    createComputeTargetRequest: requests.CreateComputeTargetRequest
+  ): Promise<responses.CreateComputeTargetResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#createComputeTarget.");
+    const operationName = "createComputeTarget";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/ComputeTarget/CreateComputeTarget";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createComputeTargetRequest.opcRequestId,
+      "opc-retry-token": createComputeTargetRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createComputeTargetRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/computeTargets",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createComputeTargetRequest.createComputeTargetDetails,
+        "CreateComputeTargetDetails",
+        model.CreateComputeTargetDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateComputeTargetResponse>{},
+        body: await response.json(),
+        bodyKey: "computeTarget",
+        bodyModel: model.ComputeTarget,
+        type: "model.ComputeTarget",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           }
         ]
@@ -4429,6 +4594,79 @@ export class DataScienceClient {
   }
 
   /**
+   * Deletes the specified compute target.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteComputeTargetRequest
+   * @return DeleteComputeTargetResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/DeleteComputeTarget.ts.html |here} to see how to use DeleteComputeTarget API.
+   */
+  public async deleteComputeTarget(
+    deleteComputeTargetRequest: requests.DeleteComputeTargetRequest
+  ): Promise<responses.DeleteComputeTargetResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#deleteComputeTarget.");
+    const operationName = "deleteComputeTarget";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/ComputeTarget/DeleteComputeTarget";
+    const pathParams = {
+      "{computeTargetId}": deleteComputeTargetRequest.computeTargetId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteComputeTargetRequest.ifMatch,
+      "opc-request-id": deleteComputeTargetRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteComputeTargetRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/computeTargets/{computeTargetId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteComputeTargetResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes a private endpoint using `privateEndpointId`.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -5978,6 +6216,82 @@ export class DataScienceClient {
           {
             value: response.headers.get("opc-work-request-id"),
             key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Retrieves the compute target for the specified `computeTargetId`.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetComputeTargetRequest
+   * @return GetComputeTargetResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/GetComputeTarget.ts.html |here} to see how to use GetComputeTarget API.
+   */
+  public async getComputeTarget(
+    getComputeTargetRequest: requests.GetComputeTargetRequest
+  ): Promise<responses.GetComputeTargetResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#getComputeTarget.");
+    const operationName = "getComputeTarget";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/ComputeTarget/GetComputeTarget";
+    const pathParams = {
+      "{computeTargetId}": getComputeTargetRequest.computeTargetId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getComputeTargetRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getComputeTargetRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/computeTargets/{computeTargetId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetComputeTargetResponse>{},
+        body: await response.json(),
+        bodyKey: "computeTarget",
+        bodyModel: model.ComputeTarget,
+        type: "model.ComputeTarget",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           }
         ]
@@ -8915,6 +9229,283 @@ export class DataScienceClient {
     } catch (err) {
       throw err;
     }
+  }
+
+  /**
+   * Lists the valid compute target shapes.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListComputeTargetShapesRequest
+   * @return ListComputeTargetShapesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/ListComputeTargetShapes.ts.html |here} to see how to use ListComputeTargetShapes API.
+   */
+  public async listComputeTargetShapes(
+    listComputeTargetShapesRequest: requests.ListComputeTargetShapesRequest
+  ): Promise<responses.ListComputeTargetShapesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#listComputeTargetShapes.");
+    const operationName = "listComputeTargetShapes";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/ComputeTargetShapeSummary/ListComputeTargetShapes";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listComputeTargetShapesRequest.compartmentId,
+      "limit": listComputeTargetShapesRequest.limit,
+      "page": listComputeTargetShapesRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listComputeTargetShapesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listComputeTargetShapesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/computeTargetShapes",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListComputeTargetShapesResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.ComputeTargetShapeSummary,
+        type: "Array<model.ComputeTargetShapeSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listComputeTargetShapesRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.ComputeTargetShapeSummary objects
+   * contained in responses from the listComputeTargetShapes operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllComputeTargetShapes(
+    request: requests.ListComputeTargetShapesRequest
+  ): AsyncIterableIterator<model.ComputeTargetShapeSummary> {
+    return paginateRecords(request, req => this.listComputeTargetShapes(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listComputeTargetShapesResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listComputeTargetShapes operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllComputeTargetShapesResponses(
+    request: requests.ListComputeTargetShapesRequest
+  ): AsyncIterableIterator<responses.ListComputeTargetShapesResponse> {
+    return paginateResponses(request, req => this.listComputeTargetShapes(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ComputeTargetShapeSummary objects
+   * contained in responses from the listComputeTargetShapes operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listComputeTargetShapesRecordIterator(
+    request: requests.ListComputeTargetShapesRequest
+  ): AsyncIterableIterator<model.ComputeTargetShapeSummary> {
+    return paginateRecords(request, req => this.listComputeTargetShapes(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listComputeTargetShapes operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listComputeTargetShapesResponseIterator(
+    request: requests.ListComputeTargetShapesRequest
+  ): AsyncIterableIterator<responses.ListComputeTargetShapesResponse> {
+    return paginateResponses(request, req => this.listComputeTargetShapes(req));
+  }
+
+  /**
+   * List all compute targets in the specified compartment. Supports queries on various other parameters in the query alongside compartmentId (must be included).
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListComputeTargetsRequest
+   * @return ListComputeTargetsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/ListComputeTargets.ts.html |here} to see how to use ListComputeTargets API.
+   */
+  public async listComputeTargets(
+    listComputeTargetsRequest: requests.ListComputeTargetsRequest
+  ): Promise<responses.ListComputeTargetsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#listComputeTargets.");
+    const operationName = "listComputeTargets";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/ComputeTargetSummary/ListComputeTargets";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listComputeTargetsRequest.compartmentId,
+      "id": listComputeTargetsRequest.id,
+      "displayName": listComputeTargetsRequest.displayName,
+      "lifecycleState": listComputeTargetsRequest.lifecycleState,
+      "limit": listComputeTargetsRequest.limit,
+      "page": listComputeTargetsRequest.page,
+      "sortOrder": listComputeTargetsRequest.sortOrder,
+      "sortBy": listComputeTargetsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listComputeTargetsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listComputeTargetsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/computeTargets",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListComputeTargetsResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.ComputeTargetSummary,
+        type: "Array<model.ComputeTargetSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listComputeTargetsRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.ComputeTargetSummary objects
+   * contained in responses from the listComputeTargets operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllComputeTargets(
+    request: requests.ListComputeTargetsRequest
+  ): AsyncIterableIterator<model.ComputeTargetSummary> {
+    return paginateRecords(request, req => this.listComputeTargets(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listComputeTargetsResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listComputeTargets operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllComputeTargetsResponses(
+    request: requests.ListComputeTargetsRequest
+  ): AsyncIterableIterator<responses.ListComputeTargetsResponse> {
+    return paginateResponses(request, req => this.listComputeTargets(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ComputeTargetSummary objects
+   * contained in responses from the listComputeTargets operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listComputeTargetsRecordIterator(
+    request: requests.ListComputeTargetsRequest
+  ): AsyncIterableIterator<model.ComputeTargetSummary> {
+    return paginateRecords(request, req => this.listComputeTargets(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listComputeTargets operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listComputeTargetsResponseIterator(
+    request: requests.ListComputeTargetsRequest
+  ): AsyncIterableIterator<responses.ListComputeTargetsResponse> {
+    return paginateResponses(request, req => this.listComputeTargets(req));
   }
 
   /**
@@ -13041,6 +13632,84 @@ export class DataScienceClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the compute target.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateComputeTargetRequest
+   * @return UpdateComputeTargetResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/UpdateComputeTarget.ts.html |here} to see how to use UpdateComputeTarget API.
+   */
+  public async updateComputeTarget(
+    updateComputeTargetRequest: requests.UpdateComputeTargetRequest
+  ): Promise<responses.UpdateComputeTargetResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#updateComputeTarget.");
+    const operationName = "updateComputeTarget";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/ComputeTarget/UpdateComputeTarget";
+    const pathParams = {
+      "{computeTargetId}": updateComputeTargetRequest.computeTargetId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateComputeTargetRequest.opcRequestId,
+      "if-match": updateComputeTargetRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateComputeTargetRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/computeTargets/{computeTargetId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateComputeTargetRequest.updateComputeTargetDetails,
+        "UpdateComputeTargetDetails",
+        model.UpdateComputeTargetDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateComputeTargetResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           }
         ]

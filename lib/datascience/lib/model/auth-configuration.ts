@@ -28,16 +28,6 @@ export namespace AuthConfiguration {
 
     if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
-        case "IDCS":
-          return model.IdcsAuthConfiguration.getJsonObj(
-            <model.IdcsAuthConfiguration>(<object>jsonObj),
-            true
-          );
-        case "IDCS_CUSTOM_SERVICE":
-          return model.IdcsCustomServiceAuthConfiguration.getJsonObj(
-            <model.IdcsCustomServiceAuthConfiguration>(<object>jsonObj),
-            true
-          );
         case "IAM":
           return model.IamAuthConfiguration.getJsonObj(
             <model.IamAuthConfiguration>(<object>jsonObj),
@@ -54,16 +44,6 @@ export namespace AuthConfiguration {
 
     if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
-        case "IDCS":
-          return model.IdcsAuthConfiguration.getDeserializedJsonObj(
-            <model.IdcsAuthConfiguration>(<object>jsonObj),
-            true
-          );
-        case "IDCS_CUSTOM_SERVICE":
-          return model.IdcsCustomServiceAuthConfiguration.getDeserializedJsonObj(
-            <model.IdcsCustomServiceAuthConfiguration>(<object>jsonObj),
-            true
-          );
         case "IAM":
           return model.IamAuthConfiguration.getDeserializedJsonObj(
             <model.IamAuthConfiguration>(<object>jsonObj),

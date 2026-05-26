@@ -30,6 +30,13 @@ export interface UpdateClusterEndpointConfigDetails {
    * Whether the cluster should be assigned a public IP address. Defaults to false. If set to true on a private subnet, the cluster update will fail.
    */
   "isPublicIpEnabled"?: boolean;
+  /**
+   * [Security attributes](https://docs.oracle.com/iaas/Content/zero-trust-packet-routing/zpr-artifacts.htm#security-attributes) are labels
+   *         for a resource that can be referenced in a [Zero Trust Packet Routing](https://docs.oracle.com/iaas/Content/zero-trust-packet-routing/overview.htm)
+   *         (ZPR) policy to control access to ZPR-supported resources.
+   *
+   */
+  "securityAttributes"?: { [key: string]: { [key: string]: any } };
 }
 
 export namespace UpdateClusterEndpointConfigDetails {

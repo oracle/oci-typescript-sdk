@@ -16,43 +16,29 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Configuration of IDCS AuthN/Z for online prediction
+ * Resource limit configuration details for workload on managed compute cluster type compute target
  */
-export interface IdcsAuthConfiguration extends model.AuthConfiguration {
+export interface ResourceLimitConfiguration {
   /**
-   * Identity Domain OCID
+   * Burstable limit for cpu.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
-  "domainId": string;
+  "ocpus": number;
   /**
-   * Name of the IDCS application
+   * Burstable limit for memory.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
-  "applicationName"?: string;
-
-  "type": string;
+  "memoryInGBs": number;
 }
 
-export namespace IdcsAuthConfiguration {
-  export function getJsonObj(obj: IdcsAuthConfiguration, isParentJsonObj?: boolean): object {
-    const jsonObj = {
-      ...(isParentJsonObj
-        ? obj
-        : (model.AuthConfiguration.getJsonObj(obj) as IdcsAuthConfiguration)),
-      ...{}
-    };
+export namespace ResourceLimitConfiguration {
+  export function getJsonObj(obj: ResourceLimitConfiguration): object {
+    const jsonObj = { ...obj, ...{} };
 
     return jsonObj;
   }
-  export const type = "IDCS";
-  export function getDeserializedJsonObj(
-    obj: IdcsAuthConfiguration,
-    isParentJsonObj?: boolean
-  ): object {
-    const jsonObj = {
-      ...(isParentJsonObj
-        ? obj
-        : (model.AuthConfiguration.getDeserializedJsonObj(obj) as IdcsAuthConfiguration)),
-      ...{}
-    };
+  export function getDeserializedJsonObj(obj: ResourceLimitConfiguration): object {
+    const jsonObj = { ...obj, ...{} };
 
     return jsonObj;
   }

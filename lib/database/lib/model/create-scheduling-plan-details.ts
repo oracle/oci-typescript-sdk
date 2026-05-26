@@ -54,6 +54,10 @@ Example: {@code {\"Department\": \"Finance\"}}
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * The current intent of the Scheduling Plan. Valid states are EXADATA_INFRASTRUCTURE_FULL_SOFTWARE_UPDATE and EXADATA_INFRASTRUCTURE_SECURITY_UPDATE.
+   */
+  "planIntent"?: CreateSchedulingPlanDetails.PlanIntent;
 }
 
 export namespace CreateSchedulingPlanDetails {
@@ -61,6 +65,11 @@ export namespace CreateSchedulingPlanDetails {
     Exacc = "EXACC",
     Exacs = "EXACS",
     Fpppcs = "FPPPCS"
+  }
+
+  export enum PlanIntent {
+    ExadataInfrastructureFullSoftwareUpdate = "EXADATA_INFRASTRUCTURE_FULL_SOFTWARE_UPDATE",
+    ExadataInfrastructureSecurityUpdate = "EXADATA_INFRASTRUCTURE_SECURITY_UPDATE"
   }
 
   export function getJsonObj(obj: CreateSchedulingPlanDetails): object {
