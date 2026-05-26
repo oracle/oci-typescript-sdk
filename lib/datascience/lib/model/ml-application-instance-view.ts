@@ -55,10 +55,7 @@ export interface MlApplicationInstanceView {
    * The OCID of the MlApplicationImplementationVersion
    */
   "mlApplicationImplementationVersionId": string;
-  "authConfiguration"?:
-    | model.IdcsAuthConfiguration
-    | model.IdcsCustomServiceAuthConfiguration
-    | model.IamAuthConfiguration;
+  "authConfiguration"?: model.IamAuthConfiguration;
   /**
    * This field is a copy from MlApplicationInstance created by the consumer. Data that are used for provisioning of the given MlApplicationInstance. These are validated against configurationSchema defined in referenced MlApplication.
    */

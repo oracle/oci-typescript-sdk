@@ -106,6 +106,12 @@ If the instance does not have any local disks, this field is {@code null}.
    *
    */
   "resourceManagement"?: InstanceShapeConfig.ResourceManagement;
+  /**
+   * The NVMe-backed local storage capacity, in GB, for flexible dense (DenseLV) VM shapes. If the shape
+   * is DenseLV, the value will be greater than 0. For all other shapes, the value will be null.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "localVolumeSizeInGBs"?: number;
 }
 
 export namespace InstanceShapeConfig {

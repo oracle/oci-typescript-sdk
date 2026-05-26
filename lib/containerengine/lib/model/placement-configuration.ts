@@ -26,7 +26,7 @@ export interface PlacementConfiguration {
    * Example: {@code Uocm:PHX-AD-1}
    *
    */
-  "availabilityDomain"?: string;
+  "availabilityDomain": string;
   /**
    * The fault domain of this virtual node.
    */
@@ -34,7 +34,7 @@ export interface PlacementConfiguration {
   /**
    * The OCID of the subnet in which to place virtual nodes.
    */
-  "subnetId"?: string;
+  "subnetId": string;
 }
 
 export namespace PlacementConfiguration {

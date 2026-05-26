@@ -26,16 +26,31 @@ export interface CapabilityDetails {
    * The type of resource.
    */
   "name": string;
+  "additionalDetails"?: model.AdditionalComputeCapabilityDetails;
 }
 
 export namespace CapabilityDetails {
   export function getJsonObj(obj: CapabilityDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "additionalDetails": obj.additionalDetails
+          ? model.AdditionalCapabilityDetails.getJsonObj(obj.additionalDetails)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: CapabilityDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "additionalDetails": obj.additionalDetails
+          ? model.AdditionalCapabilityDetails.getDeserializedJsonObj(obj.additionalDetails)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

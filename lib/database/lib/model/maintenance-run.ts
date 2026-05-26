@@ -158,9 +158,21 @@ export interface MaintenanceRun {
    */
   "totalTimeTakenInMins"?: number;
   /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the resource the maintenance run will refer to when trying to fetch target versions.
+   * This field is set during maintenance run creation based on infrastructure's maintenance run version preferences.
+   * Currently this is only be supported for monthly maintenance runs created via scheduling plans.
+   *
+   */
+  "referenceResourceIdForImageUpdates"?: string;
+  /**
    * The Autonomous AI Database Software Image [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm)
    */
   "databaseSoftwareImageId"?: string;
+  /**
+   * A list of key-value pairs where the key will contain the window type and value contains all the windowDetails of that window type.
+   *
+   */
+  "windowTypeDescriptions"?: Array<model.WindowTypeDescription>;
 }
 
 export namespace MaintenanceRun {
@@ -254,6 +266,12 @@ export namespace MaintenanceRun {
       ...{
         "estimatedPatchingTime": obj.estimatedPatchingTime
           ? model.EstimatedPatchingTime.getJsonObj(obj.estimatedPatchingTime)
+          : undefined,
+
+        "windowTypeDescriptions": obj.windowTypeDescriptions
+          ? obj.windowTypeDescriptions.map(item => {
+              return model.WindowTypeDescription.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -266,6 +284,12 @@ export namespace MaintenanceRun {
       ...{
         "estimatedPatchingTime": obj.estimatedPatchingTime
           ? model.EstimatedPatchingTime.getDeserializedJsonObj(obj.estimatedPatchingTime)
+          : undefined,
+
+        "windowTypeDescriptions": obj.windowTypeDescriptions
+          ? obj.windowTypeDescriptions.map(item => {
+              return model.WindowTypeDescription.getDeserializedJsonObj(item);
+            })
           : undefined
       }
     };

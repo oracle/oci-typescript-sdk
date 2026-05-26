@@ -79,6 +79,18 @@ export interface UpdateOcirModelDeploymentEnvironmentConfigurationDetails
    *
    */
   "environmentVariables"?: { [key: string]: string };
+  /**
+   * The chosen specification from predefined set of endpoints a user can access.
+   * For example, if the value is 'openai', the user can access OpenAI-compliant endpoints
+   * like /v1/completions, /v1/chat/completions, /v1/models, etc., for inference.
+   *
+   */
+  "predictApiSpecification"?: string;
+  /**
+   * List of custom inference HTTP endpoints configured on the model deployment instance for inferencing.
+   *
+   */
+  "customHttpEndpoints"?: Array<model.InferenceHttpEndpoint>;
 
   "environmentConfigurationType": string;
 }
@@ -94,7 +106,13 @@ export namespace UpdateOcirModelDeploymentEnvironmentConfigurationDetails {
         : (model.UpdateModelDeploymentEnvironmentConfigurationDetails.getJsonObj(
             obj
           ) as UpdateOcirModelDeploymentEnvironmentConfigurationDetails)),
-      ...{}
+      ...{
+        "customHttpEndpoints": obj.customHttpEndpoints
+          ? obj.customHttpEndpoints.map(item => {
+              return model.InferenceHttpEndpoint.getJsonObj(item);
+            })
+          : undefined
+      }
     };
 
     return jsonObj;
@@ -110,7 +128,13 @@ export namespace UpdateOcirModelDeploymentEnvironmentConfigurationDetails {
         : (model.UpdateModelDeploymentEnvironmentConfigurationDetails.getDeserializedJsonObj(
             obj
           ) as UpdateOcirModelDeploymentEnvironmentConfigurationDetails)),
-      ...{}
+      ...{
+        "customHttpEndpoints": obj.customHttpEndpoints
+          ? obj.customHttpEndpoints.map(item => {
+              return model.InferenceHttpEndpoint.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
     };
 
     return jsonObj;

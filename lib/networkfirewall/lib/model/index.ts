@@ -1,6 +1,6 @@
 /**
  * Network Firewall API
- * Use the Network Firewall API to create network firewalls and configure policies that regulates network traffic in and across VCNs.
+ * Use the Network Firewall API to create network firewalls and configure policies that regulates network traffic in and across VCNs. For more information, see [Overview of Network Firewall](https://docs.oracle.com/iaas/Content/network-firewall/overview.htm).
  * OpenAPI spec version: 20230501
  *
  *
@@ -87,6 +87,8 @@ import * as DecryptionRuleSummary from "./decryption-rule-summary";
 export import DecryptionRuleSummary = DecryptionRuleSummary.DecryptionRuleSummary;
 import * as DecryptionRuleSummaryCollection from "./decryption-rule-summary-collection";
 export import DecryptionRuleSummaryCollection = DecryptionRuleSummaryCollection.DecryptionRuleSummaryCollection;
+import * as HealthStatus from "./health-status";
+export import HealthStatus = HealthStatus.HealthStatus;
 import * as InspectActionType from "./inspect-action-type";
 export import InspectActionType = InspectActionType.InspectActionType;
 import * as InspectionType from "./inspection-type";
@@ -121,6 +123,8 @@ import * as NetworkFirewall from "./network-firewall";
 export import NetworkFirewall = NetworkFirewall.NetworkFirewall;
 import * as NetworkFirewallCollection from "./network-firewall-collection";
 export import NetworkFirewallCollection = NetworkFirewallCollection.NetworkFirewallCollection;
+import * as NetworkFirewallHealthStatus from "./network-firewall-health-status";
+export import NetworkFirewallHealthStatus = NetworkFirewallHealthStatus.NetworkFirewallHealthStatus;
 import * as NetworkFirewallPolicy from "./network-firewall-policy";
 export import NetworkFirewallPolicy = NetworkFirewallPolicy.NetworkFirewallPolicy;
 import * as NetworkFirewallPolicySummary from "./network-firewall-policy-summary";

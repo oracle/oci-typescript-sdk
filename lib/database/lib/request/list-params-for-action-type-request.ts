@@ -23,6 +23,10 @@ export interface ListParamsForActionTypeRequest extends common.BaseRequest {
    */
   "type": string;
   /**
+   * The plan intent the action will be used for. Relevant to action type that can be used in multiple plans
+   */
+  "planIntent"?: ListParamsForActionTypeRequest.PlanIntent;
+  /**
    * The maximum number of items to return per page.
    */
   "limit"?: number;
@@ -35,4 +39,11 @@ export interface ListParamsForActionTypeRequest extends common.BaseRequest {
    *
    */
   "opcRequestId"?: string;
+}
+
+export namespace ListParamsForActionTypeRequest {
+  export enum PlanIntent {
+    ExadataInfrastructureFullSoftwareUpdate = "EXADATA_INFRASTRUCTURE_FULL_SOFTWARE_UPDATE",
+    ExadataInfrastructureSecurityUpdate = "EXADATA_INFRASTRUCTURE_SECURITY_UPDATE"
+  }
 }

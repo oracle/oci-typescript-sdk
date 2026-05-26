@@ -52,6 +52,10 @@ export interface ListSchedulingPoliciesRequest extends common.BaseRequest {
    * A filter to return only resources that match the entire display name given. The match is not case sensitive.
    */
   "displayName"?: string;
+  /**
+   * A filter to return only resources that match the given cadence period exactly.
+   */
+  "cadence"?: string;
 }
 
 export namespace ListSchedulingPoliciesRequest {

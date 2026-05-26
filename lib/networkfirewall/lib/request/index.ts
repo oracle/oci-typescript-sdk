@@ -1,6 +1,6 @@
 /**
  * Network Firewall API
- * Use the Network Firewall API to create network firewalls and configure policies that regulates network traffic in and across VCNs.
+ * Use the Network Firewall API to create network firewalls and configure policies that regulates network traffic in and across VCNs. For more information, see [Overview of Network Firewall](https://docs.oracle.com/iaas/Content/network-firewall/overview.htm).
  * OpenAPI spec version: 20230501
  *
  *
@@ -117,6 +117,8 @@ import * as GetNatRuleRequest from "./get-nat-rule-request";
 export import GetNatRuleRequest = GetNatRuleRequest.GetNatRuleRequest;
 import * as GetNetworkFirewallRequest from "./get-network-firewall-request";
 export import GetNetworkFirewallRequest = GetNetworkFirewallRequest.GetNetworkFirewallRequest;
+import * as GetNetworkFirewallHealthStatusRequest from "./get-network-firewall-health-status-request";
+export import GetNetworkFirewallHealthStatusRequest = GetNetworkFirewallHealthStatusRequest.GetNetworkFirewallHealthStatusRequest;
 import * as GetNetworkFirewallPolicyRequest from "./get-network-firewall-policy-request";
 export import GetNetworkFirewallPolicyRequest = GetNetworkFirewallPolicyRequest.GetNetworkFirewallPolicyRequest;
 import * as GetSecurityRuleRequest from "./get-security-rule-request";

@@ -26,6 +26,7 @@ export interface UpdateCloudExadataInfrastructureDetails {
    */
   "displayName"?: string;
   "maintenanceWindow"?: model.MaintenanceWindow;
+  "maintenanceVersionPreferences"?: model.MaintenanceVersionPreferenceDetails;
   /**
    * The number of compute servers for the cloud Exadata infrastructure. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
@@ -62,6 +63,9 @@ export namespace UpdateCloudExadataInfrastructureDetails {
         "maintenanceWindow": obj.maintenanceWindow
           ? model.MaintenanceWindow.getJsonObj(obj.maintenanceWindow)
           : undefined,
+        "maintenanceVersionPreferences": obj.maintenanceVersionPreferences
+          ? model.MaintenanceVersionPreferenceDetails.getJsonObj(obj.maintenanceVersionPreferences)
+          : undefined,
 
         "customerContacts": obj.customerContacts
           ? obj.customerContacts.map(item => {
@@ -79,6 +83,11 @@ export namespace UpdateCloudExadataInfrastructureDetails {
       ...{
         "maintenanceWindow": obj.maintenanceWindow
           ? model.MaintenanceWindow.getDeserializedJsonObj(obj.maintenanceWindow)
+          : undefined,
+        "maintenanceVersionPreferences": obj.maintenanceVersionPreferences
+          ? model.MaintenanceVersionPreferenceDetails.getDeserializedJsonObj(
+              obj.maintenanceVersionPreferences
+            )
           : undefined,
 
         "customerContacts": obj.customerContacts

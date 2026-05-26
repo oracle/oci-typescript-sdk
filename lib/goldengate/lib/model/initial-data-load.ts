@@ -30,12 +30,52 @@ export interface InitialDataLoad {
    *
    */
   "actionOnExistingTable"?: model.InitialLoadAction;
+  /**
+   * Type of Initial load, which can be objectStorage or dbLink.
+   *
+   */
+  "initialLoadType"?: InitialDataLoad.InitialLoadType;
+  /**
+   * Directory path of ADB wallet locally available in Non-ADB target DB. Required for ADB to non-ADB DBLink type initial load only. If not provided the default wallet path \"/u01/targetwallet\" will be used.
+   *
+   */
+  "adbWalletPath"?: string;
+  /**
+   * Directory path of ObjectStorage wallet locally available in Non-ADB source DB. Required for Object Storage type initial load only if source DB is Non-ADB type.
+   *
+   */
+  "sourceWalletPath"?: string;
+  /**
+   * Directory path of ObjectStorage wallet locally available in Non-ADB target DB. Required for Object Storage type initial load only if target DB is Non-ADB type.
+   *
+   */
+  "targetWalletPath"?: string;
+  /**
+   * Namespace that serves as a container of the ObjectStorage bucket. Required only for Objectstorage Initial load.
+   *
+   */
+  "namespaceName"?: string;
+  /**
+   * Name of the ObjectStorage bucket. Required only for Objectstorage Initial load.
+   *
+   */
+  "bucketName"?: string;
 }
 
 export namespace InitialDataLoad {
   export enum IsInitialLoad {
     Enabled = "ENABLED",
     Disabled = "DISABLED",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum InitialLoadType {
+    DbLink = "DB_LINK",
+    ObjectStorage = "OBJECT_STORAGE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
