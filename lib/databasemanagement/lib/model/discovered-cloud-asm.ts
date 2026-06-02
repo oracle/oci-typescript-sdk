@@ -34,7 +34,7 @@ export interface DiscoveredCloudAsm extends model.DiscoveredCloudDbSystemCompone
    */
   "version"?: string;
   /**
-   * The list of asm instances for the cloud Asm.
+   * The list of ASM instances for the cloud Asm.
    */
   "asmInstances"?: Array<model.DiscoveredCloudAsmInstance>;
   "connector"?: model.CloudDbSystemDiscoveryMacsConnector;

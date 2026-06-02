@@ -9,7 +9,7 @@ import { readFileSync } from "fs";
 import { RegionMetadataSchema } from "./region-metadata-schema";
 import { FetchHttpClient } from "./http";
 import * as developerToolConfiguration from "./developertoolconfiguration";
-import { LOG } from "./log";
+import { LOG, sanitizeSensitiveDataForLogging } from "./log";
 
 export class Region {
   /**
@@ -387,7 +387,8 @@ export class Region {
         }
       } catch (error) {
         if (LOG.logger) LOG.logger.error(
-          "Unable to retrieve region metadata from instance metadata service, reason :" + error
+          "Unable to retrieve region metadata from instance metadata service, reason :" +
+          sanitizeSensitiveDataForLogging(String(error))
         );
       }
     }

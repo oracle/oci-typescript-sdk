@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The number of MySQL Databases in the fleet, grouped by database type and sub type.
+ * The number of MySQL Databases in the fleet, grouped by database type and sub type. MySQL support within OCI Database Management service has been deprecated as of January 29, 2026.
  */
 export interface MySqlFleetByCategory {
   /**

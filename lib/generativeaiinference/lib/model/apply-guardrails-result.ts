@@ -8,6 +8,8 @@ To use a Generative AI custom model for inference, you must first create an endp
 
 To learn more about the service, see the [Generative AI documentation](https://docs.oracle.com/iaas/Content/generative-ai/home.htm).
 
+**Important:** The IP addresses behind each DNS endpoint might change over time. Always use the DNS hostname listed under the following **API Endpoints** section and avoid using hard-coded fixed IP addresses.
+
  * OpenAPI spec version: 20231130
  * 
  *
@@ -22,7 +24,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The result of applying guardrails to the input text.
+ * The result of applying guardrails to the input content.
  */
 export interface ApplyGuardrailsResult {
   "results": model.GuardrailsResults;

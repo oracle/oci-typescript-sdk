@@ -10,6 +10,7 @@ import Refreshable from "./models/refreshable";
 import { getStringFromResponseBody } from "../helper";
 import CircuitBreaker from "../circuit-breaker";
 import fetch, { Response } from "node-fetch";
+import { sanitizeSensitiveData } from "../log";
 
 /**
  * A class that retrieves certificate based on metadata service url
@@ -71,7 +72,7 @@ export class URLBasedX509CertificateSupplier implements X509CertificateSupplier,
       const privateKey = parsePrivateKey(privateKeyString, "auto", options);
       return privateKey;
     } catch (e) {
-      throw Error(`Unable to obtain private key, error: , ${e}`);
+      throw Error(`Unable to obtain private key, error: , ${sanitizeSensitiveData(String(e))}`);
     }
   }
 

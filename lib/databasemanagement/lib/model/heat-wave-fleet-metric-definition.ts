@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * An aggregated metric for a HeatWave cluster.
+ * An aggregated metric for a HeatWave cluster. MySQL support within OCI Database Management service has been deprecated as of January 29, 2026.
  */
 export interface HeatWaveFleetMetricDefinition {
   /**

@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * If the replica is multi-threaded, error from worker threads. Otherwise, error from the applier thread.
+ * If the replica is multi-threaded, error from worker threads. Otherwise, error from the applier thread. MySQL support within OCI Database Management service has been deprecated as of January 29, 2026.
  */
 export interface MySqlApplyErrorWorker {
   /**

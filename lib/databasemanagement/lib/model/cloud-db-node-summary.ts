@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The summary of a cloud database node.
+ * The summary of a cloud DB node.
  */
 export interface CloudDbNodeSummary {
   /**

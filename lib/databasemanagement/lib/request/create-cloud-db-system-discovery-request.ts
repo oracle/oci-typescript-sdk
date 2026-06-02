@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface CreateCloudDbSystemDiscoveryRequest extends common.BaseRequest {
   /**
-   * The details required to create an cloud DB system discovery.
+   * The details required to create a cloud DB system discovery.
    */
   "createCloudDbSystemDiscoveryDetails": model.CreateCloudDbSystemDiscoveryDetails;
   /**

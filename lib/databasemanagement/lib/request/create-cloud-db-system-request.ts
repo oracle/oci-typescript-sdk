@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface CreateCloudDbSystemRequest extends common.BaseRequest {
   /**
-   * The details required to create an cloud DB system.
+   * The details required to create a cloud DB system.
    */
   "createCloudDbSystemDetails": model.CreateCloudDbSystemDetails;
   /**

@@ -31,12 +31,6 @@ export interface GetIncidentRequest extends common.BaseRequest {
    */
   "opcRequestId"?: string;
   /**
-   * The Customer Support Identifier (CSI) number associated with the support account.
-   * The CSI is optional for all support request types.
-   *
-   */
-  "csi"?: string;
-  /**
    * User OCID for Oracle Identity Cloud Service (IDCS) users who also have a federated Oracle Cloud Infrastructure account.
    * User OCID is mandatory for OCI Users and optional for Multicloud users.
    *

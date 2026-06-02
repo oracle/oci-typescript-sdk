@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The network protocol for MySQL Database.
+ * The network protocol for MySQL Database. MySQL support within OCI Database Management service has been deprecated as of January 29, 2026.
  **/
 export enum MySqlNetworkProtocolType {
   Tcp = "TCP",

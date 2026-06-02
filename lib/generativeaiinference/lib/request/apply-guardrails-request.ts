@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ApplyGuardrailsRequest extends common.BaseRequest {
   /**
-   * Details for applying guardrails to the input text.
+   * Details for applying guardrails to the input content.
    */
   "applyGuardrailsDetails": model.ApplyGuardrailsDetails;
   /**

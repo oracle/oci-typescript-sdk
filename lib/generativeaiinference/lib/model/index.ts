@@ -8,6 +8,8 @@ To use a Generative AI custom model for inference, you must first create an endp
 
 To learn more about the service, see the [Generative AI documentation](https://docs.oracle.com/iaas/Content/generative-ai/home.htm).
 
+**Important:** The IP addresses behind each DNS endpoint might change over time. Always use the DNS hostname listed under the following **API Endpoints** section and avoid using hard-coded fixed IP addresses.
+
  * OpenAPI spec version: 20231130
  * 
  *
@@ -128,6 +130,8 @@ import * as GuardrailVersionResponse from "./guardrail-version-response";
 export import GuardrailVersionResponse = GuardrailVersionResponse.GuardrailVersionResponse;
 import * as GuardrailVersionSummary from "./guardrail-version-summary";
 export import GuardrailVersionSummary = GuardrailVersionSummary.GuardrailVersionSummary;
+import * as GuardrailsImageUrl from "./guardrails-image-url";
+export import GuardrailsImageUrl = GuardrailsImageUrl.GuardrailsImageUrl;
 import * as GuardrailsInput from "./guardrails-input";
 export import GuardrailsInput = GuardrailsInput.GuardrailsInput;
 import * as GuardrailsResults from "./guardrails-results";
@@ -255,6 +259,8 @@ import * as GenericChatRequest from "./generic-chat-request";
 export import GenericChatRequest = GenericChatRequest.GenericChatRequest;
 import * as GenericChatResponse from "./generic-chat-response";
 export import GenericChatResponse = GenericChatResponse.GenericChatResponse;
+import * as GuardrailsImageInput from "./guardrails-image-input";
+export import GuardrailsImageInput = GuardrailsImageInput.GuardrailsImageInput;
 import * as GuardrailsTextInput from "./guardrails-text-input";
 export import GuardrailsTextInput = GuardrailsTextInput.GuardrailsTextInput;
 import * as ImageContent from "./image-content";

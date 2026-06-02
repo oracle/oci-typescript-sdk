@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The type of MySQL Database installation.
+ * The type of MySQL Database installation. MySQL support within OCI Database Management service has been deprecated as of January 29, 2026.
  **/
 export enum MySqlDeploymentType {
   Onpremise = "ONPREMISE",

@@ -24,6 +24,10 @@ export interface InplaceUpgradeRequest extends common.BaseRequest {
    */
   "esxiHostId": string;
   /**
+   * The details for upgrading ESXi host.
+   */
+  "inplaceUpgradeDetails"?: model.InplaceUpgradeDetails;
+  /**
    * A token that uniquely identifies a request so it can be retried in case of a timeout or
    * server error without risk of executing that same action again. Retry tokens expire after 24
    * hours, but can be invalidated before then due to conflicting operations (for example, if a resource

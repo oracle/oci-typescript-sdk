@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The version of the Json format of MySQL Explain.
+ * The version of the JSON format of the MySQL explain plan. MySQL support within OCI Database Management service has been deprecated as of January 29, 2026.
  **/
 export enum MySqlJsonExplainVersion {
   V1 = "V1",

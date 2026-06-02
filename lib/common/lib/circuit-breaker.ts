@@ -4,8 +4,8 @@
  */
 
 import { handleErrorBody, handleErrorResponse } from "./helper";
+import { LOG, sanitizeSensitiveDataForLogging } from "./log";
 import { DefaultRetryCondition } from "./retrier";
-import { LOG } from "./log";
 
 const Breaker = require("opossum");
 
@@ -48,7 +48,8 @@ async function FetchWrapper(
 }
 
 function defaultErrorFilterFunction(e: any) {
-  if (LOG.logger) LOG.logger.error("error from defaultErrorFunction: ", e);
+  if (LOG.logger)
+    LOG.logger.error("error from defaultErrorFunction: ", sanitizeSensitiveDataForLogging(e));
   // Only consider client side errors or retry-able server errors
   if (e.code || (e.errorObject && DefaultRetryCondition.shouldBeRetried(e.errorObject))) {
     return false;

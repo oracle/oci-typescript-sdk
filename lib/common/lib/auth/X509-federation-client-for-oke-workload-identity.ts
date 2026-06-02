@@ -11,6 +11,7 @@ import SecurityTokenAdapter from "./security-token-adapter";
 import AuthUtils from "./helpers/auth-utils";
 import { HttpRequest } from "../http-request";
 import { FetchHttpClient } from "../http";
+import { sanitizeSensitiveData } from "../log";
 import { CustomMutex } from "./helpers/custom-mutex";
 
 /**
@@ -194,7 +195,11 @@ export default class X509FederationClientForOkeWorkloadIdentity implements Feder
 
       return new SecurityTokenAdapter(token.slice(3), this.sessionKeySupplier);
     } catch (e) {
-      throw Error(`Failed to call Proxymux, error: ${e}. ${OKE_WORKLOAD_IDENTITY_GENERIC_ERROR}`);
+      throw Error(
+        `Failed to call Proxymux, error: ${sanitizeSensitiveData(
+          String(e)
+        )}. ${OKE_WORKLOAD_IDENTITY_GENERIC_ERROR}`
+      );
     }
   }
 }

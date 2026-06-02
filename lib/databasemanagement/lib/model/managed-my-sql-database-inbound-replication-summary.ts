@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Inbound replication information of a MySQL replica.
+ * Inbound replication information of a MySQL replica. MySQL support within OCI Database Management service has been deprecated as of January 29, 2026.
  */
 export interface ManagedMySqlDatabaseInboundReplicationSummary {
   /**

@@ -29,6 +29,11 @@ export interface ReplaceHostDetails {
    *
    */
   "esxiSoftwareVersion"?: string;
+  /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Byol Allocation for VCF (VMware Cloud Foundation) deployment.
+   *
+   */
+  "vcfByolAllocationId"?: string;
 }
 
 export namespace ReplaceHostDetails {

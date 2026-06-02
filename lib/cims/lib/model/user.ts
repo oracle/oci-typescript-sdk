@@ -40,10 +40,6 @@ export interface User {
    */
   "country"?: string;
   /**
-   * The CSI associated with the user.
-   */
-  "csi"?: string;
-  /**
    * The user's contact phone number.
    */
   "phone"?: string;

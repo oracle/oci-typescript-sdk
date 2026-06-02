@@ -5,6 +5,7 @@
 
 import { readFileSync } from "fs";
 import { parsePrivateKey } from "sshpk";
+import { sanitizeSensitiveData } from "../../log";
 
 /**
  * loadPrivateKeyFromFile will take in a privateKeyPath and optional passphrasePath
@@ -41,6 +42,6 @@ export function loadPrivateKeyFromFile(
       privateKey: privateKey.toBuffer("pem", {}).toString()
     };
   } catch (e) {
-    throw Error(`Failed to read file contents, error: ${e}`);
+    throw Error(`Failed to read file contents, error: ${sanitizeSensitiveData(String(e))}`);
   }
 }

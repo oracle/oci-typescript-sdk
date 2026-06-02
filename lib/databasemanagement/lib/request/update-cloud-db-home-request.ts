@@ -23,7 +23,7 @@ export interface UpdateCloudDbHomeRequest extends common.BaseRequest {
    */
   "cloudDbHomeId": string;
   /**
-   * The details required to update an cloud DB home.
+   * The details required to update a cloud DB home.
    */
   "updateCloudDbHomeDetails": model.UpdateCloudDbHomeDetails;
   /**

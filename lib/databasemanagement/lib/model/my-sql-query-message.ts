@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The MySQL error, warning or note raised when a query is run, if any.
+ * The MySQL error, warning, or note raised when a query is run, if any. MySQL support within OCI Database Management service has been deprecated as of January 29, 2026.
  */
 export interface MySqlQueryMessage {
   /**
@@ -26,11 +26,11 @@ export interface MySqlQueryMessage {
    */
   "level": model.MySqlMessageSeverity;
   /**
-   * The MySQL code of the raised error, warning or note. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The MySQL code of the raised error, warning, or note. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "code": number;
   /**
-   * The MySQL message text of the raised error, warning or note.
+   * The MySQL message text of the raised error, warning, or note.
    */
   "messageText": string;
 }
