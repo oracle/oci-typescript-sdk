@@ -22,7 +22,7 @@ import common = require("oci-common");
  */
 export interface CloudDatabaseSummary {
   /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the external DB system.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the cloud DB system.
    */
   "id": string;
   /**
@@ -34,7 +34,7 @@ export interface CloudDatabaseSummary {
    */
   "compartmentId": string;
   /**
-   * The {@code DB_UNIQUE_NAME} of the external database.
+   * The {@code DB_UNIQUE_NAME} of the cloud database.
    */
   "dbUniqueName"?: string;
   /**
@@ -54,7 +54,7 @@ export interface CloudDatabaseSummary {
    */
   "parentContainerDatabaseId"?: string;
   /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the external DB home.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the cloud DB home.
    */
   "cloudDbHomeId"?: string;
   "dbSystemInfo"?: model.CloudDbSystemBasicInfo;
@@ -64,11 +64,11 @@ export interface CloudDatabaseSummary {
    */
   "instanceDetails"?: Array<model.CloudDatabaseInstance>;
   /**
-   * The current lifecycle state of the external database resource.
+   * The current lifecycle state of the cloud database resource.
    */
   "lifecycleState": CloudDatabaseSummary.LifecycleState;
   /**
-   * The date and time the external DB system was created.
+   * The date and time the cloud DB system was created.
    */
   "timeCreated": Date;
   /**

@@ -73,6 +73,11 @@ export interface CreateByolDetails {
    */
   "entitlementKey": string;
   /**
+   * The hyperscaler identifier in Broadcom systems.
+   *
+   */
+  "siteId"?: string;
+  /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no
 * predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>

@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Indicates whether Database Management is enabled or disabled.
+ * Indicates whether Database Management is enabled or disabled. MySQL support within OCI Database Management service has been deprecated as of January 29, 2026.
  **/
 export enum ManagementState {
   Enabled = "ENABLED",

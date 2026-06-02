@@ -31,12 +31,6 @@ export interface UpdateIncidentRequest extends common.BaseRequest {
    */
   "compartmentId": string;
   /**
-   * The Customer Support Identifier (CSI) number associated with the support account.
-   * The CSI is optional for all support request types.
-   *
-   */
-  "csi"?: string;
-  /**
    * Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID.
    */
   "opcRequestId"?: string;

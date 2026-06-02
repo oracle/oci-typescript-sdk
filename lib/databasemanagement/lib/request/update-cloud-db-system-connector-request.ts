@@ -23,7 +23,7 @@ export interface UpdateCloudDbSystemConnectorRequest extends common.BaseRequest 
    */
   "cloudDbSystemConnectorId": string;
   /**
-   * The details required to update an cloud connector.
+   * The details required to update a cloud connector.
    */
   "updateCloudDbSystemConnectorDetails": model.UpdateCloudDbSystemMacsConnectorDetails;
   /**

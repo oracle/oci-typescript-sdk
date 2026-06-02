@@ -23,7 +23,7 @@ export interface PatchCloudDbSystemDiscoveryRequest extends common.BaseRequest {
    */
   "cloudDbSystemDiscoveryId": string;
   /**
-   * The details required to update an cloud DB system discovery.
+   * The details required to update a cloud DB system discovery.
    */
   "patchCloudDbSystemDiscoveryDetails": model.PatchCloudDbSystemDiscoveryDetails;
   /**

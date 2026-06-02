@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The details of the Managed MySQL Database.
+ * The details of the Managed MySQL Database. MySQL support within OCI Database Management service has been deprecated as of January 29, 2026.
  */
 export interface ManagedMySqlDatabaseSummary {
   /**
@@ -60,7 +60,7 @@ export interface ManagedMySqlDatabaseSummary {
    */
   "lifecycleState"?: model.LifecycleStates;
   /**
-   * The customer's selected type for HeatWave management.
+   * The selected management type for a HeatWave MySQL DB system.
    */
   "heatWaveManagementType"?: string;
 }

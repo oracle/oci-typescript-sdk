@@ -1704,6 +1704,7 @@ The database purges plans that have not been used for longer than
   /**
    * Check the status of the external database connection specified in this connector.
    * This operation will refresh the connectionStatus and timeConnectionStatusLastUpdated fields.
+   * MySQL support within OCI Database Management service has been deprecated as of January 29, 2026.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CheckExternalMySqlDatabaseConnectorConnectionStatusRequest
@@ -2922,6 +2923,7 @@ The database purges plans that have not been used for longer than
 
   /**
    * Creates an external MySQL database.
+   * MySQL support within OCI Database Management service has been deprecated as of January 29, 2026.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateExternalMySqlDatabaseRequest
@@ -3014,6 +3016,7 @@ The database purges plans that have not been used for longer than
 
   /**
    * Creates an external MySQL connector resource.
+   * MySQL support within OCI Database Management service has been deprecated as of January 29, 2026.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateExternalMySqlDatabaseConnectorRequest
@@ -4255,6 +4258,7 @@ The database purges plans that have not been used for longer than
 
   /**
    * Deletes the Oracle Cloud Infrastructure resource representing an external MySQL database.
+   * MySQL support within OCI Database Management service has been deprecated as of January 29, 2026.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteExternalMySqlDatabaseRequest
@@ -4330,6 +4334,7 @@ The database purges plans that have not been used for longer than
 
   /**
    * Deletes the Oracle Cloud Infrastructure resource representing an external MySQL database connector.
+   * MySQL support within OCI Database Management service has been deprecated as of January 29, 2026.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteExternalMySqlDatabaseConnectorRequest
@@ -5582,6 +5587,7 @@ Note that Database Management will not be disabled for the DB systems within the
 
   /**
    * Disables Database Management for an external MySQL Database.
+   * MySQL support within OCI Database Management service has been deprecated as of January 29, 2026.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DisableExternalMySqlDatabaseManagementRequest
@@ -7356,6 +7362,7 @@ One client controls both Automatic SQL Tuning Advisor and Automatic SPM Evolve A
 
   /**
    * Enables Database Management for an external MySQL Database.
+   * MySQL support within OCI Database Management service has been deprecated as of January 29, 2026.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param EnableExternalMySqlDatabaseManagementRequest
@@ -11411,6 +11418,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
 
   /**
    * Retrieves the external MySQL database information.
+   * MySQL support within OCI Database Management service has been deprecated as of January 29, 2026.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetExternalMySqlDatabaseRequest
@@ -11489,6 +11497,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
 
   /**
    * Retrieves the MySQL database connector.
+   * MySQL support within OCI Database Management service has been deprecated as of January 29, 2026.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetExternalMySqlDatabaseConnectorRequest
@@ -16775,6 +16784,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
 
   /**
    * Gets the list of External MySQL Databases.
+   * MySQL support within OCI Database Management service has been deprecated as of January 29, 2026.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListExternalMySqlDatabasesRequest
@@ -17309,6 +17319,7 @@ When enabled, the optimizer uses SQL plan baselines to select plans
 
   /**
    * Gets the list of External MySQL Database connectors.
+   * MySQL support within OCI Database Management service has been deprecated as of January 29, 2026.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListMySqlDatabaseConnectorsRequest
@@ -24583,6 +24594,7 @@ Note that this API does not return information on the number of times each datab
 
   /**
    * Updates the External Mysql Database.
+   * MySQL support within OCI Database Management service has been deprecated as of January 29, 2026.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateExternalMysqlDatabaseRequest
@@ -24667,6 +24679,7 @@ Note that this API does not return information on the number of times each datab
 
   /**
    * Updates the External Mysql Database Connector.
+   * MySQL support within OCI Database Management service has been deprecated as of January 29, 2026.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateExternalMysqlDatabaseConnectorRequest
@@ -26006,7 +26019,8 @@ export class ManagedMySqlDatabasesClient {
 
   /**
    * Changes the management type for a HeatWave MySQL instance, from BASIC to FULL and vice versa.
-   * It can also be used to enable or disable database management.
+   * It can also be used to enable or disable Database Management.
+   * MySQL support within OCI Database Management service has been deprecated as of January 29, 2026.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeMysqlDatabaseManagementTypeRequest
@@ -26090,6 +26104,7 @@ export class ManagedMySqlDatabasesClient {
 
   /**
    * Retrieves information pertaining to the binary log of a specific MySQL server.
+   * MySQL support within OCI Database Management service has been deprecated as of January 29, 2026.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetBinaryLogInformationRequest
@@ -26168,6 +26183,7 @@ export class ManagedMySqlDatabasesClient {
 
   /**
    * Retrieves general information regarding the replication of a specific MySQL server.
+   * MySQL support within OCI Database Management service has been deprecated as of January 29, 2026.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetGeneralReplicationInformationRequest
@@ -26248,6 +26264,7 @@ export class ManagedMySqlDatabasesClient {
 
   /**
    * Gets the health metrics for a fleet of HeatWave clusters in a compartment.
+   * MySQL support within OCI Database Management service has been deprecated as of January 29, 2026.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetHeatWaveFleetMetricRequest
@@ -26327,6 +26344,7 @@ export class ManagedMySqlDatabasesClient {
 
   /**
    * Retrieves the general information for a specific MySQL Database.
+   * MySQL support within OCI Database Management service has been deprecated as of January 29, 2026.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetManagedMySqlDatabaseRequest
@@ -26400,6 +26418,7 @@ export class ManagedMySqlDatabasesClient {
 
   /**
    * Gets the health metrics for a fleet of MySQL Databases in a compartment.
+   * MySQL support within OCI Database Management service has been deprecated as of January 29, 2026.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetMySqlFleetMetricRequest
@@ -26482,7 +26501,8 @@ export class ManagedMySqlDatabasesClient {
   }
 
   /**
-   * Retrieves query sample details, explain plan and potential warnings for a given digest.
+   * Retrieves query sample details, explain plan, and potential warnings for a given digest.
+   * MySQL support within OCI Database Management service has been deprecated as of January 29, 2026.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetMySqlQueryDetailsRequest
@@ -26558,6 +26578,7 @@ export class ManagedMySqlDatabasesClient {
 
   /**
    * Retrieves information about the high availability members of a specific MySQL server's replication group.
+   * MySQL support within OCI Database Management service has been deprecated as of January 29, 2026.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListHighAvailabilityMembersRequest
@@ -26643,6 +26664,7 @@ export class ManagedMySqlDatabasesClient {
 
   /**
    * Retrieves information about the inbound replications of a specific MySQL server.
+   * MySQL support within OCI Database Management service has been deprecated as of January 29, 2026.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListInboundReplicationsRequest
@@ -26726,6 +26748,7 @@ export class ManagedMySqlDatabasesClient {
 
   /**
    * Retrieves configuration data for a specific MySQL database.
+   * MySQL support within OCI Database Management service has been deprecated as of January 29, 2026.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListManagedMySqlDatabaseConfigurationDataRequest
@@ -26812,6 +26835,7 @@ export class ManagedMySqlDatabasesClient {
 
   /**
    * Retrieves the SQL performance data for a specific MySQL database.
+   * MySQL support within OCI Database Management service has been deprecated as of January 29, 2026.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListManagedMySqlDatabaseSqlDataRequest
@@ -26900,6 +26924,7 @@ export class ManagedMySqlDatabasesClient {
 
   /**
    * Gets the list of Managed MySQL Databases in a specific compartment.
+   * MySQL support within OCI Database Management service has been deprecated as of January 29, 2026.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListManagedMySqlDatabasesRequest
@@ -26984,6 +27009,7 @@ export class ManagedMySqlDatabasesClient {
 
   /**
    * Retrieves any potential errors for a given digest.
+   * MySQL support within OCI Database Management service has been deprecated as of January 29, 2026.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListMySqlDigestErrorsRequest
@@ -27068,6 +27094,7 @@ export class ManagedMySqlDatabasesClient {
 
   /**
    * Retrieves information pertaining to the outbound replications of a specific MySQL server.
+   * MySQL support within OCI Database Management service has been deprecated as of January 29, 2026.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListOutboundReplicationsRequest
@@ -27151,6 +27178,7 @@ export class ManagedMySqlDatabasesClient {
 
   /**
    * Gets the availability metrics for the MySQL Database specified by managedMySqlDatabaseId.
+   * MySQL support within OCI Database Management service has been deprecated as of January 29, 2026.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param SummarizeManagedMySqlDatabaseAvailabilityMetricsRequest

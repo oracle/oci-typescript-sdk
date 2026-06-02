@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A summary of the fleet metrics, which provides the metric aggregated value of the MySQL Databases in the fleet.
+ * A summary of the fleet metrics, which provides the metric aggregated value of the MySQL Databases in the fleet. MySQL support within OCI Database Management service has been deprecated as of January 29, 2026.
  */
 export interface MySqlFleetMetricSummaryDefinition {
   /**

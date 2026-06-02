@@ -23,7 +23,7 @@ export interface UpdateCloudDbSystemRequest extends common.BaseRequest {
    */
   "cloudDbSystemId": string;
   /**
-   * The details required to update an cloud DB system.
+   * The details required to update a cloud DB system.
    */
   "updateCloudDbSystemDetails": model.UpdateCloudDbSystemDetails;
   /**

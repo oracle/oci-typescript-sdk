@@ -18,15 +18,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The explain plan for a given MySQL query.
+ * The explain plan for a given MySQL query. MySQL support within OCI Database Management service has been deprecated as of January 29, 2026.
  */
 export interface MySqlQueryExplainPlan {
   /**
-   * The json format of the explain plan.
+   * The JSON format of the explain plan.
    */
   "jsonExplain": string;
   /**
-   * The version of the Json format of MySQL Explain.
+   * The version of the JSON format of the MySQL explain plan.
    */
   "jsonExplainVersion": model.MySqlJsonExplainVersion;
 }

@@ -23,7 +23,7 @@ export interface UpdateCloudDbNodeRequest extends common.BaseRequest {
    */
   "cloudDbNodeId": string;
   /**
-   * The details required to update an cloud DB node.
+   * The details required to update a cloud DB node.
    */
   "updateCloudDbNodeDetails": model.UpdateCloudDbNodeDetails;
   /**

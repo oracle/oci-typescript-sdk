@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The collection of configuration records for a specific MySQL Database.
+ * The collection of configuration records for a specific MySQL Database. MySQL support within OCI Database Management service has been deprecated as of January 29, 2026.
  */
 export interface MySqlConfigurationDataCollection {
   /**

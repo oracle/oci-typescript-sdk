@@ -17,8 +17,8 @@ import { HttpRequest } from "./http-request";
 import { isReadableStream } from "./helper";
 import { handleErrorBody, handleErrorResponse } from "./helper";
 import { OciError } from "./error";
-import { Logger } from "./log";
 import { BooleanString } from "./constants";
+import { Logger, sanitizeSensitiveData } from "./log";
 
 const TROUBLESHOOT_URL =
   "https://docs.oracle.com/en-us/iaas/Content/API/Concepts/sdk_troubleshooting.htm";
@@ -250,26 +250,34 @@ export class GenericRetrier {
       let timeElapsed = currentTime - timestamp.getTime();
       if (!shouldBeRetried || !GenericRetrier.isRequestRetryable(request)) {
         console.warn(
-          `Request cannot be retried. Not Retrying. Exception occurred : ${lastKnownError}`
+          sanitizeSensitiveData(
+            `Request cannot be retried. Not Retrying. Exception occurred : ${lastKnownError}`
+          )
         );
         if (this.logger) {
           this.logger.debug(`Total Latency for this API call is: ${timeElapsed} ms`);
         }
+        GenericRetrier.sanitizeErrorForThrow(lastKnownError);
         throw lastKnownError;
       } else if (this.retryConfiguration.terminationStrategy.shouldTerminate(waitContext)) {
         console.warn(
-          `All retry attempts have exhausted. Total Attempts : ${waitContext.attemptCount +
-            1}. Last exception occurred : ${lastKnownError}`
+          sanitizeSensitiveData(
+            `All retry attempts have exhausted. Total Attempts : ${waitContext.attemptCount +
+              1}. Last exception occurred : ${lastKnownError}`
+          )
         );
         if (this.logger) {
           this.logger.debug(`Total Latency for this API call is: ${timeElapsed} ms`);
         }
+        GenericRetrier.sanitizeErrorForThrow(lastKnownError);
         throw lastKnownError;
       }
       const delayTime = this.retryConfiguration.delayStrategy.delay(waitContext);
       waitContext.attemptCount++;
       console.warn(
-        `Request failed with Exception : ${lastKnownError}\nRetrying request -> Total Attempts : ${waitContext.attemptCount}, Retrying after ${delayTime} seconds...`
+        sanitizeSensitiveData(
+          `Request failed with Exception : ${lastKnownError}\nRetrying request -> Total Attempts : ${waitContext.attemptCount}, Retrying after ${delayTime} seconds...`
+        )
       );
       await delay(delayTime);
       GenericRetrier.refreshRequest(request);
@@ -280,7 +288,9 @@ export class GenericRetrier {
               `Http Status Code: ${lastKnownError.statusCode}, Error Code: ${lastKnownError.serviceCode}, Attempt: ${attempt}`
             )
           : this.logger.debug(
-              `Code: ${lastKnownError.code}, Message: ${lastKnownError.message}, Attempt: ${attempt}`
+              sanitizeSensitiveData(
+                `Code: ${lastKnownError.code}, Message: ${lastKnownError.message}, Attempt: ${attempt}`
+              )
             );
       }
     }
@@ -288,6 +298,15 @@ export class GenericRetrier {
 
   private static refreshRequest(request: HttpRequest) {
     request.headers.set("x-date", new Date().toUTCString());
+  }
+
+  private static sanitizeErrorForThrow(error: any) {
+    if (error && typeof error.message === "string") {
+      error.message = sanitizeSensitiveData(error.message);
+    }
+    if (error && typeof error.requestEndpoint === "string") {
+      error.requestEndpoint = sanitizeSensitiveData(error.requestEndpoint);
+    }
   }
 
   private addOpcClientRetryHeader(request: HttpRequest) {

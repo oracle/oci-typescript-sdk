@@ -37,7 +37,6 @@ export interface CreateTicketDetails {
    */
   "title": string;
   /**
-   * <b>Important</b>: On January 27, 2026, the <b>Max Length</b> value will change to 1500.
    * The description of the support request. Avoid entering confidential information.
    *
    */

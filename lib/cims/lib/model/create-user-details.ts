@@ -36,10 +36,6 @@ export interface CreateUserDetails {
    */
   "lastName": string;
   /**
-   * CSI associated with the user.
-   */
-  "csi"?: string;
-  /**
    * Contact number of the user.
    */
   "phone"?: string;

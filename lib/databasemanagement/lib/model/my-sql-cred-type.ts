@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The credential type for MySQL Database.
+ * The credential type for MySQL Database. MySQL support within OCI Database Management service has been deprecated as of January 29, 2026.
  **/
 export enum MySqlCredType {
   MysqlExternalNonSslCredentials = "MYSQL_EXTERNAL_NON_SSL_CREDENTIALS",

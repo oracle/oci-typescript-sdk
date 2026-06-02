@@ -8,6 +8,8 @@ To use a Generative AI custom model for inference, you must first create an endp
 
 To learn more about the service, see the [Generative AI documentation](https://docs.oracle.com/iaas/Content/generative-ai/home.htm).
 
+**Important:** The IP addresses behind each DNS endpoint might change over time. Always use the DNS hostname listed under the following **API Endpoints** section and avoid using hard-coded fixed IP addresses.
+
  * OpenAPI spec version: 20231130
  * 
  *
@@ -33,9 +35,25 @@ export interface CategoryScore {
    * The score of the category. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "score": number;
+  /**
+   * The input modalities flagged by this category score. Present only when the request is
+   * processed using a non-empty {@code multimodalInput}.
+   *
+   */
+  "flaggedModalities"?: Array<CategoryScore.FlaggedModalities>;
 }
 
 export namespace CategoryScore {
+  export enum FlaggedModalities {
+    Text = "TEXT",
+    Image = "IMAGE",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: CategoryScore): object {
     const jsonObj = { ...obj, ...{} };
 

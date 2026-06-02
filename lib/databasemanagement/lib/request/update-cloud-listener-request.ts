@@ -23,7 +23,7 @@ export interface UpdateCloudListenerRequest extends common.BaseRequest {
    */
   "cloudListenerId": string;
   /**
-   * The details required to update an cloud listener.
+   * The details required to update a cloud listener.
    */
   "updateCloudListenerDetails": model.UpdateCloudListenerDetails;
   /**
