@@ -8,6 +8,8 @@ To use a Generative AI custom model for inference, you must first create an endp
 
 To learn more about the service, see the [Generative AI documentation](https://docs.oracle.com/iaas/Content/generative-ai/home.htm).
 
+**Important:** The IP addresses behind each DNS endpoint might change over time. Always use the DNS hostname listed under the following **API Endpoints** section and avoid using hard-coded fixed IP addresses.
+
  * OpenAPI spec version: 20231130
  * 
  *
@@ -39,6 +41,11 @@ export namespace GuardrailsInput {
             <model.GuardrailsTextInput>(<object>jsonObj),
             true
           );
+        case "IMAGE":
+          return model.GuardrailsImageInput.getJsonObj(
+            <model.GuardrailsImageInput>(<object>jsonObj),
+            true
+          );
         default:
           if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.type}`);
       }
@@ -53,6 +60,11 @@ export namespace GuardrailsInput {
         case "TEXT":
           return model.GuardrailsTextInput.getDeserializedJsonObj(
             <model.GuardrailsTextInput>(<object>jsonObj),
+            true
+          );
+        case "IMAGE":
+          return model.GuardrailsImageInput.getDeserializedJsonObj(
+            <model.GuardrailsImageInput>(<object>jsonObj),
             true
           );
         default:

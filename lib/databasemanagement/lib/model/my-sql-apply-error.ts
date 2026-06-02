@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Error from the apply operation of a MySQL server replication channel.
+ * Error from the apply operation of a MySQL server replication channel. MySQL support within OCI Database Management service has been deprecated as of January 29, 2026.
  */
 export interface MySqlApplyError {
   /**

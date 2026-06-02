@@ -6,6 +6,7 @@ import { readFileSync } from "fs";
 import FederationClient from "./models/federation-client";
 import SessionKeySupplier from "./models/session-key-supplier";
 import SecurityTokenAdapter from "./security-token-adapter";
+import { sanitizeSensitiveData } from "../log";
 
 /**
  * This class gets a security token from file.
@@ -75,7 +76,7 @@ export default class FileBasedResourcePrincipalFederationClient implements Feder
     try {
       securityToken = readFileSync(this.resourcePrincipalSessionTokenPath, "utf8");
     } catch (e) {
-      throw Error(`Failed to read token due to error: ${e}`);
+      throw Error(`Failed to read token due to error: ${sanitizeSensitiveData(String(e))}`);
     }
     return new SecurityTokenAdapter(securityToken, this.sessionKeySupplier);
   }

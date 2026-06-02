@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Consists of the error and the number of times it is encountered.
+ * The MySQL digest error and the number of times it is encountered. MySQL support within OCI Database Management service has been deprecated as of January 29, 2026.
  */
 export interface MySqlDigestErrorSummary {
   "error": model.MySqlQueryMessage;

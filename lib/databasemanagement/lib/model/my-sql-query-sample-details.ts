@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The details of a query sample including the query text, execution time and other details.
+ * The details of a query sample including the query text, execution time, and other details. MySQL support within OCI Database Management service has been deprecated as of January 29, 2026.
  */
 export interface MySqlQuerySampleDetails {
   /**
@@ -34,7 +34,7 @@ export interface MySqlQuerySampleDetails {
    */
   "executionTime": number;
   /**
-   * The thread id of the connection. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The thread ID of the connection. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "threadId": number;
   /**

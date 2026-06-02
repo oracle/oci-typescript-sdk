@@ -18,13 +18,13 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The details of a given MySQL query, it consists of the query sample details, the explain plan and potential warnings.
+ * The details of a given MySQL query, which consists of the query sample details, the explain plan, and potential warnings. MySQL support within OCI Database Management service has been deprecated as of January 29, 2026.
  */
 export interface MySqlQueryDetails {
   "querySampleDetails": model.MySqlQuerySampleDetails;
   "queryExplainPlan"?: model.MySqlQueryExplainPlan;
   /**
-   * The errors, warnings and notes that could be raised by the execution of the query.
+   * The errors, warnings, and notes that could be raised by the execution of the query.
    */
   "queryMessages"?: Array<model.MySqlQueryMessage>;
 }

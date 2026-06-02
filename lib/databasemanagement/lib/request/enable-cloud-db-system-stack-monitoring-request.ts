@@ -23,7 +23,7 @@ export interface EnableCloudDbSystemStackMonitoringRequest extends common.BaseRe
    */
   "cloudDbSystemId": string;
   /**
-   * The details required to enable Stack Monitoring for an cloud DB system.
+   * The details required to enable Stack Monitoring for a cloud DB system.
    */
   "enableCloudDbSystemStackMonitoringDetails": model.EnableCloudDbSystemStackMonitoringDetails;
   /**

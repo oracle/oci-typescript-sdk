@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The list of aggregated metrics for Managed MySQL Databases in the fleet.
+ * The list of aggregated metrics for Managed MySQL Databases in the fleet. MySQL support within OCI Database Management service has been deprecated as of January 29, 2026.
  */
 export interface MySqlDatabaseUsageMetrics {
   /**
@@ -56,7 +56,7 @@ export interface MySqlDatabaseUsageMetrics {
    */
   "databaseStatus": model.MySqlDatabaseStatus;
   /**
-   * The customer's selected type for HeatWave management.
+   * The selected management type for a HeatWave MySQL DB system.
    */
   "heatWaveManagementType"?: string;
   /**

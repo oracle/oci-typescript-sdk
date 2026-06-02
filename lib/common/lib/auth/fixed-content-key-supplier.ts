@@ -6,6 +6,7 @@
 import SessionKeySupplier from "./models/session-key-supplier";
 import KeyPair from "./key-pair";
 import { parsePrivateKey } from "sshpk";
+import { sanitizeSensitiveData } from "../log";
 
 /**
  * This is a SessionKeySupplier which fakes the ability to refresh its contained key.
@@ -28,7 +29,7 @@ export default class FixedContentKeySupplier implements SessionKeySupplier {
         privateKey.toBuffer("pem", {}).toString()
       );
     } catch (e) {
-      throw Error(`Failed to read file contents, error: ${e}`);
+      throw Error(`Failed to read file contents, error: ${sanitizeSensitiveData(String(e))}`);
     }
   }
 

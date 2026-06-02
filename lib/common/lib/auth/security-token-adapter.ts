@@ -5,6 +5,7 @@
 
 import SessionKeySupplier from "./models/session-key-supplier";
 import JWT from "jsonwebtoken";
+import { sanitizeSensitiveData } from "../log";
 /**
  * Helper class to store security token and sessionKeySupplier
  * contain methods to check if token is expired and needs to be refreshed
@@ -36,7 +37,7 @@ export default class SecurityTokenAdapter {
       const payload = JWT.decode(token, { complete: true });
       return payload as object;
     } catch (e) {
-      throw Error(`Failed to decode token, error: ${e}`);
+      throw Error(`Failed to decode token, error: ${sanitizeSensitiveData(String(e))}`);
     }
   }
 

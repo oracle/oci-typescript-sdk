@@ -5,6 +5,7 @@ import { composeRequest } from "../request-generator";
 import { ConfigFileAuthenticationDetailsProvider } from "./config-file-auth";
 import { handleErrorBody } from "../helper";
 import { Region } from "../region";
+import { sanitizeSensitiveData } from "../log";
 
 export class SessionAuthDetailProvider extends ConfigFileAuthenticationDetailsProvider
   implements AuthenticationDetailsProvider, RegionProvider {
@@ -45,16 +46,20 @@ export class SessionAuthDetailProvider extends ConfigFileAuthenticationDetailsPr
       } else if (response.status === 401) {
         const errBody = await handleErrorBody(response);
         throw new Error(
-          `Authentication Error calling Identity to refresh token. Error: ${JSON.stringify(
-            errBody
+          `Authentication Error calling Identity to refresh token. Error: ${sanitizeSensitiveData(
+            JSON.stringify(errBody)
           )}`
         );
       } else {
         const errBody = await handleErrorBody(response);
-        throw new Error(`Token cannot be refreshed. Error: ${JSON.stringify(errBody)}`);
+        throw new Error(
+          `Token cannot be refreshed. Error: ${sanitizeSensitiveData(JSON.stringify(errBody))}`
+        );
       }
     } catch (e) {
-      throw new Error(`Failed to refresh the session token due to ${e}`);
+      throw new Error(
+        `Failed to refresh the session token due to ${sanitizeSensitiveData(String(e))}`
+      );
     }
   }
 }

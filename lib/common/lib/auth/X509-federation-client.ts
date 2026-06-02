@@ -17,6 +17,7 @@ import { SignerRequest } from "../signer";
 import { FetchHttpClient } from "../http";
 import { PrivateKey } from "sshpk";
 import { getStringFromRequestBody } from "../helper";
+import { sanitizeSensitiveData } from "../log";
 import CircuitBreaker from "../circuit-breaker";
 import {
   MaxAttemptsTerminationStrategy,
@@ -131,7 +132,9 @@ export default class X509FederationClient implements FederationClient {
           this._leafCertificateSupplier = await this._leafCertificateSupplier.refresh();
         } catch (e) {
           throw Error(
-            `Fail to refresh leafCertificateSupplier, error: ${e}. ${INSTANCE_PRINCIPAL_GENERIC_ERROR}`
+            `Fail to refresh leafCertificateSupplier, error: ${sanitizeSensitiveData(
+              String(e)
+            )}. ${INSTANCE_PRINCIPAL_GENERIC_ERROR}`
           );
         }
 
@@ -186,15 +189,17 @@ export default class X509FederationClient implements FederationClient {
         // Do not retry if the response is successful, or response status is 4XX
         if (response.status == 200) break;
         lastKnownError = `${AUTH_TOKEN_GENERIC_ERROR}. Response received but failed with status: ${response.status}`;
-        console.log(lastKnownError);
+        console.log(sanitizeSensitiveData(lastKnownError));
         if (response.status >= 400 && response.status < 500) break;
         if (terminationStrategy.shouldTerminate(waitContext)) {
           console.log("Retry attempts exhausted! Not retrying");
           break;
         }
       } catch (e) {
-        lastKnownError = `${AUTH_TOKEN_GENERIC_ERROR}. Failed with error: ${e}`;
-        console.log(lastKnownError);
+        lastKnownError = `${AUTH_TOKEN_GENERIC_ERROR}. Failed with error: ${sanitizeSensitiveData(
+          String(e)
+        )}`;
+        console.log(sanitizeSensitiveData(lastKnownError));
         if (waitContext.attemptCount < X509FederationClient.DEFAULT_AUTH_MAX_RETRY_COUNT - 1) {
           console.log(`Retrying the request...`);
         } else {

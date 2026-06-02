@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * External database summary record.
+ * External database summary record. MySQL support within OCI Database Management service has been deprecated as of January 29, 2026.
  */
 export interface ExternalMySqlDatabaseSummary {
   /**

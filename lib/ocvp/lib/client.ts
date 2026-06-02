@@ -4558,6 +4558,11 @@ Use the {@link WorkRequest} operations to track the
       defaultHeaders: this._defaultHeaders,
       path: "/esxiHosts/{esxiHostId}/actions/inplaceUpgrade",
       method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        inplaceUpgradeRequest.inplaceUpgradeDetails,
+        "InplaceUpgradeDetails",
+        model.InplaceUpgradeDetails.getJsonObj
+      ),
       pathParams: pathParams,
       headerParams: headerParams,
       queryParams: queryParams

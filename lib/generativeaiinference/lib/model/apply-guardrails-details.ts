@@ -8,6 +8,8 @@ To use a Generative AI custom model for inference, you must first create an endp
 
 To learn more about the service, see the [Generative AI documentation](https://docs.oracle.com/iaas/Content/generative-ai/home.htm).
 
+**Important:** The IP addresses behind each DNS endpoint might change over time. Always use the DNS hostname listed under the following **API Endpoints** section and avoid using hard-coded fixed IP addresses.
+
  * OpenAPI spec version: 20231130
  * 
  *
@@ -22,10 +24,23 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details for applying guardrails to the input text.
+ * Details for applying guardrails to the input content.
+ * Case 1: Use {@code input} for simple single-text moderation. Existing customers can continue to
+ * use this field for the current text-only flow.
+ * Case 2: Use {@code multimodalInput} for moderation over text, image, or a combination of both.
+ * {@code multimodalInput} supports a single text item, an array of text items only, an array of
+ * images only, or a mixed ordered combination of text and image items.
+ * Clients may provide {@code input}, {@code multimodalInput}, or both. At least one of these fields must
+ * be provided. If both {@code input} and {@code multimodalInput} are provided, the service will process
+ * {@code input} and discard {@code multimodalInput}.
+ *
  */
 export interface ApplyGuardrailsDetails {
-  "input": model.GuardrailsTextInput;
+  "input"?: model.GuardrailsTextInput | model.GuardrailsImageInput;
+  /**
+   * An ordered list of text and image inputs for multimodal guardrail evaluation. This field supports a single text item, an array of text items only, an array of images only, or a mixed ordered combination of text and image items. If both {@code input} and {@code multimodalInput} are provided, this field is ignored.
+   */
+  "multimodalInput"?: Array<model.GuardrailsInput>;
   "guardrailConfigs": model.GuardrailConfigs;
   "guardrailVersionConfig"?: model.GuardrailVersionConfig;
   /**
@@ -40,6 +55,11 @@ export namespace ApplyGuardrailsDetails {
       ...obj,
       ...{
         "input": obj.input ? model.GuardrailsInput.getJsonObj(obj.input) : undefined,
+        "multimodalInput": obj.multimodalInput
+          ? obj.multimodalInput.map(item => {
+              return model.GuardrailsInput.getJsonObj(item);
+            })
+          : undefined,
         "guardrailConfigs": obj.guardrailConfigs
           ? model.GuardrailConfigs.getJsonObj(obj.guardrailConfigs)
           : undefined,
@@ -56,6 +76,11 @@ export namespace ApplyGuardrailsDetails {
       ...obj,
       ...{
         "input": obj.input ? model.GuardrailsInput.getDeserializedJsonObj(obj.input) : undefined,
+        "multimodalInput": obj.multimodalInput
+          ? obj.multimodalInput.map(item => {
+              return model.GuardrailsInput.getDeserializedJsonObj(item);
+            })
+          : undefined,
         "guardrailConfigs": obj.guardrailConfigs
           ? model.GuardrailConfigs.getDeserializedJsonObj(obj.guardrailConfigs)
           : undefined,

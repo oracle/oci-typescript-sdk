@@ -30,12 +30,6 @@ export interface CreateIncident {
   "compartmentId": string;
   "ticket": model.CreateTicketDetails;
   /**
-   * Deprecated. The Customer Support Identifier (CSI) number associated with the support account.
-   * The CSI is optional for all support request types.
-   *
-   */
-  "csi"?: string;
-  /**
    * Technical support type ({@code TECH}) only: Identifier of the user group to assign the new support request to.
    * To find identifiers of user groups that you have access to, run the
    * {@link #validateUser(ValidateUserRequest) validateUser} operation.

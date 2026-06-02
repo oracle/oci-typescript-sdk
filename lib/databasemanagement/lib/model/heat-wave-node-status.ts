@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The status of the HeatWave node. Indicates whether the status of the HeatWave node is UP, DOWN, or UNKNOWN at the current time.
+ * The status of the HeatWave node. Indicates whether the status of the HeatWave node is UP, DOWN, or UNKNOWN at the current time. MySQL support within OCI Database Management service has been deprecated as of January 29, 2026.
  **/
 export enum HeatWaveNodeStatus {
   Up = "UP",

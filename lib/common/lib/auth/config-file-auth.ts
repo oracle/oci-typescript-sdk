@@ -13,6 +13,7 @@ import { ConfigFileReader, ConfigFile, ConfigAccumulator } from "../config-file-
 import { readFileSync } from "fs";
 import { Region } from "../region";
 import { Realm } from "../realm";
+import { sanitizeSensitiveData } from "../log";
 
 const CONFIG_FILE_AUTH_INFO =
   "For more info about config file and how to get required information, see https://docs.oracle.com/en-us/iaas/Content/API/Concepts/sdkconfig.htm for more info on OCI configuration files.";
@@ -74,7 +75,9 @@ export class ConfigFileAuthenticationDetailsProvider
       return region;
     } catch (e) {
       throw new Error(
-        `Error from retrying to retrieve region from regionId: ${e}. ${CONFIG_FILE_AUTH_INFO}`
+        `Error from retrying to retrieve region from regionId: ${sanitizeSensitiveData(
+          String(e)
+        )}. ${CONFIG_FILE_AUTH_INFO}`
       );
     }
   }

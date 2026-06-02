@@ -23,7 +23,11 @@ export interface GetPreferredCredentialRequest extends common.BaseRequest {
    */
   "managedDatabaseId": string;
   /**
-   * The name of the preferred credential.
+   * The name of the preferred credential. There are 3 built-in preferred credentials with display names and names as below:
+   *   Basic Monitoring(MONITORING)
+   *   Advanced diagnostics(PC_READ)
+   *   Administrator(PC_WRITE)
+   *
    */
   "credentialName": string;
   /**

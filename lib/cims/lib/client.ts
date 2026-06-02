@@ -328,7 +328,6 @@ export class IncidentClient {
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": getIncidentRequest.opcRequestId,
-      "csi": getIncidentRequest.csi,
       "ocid": getIncidentRequest.ocid,
       "homeregion": getIncidentRequest.homeregion,
       "problemtype": getIncidentRequest.problemtype,
@@ -422,7 +421,6 @@ export class IncidentClient {
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": listIncidentResourceTypesRequest.opcRequestId,
-      "csi": listIncidentResourceTypesRequest.csi,
       "ocid": listIncidentResourceTypesRequest.ocid,
       "homeregion": listIncidentResourceTypesRequest.homeregion,
       "domainid": listIncidentResourceTypesRequest.domainid
@@ -554,6 +552,7 @@ export class IncidentClient {
       "compartmentId": listIncidentsRequest.compartmentId,
       "sortBy": listIncidentsRequest.sortBy,
       "sortOrder": listIncidentsRequest.sortOrder,
+      "timeUpdatedGreaterThanOrEqualTo": listIncidentsRequest.timeUpdatedGreaterThanOrEqualTo,
       "lifecycleState": listIncidentsRequest.lifecycleState,
       "page": listIncidentsRequest.page,
       "problemType": listIncidentsRequest.problemType
@@ -561,7 +560,6 @@ export class IncidentClient {
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "csi": listIncidentsRequest.csi,
       "opc-request-id": listIncidentsRequest.opcRequestId,
       "ocid": listIncidentsRequest.ocid,
       "homeregion": listIncidentsRequest.homeregion,
@@ -709,7 +707,6 @@ export class IncidentClient {
     };
 
     let headerParams = {
-      "csi": putAttachmentRequest.csi,
       "opc-request-id": putAttachmentRequest.opcRequestId,
       "ocid": putAttachmentRequest.ocid,
       "if-match": putAttachmentRequest.ifMatch,
@@ -795,7 +792,6 @@ export class IncidentClient {
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "csi": updateIncidentRequest.csi,
       "opc-request-id": updateIncidentRequest.opcRequestId,
       "if-match": updateIncidentRequest.ifMatch,
       "ocid": updateIncidentRequest.ocid,
@@ -881,7 +877,6 @@ export class IncidentClient {
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "csi": validateUserRequest.csi,
       "opc-request-id": validateUserRequest.opcRequestId,
       "ocid": validateUserRequest.ocid,
       "homeregion": validateUserRequest.homeregion,

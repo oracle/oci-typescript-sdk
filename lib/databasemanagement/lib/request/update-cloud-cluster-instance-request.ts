@@ -23,7 +23,7 @@ export interface UpdateCloudClusterInstanceRequest extends common.BaseRequest {
    */
   "cloudClusterInstanceId": string;
   /**
-   * The details required to update an cloud cluster instance.
+   * The details required to update a cloud cluster instance.
    */
   "updateCloudClusterInstanceDetails": model.UpdateCloudClusterInstanceDetails;
   /**

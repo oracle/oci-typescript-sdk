@@ -121,6 +121,8 @@ import * as InitialClusterConfiguration from "./initial-cluster-configuration";
 export import InitialClusterConfiguration = InitialClusterConfiguration.InitialClusterConfiguration;
 import * as InitialConfiguration from "./initial-configuration";
 export import InitialConfiguration = InitialConfiguration.InitialConfiguration;
+import * as InplaceUpgradeDetails from "./inplace-upgrade-details";
+export import InplaceUpgradeDetails = InplaceUpgradeDetails.InplaceUpgradeDetails;
 import * as LifecycleStates from "./lifecycle-states";
 export import LifecycleStates = LifecycleStates.LifecycleStates;
 import * as ManagementAppliance from "./management-appliance";

@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The details of a cloud database node.
+ * The details of a cloud DB node.
  */
 export interface CloudDbNode {
   /**
@@ -76,7 +76,7 @@ export interface CloudDbNode {
    */
   "lifecycleDetails"?: string;
   /**
-   * Name of the domain.
+   * The name of the domain.
    */
   "domainName"?: string;
   /**

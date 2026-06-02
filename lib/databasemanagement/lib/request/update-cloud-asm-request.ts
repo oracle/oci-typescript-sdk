@@ -23,7 +23,7 @@ export interface UpdateCloudAsmRequest extends common.BaseRequest {
    */
   "cloudAsmId": string;
   /**
-   * The details required to update an cloud ASM.
+   * The details required to update a cloud ASM.
    */
   "updateCloudAsmDetails": model.UpdateCloudAsmDetails;
   /**

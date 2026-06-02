@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The connector type of MySQL Database.
+ * The connector type of MySQL Database. MySQL support within OCI Database Management service has been deprecated as of January 29, 2026.
  **/
 export enum MySqlConnectorType {
   Macs = "MACS",

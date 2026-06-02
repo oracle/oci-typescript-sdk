@@ -1,6 +1,6 @@
 {
   "name": "oci-wlms",
-  "version": "2.133.0",
+  "version": "2.134.0",
   "description": "OCI NodeJS client for Wlms Service",
   "repository": {
     "type": "git",
@@ -15,7 +15,8 @@
   },
   "license": "(UPL-1.0 OR Apache-2.0)",
   "dependencies": {
-    "oci-common": "../common"
+    "oci-common": "../common",
+    "opossum": "5.0.1"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"

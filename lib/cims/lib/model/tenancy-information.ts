@@ -24,10 +24,6 @@ import common = require("oci-common");
  */
 export interface TenancyInformation {
   /**
-   * The Customer Support Identifier (CSI) number associated with the tenancy.
-   */
-  "customerSupportKey": string;
-  /**
    * The OCID of the tenancy.
    */
   "tenancyId": string;
