@@ -30,6 +30,7 @@ export interface UpdateInstanceLicensingConfig {
    * License Type for the OS license.
    * * {@code OCI_PROVIDED} - OCI provided license (e.g. metered $/OCPU-hour).
    * * {@code BRING_YOUR_OWN_LICENSE} - Bring your own license.
+   * * {@code PARTNER_PROVIDED} - Partner provided license.
    *
    */
   "licenseType"?: UpdateInstanceLicensingConfig.LicenseType;
@@ -40,7 +41,8 @@ export interface UpdateInstanceLicensingConfig {
 export namespace UpdateInstanceLicensingConfig {
   export enum LicenseType {
     OciProvided = "OCI_PROVIDED",
-    BringYourOwnLicense = "BRING_YOUR_OWN_LICENSE"
+    BringYourOwnLicense = "BRING_YOUR_OWN_LICENSE",
+    PartnerProvided = "PARTNER_PROVIDED"
   }
 
   export function getJsonObj(obj: UpdateInstanceLicensingConfig): object {

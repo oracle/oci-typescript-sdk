@@ -1009,6 +1009,82 @@ export class KafkaClusterClient {
   }
 
   /**
+   * Gets information about a KafkaClusterAddon.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetAddonRequest
+   * @return GetAddonResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managedkafka/GetAddon.ts.html |here} to see how to use GetAddon API.
+   */
+  public async getAddon(
+    getAddonRequest: requests.GetAddonRequest
+  ): Promise<responses.GetAddonResponse> {
+    if (this.logger) this.logger.debug("Calling operation KafkaClusterClient#getAddon.");
+    const operationName = "getAddon";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{kafkaClusterId}": getAddonRequest.kafkaClusterId,
+      "{addonName}": getAddonRequest.addonName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getAddonRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getAddonRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/kafkaClusters/{kafkaClusterId}/addons/{addonName}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetAddonResponse>{},
+        body: await response.json(),
+        bodyKey: "kafkaClusterAddon",
+        bodyModel: model.KafkaClusterAddon,
+        type: "model.KafkaClusterAddon",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets information about a KafkaCluster.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetKafkaClusterRequest
@@ -1306,6 +1382,255 @@ export class KafkaClusterClient {
             value: response.headers.get("retry-after"),
             key: "retryAfter",
             dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Installs a KafkaClusterAddon.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param InstallAddonRequest
+   * @return InstallAddonResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managedkafka/InstallAddon.ts.html |here} to see how to use InstallAddon API.
+   */
+  public async installAddon(
+    installAddonRequest: requests.InstallAddonRequest
+  ): Promise<responses.InstallAddonResponse> {
+    if (this.logger) this.logger.debug("Calling operation KafkaClusterClient#installAddon.");
+    const operationName = "installAddon";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{kafkaClusterId}": installAddonRequest.kafkaClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": installAddonRequest.opcRetryToken,
+      "opc-request-id": installAddonRequest.opcRequestId,
+      "if-match": installAddonRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      installAddonRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/kafkaClusters/{kafkaClusterId}/addons",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        installAddonRequest.installAddonDetails,
+        "InstallAddonDetails",
+        model.InstallAddonDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.InstallAddonResponse>{},
+        body: await response.json(),
+        bodyKey: "kafkaClusterAddon",
+        bodyModel: model.KafkaClusterAddon,
+        type: "model.KafkaClusterAddon",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a list of supported KafkaClusterAddons.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListAddonOptionsRequest
+   * @return ListAddonOptionsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managedkafka/ListAddonOptions.ts.html |here} to see how to use ListAddonOptions API.
+   */
+  public async listAddonOptions(
+    listAddonOptionsRequest: requests.ListAddonOptionsRequest
+  ): Promise<responses.ListAddonOptionsResponse> {
+    if (this.logger) this.logger.debug("Calling operation KafkaClusterClient#listAddonOptions.");
+    const operationName = "listAddonOptions";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listAddonOptionsRequest.compartmentId,
+      "limit": listAddonOptionsRequest.limit,
+      "page": listAddonOptionsRequest.page,
+      "name": listAddonOptionsRequest.name,
+      "sortOrder": listAddonOptionsRequest.sortOrder,
+      "sortBy": listAddonOptionsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listAddonOptionsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAddonOptionsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/addonOptions",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListAddonOptionsResponse>{},
+        body: await response.json(),
+        bodyKey: "addonOptionCollection",
+        bodyModel: model.AddonOptionCollection,
+        type: "model.AddonOptionCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a list of KafkaClusterAddons.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListAddonsRequest
+   * @return ListAddonsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managedkafka/ListAddons.ts.html |here} to see how to use ListAddons API.
+   */
+  public async listAddons(
+    listAddonsRequest: requests.ListAddonsRequest
+  ): Promise<responses.ListAddonsResponse> {
+    if (this.logger) this.logger.debug("Calling operation KafkaClusterClient#listAddons.");
+    const operationName = "listAddons";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{kafkaClusterId}": listAddonsRequest.kafkaClusterId
+    };
+
+    const queryParams = {
+      "lifecycleState": listAddonsRequest.lifecycleState,
+      "limit": listAddonsRequest.limit,
+      "page": listAddonsRequest.page,
+      "name": listAddonsRequest.name,
+      "sortOrder": listAddonsRequest.sortOrder,
+      "sortBy": listAddonsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listAddonsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAddonsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/kafkaClusters/{kafkaClusterId}/addons",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListAddonsResponse>{},
+        body: await response.json(),
+        bodyKey: "addonCollection",
+        bodyModel: model.AddonCollection,
+        type: "model.AddonCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
           }
         ]
       });
@@ -1880,6 +2205,161 @@ export class KafkaClusterClient {
           {
             value: response.headers.get("opc-next-page"),
             key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Uninstalls a KafkaClusterAddon in a provisioned cluster.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UninstallAddonRequest
+   * @return UninstallAddonResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managedkafka/UninstallAddon.ts.html |here} to see how to use UninstallAddon API.
+   */
+  public async uninstallAddon(
+    uninstallAddonRequest: requests.UninstallAddonRequest
+  ): Promise<responses.UninstallAddonResponse> {
+    if (this.logger) this.logger.debug("Calling operation KafkaClusterClient#uninstallAddon.");
+    const operationName = "uninstallAddon";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{kafkaClusterId}": uninstallAddonRequest.kafkaClusterId,
+      "{addonName}": uninstallAddonRequest.addonName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": uninstallAddonRequest.ifMatch,
+      "opc-request-id": uninstallAddonRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      uninstallAddonRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/kafkaClusters/{kafkaClusterId}/addons/{addonName}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UninstallAddonResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Installs updates on the existing KafkaClusterAddon.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateAddonRequest
+   * @return UpdateAddonResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/managedkafka/UpdateAddon.ts.html |here} to see how to use UpdateAddon API.
+   */
+  public async updateAddon(
+    updateAddonRequest: requests.UpdateAddonRequest
+  ): Promise<responses.UpdateAddonResponse> {
+    if (this.logger) this.logger.debug("Calling operation KafkaClusterClient#updateAddon.");
+    const operationName = "updateAddon";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{kafkaClusterId}": updateAddonRequest.kafkaClusterId,
+      "{addonName}": updateAddonRequest.addonName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateAddonRequest.ifMatch,
+      "opc-request-id": updateAddonRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateAddonRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/kafkaClusters/{kafkaClusterId}/addons/{addonName}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateAddonRequest.updateAddonDetails,
+        "UpdateAddonDetails",
+        model.UpdateAddonDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateAddonResponse>{},
+        body: await response.json(),
+        bodyKey: "kafkaClusterAddon",
+        bodyModel: model.KafkaClusterAddon,
+        type: "model.KafkaClusterAddon",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           }
         ]

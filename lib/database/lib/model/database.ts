@@ -160,6 +160,12 @@ Example: {@code {\"Department\": \"Finance\"}}
     | model.AzureEncryptionKeyDetails
     | model.AwsEncryptionKeyDetails;
   "storageSizeDetails"?: model.DatabaseStorageSizeResponseDetails;
+  "managedSoftwareUpdateDetails"?: model.ManagedSoftwareUpdateDetails;
+  /**
+   * Represents database will be under oracle managed home or customer managed home
+   *
+   */
+  "homeType"?: Database.HomeType;
   /**
    * The patch version of the database.
    */
@@ -178,6 +184,16 @@ export namespace Database {
     Terminated = "TERMINATED",
     RestoreFailed = "RESTORE_FAILED",
     Failed = "FAILED",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum HomeType {
+    OracleManaged = "ORACLE_MANAGED",
+    CustomerManaged = "CUSTOMER_MANAGED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
@@ -209,6 +225,9 @@ export namespace Database {
           : undefined,
         "storageSizeDetails": obj.storageSizeDetails
           ? model.DatabaseStorageSizeResponseDetails.getJsonObj(obj.storageSizeDetails)
+          : undefined,
+        "managedSoftwareUpdateDetails": obj.managedSoftwareUpdateDetails
+          ? model.ManagedSoftwareUpdateDetails.getJsonObj(obj.managedSoftwareUpdateDetails)
           : undefined
       }
     };
@@ -241,6 +260,11 @@ export namespace Database {
           : undefined,
         "storageSizeDetails": obj.storageSizeDetails
           ? model.DatabaseStorageSizeResponseDetails.getDeserializedJsonObj(obj.storageSizeDetails)
+          : undefined,
+        "managedSoftwareUpdateDetails": obj.managedSoftwareUpdateDetails
+          ? model.ManagedSoftwareUpdateDetails.getDeserializedJsonObj(
+              obj.managedSoftwareUpdateDetails
+            )
           : undefined
       }
     };

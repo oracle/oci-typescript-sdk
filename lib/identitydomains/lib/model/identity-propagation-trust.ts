@@ -382,6 +382,54 @@ export interface IdentityPropagationTrust {
    */
   "clockSkewSeconds"?: number;
   /**
+   * Defines the external workload that acts as impersonating resource principal.
+   * <p>
+   **Added In:** 2509172316
+   * <p>
+   **SCIM++ Properties:**
+   *  - type: string
+   *  - multiValued: false
+   *  - required: false
+   *  - mutability: readWrite
+   *  - returned: default
+   *  - uniqueness: none
+   *  - caseExact: true
+   *  - idcsSearchable: false
+   */
+  "impersonatingResource"?: string;
+  /**
+   * A list of claim validations
+   * <p>
+   **Added In:** 2509172316
+   * <p>
+   **SCIM++ Properties:**
+   *  - idcsCompositeKey: [name]
+   *  - idcsSearchable: false
+   *  - multiValued: true
+   *  - mutability: readWrite
+   *  - required: false
+   *  - returned: default
+   *  - type: complex
+   *  - uniqueness: none
+   */
+  "claimValidations"?: Array<model.IdentityPropagationTrustClaimValidations>;
+  /**
+   * A list of claims to propagate in RPST
+   * <p>
+   **Added In:** 2509172316
+   * <p>
+   **SCIM++ Properties:**
+   *  - idcsSearchable: false
+   *  - multiValued: true
+   *  - mutability: readWrite
+   *  - required: false
+   *  - returned: default
+   *  - type: string
+   *  - uniqueness: none
+   */
+  "claimPropagations"?: Array<string>;
+  "cACertChain"?: model.IdentityPropagationTrustCaCertChain;
+  /**
    * The Impersonating Principal.
    * <p>
    **SCIM++ Properties:**
@@ -415,6 +463,7 @@ export namespace IdentityPropagationTrust {
     Saml = "SAML",
     Spnego = "SPNEGO",
     Aws = "AWS",
+    X509 = "X509",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
@@ -425,6 +474,7 @@ export namespace IdentityPropagationTrust {
   export enum SubjectType {
     User = "User",
     App = "App",
+    Resource = "Resource",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
@@ -450,6 +500,15 @@ export namespace IdentityPropagationTrust {
             })
           : undefined,
 
+        "claimValidations": obj.claimValidations
+          ? obj.claimValidations.map(item => {
+              return model.IdentityPropagationTrustClaimValidations.getJsonObj(item);
+            })
+          : undefined,
+
+        "CACertChain": obj.cACertChain
+          ? model.IdentityPropagationTrustCaCertChain.getJsonObj(obj.cACertChain)
+          : undefined,
         "impersonationServiceUsers": obj.impersonationServiceUsers
           ? obj.impersonationServiceUsers.map(item => {
               return model.IdentityPropagationTrustImpersonationServiceUsers.getJsonObj(item);
@@ -460,6 +519,8 @@ export namespace IdentityPropagationTrust {
           : undefined
       }
     };
+
+    delete (jsonObj as Partial<IdentityPropagationTrust>).cACertChain;
 
     return jsonObj;
   }
@@ -481,6 +542,17 @@ export namespace IdentityPropagationTrust {
             })
           : undefined,
 
+        "claimValidations": obj.claimValidations
+          ? obj.claimValidations.map(item => {
+              return model.IdentityPropagationTrustClaimValidations.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "cACertChain": (obj as any)["CACertChain"]
+          ? model.IdentityPropagationTrustCaCertChain.getDeserializedJsonObj(
+              (obj as any)["CACertChain"]
+            )
+          : undefined,
         "impersonationServiceUsers": obj.impersonationServiceUsers
           ? obj.impersonationServiceUsers.map(item => {
               return model.IdentityPropagationTrustImpersonationServiceUsers.getDeserializedJsonObj(
@@ -493,6 +565,8 @@ export namespace IdentityPropagationTrust {
           : undefined
       }
     };
+
+    delete (jsonObj as any)["CACertChain"];
 
     return jsonObj;
   }

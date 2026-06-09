@@ -33,6 +33,7 @@ export interface UpdateReadEndpointDetails {
    *
    */
   "readEndpointIpAddress"?: string;
+  "readEndpointIpv6AddressIpv6SubnetCidrPairDetails"?: model.Ipv6AddressIpv6SubnetCidrPairDetails;
   /**
     * The hostname for the read endpoint of the DB System. Used for DNS.
 * <p>
@@ -52,12 +53,30 @@ Must be unique across all VNICs in the subnet and comply with RFC 952 and RFC 11
 
 export namespace UpdateReadEndpointDetails {
   export function getJsonObj(obj: UpdateReadEndpointDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "readEndpointIpv6AddressIpv6SubnetCidrPairDetails": obj.readEndpointIpv6AddressIpv6SubnetCidrPairDetails
+          ? model.Ipv6AddressIpv6SubnetCidrPairDetails.getJsonObj(
+              obj.readEndpointIpv6AddressIpv6SubnetCidrPairDetails
+            )
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: UpdateReadEndpointDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "readEndpointIpv6AddressIpv6SubnetCidrPairDetails": obj.readEndpointIpv6AddressIpv6SubnetCidrPairDetails
+          ? model.Ipv6AddressIpv6SubnetCidrPairDetails.getDeserializedJsonObj(
+              obj.readEndpointIpv6AddressIpv6SubnetCidrPairDetails
+            )
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

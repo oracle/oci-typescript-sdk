@@ -155,6 +155,8 @@ import * as InitializationVariables from "./initialization-variables";
 export import InitializationVariables = InitializationVariables.InitializationVariables;
 import * as InnoDbShutdownMode from "./inno-db-shutdown-mode";
 export import InnoDbShutdownMode = InnoDbShutdownMode.InnoDbShutdownMode;
+import * as Ipv6AddressIpv6SubnetCidrPairDetails from "./ipv6-address-ipv6-subnet-cidr-pair-details";
+export import Ipv6AddressIpv6SubnetCidrPairDetails = Ipv6AddressIpv6SubnetCidrPairDetails.Ipv6AddressIpv6SubnetCidrPairDetails;
 import * as KeyGenerationType from "./key-generation-type";
 export import KeyGenerationType = KeyGenerationType.KeyGenerationType;
 import * as LoggingDestinationConfiguration from "./logging-destination-configuration";

@@ -34,6 +34,11 @@ export interface ListComputeGpuMemoryClustersRequest extends common.BaseRequest 
    */
   "computeGpuMemoryClusterId"?: string;
   /**
+   * A filter to return only the listings that matches the given GPU memory fabric id.
+   *
+   */
+  "computeGpuMemoryFabricId"?: string;
+  /**
  * The name of the availability domain.
 * <p>
 Example: {@code Uocm:PHX-AD-1}

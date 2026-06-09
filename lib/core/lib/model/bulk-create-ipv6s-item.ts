@@ -77,6 +77,11 @@ Example: {@code 2001:DB8::}
    */
   "ipv6SubnetCidr"?: string;
   /**
+   * The hostname associated with the IPv6 address. Only the hostname label, not the FQDN.
+   *
+   */
+  "hostname"?: string;
+  /**
    * Length of the CIDR range. Optional field to specify a flexible CIDR. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "cidrPrefixLength"?: number;

@@ -34423,6 +34423,91 @@ This operation should be performed on disabled standby database.
   }
 
   /**
+   * Reschedule the Managed Database Software Update
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param RescheduleManagedDbSoftwareUpdateRequest
+   * @return RescheduleManagedDbSoftwareUpdateResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/RescheduleManagedDbSoftwareUpdate.ts.html |here} to see how to use RescheduleManagedDbSoftwareUpdate API.
+   */
+  public async rescheduleManagedDbSoftwareUpdate(
+    rescheduleManagedDbSoftwareUpdateRequest: requests.RescheduleManagedDbSoftwareUpdateRequest
+  ): Promise<responses.RescheduleManagedDbSoftwareUpdateResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#rescheduleManagedDbSoftwareUpdate.");
+    const operationName = "rescheduleManagedDbSoftwareUpdate";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/Database/RescheduleManagedDbSoftwareUpdate";
+    const pathParams = {
+      "{databaseId}": rescheduleManagedDbSoftwareUpdateRequest.databaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": rescheduleManagedDbSoftwareUpdateRequest.ifMatch,
+      "opc-request-id": rescheduleManagedDbSoftwareUpdateRequest.opcRequestId,
+      "opc-retry-token": rescheduleManagedDbSoftwareUpdateRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      rescheduleManagedDbSoftwareUpdateRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databases/{databaseId}/actions/rescheduleManagedDbSoftwareUpdate",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RescheduleManagedDbSoftwareUpdateResponse>{},
+        body: await response.json(),
+        bodyKey: "database",
+        bodyModel: model.Database,
+        type: "model.Database",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Adds or removes Db server network nodes to extend or shrink the existing VM cluster network. Applies to Exadata
    * Cloud@Customer instances only.
    *

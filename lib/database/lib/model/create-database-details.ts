@@ -110,6 +110,11 @@ Example: {@code {\"Department\": \"Finance\"}}
     | model.AzureEncryptionKeyDetails
     | model.AwsEncryptionKeyDetails;
   "storageSizeDetails"?: model.DatabaseStorageSizeDetails;
+  "managedSoftwareUpdateDetails"?: model.ManagedSoftwareUpdateInputDetails;
+  /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the VM cluster.
+   */
+  "vmClusterId"?: string;
 }
 
 export namespace CreateDatabaseDetails {
@@ -131,6 +136,9 @@ export namespace CreateDatabaseDetails {
           : undefined,
         "storageSizeDetails": obj.storageSizeDetails
           ? model.DatabaseStorageSizeDetails.getJsonObj(obj.storageSizeDetails)
+          : undefined,
+        "managedSoftwareUpdateDetails": obj.managedSoftwareUpdateDetails
+          ? model.ManagedSoftwareUpdateInputDetails.getJsonObj(obj.managedSoftwareUpdateDetails)
           : undefined
       }
     };
@@ -152,6 +160,11 @@ export namespace CreateDatabaseDetails {
           : undefined,
         "storageSizeDetails": obj.storageSizeDetails
           ? model.DatabaseStorageSizeDetails.getDeserializedJsonObj(obj.storageSizeDetails)
+          : undefined,
+        "managedSoftwareUpdateDetails": obj.managedSoftwareUpdateDetails
+          ? model.ManagedSoftwareUpdateInputDetails.getDeserializedJsonObj(
+              obj.managedSoftwareUpdateDetails
+            )
           : undefined
       }
     };

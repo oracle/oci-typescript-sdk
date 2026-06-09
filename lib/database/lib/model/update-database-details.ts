@@ -54,6 +54,7 @@ Example: {@code {\"Department\": \"Finance\"}}
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  "managedSoftwareUpdateDetails"?: model.ManagedSoftwareUpdateInputDetails;
   "patchOptions"?: model.PatchOptions;
 }
 
@@ -70,6 +71,9 @@ export namespace UpdateDatabaseDetails {
           ? model.DatabaseStorageSizeDetails.getJsonObj(obj.storageSizeDetails)
           : undefined,
 
+        "managedSoftwareUpdateDetails": obj.managedSoftwareUpdateDetails
+          ? model.ManagedSoftwareUpdateInputDetails.getJsonObj(obj.managedSoftwareUpdateDetails)
+          : undefined,
         "patchOptions": obj.patchOptions
           ? model.PatchOptions.getJsonObj(obj.patchOptions)
           : undefined
@@ -90,6 +94,11 @@ export namespace UpdateDatabaseDetails {
           ? model.DatabaseStorageSizeDetails.getDeserializedJsonObj(obj.storageSizeDetails)
           : undefined,
 
+        "managedSoftwareUpdateDetails": obj.managedSoftwareUpdateDetails
+          ? model.ManagedSoftwareUpdateInputDetails.getDeserializedJsonObj(
+              obj.managedSoftwareUpdateDetails
+            )
+          : undefined,
         "patchOptions": obj.patchOptions
           ? model.PatchOptions.getDeserializedJsonObj(obj.patchOptions)
           : undefined

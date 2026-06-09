@@ -87,6 +87,10 @@ export interface Replica {
    */
   "ipAddress": string;
   /**
+   * The IPv6 address the read replica is configured to listen on.
+   */
+  "ipv6Address"?: string;
+  /**
    * The port the read replica is configured to listen on. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "port": number;

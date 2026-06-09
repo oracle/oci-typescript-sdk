@@ -117,6 +117,11 @@ Example: {@code 2016-08-25T21:10:29.600Z}
    *
    */
   "routeTableId"?: string;
+  /**
+   * The hostname associated with the IPv6 address. Only the hostname label, not the FQDN.
+   *
+   */
+  "hostname"?: string;
 }
 
 export namespace Ipv6 {
