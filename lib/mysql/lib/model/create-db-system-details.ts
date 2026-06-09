@@ -138,6 +138,16 @@ Must be unique across all VNICs in the subnet and comply with RFC 952 and RFC 11
    */
   "ipAddress"?: string;
   /**
+   * Whether to allocate an IPv6 address at DB system creation from an
+   * IPv6 enabled subnet. When provided you may optionally
+   * provide an IPv6 prefix (ipv6AddressIpv6SubnetCidrPairDetails) of your
+   * choice to assign the IPv6 address from. If ipv6AddressIpv6SubnetCidrPairDetails
+   * is not provided then an IPv6 prefix is chosen for you.
+   *
+   */
+  "isIpv6Enabled"?: boolean;
+  "ipv6AddressIpv6SubnetCidrPairDetails"?: model.Ipv6AddressIpv6SubnetCidrPairDetails;
+  /**
    * The port for primary endpoint of the DB System to listen on. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "port"?: number;
@@ -223,6 +233,12 @@ export namespace CreateDbSystemDetails {
           ? model.DataStorageDetails.getJsonObj(obj.dataStorage)
           : undefined,
 
+        "ipv6AddressIpv6SubnetCidrPairDetails": obj.ipv6AddressIpv6SubnetCidrPairDetails
+          ? model.Ipv6AddressIpv6SubnetCidrPairDetails.getJsonObj(
+              obj.ipv6AddressIpv6SubnetCidrPairDetails
+            )
+          : undefined,
+
         "backupPolicy": obj.backupPolicy
           ? model.CreateBackupPolicyDetails.getJsonObj(obj.backupPolicy)
           : undefined,
@@ -269,6 +285,12 @@ export namespace CreateDbSystemDetails {
 
         "dataStorage": obj.dataStorage
           ? model.DataStorageDetails.getDeserializedJsonObj(obj.dataStorage)
+          : undefined,
+
+        "ipv6AddressIpv6SubnetCidrPairDetails": obj.ipv6AddressIpv6SubnetCidrPairDetails
+          ? model.Ipv6AddressIpv6SubnetCidrPairDetails.getDeserializedJsonObj(
+              obj.ipv6AddressIpv6SubnetCidrPairDetails
+            )
           : undefined,
 
         "backupPolicy": obj.backupPolicy

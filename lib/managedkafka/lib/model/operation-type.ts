@@ -24,6 +24,9 @@ export enum OperationType {
   MoveKafkaCluster = "MOVE_KAFKA_CLUSTER",
   EnableSuperuser = "ENABLE_SUPERUSER",
   DisableSuperuser = "DISABLE_SUPERUSER",
+  InstallKafkaClusterAddon = "INSTALL_KAFKA_CLUSTER_ADDON",
+  UpdateKafkaClusterAddon = "UPDATE_KAFKA_CLUSTER_ADDON",
+  UninstallKafkaClusterAddon = "UNINSTALL_KAFKA_CLUSTER_ADDON",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

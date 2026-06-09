@@ -136,6 +136,13 @@ For a standalone DB System, this defines the fault domain in which the DB System
    */
   "ipAddress"?: string;
   /**
+   * Whether an IPv6 address has been allocated for the DB system when attached
+   * to an IPv6 enabled subnet. Default: False.
+   *
+   */
+  "isIpv6Enabled"?: boolean;
+  "ipv6AddressIpv6SubnetCidrPairDetails"?: model.Ipv6AddressIpv6SubnetCidrPairDetails;
+  /**
    * The port for primary endpoint of the DB System to listen on. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "port"?: number;
@@ -296,6 +303,12 @@ export namespace DbSystem {
 
         "dataStorage": obj.dataStorage ? model.DataStorage.getJsonObj(obj.dataStorage) : undefined,
 
+        "ipv6AddressIpv6SubnetCidrPairDetails": obj.ipv6AddressIpv6SubnetCidrPairDetails
+          ? model.Ipv6AddressIpv6SubnetCidrPairDetails.getJsonObj(
+              obj.ipv6AddressIpv6SubnetCidrPairDetails
+            )
+          : undefined,
+
         "endpoints": obj.endpoints
           ? obj.endpoints.map(item => {
               return model.DbSystemEndpoint.getJsonObj(item);
@@ -368,6 +381,12 @@ export namespace DbSystem {
 
         "dataStorage": obj.dataStorage
           ? model.DataStorage.getDeserializedJsonObj(obj.dataStorage)
+          : undefined,
+
+        "ipv6AddressIpv6SubnetCidrPairDetails": obj.ipv6AddressIpv6SubnetCidrPairDetails
+          ? model.Ipv6AddressIpv6SubnetCidrPairDetails.getDeserializedJsonObj(
+              obj.ipv6AddressIpv6SubnetCidrPairDetails
+            )
           : undefined,
 
         "endpoints": obj.endpoints

@@ -1,7 +1,7 @@
 /**
  * Oracle Delegate Access Control API
- * Oracle Delegate Access Control allows ExaCC and ExaCS customers to delegate management of their Exadata resources operators outside their tenancies. 
-With Delegate Access Control, Support Providers can deliver managed services using comprehensive and robust tooling built on the OCI platform. 
+ * Oracle Delegate Access Control allows customers of Oracle Exadata Database Service on Cloud@Customer (ExaDB-C@C), Oracle Exadata Database Service on Dedicated Infrastructure (ExaDB-D), and Oracle Exadata Database Service on Exascale Infrastructure (ExaDB-XS) to delegate management of their Exadata resources operators outside their tenancies. 
+With Delegate Access Control, Service Providers can deliver managed services using comprehensive and robust tooling built on the OCI platform. 
 Customers maintain control over who has access to the delegated resources in their tenancy and what actions can be taken. 
 Enterprises managing resources across multiple tenants can use Delegate Access Control to streamline management tasks.
 Using logging service, customers can view a near real-time audit report of all actions performed by a Service Provider operator. 
@@ -24,7 +24,7 @@ import common = require("oci-common");
  */
 export interface WorkRequestError {
   /**
-   * A machine-usable code for the error that occured. Error codes are listed on
+   * A machine-usable code for the error that occurred. Error codes are listed on
    * (https://docs.oracle.com/iaas/Content/API/References/apierrors.htm)
    *
    */
@@ -34,7 +34,7 @@ export interface WorkRequestError {
    */
   "message": string;
   /**
-   * The time the error occured. An RFC3339 formatted datetime string.
+   * The time the error occurred. An RFC3339 formatted datetime string.
    */
   "timestamp": Date;
 }

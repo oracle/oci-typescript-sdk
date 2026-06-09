@@ -23,6 +23,7 @@ import common = require("oci-common");
 
 /**
  * The data to create an instance pool.
+ *
  */
 export interface CreateInstancePoolDetails {
   /**
@@ -70,7 +71,8 @@ To use the instance pool with a regional subnet, provide a placement configurati
     */
   "placementConfigurations": Array<model.CreateInstancePoolPlacementConfigurationDetails>;
   /**
-   * The number of instances that should be in the instance pool. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The number of instances that should be in the instance pool.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "size": number;
   /**

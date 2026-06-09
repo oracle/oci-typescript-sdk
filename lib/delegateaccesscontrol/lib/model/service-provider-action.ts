@@ -1,7 +1,7 @@
 /**
  * Oracle Delegate Access Control API
- * Oracle Delegate Access Control allows ExaCC and ExaCS customers to delegate management of their Exadata resources operators outside their tenancies. 
-With Delegate Access Control, Support Providers can deliver managed services using comprehensive and robust tooling built on the OCI platform. 
+ * Oracle Delegate Access Control allows customers of Oracle Exadata Database Service on Cloud@Customer (ExaDB-C@C), Oracle Exadata Database Service on Dedicated Infrastructure (ExaDB-D), and Oracle Exadata Database Service on Exascale Infrastructure (ExaDB-XS) to delegate management of their Exadata resources operators outside their tenancies. 
+With Delegate Access Control, Service Providers can deliver managed services using comprehensive and robust tooling built on the OCI platform. 
 Customers maintain control over who has access to the delegated resources in their tenancy and what actions can be taken. 
 Enterprises managing resources across multiple tenants can use Delegate Access Control to streamline management tasks.
 Using logging service, customers can view a near real-time audit report of all actions performed by a Service Provider operator. 
@@ -30,6 +30,10 @@ export interface ServiceProviderAction {
    */
   "id": string;
   /**
+   * The OCID of the compartment that contains the Service Provider Action.
+   */
+  "compartmentId"?: string;
+  /**
    * Unique name of the Service Provider Action.
    */
   "name": string;
@@ -45,6 +49,10 @@ export interface ServiceProviderAction {
    * resourceType for which the ServiceProviderAction is applicable
    */
   "resourceType"?: model.DelegationControlResourceType;
+  /**
+   * Indicates whether the service provider action allows SSH access.
+   */
+  "isSshAccessAllowed"?: boolean;
   /**
    * List of Service Provider Service Types that this Service Provider Action is applicable to.
    */
@@ -69,6 +77,7 @@ export namespace ServiceProviderAction {
   export enum ServiceProviderServiceTypes {
     Troubleshooting = "TROUBLESHOOTING",
     AssistedPatching = "ASSISTED_PATCHING",
+    ManagedSoftwareUpdates = "MANAGED_SOFTWARE_UPDATES",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

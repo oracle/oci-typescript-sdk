@@ -52,6 +52,12 @@ export interface CreateChannelSourceFromMysqlDetails extends model.CreateChannel
     | model.ErrorOnAnonymousHandling
     | model.AssignManualUuidHandling
     | model.AssignTargetUuidHandling;
+  /**
+   * Whether the connection of the channel will be requested using the IPv6 address of
+   * the dual stack DB system or not. Default: False.
+   *
+   */
+  "mustUseIpv6OnDualStack"?: boolean;
 
   "sourceType": string;
 }

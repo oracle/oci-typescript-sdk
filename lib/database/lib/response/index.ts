@@ -748,6 +748,8 @@ import * as ReorderExecutionActionsResponse from "./reorder-execution-actions-re
 export import ReorderExecutionActionsResponse = ReorderExecutionActionsResponse.ReorderExecutionActionsResponse;
 import * as ReorderScheduledActionsResponse from "./reorder-scheduled-actions-response";
 export import ReorderScheduledActionsResponse = ReorderScheduledActionsResponse.ReorderScheduledActionsResponse;
+import * as RescheduleManagedDbSoftwareUpdateResponse from "./reschedule-managed-db-software-update-response";
+export import RescheduleManagedDbSoftwareUpdateResponse = RescheduleManagedDbSoftwareUpdateResponse.RescheduleManagedDbSoftwareUpdateResponse;
 import * as ResizeVmClusterNetworkResponse from "./resize-vm-cluster-network-response";
 export import ResizeVmClusterNetworkResponse = ResizeVmClusterNetworkResponse.ResizeVmClusterNetworkResponse;
 import * as ResourcePoolShapesResponse from "./resource-pool-shapes-response";

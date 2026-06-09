@@ -89,6 +89,11 @@ Example: {@code 2001:DB8::}
    *
    */
   "ipv6SubnetCidr"?: string;
+  /**
+   * The hostname associated with the IPv6 address. Only the hostname label, not the FQDN.
+   *
+   */
+  "hostname"?: string;
 }
 
 export namespace CreateIpv6Details {

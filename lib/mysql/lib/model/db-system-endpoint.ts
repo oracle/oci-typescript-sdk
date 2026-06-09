@@ -28,6 +28,10 @@ export interface DbSystemEndpoint {
    */
   "ipAddress": string;
   /**
+   * The internet protocol (IP) version of the IP address.
+   */
+  "ipAddressVersion"?: DbSystemEndpoint.IpAddressVersion;
+  /**
    * The port the MySQL instance listens on. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "port": number;
@@ -60,6 +64,16 @@ export interface DbSystemEndpoint {
 }
 
 export namespace DbSystemEndpoint {
+  export enum IpAddressVersion {
+    Ipv4 = "IPV4",
+    Ipv6 = "IPV6",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export enum Modes {
     Read = "READ",
     Write = "WRITE",

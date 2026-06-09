@@ -51,6 +51,11 @@ export interface CreateDatabaseFromBackupDetails {
    */
   "pluggableDatabases"?: Array<string>;
   "storageSizeDetails"?: model.DatabaseStorageSizeDetails;
+  "managedSoftwareUpdateDetails"?: model.ManagedSoftwareUpdateInputDetails;
+  /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the VM cluster.
+   */
+  "vmClusterId"?: string;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
 * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
@@ -78,6 +83,9 @@ export namespace CreateDatabaseFromBackupDetails {
 
         "storageSizeDetails": obj.storageSizeDetails
           ? model.DatabaseStorageSizeDetails.getJsonObj(obj.storageSizeDetails)
+          : undefined,
+        "managedSoftwareUpdateDetails": obj.managedSoftwareUpdateDetails
+          ? model.ManagedSoftwareUpdateInputDetails.getJsonObj(obj.managedSoftwareUpdateDetails)
           : undefined
       }
     };
@@ -96,6 +104,11 @@ export namespace CreateDatabaseFromBackupDetails {
 
         "storageSizeDetails": obj.storageSizeDetails
           ? model.DatabaseStorageSizeDetails.getDeserializedJsonObj(obj.storageSizeDetails)
+          : undefined,
+        "managedSoftwareUpdateDetails": obj.managedSoftwareUpdateDetails
+          ? model.ManagedSoftwareUpdateInputDetails.getDeserializedJsonObj(
+              obj.managedSoftwareUpdateDetails
+            )
           : undefined
       }
     };

@@ -63,6 +63,10 @@ export interface ComputeGpuMemoryFabric {
    */
   "fabricHealth": ComputeGpuMemoryFabric.FabricHealth;
   /**
+   * List of GPU memory clusters within this GPU memory fabric.
+   */
+  "computeGpuMemoryClusters"?: Array<string>;
+  /**
    * Additional data that can be exposed to the customer. Right now it will include the switch tray ids.
    *
    */

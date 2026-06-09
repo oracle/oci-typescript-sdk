@@ -48,7 +48,7 @@ Example: {@code Uocm:PHX-AD-1}
 Example: {@code 10.0.1.0/24}
 * 
     */
-  "cidrBlock": string;
+  "cidrBlock"?: string;
   /**
    * The list of all IPv4 CIDR blocks for the subnet that meets the following criteria:
    * - Ipv4 CIDR blocks must be valid.
@@ -204,7 +204,7 @@ Example: {@code 2016-08-25T21:10:29.600Z}
 Example: {@code 10.0.14.1}
 * 
     */
-  "virtualRouterIp": string;
+  "virtualRouterIp"?: string;
   /**
     * The MAC address of the virtual router.
 * <p>

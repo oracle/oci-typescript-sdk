@@ -44,6 +44,16 @@ Example: {@code Uocm:PHX-AD-1}
     */
   "availabilityDomain": string;
   /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the GPU memory fabric.
+   *
+   */
+  "gpuMemoryFabricId"?: string;
+  /**
+   * The size represents the total number of instances in the GPU Memory Cluster, including both running instances and those still in the process of launching.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "size"?: number;
+  /**
    * The current state of the compute GPU Memory Cluster.
    */
   "lifecycleState": string;

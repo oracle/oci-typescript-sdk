@@ -107,6 +107,10 @@ export interface DbSystemSnapshot {
    */
   "ipAddress"?: string;
   /**
+   * The IPv6 address the DB System is configured to listen on.
+   */
+  "ipv6Address"?: string;
+  /**
    * The port for primary endpoint of the DB System to listen on. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "port"?: number;
