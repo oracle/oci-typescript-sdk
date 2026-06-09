@@ -135,4 +135,5 @@ jobs:
           ls
           cd npm_artifacts
           ls
+          set -e
           find . -exec npm publish {} \;
