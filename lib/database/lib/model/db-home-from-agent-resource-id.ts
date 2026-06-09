@@ -96,6 +96,11 @@ Example: {@code {\"Department\": \"Finance\"}}
    * Indicates whether unified autiding is enabled or not.
    */
   "isUnifiedAuditingEnabled"?: boolean;
+  /**
+   * Represents database home will be managed by oracle or customer
+   *
+   */
+  "homeType"?: DbHomeFromAgentResourceId.HomeType;
 }
 
 export namespace DbHomeFromAgentResourceId {
@@ -106,6 +111,11 @@ export namespace DbHomeFromAgentResourceId {
     Terminating = "TERMINATING",
     Terminated = "TERMINATED",
     Failed = "FAILED"
+  }
+
+  export enum HomeType {
+    OracleManaged = "ORACLE_MANAGED",
+    CustomerManaged = "CUSTOMER_MANAGED"
   }
 
   export function getJsonObj(obj: DbHomeFromAgentResourceId): object {

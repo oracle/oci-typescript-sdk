@@ -25,6 +25,9 @@ import common = require("oci-common");
  * Represents a database schema identified by name. This is the simplest schema definition and includes only schema name now. Additional configuration options may be supported in extended forms later.
  */
 export interface SchemaItem {
+  /**
+   * Specifies the name.
+   */
   "name": string;
 }
 

@@ -6443,6 +6443,37 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forRescheduleManagedDbSoftwareUpdate
+   *
+   * @param request the request to send
+   * @return response returns RescheduleManagedDbSoftwareUpdateResponse, GetWorkRequestResponse tuple
+   */
+  public async forRescheduleManagedDbSoftwareUpdate(
+    request: serviceRequests.RescheduleManagedDbSoftwareUpdateRequest
+  ): Promise<{
+    response: serviceResponses.RescheduleManagedDbSoftwareUpdateResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const rescheduleManagedDbSoftwareUpdateResponse = await this.client.rescheduleManagedDbSoftwareUpdate(
+      request
+    );
+    if (rescheduleManagedDbSoftwareUpdateResponse.opcWorkRequestId === undefined)
+      return {
+        response: rescheduleManagedDbSoftwareUpdateResponse,
+        workRequestResponse: undefined as any
+      };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      rescheduleManagedDbSoftwareUpdateResponse.opcWorkRequestId
+    );
+    return {
+      response: rescheduleManagedDbSoftwareUpdateResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
    * Waits forResizeVmClusterNetwork
    *
    * @param request the request to send

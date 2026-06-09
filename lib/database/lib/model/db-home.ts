@@ -96,6 +96,11 @@ Example: {@code {\"Department\": \"Finance\"}}
    * Indicates whether unified autiding is enabled or not.
    */
   "isUnifiedAuditingEnabled"?: boolean;
+  /**
+   * Represents database home will be managed by oracle or customer
+   *
+   */
+  "homeType"?: DbHome.HomeType;
 }
 
 export namespace DbHome {
@@ -106,6 +111,16 @@ export namespace DbHome {
     Terminating = "TERMINATING",
     Terminated = "TERMINATED",
     Failed = "FAILED",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum HomeType {
+    OracleManaged = "ORACLE_MANAGED",
+    CustomerManaged = "CUSTOMER_MANAGED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

@@ -748,6 +748,8 @@ import * as ReorderExecutionActionsRequest from "./reorder-execution-actions-req
 export import ReorderExecutionActionsRequest = ReorderExecutionActionsRequest.ReorderExecutionActionsRequest;
 import * as ReorderScheduledActionsRequest from "./reorder-scheduled-actions-request";
 export import ReorderScheduledActionsRequest = ReorderScheduledActionsRequest.ReorderScheduledActionsRequest;
+import * as RescheduleManagedDbSoftwareUpdateRequest from "./reschedule-managed-db-software-update-request";
+export import RescheduleManagedDbSoftwareUpdateRequest = RescheduleManagedDbSoftwareUpdateRequest.RescheduleManagedDbSoftwareUpdateRequest;
 import * as ResizeVmClusterNetworkRequest from "./resize-vm-cluster-network-request";
 export import ResizeVmClusterNetworkRequest = ResizeVmClusterNetworkRequest.ResizeVmClusterNetworkRequest;
 import * as ResourcePoolShapesRequest from "./resource-pool-shapes-request";

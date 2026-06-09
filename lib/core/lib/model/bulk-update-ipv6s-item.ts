@@ -66,6 +66,11 @@ Example: {@code {\"Department\": \"Finance\"}}
    *
    */
   "routeTableId"?: string;
+  /**
+   * The hostname associated with the IPv6 address. Only the hostname label, not the FQDN.
+   *
+   */
+  "hostname"?: string;
 }
 
 export namespace BulkUpdateIpv6sItem {

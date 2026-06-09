@@ -90,6 +90,29 @@ export class ComputeWaiter {
   }
 
   /**
+   * Waits forAttachVolume
+   *
+   * @param request the request to send
+   * @return response returns AttachVolumeResponse, GetWorkRequestResponse tuple
+   */
+  public async forAttachVolume(
+    request: serviceRequests.AttachVolumeRequest
+  ): Promise<{
+    response: serviceResponses.AttachVolumeResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const attachVolumeResponse = await this.client.attachVolume(request);
+    if (attachVolumeResponse.opcWorkRequestId === undefined)
+      return { response: attachVolumeResponse, workRequestResponse: undefined as any };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      attachVolumeResponse.opcWorkRequestId
+    );
+    return { response: attachVolumeResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
    * Waits forChangeComputeCapacityReservationCompartment
    *
    * @param request the request to send
@@ -583,6 +606,29 @@ export class ComputeWaiter {
   }
 
   /**
+   * Waits forDetachVolume
+   *
+   * @param request the request to send
+   * @return response returns DetachVolumeResponse, GetWorkRequestResponse tuple
+   */
+  public async forDetachVolume(
+    request: serviceRequests.DetachVolumeRequest
+  ): Promise<{
+    response: serviceResponses.DetachVolumeResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const detachVolumeResponse = await this.client.detachVolume(request);
+    if (detachVolumeResponse.opcWorkRequestId === undefined)
+      return { response: detachVolumeResponse, workRequestResponse: undefined as any };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      detachVolumeResponse.opcWorkRequestId
+    );
+    return { response: detachVolumeResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
    * Waits forExportImage
    *
    * @param request the request to send
@@ -960,6 +1006,29 @@ export class ComputeWaiter {
       launchInstanceResponse.opcWorkRequestId
     );
     return { response: launchInstanceResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forTerminateInstance
+   *
+   * @param request the request to send
+   * @return response returns TerminateInstanceResponse, GetWorkRequestResponse tuple
+   */
+  public async forTerminateInstance(
+    request: serviceRequests.TerminateInstanceRequest
+  ): Promise<{
+    response: serviceResponses.TerminateInstanceResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const terminateInstanceResponse = await this.client.terminateInstance(request);
+    if (terminateInstanceResponse.opcWorkRequestId === undefined)
+      return { response: terminateInstanceResponse, workRequestResponse: undefined as any };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      terminateInstanceResponse.opcWorkRequestId
+    );
+    return { response: terminateInstanceResponse, workRequestResponse: getWorkRequestResponse };
   }
 
   /**

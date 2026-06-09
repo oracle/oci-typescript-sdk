@@ -23,8 +23,6 @@ import common = require("oci-common");
 
 /**
  * An instance configuration is a template that defines the settings to use when creating Compute instances.
- * For more information about instance configurations, see
- * [Managing Compute Instances](https://docs.oracle.com/iaas/Content/Compute/Concepts/instancemanagement.htm).
  *
  */
 export interface InstanceConfiguration {
