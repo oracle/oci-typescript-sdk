@@ -1,9 +1,7 @@
 /**
- * OperatorAccessControl API
+ * Operator Access Control API
  * Operator Access Control enables you to control the time duration and the actions an Oracle operator can perform on your Exadata Cloud@Customer infrastructure.
 Using logging service, you can view a near real-time audit report of all actions performed by an Oracle operator. 
-
-Use the table of contents and search tool to explore the OperatorAccessControl API.
 
  * OpenAPI spec version: 20200630
  * 
@@ -30,6 +28,7 @@ export enum OperatorControlAssignmentLifecycleStates {
   Deleting = "DELETING",
   Deleted = "DELETED",
   Deletionfailed = "DELETIONFAILED",
+  Customerassigned = "CUSTOMERASSIGNED",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

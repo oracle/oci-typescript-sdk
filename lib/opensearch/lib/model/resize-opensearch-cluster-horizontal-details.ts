@@ -35,6 +35,10 @@ export interface ResizeOpensearchClusterHorizontalDetails {
    */
   "searchNodeCount"?: number;
   /**
+   * The number of coordinator nodes configured for the cluster. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "coordinatorNodeCount"?: number;
+  /**
    * The number of ML nodes configured for the cluster. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "mlNodeCount"?: number;

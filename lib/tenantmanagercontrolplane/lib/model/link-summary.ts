@@ -52,6 +52,10 @@ export interface LinkSummary {
    *
    */
   "systemTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * The feature associated with this link. Default value is CORE.
+   */
+  "feature"?: string;
 }
 
 export namespace LinkSummary {

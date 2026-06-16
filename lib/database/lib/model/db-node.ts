@@ -85,6 +85,10 @@ export interface DbNode {
    */
   "lifecycleState": DbNode.LifecycleState;
   /**
+   * Actions that can be performed on the database node, depending on its current lifecycle state.
+   */
+  "availableActions"?: Array<DbNode.AvailableActions>;
+  /**
    * The host name for the database node.
    */
   "hostname"?: string;
@@ -188,6 +192,20 @@ export namespace DbNode {
     Terminating = "TERMINATING",
     Terminated = "TERMINATED",
     Failed = "FAILED",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum AvailableActions {
+    Stop = "STOP",
+    Forcestop = "FORCESTOP",
+    Forcereset = "FORCERESET",
+    Start = "START",
+    Softreset = "SOFTRESET",
+    Reset = "RESET",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

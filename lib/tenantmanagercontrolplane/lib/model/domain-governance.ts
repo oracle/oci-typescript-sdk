@@ -27,6 +27,10 @@ export interface DomainGovernance {
    */
   "ownerId": string;
   /**
+   * The OCID of the tenancy that owns this domain governance entity.
+   */
+  "compartmentId": string;
+  /**
    * The OCID of the domain associated with this domain governance entity.
    */
   "domainId": string;

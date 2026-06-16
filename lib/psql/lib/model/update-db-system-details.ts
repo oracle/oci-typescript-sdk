@@ -45,7 +45,10 @@ export interface UpdateDbSystemDetails {
   "dbConfigurationParams"?: model.UpdateDbConfigParams;
   "managementPolicy"?: model.ManagementPolicyDetails;
   "storageDetails"?: model.UpdateStorageDetailsParams;
+  "replicationConfig"?: model.UpdateReplicationConfigDetails;
   "networkDetails"?: model.UpdateNetworkDetails;
+  "kerberosAuthDetails"?: model.DisabledKerberosAuthDetails | model.EnabledKerberosAuthDetails;
+  "odspInsightDetails"?: model.DisabledInsightDetails | model.EnabledInsightDetails;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
    * Example: {@code {\"bar-key\": \"value\"}}
@@ -74,8 +77,17 @@ export namespace UpdateDbSystemDetails {
         "storageDetails": obj.storageDetails
           ? model.UpdateStorageDetailsParams.getJsonObj(obj.storageDetails)
           : undefined,
+        "replicationConfig": obj.replicationConfig
+          ? model.UpdateReplicationConfigDetails.getJsonObj(obj.replicationConfig)
+          : undefined,
         "networkDetails": obj.networkDetails
           ? model.UpdateNetworkDetails.getJsonObj(obj.networkDetails)
+          : undefined,
+        "kerberosAuthDetails": obj.kerberosAuthDetails
+          ? model.KerberosAuthDetails.getJsonObj(obj.kerberosAuthDetails)
+          : undefined,
+        "odspInsightDetails": obj.odspInsightDetails
+          ? model.OdspInsightDetails.getJsonObj(obj.odspInsightDetails)
           : undefined
       }
     };
@@ -95,8 +107,17 @@ export namespace UpdateDbSystemDetails {
         "storageDetails": obj.storageDetails
           ? model.UpdateStorageDetailsParams.getDeserializedJsonObj(obj.storageDetails)
           : undefined,
+        "replicationConfig": obj.replicationConfig
+          ? model.UpdateReplicationConfigDetails.getDeserializedJsonObj(obj.replicationConfig)
+          : undefined,
         "networkDetails": obj.networkDetails
           ? model.UpdateNetworkDetails.getDeserializedJsonObj(obj.networkDetails)
+          : undefined,
+        "kerberosAuthDetails": obj.kerberosAuthDetails
+          ? model.KerberosAuthDetails.getDeserializedJsonObj(obj.kerberosAuthDetails)
+          : undefined,
+        "odspInsightDetails": obj.odspInsightDetails
+          ? model.OdspInsightDetails.getDeserializedJsonObj(obj.odspInsightDetails)
           : undefined
       }
     };

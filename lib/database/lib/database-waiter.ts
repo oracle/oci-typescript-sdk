@@ -6557,6 +6557,68 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forRestartAutonomousVmClusterOrds
+   *
+   * @param request the request to send
+   * @return response returns RestartAutonomousVmClusterOrdsResponse, GetWorkRequestResponse tuple
+   */
+  public async forRestartAutonomousVmClusterOrds(
+    request: serviceRequests.RestartAutonomousVmClusterOrdsRequest
+  ): Promise<{
+    response: serviceResponses.RestartAutonomousVmClusterOrdsResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const restartAutonomousVmClusterOrdsResponse = await this.client.restartAutonomousVmClusterOrds(
+      request
+    );
+    if (restartAutonomousVmClusterOrdsResponse.opcWorkRequestId === undefined)
+      return {
+        response: restartAutonomousVmClusterOrdsResponse,
+        workRequestResponse: undefined as any
+      };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      restartAutonomousVmClusterOrdsResponse.opcWorkRequestId
+    );
+    return {
+      response: restartAutonomousVmClusterOrdsResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forRestartCloudAutonomousVmClusterOrds
+   *
+   * @param request the request to send
+   * @return response returns RestartCloudAutonomousVmClusterOrdsResponse, GetWorkRequestResponse tuple
+   */
+  public async forRestartCloudAutonomousVmClusterOrds(
+    request: serviceRequests.RestartCloudAutonomousVmClusterOrdsRequest
+  ): Promise<{
+    response: serviceResponses.RestartCloudAutonomousVmClusterOrdsResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const restartCloudAutonomousVmClusterOrdsResponse = await this.client.restartCloudAutonomousVmClusterOrds(
+      request
+    );
+    if (restartCloudAutonomousVmClusterOrdsResponse.opcWorkRequestId === undefined)
+      return {
+        response: restartCloudAutonomousVmClusterOrdsResponse,
+        workRequestResponse: undefined as any
+      };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      restartCloudAutonomousVmClusterOrdsResponse.opcWorkRequestId
+    );
+    return {
+      response: restartCloudAutonomousVmClusterOrdsResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
    * Waits forRestoreAutonomousDatabase
    *
    * @param request the request to send

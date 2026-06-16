@@ -1,9 +1,7 @@
 /**
- * OperatorAccessControl API
+ * Operator Access Control API
  * Operator Access Control enables you to control the time duration and the actions an Oracle operator can perform on your Exadata Cloud@Customer infrastructure.
 Using logging service, you can view a near real-time audit report of all actions performed by an Oracle operator. 
-
-Use the table of contents and search tool to explore the OperatorAccessControl API.
 
  * OpenAPI spec version: 20200630
  * 
@@ -258,8 +256,7 @@ export class AccessRequestsClient {
     if (this.logger)
       this.logger.debug("Calling operation AccessRequestsClient#approveAccessRequest.");
     const operationName = "approveAccessRequest";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operatoraccesscontrol/20200630/AccessRequest/ApproveAccessRequest";
+    const apiReferenceLink = "";
     const pathParams = {
       "{accessRequestId}": approveAccessRequestRequest.accessRequestId
     };
@@ -337,8 +334,7 @@ export class AccessRequestsClient {
   ): Promise<responses.GetAccessRequestResponse> {
     if (this.logger) this.logger.debug("Calling operation AccessRequestsClient#getAccessRequest.");
     const operationName = "getAccessRequest";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operatoraccesscontrol/20200630/AccessRequest/GetAccessRequest";
+    const apiReferenceLink = "";
     const pathParams = {
       "{accessRequestId}": getAccessRequestRequest.accessRequestId
     };
@@ -408,8 +404,7 @@ export class AccessRequestsClient {
   ): Promise<responses.GetAuditLogReportResponse> {
     if (this.logger) this.logger.debug("Calling operation AccessRequestsClient#getAuditLogReport.");
     const operationName = "getAuditLogReport";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operatoraccesscontrol/20200630/AuditLogReport/GetAuditLogReport";
+    const apiReferenceLink = "";
     const pathParams = {
       "{accessRequestId}": getAuditLogReportRequest.accessRequestId
     };
@@ -483,8 +478,7 @@ export class AccessRequestsClient {
     if (this.logger)
       this.logger.debug("Calling operation AccessRequestsClient#interactionRequest.");
     const operationName = "interactionRequest";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operatoraccesscontrol/20200630/AccessRequest/InteractionRequest";
+    const apiReferenceLink = "";
     const pathParams = {
       "{accessRequestId}": interactionRequestRequest.accessRequestId
     };
@@ -568,8 +562,7 @@ export class AccessRequestsClient {
     if (this.logger)
       this.logger.debug("Calling operation AccessRequestsClient#listAccessRequestHistories.");
     const operationName = "listAccessRequestHistories";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operatoraccesscontrol/20200630/AccessRequest/ListAccessRequestHistories";
+    const apiReferenceLink = "";
     const pathParams = {
       "{accessRequestId}": listAccessRequestHistoriesRequest.accessRequestId
     };
@@ -649,8 +642,7 @@ export class AccessRequestsClient {
     if (this.logger)
       this.logger.debug("Calling operation AccessRequestsClient#listAccessRequests.");
     const operationName = "listAccessRequests";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operatoraccesscontrol/20200630/AccessRequest/ListAccessRequests";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -658,6 +650,7 @@ export class AccessRequestsClient {
       "resourceName": listAccessRequestsRequest.resourceName,
       "resourceType": listAccessRequestsRequest.resourceType,
       "lifecycleState": listAccessRequestsRequest.lifecycleState,
+      "numDays": listAccessRequestsRequest.numDays,
       "timeStart": listAccessRequestsRequest.timeStart,
       "timeEnd": listAccessRequestsRequest.timeEnd,
       "limit": listAccessRequestsRequest.limit,
@@ -735,8 +728,7 @@ export class AccessRequestsClient {
   ): Promise<responses.ListInteractionsResponse> {
     if (this.logger) this.logger.debug("Calling operation AccessRequestsClient#listInteractions.");
     const operationName = "listInteractions";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operatoraccesscontrol/20200630/AccessRequest/ListInteractions";
+    const apiReferenceLink = "";
     const pathParams = {
       "{accessRequestId}": listInteractionsRequest.accessRequestId
     };
@@ -816,8 +808,7 @@ export class AccessRequestsClient {
     if (this.logger)
       this.logger.debug("Calling operation AccessRequestsClient#rejectAccessRequest.");
     const operationName = "rejectAccessRequest";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operatoraccesscontrol/20200630/AccessRequest/RejectAccessRequest";
+    const apiReferenceLink = "";
     const pathParams = {
       "{accessRequestId}": rejectAccessRequestRequest.accessRequestId
     };
@@ -897,8 +888,7 @@ export class AccessRequestsClient {
     if (this.logger)
       this.logger.debug("Calling operation AccessRequestsClient#reviewAccessRequest.");
     const operationName = "reviewAccessRequest";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operatoraccesscontrol/20200630/AccessRequest/ReviewAccessRequest";
+    const apiReferenceLink = "";
     const pathParams = {
       "{accessRequestId}": reviewAccessRequestRequest.accessRequestId
     };
@@ -982,8 +972,7 @@ export class AccessRequestsClient {
     if (this.logger)
       this.logger.debug("Calling operation AccessRequestsClient#revokeAccessRequest.");
     const operationName = "revokeAccessRequest";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operatoraccesscontrol/20200630/AccessRequest/RevokeAccessRequest";
+    const apiReferenceLink = "";
     const pathParams = {
       "{accessRequestId}": revokeAccessRequestRequest.accessRequestId
     };
@@ -1247,8 +1236,7 @@ export class OperatorActionsClient {
     if (this.logger)
       this.logger.debug("Calling operation OperatorActionsClient#getOperatorAction.");
     const operationName = "getOperatorAction";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operatoraccesscontrol/20200630/OperatorAction/GetOperatorAction";
+    const apiReferenceLink = "";
     const pathParams = {
       "{operatorActionId}": getOperatorActionRequest.operatorActionId
     };
@@ -1320,8 +1308,7 @@ export class OperatorActionsClient {
     if (this.logger)
       this.logger.debug("Calling operation OperatorActionsClient#listOperatorActions.");
     const operationName = "listOperatorActions";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operatoraccesscontrol/20200630/OperatorAction/ListOperatorActions";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -1616,8 +1603,7 @@ export class OperatorControlClient {
         "Calling operation OperatorControlClient#changeOperatorControlCompartment."
       );
     const operationName = "changeOperatorControlCompartment";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operatoraccesscontrol/20200630/OperatorControl/ChangeOperatorControlCompartment";
+    const apiReferenceLink = "";
     const pathParams = {
       "{operatorControlId}": changeOperatorControlCompartmentRequest.operatorControlId
     };
@@ -1692,8 +1678,7 @@ export class OperatorControlClient {
     if (this.logger)
       this.logger.debug("Calling operation OperatorControlClient#createOperatorControl.");
     const operationName = "createOperatorControl";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operatoraccesscontrol/20200630/OperatorControl/CreateOperatorControl";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {};
@@ -1778,8 +1763,7 @@ export class OperatorControlClient {
     if (this.logger)
       this.logger.debug("Calling operation OperatorControlClient#deleteOperatorControl.");
     const operationName = "deleteOperatorControl";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operatoraccesscontrol/20200630/OperatorControl/DeleteOperatorControl";
+    const apiReferenceLink = "";
     const pathParams = {
       "{operatorControlId}": deleteOperatorControlRequest.operatorControlId
     };
@@ -1849,8 +1833,7 @@ export class OperatorControlClient {
     if (this.logger)
       this.logger.debug("Calling operation OperatorControlClient#getOperatorControl.");
     const operationName = "getOperatorControl";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operatoraccesscontrol/20200630/OperatorControl/GetOperatorControl";
+    const apiReferenceLink = "";
     const pathParams = {
       "{operatorControlId}": getOperatorControlRequest.operatorControlId
     };
@@ -1927,8 +1910,7 @@ export class OperatorControlClient {
     if (this.logger)
       this.logger.debug("Calling operation OperatorControlClient#listOperatorControls.");
     const operationName = "listOperatorControls";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operatoraccesscontrol/20200630/OperatorControl/ListOperatorControls";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -2012,8 +1994,7 @@ export class OperatorControlClient {
     if (this.logger)
       this.logger.debug("Calling operation OperatorControlClient#updateOperatorControl.");
     const operationName = "updateOperatorControl";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operatoraccesscontrol/20200630/OperatorControl/UpdateOperatorControl";
+    const apiReferenceLink = "";
     const pathParams = {
       "{operatorControlId}": updateOperatorControlRequest.operatorControlId
     };
@@ -2308,8 +2289,7 @@ export class OperatorControlAssignmentClient {
         "Calling operation OperatorControlAssignmentClient#changeOperatorControlAssignmentCompartment."
       );
     const operationName = "changeOperatorControlAssignmentCompartment";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operatoraccesscontrol/20200630/OperatorControlAssignment/ChangeOperatorControlAssignmentCompartment";
+    const apiReferenceLink = "";
     const pathParams = {
       "{operatorControlAssignmentId}":
         changeOperatorControlAssignmentCompartmentRequest.operatorControlAssignmentId
@@ -2386,8 +2366,7 @@ export class OperatorControlAssignmentClient {
         "Calling operation OperatorControlAssignmentClient#createOperatorControlAssignment."
       );
     const operationName = "createOperatorControlAssignment";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operatoraccesscontrol/20200630/OperatorControlAssignment/CreateOperatorControlAssignment";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {};
@@ -2474,8 +2453,7 @@ export class OperatorControlAssignmentClient {
         "Calling operation OperatorControlAssignmentClient#deleteOperatorControlAssignment."
       );
     const operationName = "deleteOperatorControlAssignment";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operatoraccesscontrol/20200630/OperatorControlAssignment/DeleteOperatorControlAssignment";
+    const apiReferenceLink = "";
     const pathParams = {
       "{operatorControlAssignmentId}":
         deleteOperatorControlAssignmentRequest.operatorControlAssignmentId
@@ -2549,8 +2527,7 @@ export class OperatorControlAssignmentClient {
         "Calling operation OperatorControlAssignmentClient#getAssignmentValidationStatus."
       );
     const operationName = "getAssignmentValidationStatus";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operatoraccesscontrol/20200630/OperatorControlAssignment/GetAssignmentValidationStatus";
+    const apiReferenceLink = "";
     const pathParams = {
       "{operatorControlAssignmentId}":
         getAssignmentValidationStatusRequest.operatorControlAssignmentId
@@ -2630,8 +2607,7 @@ export class OperatorControlAssignmentClient {
         "Calling operation OperatorControlAssignmentClient#getOperatorControlAssignment."
       );
     const operationName = "getOperatorControlAssignment";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operatoraccesscontrol/20200630/OperatorControlAssignment/GetOperatorControlAssignment";
+    const apiReferenceLink = "";
     const pathParams = {
       "{operatorControlAssignmentId}":
         getOperatorControlAssignmentRequest.operatorControlAssignmentId
@@ -2710,8 +2686,7 @@ export class OperatorControlAssignmentClient {
         "Calling operation OperatorControlAssignmentClient#listOperatorControlAssignments."
       );
     const operationName = "listOperatorControlAssignments";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operatoraccesscontrol/20200630/OperatorControlAssignment/ListOperatorControlAssignments";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -2798,8 +2773,7 @@ export class OperatorControlAssignmentClient {
         "Calling operation OperatorControlAssignmentClient#updateOperatorControlAssignment."
       );
     const operationName = "updateOperatorControlAssignment";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operatoraccesscontrol/20200630/OperatorControlAssignment/UpdateOperatorControlAssignment";
+    const apiReferenceLink = "";
     const pathParams = {
       "{operatorControlAssignmentId}":
         updateOperatorControlAssignmentRequest.operatorControlAssignmentId
@@ -2885,8 +2859,7 @@ export class OperatorControlAssignmentClient {
         "Calling operation OperatorControlAssignmentClient#validateOperatorAssignment."
       );
     const operationName = "validateOperatorAssignment";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operatoraccesscontrol/20200630/OperatorControlAssignment/ValidateOperatorAssignment";
+    const apiReferenceLink = "";
     const pathParams = {
       "{operatorControlAssignmentId}": validateOperatorAssignmentRequest.operatorControlAssignmentId
     };
