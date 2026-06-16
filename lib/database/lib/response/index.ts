@@ -758,6 +758,10 @@ import * as RestartAutonomousContainerDatabaseResponse from "./restart-autonomou
 export import RestartAutonomousContainerDatabaseResponse = RestartAutonomousContainerDatabaseResponse.RestartAutonomousContainerDatabaseResponse;
 import * as RestartAutonomousDatabaseResponse from "./restart-autonomous-database-response";
 export import RestartAutonomousDatabaseResponse = RestartAutonomousDatabaseResponse.RestartAutonomousDatabaseResponse;
+import * as RestartAutonomousVmClusterOrdsResponse from "./restart-autonomous-vm-cluster-ords-response";
+export import RestartAutonomousVmClusterOrdsResponse = RestartAutonomousVmClusterOrdsResponse.RestartAutonomousVmClusterOrdsResponse;
+import * as RestartCloudAutonomousVmClusterOrdsResponse from "./restart-cloud-autonomous-vm-cluster-ords-response";
+export import RestartCloudAutonomousVmClusterOrdsResponse = RestartCloudAutonomousVmClusterOrdsResponse.RestartCloudAutonomousVmClusterOrdsResponse;
 import * as RestoreAutonomousDatabaseResponse from "./restore-autonomous-database-response";
 export import RestoreAutonomousDatabaseResponse = RestoreAutonomousDatabaseResponse.RestoreAutonomousDatabaseResponse;
 import * as RestoreDatabaseResponse from "./restore-database-response";

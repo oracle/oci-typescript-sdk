@@ -35,14 +35,14 @@ import * as ChangeOpensearchClusterCompartmentDetails from "./change-opensearch-
 export import ChangeOpensearchClusterCompartmentDetails = ChangeOpensearchClusterCompartmentDetails.ChangeOpensearchClusterCompartmentDetails;
 import * as ConfigureOutboundClusterDetails from "./configure-outbound-cluster-details";
 export import ConfigureOutboundClusterDetails = ConfigureOutboundClusterDetails.ConfigureOutboundClusterDetails;
+import * as CoordinatorNodeHostType from "./coordinator-node-host-type";
+export import CoordinatorNodeHostType = CoordinatorNodeHostType.CoordinatorNodeHostType;
 import * as CreateMaintenanceDetails from "./create-maintenance-details";
 export import CreateMaintenanceDetails = CreateMaintenanceDetails.CreateMaintenanceDetails;
 import * as CreateOpensearchClusterDetails from "./create-opensearch-cluster-details";
 export import CreateOpensearchClusterDetails = CreateOpensearchClusterDetails.CreateOpensearchClusterDetails;
 import * as CreateOpensearchClusterPipelineDetails from "./create-opensearch-cluster-pipeline-details";
 export import CreateOpensearchClusterPipelineDetails = CreateOpensearchClusterPipelineDetails.CreateOpensearchClusterPipelineDetails;
-import * as CustomerLoggingDetails from "./customer-logging-details";
-export import CustomerLoggingDetails = CustomerLoggingDetails.CustomerLoggingDetails;
 import * as DataNodeHostType from "./data-node-host-type";
 export import DataNodeHostType = DataNodeHostType.DataNodeHostType;
 import * as DeleteBlockVolumesForNamespaceDetails from "./delete-block-volumes-for-namespace-details";

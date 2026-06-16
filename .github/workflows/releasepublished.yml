@@ -131,38 +131,8 @@ jobs:
       - name: Publish tarball artifacts to npm
         env:
           NODE_AUTH_TOKEN: ${{secrets.NPM_ACCESS_TOKEN}}
-        shell: bash
         run: |
           ls
           cd npm_artifacts
           ls
-          set -euo pipefail
-
-          # Publish only packed npm tarballs.
-          tarball_count=0
-          for tarball in ./*.tgz; do
-            [ -e "$tarball" ] || continue
-            tarball_count=$((tarball_count + 1))
-          done
-
-          if [ "$tarball_count" -eq 0 ]; then
-            echo "No npm tarballs found in npm_artifacts"
-            exit 1
-          fi
-
-          # Publish service packages before the aggregate oci-sdk package so
-          # oci-sdk dependencies for this release are available in the registry.
-          for tarball in ./*.tgz; do
-            [ -e "$tarball" ] || continue
-            case "$(basename "$tarball")" in
-              oci-sdk-*.tgz) continue ;;
-            esac
-            echo "Publishing $tarball"
-            npm publish "$tarball"
-          done
-
-          for tarball in ./oci-sdk-*.tgz; do
-            [ -e "$tarball" ] || continue
-            echo "Publishing $tarball"
-            npm publish "$tarball"
-          done
+          find . -exec npm publish {} \;

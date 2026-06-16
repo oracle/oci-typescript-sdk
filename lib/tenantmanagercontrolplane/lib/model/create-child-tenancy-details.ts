@@ -46,6 +46,10 @@ export interface CreateChildTenancyDetails {
    * OCID of the subscription that needs to be assigned to the child tenancy.
    */
   "subscriptionId"?: string;
+  /**
+   * List of features that the child and parent tenancies will have links for. Link with feature CORE will always be created.
+   */
+  "features"?: Array<string>;
 }
 
 export namespace CreateChildTenancyDetails {

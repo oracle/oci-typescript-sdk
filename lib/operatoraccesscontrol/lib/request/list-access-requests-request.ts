@@ -35,6 +35,10 @@ export interface ListAccessRequestsRequest extends common.BaseRequest {
    */
   "lifecycleState"?: model.AccessRequestLifecycleStates;
   /**
+   * The number of days since when the user wants to search .
+   */
+  "numDays"?: number;
+  /**
    * Query start time in UTC in ISO 8601 format(inclusive).
    * Example 2019-10-30T00:00:00Z (yyyy-MM-ddThh:mm:ssZ).
    * timeIntervalStart and timeIntervalEnd parameters are used together.

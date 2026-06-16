@@ -29,7 +29,7 @@ export interface BackupCopyDetails {
    */
   "retentionPeriod"?: number;
   /**
-   * List of region names of the remote region
+   * List of region names of the remote regions
    */
   "regions": Array<string>;
 }

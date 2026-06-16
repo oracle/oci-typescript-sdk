@@ -1,9 +1,7 @@
 /**
- * OperatorAccessControl API
+ * Operator Access Control API
  * Operator Access Control enables you to control the time duration and the actions an Oracle operator can perform on your Exadata Cloud@Customer infrastructure.
 Using logging service, you can view a near real-time audit report of all actions performed by an Oracle operator. 
-
-Use the table of contents and search tool to explore the OperatorAccessControl API.
 
  * OpenAPI spec version: 20200630
  * 
@@ -63,6 +61,10 @@ export interface CreateOperatorControlDetails {
    * Number of approvers required to approve an access request. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "numberOfApprovers"?: number;
+  /**
+   * The OCID of the OCI Notification topic to publish messages related to this operator control.
+   */
+  "notificationTopicId"?: string;
   /**
    * List of emailId.
    *

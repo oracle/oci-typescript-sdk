@@ -34,6 +34,10 @@ export interface RestartAutonomousDatabaseRequest extends common.BaseRequest {
    */
   "isOnlineRestart"?: boolean;
   /**
+   * Request details to restart the Autonomous Database with force option.
+   */
+  "restartAutonomousDatabaseDetails"?: model.RestartAutonomousDatabaseDetails;
+  /**
    * Indicates that the request is a dry run, if set to \"true\". A dry run request does not actually
    * creating or updating a resource and is used only to perform validation on the submitted data.
    *

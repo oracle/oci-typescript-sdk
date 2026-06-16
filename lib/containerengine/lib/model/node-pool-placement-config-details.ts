@@ -35,6 +35,10 @@ export interface NodePoolPlacementConfigDetails {
    * The OCID of the compute capacity reservation in which to place the compute instance.
    */
   "capacityReservationId"?: string;
+  /**
+   * The OCID of the Host Group to be associated with the worker node instance.
+   */
+  "hostGroupId"?: string;
   "preemptibleNodeConfig"?: model.PreemptibleNodeConfigDetails;
   /**
    * A list of fault domains in which to place nodes.

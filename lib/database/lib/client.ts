@@ -8553,6 +8553,8 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
    * Performs one of the following power actions on the specified DB node:
    * - start - power on
    * - stop - power off gracefully
+   * - forcestop - power off forcefully
+   * - forcereset - ACPI shutdown and power on forcefully
    * - softreset - ACPI shutdown and power on
    * - reset - power off and power on
    * <p>
@@ -34725,6 +34727,11 @@ This operation should be performed on disabled standby database.
       defaultHeaders: this._defaultHeaders,
       path: "/autonomousContainerDatabases/{autonomousContainerDatabaseId}/actions/restart",
       method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        restartAutonomousContainerDatabaseRequest.restartAutonomousContainerDatabaseDetails,
+        "RestartAutonomousContainerDatabaseDetails",
+        model.RestartAutonomousContainerDatabaseDetails.getJsonObj
+      ),
       pathParams: pathParams,
       headerParams: headerParams,
       queryParams: queryParams
@@ -34811,6 +34818,11 @@ This operation should be performed on disabled standby database.
       defaultHeaders: this._defaultHeaders,
       path: "/autonomousDatabases/{autonomousDatabaseId}/actions/restart",
       method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        restartAutonomousDatabaseRequest.restartAutonomousDatabaseDetails,
+        "RestartAutonomousDatabaseDetails",
+        model.RestartAutonomousDatabaseDetails.getJsonObj
+      ),
       pathParams: pathParams,
       headerParams: headerParams,
       queryParams: queryParams
@@ -34843,6 +34855,159 @@ This operation should be performed on disabled standby database.
           {
             value: response.headers.get("opc-work-request-id"),
             key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Restarts Oracle REST Data Services (ORDS) for Autonomous Exadata VM cluster.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param RestartAutonomousVmClusterOrdsRequest
+   * @return RestartAutonomousVmClusterOrdsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/RestartAutonomousVmClusterOrds.ts.html |here} to see how to use RestartAutonomousVmClusterOrds API.
+   */
+  public async restartAutonomousVmClusterOrds(
+    restartAutonomousVmClusterOrdsRequest: requests.RestartAutonomousVmClusterOrdsRequest
+  ): Promise<responses.RestartAutonomousVmClusterOrdsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#restartAutonomousVmClusterOrds.");
+    const operationName = "restartAutonomousVmClusterOrds";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousVmCluster/RestartAutonomousVmClusterOrds";
+    const pathParams = {
+      "{autonomousVmClusterId}": restartAutonomousVmClusterOrdsRequest.autonomousVmClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": restartAutonomousVmClusterOrdsRequest.opcRetryToken,
+      "opc-request-id": restartAutonomousVmClusterOrdsRequest.opcRequestId,
+      "if-match": restartAutonomousVmClusterOrdsRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      restartAutonomousVmClusterOrdsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/autonomousVmClusters/{autonomousVmClusterId}/actions/restartOrds",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RestartAutonomousVmClusterOrdsResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Restarts Oracle REST Data Services (ORDS) for a cloud Autonomous Exadata VM cluster.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param RestartCloudAutonomousVmClusterOrdsRequest
+   * @return RestartCloudAutonomousVmClusterOrdsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/RestartCloudAutonomousVmClusterOrds.ts.html |here} to see how to use RestartCloudAutonomousVmClusterOrds API.
+   */
+  public async restartCloudAutonomousVmClusterOrds(
+    restartCloudAutonomousVmClusterOrdsRequest: requests.RestartCloudAutonomousVmClusterOrdsRequest
+  ): Promise<responses.RestartCloudAutonomousVmClusterOrdsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#restartCloudAutonomousVmClusterOrds.");
+    const operationName = "restartCloudAutonomousVmClusterOrds";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/CloudAutonomousVmCluster/RestartCloudAutonomousVmClusterOrds";
+    const pathParams = {
+      "{cloudAutonomousVmClusterId}":
+        restartCloudAutonomousVmClusterOrdsRequest.cloudAutonomousVmClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": restartCloudAutonomousVmClusterOrdsRequest.opcRetryToken,
+      "opc-request-id": restartCloudAutonomousVmClusterOrdsRequest.opcRequestId,
+      "if-match": restartCloudAutonomousVmClusterOrdsRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      restartCloudAutonomousVmClusterOrdsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudAutonomousVmClusters/{cloudAutonomousVmClusterId}/actions/restartOrds",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RestartCloudAutonomousVmClusterOrdsResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           }
         ]
@@ -36565,6 +36730,11 @@ This operation should be performed on disabled standby database.
       defaultHeaders: this._defaultHeaders,
       path: "/autonomousDatabases/{autonomousDatabaseId}/actions/stop",
       method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        stopAutonomousDatabaseRequest.stopAutonomousDatabaseDetails,
+        "StopAutonomousDatabaseDetails",
+        model.StopAutonomousDatabaseDetails.getJsonObj
+      ),
       pathParams: pathParams,
       headerParams: headerParams,
       queryParams: queryParams

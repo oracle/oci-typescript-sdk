@@ -115,6 +115,15 @@ export interface DesktopPool {
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
+    * [Security attributes](https://docs.oracle.com/iaas/Content/zero-trust-packet-routing/zpr-artifacts.htm#security-attributes) for this resource.
+* Each attribute can be referenced in a [Zero Trust Packet Routing](https://docs.oracle.com/iaas/Content/zero-trust-packet-routing/overview.htm)
+* (ZPR) policy to control access to ZPR-supported resources.
+* <p>
+Example: {@code {\"Oracle-ZPR\": {\"MaxEgressCount\": {\"value\": \"42\", \"mode\": \"audit\"}}}}
+* 
+    */
+  "securityAttributes"?: { [key: string]: { [key: string]: any } };
+  /**
    * A list of network security groups for the network.
    */
   "nsgIds"?: Array<string>;

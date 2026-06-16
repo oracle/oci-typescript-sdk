@@ -27,6 +27,10 @@ export interface ListLinksRequest extends common.BaseRequest {
    */
   "childTenancyId"?: string;
   /**
+   * The feature associated with this link.
+   */
+  "feature"?: string;
+  /**
    * The lifecycle state of the resource.
    */
   "lifecycleState"?: model.LifecycleState;

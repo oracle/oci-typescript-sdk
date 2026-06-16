@@ -34,6 +34,11 @@ export namespace SourceDetails {
             <model.BackupSourceDetails>(<object>jsonObj),
             true
           );
+        case "DB_SYSTEM":
+          return model.PrimaryDbSystemSourceDetails.getJsonObj(
+            <model.PrimaryDbSystemSourceDetails>(<object>jsonObj),
+            true
+          );
         case "NONE":
           return model.NoneSourceDetails.getJsonObj(
             <model.NoneSourceDetails>(<object>jsonObj),
@@ -53,6 +58,11 @@ export namespace SourceDetails {
         case "BACKUP":
           return model.BackupSourceDetails.getDeserializedJsonObj(
             <model.BackupSourceDetails>(<object>jsonObj),
+            true
+          );
+        case "DB_SYSTEM":
+          return model.PrimaryDbSystemSourceDetails.getDeserializedJsonObj(
+            <model.PrimaryDbSystemSourceDetails>(<object>jsonObj),
             true
           );
         case "NONE":
