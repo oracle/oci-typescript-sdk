@@ -38,4 +38,23 @@ export class LinkWaiter {
       targetStates.includes(models.LifecycleState.Terminated)
     );
   }
+
+  /**
+   * Waits forLinkWithTenancyNames till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetLinkWithTenancyNamesResponse | null (null in case of 404 response)
+   */
+  public async forLinkWithTenancyNames(
+    request: serviceRequests.GetLinkWithTenancyNamesRequest,
+    ...targetStates: models.LifecycleState[]
+  ): Promise<serviceResponses.GetLinkWithTenancyNamesResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getLinkWithTenancyNames(request),
+      response => targetStates.includes(response.linkWithTenancyNames.lifecycleState!),
+      targetStates.includes(models.LifecycleState.Terminated)
+    );
+  }
 }

@@ -59,6 +59,22 @@ export interface UpdateClusterSpecsDetails {
    */
   "searchNodeHostMemoryGB"?: number;
   /**
+   * The node shape for the cluster's coordinator nodes.
+   */
+  "coordinatorNodeHostShape"?: string;
+  /**
+   * The number of OCPUs configured for the cluster's coordinator nodes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "coordinatorNodeHostOcpuCount"?: number;
+  /**
+   * The amount of memory in GB, for the cluster's coordinator nodes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "coordinatorNodeHostMemoryGB"?: number;
+  /**
+   * Updated value of number of coordinator nodes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "coordinatorNodeCount"?: number;
+  /**
    * The node shape for the cluster's ML nodes.
    */
   "mlNodeHostShape"?: string;

@@ -123,6 +123,26 @@ export interface CreateOpensearchClusterDetails {
    */
   "searchNodeStorageGB"?: number;
   /**
+   * The number of coordinator nodes configured for the cluster. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "coordinatorNodeCount"?: number;
+  /**
+   * The instance type for the cluster's coordinator nodes.
+   */
+  "coordinatorNodeHostType"?: model.CoordinatorNodeHostType;
+  /**
+   * The node shape for the cluster's coordinator nodes.
+   */
+  "coordinatorNodeHostShape"?: string;
+  /**
+   * The number of OCPUs configured for the cluster's coordinator nodes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "coordinatorNodeHostOcpuCount"?: number;
+  /**
+   * The amount of memory in GB, for the cluster's coordinator nodes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "coordinatorNodeHostMemoryGB"?: number;
+  /**
    * The number of ML nodes configured for the cluster. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "mlNodeCount"?: number;

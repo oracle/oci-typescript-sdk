@@ -1,14 +1,15 @@
 {
   "name": "oci-sdk",
-  "version": "2.134.1",
+  "version": "2.135.0",
   "author": {
     "name": "Oracle Cloud Infrastructure",
     "email": ""
   },
   "contributors": [
-    "Jyoti Saini <jyoti.s.saini@oracle.com>",
-    "Joe Levy <joe.levy@oracle.com>",
-    "Walt Tran <walt.tran@oracle.com>"
+    "Yash Chandra <yash.chandra@oracle.com>",
+    "Nivedita Parihar <nivedita.parihar@oracle.com>",
+    "Joshua Ramirez <joshua.r.ramirez@oracle.com>",
+    "Kalpana Ramasamy <kalpana.ramasamy@oracle.com>"
   ],
   "description": "OCI SDK for TypeScript and JavaScript",
   "supportedNodeVersions": "14, 16, 18, 20",

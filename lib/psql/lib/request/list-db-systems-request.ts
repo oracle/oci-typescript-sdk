@@ -52,6 +52,10 @@ export interface ListDbSystemsRequest extends common.BaseRequest {
    */
   "sortBy"?: ListDbSystemsRequest.SortBy;
   /**
+   * A filter to return only DbSystem resources if their {@code systemRole} matches the given value.
+   */
+  "systemRole"?: string;
+  /**
    * The client request ID for tracing.
    */
   "opcRequestId"?: string;

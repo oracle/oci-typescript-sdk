@@ -31,6 +31,10 @@ export interface DomainSummary {
    */
   "ownerId": string;
   /**
+   * The OCID of the tenancy that has started the registration process for this domain.
+   */
+  "compartmentId": string;
+  /**
    * The lifecycle state of the domain.
    */
   "lifecycleState": string;

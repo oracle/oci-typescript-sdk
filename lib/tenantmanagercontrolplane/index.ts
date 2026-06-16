@@ -34,6 +34,7 @@ export import DomainGovernanceWaiter = domaingovernance_waiter.DomainGovernanceW
 export import GovernanceClient = client.GovernanceClient;
 export import LinkClient = client.LinkClient;
 export import LinkWaiter = link_waiter.LinkWaiter;
+export import LinkFeaturesClient = client.LinkFeaturesClient;
 export import OrdersClient = client.OrdersClient;
 export import OrganizationClient = client.OrganizationClient;
 export import OrganizationWaiter = organization_waiter.OrganizationWaiter;

@@ -70,10 +70,15 @@ export interface CreateDbSystemDetails {
    *
    */
   "instancesDetails"?: Array<model.CreateDbInstanceDetails>;
-  "credentials": model.Credentials;
+  "credentials"?: model.Credentials;
   "networkDetails": model.NetworkDetails;
   "managementPolicy"?: model.ManagementPolicyDetails;
-  "source"?: model.BackupSourceDetails | model.NoneSourceDetails;
+  "source"?:
+    | model.BackupSourceDetails
+    | model.PrimaryDbSystemSourceDetails
+    | model.NoneSourceDetails;
+  "replicationConfig"?: model.CreateReplicationConfigDetails;
+  "odspInsightDetails"?: model.DisabledInsightDetails | model.EnabledInsightDetails;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
    * Example: {@code {\"bar-key\": \"value\"}}
@@ -109,7 +114,13 @@ export namespace CreateDbSystemDetails {
         "managementPolicy": obj.managementPolicy
           ? model.ManagementPolicyDetails.getJsonObj(obj.managementPolicy)
           : undefined,
-        "source": obj.source ? model.SourceDetails.getJsonObj(obj.source) : undefined
+        "source": obj.source ? model.SourceDetails.getJsonObj(obj.source) : undefined,
+        "replicationConfig": obj.replicationConfig
+          ? model.CreateReplicationConfigDetails.getJsonObj(obj.replicationConfig)
+          : undefined,
+        "odspInsightDetails": obj.odspInsightDetails
+          ? model.OdspInsightDetails.getJsonObj(obj.odspInsightDetails)
+          : undefined
       }
     };
 
@@ -137,7 +148,13 @@ export namespace CreateDbSystemDetails {
         "managementPolicy": obj.managementPolicy
           ? model.ManagementPolicyDetails.getDeserializedJsonObj(obj.managementPolicy)
           : undefined,
-        "source": obj.source ? model.SourceDetails.getDeserializedJsonObj(obj.source) : undefined
+        "source": obj.source ? model.SourceDetails.getDeserializedJsonObj(obj.source) : undefined,
+        "replicationConfig": obj.replicationConfig
+          ? model.CreateReplicationConfigDetails.getDeserializedJsonObj(obj.replicationConfig)
+          : undefined,
+        "odspInsightDetails": obj.odspInsightDetails
+          ? model.OdspInsightDetails.getDeserializedJsonObj(obj.odspInsightDetails)
+          : undefined
       }
     };
 

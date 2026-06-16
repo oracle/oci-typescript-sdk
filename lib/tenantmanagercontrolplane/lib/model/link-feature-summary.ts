@@ -15,26 +15,38 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The parameters for reviving failed workflow
+ * Result of a query request for a list of link features. Contains LinkFeature items.
  */
-export interface ReviveWorkflowInstanceDetails {
+export interface LinkFeatureSummary {
   /**
-   * Id of failed workflow
+   * The feature associated with this link. Default value is CORE.
    */
-  "workflowInstanceId"?: string;
+  "feature": string;
   /**
-   * Service specific workflow instance name
+   * Display name of the feature.
    */
-  "workflowInstanceName"?: string;
+  "displayName": string;
+  /**
+   * Description of the feature.
+   */
+  "description": string;
+  /**
+   * ConsoleUrl of the feature.
+   */
+  "partnerServiceConsoleUrl"?: string;
+  /**
+   * UserGuideUrl of the feature.
+   */
+  "userGuideUrl"?: string;
 }
 
-export namespace ReviveWorkflowInstanceDetails {
-  export function getJsonObj(obj: ReviveWorkflowInstanceDetails): object {
+export namespace LinkFeatureSummary {
+  export function getJsonObj(obj: LinkFeatureSummary): object {
     const jsonObj = { ...obj, ...{} };
 
     return jsonObj;
   }
-  export function getDeserializedJsonObj(obj: ReviveWorkflowInstanceDetails): object {
+  export function getDeserializedJsonObj(obj: LinkFeatureSummary): object {
     const jsonObj = { ...obj, ...{} };
 
     return jsonObj;

@@ -549,6 +549,163 @@ export class PostgresqlClient {
   }
 
   /**
+   * Changes a standalone database system's role to warm-standby replica, converting it into a replica database system that replicates data from the specified primary database system.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ChangeRoleToReplicaRequest
+   * @return ChangeRoleToReplicaResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/psql/ChangeRoleToReplica.ts.html |here} to see how to use ChangeRoleToReplica API.
+   */
+  public async changeRoleToReplica(
+    changeRoleToReplicaRequest: requests.ChangeRoleToReplicaRequest
+  ): Promise<responses.ChangeRoleToReplicaResponse> {
+    if (this.logger) this.logger.debug("Calling operation PostgresqlClient#changeRoleToReplica.");
+    const operationName = "changeRoleToReplica";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{dbSystemId}": changeRoleToReplicaRequest.dbSystemId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeRoleToReplicaRequest.ifMatch,
+      "opc-request-id": changeRoleToReplicaRequest.opcRequestId,
+      "opc-retry-token": changeRoleToReplicaRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeRoleToReplicaRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dbSystems/{dbSystemId}/actions/changeRoleToReplica",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeRoleToReplicaRequest.changeRoleToReplicaDetails,
+        "ChangeRoleToReplicaDetails",
+        model.ChangeRoleToReplicaDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeRoleToReplicaResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Convert a replica database system into a standalone database system.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ChangeRoleToStandaloneRequest
+   * @return ChangeRoleToStandaloneResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/psql/ChangeRoleToStandalone.ts.html |here} to see how to use ChangeRoleToStandalone API.
+   */
+  public async changeRoleToStandalone(
+    changeRoleToStandaloneRequest: requests.ChangeRoleToStandaloneRequest
+  ): Promise<responses.ChangeRoleToStandaloneResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation PostgresqlClient#changeRoleToStandalone.");
+    const operationName = "changeRoleToStandalone";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{dbSystemId}": changeRoleToStandaloneRequest.dbSystemId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeRoleToStandaloneRequest.ifMatch,
+      "opc-request-id": changeRoleToStandaloneRequest.opcRequestId,
+      "opc-retry-token": changeRoleToStandaloneRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeRoleToStandaloneRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dbSystems/{dbSystemId}/actions/changeRoleToStandalone",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeRoleToStandaloneRequest.changeRoleToStandaloneDetails,
+        "ChangeRoleToStandaloneDetails",
+        model.ChangeRoleToStandaloneDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeRoleToStandaloneResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates a new backup.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -1786,6 +1943,85 @@ export class PostgresqlClient {
   }
 
   /**
+   * Returns a list of replica database systems.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListDbSystemReplicasRequest
+   * @return ListDbSystemReplicasResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/psql/ListDbSystemReplicas.ts.html |here} to see how to use ListDbSystemReplicas API.
+   */
+  public async listDbSystemReplicas(
+    listDbSystemReplicasRequest: requests.ListDbSystemReplicasRequest
+  ): Promise<responses.ListDbSystemReplicasResponse> {
+    if (this.logger) this.logger.debug("Calling operation PostgresqlClient#listDbSystemReplicas.");
+    const operationName = "listDbSystemReplicas";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{dbSystemId}": listDbSystemReplicasRequest.dbSystemId
+    };
+
+    const queryParams = {
+      "limit": listDbSystemReplicasRequest.limit,
+      "page": listDbSystemReplicasRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listDbSystemReplicasRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDbSystemReplicasRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dbSystems/{dbSystemId}/replicas",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListDbSystemReplicasResponse>{},
+        body: await response.json(),
+        bodyKey: "dbSystemReplicaCollection",
+        bodyModel: model.DbSystemReplicaCollection,
+        type: "model.DbSystemReplicaCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Returns a list of database systems.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -1810,7 +2046,8 @@ export class PostgresqlClient {
       "limit": listDbSystemsRequest.limit,
       "page": listDbSystemsRequest.page,
       "sortOrder": listDbSystemsRequest.sortOrder,
-      "sortBy": listDbSystemsRequest.sortBy
+      "sortBy": listDbSystemsRequest.sortBy,
+      "systemRole": listDbSystemsRequest.systemRole
     };
 
     let headerParams = {
@@ -1935,6 +2172,89 @@ export class PostgresqlClient {
         bodyKey: "defaultConfigurationCollection",
         bodyModel: model.DefaultConfigurationCollection,
         type: "model.DefaultConfigurationCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns the supported insight types and their capabilities.
+   * This API allows clients to discover:
+   * - Supported insight types
+   * - Supported insight data types for each insight type
+   * - Filters, sorting, pagination, limits, and data contracts
+   * required to use the unified insights API.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListInsightCapabilitiesRequest
+   * @return ListInsightCapabilitiesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/psql/ListInsightCapabilities.ts.html |here} to see how to use ListInsightCapabilities API.
+   */
+  public async listInsightCapabilities(
+    listInsightCapabilitiesRequest: requests.ListInsightCapabilitiesRequest
+  ): Promise<responses.ListInsightCapabilitiesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation PostgresqlClient#listInsightCapabilities.");
+    const operationName = "listInsightCapabilities";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "limit": listInsightCapabilitiesRequest.limit,
+      "page": listInsightCapabilitiesRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listInsightCapabilitiesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listInsightCapabilitiesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/insightCapabilities",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListInsightCapabilitiesResponse>{},
+        body: await response.json(),
+        bodyKey: "insightCapabilityCollection",
+        bodyModel: model.InsightCapabilityCollection,
+        type: "model.InsightCapabilityCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2573,6 +2893,235 @@ export class PostgresqlClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.RestoreDbSystemResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Start the DB System.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param StartDbSystemRequest
+   * @return StartDbSystemResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/psql/StartDbSystem.ts.html |here} to see how to use StartDbSystem API.
+   */
+  public async startDbSystem(
+    startDbSystemRequest: requests.StartDbSystemRequest
+  ): Promise<responses.StartDbSystemResponse> {
+    if (this.logger) this.logger.debug("Calling operation PostgresqlClient#startDbSystem.");
+    const operationName = "startDbSystem";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{dbSystemId}": startDbSystemRequest.dbSystemId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": startDbSystemRequest.ifMatch,
+      "opc-request-id": startDbSystemRequest.opcRequestId,
+      "opc-retry-token": startDbSystemRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      startDbSystemRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dbSystems/{dbSystemId}/actions/start",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        startDbSystemRequest.startDbSystemDetails,
+        "StartDbSystemDetails",
+        model.StartDbSystemDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.StartDbSystemResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Stop the DB System.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param StopDbSystemRequest
+   * @return StopDbSystemResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/psql/StopDbSystem.ts.html |here} to see how to use StopDbSystem API.
+   */
+  public async stopDbSystem(
+    stopDbSystemRequest: requests.StopDbSystemRequest
+  ): Promise<responses.StopDbSystemResponse> {
+    if (this.logger) this.logger.debug("Calling operation PostgresqlClient#stopDbSystem.");
+    const operationName = "stopDbSystem";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{dbSystemId}": stopDbSystemRequest.dbSystemId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": stopDbSystemRequest.ifMatch,
+      "opc-request-id": stopDbSystemRequest.opcRequestId,
+      "opc-retry-token": stopDbSystemRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      stopDbSystemRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dbSystems/{dbSystemId}/actions/stop",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.StopDbSystemResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Switchover the roles between a primary database system and its replica, making the replica the new primary and the original primary become its replica.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param SwitchOverRequest
+   * @return SwitchOverResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/psql/SwitchOver.ts.html |here} to see how to use SwitchOver API.
+   */
+  public async switchOver(
+    switchOverRequest: requests.SwitchOverRequest
+  ): Promise<responses.SwitchOverResponse> {
+    if (this.logger) this.logger.debug("Calling operation PostgresqlClient#switchOver.");
+    const operationName = "switchOver";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{dbSystemId}": switchOverRequest.dbSystemId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": switchOverRequest.ifMatch,
+      "opc-request-id": switchOverRequest.opcRequestId,
+      "opc-retry-token": switchOverRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      switchOverRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dbSystems/{dbSystemId}/actions/switchover",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        switchOverRequest.switchOverDetails,
+        "SwitchOverDetails",
+        model.SwitchOverDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SwitchOverResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),

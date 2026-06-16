@@ -45,6 +45,10 @@ export interface BaseDomainDetails {
    */
   "isFreeTier"?: boolean;
   /**
+   * The OCID of the Log Analytics log group to which the data uploaded to this APM domain will be mapped to.
+   */
+  "logGroupId"?: string;
+  /**
    * The time the APM domain was created, expressed in RFC 3339 timestamp format.
    */
   "timeCreated"?: Date;

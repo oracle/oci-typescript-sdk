@@ -27,6 +27,10 @@ export interface DomainGovernanceSummary {
    */
   "ownerId": string;
   /**
+   * The OCID of the tenancy that has started the registration process for this domain.
+   */
+  "compartmentId": string;
+  /**
    * The OCID of the domain associated with this domain governance entity.
    */
   "domainId": string;

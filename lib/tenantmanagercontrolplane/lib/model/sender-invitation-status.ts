@@ -23,6 +23,7 @@ export enum SenderInvitationStatus {
   Accepted = "ACCEPTED",
   Expired = "EXPIRED",
   Failed = "FAILED",
+  NotApplicable = "NOT_APPLICABLE",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

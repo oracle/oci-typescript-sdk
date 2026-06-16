@@ -15,24 +15,23 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Customer logging configuration
- */
-export interface CustomerLoggingDetails {
+ * The instance type for the cluster's coordinator nodes.
+ **/
+export enum CoordinatorNodeHostType {
+  Flex = "FLEX",
+
   /**
-   * the age of an index after which the index will get deleted by ISM policy Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * This value is used if a service returns a value for this enum that is not recognized by this
+   * version of the SDK.
    */
-  "logRetentionDays": number;
+  UnknownValue = "UNKNOWN_VALUE"
 }
 
-export namespace CustomerLoggingDetails {
-  export function getJsonObj(obj: CustomerLoggingDetails): object {
-    const jsonObj = { ...obj, ...{} };
-
-    return jsonObj;
+export namespace CoordinatorNodeHostType {
+  export function getJsonObj(obj: CoordinatorNodeHostType): CoordinatorNodeHostType {
+    return obj;
   }
-  export function getDeserializedJsonObj(obj: CustomerLoggingDetails): object {
-    const jsonObj = { ...obj, ...{} };
-
-    return jsonObj;
+  export function getDeserializedJsonObj(obj: CoordinatorNodeHostType): CoordinatorNodeHostType {
+    return obj;
   }
 }

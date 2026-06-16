@@ -87,6 +87,11 @@ Example: {@code 2016-08-25T21:10:29.600Z}
    */
   "systemType": DbSystem.SystemType;
   /**
+   * Type of the database system.
+   */
+  "systemRole": DbSystem.SystemRole;
+  "replicationConfig"?: model.ReplicationConfig;
+  /**
    * The major and minor versions of the database system software.
    */
   "dbVersion": string;
@@ -119,7 +124,12 @@ Example: {@code 2016-08-25T21:10:29.600Z}
   "storageDetails": model.OciOptimizedStorageDetails;
   "networkDetails": model.NetworkDetails;
   "managementPolicy": model.ManagementPolicy;
-  "source"?: model.BackupSourceDetails | model.NoneSourceDetails;
+  "source"?:
+    | model.BackupSourceDetails
+    | model.PrimaryDbSystemSourceDetails
+    | model.NoneSourceDetails;
+  "kerberosAuthDetails"?: model.DisabledKerberosAuthDetails | model.EnabledKerberosAuthDetails;
+  "odspInsightDetails"?: model.DisabledInsightDetails | model.EnabledInsightDetails;
 }
 
 export namespace DbSystem {
@@ -148,10 +158,26 @@ export namespace DbSystem {
     UnknownValue = "UNKNOWN_VALUE"
   }
 
+  export enum SystemRole {
+    StandaloneDbSystem = "STANDALONE_DB_SYSTEM",
+    PrimaryDbSystem = "PRIMARY_DB_SYSTEM",
+    WarmStandbyDbSystem = "WARM_STANDBY_DB_SYSTEM",
+    PilotLightDbSystem = "PILOT_LIGHT_DB_SYSTEM",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: DbSystem): object {
     const jsonObj = {
       ...obj,
       ...{
+        "replicationConfig": obj.replicationConfig
+          ? model.ReplicationConfig.getJsonObj(obj.replicationConfig)
+          : undefined,
+
         "instances": obj.instances
           ? obj.instances.map(item => {
               return model.DbInstance.getJsonObj(item);
@@ -166,7 +192,13 @@ export namespace DbSystem {
         "managementPolicy": obj.managementPolicy
           ? model.ManagementPolicy.getJsonObj(obj.managementPolicy)
           : undefined,
-        "source": obj.source ? model.SourceDetails.getJsonObj(obj.source) : undefined
+        "source": obj.source ? model.SourceDetails.getJsonObj(obj.source) : undefined,
+        "kerberosAuthDetails": obj.kerberosAuthDetails
+          ? model.KerberosAuthDetails.getJsonObj(obj.kerberosAuthDetails)
+          : undefined,
+        "odspInsightDetails": obj.odspInsightDetails
+          ? model.OdspInsightDetails.getJsonObj(obj.odspInsightDetails)
+          : undefined
       }
     };
 
@@ -176,6 +208,10 @@ export namespace DbSystem {
     const jsonObj = {
       ...obj,
       ...{
+        "replicationConfig": obj.replicationConfig
+          ? model.ReplicationConfig.getDeserializedJsonObj(obj.replicationConfig)
+          : undefined,
+
         "instances": obj.instances
           ? obj.instances.map(item => {
               return model.DbInstance.getDeserializedJsonObj(item);
@@ -190,7 +226,13 @@ export namespace DbSystem {
         "managementPolicy": obj.managementPolicy
           ? model.ManagementPolicy.getDeserializedJsonObj(obj.managementPolicy)
           : undefined,
-        "source": obj.source ? model.SourceDetails.getDeserializedJsonObj(obj.source) : undefined
+        "source": obj.source ? model.SourceDetails.getDeserializedJsonObj(obj.source) : undefined,
+        "kerberosAuthDetails": obj.kerberosAuthDetails
+          ? model.KerberosAuthDetails.getDeserializedJsonObj(obj.kerberosAuthDetails)
+          : undefined,
+        "odspInsightDetails": obj.odspInsightDetails
+          ? model.OdspInsightDetails.getDeserializedJsonObj(obj.odspInsightDetails)
+          : undefined
       }
     };
 

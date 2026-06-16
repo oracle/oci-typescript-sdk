@@ -450,6 +450,84 @@ export class ConfigClient {
   }
 
   /**
+   * Removes the data file.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteDataFileRequest
+   * @return DeleteDataFileResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmconfig/DeleteDataFile.ts.html |here} to see how to use DeleteDataFile API.
+   */
+  public async deleteDataFile(
+    deleteDataFileRequest: requests.DeleteDataFileRequest
+  ): Promise<responses.DeleteDataFileResponse> {
+    if (this.logger) this.logger.debug("Calling operation ConfigClient#deleteDataFile.");
+    const operationName = "deleteDataFile";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/apm-config/20210201/DataFile/DeleteDataFile";
+    const pathParams = {
+      "{dataFileName}": deleteDataFileRequest.dataFileName
+    };
+
+    const queryParams = {
+      "apmDomainId": deleteDataFileRequest.apmDomainId,
+      "apmType": deleteDataFileRequest.apmType
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteDataFileRequest.ifMatch,
+      "opc-retry-token": deleteDataFileRequest.opcRetryToken,
+      "opc-client-request-id": deleteDataFileRequest.opcClientRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteDataFileRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dataFiles/{dataFileName}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteDataFileResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-client-request-id"),
+            key: "opcClientRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Exports configurations for the whole domain by domainId.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ExportConfigurationRequest
@@ -610,6 +688,132 @@ export class ConfigClient {
   }
 
   /**
+   * Retrieves the Data file with the specified name and type.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetDataFileRequest
+   * @return GetDataFileResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmconfig/GetDataFile.ts.html |here} to see how to use GetDataFile API.
+   */
+  public async getDataFile(
+    getDataFileRequest: requests.GetDataFileRequest
+  ): Promise<responses.GetDataFileResponse> {
+    if (this.logger) this.logger.debug("Calling operation ConfigClient#getDataFile.");
+    const operationName = "getDataFile";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/apm-config/20210201/DataFile/GetDataFile";
+    const pathParams = {
+      "{dataFileName}": getDataFileRequest.dataFileName
+    };
+
+    const queryParams = {
+      "apmDomainId": getDataFileRequest.apmDomainId,
+      "apmType": getDataFileRequest.apmType
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": getDataFileRequest.opcRetryToken,
+      "opc-client-request-id": getDataFileRequest.opcClientRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDataFileRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dataFiles/{dataFileName}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetDataFileResponse>{},
+
+        body: response.body!,
+        bodyKey: "value",
+        bodyModel: "string",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-client-request-id"),
+            key: "opcClientRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-type"),
+            key: "contentType",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-length"),
+            key: "contentLength",
+            dataType: "number"
+          },
+          {
+            value: response.headers.get("content-md5"),
+            key: "contentMd5",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-encoding"),
+            key: "contentEncoding",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-language"),
+            key: "contentLanguage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-disposition"),
+            key: "contentDisposition",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("last-modified"),
+            key: "lastModified",
+            dataType: "Date"
+          },
+          {
+            value: response.headers.get("metadata"),
+            key: "metadata",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * The domain-wide agents matching attribute key.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetMatchAgentsWithAttributeKeyRequest
@@ -675,6 +879,128 @@ export class ConfigClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns metadata about the datafile.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param HeadDataFileRequest
+   * @return HeadDataFileResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmconfig/HeadDataFile.ts.html |here} to see how to use HeadDataFile API.
+   */
+  public async headDataFile(
+    headDataFileRequest: requests.HeadDataFileRequest
+  ): Promise<responses.HeadDataFileResponse> {
+    if (this.logger) this.logger.debug("Calling operation ConfigClient#headDataFile.");
+    const operationName = "headDataFile";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/apm-config/20210201/DataFile/HeadDataFile";
+    const pathParams = {
+      "{dataFileName}": headDataFileRequest.dataFileName
+    };
+
+    const queryParams = {
+      "apmDomainId": headDataFileRequest.apmDomainId,
+      "apmType": headDataFileRequest.apmType
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": headDataFileRequest.opcRetryToken,
+      "opc-client-request-id": headDataFileRequest.opcClientRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      headDataFileRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dataFiles/{dataFileName}",
+      method: "HEAD",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.HeadDataFileResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-client-request-id"),
+            key: "opcClientRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-type"),
+            key: "contentType",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-length"),
+            key: "contentLength",
+            dataType: "number"
+          },
+          {
+            value: response.headers.get("content-md5"),
+            key: "contentMd5",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-encoding"),
+            key: "contentEncoding",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-language"),
+            key: "contentLanguage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-disposition"),
+            key: "contentDisposition",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("last-modified"),
+            key: "lastModified",
+            dataType: "Date"
+          },
+          {
+            value: response.headers.get("metadata"),
+            key: "metadata",
             dataType: "string"
           }
         ]
@@ -845,6 +1171,198 @@ export class ConfigClient {
             value: response.headers.get("opc-next-page"),
             key: "opcNextPage",
             dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Fetches a list of Data files using some parameters.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListDataFilesRequest
+   * @return ListDataFilesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmconfig/ListDataFiles.ts.html |here} to see how to use ListDataFiles API.
+   */
+  public async listDataFiles(
+    listDataFilesRequest: requests.ListDataFilesRequest
+  ): Promise<responses.ListDataFilesResponse> {
+    if (this.logger) this.logger.debug("Calling operation ConfigClient#listDataFiles.");
+    const operationName = "listDataFiles";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/apm-config/20210201/DataFileSummaryCollection/ListDataFiles";
+    const pathParams = {};
+
+    const queryParams = {
+      "apmDomainId": listDataFilesRequest.apmDomainId,
+      "apmType": listDataFilesRequest.apmType,
+      "name": listDataFilesRequest.name,
+      "timeLastModifiedBefore": listDataFilesRequest.timeLastModifiedBefore,
+      "timeLastModifiedAfter": listDataFilesRequest.timeLastModifiedAfter,
+      "limit": listDataFilesRequest.limit,
+      "page": listDataFilesRequest.page,
+      "sortOrder": listDataFilesRequest.sortOrder,
+      "sortBy": listDataFilesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "metadata": listDataFilesRequest.metadata,
+      "opc-retry-token": listDataFilesRequest.opcRetryToken,
+      "opc-client-request-id": listDataFilesRequest.opcClientRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDataFilesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dataFiles",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListDataFilesResponse>{},
+        body: await response.json(),
+        bodyKey: "dataFileSummaryCollection",
+        bodyModel: model.DataFileSummaryCollection,
+        type: "model.DataFileSummaryCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-client-request-id"),
+            key: "opcClientRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new data file or replaces an existing one with the same name and type.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param PutDataFileRequest
+   * @return PutDataFileResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmconfig/PutDataFile.ts.html |here} to see how to use PutDataFile API.
+   */
+  public async putDataFile(
+    putDataFileRequest: requests.PutDataFileRequest
+  ): Promise<responses.PutDataFileResponse> {
+    if (this.logger) this.logger.debug("Calling operation ConfigClient#putDataFile.");
+    const operationName = "putDataFile";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/apm-config/20210201/DataFile/PutDataFile";
+    const pathParams = {
+      "{dataFileName}": putDataFileRequest.dataFileName
+    };
+
+    const queryParams = {
+      "apmDomainId": putDataFileRequest.apmDomainId,
+      "apmType": putDataFileRequest.apmType
+    };
+
+    let headerParams = {
+      "Content-MD5": putDataFileRequest.contentMD5,
+      "Content-Type": putDataFileRequest.contentType,
+      "Content-Language": putDataFileRequest.contentLanguage,
+      "Content-Encoding": putDataFileRequest.contentEncoding,
+      "Content-Disposition": putDataFileRequest.contentDisposition,
+      "metadata": putDataFileRequest.metadata,
+      "opc-retry-token": putDataFileRequest.opcRetryToken,
+      "opc-client-request-id": putDataFileRequest.opcClientRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      putDataFileRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dataFiles/{dataFileName}",
+      method: "PUT",
+      bodyContent: putDataFileRequest.putDataFileBody,
+      pathParams: pathParams,
+      headerParams: headerParams,
+      backupBinaryBody: retrier.backUpBinaryBody,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink,
+        true
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.PutDataFileResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-client-request-id"),
+            key: "opcClientRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-md5"),
+            key: "contentMd5",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("last-modified"),
+            key: "lastModified",
+            dataType: "Date"
           }
         ]
       });

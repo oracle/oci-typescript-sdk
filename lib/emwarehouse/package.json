@@ -1,6 +1,6 @@
 {
   "name": "oci-emwarehouse",
-  "version": "2.134.1",
+  "version": "2.135.0",
   "description": "OCI NodeJS client for Em Warehouse Service",
   "repository": {
     "type": "git",
@@ -22,8 +22,9 @@
     "registry": "https://registry.npmjs.org"
   },
   "contributors": [
-    "Jyoti Saini <jyoti.s.saini@oracle.com>",
-    "Joe Levy <joe.levy@oracle.com>",
-    "Walt Tran <walt.tran@oracle.com>"
+    "Yash Chandra <yash.chandra@oracle.com>",
+    "Nivedita Parihar <nivedita.parihar@oracle.com>",
+    "Joshua Ramirez <joshua.r.ramirez@oracle.com>",
+    "Kalpana Ramasamy <kalpana.ramasamy@oracle.com>"
   ]
 }

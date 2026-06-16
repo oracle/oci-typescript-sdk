@@ -46,6 +46,10 @@ export interface Link {
    * Date-time when this link was terminated.
    */
   "timeTerminated"?: Date;
+  /**
+   * The feature associated with this link. Default value is CORE.
+   */
+  "feature"?: string;
 }
 
 export namespace Link {

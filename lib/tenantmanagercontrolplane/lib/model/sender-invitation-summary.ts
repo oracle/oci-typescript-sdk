@@ -63,6 +63,10 @@ export interface SenderInvitationSummary {
    */
   "recipientEmailAddress"?: string;
   /**
+   * List of features that the invitation is being sent for. Each feature would create one link, of that type.
+   */
+  "invitationFeatures"?: Array<model.InvitationFeature>;
+  /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
    * Example: {@code {\"bar-key\": \"value\"}}
    *
@@ -91,6 +95,12 @@ export namespace SenderInvitationSummary {
           ? obj.subjects.map(item => {
               return model.InvitationSubject.getJsonObj(item);
             })
+          : undefined,
+
+        "invitationFeatures": obj.invitationFeatures
+          ? obj.invitationFeatures.map(item => {
+              return model.InvitationFeature.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -104,6 +114,12 @@ export namespace SenderInvitationSummary {
         "subjects": obj.subjects
           ? obj.subjects.map(item => {
               return model.InvitationSubject.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "invitationFeatures": obj.invitationFeatures
+          ? obj.invitationFeatures.map(item => {
+              return model.InvitationFeature.getDeserializedJsonObj(item);
             })
           : undefined
       }

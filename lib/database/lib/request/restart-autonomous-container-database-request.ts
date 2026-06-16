@@ -34,4 +34,8 @@ export interface RestartAutonomousContainerDatabaseRequest extends common.BaseRe
    *
    */
   "opcRequestId"?: string;
+  /**
+   * Request details to restart the Autonomous Container Database with force option.
+   */
+  "restartAutonomousContainerDatabaseDetails"?: model.RestartAutonomousContainerDatabaseDetails;
 }
