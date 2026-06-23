@@ -23,7 +23,7 @@ export interface ChangeScheduleCompartmentRequest extends common.BaseRequest {
    */
   "scheduleId": string;
   /**
-   * This is the change schedule compartment details that will be updated.
+   * These are the change schedule compartment details that will be updated.
    */
   "changeScheduleCompartmentDetails": model.ChangeScheduleCompartmentDetails;
   /**

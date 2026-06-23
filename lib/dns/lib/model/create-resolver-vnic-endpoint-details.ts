@@ -35,6 +35,7 @@ export interface CreateResolverVnicEndpointDetails extends model.CreateResolverE
    *
    */
   "nsgIds"?: Array<string>;
+  "securityAttributes"?: { [key: string]: { [key: string]: any } };
 
   "endpointType": string;
 }

@@ -50,6 +50,8 @@ export interface CreateResolverEndpointDetails {
    *
    */
   "listeningAddress"?: string;
+  "freeformTags"?: { [key: string]: string };
+  "definedTags"?: { [key: string]: { [key: string]: any } };
 
   "endpointType": string;
 }

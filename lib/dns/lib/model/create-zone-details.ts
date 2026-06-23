@@ -51,7 +51,7 @@ export interface CreateZoneDetails extends model.CreateZoneBaseDetails {
    */
   "externalDownstreams"?: Array<model.ExternalDownstream>;
   /**
-   * The resolution mode of a zone defines behavior related to how query responses can be handled.
+   * The resolution mode of a zone defines behavior related to how query responses can be handled. See [Private DNS Zone Transparency](https://docs.oracle.com/iaas/Content/DNS/Tasks/privatedns.htm#use-cases__resolution) for more information.
    *
    */
   "resolutionMode"?: model.ZoneResolutionMode;

@@ -35,6 +35,7 @@ export enum WorkRequestOperationType {
   VirtualnodepoolUpdate = "VIRTUALNODEPOOL_UPDATE",
   VirtualnodepoolDelete = "VIRTUALNODEPOOL_DELETE",
   VirtualnodeDelete = "VIRTUALNODE_DELETE",
+  VirtualnodepoolCycling = "VIRTUALNODEPOOL_CYCLING",
   EnableAddon = "ENABLE_ADDON",
   UpdateAddon = "UPDATE_ADDON",
   DisableAddon = "DISABLE_ADDON",

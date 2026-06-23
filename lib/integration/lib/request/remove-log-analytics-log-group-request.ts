@@ -23,6 +23,10 @@ export interface RemoveLogAnalyticsLogGroupRequest extends common.BaseRequest {
    */
   "integrationInstanceId": string;
   /**
+   * Details to remove Log Group for given integration instance or Process Automation attached to integration instance.
+   */
+  "removeLogAnalyticsLogGroupDetails"?: model.RemoveLogAnalyticsLogGroupDetails;
+  /**
    * For optimistic concurrency control. In the PUT or DELETE call
    * for a resource, set the {@code if-match} parameter to the value of the
    * etag from a previous GET or POST response for that resource.

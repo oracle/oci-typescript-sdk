@@ -23,6 +23,9 @@ import common = require("oci-common");
  *
  */
 export interface UpdateResolverEndpointDetails {
+  "freeformTags"?: { [key: string]: string };
+  "definedTags"?: { [key: string]: { [key: string]: any } };
+
   "endpointType": string;
 }
 
