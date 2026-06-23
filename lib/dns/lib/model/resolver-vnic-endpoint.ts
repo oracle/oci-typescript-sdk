@@ -34,6 +34,15 @@ export interface ResolverVnicEndpoint extends model.ResolverEndpoint {
    *
    */
   "nsgIds"?: Array<string>;
+  "securityAttributes"?: { [key: string]: { [key: string]: any } };
+  /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the private endpoint resource that this resolver endpoint corresponds to.
+   */
+  "peId"?: string;
+  /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the VNIC resource that this resolver endpoint corresponds to.
+   */
+  "vnicId"?: string;
 
   "endpointType": string;
 }

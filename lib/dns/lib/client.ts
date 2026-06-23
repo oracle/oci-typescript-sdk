@@ -1144,7 +1144,7 @@ Attachments cannot be created for private zones.
 Private zones must have a zone type of `PRIMARY`. Creating a private zone at or under `oraclevcn.com`
 * within the default protected view of a VCN-dedicated resolver is not permitted.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param CreateZoneRequest
      * @return CreateZoneResponse
      * @throws OciError when an error occurs
@@ -1170,7 +1170,7 @@ Private zones must have a zone type of `PRIMARY`. Creating a private zone at or 
       "opc-retry-token": createZoneRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createZoneRequest.retryConfiguration,
@@ -1238,7 +1238,7 @@ Private zones must have a zone type of `PRIMARY`. Creating a private zone at or 
   /**
    * Creates a new zone from a zone file in the specified compartment. Not supported for private zones.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateZoneFromZoneFileRequest
    * @return CreateZoneFromZoneFileResponse
    * @throws OciError when an error occurs
@@ -1264,7 +1264,7 @@ Private zones must have a zone type of `PRIMARY`. Creating a private zone at or 
       "opc-retry-token": createZoneFromZoneFileRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createZoneFromZoneFileRequest.retryConfiguration,

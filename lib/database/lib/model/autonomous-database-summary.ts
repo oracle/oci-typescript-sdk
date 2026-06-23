@@ -701,6 +701,10 @@ This cannot be updated in parallel with any of the following: licenseModel, dbEd
   "timeDisasterRecoveryRoleChanged"?: Date;
   "remoteDisasterRecoveryConfiguration"?: model.DisasterRecoveryConfiguration;
   /**
+   * List of access types for an Autonomous AI Database.
+   */
+  "accessTypes"?: Array<string>;
+  /**
    * Enabling SHARED server architecture enables a database server to allow many client processes to share very few server processes, thereby increasing the number of supported users.
    *
    */

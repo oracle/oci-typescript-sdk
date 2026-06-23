@@ -29,6 +29,7 @@ export interface UpdateResolverVnicEndpointDetails extends model.UpdateResolverE
    *
    */
   "nsgIds"?: Array<string>;
+  "securityAttributes"?: { [key: string]: { [key: string]: any } };
 
   "endpointType": string;
 }

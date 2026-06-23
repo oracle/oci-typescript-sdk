@@ -206,6 +206,8 @@ import * as VirtualNodeLifecycleState from "./virtual-node-lifecycle-state";
 export import VirtualNodeLifecycleState = VirtualNodeLifecycleState.VirtualNodeLifecycleState;
 import * as VirtualNodePool from "./virtual-node-pool";
 export import VirtualNodePool = VirtualNodePool.VirtualNodePool;
+import * as VirtualNodePoolCyclingDetails from "./virtual-node-pool-cycling-details";
+export import VirtualNodePoolCyclingDetails = VirtualNodePoolCyclingDetails.VirtualNodePoolCyclingDetails;
 import * as VirtualNodePoolLifecycleState from "./virtual-node-pool-lifecycle-state";
 export import VirtualNodePoolLifecycleState = VirtualNodePoolLifecycleState.VirtualNodePoolLifecycleState;
 import * as VirtualNodePoolSummary from "./virtual-node-pool-summary";

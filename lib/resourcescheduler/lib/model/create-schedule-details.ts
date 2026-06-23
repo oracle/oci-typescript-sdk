@@ -87,7 +87,8 @@ Example: {@code {\"Operations\": {\"CostCenter\": \"42\"}}}
 export namespace CreateScheduleDetails {
   export enum Action {
     StartResource = "START_RESOURCE",
-    StopResource = "STOP_RESOURCE"
+    StopResource = "STOP_RESOURCE",
+    BackupResource = "BACKUP_RESOURCE"
   }
 
   export enum RecurrenceType {

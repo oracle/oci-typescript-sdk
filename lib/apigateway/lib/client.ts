@@ -2421,7 +2421,16 @@ export class ApiGatewayClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateSdkResponse>{},
+        body: await response.json(),
+        bodyKey: "sdk",
+        bodyModel: model.Sdk,
+        type: "model.Sdk",
         responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",

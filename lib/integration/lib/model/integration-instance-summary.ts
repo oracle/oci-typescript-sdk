@@ -139,6 +139,10 @@ Example: {@code {\"Oracle-ZPR\": {\"MaxEgressCount\": {\"value\": \"42\", \"mode
    * OCID of LogAnalytics LogGroup, enabled for given integration instance
    */
   "logGroupId"?: string;
+  /**
+   * OCID of LogAnalytics LogGroup, enabled for given Process Automation attached to integration instance.
+   */
+  "processAutomationLogGroupId"?: string;
 }
 
 export namespace IntegrationInstanceSummary {

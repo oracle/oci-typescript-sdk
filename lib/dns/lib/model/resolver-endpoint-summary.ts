@@ -51,6 +51,14 @@ export interface ResolverEndpointSummary {
    */
   "listeningAddress"?: string;
   /**
+   * The OCID of the resolver endpoint.
+   */
+  "id": string;
+  /**
+   * The OCID of the resolver.
+   */
+  "resolverId": string;
+  /**
    * The OCID of the owning compartment. This will match the resolver that the resolver endpoint is under
    * and will be updated if the resolver's compartment is changed.
    *
@@ -80,6 +88,8 @@ export interface ResolverEndpointSummary {
    * The canonical absolute URL of the resource.
    */
   "self": string;
+  "freeformTags": { [key: string]: string };
+  "definedTags": { [key: string]: { [key: string]: any } };
 
   "endpointType": string;
 }

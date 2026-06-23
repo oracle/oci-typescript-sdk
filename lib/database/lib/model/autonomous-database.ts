@@ -21,6 +21,10 @@ import common = require("oci-common");
  */
 export interface AutonomousDatabase {
   /**
+   * The external logical zone where the Autonomous AI Database Serverless instance is located (Intended for multicloud use).
+   */
+  "externalLocationZone"?: string;
+  /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Autonomous AI Database.
    */
   "id": string;
@@ -698,6 +702,10 @@ This cannot be updated in parallel with any of the following: licenseModel, dbEd
    */
   "timeDisasterRecoveryRoleChanged"?: Date;
   "remoteDisasterRecoveryConfiguration"?: model.DisasterRecoveryConfiguration;
+  /**
+   * List of access types for an Autonomous AI Database.
+   */
+  "accessTypes"?: Array<string>;
   /**
    * Enabling SHARED server architecture enables a database server to allow many client processes to share very few server processes, thereby increasing the number of supported users.
    *

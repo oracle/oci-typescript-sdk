@@ -305,6 +305,8 @@ import * as NoCache from "./no-cache";
 export import NoCache = NoCache.NoCache;
 import * as NoContentValidation from "./no-content-validation";
 export import NoContentValidation = NoContentValidation.NoContentValidation;
+import * as OAuth2LoginBackend from "./o-auth2-login-backend";
+export import OAuth2LoginBackend = OAuth2LoginBackend.OAuth2LoginBackend;
 import * as OAuth2LogoutBackend from "./o-auth2-logout-backend";
 export import OAuth2LogoutBackend = OAuth2LogoutBackend.OAuth2LogoutBackend;
 import * as OAuth2ResponseValidationFailurePolicy from "./o-auth2-response-validation-failure-policy";

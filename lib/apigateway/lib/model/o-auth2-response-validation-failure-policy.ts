@@ -61,6 +61,13 @@ export interface OAuth2ResponseValidationFailurePolicy extends model.ValidationF
    * The path to be used as logout.
    */
   "logoutPath"?: string;
+  /**
+   * The path (relative to the deployment) where the Identity Provider
+   * will redirect the user after authentication. This path must match
+   * a route in the specification that uses the OAUTH2_LOGIN_BACKEND.
+   *
+   */
+  "loginPath"?: string;
 
   "type": string;
 }

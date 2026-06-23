@@ -27,6 +27,7 @@ export interface DynamicRoutingTypeRoutingBackend {
     | model.HTTPBackend
     | model.OracleFunctionBackend
     | model.StockResponseBackend
+    | model.OAuth2LoginBackend
     | model.DynamicRoutingBackend;
 }
 

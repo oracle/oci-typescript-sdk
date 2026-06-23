@@ -36,7 +36,7 @@ export interface JsonWebKey extends model.StaticPublicKey {
   /**
    * The algorithm intended for use with this key.
    */
-  "alg": string;
+  "alg"?: string;
   /**
    * The base64 url encoded modulus of the RSA public key represented
    * by this key.

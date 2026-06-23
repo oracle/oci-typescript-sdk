@@ -15,32 +15,28 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Input payload to ADD Log Analytics Log Group for given IntegrationInstance.
+ * Input payload to remove Log Analytics Log Group for given IntegrationInstance or its supported attachments.
  * Some actions may not be applicable to specific integration types.
  *
  */
-export interface AddLogAnalyticsLogGroupDetails {
-  /**
-   * Log Group ocid.
-   */
-  "logGroupId": string;
+export interface RemoveLogAnalyticsLogGroupDetails {
   /**
    * Type of attachment. Supported at this include PROCESS_AUTOMATION
    */
-  "attachmentType"?: AddLogAnalyticsLogGroupDetails.AttachmentType;
+  "attachmentType"?: RemoveLogAnalyticsLogGroupDetails.AttachmentType;
 }
 
-export namespace AddLogAnalyticsLogGroupDetails {
+export namespace RemoveLogAnalyticsLogGroupDetails {
   export enum AttachmentType {
     ProcessAutomation = "PROCESS_AUTOMATION"
   }
 
-  export function getJsonObj(obj: AddLogAnalyticsLogGroupDetails): object {
+  export function getJsonObj(obj: RemoveLogAnalyticsLogGroupDetails): object {
     const jsonObj = { ...obj, ...{} };
 
     return jsonObj;
   }
-  export function getDeserializedJsonObj(obj: AddLogAnalyticsLogGroupDetails): object {
+  export function getDeserializedJsonObj(obj: RemoveLogAnalyticsLogGroupDetails): object {
     const jsonObj = { ...obj, ...{} };
 
     return jsonObj;
