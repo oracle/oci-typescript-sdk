@@ -51,6 +51,8 @@ import * as NetworkEndpointType from "./network-endpoint-type";
 export import NetworkEndpointType = NetworkEndpointType.NetworkEndpointType;
 import * as OutboundConnection from "./outbound-connection";
 export import OutboundConnection = OutboundConnection.OutboundConnection;
+import * as RemoveLogAnalyticsLogGroupDetails from "./remove-log-analytics-log-group-details";
+export import RemoveLogAnalyticsLogGroupDetails = RemoveLogAnalyticsLogGroupDetails.RemoveLogAnalyticsLogGroupDetails;
 import * as UpdateCustomEndpointDetails from "./update-custom-endpoint-details";
 export import UpdateCustomEndpointDetails = UpdateCustomEndpointDetails.UpdateCustomEndpointDetails;
 import * as UpdateIntegrationInstanceDetails from "./update-integration-instance-details";

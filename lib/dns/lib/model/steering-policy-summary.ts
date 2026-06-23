@@ -154,6 +154,7 @@ export namespace SteeringPolicySummary {
   export enum LifecycleState {
     Active = "ACTIVE",
     Creating = "CREATING",
+    Updating = "UPDATING",
     Deleted = "DELETED",
     Deleting = "DELETING",
     /**

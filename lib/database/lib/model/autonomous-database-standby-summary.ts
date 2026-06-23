@@ -56,6 +56,10 @@ export interface AutonomousDatabaseStandbySummary {
    * The availability domain of a local Autonomous Data Guard standby database of an Autonomous AI Database Serverless instance.
    */
   "availabilityDomain"?: string;
+  /**
+   * The external logical zone where the local Autonomous Data Guard is located (Intended for multicloud use).
+   */
+  "externalLocationZone"?: string;
 }
 
 export namespace AutonomousDatabaseStandbySummary {

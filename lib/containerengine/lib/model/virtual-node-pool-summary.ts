@@ -102,6 +102,7 @@ export interface VirtualNodePoolSummary {
    */
   "systemTags"?: { [key: string]: { [key: string]: any } };
   "virtualNodeTags"?: model.VirtualNodeTags;
+  "virtualNodePoolCyclingDetails"?: model.VirtualNodePoolCyclingDetails;
 }
 
 export namespace VirtualNodePoolSummary {
@@ -132,6 +133,9 @@ export namespace VirtualNodePoolSummary {
 
         "virtualNodeTags": obj.virtualNodeTags
           ? model.VirtualNodeTags.getJsonObj(obj.virtualNodeTags)
+          : undefined,
+        "virtualNodePoolCyclingDetails": obj.virtualNodePoolCyclingDetails
+          ? model.VirtualNodePoolCyclingDetails.getJsonObj(obj.virtualNodePoolCyclingDetails)
           : undefined
       }
     };
@@ -165,6 +169,11 @@ export namespace VirtualNodePoolSummary {
 
         "virtualNodeTags": obj.virtualNodeTags
           ? model.VirtualNodeTags.getDeserializedJsonObj(obj.virtualNodeTags)
+          : undefined,
+        "virtualNodePoolCyclingDetails": obj.virtualNodePoolCyclingDetails
+          ? model.VirtualNodePoolCyclingDetails.getDeserializedJsonObj(
+              obj.virtualNodePoolCyclingDetails
+            )
           : undefined
       }
     };

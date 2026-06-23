@@ -1919,8 +1919,8 @@ export class IntegrationInstanceClient {
   }
 
   /**
-   * Removes Log Analytics logGroup, if enabled for given integrationInstance. Since only single LogGroup can be enabled
-   * for integration instance, no additional details are required to be includes in the request.
+   * Removes Log Analytics logGroup, if enabled for given integrationInstance.
+   * Also used for removing Log Analytics log Group for attached OPA instance.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param RemoveLogAnalyticsLogGroupRequest
@@ -1961,6 +1961,11 @@ export class IntegrationInstanceClient {
       defaultHeaders: this._defaultHeaders,
       path: "/integrationInstances/{integrationInstanceId}/actions/removeLogAnalyticsLogGroup",
       method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        removeLogAnalyticsLogGroupRequest.removeLogAnalyticsLogGroupDetails,
+        "RemoveLogAnalyticsLogGroupDetails",
+        model.RemoveLogAnalyticsLogGroupDetails.getJsonObj
+      ),
       pathParams: pathParams,
       headerParams: headerParams,
       queryParams: queryParams

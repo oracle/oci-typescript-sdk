@@ -1,6 +1,6 @@
 {
   "name": "oci-budget",
-  "version": "2.135.0",
+  "version": "2.135.1",
   "description": "OCI NodeJS client for Budget Service",
   "repository": {
     "type": "git",

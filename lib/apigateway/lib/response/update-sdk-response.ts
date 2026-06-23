@@ -16,10 +16,19 @@ import common = require("oci-common");
 
 export interface UpdateSdkResponse {
   /**
+   * For optimistic concurrency control. See {@code if-match}.
+   *
+   */
+  "etag": string;
+  /**
    * Unique Oracle-assigned identifier for the request. If you need to
    * contact Oracle about a particular request, please provide the request
    * id.
    *
    */
   "opcRequestId": string;
+  /**
+   * The returned model.Sdk instance.
+   */
+  "sdk": model.Sdk;
 }

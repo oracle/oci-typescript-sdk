@@ -1,6 +1,6 @@
 {
   "name": "oci-desktops",
-  "version": "2.135.0",
+  "version": "2.135.1",
   "description": "OCI NodeJS client for Desktops Service",
   "repository": {
     "type": "git",
