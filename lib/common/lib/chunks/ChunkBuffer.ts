@@ -11,7 +11,6 @@ export async function* ChunkBuffer(
   data: Buffer,
   partSize: number
 ): AsyncGenerator<RawData, void, undefined> {
-  let partNumber = 1;
   let startByte = 0;
   let endByte = partSize;
   let content;
@@ -25,7 +24,6 @@ export async function* ChunkBuffer(
       data: content,
       md5Hash: md5Hash.digest("base64")
     };
-    partNumber += 1;
     startByte = endByte;
     endByte = startByte + partSize;
   }
