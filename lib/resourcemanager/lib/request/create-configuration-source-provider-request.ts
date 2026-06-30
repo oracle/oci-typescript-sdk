@@ -23,7 +23,7 @@ export interface CreateConfigurationSourceProviderRequest extends common.BaseReq
    */
   "createConfigurationSourceProviderDetails":
     | model.CreateGitlabAccessTokenConfigurationSourceProviderDetails
-    | model.CreateBitbucketCloudUsernameAppPasswordConfigurationSourceProviderDetails
+    | model.CreateBitbucketCloudEmailApiTokenConfigurationSourceProviderDetails
     | model.CreateGithubAccessTokenConfigurationSourceProviderDetails
     | model.CreateBitbucketServerAccessTokenConfigurationSourceProviderDetails;
   /**

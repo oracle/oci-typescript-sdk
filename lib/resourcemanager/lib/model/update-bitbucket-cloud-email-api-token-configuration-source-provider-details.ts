@@ -19,58 +19,59 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Creation details for a configuration source provider of the type {@code BITBUCKET_CLOUD_USERNAME_appPASSWORD}.
- * This type corresponds to a configuration source provider in Bitbucket that is authenticated with a username and app password.
+ * Update details for a configuration source provider of the type {@code BITBUCKET_CLOUD_ACCESS_TOKEN}.
+ * This type corresponds to a configuration source provider in Bitbucket Cloud that is authenticated with Atlassian account email and API token.
+ * Legacy username/app-password update request shapes are no longer supported.
  *
  */
-export interface CreateBitbucketCloudUsernameAppPasswordConfigurationSourceProviderDetails
-  extends model.CreateConfigurationSourceProviderDetails {
+export interface UpdateBitbucketCloudEmailApiTokenConfigurationSourceProviderDetails
+  extends model.UpdateConfigurationSourceProviderDetails {
   /**
-   * The Bitbucket cloud service endpoint.
+   * The Bitbucket service endpoint.
    * Example: {@code https://bitbucket.org/}
    *
    */
-  "apiEndpoint": string;
+  "apiEndpoint"?: string;
   /**
-   * The username for the user of the Bitbucket cloud repository.
+   * Atlassian account email used for Bitbucket Cloud API token authentication.
    */
-  "username": string;
+  "email"?: string;
   /**
-   * The secret ocid which is used to authorize the user.
+   * The secret OCID containing an Atlassian API token.
    *
    */
-  "secretId": string;
+  "secretId"?: string;
 
   "configSourceProviderType": string;
 }
 
-export namespace CreateBitbucketCloudUsernameAppPasswordConfigurationSourceProviderDetails {
+export namespace UpdateBitbucketCloudEmailApiTokenConfigurationSourceProviderDetails {
   export function getJsonObj(
-    obj: CreateBitbucketCloudUsernameAppPasswordConfigurationSourceProviderDetails,
+    obj: UpdateBitbucketCloudEmailApiTokenConfigurationSourceProviderDetails,
     isParentJsonObj?: boolean
   ): object {
     const jsonObj = {
       ...(isParentJsonObj
         ? obj
-        : (model.CreateConfigurationSourceProviderDetails.getJsonObj(
+        : (model.UpdateConfigurationSourceProviderDetails.getJsonObj(
             obj
-          ) as CreateBitbucketCloudUsernameAppPasswordConfigurationSourceProviderDetails)),
+          ) as UpdateBitbucketCloudEmailApiTokenConfigurationSourceProviderDetails)),
       ...{}
     };
 
     return jsonObj;
   }
-  export const configSourceProviderType = "BITBUCKET_CLOUD_USERNAME_APPPASSWORD";
+  export const configSourceProviderType = "BITBUCKET_CLOUD_ACCESS_TOKEN";
   export function getDeserializedJsonObj(
-    obj: CreateBitbucketCloudUsernameAppPasswordConfigurationSourceProviderDetails,
+    obj: UpdateBitbucketCloudEmailApiTokenConfigurationSourceProviderDetails,
     isParentJsonObj?: boolean
   ): object {
     const jsonObj = {
       ...(isParentJsonObj
         ? obj
-        : (model.CreateConfigurationSourceProviderDetails.getDeserializedJsonObj(
+        : (model.UpdateConfigurationSourceProviderDetails.getDeserializedJsonObj(
             obj
-          ) as CreateBitbucketCloudUsernameAppPasswordConfigurationSourceProviderDetails)),
+          ) as UpdateBitbucketCloudEmailApiTokenConfigurationSourceProviderDetails)),
       ...{}
     };
 

@@ -67,6 +67,10 @@ export interface ListBackupsRequest extends common.BaseRequest {
    * The client request ID for tracing.
    */
   "opcRequestId"?: string;
+  /**
+   * A filter to return only backups whose backupSourceType matches the given backupSourceType
+   */
+  "backupSourceType"?: string;
 }
 
 export namespace ListBackupsRequest {

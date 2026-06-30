@@ -1614,6 +1614,81 @@ export class PostgresqlClient {
   }
 
   /**
+   * Gets the database system PITR details.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetPitrDetailsRequest
+   * @return GetPitrDetailsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/psql/GetPitrDetails.ts.html |here} to see how to use GetPitrDetails API.
+   */
+  public async getPitrDetails(
+    getPitrDetailsRequest: requests.GetPitrDetailsRequest
+  ): Promise<responses.GetPitrDetailsResponse> {
+    if (this.logger) this.logger.debug("Calling operation PostgresqlClient#getPitrDetails.");
+    const operationName = "getPitrDetails";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{dbSystemId}": getPitrDetailsRequest.dbSystemId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getPitrDetailsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getPitrDetailsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dbSystems/{dbSystemId}/pitrDetails",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetPitrDetailsResponse>{},
+        body: await response.json(),
+        bodyKey: "pitrDetails",
+        bodyModel: model.PitrDetails,
+        type: "model.PitrDetails",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets the primary database instance node details.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetPrimaryDbInstanceRequest
@@ -1796,7 +1871,8 @@ export class PostgresqlClient {
       "limit": listBackupsRequest.limit,
       "page": listBackupsRequest.page,
       "sortOrder": listBackupsRequest.sortOrder,
-      "sortBy": listBackupsRequest.sortBy
+      "sortBy": listBackupsRequest.sortBy,
+      "backupSourceType": listBackupsRequest.backupSourceType
     };
 
     let headerParams = {

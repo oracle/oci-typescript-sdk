@@ -49,6 +49,8 @@ import * as GetDbSystemResponse from "./get-db-system-response";
 export import GetDbSystemResponse = GetDbSystemResponse.GetDbSystemResponse;
 import * as GetDefaultConfigurationResponse from "./get-default-configuration-response";
 export import GetDefaultConfigurationResponse = GetDefaultConfigurationResponse.GetDefaultConfigurationResponse;
+import * as GetPitrDetailsResponse from "./get-pitr-details-response";
+export import GetPitrDetailsResponse = GetPitrDetailsResponse.GetPitrDetailsResponse;
 import * as GetPrimaryDbInstanceResponse from "./get-primary-db-instance-response";
 export import GetPrimaryDbInstanceResponse = GetPrimaryDbInstanceResponse.GetPrimaryDbInstanceResponse;
 import * as GetWorkRequestResponse from "./get-work-request-response";

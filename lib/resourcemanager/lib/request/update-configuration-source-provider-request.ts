@@ -28,9 +28,9 @@ export interface UpdateConfigurationSourceProviderRequest extends common.BaseReq
    *
    */
   "updateConfigurationSourceProviderDetails":
-    | model.UpdateBitbucketCloudUsernameAppPasswordConfigurationSourceProviderDetails
     | model.UpdateBitbucketServerAccessTokenConfigurationSourceProviderDetails
     | model.UpdateGitlabAccessTokenConfigurationSourceProviderDetails
+    | model.UpdateBitbucketCloudEmailApiTokenConfigurationSourceProviderDetails
     | model.UpdateGithubAccessTokenConfigurationSourceProviderDetails;
   /**
    * Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a

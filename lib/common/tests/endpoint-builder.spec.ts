@@ -173,6 +173,60 @@ describe("Test EndpointBuilder ", () => {
     expect(url).equals("https://test-bucket-1.objectstorage.us-phoenix-1.oci.oraclecloud.com");
   });
 
+  it("should populate endpoint with domain-safe parameter value", function() {
+    let endpoint = "https://{namespaceName+Dot}objectstorage.us-phoenix-1.example.com";
+    const requiredParams = new Set<string>(["namespaceName"]);
+    [
+      "namespace",
+      "namespace1",
+      "namespace_name",
+      "namespace.example",
+      "dex-us-phoenix-1",
+      "Dex_Namespace-1.test"
+    ].forEach(namespaceName => {
+      let pathParams = {
+        "{namespaceName}": namespaceName
+      };
+      let queryParams = {};
+      const url = EndpointBuilder.populateServiceParamsInEndpoint(
+        endpoint,
+        pathParams,
+        queryParams,
+        requiredParams
+      );
+      expect(url).equals(`https://${namespaceName}.objectstorage.us-phoenix-1.example.com`);
+    });
+  });
+
+  it("should reject unsafe parameter values", function() {
+    let endpoint = "https://{namespaceName+Dot}objectstorage.us-phoenix-1.example.com";
+    const requiredParams = new Set<string>(["namespaceName"]);
+    [
+      "namespace/objectstorage.example",
+      "user@example",
+      "namespace?query",
+      "namespace name",
+      "-namespace",
+      "namespace-"
+    ].forEach(namespaceName => {
+      let pathParams = {
+        "{namespaceName}": namespaceName
+      };
+      let queryParams = {};
+      const url = function() {
+        EndpointBuilder.populateServiceParamsInEndpoint(
+          endpoint,
+          pathParams,
+          queryParams,
+          requiredParams
+        );
+      };
+      expect(url).to.throw(
+        "Endpoint parameter namespaceName contains characters that are not allowed in a domain-safe endpoint parameter"
+      );
+    });
+  });
+
   it("should populate dualstack empty in default case", function() {
     let endpoint =
       "https://test-namespace-1.{dualStack?ds.:}objectstorage.us-phoenix-1.oci.customer-oci.com";

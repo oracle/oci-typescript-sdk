@@ -76,7 +76,8 @@ export interface CreateDbSystemDetails {
   "source"?:
     | model.BackupSourceDetails
     | model.PrimaryDbSystemSourceDetails
-    | model.NoneSourceDetails;
+    | model.NoneSourceDetails
+    | model.PointInTimeDbSystemSourceDetails;
   "replicationConfig"?: model.CreateReplicationConfigDetails;
   "odspInsightDetails"?: model.DisabledInsightDetails | model.EnabledInsightDetails;
   /**
