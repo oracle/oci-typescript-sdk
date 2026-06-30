@@ -30,6 +30,7 @@ export interface ManagementPolicy {
     | model.WeeklyBackupPolicy
     | model.NoneBackupPolicy
     | model.MonthlyBackupPolicy;
+  "pitrPolicy"?: model.StandardPitrPolicy | model.NonePitrPolicy;
 }
 
 export namespace ManagementPolicy {
@@ -39,7 +40,8 @@ export namespace ManagementPolicy {
       ...{
         "backupPolicy": obj.backupPolicy
           ? model.BackupPolicy.getJsonObj(obj.backupPolicy)
-          : undefined
+          : undefined,
+        "pitrPolicy": obj.pitrPolicy ? model.PitrPolicy.getJsonObj(obj.pitrPolicy) : undefined
       }
     };
 
@@ -51,6 +53,9 @@ export namespace ManagementPolicy {
       ...{
         "backupPolicy": obj.backupPolicy
           ? model.BackupPolicy.getDeserializedJsonObj(obj.backupPolicy)
+          : undefined,
+        "pitrPolicy": obj.pitrPolicy
+          ? model.PitrPolicy.getDeserializedJsonObj(obj.pitrPolicy)
           : undefined
       }
     };

@@ -193,4 +193,63 @@ describe("Test Request Generator ", () => {
       "http://test-end-point/20191002/testUrl/Test-Id/actions?imageId=test&definedTagEquals=namespace1.key.val&definedTagEquals=namespace1.key.val2&definedTagEquals=namespace2.key.val&freeformTagEquals=ff1key.val&freeformTagEquals=ff2key.val"
     );
   });
+
+  it("should accept valid base endpoints", async function() {
+    const sdkRequest = await composeRequest({
+      baseEndpoint: "https://objectstorage.us-phoenix-1.oci.customer-oci.com",
+      defaultHeaders: {},
+      path: "/testUrl/{testId}/actions",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+
+    expect(sdkRequest.uri).equals(
+      "https://objectstorage.us-phoenix-1.oci.customer-oci.com/testUrl/Test-Id/actions?imageId=test"
+    );
+  });
+
+  it("should accept base endpoints with service base path", async function() {
+    const sdkRequest = await composeRequest({
+      baseEndpoint: "https://objectstorage.us-phoenix-1.oci.customer-oci.com/20191002",
+      defaultHeaders: {},
+      path: "/testUrl/{testId}/actions",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+
+    expect(sdkRequest.uri).equals(
+      "https://objectstorage.us-phoenix-1.oci.customer-oci.com/20191002/testUrl/Test-Id/actions?imageId=test"
+    );
+  });
+
+  it("should reject invalid base endpoints", async function() {
+    const invalidEndpoints = [
+      "file://objectstorage.us-phoenix-1.oci.customer-oci.com",
+      "https://foo@objectstorage.us-phoenix-1.oci.customer-oci.com",
+      "https://objectstorage.us-phoenix-1.oci.customer-oci.com?foo=bar",
+      "https://objectstorage.us-phoenix-1.oci.customer-oci.com#foo"
+    ];
+
+    for (const endpoint of invalidEndpoints) {
+      try {
+        await composeRequest({
+          baseEndpoint: endpoint,
+          defaultHeaders: {},
+          path: "/testUrl/{testId}/actions",
+          method: "POST",
+          pathParams: pathParams,
+          headerParams: headerParams,
+          queryParams: queryParams
+        });
+      } catch (e) {
+        expect((e as Error).message).contains("host is invalid");
+        continue;
+      }
+      throw new Error(`Expected endpoint to be rejected: ${endpoint}`);
+    }
+  });
 });

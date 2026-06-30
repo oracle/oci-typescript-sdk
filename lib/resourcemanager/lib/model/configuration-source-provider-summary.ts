@@ -56,6 +56,11 @@ export interface ConfigurationSourceProviderSummary {
   "lifecycleState"?: string;
   "privateServerConfigDetails"?: model.PrivateServerConfigDetails;
   /**
+   * Indicates whether this configuration source provider uses legacy Bitbucket Cloud username/app-password credentials and must be migrated.
+   *
+   */
+  "isMigrationRequired"?: boolean;
+  /**
    * Free-form tags associated with the resource. Each tag is a key-value pair with no predefined name, type, or namespace.
    * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
    * Example: {@code {\"Department\": \"Finance\"}}
@@ -98,16 +103,14 @@ export namespace ConfigurationSourceProviderSummary {
             <model.GitlabAccessTokenConfigurationSourceProviderSummary>(<object>jsonObj),
             true
           );
-        case "BITBUCKET_CLOUD_USERNAME_APPPASSWORD":
-          return model.BitbucketCloudUsernameAppPasswordConfigurationSourceProviderSummary.getJsonObj(
-            <model.BitbucketCloudUsernameAppPasswordConfigurationSourceProviderSummary>(
-              (<object>jsonObj)
-            ),
-            true
-          );
         case "BITBUCKET_SERVER_ACCESS_TOKEN":
           return model.BitbucketServerAccessTokenConfigurationSourceProviderSummary.getJsonObj(
             <model.BitbucketServerAccessTokenConfigurationSourceProviderSummary>(<object>jsonObj),
+            true
+          );
+        case "BITBUCKET_CLOUD_ACCESS_TOKEN":
+          return model.BitbucketCloudEmailApiTokenConfigurationSourceProviderSummary.getJsonObj(
+            <model.BitbucketCloudEmailApiTokenConfigurationSourceProviderSummary>(<object>jsonObj),
             true
           );
         case "GITHUB_ACCESS_TOKEN":
@@ -139,16 +142,14 @@ export namespace ConfigurationSourceProviderSummary {
             <model.GitlabAccessTokenConfigurationSourceProviderSummary>(<object>jsonObj),
             true
           );
-        case "BITBUCKET_CLOUD_USERNAME_APPPASSWORD":
-          return model.BitbucketCloudUsernameAppPasswordConfigurationSourceProviderSummary.getDeserializedJsonObj(
-            <model.BitbucketCloudUsernameAppPasswordConfigurationSourceProviderSummary>(
-              (<object>jsonObj)
-            ),
-            true
-          );
         case "BITBUCKET_SERVER_ACCESS_TOKEN":
           return model.BitbucketServerAccessTokenConfigurationSourceProviderSummary.getDeserializedJsonObj(
             <model.BitbucketServerAccessTokenConfigurationSourceProviderSummary>(<object>jsonObj),
+            true
+          );
+        case "BITBUCKET_CLOUD_ACCESS_TOKEN":
+          return model.BitbucketCloudEmailApiTokenConfigurationSourceProviderSummary.getDeserializedJsonObj(
+            <model.BitbucketCloudEmailApiTokenConfigurationSourceProviderSummary>(<object>jsonObj),
             true
           );
         case "GITHUB_ACCESS_TOKEN":

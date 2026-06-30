@@ -82,6 +82,7 @@ export async function composeRequest(params: RequestParams): Promise<HttpRequest
 function computeUri(params: RequestParams): string {
   const path = validateAndComputePath(params.path, params.pathParams);
   const queryString = stringify(params.queryParams);
+  validateEndpoint(params.baseEndpoint);
   let uri = params.baseEndpoint + path;
   if (queryString) {
     uri = uri + "?" + queryString;
@@ -100,6 +101,23 @@ function validateAndComputePath(path: string, pathParams?: Params): string {
     }
   }
   return path;
+}
+
+function validateEndpoint(endpoint: string): void {
+  let endpointUrl: URL;
+  try {
+    endpointUrl = new URL(endpoint);
+  } catch (e) {
+    throw Error(`host is invalid. ${endpoint}`);
+  }
+
+  if (endpointUrl.protocol !== "http:" && endpointUrl.protocol !== "https:") {
+    throw Error("host is invalid. endpoint scheme must be http or https");
+  }
+
+  if (endpointUrl.username || endpointUrl.password || endpointUrl.search || endpointUrl.hash) {
+    throw Error("host is invalid. endpoint must not contain user info, query, or fragment");
+  }
 }
 
 function computeHeaders(params: RequestParams): Headers {

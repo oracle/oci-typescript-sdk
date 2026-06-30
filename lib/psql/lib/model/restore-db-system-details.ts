@@ -23,13 +23,21 @@ export interface RestoreDbSystemDetails {
   /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the database system backup.
    */
-  "backupId": string;
+  "backupId"?: string;
   /**
    * The desired AD for regions with three ADs. This parameter is optional.
    * If not set, the AD is chosen based on the database system's current AD.
    *
    */
   "ad"?: string;
+  /**
+    * The target point-in-time that the database system restore can get started from, expressed in
+* [RFC 3339](https://tools.ietf.org/rfc/rfc3339) timestamp format.
+* <p>
+Example: {@code 2016-08-25T21:10:29.600Z}
+* 
+    */
+  "timeToRestore"?: Date;
 }
 
 export namespace RestoreDbSystemDetails {
