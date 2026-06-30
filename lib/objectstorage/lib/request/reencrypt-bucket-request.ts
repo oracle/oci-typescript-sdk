@@ -29,6 +29,10 @@ export interface ReencryptBucketRequest extends common.BaseRequest {
    */
   "bucketName": string;
   /**
+   * If true, reencrypt only the intermediate bucket keys and skip everything else in the bucket.
+   */
+  "isReencryptBucketKeyOnly"?: boolean;
+  /**
    * The client request ID for tracing.
    */
   "opcClientRequestId"?: string;

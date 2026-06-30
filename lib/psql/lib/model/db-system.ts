@@ -127,7 +127,8 @@ Example: {@code 2016-08-25T21:10:29.600Z}
   "source"?:
     | model.BackupSourceDetails
     | model.PrimaryDbSystemSourceDetails
-    | model.NoneSourceDetails;
+    | model.NoneSourceDetails
+    | model.PointInTimeDbSystemSourceDetails;
   "kerberosAuthDetails"?: model.DisabledKerberosAuthDetails | model.EnabledKerberosAuthDetails;
   "odspInsightDetails"?: model.DisabledInsightDetails | model.EnabledInsightDetails;
 }

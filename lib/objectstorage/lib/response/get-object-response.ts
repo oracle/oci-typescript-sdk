@@ -99,6 +99,10 @@ export interface GetObjectResponse {
    */
   "opcMultipartSha384": string;
   /**
+   * True if bucket key was enabled and used to encrypt the object during upload or reencrypt.
+   */
+  "opcBucketKeyEnabled": boolean;
+  /**
    * Content-Type header, as described in [RFC 2616](https://tools.ietf.org/html/rfc2616#section-14.17).
    */
   "contentType": string;

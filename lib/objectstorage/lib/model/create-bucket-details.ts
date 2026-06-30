@@ -84,6 +84,13 @@ export interface CreateBucketDetails {
    */
   "kmsKeyId"?: string;
   /**
+   * Specifies whether Object Storage should use intermediate cached Bucket Encryption Keys with server-side
+   * encryption using KMS (SSE-KMS) for new objects in the bucket. This reduces calls to OCI Vault Key Management
+   * Service (KMS). Existing objects are not affected.
+   *
+   */
+  "isBucketKeyEnabled"?: boolean;
+  /**
    * Set the versioning status on the bucket. By default, a bucket is created with versioning {@code Disabled}. Use this option to enable versioning during bucket creation. Objects in a version enabled bucket are protected from overwrites and deletions. Previous versions of the same object will be available in the bucket.
    *
    */

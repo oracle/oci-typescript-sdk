@@ -62,6 +62,15 @@ export interface ConfigurationSourceProvider {
    */
   "username"?: string;
   /**
+   * Atlassian account email used for Bitbucket Cloud API token authentication.
+   */
+  "email"?: string;
+  /**
+   * Indicates whether this configuration source provider uses legacy Bitbucket Cloud username/app-password credentials and must be migrated.
+   *
+   */
+  "isMigrationRequired"?: boolean;
+  /**
    * Secret ocid which is used to authorize the user.
    */
   "secretId"?: string;
@@ -122,14 +131,14 @@ export namespace ConfigurationSourceProvider {
             <model.GitlabAccessTokenConfigurationSourceProvider>(<object>jsonObj),
             true
           );
+        case "BITBUCKET_CLOUD_ACCESS_TOKEN":
+          return model.BitbucketCloudEmailApiTokenConfigurationSourceProvider.getJsonObj(
+            <model.BitbucketCloudEmailApiTokenConfigurationSourceProvider>(<object>jsonObj),
+            true
+          );
         case "BITBUCKET_SERVER_ACCESS_TOKEN":
           return model.BitbucketServerAccessTokenConfigurationSourceProvider.getJsonObj(
             <model.BitbucketServerAccessTokenConfigurationSourceProvider>(<object>jsonObj),
-            true
-          );
-        case "BITBUCKET_CLOUD_USERNAME_APPPASSWORD":
-          return model.BitbucketCloudUsernameAppPasswordConfigurationSourceProvider.getJsonObj(
-            <model.BitbucketCloudUsernameAppPasswordConfigurationSourceProvider>(<object>jsonObj),
             true
           );
         default:
@@ -161,14 +170,14 @@ export namespace ConfigurationSourceProvider {
             <model.GitlabAccessTokenConfigurationSourceProvider>(<object>jsonObj),
             true
           );
+        case "BITBUCKET_CLOUD_ACCESS_TOKEN":
+          return model.BitbucketCloudEmailApiTokenConfigurationSourceProvider.getDeserializedJsonObj(
+            <model.BitbucketCloudEmailApiTokenConfigurationSourceProvider>(<object>jsonObj),
+            true
+          );
         case "BITBUCKET_SERVER_ACCESS_TOKEN":
           return model.BitbucketServerAccessTokenConfigurationSourceProvider.getDeserializedJsonObj(
             <model.BitbucketServerAccessTokenConfigurationSourceProvider>(<object>jsonObj),
-            true
-          );
-        case "BITBUCKET_CLOUD_USERNAME_APPPASSWORD":
-          return model.BitbucketCloudUsernameAppPasswordConfigurationSourceProvider.getDeserializedJsonObj(
-            <model.BitbucketCloudUsernameAppPasswordConfigurationSourceProvider>(<object>jsonObj),
             true
           );
         default:

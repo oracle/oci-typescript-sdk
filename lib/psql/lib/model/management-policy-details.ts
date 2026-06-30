@@ -34,6 +34,7 @@ This string is of the format: \"{day-of-week} {time-of-day}\".
     | model.WeeklyBackupPolicy
     | model.NoneBackupPolicy
     | model.MonthlyBackupPolicy;
+  "pitrPolicy"?: model.StandardPitrPolicy | model.NonePitrPolicy;
 }
 
 export namespace ManagementPolicyDetails {
@@ -43,7 +44,8 @@ export namespace ManagementPolicyDetails {
       ...{
         "backupPolicy": obj.backupPolicy
           ? model.BackupPolicy.getJsonObj(obj.backupPolicy)
-          : undefined
+          : undefined,
+        "pitrPolicy": obj.pitrPolicy ? model.PitrPolicy.getJsonObj(obj.pitrPolicy) : undefined
       }
     };
 
@@ -55,6 +57,9 @@ export namespace ManagementPolicyDetails {
       ...{
         "backupPolicy": obj.backupPolicy
           ? model.BackupPolicy.getDeserializedJsonObj(obj.backupPolicy)
+          : undefined,
+        "pitrPolicy": obj.pitrPolicy
+          ? model.PitrPolicy.getDeserializedJsonObj(obj.pitrPolicy)
           : undefined
       }
     };

@@ -44,6 +44,11 @@ export namespace SourceDetails {
             <model.NoneSourceDetails>(<object>jsonObj),
             true
           );
+        case "POINT_IN_TIME_DB_SYSTEM":
+          return model.PointInTimeDbSystemSourceDetails.getJsonObj(
+            <model.PointInTimeDbSystemSourceDetails>(<object>jsonObj),
+            true
+          );
         default:
           if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.sourceType}`);
       }
@@ -68,6 +73,11 @@ export namespace SourceDetails {
         case "NONE":
           return model.NoneSourceDetails.getDeserializedJsonObj(
             <model.NoneSourceDetails>(<object>jsonObj),
+            true
+          );
+        case "POINT_IN_TIME_DB_SYSTEM":
+          return model.PointInTimeDbSystemSourceDetails.getDeserializedJsonObj(
+            <model.PointInTimeDbSystemSourceDetails>(<object>jsonObj),
             true
           );
         default:

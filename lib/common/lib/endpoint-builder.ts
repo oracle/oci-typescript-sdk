@@ -8,6 +8,10 @@ import { Realm } from "./realm";
 import { LOG } from "./log";
 
 const OCI_DUALSTACK_ENDPOINT_ENABLED_ENV_VAR = "OCI_DUAL_STACK_ENDPOINT_ENABLED";
+const DOMAIN_SAFE_PARAMETER_REGEX = RegExp(
+  "^[A-Z0-9_](?:[A-Z0-9_-]{0,61}[A-Z0-9_])?(?:\\.[A-Z0-9_](?:[A-Z0-9_-]{0,61}[A-Z0-9_])?)*$",
+  "i"
+);
 const ENDPOINT_TEMPLATE_OPTION_PHRASE = "((\\w|\\.|\\-)+)";
 const DUALSTACK_OPTION = "{dualStack";
 const PATTERN_FOR_ENDPOINT_TEMPLATE_OPTIONS =
@@ -202,6 +206,9 @@ export class EndpointBuilder {
         );
       }
       if (value) {
+        if (appendDotInEndpointTemplate) {
+          EndpointBuilder.validateDomainSafeParameter(paramName, value);
+        }
         if (appendDotInEndpointTemplate) value += ".";
         populatedEndpoint = populatedEndpoint.replace(paramFromEndpoint[0], value);
       } else {
@@ -222,6 +229,20 @@ export class EndpointBuilder {
     if (queryParams[parameterName] && typeof queryParams[parameterName] === "string")
       return queryParams[parameterName];
     return "";
+  }
+
+  /**
+   * Validates that an endpoint template parameter is safe to include in a domain name.
+   * Domain-safe endpoint parameters may be a single label or multiple dot-separated labels.
+   * Each label may contain only letters, digits, underscores, and internal hyphens, and
+   * must not begin or end with a hyphen.
+   */
+  private static validateDomainSafeParameter(parameterName: string, parameterValue: string): void {
+    if (!DOMAIN_SAFE_PARAMETER_REGEX.test(parameterValue)) {
+      throw Error(
+        `Endpoint parameter ${parameterName} contains characters that are not allowed in a domain-safe endpoint parameter`
+      );
+    }
   }
 
   private static isRealmSpecificEndpointTemplateEnabledViaEnv(): boolean {

@@ -75,9 +75,9 @@ export namespace CreateConfigurationSourceProviderDetails {
             <model.CreateGitlabAccessTokenConfigurationSourceProviderDetails>(<object>jsonObj),
             true
           );
-        case "BITBUCKET_CLOUD_USERNAME_APPPASSWORD":
-          return model.CreateBitbucketCloudUsernameAppPasswordConfigurationSourceProviderDetails.getJsonObj(
-            <model.CreateBitbucketCloudUsernameAppPasswordConfigurationSourceProviderDetails>(
+        case "BITBUCKET_CLOUD_ACCESS_TOKEN":
+          return model.CreateBitbucketCloudEmailApiTokenConfigurationSourceProviderDetails.getJsonObj(
+            <model.CreateBitbucketCloudEmailApiTokenConfigurationSourceProviderDetails>(
               (<object>jsonObj)
             ),
             true
@@ -118,9 +118,9 @@ export namespace CreateConfigurationSourceProviderDetails {
             <model.CreateGitlabAccessTokenConfigurationSourceProviderDetails>(<object>jsonObj),
             true
           );
-        case "BITBUCKET_CLOUD_USERNAME_APPPASSWORD":
-          return model.CreateBitbucketCloudUsernameAppPasswordConfigurationSourceProviderDetails.getDeserializedJsonObj(
-            <model.CreateBitbucketCloudUsernameAppPasswordConfigurationSourceProviderDetails>(
+        case "BITBUCKET_CLOUD_ACCESS_TOKEN":
+          return model.CreateBitbucketCloudEmailApiTokenConfigurationSourceProviderDetails.getDeserializedJsonObj(
+            <model.CreateBitbucketCloudEmailApiTokenConfigurationSourceProviderDetails>(
               (<object>jsonObj)
             ),
             true

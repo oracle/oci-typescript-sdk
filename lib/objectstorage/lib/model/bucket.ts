@@ -103,6 +103,13 @@ export interface Bucket {
    */
   "kmsKeyId"?: string;
   /**
+   * Specifies whether Object Storage should use intermediate cached Bucket Encryption Keys with server-side
+   * encryption using KMS (SSE-KMS) for new objects in the bucket. This reduces calls to OCI Vault Key Management
+   * Service (KMS). Existing objects are not affected.
+   *
+   */
+  "isBucketKeyEnabled"?: boolean;
+  /**
    * The entity tag (ETag) for the live object lifecycle policy on the bucket.
    */
   "objectLifecyclePolicyEtag"?: string;
