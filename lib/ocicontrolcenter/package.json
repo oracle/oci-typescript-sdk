@@ -1,6 +1,6 @@
 {
   "name": "oci-ocicontrolcenter",
-  "version": "2.136.0",
+  "version": "2.136.1",
   "description": "OCI NodeJS client for Oci Control Center Service",
   "repository": {
     "type": "git",
