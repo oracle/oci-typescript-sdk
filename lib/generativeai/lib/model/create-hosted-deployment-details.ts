@@ -22,7 +22,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The data to create a hosted deployment.
+ * The data to create a hosted deployment. Exactly one of hostedApplicationId or hostedApplicationIamId must be provided.
  */
 export interface CreateHostedDeploymentDetails {
   /**
@@ -34,9 +34,9 @@ export interface CreateHostedDeploymentDetails {
    */
   "compartmentId"?: string;
   /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the application.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the HostedApplication parent.
    */
-  "hostedApplicationId": string;
+  "hostedApplicationId"?: string;
   "activeArtifact": model.SingleDockerArtifact;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.

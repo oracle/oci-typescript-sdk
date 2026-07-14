@@ -82,6 +82,7 @@ You can attach up to 32 volumes to single container instance.
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  "securityContext"?: model.CreateLinuxContainerInstanceSecurityContextDetails;
 }
 
 export namespace CreateContainerInstanceDetails {
@@ -115,6 +116,10 @@ export namespace CreateContainerInstanceDetails {
           ? obj.imagePullSecrets.map(item => {
               return model.CreateImagePullSecretDetails.getJsonObj(item);
             })
+          : undefined,
+
+        "securityContext": obj.securityContext
+          ? model.CreateContainerInstanceSecurityContextDetails.getJsonObj(obj.securityContext)
           : undefined
       }
     };
@@ -151,6 +156,12 @@ export namespace CreateContainerInstanceDetails {
           ? obj.imagePullSecrets.map(item => {
               return model.CreateImagePullSecretDetails.getDeserializedJsonObj(item);
             })
+          : undefined,
+
+        "securityContext": obj.securityContext
+          ? model.CreateContainerInstanceSecurityContextDetails.getDeserializedJsonObj(
+              obj.securityContext
+            )
           : undefined
       }
     };

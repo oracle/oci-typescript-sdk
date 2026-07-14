@@ -27,6 +27,26 @@ export interface CreateAiDataPlatformDetails {
    */
   "aiDataPlatformType"?: string;
   /**
+   * The flag to enable/disable AiFeatures for the instance.
+   *
+   */
+  "isEnableAiFeature"?: boolean;
+  /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the vector db Lakehouse 26ai.
+   *
+   */
+  "vectorDbId"?: string;
+  /**
+   * The Vector DB Lakehouse 26ai ADMIN user password.
+   *
+   */
+  "vectorDbAdminCred"?: string;
+  /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the OCI Vault secret holding the vector db Lakehouse 26ai Admin user password.
+   *
+   */
+  "vectorDbAdminSecretId"?: string;
+  /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment to create the AiDataPlatform in.
    *
    */

@@ -38,6 +38,11 @@ export interface Artifact {
    */
   "hostedDeploymentId"?: string;
   /**
+   * Optional flag that requires an OCI Vulnerability Scanning Service compliance report for this artifact before it can become active. When not provided, the value defaults to false and the artifact is not blocked on a scan result.
+   *
+   */
+  "isVulnerabilityScanRequired"?: boolean;
+  /**
    * The current status of the artifact.
    */
   "status"?: Artifact.Status;
@@ -50,6 +55,7 @@ export namespace Artifact {
     Active = "ACTIVE",
     Inactive = "INACTIVE",
     Updating = "UPDATING",
+    Failed = "FAILED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

@@ -22,10 +22,18 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The data to update a compute cluster. A [compute cluster](https://docs.oracle.com/iaas/Content/Compute/Tasks/compute-clusters.htm)
- * is a remote direct memory access (RDMA) network group.
- *
- */
+* The data to update a [compute cluster](https://docs.oracle.com/iaas/Content/Compute/Tasks/compute-clusters.htm).
+* <p>
+Use {@code COMPUTE_CLUSTER} type when using placementConstraintDetails.
+* <p>
+{@code placementConstraintDetails.hpcIslandId} is create-only and cannot be part of this update request.
+* <p>
+All other fields in {@code placementConstraintDetails} are optional, and only the fields provided will be updated.
+* <p>
+If {@code placementConstraintDetails.targetNetworkBlockIds} or {@code placementConstraintDetails.targetMemoryFabricIds} is 
+* provided, then the target compute cluster must already have {@code hpcIslandId} persisted.
+* 
+*/
 export interface UpdateComputeClusterDetails {
   /**
    * A user-friendly name. Does not have to be unique, and it's changeable.
@@ -49,16 +57,34 @@ Example: {@code {\"Department\": \"Finance\"}}
 * 
     */
   "freeformTags"?: { [key: string]: string };
+  "placementConstraintDetails"?:
+    | model.HostGroupPlacementConstraintDetails
+    | model.ComputeClusterPlacementConstraintDetails
+    | model.ComputeBareMetalHostPlacementConstraintDetails;
 }
 
 export namespace UpdateComputeClusterDetails {
   export function getJsonObj(obj: UpdateComputeClusterDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "placementConstraintDetails": obj.placementConstraintDetails
+          ? model.PlacementConstraintDetails.getJsonObj(obj.placementConstraintDetails)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: UpdateComputeClusterDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "placementConstraintDetails": obj.placementConstraintDetails
+          ? model.PlacementConstraintDetails.getDeserializedJsonObj(obj.placementConstraintDetails)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

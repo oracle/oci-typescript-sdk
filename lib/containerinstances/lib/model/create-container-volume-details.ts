@@ -35,6 +35,11 @@ export namespace CreateContainerVolumeDetails {
 
     if (obj && "volumeType" in obj && obj.volumeType) {
       switch (obj.volumeType) {
+        case "OCI_FSS_FILE_SYSTEM":
+          return model.CreateContainerOciFssVolumeDetails.getJsonObj(
+            <model.CreateContainerOciFssVolumeDetails>(<object>jsonObj),
+            true
+          );
         case "CONFIGFILE":
           return model.CreateContainerConfigFileVolumeDetails.getJsonObj(
             <model.CreateContainerConfigFileVolumeDetails>(<object>jsonObj),
@@ -56,6 +61,11 @@ export namespace CreateContainerVolumeDetails {
 
     if (obj && "volumeType" in obj && obj.volumeType) {
       switch (obj.volumeType) {
+        case "OCI_FSS_FILE_SYSTEM":
+          return model.CreateContainerOciFssVolumeDetails.getDeserializedJsonObj(
+            <model.CreateContainerOciFssVolumeDetails>(<object>jsonObj),
+            true
+          );
         case "CONFIGFILE":
           return model.CreateContainerConfigFileVolumeDetails.getDeserializedJsonObj(
             <model.CreateContainerConfigFileVolumeDetails>(<object>jsonObj),

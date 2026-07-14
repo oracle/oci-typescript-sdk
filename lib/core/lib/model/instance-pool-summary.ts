@@ -44,6 +44,11 @@ export interface InstancePoolSummary {
    */
   "instanceConfigurationId": string;
   /**
+   * The type of resources managed by the pool.
+   *
+   */
+  "poolType"?: string;
+  /**
    * The current state of the instance pool.
    */
   "lifecycleState": InstancePoolSummary.LifecycleState;

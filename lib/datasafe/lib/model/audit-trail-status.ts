@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The current sub-state of the audit trail.
+ * The current sub-state of the audit trail. The states RETRYING,IDLE,RECOVERING will be deprecated.
  **/
 export enum AuditTrailStatus {
   Starting = "STARTING",

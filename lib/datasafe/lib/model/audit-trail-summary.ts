@@ -63,7 +63,7 @@ export interface AuditTrailSummary {
    */
   "lifecycleState": model.AuditTrailLifecycleState;
   /**
-   * Details about the current state of the audit trail in Data Safe.
+   * Details about the current state of the audit trail in Data Safe. This attribute will be deprecated, but will still be available in GET audit trail response.
    */
   "lifecycleDetails"?: string;
   /**

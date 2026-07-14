@@ -16,7 +16,7 @@ import common = require("oci-common");
 
 /**
  * Criteria to determine whether a target database should be included in the target database group.
- * If the database satisfies any of compartments, targetDatabaseIds, freeformTags, or definedTags criteria, it qualifies for inclusion in the target database group
+ * If the database satisfies any of compartments, targetDatabaseIds, freeformTags, definedTags or systemTags criteria then it qualifies for inclusion in the target database group.
  *
  */
 export interface Include {

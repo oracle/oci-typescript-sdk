@@ -23,6 +23,8 @@ import * as ChangeAiDataPlatformCompartmentDetails from "./change-ai-data-platfo
 export import ChangeAiDataPlatformCompartmentDetails = ChangeAiDataPlatformCompartmentDetails.ChangeAiDataPlatformCompartmentDetails;
 import * as CreateAiDataPlatformDetails from "./create-ai-data-platform-details";
 export import CreateAiDataPlatformDetails = CreateAiDataPlatformDetails.CreateAiDataPlatformDetails;
+import * as EnableAiFeatureDetails from "./enable-ai-feature-details";
+export import EnableAiFeatureDetails = EnableAiFeatureDetails.EnableAiFeatureDetails;
 import * as OperationStatus from "./operation-status";
 export import OperationStatus = OperationStatus.OperationStatus;
 import * as OperationType from "./operation-type";

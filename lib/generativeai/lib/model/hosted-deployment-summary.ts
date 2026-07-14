@@ -51,7 +51,7 @@ Allowed values are:
     */
   "lifecycleState": string;
   /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the application.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the HostedApplication parent.
    */
   "hostedApplicationId"?: string;
   "activeArtifact"?: model.SingleDockerArtifact;

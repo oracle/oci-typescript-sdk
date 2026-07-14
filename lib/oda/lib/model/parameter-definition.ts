@@ -75,6 +75,7 @@ export namespace ParameterDefinition {
     Url = "URL",
     Number = "NUMBER",
     Boolean = "BOOLEAN",
+    ParameterizedString = "PARAMETERIZED_STRING",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

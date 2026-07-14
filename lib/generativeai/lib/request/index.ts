@@ -34,6 +34,8 @@ import * as ChangeGenerativeAiProjectCompartmentRequest from "./change-generativ
 export import ChangeGenerativeAiProjectCompartmentRequest = ChangeGenerativeAiProjectCompartmentRequest.ChangeGenerativeAiProjectCompartmentRequest;
 import * as ChangeHostedApplicationCompartmentRequest from "./change-hosted-application-compartment-request";
 export import ChangeHostedApplicationCompartmentRequest = ChangeHostedApplicationCompartmentRequest.ChangeHostedApplicationCompartmentRequest;
+import * as ChangeHostedApplicationIamCompartmentRequest from "./change-hosted-application-iam-compartment-request";
+export import ChangeHostedApplicationIamCompartmentRequest = ChangeHostedApplicationIamCompartmentRequest.ChangeHostedApplicationIamCompartmentRequest;
 import * as ChangeHostedApplicationStorageCompartmentRequest from "./change-hosted-application-storage-compartment-request";
 export import ChangeHostedApplicationStorageCompartmentRequest = ChangeHostedApplicationStorageCompartmentRequest.ChangeHostedApplicationStorageCompartmentRequest;
 import * as ChangeImportedModelCompartmentRequest from "./change-imported-model-compartment-request";
@@ -54,6 +56,8 @@ import * as CreateGenerativeAiProjectRequest from "./create-generative-ai-projec
 export import CreateGenerativeAiProjectRequest = CreateGenerativeAiProjectRequest.CreateGenerativeAiProjectRequest;
 import * as CreateHostedApplicationRequest from "./create-hosted-application-request";
 export import CreateHostedApplicationRequest = CreateHostedApplicationRequest.CreateHostedApplicationRequest;
+import * as CreateHostedApplicationIamRequest from "./create-hosted-application-iam-request";
+export import CreateHostedApplicationIamRequest = CreateHostedApplicationIamRequest.CreateHostedApplicationIamRequest;
 import * as CreateHostedApplicationStorageRequest from "./create-hosted-application-storage-request";
 export import CreateHostedApplicationStorageRequest = CreateHostedApplicationStorageRequest.CreateHostedApplicationStorageRequest;
 import * as CreateHostedDeploymentRequest from "./create-hosted-deployment-request";
@@ -80,6 +84,8 @@ import * as DeleteGenerativeAiProjectRequest from "./delete-generative-ai-projec
 export import DeleteGenerativeAiProjectRequest = DeleteGenerativeAiProjectRequest.DeleteGenerativeAiProjectRequest;
 import * as DeleteHostedApplicationRequest from "./delete-hosted-application-request";
 export import DeleteHostedApplicationRequest = DeleteHostedApplicationRequest.DeleteHostedApplicationRequest;
+import * as DeleteHostedApplicationIamRequest from "./delete-hosted-application-iam-request";
+export import DeleteHostedApplicationIamRequest = DeleteHostedApplicationIamRequest.DeleteHostedApplicationIamRequest;
 import * as DeleteHostedApplicationStorageRequest from "./delete-hosted-application-storage-request";
 export import DeleteHostedApplicationStorageRequest = DeleteHostedApplicationStorageRequest.DeleteHostedApplicationStorageRequest;
 import * as DeleteHostedDeploymentRequest from "./delete-hosted-deployment-request";
@@ -106,6 +112,8 @@ import * as GetGenerativeAiProjectRequest from "./get-generative-ai-project-requ
 export import GetGenerativeAiProjectRequest = GetGenerativeAiProjectRequest.GetGenerativeAiProjectRequest;
 import * as GetHostedApplicationRequest from "./get-hosted-application-request";
 export import GetHostedApplicationRequest = GetHostedApplicationRequest.GetHostedApplicationRequest;
+import * as GetHostedApplicationIamRequest from "./get-hosted-application-iam-request";
+export import GetHostedApplicationIamRequest = GetHostedApplicationIamRequest.GetHostedApplicationIamRequest;
 import * as GetHostedApplicationStorageRequest from "./get-hosted-application-storage-request";
 export import GetHostedApplicationStorageRequest = GetHostedApplicationStorageRequest.GetHostedApplicationStorageRequest;
 import * as GetHostedDeploymentRequest from "./get-hosted-deployment-request";
@@ -138,6 +146,8 @@ import * as ListHostedApplicationStoragesRequest from "./list-hosted-application
 export import ListHostedApplicationStoragesRequest = ListHostedApplicationStoragesRequest.ListHostedApplicationStoragesRequest;
 import * as ListHostedApplicationsRequest from "./list-hosted-applications-request";
 export import ListHostedApplicationsRequest = ListHostedApplicationsRequest.ListHostedApplicationsRequest;
+import * as ListHostedApplicationsIamRequest from "./list-hosted-applications-iam-request";
+export import ListHostedApplicationsIamRequest = ListHostedApplicationsIamRequest.ListHostedApplicationsIamRequest;
 import * as ListHostedDeploymentsRequest from "./list-hosted-deployments-request";
 export import ListHostedDeploymentsRequest = ListHostedDeploymentsRequest.ListHostedDeploymentsRequest;
 import * as ListImportedModelsRequest from "./list-imported-models-request";
@@ -176,6 +186,8 @@ import * as UpdateGenerativeAiProjectRequest from "./update-generative-ai-projec
 export import UpdateGenerativeAiProjectRequest = UpdateGenerativeAiProjectRequest.UpdateGenerativeAiProjectRequest;
 import * as UpdateHostedApplicationRequest from "./update-hosted-application-request";
 export import UpdateHostedApplicationRequest = UpdateHostedApplicationRequest.UpdateHostedApplicationRequest;
+import * as UpdateHostedApplicationIamRequest from "./update-hosted-application-iam-request";
+export import UpdateHostedApplicationIamRequest = UpdateHostedApplicationIamRequest.UpdateHostedApplicationIamRequest;
 import * as UpdateHostedDeploymentRequest from "./update-hosted-deployment-request";
 export import UpdateHostedDeploymentRequest = UpdateHostedDeploymentRequest.UpdateHostedDeploymentRequest;
 import * as UpdateImportedModelRequest from "./update-imported-model-request";

@@ -29,6 +29,7 @@ To use any of the API operations, you must be authorized in an IAM policy. If yo
 * 
 */
 export interface HostedApplication {
+  "inboundAuthConfig"?: model.InboundAuthConfig;
   /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the hosted application.
    */
@@ -66,7 +67,6 @@ export interface HostedApplication {
    * A list of storageConfigs managed by the OCI GenAI Platform and attached to the application.
    */
   "storageConfigs"?: Array<model.StorageConfig>;
-  "inboundAuthConfig"?: model.InboundAuthConfig;
   "networkingConfig"?: model.NetworkingConfig;
   /**
    * The list of environment variables for the Hosted Application.
@@ -118,6 +118,10 @@ export namespace HostedApplication {
     const jsonObj = {
       ...obj,
       ...{
+        "inboundAuthConfig": obj.inboundAuthConfig
+          ? model.InboundAuthConfig.getJsonObj(obj.inboundAuthConfig)
+          : undefined,
+
         "scalingConfig": obj.scalingConfig
           ? model.ScalingConfig.getJsonObj(obj.scalingConfig)
           : undefined,
@@ -125,9 +129,6 @@ export namespace HostedApplication {
           ? obj.storageConfigs.map(item => {
               return model.StorageConfig.getJsonObj(item);
             })
-          : undefined,
-        "inboundAuthConfig": obj.inboundAuthConfig
-          ? model.InboundAuthConfig.getJsonObj(obj.inboundAuthConfig)
           : undefined,
         "networkingConfig": obj.networkingConfig
           ? model.NetworkingConfig.getJsonObj(obj.networkingConfig)
@@ -146,6 +147,10 @@ export namespace HostedApplication {
     const jsonObj = {
       ...obj,
       ...{
+        "inboundAuthConfig": obj.inboundAuthConfig
+          ? model.InboundAuthConfig.getDeserializedJsonObj(obj.inboundAuthConfig)
+          : undefined,
+
         "scalingConfig": obj.scalingConfig
           ? model.ScalingConfig.getDeserializedJsonObj(obj.scalingConfig)
           : undefined,
@@ -153,9 +158,6 @@ export namespace HostedApplication {
           ? obj.storageConfigs.map(item => {
               return model.StorageConfig.getDeserializedJsonObj(item);
             })
-          : undefined,
-        "inboundAuthConfig": obj.inboundAuthConfig
-          ? model.InboundAuthConfig.getDeserializedJsonObj(obj.inboundAuthConfig)
           : undefined,
         "networkingConfig": obj.networkingConfig
           ? model.NetworkingConfig.getDeserializedJsonObj(obj.networkingConfig)

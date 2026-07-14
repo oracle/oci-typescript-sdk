@@ -51,6 +51,7 @@ export interface ColumnsInfo {
 export namespace ColumnsInfo {
   export enum ObjectType {
     Table = "TABLE",
+    EditioningView = "EDITIONING_VIEW",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

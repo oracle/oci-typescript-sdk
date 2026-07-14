@@ -23,6 +23,10 @@ import common = require("oci-common");
 
 /**
  * An instance configuration is a template that defines the settings to use when creating Compute instances.
+ * An instance configuration is a template that defines the settings to use when creating Compute instances
+ * or GPU Memory Clusters.
+ * For more information about instance configurations, see
+ * [Managing Compute Instances](https://docs.oracle.com/iaas/Content/Compute/Concepts/instancemanagement.htm).
  *
  */
 export interface InstanceConfiguration {
@@ -60,6 +64,18 @@ Example: {@code {\"Department\": \"Finance\"}}
   "id": string;
   "instanceDetails"?: model.ComputeInstanceOptions | model.ComputeInstanceDetails;
   /**
+   * The GPU Memory Cluster configuration entries for.
+   */
+  "gmcConfigs"?: Array<model.InstanceConfigurationGmcConfigDetail>;
+  /**
+   * Differentiator for instance configuration.
+   * Following values are supported:
+   * * INSTANCE : All details related to instance will be passed within instanceDetails.
+   * * GMC : All details related to gpu memory cluster will be passed within gmcConfigs.
+   *
+   */
+  "source"?: InstanceConfiguration.Source;
+  /**
    * Parameters that were not specified when the instance configuration was created, but that
    * are required to launch an instance from the instance configuration. See the
    * {@link #launchInstanceConfiguration(LaunchInstanceConfigurationRequest) launchInstanceConfiguration} operation.
@@ -76,12 +92,27 @@ Example: {@code 2016-08-25T21:10:29.600Z}
 }
 
 export namespace InstanceConfiguration {
+  export enum Source {
+    Instance = "INSTANCE",
+    Gmc = "GMC",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: InstanceConfiguration): object {
     const jsonObj = {
       ...obj,
       ...{
         "instanceDetails": obj.instanceDetails
           ? model.InstanceConfigurationInstanceDetails.getJsonObj(obj.instanceDetails)
+          : undefined,
+        "gmcConfigs": obj.gmcConfigs
+          ? obj.gmcConfigs.map(item => {
+              return model.InstanceConfigurationGmcConfigDetail.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -94,6 +125,11 @@ export namespace InstanceConfiguration {
       ...{
         "instanceDetails": obj.instanceDetails
           ? model.InstanceConfigurationInstanceDetails.getDeserializedJsonObj(obj.instanceDetails)
+          : undefined,
+        "gmcConfigs": obj.gmcConfigs
+          ? obj.gmcConfigs.map(item => {
+              return model.InstanceConfigurationGmcConfigDetail.getDeserializedJsonObj(item);
+            })
           : undefined
       }
     };

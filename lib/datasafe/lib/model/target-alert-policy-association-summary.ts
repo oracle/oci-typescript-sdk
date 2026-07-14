@@ -35,7 +35,7 @@ export interface TargetAlertPolicyAssociationSummary {
    */
   "policyId"?: string;
   /**
-   * The OCID of the target on which alert policy is to be applied.
+   * The OCID of the target or target database group on which alert policy is to be applied.
    */
   "targetId"?: string;
   /**
@@ -62,6 +62,10 @@ export interface TargetAlertPolicyAssociationSummary {
    * Details about the current state of the target-alert policy association.
    */
   "lifecycleDetails"?: string;
+  /**
+   * The resource type that is represented by the target alert policy association.
+   */
+  "targetType"?: string;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm)
 * <p>

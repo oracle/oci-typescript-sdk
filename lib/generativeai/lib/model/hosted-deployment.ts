@@ -54,9 +54,9 @@ export interface HostedDeployment {
    */
   "lifecycleState": HostedDeployment.LifecycleState;
   /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the application.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the HostedApplication parent.
    */
-  "hostedApplicationId": string;
+  "hostedApplicationId"?: string;
   "activeArtifact": model.SingleDockerArtifact;
   /**
    * array of Artifacts.
@@ -90,6 +90,7 @@ Example: {@code {\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}}
 export namespace HostedDeployment {
   export enum LifecycleState {
     Creating = "CREATING",
+    NeedsAttention = "NEEDS_ATTENTION",
     Active = "ACTIVE",
     Inactive = "INACTIVE",
     Updating = "UPDATING",

@@ -25,6 +25,7 @@ import common = require("oci-common");
  * The details required to create a hosted application.
  */
 export interface CreateHostedApplicationDetails {
+  "inboundAuthConfig": model.InboundAuthConfig;
   /**
    * The user-friendly display name for the Hosted Application.
    * Does not need to be unique and can be updated after creation.
@@ -40,7 +41,6 @@ export interface CreateHostedApplicationDetails {
    */
   "description"?: string;
   "scalingConfig"?: model.ScalingConfig;
-  "inboundAuthConfig"?: model.InboundAuthConfig;
   "networkingConfig"?: model.NetworkingConfig;
   /**
    * The list of storage configuration for the Hosted Application.
@@ -77,11 +77,12 @@ export namespace CreateHostedApplicationDetails {
     const jsonObj = {
       ...obj,
       ...{
-        "scalingConfig": obj.scalingConfig
-          ? model.ScalingConfig.getJsonObj(obj.scalingConfig)
-          : undefined,
         "inboundAuthConfig": obj.inboundAuthConfig
           ? model.InboundAuthConfig.getJsonObj(obj.inboundAuthConfig)
+          : undefined,
+
+        "scalingConfig": obj.scalingConfig
+          ? model.ScalingConfig.getJsonObj(obj.scalingConfig)
           : undefined,
         "networkingConfig": obj.networkingConfig
           ? model.NetworkingConfig.getJsonObj(obj.networkingConfig)
@@ -105,11 +106,12 @@ export namespace CreateHostedApplicationDetails {
     const jsonObj = {
       ...obj,
       ...{
-        "scalingConfig": obj.scalingConfig
-          ? model.ScalingConfig.getDeserializedJsonObj(obj.scalingConfig)
-          : undefined,
         "inboundAuthConfig": obj.inboundAuthConfig
           ? model.InboundAuthConfig.getDeserializedJsonObj(obj.inboundAuthConfig)
+          : undefined,
+
+        "scalingConfig": obj.scalingConfig
+          ? model.ScalingConfig.getDeserializedJsonObj(obj.scalingConfig)
           : undefined,
         "networkingConfig": obj.networkingConfig
           ? model.NetworkingConfig.getDeserializedJsonObj(obj.networkingConfig)

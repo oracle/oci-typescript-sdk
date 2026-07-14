@@ -22,6 +22,7 @@ export interface CreateInstanceConfigurationRequest extends common.BaseRequest {
    * Instance configuration creation details
    */
   "createInstanceConfiguration":
+    | model.CreateGmcConfigurationDetails
     | model.CreateInstanceConfigurationDetails
     | model.CreateInstanceConfigurationFromInstanceDetails;
   /**
