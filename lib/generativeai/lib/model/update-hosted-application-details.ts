@@ -25,6 +25,7 @@ import common = require("oci-common");
  * The data to update a hosted application.
  */
 export interface UpdateHostedApplicationDetails {
+  "inboundAuthConfig"?: model.InboundAuthConfig;
   /**
    * A user-friendly name. Does not have to be unique, and it's changeable.
    */
@@ -34,7 +35,6 @@ export interface UpdateHostedApplicationDetails {
    */
   "description"?: string;
   "scalingConfig"?: model.ScalingConfig;
-  "inboundAuthConfig"?: model.InboundAuthConfig;
   /**
    * The list of environment variables for the Hosted Application.
    * Defines a list of environment variables injected at runtime.
@@ -64,11 +64,12 @@ export namespace UpdateHostedApplicationDetails {
     const jsonObj = {
       ...obj,
       ...{
-        "scalingConfig": obj.scalingConfig
-          ? model.ScalingConfig.getJsonObj(obj.scalingConfig)
-          : undefined,
         "inboundAuthConfig": obj.inboundAuthConfig
           ? model.InboundAuthConfig.getJsonObj(obj.inboundAuthConfig)
+          : undefined,
+
+        "scalingConfig": obj.scalingConfig
+          ? model.ScalingConfig.getJsonObj(obj.scalingConfig)
           : undefined,
         "environmentVariables": obj.environmentVariables
           ? obj.environmentVariables.map(item => {
@@ -84,11 +85,12 @@ export namespace UpdateHostedApplicationDetails {
     const jsonObj = {
       ...obj,
       ...{
-        "scalingConfig": obj.scalingConfig
-          ? model.ScalingConfig.getDeserializedJsonObj(obj.scalingConfig)
-          : undefined,
         "inboundAuthConfig": obj.inboundAuthConfig
           ? model.InboundAuthConfig.getDeserializedJsonObj(obj.inboundAuthConfig)
+          : undefined,
+
+        "scalingConfig": obj.scalingConfig
+          ? model.ScalingConfig.getDeserializedJsonObj(obj.scalingConfig)
           : undefined,
         "environmentVariables": obj.environmentVariables
           ? obj.environmentVariables.map(item => {

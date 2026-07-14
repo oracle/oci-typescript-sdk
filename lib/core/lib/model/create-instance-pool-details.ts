@@ -23,6 +23,8 @@ import common = require("oci-common");
 
 /**
  * The data to create an instance pool.
+ * For a GMC-enabled resource pool, the referenced instance configuration must be a GMC configuration and
+ * the placement configuration must identify the availability domain and compute cluster for the pool.
  *
  */
 export interface CreateInstancePoolDetails {
@@ -72,6 +74,7 @@ To use the instance pool with a regional subnet, provide a placement configurati
   "placementConfigurations": Array<model.CreateInstancePoolPlacementConfigurationDetails>;
   /**
    * The number of instances that should be in the instance pool.
+   * For a GMC-enabled resource pool, this is the number of GMC resources that should be in the pool.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "size": number;

@@ -50,17 +50,8 @@ export interface HostedApplicationSummary {
    */
   "timeUpdated"?: Date;
   /**
-    * The current state of the hosted application.
-* <p>
-Allowed values are:
-* - CREATING
-* - ACTIVE
-* - UPDATING
-* - DELETING
-* - DELETED
-* - FAILED
-* 
-    */
+   * The current state of the hosted application.
+   */
   "lifecycleState": string;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.

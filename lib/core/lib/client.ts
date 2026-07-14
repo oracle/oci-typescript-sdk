@@ -21058,7 +21058,7 @@ To determine whether capacity is available for a specific shape before you creat
 
   /**
    * Creates an instance configuration. An instance configuration is a template that defines the
-   * settings to use when creating Compute instances.
+   * settings to use when creating Compute instances or GPU Memory Clusters.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateInstanceConfigurationRequest

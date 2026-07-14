@@ -96,6 +96,7 @@ export interface ContainerInstanceSummary {
    * Container Restart Policy
    */
   "containerRestartPolicy": string;
+  "securityContext"?: model.LinuxContainerInstanceSecurityContext;
 }
 
 export namespace ContainerInstanceSummary {
@@ -105,6 +106,10 @@ export namespace ContainerInstanceSummary {
       ...{
         "shapeConfig": obj.shapeConfig
           ? model.ContainerInstanceShapeConfig.getJsonObj(obj.shapeConfig)
+          : undefined,
+
+        "securityContext": obj.securityContext
+          ? model.ContainerInstanceSecurityContext.getJsonObj(obj.securityContext)
           : undefined
       }
     };
@@ -117,6 +122,10 @@ export namespace ContainerInstanceSummary {
       ...{
         "shapeConfig": obj.shapeConfig
           ? model.ContainerInstanceShapeConfig.getDeserializedJsonObj(obj.shapeConfig)
+          : undefined,
+
+        "securityContext": obj.securityContext
+          ? model.ContainerInstanceSecurityContext.getDeserializedJsonObj(obj.securityContext)
           : undefined
       }
     };

@@ -22,17 +22,13 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
-* The data for creating a [compute cluster](https://docs.oracle.com/iaas/Content/Compute/Tasks/compute-clusters.htm). A compute cluster
-* is an empty remote direct memory access (RDMA) network group
+* The data for creating a [compute cluster](https://docs.oracle.com/iaas/Content/Compute/Tasks/compute-clusters.htm).
 * <p>
-After the compute cluster is created, you can use the compute cluster's OCID with the
-* {@link #launchInstance(LaunchInstanceRequest) launchInstance} operation to create instances in the compute cluster.
-* The instances must be created in the same compartment and availability domain as the cluster.
+After the compute cluster is created, you can use the compute cluster's OCID to create Instance, GPU Memory 
+* Cluster or Instance Pool resources within the compute cluster. These resources must be created in the same 
+* compartment and availability domain as the cluster.
 * <p>
-Use compute clusters when you want to manage instances in the cluster individually in the RDMA network group.
-* <p>
-For details about creating a cluster network that uses instance pools to manage groups of identical instances,
-* see {@link #createClusterNetworkDetails(CreateClusterNetworkDetailsRequest) createClusterNetworkDetails}.
+Use {@code COMPUTE_CLUSTER} type when using placementConstraintDetails.
 * 
 */
 export interface CreateComputeClusterDetails {
@@ -69,16 +65,34 @@ Example: {@code {\"Department\": \"Finance\"}}
 * 
     */
   "freeformTags"?: { [key: string]: string };
+  "placementConstraintDetails"?:
+    | model.HostGroupPlacementConstraintDetails
+    | model.ComputeClusterPlacementConstraintDetails
+    | model.ComputeBareMetalHostPlacementConstraintDetails;
 }
 
 export namespace CreateComputeClusterDetails {
   export function getJsonObj(obj: CreateComputeClusterDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "placementConstraintDetails": obj.placementConstraintDetails
+          ? model.PlacementConstraintDetails.getJsonObj(obj.placementConstraintDetails)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: CreateComputeClusterDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "placementConstraintDetails": obj.placementConstraintDetails
+          ? model.PlacementConstraintDetails.getDeserializedJsonObj(obj.placementConstraintDetails)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

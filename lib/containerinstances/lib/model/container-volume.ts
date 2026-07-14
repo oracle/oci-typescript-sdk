@@ -45,6 +45,11 @@ export namespace ContainerVolume {
             <model.ContainerConfigFileVolume>(<object>jsonObj),
             true
           );
+        case "OCI_FSS_FILE_SYSTEM":
+          return model.ContainerOciFssVolume.getJsonObj(
+            <model.ContainerOciFssVolume>(<object>jsonObj),
+            true
+          );
         default:
           if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.volumeType}`);
       }
@@ -64,6 +69,11 @@ export namespace ContainerVolume {
         case "CONFIGFILE":
           return model.ContainerConfigFileVolume.getDeserializedJsonObj(
             <model.ContainerConfigFileVolume>(<object>jsonObj),
+            true
+          );
+        case "OCI_FSS_FILE_SYSTEM":
+          return model.ContainerOciFssVolume.getDeserializedJsonObj(
+            <model.ContainerOciFssVolume>(<object>jsonObj),
             true
           );
         default:

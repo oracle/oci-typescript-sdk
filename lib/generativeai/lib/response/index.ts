@@ -34,6 +34,8 @@ import * as ChangeGenerativeAiProjectCompartmentResponse from "./change-generati
 export import ChangeGenerativeAiProjectCompartmentResponse = ChangeGenerativeAiProjectCompartmentResponse.ChangeGenerativeAiProjectCompartmentResponse;
 import * as ChangeHostedApplicationCompartmentResponse from "./change-hosted-application-compartment-response";
 export import ChangeHostedApplicationCompartmentResponse = ChangeHostedApplicationCompartmentResponse.ChangeHostedApplicationCompartmentResponse;
+import * as ChangeHostedApplicationIamCompartmentResponse from "./change-hosted-application-iam-compartment-response";
+export import ChangeHostedApplicationIamCompartmentResponse = ChangeHostedApplicationIamCompartmentResponse.ChangeHostedApplicationIamCompartmentResponse;
 import * as ChangeHostedApplicationStorageCompartmentResponse from "./change-hosted-application-storage-compartment-response";
 export import ChangeHostedApplicationStorageCompartmentResponse = ChangeHostedApplicationStorageCompartmentResponse.ChangeHostedApplicationStorageCompartmentResponse;
 import * as ChangeImportedModelCompartmentResponse from "./change-imported-model-compartment-response";
@@ -54,6 +56,8 @@ import * as CreateGenerativeAiProjectResponse from "./create-generative-ai-proje
 export import CreateGenerativeAiProjectResponse = CreateGenerativeAiProjectResponse.CreateGenerativeAiProjectResponse;
 import * as CreateHostedApplicationResponse from "./create-hosted-application-response";
 export import CreateHostedApplicationResponse = CreateHostedApplicationResponse.CreateHostedApplicationResponse;
+import * as CreateHostedApplicationIamResponse from "./create-hosted-application-iam-response";
+export import CreateHostedApplicationIamResponse = CreateHostedApplicationIamResponse.CreateHostedApplicationIamResponse;
 import * as CreateHostedApplicationStorageResponse from "./create-hosted-application-storage-response";
 export import CreateHostedApplicationStorageResponse = CreateHostedApplicationStorageResponse.CreateHostedApplicationStorageResponse;
 import * as CreateHostedDeploymentResponse from "./create-hosted-deployment-response";
@@ -80,6 +84,8 @@ import * as DeleteGenerativeAiProjectResponse from "./delete-generative-ai-proje
 export import DeleteGenerativeAiProjectResponse = DeleteGenerativeAiProjectResponse.DeleteGenerativeAiProjectResponse;
 import * as DeleteHostedApplicationResponse from "./delete-hosted-application-response";
 export import DeleteHostedApplicationResponse = DeleteHostedApplicationResponse.DeleteHostedApplicationResponse;
+import * as DeleteHostedApplicationIamResponse from "./delete-hosted-application-iam-response";
+export import DeleteHostedApplicationIamResponse = DeleteHostedApplicationIamResponse.DeleteHostedApplicationIamResponse;
 import * as DeleteHostedApplicationStorageResponse from "./delete-hosted-application-storage-response";
 export import DeleteHostedApplicationStorageResponse = DeleteHostedApplicationStorageResponse.DeleteHostedApplicationStorageResponse;
 import * as DeleteHostedDeploymentResponse from "./delete-hosted-deployment-response";
@@ -106,6 +112,8 @@ import * as GetGenerativeAiProjectResponse from "./get-generative-ai-project-res
 export import GetGenerativeAiProjectResponse = GetGenerativeAiProjectResponse.GetGenerativeAiProjectResponse;
 import * as GetHostedApplicationResponse from "./get-hosted-application-response";
 export import GetHostedApplicationResponse = GetHostedApplicationResponse.GetHostedApplicationResponse;
+import * as GetHostedApplicationIamResponse from "./get-hosted-application-iam-response";
+export import GetHostedApplicationIamResponse = GetHostedApplicationIamResponse.GetHostedApplicationIamResponse;
 import * as GetHostedApplicationStorageResponse from "./get-hosted-application-storage-response";
 export import GetHostedApplicationStorageResponse = GetHostedApplicationStorageResponse.GetHostedApplicationStorageResponse;
 import * as GetHostedDeploymentResponse from "./get-hosted-deployment-response";
@@ -138,6 +146,8 @@ import * as ListHostedApplicationStoragesResponse from "./list-hosted-applicatio
 export import ListHostedApplicationStoragesResponse = ListHostedApplicationStoragesResponse.ListHostedApplicationStoragesResponse;
 import * as ListHostedApplicationsResponse from "./list-hosted-applications-response";
 export import ListHostedApplicationsResponse = ListHostedApplicationsResponse.ListHostedApplicationsResponse;
+import * as ListHostedApplicationsIamResponse from "./list-hosted-applications-iam-response";
+export import ListHostedApplicationsIamResponse = ListHostedApplicationsIamResponse.ListHostedApplicationsIamResponse;
 import * as ListHostedDeploymentsResponse from "./list-hosted-deployments-response";
 export import ListHostedDeploymentsResponse = ListHostedDeploymentsResponse.ListHostedDeploymentsResponse;
 import * as ListImportedModelsResponse from "./list-imported-models-response";
@@ -176,6 +186,8 @@ import * as UpdateGenerativeAiProjectResponse from "./update-generative-ai-proje
 export import UpdateGenerativeAiProjectResponse = UpdateGenerativeAiProjectResponse.UpdateGenerativeAiProjectResponse;
 import * as UpdateHostedApplicationResponse from "./update-hosted-application-response";
 export import UpdateHostedApplicationResponse = UpdateHostedApplicationResponse.UpdateHostedApplicationResponse;
+import * as UpdateHostedApplicationIamResponse from "./update-hosted-application-iam-response";
+export import UpdateHostedApplicationIamResponse = UpdateHostedApplicationIamResponse.UpdateHostedApplicationIamResponse;
 import * as UpdateHostedDeploymentResponse from "./update-hosted-deployment-response";
 export import UpdateHostedDeploymentResponse = UpdateHostedDeploymentResponse.UpdateHostedDeploymentResponse;
 import * as UpdateImportedModelResponse from "./update-imported-model-response";

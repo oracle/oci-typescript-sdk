@@ -81,6 +81,7 @@ Example: {@code {\"Department\": \"Finance\"}}
   "freeformTags"?: { [key: string]: string };
   "placementConstraintDetails"?:
     | model.HostGroupPlacementConstraintDetails
+    | model.ComputeClusterPlacementConstraintDetails
     | model.ComputeBareMetalHostPlacementConstraintDetails;
   /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the dedicated VM host.

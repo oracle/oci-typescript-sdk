@@ -35,6 +35,10 @@ export interface ContainerInstance {
    */
   "compartmentId": string;
   /**
+   * TenantId id of the container instance.
+   */
+  "tenantId"?: string;
+  /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
    * Example: {@code {\"bar-key\": \"value\"}}
    *
@@ -118,6 +122,7 @@ export interface ContainerInstance {
    * The container restart policy is applied for all containers in container instance.
    */
   "containerRestartPolicy": ContainerInstance.ContainerRestartPolicy;
+  "securityContext"?: model.LinuxContainerInstanceSecurityContext;
 }
 
 export namespace ContainerInstance {
@@ -177,6 +182,10 @@ export namespace ContainerInstance {
           ? obj.imagePullSecrets.map(item => {
               return model.ImagePullSecret.getJsonObj(item);
             })
+          : undefined,
+
+        "securityContext": obj.securityContext
+          ? model.ContainerInstanceSecurityContext.getJsonObj(obj.securityContext)
           : undefined
       }
     };
@@ -215,6 +224,10 @@ export namespace ContainerInstance {
           ? obj.imagePullSecrets.map(item => {
               return model.ImagePullSecret.getDeserializedJsonObj(item);
             })
+          : undefined,
+
+        "securityContext": obj.securityContext
+          ? model.ContainerInstanceSecurityContext.getDeserializedJsonObj(obj.securityContext)
           : undefined
       }
     };

@@ -24,7 +24,7 @@ export interface CreateTargetAlertPolicyAssociationDetails {
    */
   "policyId": string;
   /**
-   * The OCID of the target.
+   * The OCID of the target or target database group.
    */
   "targetId": string;
   /**
@@ -43,6 +43,10 @@ export interface CreateTargetAlertPolicyAssociationDetails {
    * Indicates if the target-alert policy association is enabled or disabled by user.
    */
   "isEnabled": boolean;
+  /**
+   * The resource type that is represented by the alert policy association. Default is considered as TARGET_DATABASE.
+   */
+  "targetType"?: string;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm)
 * <p>

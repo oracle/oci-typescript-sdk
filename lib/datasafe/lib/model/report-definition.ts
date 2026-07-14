@@ -143,6 +143,13 @@ Allowed version strings - \"v1\"
    */
   "lifecycleDetails"?: string;
   /**
+   * Indicates if the reports being generated should be paginated.
+   * If set to true, multiple reports can be generated and the details of next and previous report are present in Report.
+   * Values can either be 'true' or 'false'.
+   *
+   */
+  "isSchedulePaginationEnabled"?: boolean;
+  /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm)
 * <p>
 Example: {@code {\"Department\": \"Finance\"}}

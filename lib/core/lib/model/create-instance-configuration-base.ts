@@ -64,6 +64,11 @@ export namespace CreateInstanceConfigurationBase {
 
     if (obj && "source" in obj && obj.source) {
       switch (obj.source) {
+        case "GMC":
+          return model.CreateGmcConfigurationDetails.getJsonObj(
+            <model.CreateGmcConfigurationDetails>(<object>jsonObj),
+            true
+          );
         case "NONE":
           return model.CreateInstanceConfigurationDetails.getJsonObj(
             <model.CreateInstanceConfigurationDetails>(<object>jsonObj),
@@ -85,6 +90,11 @@ export namespace CreateInstanceConfigurationBase {
 
     if (obj && "source" in obj && obj.source) {
       switch (obj.source) {
+        case "GMC":
+          return model.CreateGmcConfigurationDetails.getDeserializedJsonObj(
+            <model.CreateGmcConfigurationDetails>(<object>jsonObj),
+            true
+          );
         case "NONE":
           return model.CreateInstanceConfigurationDetails.getDeserializedJsonObj(
             <model.CreateInstanceConfigurationDetails>(<object>jsonObj),

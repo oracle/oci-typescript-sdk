@@ -35,7 +35,7 @@ export interface TargetAlertPolicyAssociation {
    */
   "policyId"?: string;
   /**
-   * The OCID of the target on which alert policy is to be applied.
+   * The OCID of the target or target database group on which alert policy is to be applied.
    */
   "targetId"?: string;
   /**
@@ -63,6 +63,10 @@ export interface TargetAlertPolicyAssociation {
    */
   "lifecycleDetails"?: string;
   /**
+   * The resource type that is represented by the target alert policy association.
+   */
+  "targetType": TargetAlertPolicyAssociation.TargetType;
+  /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm)
 * <p>
 Example: {@code {\"Department\": \"Finance\"}}
@@ -84,6 +88,16 @@ Example: {@code {\"Department\": \"Finance\"}}
 }
 
 export namespace TargetAlertPolicyAssociation {
+  export enum TargetType {
+    TargetDatabase = "TARGET_DATABASE",
+    TargetDatabaseGroup = "TARGET_DATABASE_GROUP",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: TargetAlertPolicyAssociation): object {
     const jsonObj = { ...obj, ...{} };
 

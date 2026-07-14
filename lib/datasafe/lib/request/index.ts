@@ -569,6 +569,8 @@ import * as ListTablesRequest from "./list-tables-request";
 export import ListTablesRequest = ListTablesRequest.ListTablesRequest;
 import * as ListTargetAlertPolicyAssociationsRequest from "./list-target-alert-policy-associations-request";
 export import ListTargetAlertPolicyAssociationsRequest = ListTargetAlertPolicyAssociationsRequest.ListTargetAlertPolicyAssociationsRequest;
+import * as ListTargetAlertPolicyUnassociatedMembersRequest from "./list-target-alert-policy-unassociated-members-request";
+export import ListTargetAlertPolicyUnassociatedMembersRequest = ListTargetAlertPolicyUnassociatedMembersRequest.ListTargetAlertPolicyUnassociatedMembersRequest;
 import * as ListTargetDatabaseGroupsRequest from "./list-target-database-groups-request";
 export import ListTargetDatabaseGroupsRequest = ListTargetDatabaseGroupsRequest.ListTargetDatabaseGroupsRequest;
 import * as ListTargetDatabasesRequest from "./list-target-databases-request";

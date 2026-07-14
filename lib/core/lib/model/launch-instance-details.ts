@@ -263,6 +263,7 @@ You can enumerate all available shapes by calling {@link #listShapes(ListShapesR
     | model.AmdMilanBmGpuLaunchInstancePlatformConfig;
   "placementConstraintDetails"?:
     | model.HostGroupPlacementConstraintDetails
+    | model.ComputeClusterPlacementConstraintDetails
     | model.ComputeBareMetalHostPlacementConstraintDetails;
   /**
    * Whether to enable AI enterprise on the instance.

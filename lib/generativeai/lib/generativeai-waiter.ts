@@ -145,6 +145,25 @@ export class GenerativeAiWaiter {
   }
 
   /**
+   * Waits forHostedApplicationIam till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetHostedApplicationIamResponse | null (null in case of 404 response)
+   */
+  public async forHostedApplicationIam(
+    request: serviceRequests.GetHostedApplicationIamRequest,
+    ...targetStates: models.HostedApplicationIam.LifecycleState[]
+  ): Promise<serviceResponses.GetHostedApplicationIamResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getHostedApplicationIam(request),
+      response => targetStates.includes(response.hostedApplicationIam.lifecycleState!),
+      targetStates.includes(models.HostedApplicationIam.LifecycleState.Deleted)
+    );
+  }
+
+  /**
    * Waits forHostedApplicationStorage till it reaches any of the provided states
    *
    * @param request the request to send

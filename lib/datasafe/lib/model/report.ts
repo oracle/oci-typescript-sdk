@@ -71,6 +71,14 @@ export interface Report {
    */
   "lifecycleDetails"?: string;
   /**
+   * The OCID of the previous report generated.
+   */
+  "previousReportId"?: string;
+  /**
+   * The OCID of the next report generated.
+   */
+  "nextReportId"?: string;
+  /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm)
 * <p>
 Example: {@code {\"Department\": \"Finance\"}}
