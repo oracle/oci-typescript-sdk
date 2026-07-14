@@ -57,6 +57,10 @@ Example: {@code 2016-08-25T21:10:29.600Z}
    */
   "aliasKey"?: string;
   /**
+   * The current aiFeatureStatus of the AiDataPlatform.
+   */
+  "aiFeatureStatus"?: string;
+  /**
    * The current state of the AiDataPlatform.
    */
   "lifecycleState": string;

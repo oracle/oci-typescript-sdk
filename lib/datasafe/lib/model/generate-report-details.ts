@@ -56,6 +56,13 @@ export interface GenerateReportDetails {
    * Specifies the limit on the number of rows in the report. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "rowLimit"?: number;
+  /**
+   * Indicates if the reports being generated should be pagination enabled.
+   * If set to true, multiple reports can be generated and the details of next and previous report are present in Report.
+   * Values can either be 'true' or 'false'.
+   *
+   */
+  "isPaginationEnabled"?: boolean;
 }
 
 export namespace GenerateReportDetails {

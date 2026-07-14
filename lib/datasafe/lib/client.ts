@@ -5490,8 +5490,8 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   }
 
   /**
-   * Creates a new saved security assessment for one or multiple targets in a compartment. When this operation is performed,
-   * it will save the latest assessments in the specified compartment. If a schedule is passed, it will persist the latest assessments,
+   * Creates a new saved security assessment for a target database or target database group in a compartment. When this operation is performed,
+   * it will save the latest assessment in the specified compartment. If a schedule is passed, it will persist the latest assessment,
    * at the defined date and time, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -6762,8 +6762,8 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   }
 
   /**
-   * Creates a new saved user assessment for one or multiple targets in a compartment. It saves the latest assessments in the
-   * specified compartment. If a scheduled is passed in, this operation persists the latest assessments that exist at the defined
+   * Creates a new saved user assessment for a target database or target database group in a compartment. It saves the latest assessment in the
+   * specified compartment. If a schedule is passed in, this operation persists the latest assessment that exists at the defined
    * date and time, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -18189,6 +18189,7 @@ The ListDatabaseTableAccessEntries operation returns only the database table acc
      * Retrieves a list of all database view access entries in Data Safe.
 * <p>
 The ListDatabaseViewAccessEntries operation returns only the database view access objects for the specified security policy report.
+* If targetId is specified, it must match the target associated with the securityPolicyReportId path parameter; otherwise, the request is rejected.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param ListDatabaseViewAccessEntriesRequest
@@ -18781,6 +18782,7 @@ When you perform the ListFindingAnalytics operation, if the parameter compartmen
       "severity": listFindingsRequest.severity,
       "containsSeverity": listFindingsRequest.containsSeverity,
       "category": listFindingsRequest.category,
+      "containsOracleDefinedSeverity": listFindingsRequest.containsOracleDefinedSeverity,
       "lifecycleState": listFindingsRequest.lifecycleState,
       "references": listFindingsRequest.references,
       "containsReferences": listFindingsRequest.containsReferences,
@@ -24574,6 +24576,7 @@ The parameter `compartmentIdInSubtree` applies when you perform SummarizedSqlFir
       "page": listTargetAlertPolicyAssociationsRequest.page,
       "sortOrder": listTargetAlertPolicyAssociationsRequest.sortOrder,
       "sortBy": listTargetAlertPolicyAssociationsRequest.sortBy,
+      "targetType": listTargetAlertPolicyAssociationsRequest.targetType,
       "timeCreatedGreaterThanOrEqualTo":
         listTargetAlertPolicyAssociationsRequest.timeCreatedGreaterThanOrEqualTo,
       "timeCreatedLessThan": listTargetAlertPolicyAssociationsRequest.timeCreatedLessThan,
@@ -24622,6 +24625,97 @@ The parameter `compartmentIdInSubtree` applies when you perform SummarizedSqlFir
             key: "etag",
             dataType: "string"
           },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the details of target-alert policy association and its unassociated members by its ID.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListTargetAlertPolicyUnassociatedMembersRequest
+   * @return ListTargetAlertPolicyUnassociatedMembersResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListTargetAlertPolicyUnassociatedMembers.ts.html |here} to see how to use ListTargetAlertPolicyUnassociatedMembers API.
+   */
+  public async listTargetAlertPolicyUnassociatedMembers(
+    listTargetAlertPolicyUnassociatedMembersRequest: requests.ListTargetAlertPolicyUnassociatedMembersRequest
+  ): Promise<responses.ListTargetAlertPolicyUnassociatedMembersResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DataSafeClient#listTargetAlertPolicyUnassociatedMembers."
+      );
+    const operationName = "listTargetAlertPolicyUnassociatedMembers";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/TargetAlertPolicyAssociation/ListTargetAlertPolicyUnassociatedMembers";
+    const pathParams = {
+      "{targetAlertPolicyAssociationId}":
+        listTargetAlertPolicyUnassociatedMembersRequest.targetAlertPolicyAssociationId
+    };
+
+    const queryParams = {
+      "limit": listTargetAlertPolicyUnassociatedMembersRequest.limit,
+      "page": listTargetAlertPolicyUnassociatedMembersRequest.page,
+      "sortBy": listTargetAlertPolicyUnassociatedMembersRequest.sortBy,
+      "sortOrder": listTargetAlertPolicyUnassociatedMembersRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listTargetAlertPolicyUnassociatedMembersRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listTargetAlertPolicyUnassociatedMembersRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/targetAlertPolicyAssociations/{targetAlertPolicyAssociationId}/unassociatedTargetMembers",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListTargetAlertPolicyUnassociatedMembersResponse>{},
+        body: await response.json(),
+        bodyKey: "targetAlertPolicyUnassociatedCollection",
+        bodyModel: model.TargetAlertPolicyUnassociatedCollection,
+        type: "model.TargetAlertPolicyUnassociatedCollection",
+        responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -25877,6 +25971,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
         listUsersRequest.timePasswordExpiryGreaterThanOrEqualTo,
       "timePasswordExpiryLessThan": listUsersRequest.timePasswordExpiryLessThan,
       "page": listUsersRequest.page,
+      "compartmentId": listUsersRequest.compartmentId,
       "sortOrder": listUsersRequest.sortOrder,
       "sortBy": listUsersRequest.sortBy,
       "schemaList": listUsersRequest.schemaList,

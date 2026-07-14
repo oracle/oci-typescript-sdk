@@ -25,6 +25,12 @@ import common = require("oci-common");
  * Artifact configuration input for the deployment.
  */
 export interface CreateArtifactDetails {
+  /**
+   * Optional flag that requires an OCI Vulnerability Scanning Service compliance report for this artifact before it can become active. When omitted, the value defaults to false.
+   *
+   */
+  "isVulnerabilityScanRequired"?: boolean;
+
   "artifactType": string;
 }
 

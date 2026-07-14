@@ -19,6 +19,8 @@ import * as CreateAiDataPlatformRequest from "./create-ai-data-platform-request"
 export import CreateAiDataPlatformRequest = CreateAiDataPlatformRequest.CreateAiDataPlatformRequest;
 import * as DeleteAiDataPlatformRequest from "./delete-ai-data-platform-request";
 export import DeleteAiDataPlatformRequest = DeleteAiDataPlatformRequest.DeleteAiDataPlatformRequest;
+import * as EnableAiFeatureRequest from "./enable-ai-feature-request";
+export import EnableAiFeatureRequest = EnableAiFeatureRequest.EnableAiFeatureRequest;
 import * as GetAiDataPlatformRequest from "./get-ai-data-platform-request";
 export import GetAiDataPlatformRequest = GetAiDataPlatformRequest.GetAiDataPlatformRequest;
 import * as GetWorkRequestRequest from "./get-work-request-request";

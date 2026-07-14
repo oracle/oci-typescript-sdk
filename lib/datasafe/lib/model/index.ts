@@ -873,6 +873,10 @@ import * as TargetAlertPolicyAssociationCollection from "./target-alert-policy-a
 export import TargetAlertPolicyAssociationCollection = TargetAlertPolicyAssociationCollection.TargetAlertPolicyAssociationCollection;
 import * as TargetAlertPolicyAssociationSummary from "./target-alert-policy-association-summary";
 export import TargetAlertPolicyAssociationSummary = TargetAlertPolicyAssociationSummary.TargetAlertPolicyAssociationSummary;
+import * as TargetAlertPolicyUnassociatedCollection from "./target-alert-policy-unassociated-collection";
+export import TargetAlertPolicyUnassociatedCollection = TargetAlertPolicyUnassociatedCollection.TargetAlertPolicyUnassociatedCollection;
+import * as TargetAlertPolicyUnassociatedSummary from "./target-alert-policy-unassociated-summary";
+export import TargetAlertPolicyUnassociatedSummary = TargetAlertPolicyUnassociatedSummary.TargetAlertPolicyUnassociatedSummary;
 import * as TargetDatabase from "./target-database";
 export import TargetDatabase = TargetDatabase.TargetDatabase;
 import * as TargetDatabaseGroup from "./target-database-group";

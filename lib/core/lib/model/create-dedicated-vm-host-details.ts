@@ -80,6 +80,7 @@ Example: {@code {\"Department\": \"Finance\"}}
   "freeformTags"?: { [key: string]: string };
   "placementConstraintDetails"?:
     | model.HostGroupPlacementConstraintDetails
+    | model.ComputeClusterPlacementConstraintDetails
     | model.ComputeBareMetalHostPlacementConstraintDetails;
   /**
    * The capacity configuration selected to be configured for the Dedicated Virtual Machine host.

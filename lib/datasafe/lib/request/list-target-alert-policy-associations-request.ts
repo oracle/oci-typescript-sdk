@@ -56,6 +56,10 @@ export interface ListTargetAlertPolicyAssociationsRequest extends common.BaseReq
    */
   "sortBy"?: ListTargetAlertPolicyAssociationsRequest.SortBy;
   /**
+   * A optional filter to return only resources that belong to the specified alert policy association type.
+   */
+  "targetType"?: string;
+  /**
    * Unique identifier for the request.
    */
   "opcRequestId"?: string;

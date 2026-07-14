@@ -965,6 +965,96 @@ export class GenerativeAiClient {
   }
 
   /**
+   * Moves a hosted application into a different compartment within the same tenancy. For information about moving resources between compartments, see [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ChangeHostedApplicationIamCompartmentRequest
+   * @return ChangeHostedApplicationIamCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/ChangeHostedApplicationIamCompartment.ts.html |here} to see how to use ChangeHostedApplicationIamCompartment API.
+   */
+  public async changeHostedApplicationIamCompartment(
+    changeHostedApplicationIamCompartmentRequest: requests.ChangeHostedApplicationIamCompartmentRequest
+  ): Promise<responses.ChangeHostedApplicationIamCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation GenerativeAiClient#changeHostedApplicationIamCompartment."
+      );
+    const operationName = "changeHostedApplicationIamCompartment";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{hostedApplicationIamId}":
+        changeHostedApplicationIamCompartmentRequest.hostedApplicationIamId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeHostedApplicationIamCompartmentRequest.ifMatch,
+      "opc-request-id": changeHostedApplicationIamCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeHostedApplicationIamCompartmentRequest.opcRetryToken
+    };
+
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["hostedApplicationIamId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeHostedApplicationIamCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/hostedApplicationsIam/{hostedApplicationIamId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeHostedApplicationIamCompartmentRequest.changeHostedApplicationCompartmentDetails,
+        "ChangeHostedApplicationCompartmentDetails",
+        model.ChangeHostedApplicationCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeHostedApplicationIamCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Moves a hosted application storage into a different compartment within the same tenancy. For information about moving resources between compartments, see [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeHostedApplicationStorageCompartmentRequest
@@ -1892,6 +1982,104 @@ The header contains an opc-work-request-id, which is the id for the WorkRequest 
         bodyKey: "hostedApplication",
         bodyModel: model.HostedApplication,
         type: "model.HostedApplication",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a hosted application.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateHostedApplicationIamRequest
+   * @return CreateHostedApplicationIamResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/CreateHostedApplicationIam.ts.html |here} to see how to use CreateHostedApplicationIam API.
+   */
+  public async createHostedApplicationIam(
+    createHostedApplicationIamRequest: requests.CreateHostedApplicationIamRequest
+  ): Promise<responses.CreateHostedApplicationIamResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GenerativeAiClient#createHostedApplicationIam.");
+    const operationName = "createHostedApplicationIam";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createHostedApplicationIamRequest.opcRetryToken,
+      "opc-request-id": createHostedApplicationIamRequest.opcRequestId
+    };
+
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>([]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createHostedApplicationIamRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/hostedApplicationsIam",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createHostedApplicationIamRequest.createHostedApplicationIamDetails,
+        "CreateHostedApplicationIamDetails",
+        model.CreateHostedApplicationIamDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateHostedApplicationIamResponse>{},
+        body: await response.json(),
+        bodyKey: "hostedApplicationIam",
+        bodyModel: model.HostedApplicationIam,
+        type: "model.HostedApplicationIam",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -3137,6 +3325,94 @@ You can only delete clusters without attached resources. Before you delete a hos
    * You can only delete hosted application without attached resources. Before you delete a hosting hosted application, you must delete the endpoints associated to that application. Before you delete a fine-tuning hosted application, you must delete the custom model on that application. The delete action permanently deletes the cluster. This action can't be undone.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteHostedApplicationIamRequest
+   * @return DeleteHostedApplicationIamResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/DeleteHostedApplicationIam.ts.html |here} to see how to use DeleteHostedApplicationIam API.
+   */
+  public async deleteHostedApplicationIam(
+    deleteHostedApplicationIamRequest: requests.DeleteHostedApplicationIamRequest
+  ): Promise<responses.DeleteHostedApplicationIamResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GenerativeAiClient#deleteHostedApplicationIam.");
+    const operationName = "deleteHostedApplicationIam";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{hostedApplicationIamId}": deleteHostedApplicationIamRequest.hostedApplicationIamId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteHostedApplicationIamRequest.ifMatch,
+      "opc-request-id": deleteHostedApplicationIamRequest.opcRequestId
+    };
+
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["hostedApplicationIamId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteHostedApplicationIamRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/hostedApplicationsIam/{hostedApplicationIamId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteHostedApplicationIamResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes a hosted application.
+   * You can only delete hosted application without attached resources. Before you delete a hosting hosted application, you must delete the endpoints associated to that application. Before you delete a fine-tuning hosted application, you must delete the custom model on that application. The delete action permanently deletes the cluster. This action can't be undone.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteHostedApplicationStorageRequest
    * @return DeleteHostedApplicationStorageResponse
    * @throws OciError when an error occurs
@@ -4251,6 +4527,95 @@ You can only delete clusters without attached resources. Before you delete a hos
         bodyKey: "hostedApplication",
         bodyModel: model.HostedApplication,
         type: "model.HostedApplication",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets information about a hosted application.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetHostedApplicationIamRequest
+   * @return GetHostedApplicationIamResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/GetHostedApplicationIam.ts.html |here} to see how to use GetHostedApplicationIam API.
+   */
+  public async getHostedApplicationIam(
+    getHostedApplicationIamRequest: requests.GetHostedApplicationIamRequest
+  ): Promise<responses.GetHostedApplicationIamResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GenerativeAiClient#getHostedApplicationIam.");
+    const operationName = "getHostedApplicationIam";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{hostedApplicationIamId}": getHostedApplicationIamRequest.hostedApplicationIamId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getHostedApplicationIamRequest.opcRequestId
+    };
+
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["hostedApplicationIamId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getHostedApplicationIamRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/hostedApplicationsIam/{hostedApplicationIamId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetHostedApplicationIamResponse>{},
+        body: await response.json(),
+        bodyKey: "hostedApplicationIam",
+        bodyModel: model.HostedApplicationIam,
+        type: "model.HostedApplicationIam",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -5750,6 +6115,102 @@ You can only delete clusters without attached resources. Before you delete a hos
 
   /**
    * Lists the hosted applications in a specific compartment.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListHostedApplicationsIamRequest
+   * @return ListHostedApplicationsIamResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/ListHostedApplicationsIam.ts.html |here} to see how to use ListHostedApplicationsIam API.
+   */
+  public async listHostedApplicationsIam(
+    listHostedApplicationsIamRequest: requests.ListHostedApplicationsIamRequest
+  ): Promise<responses.ListHostedApplicationsIamResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GenerativeAiClient#listHostedApplicationsIam.");
+    const operationName = "listHostedApplicationsIam";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listHostedApplicationsIamRequest.compartmentId,
+      "lifecycleState": listHostedApplicationsIamRequest.lifecycleState,
+      "displayName": listHostedApplicationsIamRequest.displayName,
+      "id": listHostedApplicationsIamRequest.id,
+      "limit": listHostedApplicationsIamRequest.limit,
+      "page": listHostedApplicationsIamRequest.page,
+      "sortOrder": listHostedApplicationsIamRequest.sortOrder,
+      "sortBy": listHostedApplicationsIamRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listHostedApplicationsIamRequest.opcRequestId
+    };
+
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["compartmentId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listHostedApplicationsIamRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/hostedApplicationsIam",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListHostedApplicationsIamResponse>{},
+        body: await response.json(),
+        bodyKey: "hostedApplicationCollection",
+        bodyModel: model.HostedApplicationCollection,
+        type: "model.HostedApplicationCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists the hosted applications in a specific compartment. Provide either applicationId or applicationIamId to filter by parent.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListHostedDeploymentsRequest
    * @return ListHostedDeploymentsResponse
@@ -7563,6 +8024,97 @@ You can only delete clusters without attached resources. Before you delete a hos
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateHostedApplicationResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates a hosted application.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateHostedApplicationIamRequest
+   * @return UpdateHostedApplicationIamResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/UpdateHostedApplicationIam.ts.html |here} to see how to use UpdateHostedApplicationIam API.
+   */
+  public async updateHostedApplicationIam(
+    updateHostedApplicationIamRequest: requests.UpdateHostedApplicationIamRequest
+  ): Promise<responses.UpdateHostedApplicationIamResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GenerativeAiClient#updateHostedApplicationIam.");
+    const operationName = "updateHostedApplicationIam";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{hostedApplicationIamId}": updateHostedApplicationIamRequest.hostedApplicationIamId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateHostedApplicationIamRequest.ifMatch,
+      "opc-request-id": updateHostedApplicationIamRequest.opcRequestId
+    };
+
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["hostedApplicationIamId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateHostedApplicationIamRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/hostedApplicationsIam/{hostedApplicationIamId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateHostedApplicationIamRequest.updateHostedApplicationIamDetails,
+        "UpdateHostedApplicationIamDetails",
+        model.UpdateHostedApplicationIamDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateHostedApplicationIamResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),

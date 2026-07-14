@@ -67,6 +67,7 @@ Example: {@code Uocm:PHX-AD-1}
   "compartmentId": string;
   "placementConstraintDetails"?:
     | model.HostGroupPlacementConstraintDetails
+    | model.ComputeClusterPlacementConstraintDetails
     | model.ComputeBareMetalHostPlacementConstraintDetails;
   /**
    * Whether AI enterprise is enabled on the instance.

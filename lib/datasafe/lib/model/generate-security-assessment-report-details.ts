@@ -22,6 +22,18 @@ export interface GenerateSecurityAssessmentReportDetails {
    * Format of the Security Assessment report.
    */
   "format": GenerateSecurityAssessmentReportDetails.Format;
+  /**
+    * Optional flag controlling the output format of a target group report:
+* - true: Generate a single consolidated report file for the entire target group.
+* - false: Generate a ZIP archive containing one file per target in the group.
+* <p>
+Important:
+* - This flag is only applicable when the security assessment OCID refers to a target group assessment (targetType TARGET_DATABASE_GROUP).
+* - If {@code isSingleReport} is set to true for an individual target (targetType TARGET_DATABASE), the request will return an error.
+* - If {@code isSingleReport} is null or false for an individual target, the value is ignored and the selected output format for the assessment type is generated.
+* 
+    */
+  "isSingleReport"?: boolean;
 }
 
 export namespace GenerateSecurityAssessmentReportDetails {

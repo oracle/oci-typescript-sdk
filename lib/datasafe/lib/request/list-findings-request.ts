@@ -43,6 +43,10 @@ export interface ListFindingsRequest extends common.BaseRequest {
    */
   "category"?: string;
   /**
+   * A filter to return only findings that match the specified risk level(s). Use containsOracleDefinedSeverity parameter if need to filter by one or multiple risk levels.
+   */
+  "containsOracleDefinedSeverity"?: Array<ListFindingsRequest.ContainsOracleDefinedSeverity>;
+  /**
    * A filter to return only the findings that match the specified lifecycle states.
    */
   "lifecycleState"?: model.FindingLifecycleState;
@@ -148,6 +152,16 @@ export namespace ListFindingsRequest {
   }
 
   export enum ContainsSeverity {
+    High = "HIGH",
+    Medium = "MEDIUM",
+    Low = "LOW",
+    Evaluate = "EVALUATE",
+    Advisory = "ADVISORY",
+    Pass = "PASS",
+    Deferred = "DEFERRED"
+  }
+
+  export enum ContainsOracleDefinedSeverity {
     High = "HIGH",
     Medium = "MEDIUM",
     Low = "LOW",

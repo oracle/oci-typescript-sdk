@@ -70,6 +70,10 @@ Example: {@code 2016-08-25T21:10:29.600Z}
    */
   "lifecycleState": AiDataPlatform.LifecycleState;
   /**
+   * The current aiFeatureStatus of the AiDataPlatform.
+   */
+  "aiFeatureStatus"?: AiDataPlatform.AiFeatureStatus;
+  /**
    * A message that describes the current state of the AiDataPlatform in more detail. For example,
    * can be used to provide actionable information for a resource in the Failed state.
    *
@@ -107,6 +111,18 @@ export namespace AiDataPlatform {
     Active = "ACTIVE",
     Deleting = "DELETING",
     Deleted = "DELETED",
+    Failed = "FAILED",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum AiFeatureStatus {
+    Disabled = "DISABLED",
+    Enabling = "ENABLING",
+    Ready = "READY",
     Failed = "FAILED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this

@@ -139,6 +139,10 @@ export interface ListUsersRequest extends common.BaseRequest {
    */
   "page"?: string;
   /**
+   * A filter to return only resources that match the specified compartment OCID.
+   */
+  "compartmentId"?: string;
+  /**
    * The sort order to use, either ascending (ASC) or descending (DESC).
    */
   "sortOrder"?: ListUsersRequest.SortOrder;

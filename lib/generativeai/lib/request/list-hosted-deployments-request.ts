@@ -23,7 +23,7 @@ export interface ListHostedDeploymentsRequest extends common.BaseRequest {
    */
   "compartmentId": string;
   /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the hosted application.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the HostedApplication parent.
    */
   "applicationId"?: string;
   /**

@@ -555,6 +555,85 @@ export class AiDataPlatformClient {
   }
 
   /**
+   * The AiDataPlatform will be enabled with AI features
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param EnableAiFeatureRequest
+   * @return EnableAiFeatureResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidataplatform/EnableAiFeature.ts.html |here} to see how to use EnableAiFeature API.
+   */
+  public async enableAiFeature(
+    enableAiFeatureRequest: requests.EnableAiFeatureRequest
+  ): Promise<responses.EnableAiFeatureResponse> {
+    if (this.logger) this.logger.debug("Calling operation AiDataPlatformClient#enableAiFeature.");
+    const operationName = "enableAiFeature";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{aiDataPlatformId}": enableAiFeatureRequest.aiDataPlatformId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": enableAiFeatureRequest.ifMatch,
+      "opc-request-id": enableAiFeatureRequest.opcRequestId,
+      "opc-retry-token": enableAiFeatureRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      enableAiFeatureRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/aiDataPlatforms/{aiDataPlatformId}/actions/enableAiFeature",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        enableAiFeatureRequest.enableAiFeatureDetails,
+        "EnableAiFeatureDetails",
+        model.EnableAiFeatureDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.EnableAiFeatureResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets information about a AiDataPlatform.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetAiDataPlatformRequest

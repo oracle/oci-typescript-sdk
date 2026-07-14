@@ -51,6 +51,13 @@ Allowed version strings - \"v1\"
    */
   "compartmentId": string;
   "reportDetails": model.ScheduleAuditReportDetails;
+  /**
+   * Indicates if the reports being generated should be paginated.
+   * If set to true, multiple reports can be generated and the details of next and previous report are present in Report.
+   * Values can either be 'true' or 'false'.
+   *
+   */
+  "isPaginationEnabled"?: boolean;
 }
 
 export namespace ScheduleReportDetails {

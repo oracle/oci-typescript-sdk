@@ -19,6 +19,8 @@ import * as CreateAiDataPlatformResponse from "./create-ai-data-platform-respons
 export import CreateAiDataPlatformResponse = CreateAiDataPlatformResponse.CreateAiDataPlatformResponse;
 import * as DeleteAiDataPlatformResponse from "./delete-ai-data-platform-response";
 export import DeleteAiDataPlatformResponse = DeleteAiDataPlatformResponse.DeleteAiDataPlatformResponse;
+import * as EnableAiFeatureResponse from "./enable-ai-feature-response";
+export import EnableAiFeatureResponse = EnableAiFeatureResponse.EnableAiFeatureResponse;
 import * as GetAiDataPlatformResponse from "./get-ai-data-platform-response";
 export import GetAiDataPlatformResponse = GetAiDataPlatformResponse.GetAiDataPlatformResponse;
 import * as GetWorkRequestResponse from "./get-work-request-response";

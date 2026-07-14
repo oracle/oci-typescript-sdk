@@ -67,6 +67,11 @@ Example: {@code {\"Department\": \"Finance\"}}
    */
   "instanceConfigurationId": string;
   /**
+   * The type of resources managed by the pool.
+   *
+   */
+  "poolType"?: InstancePool.PoolType;
+  /**
    * The current state of the instance pool.
    */
   "lifecycleState": InstancePool.LifecycleState;
@@ -109,6 +114,16 @@ Example: {@code {\"Department\": \"Finance\"}}
 }
 
 export namespace InstancePool {
+  export enum PoolType {
+    Instance = "INSTANCE",
+    Gmc = "GMC",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export enum LifecycleState {
     Provisioning = "PROVISIONING",
     Scaling = "SCALING",

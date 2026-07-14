@@ -85,7 +85,8 @@ export namespace ListChecksRequest {
 
   export enum SortBy {
     Title = "title",
-    Category = "category"
+    Category = "category",
+    Key = "key"
   }
 
   export enum SuggestedSeverity {

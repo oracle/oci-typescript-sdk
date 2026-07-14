@@ -40,6 +40,11 @@ export namespace PlacementConstraintDetails {
             <model.HostGroupPlacementConstraintDetails>(<object>jsonObj),
             true
           );
+        case "COMPUTE_CLUSTER":
+          return model.ComputeClusterPlacementConstraintDetails.getJsonObj(
+            <model.ComputeClusterPlacementConstraintDetails>(<object>jsonObj),
+            true
+          );
         case "COMPUTE_BARE_METAL_HOST":
           return model.ComputeBareMetalHostPlacementConstraintDetails.getJsonObj(
             <model.ComputeBareMetalHostPlacementConstraintDetails>(<object>jsonObj),
@@ -59,6 +64,11 @@ export namespace PlacementConstraintDetails {
         case "HOST_GROUP":
           return model.HostGroupPlacementConstraintDetails.getDeserializedJsonObj(
             <model.HostGroupPlacementConstraintDetails>(<object>jsonObj),
+            true
+          );
+        case "COMPUTE_CLUSTER":
+          return model.ComputeClusterPlacementConstraintDetails.getDeserializedJsonObj(
+            <model.ComputeClusterPlacementConstraintDetails>(<object>jsonObj),
             true
           );
         case "COMPUTE_BARE_METAL_HOST":

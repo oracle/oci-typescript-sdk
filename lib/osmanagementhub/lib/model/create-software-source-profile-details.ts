@@ -35,7 +35,7 @@ export interface CreateSoftwareSourceProfileDetails extends model.CreateProfileD
   /**
    * The list of software source [OCIDs](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) that the registration profile will use.
    */
-  "softwareSourceIds": Array<string>;
+  "softwareSourceIds"?: Array<string>;
 
   "profileType": string;
 }

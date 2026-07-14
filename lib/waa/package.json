@@ -1,6 +1,6 @@
 {
   "name": "oci-waa",
-  "version": "2.136.1",
+  "version": "2.137.0",
   "description": "OCI NodeJS client for Waa Service",
   "repository": {
     "type": "git",
