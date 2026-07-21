@@ -117,6 +117,11 @@ Example: {@code 2020-08-25T21:10:29.600Z}
    *
    */
   "systemTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * Bytes referenced only by this snapshot; deducted from compartment usage immediately upon deletion.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "exclusiveBytes"?: number;
 }
 
 export namespace SnapshotSummary {

@@ -21,7 +21,7 @@ import common = require("oci-common");
  */
 export interface WorkRequestError {
   /**
-   * A short error code that defines the error, meant for programmatic parsing.
+   * A short error code that defines the error, for programmatic parsing.
    *
    */
   "code": string;
@@ -31,7 +31,7 @@ export interface WorkRequestError {
    */
   "message": string;
   /**
-    * The date and time the error occured, in the format defined by RFC3339.
+    * The date and time the error occurred, in the format defined by RFC3339.
 * <p>
 Example: {@code 2016-08-25T21:10:29.600Z}
 * 

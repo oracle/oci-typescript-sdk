@@ -230,6 +230,12 @@ Example: {@code 2016-08-25T21:10:29.600Z}
    * The layer 3 IP MTU to use on this virtual circuit.
    */
   "ipMtu"?: model.VirtualCircuitIpMtu;
+  /**
+   * The current traffic mode for the Virtual Circuit. This indicates whether the traffic is drained for the
+   * associated Virtual Circuit or not.
+   *
+   */
+  "trafficMode"?: VirtualCircuit.TrafficMode;
   "virtualCircuitRedundancyMetadata"?: model.VirtualCircuitRedundancyMetadata;
 }
 
@@ -327,6 +333,16 @@ export namespace VirtualCircuit {
   export enum Type {
     Public = "PUBLIC",
     Private = "PRIVATE",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum TrafficMode {
+    Normal = "NORMAL",
+    Drain = "DRAIN",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

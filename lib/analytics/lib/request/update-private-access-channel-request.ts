@@ -19,17 +19,17 @@ import common = require("oci-common");
  */
 export interface UpdatePrivateAccessChannelRequest extends common.BaseRequest {
   /**
-   * The unique identifier key of the Private Access Channel.
+   * The unique identifier key of the private access channel.
    *
    */
   "privateAccessChannelKey": string;
   /**
-   * The OCID of the AnalyticsInstance.
+   * The OCID of the Analytics instance.
    *
    */
   "analyticsInstanceId": string;
   /**
-   * Update the Private Access Channel with the given unique identifier key in the specified Analytics Instance.
+   * Update the private access channel with the given unique identifier key in the specified Analytics instance.
    *
    */
   "updatePrivateAccessChannelDetails": model.UpdatePrivateAccessChannelDetails;

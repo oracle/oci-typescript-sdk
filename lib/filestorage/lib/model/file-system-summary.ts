@@ -126,6 +126,10 @@ Example: {@code 2016-08-25T21:10:29.600Z}
    * Displays the state of enforcement of quota rules on the file system.
    */
   "quotaEnforcementState"?: FileSystemSummary.QuotaEnforcementState;
+  /**
+   * Displays the compartment-level quota enforcement state affecting this file system.
+   */
+  "compartmentQuotaEnforcementState"?: FileSystemSummary.CompartmentQuotaEnforcementState;
 }
 
 export namespace FileSystemSummary {
@@ -161,6 +165,16 @@ export namespace FileSystemSummary {
     Disabled = "DISABLED",
     Syncing = "SYNCING",
     Failed = "FAILED",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum CompartmentQuotaEnforcementState {
+    NotBlocked = "NOT_BLOCKED",
+    Blocked = "BLOCKED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

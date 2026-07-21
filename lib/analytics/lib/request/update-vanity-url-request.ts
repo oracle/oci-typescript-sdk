@@ -19,17 +19,17 @@ import common = require("oci-common");
  */
 export interface UpdateVanityUrlRequest extends common.BaseRequest {
   /**
-   * The OCID of the AnalyticsInstance.
+   * The OCID of the Analytics instance.
    *
    */
   "analyticsInstanceId": string;
   /**
-   * Specify unique identifier key of a vanity url to update or delete.
+   * Specify unique identifier key of a vanity URL to update or delete.
    *
    */
   "vanityUrlKey": string;
   /**
-   * Vanity url details to update (certificate).
+   * Vanity URL details to update (certificate).
    *
    */
   "updateVanityUrlDetails": model.UpdateVanityUrlDetails;

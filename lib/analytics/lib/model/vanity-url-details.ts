@@ -16,27 +16,27 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Vanity url configuration details.
+ * Vanity URL configuration details.
  *
  */
 export interface VanityUrlDetails {
   /**
-   * The vanity url unique identifier key.
+   * The vanity URL unique identifier key.
    *
    */
   "key"?: string;
   /**
-   * Description of the vanity url.
+   * Description of the vanity URL.
    *
    */
   "description"?: string;
   /**
-   * List of urls supported by this vanity URL definition (max of 3).
+   * List of URLs supported by this vanity URL definition (maximum of 3).
    *
    */
   "urls"?: Array<string>;
   /**
-   * List of fully qualified hostnames supported by this vanity URL definition (max of 3).
+   * List of fully-qualified hostnames supported by this vanity URL definition (maximum of 3).
    *
    */
   "hosts"?: Array<string>;

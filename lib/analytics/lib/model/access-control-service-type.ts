@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Various types of Oracle Service categories that can be whitelisted to access an Analytics Instance.
+ * Various types of Oracle Service categories that can be whitelisted to access an Analytics instance.
  *
  **/
 export enum AccessControlServiceType {

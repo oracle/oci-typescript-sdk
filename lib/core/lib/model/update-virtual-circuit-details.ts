@@ -108,6 +108,12 @@ Example: {@code {\"Department\": \"Finance\"}}
     */
   "freeformTags"?: { [key: string]: string };
   /**
+   * The traffic mode to be set with this Virtual Circuit. This controls whether the traffic is to be drained
+   * for the associated Virtual Circuit or not.
+   *
+   */
+  "trafficMode"?: UpdateVirtualCircuitDetails.TrafficMode;
+  /**
     * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the {@link Drg}
 * that this private virtual circuit uses.
 * <p>
@@ -156,6 +162,11 @@ export namespace UpdateVirtualCircuitDetails {
   export enum BgpAdminState {
     Enabled = "ENABLED",
     Disabled = "DISABLED"
+  }
+
+  export enum TrafficMode {
+    Normal = "NORMAL",
+    Drain = "DRAIN"
   }
 
   export enum ProviderState {

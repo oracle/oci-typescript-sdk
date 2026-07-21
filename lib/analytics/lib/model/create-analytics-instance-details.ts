@@ -21,7 +21,8 @@ import common = require("oci-common");
  */
 export interface CreateAnalyticsInstanceDetails {
   /**
-   * The name of the Analytics instance. This name must be unique in the tenancy and cannot be changed.
+   * The name of the Analytics instance. This name must be unique in the tenancy and can't be changed.
+   * The name must start with a letter and can contain only letters, numbers and dash (-).
    *
    */
   "name": string;
@@ -36,7 +37,7 @@ export interface CreateAnalyticsInstanceDetails {
    */
   "compartmentId": string;
   /**
-   * Analytics feature set.
+   * The feature set. Either {@code SELF_SERVICE_ANALYTICS} (Professional Edition) or {@code ENTERPRISE_ANALYTICS} (Enterprise Edition).
    *
    */
   "featureSet": model.FeatureSet;
@@ -74,22 +75,22 @@ Example: {@code {\"Department\": \"Finance\"}}
     */
   "freeformTags"?: { [key: string]: string };
   /**
-   * Analytics instance update channel.
+   * The Analytics instance update cycle.
    *
    */
   "updateChannel"?: model.UpdateChannel;
   /**
-   * OCID of the OCI Vault Key encrypting the customer data stored in this Analytics instance. A null value indicates Oracle managed default encryption.
+   * OCID of the OCI Vault Key encrypting the customer data stored in this Analytics instance. A null value indicates that the default Oracle-managed encryption is used.
    *
    */
   "kmsKeyId"?: string;
   /**
-   * domain id for which the user is authorized.
+   * The OCID of the identity domain to use for the new Analytics instance. For example: ocid1.domain.oc1..ocid1.domain.oc1..aaaaaa111111bbbbbb222222cccccc333333dddddd444444eeeeee5555.
    *
    */
   "domainId"?: string;
   /**
-   * user name of the authorized user.
+   * The Analytics instance administrator user. This must be the user name (not OCID) of a user in the nominated identity domain. For example: john.smith@example.com.
    *
    */
   "adminUser"?: string;

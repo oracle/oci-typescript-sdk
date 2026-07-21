@@ -22,4 +22,10 @@ export interface GetCrossConnectLetterOfAuthorityRequest extends common.BaseRequ
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the cross-connect.
    */
   "crossConnectId": string;
+  /**
+   * Unique identifier for the request.
+   * If you need to contact Oracle about a particular request, please provide the request ID.
+   *
+   */
+  "opcRequestId"?: string;
 }

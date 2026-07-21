@@ -31,7 +31,7 @@ export interface PublicEndpointDetails extends model.NetworkEndpointDetails {
    */
   "whitelistedVcns"?: Array<model.VirtualCloudNetwork>;
   /**
-   * Oracle Cloud Services that are allowed to access this Analytics instance.
+   * Oracle Cloud services that are allowed to access this Analytics instance.
    *
    */
   "whitelistedServices"?: Array<PublicEndpointDetails.WhitelistedServices>;

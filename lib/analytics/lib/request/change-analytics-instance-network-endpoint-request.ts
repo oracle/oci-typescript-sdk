@@ -19,12 +19,12 @@ import common = require("oci-common");
  */
 export interface ChangeAnalyticsInstanceNetworkEndpointRequest extends common.BaseRequest {
   /**
-   * The OCID of the AnalyticsInstance.
+   * The OCID of the Analytics instance.
    *
    */
   "analyticsInstanceId": string;
   /**
-   * Input payload for changing an Analytics instance network endpoint.
+   * Input payload for changing a network endpoint for an Analytics instance.
    *
    */
   "changeAnalyticsInstanceNetworkEndpointDetails": model.ChangeAnalyticsInstanceNetworkEndpointDetails;
