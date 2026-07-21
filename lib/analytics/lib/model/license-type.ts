@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The license type of the instance.
+ * The license type of the Analytics instance.
  *
  **/
 export enum LicenseType {

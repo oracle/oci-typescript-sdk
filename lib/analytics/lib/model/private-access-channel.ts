@@ -16,55 +16,55 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Analytics Instance Private Access Channel model.
+ * Analytics instance private access channel model.
  *
  */
 export interface PrivateAccessChannel {
   /**
-   * Private Access Channel unique identifier key.
+   * Private access channel unique identifier key.
    *
    */
   "key": string;
   /**
-   * Display Name of the Private Access Channel.
+   * Display name of the private access channel.
    *
    */
   "displayName": string;
   /**
-   * OCID of the customer VCN peered with private access channel.
+   * OCID of the customer VCN peered with the private access channel.
    *
    */
   "vcnId": string;
   /**
-   * OCID of the customer subnet connected to private access channel.
+   * OCID of the customer subnet connected to the private access channel.
    *
    */
   "subnetId": string;
   /**
-   * IP Address of the Private Access channel.
+   * IP address of the private access channel.
    *
    */
   "ipAddress": string;
   /**
-   * The list of IP addresses from the customer subnet connected to private access channel, used as a source Ip by Private Access Channel
-   * for network traffic from the AnalyticsInstance to Private Sources.
+   * List of IP addresses from the customer subnet connected to the private access channel, used as a source IP by the private access channel
+   * for network traffic from the Analytics instance to the private sources.
    *
    */
   "egressSourceIpAddresses": Array<string>;
   /**
-   * List of Private Source DNS zones registered with Private Access Channel,
-   * where datasource hostnames from these dns zones / domains will be resolved in the peered VCN for access from Analytics Instance.
-   * Min of 1 is required and Max of 30 Private Source DNS zones can be registered.
+   * List of private source DNS zones registered with the private access channel. The
+   *  datasource hostnames from these DNS zones / domains will be resolved in the peered VCN for access from  the Analytics instance.
+   * Minimum 1 private source is required. Maximum 30 private source DNS zones can be registered.
    *
    */
   "privateSourceDnsZones"?: Array<model.PrivateSourceDnsZone>;
   /**
-   * List of Private Source DB SCAN hosts registered with Private Access Channel for access from Analytics Instance.
+   * List of private source database SCAN hosts registered with the private access channel for access from the Analytics instance.
    *
    */
   "privateSourceScanHosts"?: Array<model.PrivateSourceScanHost>;
   /**
-   * Network Security Group OCIDs for an Analytics instance.
+   * Network Security Group OCIDs for the Analytics instance.
    *
    */
   "networkSecurityGroupIds"?: Array<string>;

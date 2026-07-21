@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Service instance capacity metadata (e.g.: OLPU count, number of users, ...etc...).
+ * Service instance capacity metadata (for example, OLPU count, number of users, and so on).
  *
  */
 export interface Capacity {
@@ -29,7 +29,7 @@ export interface Capacity {
   "capacityType": model.CapacityType;
   /**
    * The capacity value selected, either the number of OCPUs (OLPU_COUNT) or the number of users (USER_COUNT).
-   * This parameter affects the number of OCPUs, amount of memory, and other resources allocated to the instance.
+   * This parameter affects the number of OCPUs, amount of memory, and other resources allocated to the Analytics instance.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "capacityValue": number;

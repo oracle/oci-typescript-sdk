@@ -103,6 +103,25 @@ Example: {@code 2016-08-25T21:10:29.600Z}
    *
    */
   "ociLogicalDeviceName"?: string;
+  /**
+   * Minimum number of active cross-connects required for the cross-connect group to be considered operational.
+   * If the number of active cross-connects falls below this value, the group is not considered operational.
+   * If this value was not explicitly set when the group was created or updated, it defaults to 1.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "minimumLinks"?: number;
+  /**
+   * The flag to enable or disable the down timer for the interface.
+   */
+  "isInterfaceHoldTimerEnabled"?: boolean;
+  /**
+   * The duration of the interface down timer in milliseconds between 0 and 3000 in multiples of 500. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "interfaceDownTimerValueInMilliseconds"?: number;
+  /**
+   * The flag to enable or disable the Qos for the cross-connect-group.
+   */
+  "isQosEnabled"?: boolean;
 }
 
 export namespace CrossConnectGroup {

@@ -17,7 +17,7 @@ import common = require("oci-common");
 
 export interface WorkRequestResource {
   /**
-   * The way in which this resource was affected by this work request.
+   * The way this resource was affected by this work request.
    *
    */
   "actionResult": model.WorkRequestActionResult;

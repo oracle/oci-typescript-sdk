@@ -17,7 +17,7 @@ import common = require("oci-common");
 
 /**
  * The field to sort by (one column only). Default sort order is
- * ascending exception of {@code timeCreated} column (descending).
+ * ascending, except for the {@code timeCreated} column which is descending.
  *
  **/
 export enum SortBy {

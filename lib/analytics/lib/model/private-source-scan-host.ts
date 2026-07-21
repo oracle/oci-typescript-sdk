@@ -16,22 +16,22 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Private source Scan Hostname model.
+ * Private source SCAN hostname model.
  *
  */
 export interface PrivateSourceScanHost {
   /**
-   * Private Source Scan hostname. Ex: db01-scan.corp.example.com, prd-db01-scan.mycompany.com.
+   * Private source SCAN hostname. For example: db01-scan.corp.example.com, prd-db01-scan.mycompany.com.
    *
    */
   "scanHostname": string;
   /**
-   * Private Source Scan host port. This is the source port where SCAN protocol will get connected (e.g. 1521).
+   * Private source SCAN host port. This is the source port where the SCAN protocol connects (for example, 1521).
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "scanPort": number;
   /**
-   * Description of private source scan host zone.
+   * Description of private source SCAN host zone.
    *
    */
   "description"?: string;

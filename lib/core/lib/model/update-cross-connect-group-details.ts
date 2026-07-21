@@ -50,6 +50,21 @@ Example: {@code {\"Department\": \"Finance\"}}
     */
   "freeformTags"?: { [key: string]: string };
   "macsecProperties"?: model.UpdateMacsecProperties;
+  /**
+   * (Optional) Minimum number of active cross-connects required for the cross-connect group to be considered
+   * operational. If not specified, this value defaults to 1. Value must not exceed the total number of
+   * cross-connects in the cross-connect group.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "minimumLinks"?: number;
+  /**
+   * The flag to enable or disable the down timer for the interface.
+   */
+  "isInterfaceHoldTimerEnabled"?: boolean;
+  /**
+   * The duration of the interface down timer in milliseconds between 0 and 3000 in multiples of 500. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "interfaceDownTimerValueInMilliseconds"?: number;
 }
 
 export namespace UpdateCrossConnectGroupDetails {

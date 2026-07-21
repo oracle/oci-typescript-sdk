@@ -159,6 +159,12 @@ Example: {@code {\"Department\": \"Finance\"}}
    * The layer 3 IP MTU to use with this virtual circuit.
    */
   "ipMtu"?: model.VirtualCircuitIpMtu;
+  /**
+   * The traffic mode to be set with this Virtual Circuit. This controls whether the traffic is to be drained
+   * for the associated Virtual Circuit or not.
+   *
+   */
+  "trafficMode"?: CreateVirtualCircuitDetails.TrafficMode;
 }
 
 export namespace CreateVirtualCircuitDetails {
@@ -177,6 +183,11 @@ export namespace CreateVirtualCircuitDetails {
   export enum Type {
     Public = "PUBLIC",
     Private = "PRIVATE"
+  }
+
+  export enum TrafficMode {
+    Normal = "NORMAL",
+    Drain = "DRAIN"
   }
 
   export function getJsonObj(obj: CreateVirtualCircuitDetails): object {

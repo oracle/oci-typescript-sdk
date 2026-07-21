@@ -31,7 +31,7 @@ export interface PrivateEndpointDetails extends model.NetworkEndpointDetails {
    */
   "subnetId": string;
   /**
-   * Network Security Group OCIDs for an Analytics instance.
+   * Network Security Group OCIDs for the Analytics instance.
    *
    */
   "networkSecurityGroupIds"?: Array<string>;

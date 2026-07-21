@@ -936,6 +936,8 @@ import * as UpdateCrossConnectRequest from "./update-cross-connect-request";
 export import UpdateCrossConnectRequest = UpdateCrossConnectRequest.UpdateCrossConnectRequest;
 import * as UpdateCrossConnectGroupRequest from "./update-cross-connect-group-request";
 export import UpdateCrossConnectGroupRequest = UpdateCrossConnectGroupRequest.UpdateCrossConnectGroupRequest;
+import * as UpdateCrossConnectLetterOfAuthorityRequest from "./update-cross-connect-letter-of-authority-request";
+export import UpdateCrossConnectLetterOfAuthorityRequest = UpdateCrossConnectLetterOfAuthorityRequest.UpdateCrossConnectLetterOfAuthorityRequest;
 import * as UpdateDhcpOptionsRequest from "./update-dhcp-options-request";
 export import UpdateDhcpOptionsRequest = UpdateDhcpOptionsRequest.UpdateDhcpOptionsRequest;
 import * as UpdateDrgRequest from "./update-drg-request";

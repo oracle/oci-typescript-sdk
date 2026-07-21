@@ -26,7 +26,8 @@ export interface AnalyticsInstanceSummary {
    */
   "id": string;
   /**
-   * The name of the Analytics instance. This name must be unique in the tenancy and cannot be changed.
+   * The name of the Analytics instance. This name must be unique in the tenancy and can't be changed.
+   * The name must start with a letter and can contain only letters, numbers and dash (-).
    *
    */
   "name": string;
@@ -41,12 +42,12 @@ export interface AnalyticsInstanceSummary {
    */
   "compartmentId": string;
   /**
-   * The current state of an instance.
+   * The current state of the Analytics instance.
    *
    */
   "lifecycleState": model.AnalyticsInstanceLifecycleState;
   /**
-   * Analytics feature set.
+   * The feature set. Either {@code SELF_SERVICE_ANALYTICS} (Professional Edition) or {@code ENTERPRISE_ANALYTICS} (Enterprise Edition).
    *
    */
   "featureSet": model.FeatureSet;
@@ -63,7 +64,7 @@ export interface AnalyticsInstanceSummary {
   "emailNotification"?: string;
   "networkEndpointDetails": model.PrivateEndpointDetails | model.PublicEndpointDetails;
   /**
-   * URL of the Analytics service.
+   * URL of the Analytics instance.
    *
    */
   "serviceUrl"?: string;
@@ -90,16 +91,16 @@ Example: {@code {\"Department\": \"Finance\"}}
    */
   "systemTags"?: { [key: string]: { [key: string]: any } };
   /**
-    * The date and time the instance was created, in the format defined by RFC3339.
+    * The date and time the Analytics instance was created, in the format defined by RFC3339.
 * <p>
 Example: {@code 2016-08-25T21:10:29.600Z}
 * 
     */
   "timeCreated": Date;
   /**
-   * The date and time the instance was last updated (in the format defined by RFC3339).
-   * This timestamp represents updates made through this API. External events do not
-   * influence it.
+   * The date and time the Analytics instance was last updated (in the format defined by RFC3339).
+   * This timestamp represents updates made through this API. External events don't
+   * affect it.
    *
    */
   "timeUpdated"?: Date;

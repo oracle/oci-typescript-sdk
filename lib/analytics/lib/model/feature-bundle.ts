@@ -22,6 +22,7 @@ import common = require("oci-common");
 export enum FeatureBundle {
   FawPaid = "FAW_PAID",
   FawFree = "FAW_FREE",
+  FdiBase = "FDI_BASE",
   EeEmbedded = "EE_EMBEDDED",
   SeEmbedded = "SE_EMBEDDED",
 

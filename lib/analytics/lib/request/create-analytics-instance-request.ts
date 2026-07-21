@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface CreateAnalyticsInstanceRequest extends common.BaseRequest {
   /**
-   * Analytics Instance details.
+   * Analytics instance details.
    *
    */
   "createAnalyticsInstanceDetails": model.CreateAnalyticsInstanceDetails;

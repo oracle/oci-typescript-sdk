@@ -19,12 +19,12 @@ import common = require("oci-common");
  */
 export interface CreateVanityUrlRequest extends common.BaseRequest {
   /**
-   * The OCID of the AnalyticsInstance.
+   * The OCID of the Analytics instance.
    *
    */
   "analyticsInstanceId": string;
   /**
-   * Vanity url details.
+   * Vanity URL details.
    *
    */
   "createVanityUrlDetails": model.CreateVanityUrlDetails;
