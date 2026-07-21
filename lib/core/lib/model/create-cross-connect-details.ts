@@ -93,6 +93,21 @@ Example: {@code 10 Gbps}
   "customerReferenceName"?: string;
   "macsecProperties"?: model.CreateMacsecProperties;
   /**
+   * The flag to enable or disable the down timer for the interface.
+   */
+  "isInterfaceHoldTimerEnabled"?: boolean;
+  /**
+   * The duration of the interface down timer in milliseconds between 0 and 3000 in multiples of 500. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "interfaceDownTimerValueInMilliseconds"?: number;
+  /**
+   * When true, restricts placement so cross-connects lands only on QoS-capable devices.
+   * When false (default), placement may use any supported device. If no QoS-capable devices are available
+   * in the selected location, the request fails.
+   *
+   */
+  "isQosEnabled"?: boolean;
+  /**
    * The name of the FastConnect device where this cross-connect is installed.
    *
    */

@@ -16,17 +16,17 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Input payload to update a vanity url.
+ * Input payload to update a vanity URL.
  *
  */
 export interface UpdateVanityUrlDetails {
   /**
-   * Passphrase for the PEM Private key (if any).
+   * Passphrase for the PEM private key (if any).
    *
    */
   "passphrase"?: string;
   /**
-   * PEM Private key for HTTPS connections.
+   * PEM private key for HTTPS connections.
    *
    */
   "privateKey": string;
@@ -36,7 +36,7 @@ export interface UpdateVanityUrlDetails {
    */
   "publicCertificate": string;
   /**
-   * PEM CA certificate(s) for HTTPS connections. This may include multiple PEM certificates.
+   * PEM CA certificates for HTTPS connections. This may include multiple PEM certificates.
    *
    */
   "caCertificate": string;

@@ -16,17 +16,17 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Private source DNS Zone model.
+ * Private source DNS zone model.
  *
  */
 export interface PrivateSourceDnsZone {
   /**
-   * Private Source DNS Zone. Ex: example-vcn.oraclevcn.com, corp.example.com.
+   * Private source DNS zone. For example: example-vcn.oraclevcn.com, corp.example.com.
    *
    */
   "dnsZone": string;
   /**
-   * Description of private source dns zone.
+   * Description of the private source DNS zone.
    *
    */
   "description"?: string;

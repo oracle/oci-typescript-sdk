@@ -162,6 +162,10 @@ Example: {@code 2016-08-25T21:10:29.600Z}
    * Specifies the total number of replications for which this file system is a source. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "replicationSourceCount"?: number;
+  /**
+   * Displays the compartment-level quota enforcement state affecting this file system.
+   */
+  "compartmentQuotaEnforcementState"?: FileSystem.CompartmentQuotaEnforcementState;
 }
 
 export namespace FileSystem {
@@ -197,6 +201,16 @@ export namespace FileSystem {
     Disabled = "DISABLED",
     Syncing = "SYNCING",
     Failed = "FAILED",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum CompartmentQuotaEnforcementState {
+    NotBlocked = "NOT_BLOCKED",
+    Blocked = "BLOCKED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Public/Private endpoint access type.
+ * Public or private endpoint access type.
  *
  **/
 export enum NetworkEndpointType {

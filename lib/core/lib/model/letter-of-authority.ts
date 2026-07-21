@@ -59,6 +59,11 @@ Example: {@code 2016-08-25T21:10:29.600Z}
 * 
     */
   "timeIssued"?: Date;
+  /**
+   * Name of a customer authorized agent which will be appended to the LOA as 'Authorized Agent'.
+   */
+  "authorizedAgent"?: string;
+  "extensionDetails"?: model.LoaExtensionData;
 }
 
 export namespace LetterOfAuthority {
@@ -73,12 +78,26 @@ export namespace LetterOfAuthority {
   }
 
   export function getJsonObj(obj: LetterOfAuthority): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "extensionDetails": obj.extensionDetails
+          ? model.LoaExtensionData.getJsonObj(obj.extensionDetails)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: LetterOfAuthority): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "extensionDetails": obj.extensionDetails
+          ? model.LoaExtensionData.getDeserializedJsonObj(obj.extensionDetails)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

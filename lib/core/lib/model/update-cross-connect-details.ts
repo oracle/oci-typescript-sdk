@@ -63,6 +63,14 @@ Example: {@code true}
    */
   "customerReferenceName"?: string;
   "macsecProperties"?: model.UpdateMacsecProperties;
+  /**
+   * The flag to enable or disable the down timer for the interface.
+   */
+  "isInterfaceHoldTimerEnabled"?: boolean;
+  /**
+   * The duration of the interface down timer in milliseconds between 0 and 3000 in multiples of 500. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "interfaceDownTimerValueInMilliseconds"?: number;
 }
 
 export namespace UpdateCrossConnectDetails {

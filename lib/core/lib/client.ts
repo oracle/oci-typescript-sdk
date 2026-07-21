@@ -34930,7 +34930,8 @@ The operation returns configuration information for *all* of the
     const queryParams = {};
 
     let headerParams = {
-      "Content-Type": common.Constants.APPLICATION_JSON
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getCrossConnectLetterOfAuthorityRequest.opcRequestId
     };
 
     let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
@@ -34977,6 +34978,11 @@ The operation returns configuration information for *all* of the
         bodyModel: model.LetterOfAuthority,
         type: "model.LetterOfAuthority",
         responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -48551,6 +48557,104 @@ To list the ephemeral public IPs assigned to private IPs:
         bodyKey: "crossConnectGroup",
         bodyModel: model.CrossConnectGroup,
         type: "model.CrossConnectGroup",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the Letter of Authority for the specified cross-connect.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateCrossConnectLetterOfAuthorityRequest
+   * @return UpdateCrossConnectLetterOfAuthorityResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateCrossConnectLetterOfAuthority.ts.html |here} to see how to use UpdateCrossConnectLetterOfAuthority API.
+   */
+  public async updateCrossConnectLetterOfAuthority(
+    updateCrossConnectLetterOfAuthorityRequest: requests.UpdateCrossConnectLetterOfAuthorityRequest
+  ): Promise<responses.UpdateCrossConnectLetterOfAuthorityResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation VirtualNetworkClient#updateCrossConnectLetterOfAuthority."
+      );
+    const operationName = "updateCrossConnectLetterOfAuthority";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/LetterOfAuthority/UpdateCrossConnectLetterOfAuthority";
+    const pathParams = {
+      "{crossConnectId}": updateCrossConnectLetterOfAuthorityRequest.crossConnectId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateCrossConnectLetterOfAuthorityRequest.opcRequestId,
+      "if-match": updateCrossConnectLetterOfAuthorityRequest.ifMatch
+    };
+
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["crossConnectId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateCrossConnectLetterOfAuthorityRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/crossConnects/{crossConnectId}/letterOfAuthority",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateCrossConnectLetterOfAuthorityRequest.updateCrossConnectLetterOfAuthorityDetails,
+        "UpdateCrossConnectLetterOfAuthorityDetails",
+        model.UpdateCrossConnectLetterOfAuthorityDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateCrossConnectLetterOfAuthorityResponse>{},
+        body: await response.json(),
+        bodyKey: "letterOfAuthority",
+        bodyModel: model.LetterOfAuthority,
+        type: "model.LetterOfAuthority",
         responseHeaders: [
           {
             value: response.headers.get("etag"),

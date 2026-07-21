@@ -240,7 +240,7 @@ export class AnalyticsClient {
 
   /**
    * Change the compartment of an Analytics instance. The operation is long-running
-   * and creates a new WorkRequest.
+   * and creates a new work request.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeAnalyticsInstanceCompartmentRequest
@@ -321,8 +321,8 @@ export class AnalyticsClient {
   }
 
   /**
-   * Change an Analytics instance network endpoint. The operation is long-running
-   * and creates a new WorkRequest.
+   * Change the network endpoint for an Analytics instance. The operation is long-running
+   * and creates a new work request.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeAnalyticsInstanceNetworkEndpointRequest
@@ -405,8 +405,8 @@ export class AnalyticsClient {
   }
 
   /**
-   * Create a new AnalyticsInstance in the specified compartment. The operation is long-running
-   * and creates a new WorkRequest.
+   * Create a new Analytics instance in the specified compartment. The operation is long-running
+   * and creates a new work request.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateAnalyticsInstanceRequest
@@ -497,8 +497,8 @@ export class AnalyticsClient {
   }
 
   /**
-   * Create an Private access Channel for the Analytics instance. The operation is long-running
-   * and creates a new WorkRequest.
+   * Create an private access channel for the Analytics instance. The operation is long-running
+   * and creates a new work request.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreatePrivateAccessChannelRequest
@@ -578,8 +578,105 @@ export class AnalyticsClient {
   }
 
   /**
-   * Allows specifying a custom host name to be used to access the analytics instance.  This requires prior setup of DNS entry and certificate
-   * for this host.
+   * Create a new resource group for the instance
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateResourceGroupRequest
+   * @return CreateResourceGroupResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/analytics/CreateResourceGroup.ts.html |here} to see how to use CreateResourceGroup API.
+   */
+  public async createResourceGroup(
+    createResourceGroupRequest: requests.CreateResourceGroupRequest
+  ): Promise<responses.CreateResourceGroupResponse> {
+    if (this.logger) this.logger.debug("Calling operation AnalyticsClient#createResourceGroup.");
+    const operationName = "createResourceGroup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/analytics/20190331/AnalyticsInstance/CreateResourceGroup";
+    const pathParams = {
+      "{analyticsInstanceId}": createResourceGroupRequest.analyticsInstanceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createResourceGroupRequest.opcRequestId,
+      "opc-retry-token": createResourceGroupRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createResourceGroupRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/analyticsInstances/{analyticsInstanceId}/resourceGroups",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createResourceGroupRequest.createResourceGroupDetails,
+        "CreateResourceGroupDetails",
+        model.CreateResourceGroupDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateResourceGroupResponse>{},
+        body: await response.json(),
+        bodyKey: "instanceResourceGroup",
+        bodyModel: model.InstanceResourceGroup,
+        type: "model.InstanceResourceGroup",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("child-resource-id"),
+            key: "childResourceId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Allows you to specify a custom host name to be used to access the Analytics instance.  You must set up a DNS entry and certificate for this host in advance.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateVanityUrlRequest
@@ -658,8 +755,8 @@ export class AnalyticsClient {
   }
 
   /**
-   * Terminates the specified Analytics instance. The operation is long-running
-   * and creates a new WorkRequest.
+   * Deletes the specified Analytics instance. The operation is long-running
+   * and creates a new work request.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteAnalyticsInstanceRequest
@@ -735,7 +832,7 @@ export class AnalyticsClient {
   }
 
   /**
-   * Delete an Analytics instance's Private access channel with the given unique identifier key.
+   * Delete a private access channel with a given unique identifier key, for an Analytics instance.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeletePrivateAccessChannelRequest
@@ -813,7 +910,90 @@ export class AnalyticsClient {
   }
 
   /**
-   * Allows deleting a previously created vanity url.
+   * Allows deleting a previously created resource group.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteResourceGroupRequest
+   * @return DeleteResourceGroupResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/analytics/DeleteResourceGroup.ts.html |here} to see how to use DeleteResourceGroup API.
+   */
+  public async deleteResourceGroup(
+    deleteResourceGroupRequest: requests.DeleteResourceGroupRequest
+  ): Promise<responses.DeleteResourceGroupResponse> {
+    if (this.logger) this.logger.debug("Calling operation AnalyticsClient#deleteResourceGroup.");
+    const operationName = "deleteResourceGroup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/analytics/20190331/AnalyticsInstance/DeleteResourceGroup";
+    const pathParams = {
+      "{analyticsInstanceId}": deleteResourceGroupRequest.analyticsInstanceId,
+      "{analyticsInstanceResourceGroupId}":
+        deleteResourceGroupRequest.analyticsInstanceResourceGroupId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteResourceGroupRequest.ifMatch,
+      "opc-request-id": deleteResourceGroupRequest.opcRequestId,
+      "opc-retry-token": deleteResourceGroupRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteResourceGroupRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/analyticsInstances/{analyticsInstanceId}/resourceGroups/{analyticsInstanceResourceGroupId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteResourceGroupResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("child-resource-id"),
+            key: "childResourceId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes a previously created vanity URL.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteVanityUrlRequest
@@ -889,7 +1069,7 @@ export class AnalyticsClient {
   }
 
   /**
-   * Cancel a work request that has not started yet.
+   * Cancel a work request that hasn't started yet.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteWorkRequestRequest
@@ -958,7 +1138,7 @@ export class AnalyticsClient {
   }
 
   /**
-   * Info for a specific Analytics instance.
+   * Information about a specific Analytics instance.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetAnalyticsInstanceRequest
@@ -1035,7 +1215,7 @@ export class AnalyticsClient {
   }
 
   /**
-   * Retrieve private access channel in the specified Analytics Instance.
+   * Retrieve private access channel for the specified Analytics Instance.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetPrivateAccessChannelRequest
@@ -1103,6 +1283,85 @@ export class AnalyticsClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get details of a resource group for an instance
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetResourceGroupRequest
+   * @return GetResourceGroupResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/analytics/GetResourceGroup.ts.html |here} to see how to use GetResourceGroup API.
+   */
+  public async getResourceGroup(
+    getResourceGroupRequest: requests.GetResourceGroupRequest
+  ): Promise<responses.GetResourceGroupResponse> {
+    if (this.logger) this.logger.debug("Calling operation AnalyticsClient#getResourceGroup.");
+    const operationName = "getResourceGroup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/analytics/20190331/AnalyticsInstance/GetResourceGroup";
+    const pathParams = {
+      "{analyticsInstanceId}": getResourceGroupRequest.analyticsInstanceId,
+      "{analyticsInstanceResourceGroupId}": getResourceGroupRequest.analyticsInstanceResourceGroupId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getResourceGroupRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getResourceGroupRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/analyticsInstances/{analyticsInstanceId}/resourceGroups/{analyticsInstanceResourceGroupId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetResourceGroupResponse>{},
+        body: await response.json(),
+        bodyKey: "instanceResourceGroup",
+        bodyModel: model.InstanceResourceGroup,
+        type: "model.InstanceResourceGroup",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
             dataType: "string"
           }
         ]
@@ -1331,6 +1590,141 @@ export class AnalyticsClient {
     request: requests.ListAnalyticsInstancesRequest
   ): AsyncIterableIterator<responses.ListAnalyticsInstancesResponse> {
     return paginateResponses(request, req => this.listAnalyticsInstances(req));
+  }
+
+  /**
+   * List resource groups associated with an instance.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListResourceGroupsRequest
+   * @return ListResourceGroupsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/analytics/ListResourceGroups.ts.html |here} to see how to use ListResourceGroups API.
+   */
+  public async listResourceGroups(
+    listResourceGroupsRequest: requests.ListResourceGroupsRequest
+  ): Promise<responses.ListResourceGroupsResponse> {
+    if (this.logger) this.logger.debug("Calling operation AnalyticsClient#listResourceGroups.");
+    const operationName = "listResourceGroups";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/analytics/20190331/AnalyticsInstance/ListResourceGroups";
+    const pathParams = {
+      "{analyticsInstanceId}": listResourceGroupsRequest.analyticsInstanceId
+    };
+
+    const queryParams = {
+      "name": listResourceGroupsRequest.name,
+      "limit": listResourceGroupsRequest.limit,
+      "page": listResourceGroupsRequest.page,
+      "sortBy": listResourceGroupsRequest.sortBy,
+      "sortOrder": listResourceGroupsRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listResourceGroupsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listResourceGroupsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/analyticsInstances/{analyticsInstanceId}/resourceGroups",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListResourceGroupsResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.InstanceResourceGroupSummary,
+        type: "Array<model.InstanceResourceGroupSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listResourceGroupsRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.InstanceResourceGroupSummary objects
+   * contained in responses from the listResourceGroups operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllResourceGroups(
+    request: requests.ListResourceGroupsRequest
+  ): AsyncIterableIterator<model.InstanceResourceGroupSummary> {
+    return paginateRecords(request, req => this.listResourceGroups(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listResourceGroupsResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listResourceGroups operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllResourceGroupsResponses(
+    request: requests.ListResourceGroupsRequest
+  ): AsyncIterableIterator<responses.ListResourceGroupsResponse> {
+    return paginateResponses(request, req => this.listResourceGroups(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.InstanceResourceGroupSummary objects
+   * contained in responses from the listResourceGroups operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listResourceGroupsRecordIterator(
+    request: requests.ListResourceGroupsRequest
+  ): AsyncIterableIterator<model.InstanceResourceGroupSummary> {
+    return paginateRecords(request, req => this.listResourceGroups(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listResourceGroups operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listResourceGroupsResponseIterator(
+    request: requests.ListResourceGroupsRequest
+  ): AsyncIterableIterator<responses.ListResourceGroupsResponse> {
+    return paginateResponses(request, req => this.listResourceGroups(req));
   }
 
   /**
@@ -1735,7 +2129,7 @@ export class AnalyticsClient {
 
   /**
    * Scale an Analytics instance up or down. The operation is long-running
-   * and creates a new WorkRequest.
+   * and creates a new work request.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ScaleAnalyticsInstanceRequest
@@ -1895,7 +2289,7 @@ export class AnalyticsClient {
   }
 
   /**
-   * Encrypts the customer data of this Analytics instance using either a customer OCI Vault Key or Oracle managed default key.
+   * Encrypts the customer data of this Analytics instance using either a customer OCI vault key or default Oracle-managed key.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param SetKmsKeyRequest
@@ -1976,7 +2370,7 @@ export class AnalyticsClient {
 
   /**
    * Starts the specified Analytics instance. The operation is long-running
-   * and creates a new WorkRequest.
+   * and creates a new work request.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param StartAnalyticsInstanceRequest
@@ -2052,7 +2446,7 @@ export class AnalyticsClient {
 
   /**
    * Stop the specified Analytics instance. The operation is long-running
-   * and creates a new WorkRequest.
+   * and creates a new work request.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param StopAnalyticsInstanceRequest
@@ -2212,7 +2606,7 @@ export class AnalyticsClient {
   }
 
   /**
-   * Update the Private Access Channel with the given unique identifier key in the specified Analytics Instance.
+   * Update the private access channel with the given unique identifier key in the specified Analytics instance.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdatePrivateAccessChannelRequest
@@ -2295,7 +2689,104 @@ export class AnalyticsClient {
   }
 
   /**
-   * Allows uploading a new certificate for a vanity url, which will have to be done when the current certificate is expiring.
+   * Update any fields in a resource group
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateResourceGroupRequest
+   * @return UpdateResourceGroupResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/analytics/UpdateResourceGroup.ts.html |here} to see how to use UpdateResourceGroup API.
+   */
+  public async updateResourceGroup(
+    updateResourceGroupRequest: requests.UpdateResourceGroupRequest
+  ): Promise<responses.UpdateResourceGroupResponse> {
+    if (this.logger) this.logger.debug("Calling operation AnalyticsClient#updateResourceGroup.");
+    const operationName = "updateResourceGroup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/analytics/20190331/AnalyticsInstance/UpdateResourceGroup";
+    const pathParams = {
+      "{analyticsInstanceId}": updateResourceGroupRequest.analyticsInstanceId,
+      "{analyticsInstanceResourceGroupId}":
+        updateResourceGroupRequest.analyticsInstanceResourceGroupId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateResourceGroupRequest.ifMatch,
+      "opc-request-id": updateResourceGroupRequest.opcRequestId,
+      "opc-retry-token": updateResourceGroupRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateResourceGroupRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/analyticsInstances/{analyticsInstanceId}/resourceGroups/{analyticsInstanceResourceGroupId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateResourceGroupRequest.updateResourceGroupDetails,
+        "UpdateResourceGroupDetails",
+        model.UpdateResourceGroupDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateResourceGroupResponse>{},
+        body: await response.json(),
+        bodyKey: "instanceResourceGroup",
+        bodyModel: model.InstanceResourceGroup,
+        type: "model.InstanceResourceGroup",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("child-resource-id"),
+            key: "childResourceId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Uploads a new certificate for a vanity URL. Required before the current certificate expires.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateVanityUrlRequest

@@ -936,6 +936,8 @@ import * as UpdateCrossConnectResponse from "./update-cross-connect-response";
 export import UpdateCrossConnectResponse = UpdateCrossConnectResponse.UpdateCrossConnectResponse;
 import * as UpdateCrossConnectGroupResponse from "./update-cross-connect-group-response";
 export import UpdateCrossConnectGroupResponse = UpdateCrossConnectGroupResponse.UpdateCrossConnectGroupResponse;
+import * as UpdateCrossConnectLetterOfAuthorityResponse from "./update-cross-connect-letter-of-authority-response";
+export import UpdateCrossConnectLetterOfAuthorityResponse = UpdateCrossConnectLetterOfAuthorityResponse.UpdateCrossConnectLetterOfAuthorityResponse;
 import * as UpdateDhcpOptionsResponse from "./update-dhcp-options-response";
 export import UpdateDhcpOptionsResponse = UpdateDhcpOptionsResponse.UpdateDhcpOptionsResponse;
 import * as UpdateDrgResponse from "./update-drg-response";

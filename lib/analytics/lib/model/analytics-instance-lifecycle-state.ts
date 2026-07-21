@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The current state of an instance.
+ * The current state of an Analytics instance.
  *
  **/
 export enum AnalyticsInstanceLifecycleState {

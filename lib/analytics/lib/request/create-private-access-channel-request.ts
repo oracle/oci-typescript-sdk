@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface CreatePrivateAccessChannelRequest extends common.BaseRequest {
   /**
-   * The OCID of the AnalyticsInstance.
+   * The OCID of the Analytics instance.
    *
    */
   "analyticsInstanceId": string;

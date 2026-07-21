@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Input payload to update an Analytics instance endpoint details.
+ * Input payload to update endpoint details for an Analytics instance.
  *
  */
 export interface ChangeAnalyticsInstanceNetworkEndpointDetails {

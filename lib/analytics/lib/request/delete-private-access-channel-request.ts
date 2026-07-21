@@ -19,12 +19,12 @@ import common = require("oci-common");
  */
 export interface DeletePrivateAccessChannelRequest extends common.BaseRequest {
   /**
-   * The unique identifier key of the Private Access Channel.
+   * The unique identifier key of the private access channel.
    *
    */
   "privateAccessChannelKey": string;
   /**
-   * The OCID of the AnalyticsInstance.
+   * The OCID of the Analytics instance.
    *
    */
   "analyticsInstanceId": string;

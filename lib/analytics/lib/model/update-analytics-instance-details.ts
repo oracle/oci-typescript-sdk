@@ -16,8 +16,8 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Input payload to update an Analytics instance. Fields that are not provided
- * will not be updated.
+ * Input payload to update an Analytics instance. Fields that aren't provided
+ * won't be updated.
  *
  */
 export interface UpdateAnalyticsInstanceDetails {
@@ -53,7 +53,7 @@ Example: {@code {\"Department\": \"Finance\"}}
     */
   "freeformTags"?: { [key: string]: string };
   /**
-   * Analytics instance update channel.
+   * The Analytics instance update cycle.
    *
    */
   "updateChannel"?: model.UpdateChannel;
