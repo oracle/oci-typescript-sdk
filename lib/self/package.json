@@ -1,6 +1,6 @@
 {
   "name": "oci-self",
-  "version": "2.137.1",
+  "version": "2.138.0",
   "description": "OCI NodeJS client for Self Service",
   "repository": {
     "type": "git",

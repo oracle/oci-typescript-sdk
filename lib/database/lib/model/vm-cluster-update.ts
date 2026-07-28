@@ -37,6 +37,18 @@ export interface VmClusterUpdate {
    */
   "lastAction"?: VmClusterUpdate.LastAction;
   /**
+   * The update mode performed most recently using this maintenance update (only valid for OS Update).
+   */
+  "lastUpdateMode"?: VmClusterUpdate.LastUpdateMode;
+  /**
+   * The possible update options that can be performed using this maintenance update (only valid for OS Update).
+   */
+  "availableUpdateModes"?: Array<VmClusterUpdate.AvailableUpdateModes>;
+  /**
+   * Oracle Linux version for the respective Exadata Image.
+   */
+  "oracleLinuxVersion"?: string;
+  /**
    * The possible actions that can be performed using this maintenance update.
    */
   "availableActions"?: Array<VmClusterUpdate.AvailableActions>;
@@ -68,6 +80,32 @@ export namespace VmClusterUpdate {
     RollingApply = "ROLLING_APPLY",
     Precheck = "PRECHECK",
     Rollback = "ROLLBACK",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum LastUpdateMode {
+    OnlineHighcvss = "ONLINE_HIGHCVSS",
+    OnlineAllcvss = "ONLINE_ALLCVSS",
+    OnlineAllUpdates = "ONLINE_ALL_UPDATES",
+    PendingUpdates = "PENDING_UPDATES",
+    FullUpdate = "FULL_UPDATE",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum AvailableUpdateModes {
+    OnlineHighcvss = "ONLINE_HIGHCVSS",
+    OnlineAllcvss = "ONLINE_ALLCVSS",
+    OnlineAllUpdates = "ONLINE_ALL_UPDATES",
+    PendingUpdates = "PENDING_UPDATES",
+    FullUpdate = "FULL_UPDATE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

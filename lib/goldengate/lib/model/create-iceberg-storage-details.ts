@@ -34,6 +34,11 @@ export namespace CreateIcebergStorageDetails {
             <model.CreateAzureDataLakeStorageIcebergStorageDetails>(<object>jsonObj),
             true
           );
+        case "NONE":
+          return model.CreateNoIcebergStorageDetails.getJsonObj(
+            <model.CreateNoIcebergStorageDetails>(<object>jsonObj),
+            true
+          );
         case "GOOGLE_CLOUD_STORAGE":
           return model.CreateGoogleCloudStorageIcebergStorageDetails.getJsonObj(
             <model.CreateGoogleCloudStorageIcebergStorageDetails>(<object>jsonObj),
@@ -42,6 +47,11 @@ export namespace CreateIcebergStorageDetails {
         case "AMAZON_S3":
           return model.CreateAmazonS3IcebergStorageDetails.getJsonObj(
             <model.CreateAmazonS3IcebergStorageDetails>(<object>jsonObj),
+            true
+          );
+        case "OCI_OBJECT_STORAGE_S3_API":
+          return model.CreateOciObjectStorageS3ApiIcebergStorageDetails.getJsonObj(
+            <model.CreateOciObjectStorageS3ApiIcebergStorageDetails>(<object>jsonObj),
             true
           );
         default:
@@ -60,6 +70,11 @@ export namespace CreateIcebergStorageDetails {
             <model.CreateAzureDataLakeStorageIcebergStorageDetails>(<object>jsonObj),
             true
           );
+        case "NONE":
+          return model.CreateNoIcebergStorageDetails.getDeserializedJsonObj(
+            <model.CreateNoIcebergStorageDetails>(<object>jsonObj),
+            true
+          );
         case "GOOGLE_CLOUD_STORAGE":
           return model.CreateGoogleCloudStorageIcebergStorageDetails.getDeserializedJsonObj(
             <model.CreateGoogleCloudStorageIcebergStorageDetails>(<object>jsonObj),
@@ -68,6 +83,11 @@ export namespace CreateIcebergStorageDetails {
         case "AMAZON_S3":
           return model.CreateAmazonS3IcebergStorageDetails.getDeserializedJsonObj(
             <model.CreateAmazonS3IcebergStorageDetails>(<object>jsonObj),
+            true
+          );
+        case "OCI_OBJECT_STORAGE_S3_API":
+          return model.CreateOciObjectStorageS3ApiIcebergStorageDetails.getDeserializedJsonObj(
+            <model.CreateOciObjectStorageS3ApiIcebergStorageDetails>(<object>jsonObj),
             true
           );
         default:

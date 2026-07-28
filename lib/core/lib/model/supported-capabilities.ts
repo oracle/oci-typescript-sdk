@@ -31,6 +31,11 @@ export interface SupportedCapabilities {
    *
    */
   "isMemoryEncryptionSupported": boolean;
+  /**
+   * Specifies if the Dedicated Virtual Machine Host (DVMH) is to running only Burstable VMs. If {@code true}, only Burstable VMs can be launched. If {@code false}, Burstable VMs cannot be launched.
+   *
+   */
+  "isBurstableSupported"?: boolean;
 }
 
 export namespace SupportedCapabilities {

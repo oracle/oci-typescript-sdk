@@ -43,7 +43,9 @@ export interface UpdateMicrosoftSqlserverConnectionDetails extends model.UpdateC
   "username"?: string;
   /**
    * The password Oracle GoldenGate uses to connect the associated Microsoft SQL Server.
-   * Deprecated: This field is deprecated and replaced by \"passwordSecretId\". This field will be removed after February 15 2026.
+   * Deprecated: This field is deprecated and replaced by \"passwordSecretId\".
+   * This change follows the GoldenGate \"Plain Text Fields in Connections\" deprecation:
+   * https://docs.oracle.com/en-us/iaas/Content/servicechanges.htm#servicechanges_topic-GoldenGate
    *
    */
   "password"?: string;

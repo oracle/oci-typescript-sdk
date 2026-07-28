@@ -34,9 +34,19 @@ export namespace IcebergStorageSummary {
             <model.GoogleCloudStorageIcebergStorageSummary>(<object>jsonObj),
             true
           );
+        case "OCI_OBJECT_STORAGE_S3_API":
+          return model.OciObjectStorageS3ApiIcebergStorageSummary.getJsonObj(
+            <model.OciObjectStorageS3ApiIcebergStorageSummary>(<object>jsonObj),
+            true
+          );
         case "AZURE_DATA_LAKE_STORAGE":
           return model.AzureDataLakeStorageIcebergStorageSummary.getJsonObj(
             <model.AzureDataLakeStorageIcebergStorageSummary>(<object>jsonObj),
+            true
+          );
+        case "NONE":
+          return model.NoIcebergStorageSummary.getJsonObj(
+            <model.NoIcebergStorageSummary>(<object>jsonObj),
             true
           );
         case "AMAZON_S3":
@@ -60,9 +70,19 @@ export namespace IcebergStorageSummary {
             <model.GoogleCloudStorageIcebergStorageSummary>(<object>jsonObj),
             true
           );
+        case "OCI_OBJECT_STORAGE_S3_API":
+          return model.OciObjectStorageS3ApiIcebergStorageSummary.getDeserializedJsonObj(
+            <model.OciObjectStorageS3ApiIcebergStorageSummary>(<object>jsonObj),
+            true
+          );
         case "AZURE_DATA_LAKE_STORAGE":
           return model.AzureDataLakeStorageIcebergStorageSummary.getDeserializedJsonObj(
             <model.AzureDataLakeStorageIcebergStorageSummary>(<object>jsonObj),
+            true
+          );
+        case "NONE":
+          return model.NoIcebergStorageSummary.getDeserializedJsonObj(
+            <model.NoIcebergStorageSummary>(<object>jsonObj),
             true
           );
         case "AMAZON_S3":

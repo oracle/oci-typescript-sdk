@@ -860,6 +860,8 @@ import * as ListNetworkSecurityGroupsRequest from "./list-network-security-group
 export import ListNetworkSecurityGroupsRequest = ListNetworkSecurityGroupsRequest.ListNetworkSecurityGroupsRequest;
 import * as ListPrivateIpsRequest from "./list-private-ips-request";
 export import ListPrivateIpsRequest = ListPrivateIpsRequest.ListPrivateIpsRequest;
+import * as ListProviderRemoteRegionsRequest from "./list-provider-remote-regions-request";
+export import ListProviderRemoteRegionsRequest = ListProviderRemoteRegionsRequest.ListProviderRemoteRegionsRequest;
 import * as ListPublicIpPoolsRequest from "./list-public-ip-pools-request";
 export import ListPublicIpPoolsRequest = ListPublicIpPoolsRequest.ListPublicIpPoolsRequest;
 import * as ListPublicIpsRequest from "./list-public-ips-request";

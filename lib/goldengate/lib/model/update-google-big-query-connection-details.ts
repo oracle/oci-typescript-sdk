@@ -29,7 +29,9 @@ export interface UpdateGoogleBigQueryConnectionDetails extends model.UpdateConne
   /**
    * The base64 encoded content of the service account key file containing
    * the credentials required to use Google BigQuery.
-   * Deprecated: This field is deprecated and replaced by \"serviceAccountKeyFileSecretId\". This field will be removed after February 15 2026.
+   * Deprecated: This field is deprecated and replaced by \"serviceAccountKeyFileSecretId\".
+   * This change follows the GoldenGate \"Plain Text Fields in Connections\" deprecation:
+   * https://docs.oracle.com/en-us/iaas/Content/servicechanges.htm#servicechanges_topic-GoldenGate
    *
    */
   "serviceAccountKeyFile"?: string;

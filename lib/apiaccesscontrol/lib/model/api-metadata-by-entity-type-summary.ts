@@ -25,6 +25,10 @@ import common = require("oci-common");
  */
 export interface ApiMetadataByEntityTypeSummary {
   /**
+   * The OCID of the compartment that contains the Service Provider Action.
+   */
+  "compartmentId"?: string;
+  /**
    * The entity Type to which the Api belongs to.
    */
   "entityType"?: string;

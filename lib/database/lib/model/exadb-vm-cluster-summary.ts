@@ -255,6 +255,14 @@ Example: {@code {\"Department\": \"Finance\"}}
    *
    */
   "shapeAttribute"?: ExadbVmClusterSummary.ShapeAttribute;
+  /**
+   * Details of the multi cloud identity connectors of the VM cluster.
+   */
+  "multiCloudIdentityConnectorConfigs"?: Array<model.IdentityConnectorDetails>;
+  /**
+   * TDE keystore type
+   */
+  "tdeKeyStoreType"?: ExadbVmClusterSummary.TdeKeyStoreType;
 }
 
 export namespace ExadbVmClusterSummary {
@@ -303,6 +311,18 @@ export namespace ExadbVmClusterSummary {
     UnknownValue = "UNKNOWN_VALUE"
   }
 
+  export enum TdeKeyStoreType {
+    Azure = "AZURE",
+    Oci = "OCI",
+    Gcp = "GCP",
+    Aws = "AWS",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: ExadbVmClusterSummary): object {
     const jsonObj = {
       ...obj,
@@ -319,6 +339,12 @@ export namespace ExadbVmClusterSummary {
           : undefined,
         "totalFileSystemStorage": obj.totalFileSystemStorage
           ? model.ExadbVmClusterStorageDetails.getJsonObj(obj.totalFileSystemStorage)
+          : undefined,
+
+        "multiCloudIdentityConnectorConfigs": obj.multiCloudIdentityConnectorConfigs
+          ? obj.multiCloudIdentityConnectorConfigs.map(item => {
+              return model.IdentityConnectorDetails.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -341,6 +367,12 @@ export namespace ExadbVmClusterSummary {
           : undefined,
         "totalFileSystemStorage": obj.totalFileSystemStorage
           ? model.ExadbVmClusterStorageDetails.getDeserializedJsonObj(obj.totalFileSystemStorage)
+          : undefined,
+
+        "multiCloudIdentityConnectorConfigs": obj.multiCloudIdentityConnectorConfigs
+          ? obj.multiCloudIdentityConnectorConfigs.map(item => {
+              return model.IdentityConnectorDetails.getDeserializedJsonObj(item);
+            })
           : undefined
       }
     };
