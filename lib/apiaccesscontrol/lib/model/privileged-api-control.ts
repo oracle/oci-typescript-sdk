@@ -54,6 +54,10 @@ export interface PrivilegedApiControl {
    */
   "approverGroupIdList"?: Array<string>;
   /**
+   * List of Group containing the levels at which the users belonging to the group can authorize.
+   */
+  "approverGroupLevelList"?: Array<model.ApproverGroupLevel>;
+  /**
    * resourceType for which the PrivilegedApiControl is applicable
    */
   "resourceType"?: string;
@@ -71,11 +75,10 @@ export interface PrivilegedApiControl {
    */
   "numberOfApprovers"?: number;
   /**
-    * The date and time the PrivilegedApiControl was created, in the format defined by [RFC 3339](https://tools.ietf.org/html/rfc3339).
-* <p>
-Example: {@code 2016-08-25T21:10:29.600Z}
-* 
-    */
+   * The date and time the PrivilegedApiControl was created, in the format defined by [RFC 3339](https://tools.ietf.org/html/rfc3339).
+   * Example: {@code 2016-08-25T21:10:29.600Z}
+   *
+   */
   "timeCreated": Date;
   /**
     * The date and time the PrivilegedApiControl was updated, in the format defined by [RFC 3339](https://tools.ietf.org/html/rfc3339).
@@ -156,6 +159,12 @@ export namespace PrivilegedApiControl {
     const jsonObj = {
       ...obj,
       ...{
+        "approverGroupLevelList": obj.approverGroupLevelList
+          ? obj.approverGroupLevelList.map(item => {
+              return model.ApproverGroupLevel.getJsonObj(item);
+            })
+          : undefined,
+
         "privilegedOperationList": obj.privilegedOperationList
           ? obj.privilegedOperationList.map(item => {
               return model.PrivilegedApiDetails.getJsonObj(item);
@@ -170,6 +179,12 @@ export namespace PrivilegedApiControl {
     const jsonObj = {
       ...obj,
       ...{
+        "approverGroupLevelList": obj.approverGroupLevelList
+          ? obj.approverGroupLevelList.map(item => {
+              return model.ApproverGroupLevel.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
         "privilegedOperationList": obj.privilegedOperationList
           ? obj.privilegedOperationList.map(item => {
               return model.PrivilegedApiDetails.getDeserializedJsonObj(item);

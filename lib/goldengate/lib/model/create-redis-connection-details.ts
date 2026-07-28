@@ -50,7 +50,9 @@ export interface CreateRedisConnectionDetails extends model.CreateConnectionDeta
   /**
    * The password Oracle GoldenGate uses to connect the associated system of the given technology.
    * It must conform to the specific security requirements including length, case sensitivity, and so on.
-   * Deprecated: This field is deprecated and replaced by \"passwordSecretId\". This field will be removed after February 15 2026.
+   * Deprecated: This field is deprecated and replaced by \"passwordSecretId\".
+   * This change follows the GoldenGate \"Plain Text Fields in Connections\" deprecation:
+   * https://docs.oracle.com/en-us/iaas/Content/servicechanges.htm#servicechanges_topic-GoldenGate
    *
    */
   "password"?: string;
@@ -65,7 +67,9 @@ export interface CreateRedisConnectionDetails extends model.CreateConnectionDeta
   "passwordSecretId"?: string;
   /**
    * The base64 encoded content of the TrustStore file.
-   * Deprecated: This field is deprecated and replaced by \"trustStoreSecretId\". This field will be removed after February 15 2026.
+   * Deprecated: This field is deprecated and replaced by \"trustStoreSecretId\".
+   * This change follows the GoldenGate \"Plain Text Fields in Connections\" deprecation:
+   * https://docs.oracle.com/en-us/iaas/Content/servicechanges.htm#servicechanges_topic-GoldenGate
    *
    */
   "trustStore"?: string;
@@ -77,7 +81,9 @@ export interface CreateRedisConnectionDetails extends model.CreateConnectionDeta
   "trustStoreSecretId"?: string;
   /**
    * The TrustStore password.
-   * Deprecated: This field is deprecated and replaced by \"trustStorePasswordSecretId\". This field will be removed after February 15 2026.
+   * Deprecated: This field is deprecated and replaced by \"trustStorePasswordSecretId\".
+   * This change follows the GoldenGate \"Plain Text Fields in Connections\" deprecation:
+   * https://docs.oracle.com/en-us/iaas/Content/servicechanges.htm#servicechanges_topic-GoldenGate
    *
    */
   "trustStorePassword"?: string;
@@ -89,7 +95,9 @@ export interface CreateRedisConnectionDetails extends model.CreateConnectionDeta
   "trustStorePasswordSecretId"?: string;
   /**
    * The base64 encoded content of the KeyStore file.
-   * Deprecated: This field is deprecated and replaced by \"keyStoreSecretId\". This field will be removed after February 15 2026.
+   * Deprecated: This field is deprecated and replaced by \"keyStoreSecretId\".
+   * This change follows the GoldenGate \"Plain Text Fields in Connections\" deprecation:
+   * https://docs.oracle.com/en-us/iaas/Content/servicechanges.htm#servicechanges_topic-GoldenGate
    *
    */
   "keyStore"?: string;
@@ -101,7 +109,9 @@ export interface CreateRedisConnectionDetails extends model.CreateConnectionDeta
   "keyStoreSecretId"?: string;
   /**
    * The KeyStore password.
-   * Deprecated: This field is deprecated and replaced by \"keyStorePasswordSecretId\". This field will be removed after February 15 2026.
+   * Deprecated: This field is deprecated and replaced by \"keyStorePasswordSecretId\".
+   * This change follows the GoldenGate \"Plain Text Fields in Connections\" deprecation:
+   * https://docs.oracle.com/en-us/iaas/Content/servicechanges.htm#servicechanges_topic-GoldenGate
    *
    */
   "keyStorePassword"?: string;

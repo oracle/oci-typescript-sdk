@@ -34,6 +34,16 @@ export namespace UpdateIcebergStorageDetails {
             <model.UpdateAmazonS3IcebergStorageDetails>(<object>jsonObj),
             true
           );
+        case "OCI_OBJECT_STORAGE_S3_API":
+          return model.UpdateOciObjectStorageS3ApiIcebergStorageDetails.getJsonObj(
+            <model.UpdateOciObjectStorageS3ApiIcebergStorageDetails>(<object>jsonObj),
+            true
+          );
+        case "NONE":
+          return model.UpdateNoIcebergStorageDetails.getJsonObj(
+            <model.UpdateNoIcebergStorageDetails>(<object>jsonObj),
+            true
+          );
         case "GOOGLE_CLOUD_STORAGE":
           return model.UpdateGoogleCloudStorageIcebergStorageDetails.getJsonObj(
             <model.UpdateGoogleCloudStorageIcebergStorageDetails>(<object>jsonObj),
@@ -58,6 +68,16 @@ export namespace UpdateIcebergStorageDetails {
         case "AMAZON_S3":
           return model.UpdateAmazonS3IcebergStorageDetails.getDeserializedJsonObj(
             <model.UpdateAmazonS3IcebergStorageDetails>(<object>jsonObj),
+            true
+          );
+        case "OCI_OBJECT_STORAGE_S3_API":
+          return model.UpdateOciObjectStorageS3ApiIcebergStorageDetails.getDeserializedJsonObj(
+            <model.UpdateOciObjectStorageS3ApiIcebergStorageDetails>(<object>jsonObj),
+            true
+          );
+        case "NONE":
+          return model.UpdateNoIcebergStorageDetails.getDeserializedJsonObj(
+            <model.UpdateNoIcebergStorageDetails>(<object>jsonObj),
             true
           );
         case "GOOGLE_CLOUD_STORAGE":

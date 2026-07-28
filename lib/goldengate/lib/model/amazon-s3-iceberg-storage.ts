@@ -32,6 +32,7 @@ export interface AmazonS3IcebergStorage extends model.IcebergStorage {
   "endpoint"?: string;
   /**
    * Access key ID to access the Amazon S3 bucket.
+   * Note: Despite the \"Id\" suffix, this value is not an OCI OCID.
    *
    */
   "accessKeyId": string;

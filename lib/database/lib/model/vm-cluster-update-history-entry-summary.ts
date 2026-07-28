@@ -33,6 +33,10 @@ export interface VmClusterUpdateHistoryEntrySummary {
    */
   "updateAction"?: VmClusterUpdateHistoryEntrySummary.UpdateAction;
   /**
+   * The OS update mode performed using this maintenance update.
+   */
+  "updateMode"?: VmClusterUpdateHistoryEntrySummary.UpdateMode;
+  /**
    * The type of VM cluster maintenance update.
    */
   "updateType": VmClusterUpdateHistoryEntrySummary.UpdateType;
@@ -60,6 +64,21 @@ export namespace VmClusterUpdateHistoryEntrySummary {
     RollingApply = "ROLLING_APPLY",
     Precheck = "PRECHECK",
     Rollback = "ROLLBACK",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum UpdateMode {
+    OnlineHighcvss = "ONLINE_HIGHCVSS",
+    OnlineAllcvss = "ONLINE_ALLCVSS",
+    OnlineAllUpdates = "ONLINE_ALL_UPDATES",
+    PendingUpdatesHighcvss = "PENDING_UPDATES_HIGHCVSS",
+    PendingUpdatesAllcvss = "PENDING_UPDATES_ALLCVSS",
+    PendingAllUpdates = "PENDING_ALL_UPDATES",
+    FullUpdate = "FULL_UPDATE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

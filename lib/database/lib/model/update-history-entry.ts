@@ -29,6 +29,10 @@ export interface UpdateHistoryEntry {
    */
   "updateAction"?: UpdateHistoryEntry.UpdateAction;
   /**
+   * The OS update mode performed using this maintenance update.
+   */
+  "updateMode"?: UpdateHistoryEntry.UpdateMode;
+  /**
    * The type of cloud VM cluster maintenance update.
    */
   "updateType": UpdateHistoryEntry.UpdateType;
@@ -57,6 +61,21 @@ export namespace UpdateHistoryEntry {
     NonRollingApply = "NON_ROLLING_APPLY",
     Precheck = "PRECHECK",
     Rollback = "ROLLBACK",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum UpdateMode {
+    OnlineHighcvss = "ONLINE_HIGHCVSS",
+    OnlineAllcvss = "ONLINE_ALLCVSS",
+    OnlineAllUpdates = "ONLINE_ALL_UPDATES",
+    PendingUpdatesHighcvss = "PENDING_UPDATES_HIGHCVSS",
+    PendingUpdatesAllcvss = "PENDING_UPDATES_ALLCVSS",
+    PendingAllUpdates = "PENDING_ALL_UPDATES",
+    FullUpdate = "FULL_UPDATE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

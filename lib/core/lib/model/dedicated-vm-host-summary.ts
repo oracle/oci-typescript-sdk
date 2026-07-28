@@ -73,6 +73,11 @@ Example: {@code FAULT-DOMAIN-1}
    */
   "isMemoryEncryptionEnabled"?: boolean;
   /**
+   * Specifies if the Dedicated Virtual Machine Host (DVMH) is to running only Burstable VMs. If {@code true}, only Burstable VMs can be launched. If {@code false}, Burstable VMs cannot be launched.
+   *
+   */
+  "isBurstable"?: boolean;
+  /**
    * The current state of the dedicated VM host.
    *
    */

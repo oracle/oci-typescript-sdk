@@ -37,6 +37,11 @@ export interface ListConnectionsRequest extends common.BaseRequest {
    */
   "connectionType"?: Array<model.ConnectionType>;
   /**
+   * The array of connection types to exclude.
+   *
+   */
+  "connectionTypeNotEqualTo"?: Array<model.ConnectionType>;
+  /**
    * The OCID of the deployment which for the connection must be assigned.
    *
    */

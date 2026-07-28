@@ -160,6 +160,16 @@ Example: {@code {\"Department\": \"Finance\"}}
    */
   "ipMtu"?: model.VirtualCircuitIpMtu;
   /**
+   * The OCI's FastConnect MultiCloud Provider/Partner remote region name associated with the OCI region.
+   * To get the list of associated provider remote region use the ListProviderRemoteRegions operation
+   *
+   */
+  "providerRemoteRegion"?: string;
+  /**
+   * Customer's account on Provider/Partner cloud (AWS, GCP or any other)
+   */
+  "remoteAccountId"?: string;
+  /**
    * The traffic mode to be set with this Virtual Circuit. This controls whether the traffic is to be drained
    * for the associated Virtual Circuit or not.
    *

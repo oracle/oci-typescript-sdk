@@ -59,6 +59,19 @@ Example: {@code {\"Department\": \"Finance\"}}
    * The OCID of the volume group that needs to be backed up.
    */
   "volumeGroupId": string;
+  "retentionPeriod"?: model.RetentionDuration;
+  /**
+   * Prevent backups from being deleted during the configured retention period. This is an optional field. If it is not specified, it is set to null, prevent deletion will not be applied to the backups.
+   */
+  "isPreventDeletionEnabled"?: boolean;
+  /**
+   * feature that prevents deletion or alteration of backup data for a specified period to ensure data protection and regulatory compliance. This is an optional field. If it is not specified, it is set to null, no retention lock will be applied to the backups. This feature should be used in conjunction with the retention-period field.
+   */
+  "isRetentionLockEnabled"?: boolean;
+  /**
+   * feature that preserves backup data from modification or deletion to ensure it remains available for legal or regulatory investigations or litigation, regardless of standard retention policies. This is an optional field. If it is not specified, it is set to null, no legal hold will be applied to the backups.
+   */
+  "isIndefiniteRetentionEnabled"?: boolean;
 }
 
 export namespace CreateVolumeGroupBackupDetails {
@@ -68,12 +81,26 @@ export namespace CreateVolumeGroupBackupDetails {
   }
 
   export function getJsonObj(obj: CreateVolumeGroupBackupDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "retentionPeriod": obj.retentionPeriod
+          ? model.RetentionDuration.getJsonObj(obj.retentionPeriod)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: CreateVolumeGroupBackupDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "retentionPeriod": obj.retentionPeriod
+          ? model.RetentionDuration.getDeserializedJsonObj(obj.retentionPeriod)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

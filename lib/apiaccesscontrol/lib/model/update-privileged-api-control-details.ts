@@ -41,13 +41,17 @@ export interface UpdatePrivilegedApiControlDetails {
    */
   "resources"?: Array<string>;
   /**
-   * The OCID of the OCI Notification topic to publish messages related to this Delegation Control.
+   * The OCID of the OCI Notification topic to publish messages related to this Privileged Api Control.
    */
   "notificationTopicId"?: string;
   /**
    * List of user IAM group ids who can approve an privilegedApi request associated with a target resource under the governance of this privilegedApi control.
    */
   "approverGroupIdList"?: Array<string>;
+  /**
+   * List of Group containing the levels at which the users belonging to the group can authorize.
+   */
+  "approverGroupLevelList"?: Array<model.ApproverGroupLevel>;
   /**
    * List of privileged operator operations. If Privileged API Managment is enabled for a resource it will be validated whether the operation done by the operator is a part of privileged operation.
    *
@@ -80,6 +84,11 @@ export namespace UpdatePrivilegedApiControlDetails {
     const jsonObj = {
       ...obj,
       ...{
+        "approverGroupLevelList": obj.approverGroupLevelList
+          ? obj.approverGroupLevelList.map(item => {
+              return model.ApproverGroupLevel.getJsonObj(item);
+            })
+          : undefined,
         "privilegedOperationList": obj.privilegedOperationList
           ? obj.privilegedOperationList.map(item => {
               return model.PrivilegedApiDetails.getJsonObj(item);
@@ -94,6 +103,11 @@ export namespace UpdatePrivilegedApiControlDetails {
     const jsonObj = {
       ...obj,
       ...{
+        "approverGroupLevelList": obj.approverGroupLevelList
+          ? obj.approverGroupLevelList.map(item => {
+              return model.ApproverGroupLevel.getDeserializedJsonObj(item);
+            })
+          : undefined,
         "privilegedOperationList": obj.privilegedOperationList
           ? obj.privilegedOperationList.map(item => {
               return model.PrivilegedApiDetails.getDeserializedJsonObj(item);

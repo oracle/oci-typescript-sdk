@@ -44269,6 +44269,152 @@ If you are an Oracle Cloud VMware Solution customer and have VLANs
   }
 
   /**
+   * The operation lists available OCI's FastConnect MultiCloud Provider/Partner remote region names associated with an OCI region.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListProviderRemoteRegionsRequest
+   * @return ListProviderRemoteRegionsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListProviderRemoteRegions.ts.html |here} to see how to use ListProviderRemoteRegions API.
+   */
+  public async listProviderRemoteRegions(
+    listProviderRemoteRegionsRequest: requests.ListProviderRemoteRegionsRequest
+  ): Promise<responses.ListProviderRemoteRegionsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#listProviderRemoteRegions.");
+    const operationName = "listProviderRemoteRegions";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ProviderRemoteRegionName/ListProviderRemoteRegions";
+    const pathParams = {
+      "{providerServiceId}": listProviderRemoteRegionsRequest.providerServiceId
+    };
+
+    const queryParams = {
+      "limit": listProviderRemoteRegionsRequest.limit,
+      "page": listProviderRemoteRegionsRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listProviderRemoteRegionsRequest.opcRequestId
+    };
+
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["providerServiceId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listProviderRemoteRegionsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fastConnectProviderServices/{providerServiceId}/providerRemoteRegions",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListProviderRemoteRegionsResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.ProviderRemoteRegionName,
+        type: "Array<model.ProviderRemoteRegionName>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listProviderRemoteRegionsRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.ProviderRemoteRegionName objects
+   * contained in responses from the listProviderRemoteRegions operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllProviderRemoteRegions(
+    request: requests.ListProviderRemoteRegionsRequest
+  ): AsyncIterableIterator<model.ProviderRemoteRegionName> {
+    return paginateRecords(request, req => this.listProviderRemoteRegions(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listProviderRemoteRegionsResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listProviderRemoteRegions operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllProviderRemoteRegionsResponses(
+    request: requests.ListProviderRemoteRegionsRequest
+  ): AsyncIterableIterator<responses.ListProviderRemoteRegionsResponse> {
+    return paginateResponses(request, req => this.listProviderRemoteRegions(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ProviderRemoteRegionName objects
+   * contained in responses from the listProviderRemoteRegions operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listProviderRemoteRegionsRecordIterator(
+    request: requests.ListProviderRemoteRegionsRequest
+  ): AsyncIterableIterator<model.ProviderRemoteRegionName> {
+    return paginateRecords(request, req => this.listProviderRemoteRegions(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listProviderRemoteRegions operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listProviderRemoteRegionsResponseIterator(
+    request: requests.ListProviderRemoteRegionsRequest
+  ): AsyncIterableIterator<responses.ListProviderRemoteRegionsResponse> {
+    return paginateResponses(request, req => this.listProviderRemoteRegions(req));
+  }
+
+  /**
    * Lists the public IP pools in the specified compartment.
    * You can filter the list using query parameters.
    *

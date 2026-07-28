@@ -79,7 +79,8 @@ export namespace CreateDatabaseSoftwareImageDetails {
     VmBmShape = "VM_BM_SHAPE",
     ExadataShape = "EXADATA_SHAPE",
     ExaccShape = "EXACC_SHAPE",
-    ExadbxsShape = "EXADBXS_SHAPE"
+    ExadbxsShape = "EXADBXS_SHAPE",
+    BdbccShape = "BDBCC_SHAPE"
   }
 
   export enum ImageType {

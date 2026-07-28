@@ -36,6 +36,10 @@ export interface ListGiVersionMinorVersionsRequest extends common.BaseRequest {
    */
   "opcRequestId"?: string;
   /**
+   * If provided, filters the results for the given Exadata Infrastructure.
+   */
+  "exadataInfrastructureId"?: string;
+  /**
    * If provided, filters the results to the set of database versions which are supported for the given shape family.
    */
   "shapeFamily"?: ListGiVersionMinorVersionsRequest.ShapeFamily;

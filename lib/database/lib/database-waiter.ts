@@ -569,6 +569,37 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forChangeBaseccVmClusterCompartment
+   *
+   * @param request the request to send
+   * @return response returns ChangeBaseccVmClusterCompartmentResponse, GetWorkRequestResponse tuple
+   */
+  public async forChangeBaseccVmClusterCompartment(
+    request: serviceRequests.ChangeBaseccVmClusterCompartmentRequest
+  ): Promise<{
+    response: serviceResponses.ChangeBaseccVmClusterCompartmentResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const changeBaseccVmClusterCompartmentResponse = await this.client.changeBaseccVmClusterCompartment(
+      request
+    );
+    if (changeBaseccVmClusterCompartmentResponse.opcWorkRequestId === undefined)
+      return {
+        response: changeBaseccVmClusterCompartmentResponse,
+        workRequestResponse: undefined as any
+      };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      changeBaseccVmClusterCompartmentResponse.opcWorkRequestId
+    );
+    return {
+      response: changeBaseccVmClusterCompartmentResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
    * Waits forChangeCloudAutonomousVmClusterCompartment
    *
    * @param request the request to send
@@ -1950,6 +1981,29 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forCreateBaseccVmCluster
+   *
+   * @param request the request to send
+   * @return response returns CreateBaseccVmClusterResponse, GetWorkRequestResponse tuple
+   */
+  public async forCreateBaseccVmCluster(
+    request: serviceRequests.CreateBaseccVmClusterRequest
+  ): Promise<{
+    response: serviceResponses.CreateBaseccVmClusterResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const createBaseccVmClusterResponse = await this.client.createBaseccVmCluster(request);
+    if (createBaseccVmClusterResponse.opcWorkRequestId === undefined)
+      return { response: createBaseccVmClusterResponse, workRequestResponse: undefined as any };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      createBaseccVmClusterResponse.opcWorkRequestId
+    );
+    return { response: createBaseccVmClusterResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
    * Waits forCreateCloudAutonomousVmCluster
    *
    * @param request the request to send
@@ -2911,6 +2965,29 @@ export class DatabaseWaiter {
       deleteBackupResponse.opcWorkRequestId
     );
     return { response: deleteBackupResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forDeleteBaseccVmCluster
+   *
+   * @param request the request to send
+   * @return response returns DeleteBaseccVmClusterResponse, GetWorkRequestResponse tuple
+   */
+  public async forDeleteBaseccVmCluster(
+    request: serviceRequests.DeleteBaseccVmClusterRequest
+  ): Promise<{
+    response: serviceResponses.DeleteBaseccVmClusterResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const deleteBaseccVmClusterResponse = await this.client.deleteBaseccVmCluster(request);
+    if (deleteBaseccVmClusterResponse.opcWorkRequestId === undefined)
+      return { response: deleteBaseccVmClusterResponse, workRequestResponse: undefined as any };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      deleteBaseccVmClusterResponse.opcWorkRequestId
+    );
+    return { response: deleteBaseccVmClusterResponse, workRequestResponse: getWorkRequestResponse };
   }
 
   /**
@@ -4819,6 +4896,61 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forBaseccVmCluster till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetBaseccVmClusterResponse | null (null in case of 404 response)
+   */
+  public async forBaseccVmCluster(
+    request: serviceRequests.GetBaseccVmClusterRequest,
+    ...targetStates: models.BaseccVmCluster.LifecycleState[]
+  ): Promise<serviceResponses.GetBaseccVmClusterResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getBaseccVmCluster(request),
+      response => targetStates.includes(response.baseccVmCluster.lifecycleState!),
+      targetStates.includes(models.BaseccVmCluster.LifecycleState.Terminated)
+    );
+  }
+
+  /**
+   * Waits forBaseccVmClusterUpdate till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetBaseccVmClusterUpdateResponse
+   */
+  public async forBaseccVmClusterUpdate(
+    request: serviceRequests.GetBaseccVmClusterUpdateRequest,
+    ...targetStates: models.BaseccVmClusterUpdate.LifecycleState[]
+  ): Promise<serviceResponses.GetBaseccVmClusterUpdateResponse> {
+    return genericWaiter(
+      this.config,
+      () => this.client.getBaseccVmClusterUpdate(request),
+      response => targetStates.includes(response.baseccVmClusterUpdate.lifecycleState!)
+    );
+  }
+
+  /**
+   * Waits forBaseccVmClusterUpdateHistoryEntry till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetBaseccVmClusterUpdateHistoryEntryResponse
+   */
+  public async forBaseccVmClusterUpdateHistoryEntry(
+    request: serviceRequests.GetBaseccVmClusterUpdateHistoryEntryRequest,
+    ...targetStates: models.BaseccVmClusterUpdateHistoryEntry.LifecycleState[]
+  ): Promise<serviceResponses.GetBaseccVmClusterUpdateHistoryEntryResponse> {
+    return genericWaiter(
+      this.config,
+      () => this.client.getBaseccVmClusterUpdateHistoryEntry(request),
+      response => targetStates.includes(response.baseccVmClusterUpdateHistoryEntry.lifecycleState!)
+    );
+  }
+
+  /**
    * Waits forCloudAutonomousVmCluster till it reaches any of the provided states
    *
    * @param request the request to send
@@ -6143,6 +6275,37 @@ export class DatabaseWaiter {
     );
     return {
       response: registerCloudVmClusterPkcsResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forRegisterExadbVmClusterPkcs
+   *
+   * @param request the request to send
+   * @return response returns RegisterExadbVmClusterPkcsResponse, GetWorkRequestResponse tuple
+   */
+  public async forRegisterExadbVmClusterPkcs(
+    request: serviceRequests.RegisterExadbVmClusterPkcsRequest
+  ): Promise<{
+    response: serviceResponses.RegisterExadbVmClusterPkcsResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const registerExadbVmClusterPkcsResponse = await this.client.registerExadbVmClusterPkcs(
+      request
+    );
+    if (registerExadbVmClusterPkcsResponse.opcWorkRequestId === undefined)
+      return {
+        response: registerExadbVmClusterPkcsResponse,
+        workRequestResponse: undefined as any
+      };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      registerExadbVmClusterPkcsResponse.opcWorkRequestId
+    );
+    return {
+      response: registerExadbVmClusterPkcsResponse,
       workRequestResponse: getWorkRequestResponse
     };
   }
@@ -7532,6 +7695,37 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forUnregisterExadbVmClusterPkcs
+   *
+   * @param request the request to send
+   * @return response returns UnregisterExadbVmClusterPkcsResponse, GetWorkRequestResponse tuple
+   */
+  public async forUnregisterExadbVmClusterPkcs(
+    request: serviceRequests.UnregisterExadbVmClusterPkcsRequest
+  ): Promise<{
+    response: serviceResponses.UnregisterExadbVmClusterPkcsResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const unregisterExadbVmClusterPkcsResponse = await this.client.unregisterExadbVmClusterPkcs(
+      request
+    );
+    if (unregisterExadbVmClusterPkcsResponse.opcWorkRequestId === undefined)
+      return {
+        response: unregisterExadbVmClusterPkcsResponse,
+        workRequestResponse: undefined as any
+      };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      unregisterExadbVmClusterPkcsResponse.opcWorkRequestId
+    );
+    return {
+      response: unregisterExadbVmClusterPkcsResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
    * Waits forUpdateAdvancedClusterFileSystem
    *
    * @param request the request to send
@@ -7823,6 +8017,29 @@ export class DatabaseWaiter {
       updateBackupResponse.opcWorkRequestId
     );
     return { response: updateBackupResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forUpdateBaseccVmCluster
+   *
+   * @param request the request to send
+   * @return response returns UpdateBaseccVmClusterResponse, GetWorkRequestResponse tuple
+   */
+  public async forUpdateBaseccVmCluster(
+    request: serviceRequests.UpdateBaseccVmClusterRequest
+  ): Promise<{
+    response: serviceResponses.UpdateBaseccVmClusterResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const updateBaseccVmClusterResponse = await this.client.updateBaseccVmCluster(request);
+    if (updateBaseccVmClusterResponse.opcWorkRequestId === undefined)
+      return { response: updateBaseccVmClusterResponse, workRequestResponse: undefined as any };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      updateBaseccVmClusterResponse.opcWorkRequestId
+    );
+    return { response: updateBaseccVmClusterResponse, workRequestResponse: getWorkRequestResponse };
   }
 
   /**

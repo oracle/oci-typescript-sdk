@@ -34,6 +34,11 @@ export interface ConnectionAssignment {
    */
   "connectionId": string;
   /**
+   * The connection type.
+   *
+   */
+  "connectionType": model.ConnectionType;
+  /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the deployment being referenced.
    *
    */

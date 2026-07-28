@@ -33,6 +33,8 @@ import * as ApprovePrivilegedApiRequestDetails from "./approve-privileged-api-re
 export import ApprovePrivilegedApiRequestDetails = ApprovePrivilegedApiRequestDetails.ApprovePrivilegedApiRequestDetails;
 import * as ApproverDetail from "./approver-detail";
 export import ApproverDetail = ApproverDetail.ApproverDetail;
+import * as ApproverGroupLevel from "./approver-group-level";
+export import ApproverGroupLevel = ApproverGroupLevel.ApproverGroupLevel;
 import * as ChangePrivilegedApiControlCompartmentDetails from "./change-privileged-api-control-compartment-details";
 export import ChangePrivilegedApiControlCompartmentDetails = ChangePrivilegedApiControlCompartmentDetails.ChangePrivilegedApiControlCompartmentDetails;
 import * as ClosePrivilegedApiRequestDetails from "./close-privileged-api-request-details";

@@ -25,6 +25,10 @@ export interface VmClusterUpdateDetails {
    */
   "updateId"?: string;
   /**
+   * The update mode to perform for OS Update.
+   */
+  "updateMode"?: VmClusterUpdateDetails.UpdateMode;
+  /**
    * The update action to perform.
    */
   "updateAction"?: VmClusterUpdateDetails.UpdateAction;
@@ -35,6 +39,14 @@ export interface VmClusterUpdateDetails {
 }
 
 export namespace VmClusterUpdateDetails {
+  export enum UpdateMode {
+    OnlineHighcvss = "ONLINE_HIGHCVSS",
+    OnlineAllcvss = "ONLINE_ALLCVSS",
+    OnlineAllUpdates = "ONLINE_ALL_UPDATES",
+    PendingUpdates = "PENDING_UPDATES",
+    FullUpdate = "FULL_UPDATE"
+  }
+
   export enum UpdateAction {
     RollingApply = "ROLLING_APPLY",
     Precheck = "PRECHECK",

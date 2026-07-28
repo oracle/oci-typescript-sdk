@@ -81,6 +81,11 @@ These subnets are used by the Oracle Clusterware private interconnect on the dat
    * The port number configured for the listener on the cloud VM cluster. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "listenerPort"?: number;
+  "liveImageVersionDetails"?: model.ExadataLiveImageVersionDetails;
+  /**
+   * Oracle Linux version for the respective Exadata Image.
+   */
+  "oracleLinuxVersion"?: string;
   /**
    * The current state of the cloud VM cluster.
    */
@@ -436,6 +441,10 @@ export namespace CloudVmCluster {
           ? model.ExadataIormConfig.getJsonObj(obj.iormConfigCache)
           : undefined,
 
+        "liveImageVersionDetails": obj.liveImageVersionDetails
+          ? model.ExadataLiveImageVersionDetails.getJsonObj(obj.liveImageVersionDetails)
+          : undefined,
+
         "dataCollectionOptions": obj.dataCollectionOptions
           ? model.DataCollectionOptions.getJsonObj(obj.dataCollectionOptions)
           : undefined,
@@ -465,6 +474,10 @@ export namespace CloudVmCluster {
       ...{
         "iormConfigCache": obj.iormConfigCache
           ? model.ExadataIormConfig.getDeserializedJsonObj(obj.iormConfigCache)
+          : undefined,
+
+        "liveImageVersionDetails": obj.liveImageVersionDetails
+          ? model.ExadataLiveImageVersionDetails.getDeserializedJsonObj(obj.liveImageVersionDetails)
           : undefined,
 
         "dataCollectionOptions": obj.dataCollectionOptions

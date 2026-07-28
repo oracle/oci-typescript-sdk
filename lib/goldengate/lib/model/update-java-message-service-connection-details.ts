@@ -52,7 +52,9 @@ export interface UpdateJavaMessageServiceConnectionDetails extends model.UpdateC
   "jndiSecurityPrincipal"?: string;
   /**
    * The password associated to the principal.
-   * Deprecated: This field is deprecated and replaced by \"jndiSecurityCredentialsSecretId\". This field will be removed after February 15 2026.
+   * Deprecated: This field is deprecated and replaced by \"jndiSecurityCredentialsSecretId\".
+   * This change follows the GoldenGate \"Plain Text Fields in Connections\" deprecation:
+   * https://docs.oracle.com/en-us/iaas/Content/servicechanges.htm#servicechanges_topic-GoldenGate
    *
    */
   "jndiSecurityCredentials"?: string;
@@ -83,7 +85,9 @@ export interface UpdateJavaMessageServiceConnectionDetails extends model.UpdateC
   "username"?: string;
   /**
    * The password Oracle GoldenGate uses to connect the associated Java Message Service.
-   * Deprecated: This field is deprecated and replaced by \"passwordSecretId\". This field will be removed after February 15 2026.
+   * Deprecated: This field is deprecated and replaced by \"passwordSecretId\".
+   * This change follows the GoldenGate \"Plain Text Fields in Connections\" deprecation:
+   * https://docs.oracle.com/en-us/iaas/Content/servicechanges.htm#servicechanges_topic-GoldenGate
    *
    */
   "password"?: string;
@@ -108,7 +112,9 @@ export interface UpdateJavaMessageServiceConnectionDetails extends model.UpdateC
   "authenticationType"?: string;
   /**
    * The base64 encoded content of the TrustStore file.
-   * Deprecated: This field is deprecated and replaced by \"trustStoreSecretId\". This field will be removed after February 15 2026.
+   * Deprecated: This field is deprecated and replaced by \"trustStoreSecretId\".
+   * This change follows the GoldenGate \"Plain Text Fields in Connections\" deprecation:
+   * https://docs.oracle.com/en-us/iaas/Content/servicechanges.htm#servicechanges_topic-GoldenGate
    *
    */
   "trustStore"?: string;
@@ -120,7 +126,9 @@ export interface UpdateJavaMessageServiceConnectionDetails extends model.UpdateC
   "trustStoreSecretId"?: string;
   /**
    * The TrustStore password.
-   * Deprecated: This field is deprecated and replaced by \"trustStorePasswordSecretId\". This field will be removed after February 15 2026.
+   * Deprecated: This field is deprecated and replaced by \"trustStorePasswordSecretId\".
+   * This change follows the GoldenGate \"Plain Text Fields in Connections\" deprecation:
+   * https://docs.oracle.com/en-us/iaas/Content/servicechanges.htm#servicechanges_topic-GoldenGate
    *
    */
   "trustStorePassword"?: string;
@@ -132,7 +140,9 @@ export interface UpdateJavaMessageServiceConnectionDetails extends model.UpdateC
   "trustStorePasswordSecretId"?: string;
   /**
    * The base64 encoded content of the KeyStore file.
-   * Deprecated: This field is deprecated and replaced by \"keyStoreSecretId\". This field will be removed after February 15 2026.
+   * Deprecated: This field is deprecated and replaced by \"keyStoreSecretId\".
+   * This change follows the GoldenGate \"Plain Text Fields in Connections\" deprecation:
+   * https://docs.oracle.com/en-us/iaas/Content/servicechanges.htm#servicechanges_topic-GoldenGate
    *
    */
   "keyStore"?: string;
@@ -144,7 +154,9 @@ export interface UpdateJavaMessageServiceConnectionDetails extends model.UpdateC
   "keyStoreSecretId"?: string;
   /**
    * The KeyStore password.
-   * Deprecated: This field is deprecated and replaced by \"keyStorePasswordSecretId\". This field will be removed after February 15 2026.
+   * Deprecated: This field is deprecated and replaced by \"keyStorePasswordSecretId\".
+   * This change follows the GoldenGate \"Plain Text Fields in Connections\" deprecation:
+   * https://docs.oracle.com/en-us/iaas/Content/servicechanges.htm#servicechanges_topic-GoldenGate
    *
    */
   "keyStorePassword"?: string;
@@ -157,7 +169,9 @@ export interface UpdateJavaMessageServiceConnectionDetails extends model.UpdateC
   /**
    * The password for the cert inside of the KeyStore.
    * In case it differs from the KeyStore password, it should be provided.
-   * Deprecated: This field is deprecated and replaced by \"sslKeyPasswordSecretId\". This field will be removed after February 15 2026.
+   * Deprecated: This field is deprecated and replaced by \"sslKeyPasswordSecretId\".
+   * This change follows the GoldenGate \"Plain Text Fields in Connections\" deprecation:
+   * https://docs.oracle.com/en-us/iaas/Content/servicechanges.htm#servicechanges_topic-GoldenGate
    *
    */
   "sslKeyPassword"?: string;

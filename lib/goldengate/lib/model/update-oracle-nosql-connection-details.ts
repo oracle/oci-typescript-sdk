@@ -41,7 +41,9 @@ export interface UpdateOracleNosqlConnectionDetails extends model.UpdateConnecti
   /**
    * The base64 encoded content of the private key file (PEM file) corresponding to the API key of the fingerprint.
    * See documentation: https://docs.oracle.com/en-us/iaas/Content/Identity/Tasks/managingcredentials.htm
-   * Deprecated: This field is deprecated and replaced by \"privateKeyFileSecretId\". This field will be removed after February 15 2026.
+   * Deprecated: This field is deprecated and replaced by \"privateKeyFileSecretId\".
+   * This change follows the GoldenGate \"Plain Text Fields in Connections\" deprecation:
+   * https://docs.oracle.com/en-us/iaas/Content/servicechanges.htm#servicechanges_topic-GoldenGate
    *
    */
   "privateKeyFile"?: string;
@@ -54,7 +56,9 @@ export interface UpdateOracleNosqlConnectionDetails extends model.UpdateConnecti
   "privateKeyFileSecretId"?: string;
   /**
    * The passphrase of the private key.
-   * Deprecated: This field is deprecated and replaced by \"privateKeyPassphraseSecretId\". This field will be removed after February 15 2026.
+   * Deprecated: This field is deprecated and replaced by \"privateKeyPassphraseSecretId\".
+   * This change follows the GoldenGate \"Plain Text Fields in Connections\" deprecation:
+   * https://docs.oracle.com/en-us/iaas/Content/servicechanges.htm#servicechanges_topic-GoldenGate
    *
    */
   "privateKeyPassphrase"?: string;

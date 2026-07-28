@@ -26,6 +26,7 @@ export interface AmazonKinesisConnection extends model.Connection {
   "technologyType": AmazonKinesisConnection.TechnologyType;
   /**
    * Access key ID to access the Amazon Kinesis.
+   * Note: Despite the \"Id\" suffix, this value is not an OCI OCID.
    *
    */
   "accessKeyId": string;

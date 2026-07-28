@@ -37,6 +37,16 @@ export interface ListConnectionAssignmentsRequest extends common.BaseRequest {
    */
   "connectionId"?: string;
   /**
+   * The array of connection types.
+   *
+   */
+  "connectionType"?: Array<model.ConnectionType>;
+  /**
+   * The array of connection types to exclude.
+   *
+   */
+  "connectionTypeNotEqualTo"?: Array<model.ConnectionType>;
+  /**
    * The name of the connection in the assignment (aliasName).
    */
   "name"?: string;

@@ -93,6 +93,15 @@ For clients using older versions of Apis and not sending {@code offsetType} in t
    * Specifies what time zone is the schedule in
    */
   "timeZone"?: VolumeBackupSchedule.TimeZone;
+  "retentionPeriod"?: model.RetentionDuration;
+  /**
+   * Prevent backups from being deleted during the configured retention period. This is an optional field. If it is not specified, it is set to null, prevent deletion will not be applied to the backups.
+   */
+  "isPreventDeletionEnabled"?: boolean;
+  /**
+   * feature that prevents deletion or alteration of backup data for a specified period to ensure data protection and regulatory compliance. This is an optional field. If it is not specified, it is set to null, no retention lock will be applied to the backups. This feature should be used in conjunction with the retention-period field.
+   */
+  "isRetentionLockEnabled"?: boolean;
 }
 
 export namespace VolumeBackupSchedule {
@@ -175,12 +184,26 @@ export namespace VolumeBackupSchedule {
   }
 
   export function getJsonObj(obj: VolumeBackupSchedule): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "retentionPeriod": obj.retentionPeriod
+          ? model.RetentionDuration.getJsonObj(obj.retentionPeriod)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: VolumeBackupSchedule): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "retentionPeriod": obj.retentionPeriod
+          ? model.RetentionDuration.getDeserializedJsonObj(obj.retentionPeriod)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

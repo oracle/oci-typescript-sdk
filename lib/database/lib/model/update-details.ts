@@ -29,6 +29,10 @@ export interface UpdateDetails {
    */
   "updateAction"?: UpdateDetails.UpdateAction;
   /**
+   * The update mode to perform for OS Update.
+   */
+  "updateMode"?: UpdateDetails.UpdateMode;
+  /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of a grid infrastructure software image. This is a database software image of the type {@code GRID_IMAGE}.
    */
   "giSoftwareImageId"?: string;
@@ -40,6 +44,14 @@ export namespace UpdateDetails {
     NonRollingApply = "NON_ROLLING_APPLY",
     Precheck = "PRECHECK",
     Rollback = "ROLLBACK"
+  }
+
+  export enum UpdateMode {
+    OnlineHighcvss = "ONLINE_HIGHCVSS",
+    OnlineAllcvss = "ONLINE_ALLCVSS",
+    OnlineAllUpdates = "ONLINE_ALL_UPDATES",
+    PendingUpdates = "PENDING_UPDATES",
+    FullUpdate = "FULL_UPDATE"
   }
 
   export function getJsonObj(obj: UpdateDetails): object {

@@ -81,6 +81,11 @@ export interface VmCluster {
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "sparseStoragePercentage"?: number;
+  "liveImageVersionDetails"?: model.ExadataLiveImageVersionDetails;
+  /**
+   * Oracle Linux version for the respective Exadata Image.
+   */
+  "oracleLinuxVersion"?: string;
   /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the VM cluster network.
    */
@@ -275,6 +280,10 @@ export namespace VmCluster {
     const jsonObj = {
       ...obj,
       ...{
+        "liveImageVersionDetails": obj.liveImageVersionDetails
+          ? model.ExadataLiveImageVersionDetails.getJsonObj(obj.liveImageVersionDetails)
+          : undefined,
+
         "dataCollectionOptions": obj.dataCollectionOptions
           ? model.DataCollectionOptions.getJsonObj(obj.dataCollectionOptions)
           : undefined,
@@ -297,6 +306,10 @@ export namespace VmCluster {
     const jsonObj = {
       ...obj,
       ...{
+        "liveImageVersionDetails": obj.liveImageVersionDetails
+          ? model.ExadataLiveImageVersionDetails.getDeserializedJsonObj(obj.liveImageVersionDetails)
+          : undefined,
+
         "dataCollectionOptions": obj.dataCollectionOptions
           ? model.DataCollectionOptions.getDeserializedJsonObj(obj.dataCollectionOptions)
           : undefined,

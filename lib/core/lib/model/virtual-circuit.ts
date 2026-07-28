@@ -231,6 +231,20 @@ Example: {@code 2016-08-25T21:10:29.600Z}
    */
   "ipMtu"?: model.VirtualCircuitIpMtu;
   /**
+   * The OCI's FastConnect MultiCloud Provider/Partner remote region name associated with the OCI region.
+   * To get the list of associated provider remote region use the ListProviderRemoteRegions operation
+   *
+   */
+  "providerRemoteRegion"?: string;
+  /**
+   * The Shared unique identifier for the connection between the multicloud interconnect providers
+   */
+  "sharedConnectionUuid"?: string;
+  /**
+   * Customer's account on Provider/Partner cloud (AWS, GCP or any other)
+   */
+  "remoteAccountId"?: string;
+  /**
    * The current traffic mode for the Virtual Circuit. This indicates whether the traffic is drained for the
    * associated Virtual Circuit or not.
    *

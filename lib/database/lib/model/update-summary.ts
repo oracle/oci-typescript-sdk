@@ -41,6 +41,18 @@ export interface UpdateSummary {
    */
   "availableActions"?: Array<UpdateSummary.AvailableActions>;
   /**
+   * The previous update mode performed (only valid for OS Updates).
+   */
+  "lastUpdateMode"?: UpdateSummary.LastUpdateMode;
+  /**
+   * The possible update options available (only valid for OS Update).
+   */
+  "availableUpdateModes"?: Array<UpdateSummary.AvailableUpdateModes>;
+  /**
+   * Oracle Linux version for the respective Exadata Image.
+   */
+  "oracleLinuxVersion"?: string;
+  /**
    * The type of cloud VM cluster maintenance update.
    */
   "updateType": UpdateSummary.UpdateType;
@@ -81,6 +93,32 @@ export namespace UpdateSummary {
     NonRollingApply = "NON_ROLLING_APPLY",
     Precheck = "PRECHECK",
     Rollback = "ROLLBACK",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum LastUpdateMode {
+    OnlineHighcvss = "ONLINE_HIGHCVSS",
+    OnlineAllcvss = "ONLINE_ALLCVSS",
+    OnlineAllUpdates = "ONLINE_ALL_UPDATES",
+    PendingUpdates = "PENDING_UPDATES",
+    FullUpdate = "FULL_UPDATE",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum AvailableUpdateModes {
+    OnlineHighcvss = "ONLINE_HIGHCVSS",
+    OnlineAllcvss = "ONLINE_ALLCVSS",
+    OnlineAllUpdates = "ONLINE_ALL_UPDATES",
+    PendingUpdates = "PENDING_UPDATES",
+    FullUpdate = "FULL_UPDATE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

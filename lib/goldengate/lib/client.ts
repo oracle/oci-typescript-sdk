@@ -4083,6 +4083,155 @@ export class GoldenGateClient {
   }
 
   /**
+   * Returns the list of AI models for the specified provider. If the
+   * provider requires additional context to resolve its supported models,
+   * that context must be supplied in the request.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListAiModelsRequest
+   * @return ListAiModelsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ListAiModels.ts.html |here} to see how to use ListAiModels API.
+   */
+  public async listAiModels(
+    listAiModelsRequest: requests.ListAiModelsRequest
+  ): Promise<responses.ListAiModelsResponse> {
+    if (this.logger) this.logger.debug("Calling operation GoldenGateClient#listAiModels.");
+    const operationName = "listAiModels";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/AiModelCollection/ListAiModels";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listAiModelsRequest.compartmentId,
+      "providerType": listAiModelsRequest.providerType,
+      "region": listAiModelsRequest.region,
+      "tenancyId": listAiModelsRequest.tenancyId
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listAiModelsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAiModelsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/aiModels",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListAiModelsResponse>{},
+        body: await response.json(),
+        bodyKey: "aiModelCollection",
+        bodyModel: model.AiModelCollection,
+        type: "model.AiModelCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns the list of AI providers along with their supported models.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListAiProvidersRequest
+   * @return ListAiProvidersResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ListAiProviders.ts.html |here} to see how to use ListAiProviders API.
+   */
+  public async listAiProviders(
+    listAiProvidersRequest: requests.ListAiProvidersRequest
+  ): Promise<responses.ListAiProvidersResponse> {
+    if (this.logger) this.logger.debug("Calling operation GoldenGateClient#listAiProviders.");
+    const operationName = "listAiProviders";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/AiProviderCollection/ListAiProviders";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listAiProvidersRequest.compartmentId
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listAiProvidersRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAiProvidersRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/aiProviders",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListAiProvidersResponse>{},
+        body: await response.json(),
+        bodyKey: "aiProviderCollection",
+        bodyModel: model.AiProviderCollection,
+        type: "model.AiProviderCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Returns a list of certificates from truststore.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListCertificatesRequest
@@ -4186,6 +4335,8 @@ export class GoldenGateClient {
       "compartmentId": listConnectionAssignmentsRequest.compartmentId,
       "deploymentId": listConnectionAssignmentsRequest.deploymentId,
       "connectionId": listConnectionAssignmentsRequest.connectionId,
+      "connectionType": listConnectionAssignmentsRequest.connectionType,
+      "connectionTypeNotEqualTo": listConnectionAssignmentsRequest.connectionTypeNotEqualTo,
       "name": listConnectionAssignmentsRequest.name,
       "lifecycleState": listConnectionAssignmentsRequest.lifecycleState,
       "limit": listConnectionAssignmentsRequest.limit,
@@ -4271,6 +4422,7 @@ export class GoldenGateClient {
       "compartmentId": listConnectionsRequest.compartmentId,
       "technologyType": listConnectionsRequest.technologyType,
       "connectionType": listConnectionsRequest.connectionType,
+      "connectionTypeNotEqualTo": listConnectionsRequest.connectionTypeNotEqualTo,
       "assignedDeploymentId": listConnectionsRequest.assignedDeploymentId,
       "assignableDeploymentId": listConnectionsRequest.assignableDeploymentId,
       "assignableDeploymentType": listConnectionsRequest.assignableDeploymentType,

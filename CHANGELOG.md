@@ -4,6 +4,27 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
+## 2.138.0 - 2026-07-28
+### Added 
+- Support for retention locks for block backups in the Block Volume service 
+- Support for Data Guard creation with Azure encryption keys and changing encryption key locations to Azure in the Database service 
+- Support for registering and unregistering PKCS for Exadata Database Service on Dedicated Infrastructure VM clusters in the Database service 
+- Support for Exadata DomU OS live updates in Exadata Cloud and Exadata Cloud@Customer in the Database service 
+- Support for Oracle Base Database Cloud@Customer VM clusters in the Database service 
+- Support for autonomous database and two-level approver groups in the Oracle API Access Control service 
+- Support for creating virtual circuits with AWS as the provider in the Networking service 
+- Support for listing available provider regions in the Networking service 
+- Support for Oracle Exadata Exascale, Oracle Exadata Exascale at Azure, and Oracle Exadata Exascale at Google Cloud connection technology types in the GoldenGate service 
+- Support for Google Cloud Managed Service for Apache Kafka connection technology types in the GoldenGate service 
+- Support for AI model connections in the GoldenGate service 
+- Support for listing supported AI models by provider, region, and tenancy in the GoldenGate service 
+- Support for NEEDS_ATTENTION lifecycle state for connection resources in the GoldenGate service 
+- Support for connectionType metadata and connectionTypeNotEqualTo filtering on connection assignment resources in the GoldenGate service 
+- Support for H100_X16 and H100_X32 Dedicated AI Cluster shapes for model import in the Generative AI service  
+
+### Breaking Changes 
+- The field `compartmentId` was made required in the request model `CreatePrivilegedApiRequestDetails` and request classes `ListApiMetadataByEntityTypesRequest`, `ListApiMetadataRequest`, `ListPrivilegedApiControlsRequest`, `ListPrivilegedApiRequestsRequest`, `ListWorkRequestsRequest` in the Oracle API Access Control service
+
 ## 2.137.1 - 2026-07-21
 ### Added 
 - Support for multiple FastConnect enhancements in the Networking service 
@@ -31,7 +52,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 ### Breaking Changes 
 - The field `inboundAuthConfig` was made required in the request model `CreateHostedApplicationDetails` in the Generative AI service
 
-## 2.136.1 - 2026-06-07
+## 2.136.1 - 2026-07-07
 ### Added 
 - Support for DAC hardware shapes for self-hosted models in the Generative AI service
 

@@ -21,7 +21,7 @@ export interface ListWorkRequestsRequest extends common.BaseRequest {
   /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment in which to list resources.
    */
-  "compartmentId"?: string;
+  "compartmentId": string;
   /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the asynchronous work request.
    */

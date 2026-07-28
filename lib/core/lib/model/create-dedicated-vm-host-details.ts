@@ -93,6 +93,11 @@ Example: {@code {\"Department\": \"Finance\"}}
    *
    */
   "isMemoryEncryptionEnabled"?: boolean;
+  /**
+   * Specifies if the Dedicated Virtual Machine Host (DVMH) is restricted to running only Burstable VMs. If {@code true}, only Burstable VMs can be launched. If {@code false}, Burstable VMs cannot be launched.
+   *
+   */
+  "isBurstable"?: boolean;
 }
 
 export namespace CreateDedicatedVmHostDetails {
