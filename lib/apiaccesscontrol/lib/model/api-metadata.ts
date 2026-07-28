@@ -54,9 +54,13 @@ export interface ApiMetadata {
    */
   "apiName"?: string;
   /**
-   * List of the fields that is use while calling post or put for the data.
+   * deprecated; Use attributes field instead.
    */
   "fields"?: Array<string>;
+  /**
+   * List of the fields that is use while calling post or put for the data.
+   */
+  "attributes"?: Array<string>;
   /**
     * The date and time the PrivilegedApiControl was created, in the format defined by [RFC 3339](https://tools.ietf.org/html/rfc3339).
 * <p>

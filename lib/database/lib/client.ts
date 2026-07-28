@@ -1816,6 +1816,87 @@ export class DatabaseClient {
   }
 
   /**
+   * Moves a BaseDB-C@C VM cluster and its dependent resources to another compartment. Applies to Base Database Service on Cloud@Customer instances only.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ChangeBaseccVmClusterCompartmentRequest
+   * @return ChangeBaseccVmClusterCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeBaseccVmClusterCompartment.ts.html |here} to see how to use ChangeBaseccVmClusterCompartment API.
+   */
+  public async changeBaseccVmClusterCompartment(
+    changeBaseccVmClusterCompartmentRequest: requests.ChangeBaseccVmClusterCompartmentRequest
+  ): Promise<responses.ChangeBaseccVmClusterCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#changeBaseccVmClusterCompartment.");
+    const operationName = "changeBaseccVmClusterCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/BaseccVmCluster/ChangeBaseccVmClusterCompartment";
+    const pathParams = {
+      "{baseccVmClusterId}": changeBaseccVmClusterCompartmentRequest.baseccVmClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": changeBaseccVmClusterCompartmentRequest.opcRetryToken,
+      "opc-request-id": changeBaseccVmClusterCompartmentRequest.opcRequestId,
+      "if-match": changeBaseccVmClusterCompartmentRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeBaseccVmClusterCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/baseccVmClusters/{baseccVmClusterId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeBaseccVmClusterCompartmentRequest.changeBaseccVmClusterCompartmentDetails,
+        "ChangeBaseccVmClusterCompartmentDetails",
+        model.ChangeBaseccVmClusterCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeBaseccVmClusterCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Moves an Autonomous Exadata VM cluster in the Oracle cloud and its dependent resources to another compartment. For Exadata Cloud@Customer systems, see {@link #changeAutonomousVmClusterCompartment(ChangeAutonomousVmClusterCompartmentRequest) changeAutonomousVmClusterCompartment}.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -5946,6 +6027,92 @@ This operation should be performed on respective standby database.
   }
 
   /**
+   * Creates a BaseDB-C@C VM cluster.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateBaseccVmClusterRequest
+   * @return CreateBaseccVmClusterResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateBaseccVmCluster.ts.html |here} to see how to use CreateBaseccVmCluster API.
+   */
+  public async createBaseccVmCluster(
+    createBaseccVmClusterRequest: requests.CreateBaseccVmClusterRequest
+  ): Promise<responses.CreateBaseccVmClusterResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#createBaseccVmCluster.");
+    const operationName = "createBaseccVmCluster";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/BaseccVmCluster/CreateBaseccVmCluster";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createBaseccVmClusterRequest.opcRetryToken,
+      "opc-request-id": createBaseccVmClusterRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createBaseccVmClusterRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/baseccVmClusters",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createBaseccVmClusterRequest.createBaseccVmClusterDetails,
+        "CreateBaseccVmClusterDetails",
+        model.CreateBaseccVmClusterDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateBaseccVmClusterResponse>{},
+        body: await response.json(),
+        bodyKey: "baseccVmCluster",
+        bodyModel: model.BaseccVmCluster,
+        type: "model.BaseccVmCluster",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates an Autonomous Exadata VM cluster in the Oracle cloud. For Exadata Cloud@Customer systems, see {@link #createAutonomousVmCluster(CreateAutonomousVmClusterRequest) createAutonomousVmCluster}.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -9230,6 +9397,80 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteBackupDestinationResponse>{},
         responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the specified BaseDB-C@C VM cluster. Applies to Base Database Service on Cloud@Customer instances only.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteBaseccVmClusterRequest
+   * @return DeleteBaseccVmClusterResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteBaseccVmCluster.ts.html |here} to see how to use DeleteBaseccVmCluster API.
+   */
+  public async deleteBaseccVmCluster(
+    deleteBaseccVmClusterRequest: requests.DeleteBaseccVmClusterRequest
+  ): Promise<responses.DeleteBaseccVmClusterResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#deleteBaseccVmCluster.");
+    const operationName = "deleteBaseccVmCluster";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/BaseccVmCluster/DeleteBaseccVmCluster";
+    const pathParams = {
+      "{baseccVmClusterId}": deleteBaseccVmClusterRequest.baseccVmClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteBaseccVmClusterRequest.ifMatch,
+      "opc-request-id": deleteBaseccVmClusterRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteBaseccVmClusterRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/baseccVmClusters/{baseccVmClusterId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteBaseccVmClusterResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -16094,6 +16335,236 @@ A failover might result in data loss depending on the protection mode in effect 
         bodyKey: "backupDestination",
         bodyModel: model.BackupDestination,
         type: "model.BackupDestination",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets information about the BaseDB-C@C VM cluster. Applies to Base Database Service on Cloud@Customer instances only.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetBaseccVmClusterRequest
+   * @return GetBaseccVmClusterResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetBaseccVmCluster.ts.html |here} to see how to use GetBaseccVmCluster API.
+   */
+  public async getBaseccVmCluster(
+    getBaseccVmClusterRequest: requests.GetBaseccVmClusterRequest
+  ): Promise<responses.GetBaseccVmClusterResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#getBaseccVmCluster.");
+    const operationName = "getBaseccVmCluster";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/BaseccVmCluster/GetBaseccVmCluster";
+    const pathParams = {
+      "{baseccVmClusterId}": getBaseccVmClusterRequest.baseccVmClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getBaseccVmClusterRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getBaseccVmClusterRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/baseccVmClusters/{baseccVmClusterId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetBaseccVmClusterResponse>{},
+        body: await response.json(),
+        bodyKey: "baseccVmCluster",
+        bodyModel: model.BaseccVmCluster,
+        type: "model.BaseccVmCluster",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets information about a specified maintenance update package for a BaseDB-C@C VM cluster. Applies to Base Database Service on Cloud@Customer instances only.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetBaseccVmClusterUpdateRequest
+   * @return GetBaseccVmClusterUpdateResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetBaseccVmClusterUpdate.ts.html |here} to see how to use GetBaseccVmClusterUpdate API.
+   */
+  public async getBaseccVmClusterUpdate(
+    getBaseccVmClusterUpdateRequest: requests.GetBaseccVmClusterUpdateRequest
+  ): Promise<responses.GetBaseccVmClusterUpdateResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#getBaseccVmClusterUpdate.");
+    const operationName = "getBaseccVmClusterUpdate";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/BaseccVmClusterUpdate/GetBaseccVmClusterUpdate";
+    const pathParams = {
+      "{baseccVmClusterId}": getBaseccVmClusterUpdateRequest.baseccVmClusterId,
+      "{updateId}": getBaseccVmClusterUpdateRequest.updateId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getBaseccVmClusterUpdateRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getBaseccVmClusterUpdateRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/baseccVmClusters/{baseccVmClusterId}/updates/{updateId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetBaseccVmClusterUpdateResponse>{},
+        body: await response.json(),
+        bodyKey: "baseccVmClusterUpdate",
+        bodyModel: model.BaseccVmClusterUpdate,
+        type: "model.BaseccVmClusterUpdate",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the maintenance update history details for the specified update history entry. Applies to Base Database Service on Cloud@Customer instances only.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetBaseccVmClusterUpdateHistoryEntryRequest
+   * @return GetBaseccVmClusterUpdateHistoryEntryResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetBaseccVmClusterUpdateHistoryEntry.ts.html |here} to see how to use GetBaseccVmClusterUpdateHistoryEntry API.
+   */
+  public async getBaseccVmClusterUpdateHistoryEntry(
+    getBaseccVmClusterUpdateHistoryEntryRequest: requests.GetBaseccVmClusterUpdateHistoryEntryRequest
+  ): Promise<responses.GetBaseccVmClusterUpdateHistoryEntryResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#getBaseccVmClusterUpdateHistoryEntry.");
+    const operationName = "getBaseccVmClusterUpdateHistoryEntry";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/BaseccVmClusterUpdateHistoryEntry/GetBaseccVmClusterUpdateHistoryEntry";
+    const pathParams = {
+      "{baseccVmClusterId}": getBaseccVmClusterUpdateHistoryEntryRequest.baseccVmClusterId,
+      "{updateHistoryEntryId}": getBaseccVmClusterUpdateHistoryEntryRequest.updateHistoryEntryId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getBaseccVmClusterUpdateHistoryEntryRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getBaseccVmClusterUpdateHistoryEntryRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/baseccVmClusters/{baseccVmClusterId}/updateHistoryEntries/{updateHistoryEntryId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetBaseccVmClusterUpdateHistoryEntryResponse>{},
+        body: await response.json(),
+        bodyKey: "baseccVmClusterUpdateHistoryEntry",
+        bodyModel: model.BaseccVmClusterUpdateHistoryEntry,
+        type: "model.BaseccVmClusterUpdateHistoryEntry",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -23859,6 +24330,416 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   }
 
   /**
+   * Gets the history of the maintenance update actions performed on the specified BaseDB-C@C VM cluster. Applies to Base Database Service on Cloud@Customer instances only.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListBaseccVmClusterUpdateHistoryEntriesRequest
+   * @return ListBaseccVmClusterUpdateHistoryEntriesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListBaseccVmClusterUpdateHistoryEntries.ts.html |here} to see how to use ListBaseccVmClusterUpdateHistoryEntries API.
+   */
+  public async listBaseccVmClusterUpdateHistoryEntries(
+    listBaseccVmClusterUpdateHistoryEntriesRequest: requests.ListBaseccVmClusterUpdateHistoryEntriesRequest
+  ): Promise<responses.ListBaseccVmClusterUpdateHistoryEntriesResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#listBaseccVmClusterUpdateHistoryEntries."
+      );
+    const operationName = "listBaseccVmClusterUpdateHistoryEntries";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/BaseccVmClusterUpdateHistoryEntry/ListBaseccVmClusterUpdateHistoryEntries";
+    const pathParams = {
+      "{baseccVmClusterId}": listBaseccVmClusterUpdateHistoryEntriesRequest.baseccVmClusterId
+    };
+
+    const queryParams = {
+      "updateType": listBaseccVmClusterUpdateHistoryEntriesRequest.updateType,
+      "lifecycleState": listBaseccVmClusterUpdateHistoryEntriesRequest.lifecycleState,
+      "limit": listBaseccVmClusterUpdateHistoryEntriesRequest.limit,
+      "page": listBaseccVmClusterUpdateHistoryEntriesRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listBaseccVmClusterUpdateHistoryEntriesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listBaseccVmClusterUpdateHistoryEntriesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/baseccVmClusters/{baseccVmClusterId}/updateHistoryEntries",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListBaseccVmClusterUpdateHistoryEntriesResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.BaseccVmClusterUpdateHistoryEntrySummary,
+        type: "Array<model.BaseccVmClusterUpdateHistoryEntrySummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listBaseccVmClusterUpdateHistoryEntriesRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.BaseccVmClusterUpdateHistoryEntrySummary objects
+   * contained in responses from the listBaseccVmClusterUpdateHistoryEntries operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllBaseccVmClusterUpdateHistoryEntries(
+    request: requests.ListBaseccVmClusterUpdateHistoryEntriesRequest
+  ): AsyncIterableIterator<model.BaseccVmClusterUpdateHistoryEntrySummary> {
+    return paginateRecords(request, req => this.listBaseccVmClusterUpdateHistoryEntries(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listBaseccVmClusterUpdateHistoryEntriesResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listBaseccVmClusterUpdateHistoryEntries operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllBaseccVmClusterUpdateHistoryEntriesResponses(
+    request: requests.ListBaseccVmClusterUpdateHistoryEntriesRequest
+  ): AsyncIterableIterator<responses.ListBaseccVmClusterUpdateHistoryEntriesResponse> {
+    return paginateResponses(request, req => this.listBaseccVmClusterUpdateHistoryEntries(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.BaseccVmClusterUpdateHistoryEntrySummary objects
+   * contained in responses from the listBaseccVmClusterUpdateHistoryEntries operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listBaseccVmClusterUpdateHistoryEntriesRecordIterator(
+    request: requests.ListBaseccVmClusterUpdateHistoryEntriesRequest
+  ): AsyncIterableIterator<model.BaseccVmClusterUpdateHistoryEntrySummary> {
+    return paginateRecords(request, req => this.listBaseccVmClusterUpdateHistoryEntries(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listBaseccVmClusterUpdateHistoryEntries operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listBaseccVmClusterUpdateHistoryEntriesResponseIterator(
+    request: requests.ListBaseccVmClusterUpdateHistoryEntriesRequest
+  ): AsyncIterableIterator<responses.ListBaseccVmClusterUpdateHistoryEntriesResponse> {
+    return paginateResponses(request, req => this.listBaseccVmClusterUpdateHistoryEntries(req));
+  }
+
+  /**
+   * Lists the maintenance updates that can be applied to the specified BaseDB-C@C VM cluster. Applies to Base Database Service on Cloud@Customer instances only.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListBaseccVmClusterUpdatesRequest
+   * @return ListBaseccVmClusterUpdatesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListBaseccVmClusterUpdates.ts.html |here} to see how to use ListBaseccVmClusterUpdates API.
+   */
+  public async listBaseccVmClusterUpdates(
+    listBaseccVmClusterUpdatesRequest: requests.ListBaseccVmClusterUpdatesRequest
+  ): Promise<responses.ListBaseccVmClusterUpdatesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#listBaseccVmClusterUpdates.");
+    const operationName = "listBaseccVmClusterUpdates";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/BaseccVmClusterUpdate/ListBaseccVmClusterUpdates";
+    const pathParams = {
+      "{baseccVmClusterId}": listBaseccVmClusterUpdatesRequest.baseccVmClusterId
+    };
+
+    const queryParams = {
+      "updateType": listBaseccVmClusterUpdatesRequest.updateType,
+      "lifecycleState": listBaseccVmClusterUpdatesRequest.lifecycleState,
+      "limit": listBaseccVmClusterUpdatesRequest.limit,
+      "page": listBaseccVmClusterUpdatesRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listBaseccVmClusterUpdatesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listBaseccVmClusterUpdatesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/baseccVmClusters/{baseccVmClusterId}/updates",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListBaseccVmClusterUpdatesResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.BaseccVmClusterUpdateSummary,
+        type: "Array<model.BaseccVmClusterUpdateSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listBaseccVmClusterUpdatesRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.BaseccVmClusterUpdateSummary objects
+   * contained in responses from the listBaseccVmClusterUpdates operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllBaseccVmClusterUpdates(
+    request: requests.ListBaseccVmClusterUpdatesRequest
+  ): AsyncIterableIterator<model.BaseccVmClusterUpdateSummary> {
+    return paginateRecords(request, req => this.listBaseccVmClusterUpdates(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listBaseccVmClusterUpdatesResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listBaseccVmClusterUpdates operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllBaseccVmClusterUpdatesResponses(
+    request: requests.ListBaseccVmClusterUpdatesRequest
+  ): AsyncIterableIterator<responses.ListBaseccVmClusterUpdatesResponse> {
+    return paginateResponses(request, req => this.listBaseccVmClusterUpdates(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.BaseccVmClusterUpdateSummary objects
+   * contained in responses from the listBaseccVmClusterUpdates operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listBaseccVmClusterUpdatesRecordIterator(
+    request: requests.ListBaseccVmClusterUpdatesRequest
+  ): AsyncIterableIterator<model.BaseccVmClusterUpdateSummary> {
+    return paginateRecords(request, req => this.listBaseccVmClusterUpdates(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listBaseccVmClusterUpdates operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listBaseccVmClusterUpdatesResponseIterator(
+    request: requests.ListBaseccVmClusterUpdatesRequest
+  ): AsyncIterableIterator<responses.ListBaseccVmClusterUpdatesResponse> {
+    return paginateResponses(request, req => this.listBaseccVmClusterUpdates(req));
+  }
+
+  /**
+   * Lists the BaseDB-C@C VM clusters in the specified compartment. Applies to Base Database Service on Cloud@Customer instances only.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListBaseccVmClustersRequest
+   * @return ListBaseccVmClustersResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListBaseccVmClusters.ts.html |here} to see how to use ListBaseccVmClusters API.
+   */
+  public async listBaseccVmClusters(
+    listBaseccVmClustersRequest: requests.ListBaseccVmClustersRequest
+  ): Promise<responses.ListBaseccVmClustersResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#listBaseccVmClusters.");
+    const operationName = "listBaseccVmClusters";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/BaseccVmCluster/ListBaseccVmClusters";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listBaseccVmClustersRequest.compartmentId,
+      "baseInfrastructureId": listBaseccVmClustersRequest.baseInfrastructureId,
+      "limit": listBaseccVmClustersRequest.limit,
+      "page": listBaseccVmClustersRequest.page,
+      "sortBy": listBaseccVmClustersRequest.sortBy,
+      "sortOrder": listBaseccVmClustersRequest.sortOrder,
+      "lifecycleState": listBaseccVmClustersRequest.lifecycleState,
+      "availabilityDomain": listBaseccVmClustersRequest.availabilityDomain,
+      "displayName": listBaseccVmClustersRequest.displayName,
+      "vmClusterType": listBaseccVmClustersRequest.vmClusterType
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listBaseccVmClustersRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listBaseccVmClustersRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/baseccVmClusters",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListBaseccVmClustersResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.BaseccVmClusterSummary,
+        type: "Array<model.BaseccVmClusterSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listBaseccVmClustersRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.BaseccVmClusterSummary objects
+   * contained in responses from the listBaseccVmClusters operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllBaseccVmClusters(
+    request: requests.ListBaseccVmClustersRequest
+  ): AsyncIterableIterator<model.BaseccVmClusterSummary> {
+    return paginateRecords(request, req => this.listBaseccVmClusters(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listBaseccVmClustersResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listBaseccVmClusters operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllBaseccVmClustersResponses(
+    request: requests.ListBaseccVmClustersRequest
+  ): AsyncIterableIterator<responses.ListBaseccVmClustersResponse> {
+    return paginateResponses(request, req => this.listBaseccVmClusters(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.BaseccVmClusterSummary objects
+   * contained in responses from the listBaseccVmClusters operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listBaseccVmClustersRecordIterator(
+    request: requests.ListBaseccVmClustersRequest
+  ): AsyncIterableIterator<model.BaseccVmClusterSummary> {
+    return paginateRecords(request, req => this.listBaseccVmClusters(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listBaseccVmClusters operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listBaseccVmClustersResponseIterator(
+    request: requests.ListBaseccVmClustersRequest
+  ): AsyncIterableIterator<responses.ListBaseccVmClustersResponse> {
+    return paginateResponses(request, req => this.listBaseccVmClusters(req));
+  }
+
+  /**
    * Gets the list of resource usage details for all the Cloud Autonomous Container Database
    * in the specified Cloud Autonomous Exadata VM cluster.
    *
@@ -29344,6 +30225,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
     const queryParams = {
       "availabilityDomain": listGiVersionMinorVersionsRequest.availabilityDomain,
       "compartmentId": listGiVersionMinorVersionsRequest.compartmentId,
+      "exadataInfrastructureId": listGiVersionMinorVersionsRequest.exadataInfrastructureId,
       "shapeFamily": listGiVersionMinorVersionsRequest.shapeFamily,
       "isGiVersionForProvisioning": listGiVersionMinorVersionsRequest.isGiVersionForProvisioning,
       "shape": listGiVersionMinorVersionsRequest.shape,
@@ -33499,6 +34381,87 @@ This operation should always be performed on primary.
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.RegisterCloudVmClusterPkcsResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Install the PKCS11 driver for given keystore type
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param RegisterExadbVmClusterPkcsRequest
+   * @return RegisterExadbVmClusterPkcsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/RegisterExadbVmClusterPkcs.ts.html |here} to see how to use RegisterExadbVmClusterPkcs API.
+   */
+  public async registerExadbVmClusterPkcs(
+    registerExadbVmClusterPkcsRequest: requests.RegisterExadbVmClusterPkcsRequest
+  ): Promise<responses.RegisterExadbVmClusterPkcsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#registerExadbVmClusterPkcs.");
+    const operationName = "registerExadbVmClusterPkcs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExadbVmCluster/RegisterExadbVmClusterPkcs";
+    const pathParams = {
+      "{exadbVmClusterId}": registerExadbVmClusterPkcsRequest.exadbVmClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": registerExadbVmClusterPkcsRequest.opcRetryToken,
+      "opc-request-id": registerExadbVmClusterPkcsRequest.opcRequestId,
+      "if-match": registerExadbVmClusterPkcsRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      registerExadbVmClusterPkcsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/exadbVmClusters/{exadbVmClusterId}/actions/registerPkcs",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        registerExadbVmClusterPkcsRequest.registerExadbVmClusterPkcsDetails,
+        "RegisterExadbVmClusterPkcsDetails",
+        model.RegisterExadbVmClusterPkcsDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RegisterExadbVmClusterPkcsResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -37889,6 +38852,87 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
+   * Uninstall the PKCS11 driver for given keystore type
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UnregisterExadbVmClusterPkcsRequest
+   * @return UnregisterExadbVmClusterPkcsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UnregisterExadbVmClusterPkcs.ts.html |here} to see how to use UnregisterExadbVmClusterPkcs API.
+   */
+  public async unregisterExadbVmClusterPkcs(
+    unregisterExadbVmClusterPkcsRequest: requests.UnregisterExadbVmClusterPkcsRequest
+  ): Promise<responses.UnregisterExadbVmClusterPkcsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#unregisterExadbVmClusterPkcs.");
+    const operationName = "unregisterExadbVmClusterPkcs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExadbVmCluster/UnregisterExadbVmClusterPkcs";
+    const pathParams = {
+      "{exadbVmClusterId}": unregisterExadbVmClusterPkcsRequest.exadbVmClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": unregisterExadbVmClusterPkcsRequest.opcRetryToken,
+      "opc-request-id": unregisterExadbVmClusterPkcsRequest.opcRequestId,
+      "if-match": unregisterExadbVmClusterPkcsRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      unregisterExadbVmClusterPkcsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/exadbVmClusters/{exadbVmClusterId}/actions/unregisterPkcs",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        unregisterExadbVmClusterPkcsRequest.unregisterExadbVmClusterPkcsDetails,
+        "UnregisterExadbVmClusterPkcsDetails",
+        model.UnregisterExadbVmClusterPkcsDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UnregisterExadbVmClusterPkcsResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Updates the advanced cluster file system resource.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -38914,6 +39958,94 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
         bodyModel: model.BackupDestination,
         type: "model.BackupDestination",
         responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the specified BaseDB-C@C VM cluster. Applies to Base Database Service on Cloud@Customer instances only.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateBaseccVmClusterRequest
+   * @return UpdateBaseccVmClusterResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateBaseccVmCluster.ts.html |here} to see how to use UpdateBaseccVmCluster API.
+   */
+  public async updateBaseccVmCluster(
+    updateBaseccVmClusterRequest: requests.UpdateBaseccVmClusterRequest
+  ): Promise<responses.UpdateBaseccVmClusterResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#updateBaseccVmCluster.");
+    const operationName = "updateBaseccVmCluster";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/BaseccVmCluster/UpdateBaseccVmCluster";
+    const pathParams = {
+      "{baseccVmClusterId}": updateBaseccVmClusterRequest.baseccVmClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateBaseccVmClusterRequest.ifMatch,
+      "opc-request-id": updateBaseccVmClusterRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateBaseccVmClusterRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/baseccVmClusters/{baseccVmClusterId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateBaseccVmClusterRequest.updateBaseccVmClusterDetails,
+        "UpdateBaseccVmClusterDetails",
+        model.UpdateBaseccVmClusterDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateBaseccVmClusterResponse>{},
+        body: await response.json(),
+        bodyKey: "baseccVmCluster",
+        bodyModel: model.BaseccVmCluster,
+        type: "model.BaseccVmCluster",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
           {
             value: response.headers.get("etag"),
             key: "etag",

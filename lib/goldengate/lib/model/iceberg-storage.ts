@@ -29,6 +29,11 @@ export namespace IcebergStorage {
 
     if (obj && "storageType" in obj && obj.storageType) {
       switch (obj.storageType) {
+        case "OCI_OBJECT_STORAGE_S3_API":
+          return model.OciObjectStorageS3ApiIcebergStorage.getJsonObj(
+            <model.OciObjectStorageS3ApiIcebergStorage>(<object>jsonObj),
+            true
+          );
         case "AMAZON_S3":
           return model.AmazonS3IcebergStorage.getJsonObj(
             <model.AmazonS3IcebergStorage>(<object>jsonObj),
@@ -39,6 +44,8 @@ export namespace IcebergStorage {
             <model.AzureDataLakeStorageIcebergStorage>(<object>jsonObj),
             true
           );
+        case "NONE":
+          return model.NoIcebergStorage.getJsonObj(<model.NoIcebergStorage>(<object>jsonObj), true);
         case "GOOGLE_CLOUD_STORAGE":
           return model.GoogleCloudStorageIcebergStorage.getJsonObj(
             <model.GoogleCloudStorageIcebergStorage>(<object>jsonObj),
@@ -55,6 +62,11 @@ export namespace IcebergStorage {
 
     if (obj && "storageType" in obj && obj.storageType) {
       switch (obj.storageType) {
+        case "OCI_OBJECT_STORAGE_S3_API":
+          return model.OciObjectStorageS3ApiIcebergStorage.getDeserializedJsonObj(
+            <model.OciObjectStorageS3ApiIcebergStorage>(<object>jsonObj),
+            true
+          );
         case "AMAZON_S3":
           return model.AmazonS3IcebergStorage.getDeserializedJsonObj(
             <model.AmazonS3IcebergStorage>(<object>jsonObj),
@@ -63,6 +75,11 @@ export namespace IcebergStorage {
         case "AZURE_DATA_LAKE_STORAGE":
           return model.AzureDataLakeStorageIcebergStorage.getDeserializedJsonObj(
             <model.AzureDataLakeStorageIcebergStorage>(<object>jsonObj),
+            true
+          );
+        case "NONE":
+          return model.NoIcebergStorage.getDeserializedJsonObj(
+            <model.NoIcebergStorage>(<object>jsonObj),
             true
           );
         case "GOOGLE_CLOUD_STORAGE":

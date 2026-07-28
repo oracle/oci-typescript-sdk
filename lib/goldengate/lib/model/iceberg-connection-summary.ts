@@ -22,6 +22,7 @@ import common = require("oci-common");
 export interface IcebergConnectionSummary extends model.ConnectionSummary {
   /**
    * The Iceberg technology type.
+   *
    */
   "technologyType": string;
   "catalog":
@@ -32,7 +33,9 @@ export interface IcebergConnectionSummary extends model.ConnectionSummary {
     | model.HadoopIcebergCatalogSummary;
   "storage":
     | model.GoogleCloudStorageIcebergStorageSummary
+    | model.OciObjectStorageS3ApiIcebergStorageSummary
     | model.AzureDataLakeStorageIcebergStorageSummary
+    | model.NoIcebergStorageSummary
     | model.AmazonS3IcebergStorageSummary;
 
   "connectionType": string;

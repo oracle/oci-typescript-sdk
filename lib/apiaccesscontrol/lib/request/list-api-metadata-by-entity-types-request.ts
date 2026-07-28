@@ -21,7 +21,7 @@ export interface ListApiMetadataByEntityTypesRequest extends common.BaseRequest 
   /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment in which to list resources.
    */
-  "compartmentId"?: string;
+  "compartmentId": string;
   /**
    * A filter to return only resources that match the given lifecycle state. The
    * state value is case-insensitive.

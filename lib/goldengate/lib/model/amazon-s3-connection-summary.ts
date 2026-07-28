@@ -26,7 +26,7 @@ export interface AmazonS3ConnectionSummary extends model.ConnectionSummary {
   "technologyType": string;
   /**
    * Access key ID to access the Amazon S3 bucket.
-   * e.g.: \"this-is-not-the-secret\"
+   * Note: Despite the \"Id\" suffix, this value is not an OCI OCID.
    *
    */
   "accessKeyId": string;

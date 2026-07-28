@@ -7,7 +7,7 @@
 
 import { version } from "../package.json";
 import { isBrowser, isEmpty } from "./utils";
-import { v1 as uuidv1 } from "uuid";
+const uuid: { v1(): string } = require("uuid");
 
 const OPC_REQUEST_ID_HEADER: string = "opc-request-id";
 const USER_AGENT_HEADER: string = "User-Agent";
@@ -33,7 +33,8 @@ function hasOpcRequestId(headers: Headers) {
 }
 
 function generateRequestId() {
-  return uuidv1()
+  return uuid
+    .v1()
     .replace("-", "")
     .toLocaleUpperCase("en-US");
 }

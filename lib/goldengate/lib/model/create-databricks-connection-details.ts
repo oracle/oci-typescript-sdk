@@ -38,7 +38,9 @@ export interface CreateDatabricksConnectionDetails extends model.CreateConnectio
   /**
    * The password used to connect to Databricks.
    * Only applicable for authenticationType == PERSONAL_ACCESS_TOKEN.
-   * Deprecated: This field is deprecated and replaced by \"passwordSecretId\". This field will be removed after February 15 2026.
+   * Deprecated: This field is deprecated and replaced by \"passwordSecretId\".
+   * This change follows the GoldenGate \"Plain Text Fields in Connections\" deprecation:
+   * https://docs.oracle.com/en-us/iaas/Content/servicechanges.htm#servicechanges_topic-GoldenGate
    *
    */
   "password"?: string;
@@ -55,7 +57,9 @@ export interface CreateDatabricksConnectionDetails extends model.CreateConnectio
   "clientId"?: string;
   /**
    * OAuth client secret, only applicable for authenticationType == OAUTH_M2M
-   * Deprecated: This field is deprecated and replaced by \"clientSecretSecretId\". This field will be removed after February 15 2026.
+   * Deprecated: This field is deprecated and replaced by \"clientSecretSecretId\".
+   * This change follows the GoldenGate \"Plain Text Fields in Connections\" deprecation:
+   * https://docs.oracle.com/en-us/iaas/Content/servicechanges.htm#servicechanges_topic-GoldenGate
    *
    */
   "clientSecret"?: string;

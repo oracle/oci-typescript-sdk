@@ -52,7 +52,7 @@ export interface OracleConnection extends model.Connection {
 The default is DIRECT, except when databaseId is provided and the discovered database relies on the SCAN listener.
 * In this case, the default is REDIRECT.
 * <p>
-Deprecated: Defaulting to the REDIRECT session mode will be removed after March 1, 2027.
+Deprecated: Defaulting to the REDIRECT session mode will be removed after April 21, 2027.
 * 
     */
   "sessionMode"?: OracleConnection.SessionMode;
@@ -94,9 +94,12 @@ export namespace OracleConnection {
     OciAutonomousDatabase = "OCI_AUTONOMOUS_DATABASE",
     OracleDatabase = "ORACLE_DATABASE",
     OracleExadata = "ORACLE_EXADATA",
+    OracleExadataExascale = "ORACLE_EXADATA_EXASCALE",
     OracleExadataDatabaseAtAzure = "ORACLE_EXADATA_DATABASE_AT_AZURE",
+    OracleExadataExascaleAtAzure = "ORACLE_EXADATA_EXASCALE_AT_AZURE",
     OracleAutonomousDatabaseAtAzure = "ORACLE_AUTONOMOUS_DATABASE_AT_AZURE",
     OracleExadataDatabaseAtGoogleCloud = "ORACLE_EXADATA_DATABASE_AT_GOOGLE_CLOUD",
+    OracleExadataExascaleAtGoogleCloud = "ORACLE_EXADATA_EXASCALE_AT_GOOGLE_CLOUD",
     OracleAutonomousDatabaseAtGoogleCloud = "ORACLE_AUTONOMOUS_DATABASE_AT_GOOGLE_CLOUD",
     OracleExadataDatabaseAtAws = "ORACLE_EXADATA_DATABASE_AT_AWS",
     OracleAutonomousDatabaseAtAws = "ORACLE_AUTONOMOUS_DATABASE_AT_AWS",

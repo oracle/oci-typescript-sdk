@@ -52,7 +52,7 @@ export interface OracleConnectionSummary extends model.ConnectionSummary {
 The default is DIRECT, except when databaseId is provided and the discovered database relies on the SCAN listener.
 * In this case, the default is REDIRECT.
 * <p>
-Deprecated: Defaulting to the REDIRECT session mode will be removed after March 1, 2027.              
+Deprecated: Defaulting to the REDIRECT session mode will be removed after April 21, 2027.              
 * 
     */
   "sessionMode"?: string;

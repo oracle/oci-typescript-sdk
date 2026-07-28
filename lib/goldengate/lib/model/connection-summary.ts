@@ -89,17 +89,32 @@ Example: {@code {orcl-cloud: {free-tier-retain: true}}}
    */
   "timeUpdated": Date;
   /**
-   * Refers to the customer's vault OCID.
-   * If provided, it references a vault where GoldenGate can manage secrets. Customers must add policies to permit GoldenGate
-   * to manage secrets contained within this vault.
-   *
-   */
+    * References the OCI Vault that contains the customer-managed encryption key identified by {@code keyId}.
+* <p>
+Deprecated: This field is deprecated for GoldenGate connections. Sensitive attributes should be provided using the
+* corresponding Secret OCID attributes of the connection (for example, {@code passwordSecretId}) instead of plain-text
+* attributes encrypted with {@code vaultId} and {@code keyId}. This change follows the GoldenGate \"Plain Text Fields in Connections\" deprecation:
+* https://docs.oracle.com/en-us/iaas/Content/servicechanges.htm#servicechanges_topic-GoldenGate
+* <p>
+This field is applicable only when {@code doesUseSecretIds} is set to {@code false}.
+* If {@code vaultId} is provided, {@code keyId} must also be provided.
+* 
+    */
   "vaultId"?: string;
   /**
-   * Refers to the customer's master key OCID.
-   * If provided, it references a key to manage secrets. Customers must add policies to permit GoldenGate to use this key.
-   *
-   */
+    * References the OCI Vault key in the OCI Vault identified by {@code vaultId}.
+* <p>
+Deprecated: This field is deprecated for GoldenGate connections. Sensitive attributes should be provided using the
+* corresponding Secret OCID attributes of the connection (for example, {@code passwordSecretId}) instead of plain-text
+* attributes encrypted with {@code vaultId} and {@code keyId}. This change follows the GoldenGate \"Plain Text Fields in Connections\" deprecation:
+* https://docs.oracle.com/en-us/iaas/Content/servicechanges.htm#servicechanges_topic-GoldenGate
+* <p>
+The GoldenGate service uses this key to encrypt sensitive information (for example, {@code password}) that is provided in plain-text connection attributes through the API.
+* This field is applicable only when {@code doesUseSecretIds} is set to {@code false}. If both {@code vaultId} and {@code keyId} are provided,
+* the GoldenGate service uses the specified customer-managed key to encrypt the sensitive data.
+* If neither {@code vaultId} nor {@code keyId} is provided, the GoldenGate service uses Oracle-managed encryption keys.
+* 
+    */
   "keyId"?: string;
   /**
    * List of ingress IP addresses from where the GoldenGate deployment connects to this connection's privateIp.
@@ -118,21 +133,40 @@ Example: {@code {orcl-cloud: {free-tier-retain: true}}}
    */
   "subnetId"?: string;
   /**
-   * Controls the network traffic direction to the target:
-   * SHARED_SERVICE_ENDPOINT: Traffic flows through the Goldengate Service's network to public hosts. Cannot be used for private targets.
-   * SHARED_DEPLOYMENT_ENDPOINT: Network traffic flows from the assigned deployment's private endpoint through the deployment's subnet.
-   * DEDICATED_ENDPOINT: A dedicated private endpoint is created in the target VCN subnet for the connection. The subnetId is required when DEDICATED_ENDPOINT networking is selected.
-   *
-   */
+    * Controls the network traffic direction to the target:
+* SHARED_DEPLOYMENT_ENDPOINT: Network traffic flows from the assigned deployment's private endpoint through the deployment's subnet.
+* DEDICATED_ENDPOINT: A dedicated private endpoint is created in the target VCN subnet for the connection. The subnetId is required when DEDICATED_ENDPOINT networking is selected.
+* SHARED_SERVICE_ENDPOINT: Traffic flows through the Goldengate Service's network to public hosts. Cannot be used for private targets. 
+* <p>
+Deprecated: SHARED_SERVICE_ENDPOINT is deprecated. Use another supported routingMethod value, or update existing connections to use a supported routing method.
+* This change follows the GoldenGate \"Plain Text Fields in Connections\" deprecation:
+* https://docs.oracle.com/en-us/iaas/Content/servicechanges.htm#servicechanges_topic-GoldenGate
+* 
+    */
   "routingMethod"?: model.RoutingMethod;
   /**
    * Locks associated with this resource.
    */
   "locks"?: Array<model.ResourceLock>;
   /**
-   * Indicates that sensitive attributes are provided via Secrets.
-   *
-   */
+    * Indicates that sensitive attributes are provided via Secrets.
+* <p>
+Deprecated: This field is deprecated. Sensitive attributes should be provided using the corresponding Secret OCID
+* attributes of the connection (for example, {@code passwordSecretId}) instead of plain-text attributes. This change follows
+* the GoldenGate \"Plain Text Fields in Connections\" deprecation:
+* https://docs.oracle.com/en-us/iaas/Content/servicechanges.htm#servicechanges_topic-GoldenGate
+* <p>
+When set to {@code true}, all sensitive information must be provided as OCI Vault secrets using the corresponding
+* {@code *SecretId} attributes of the connection (for example, {@code passwordSecretId}). Plain-text sensitive attributes (for example, {@code password}) must not be used.
+* This ensures that sensitive information remains stored and managed in the customer's OCI Vault rather than by the GoldenGate service.
+* <p>
+When set to false, sensitive information must be provided in the corresponding plain-text attributes (for example, {@code password}) rather than in secret OCID attributes.
+* In this mode, the sensitive information is stored by the GoldenGate service. If {@code vaultId} and {@code keyId} are not specified,
+* the GoldenGate service uses Oracle-managed encryption keys to encrypt the stored data.
+* <p>
+If {@code vaultId} and {@code keyId} are provided, the specified customer-managed key is used.
+* 
+    */
   "doesUseSecretIds"?: boolean;
   /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subscription with which resource needs to be associated with.
@@ -301,6 +335,11 @@ export namespace ConnectionSummary {
         case "KAFKA":
           return model.KafkaConnectionSummary.getJsonObj(
             <model.KafkaConnectionSummary>(<object>jsonObj),
+            true
+          );
+        case "AI_MODEL":
+          return model.AiModelConnectionSummary.getJsonObj(
+            <model.AiModelConnectionSummary>(<object>jsonObj),
             true
           );
         case "DB2":
@@ -472,6 +511,11 @@ export namespace ConnectionSummary {
         case "KAFKA":
           return model.KafkaConnectionSummary.getDeserializedJsonObj(
             <model.KafkaConnectionSummary>(<object>jsonObj),
+            true
+          );
+        case "AI_MODEL":
+          return model.AiModelConnectionSummary.getDeserializedJsonObj(
+            <model.AiModelConnectionSummary>(<object>jsonObj),
             true
           );
         case "DB2":

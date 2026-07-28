@@ -30,7 +30,9 @@ export interface UpdateOracleConnectionDetails extends model.UpdateConnectionDet
   /**
    * The password Oracle GoldenGate uses to connect the associated system of the given technology.
    * It must conform to the specific security requirements including length, case sensitivity, and so on.
-   * Deprecated: This field is deprecated and replaced by \"passwordSecretId\". This field will be removed after February 15 2026.
+   * Deprecated: This field is deprecated and replaced by \"passwordSecretId\".
+   * This change follows the GoldenGate \"Plain Text Fields in Connections\" deprecation:
+   * https://docs.oracle.com/en-us/iaas/Content/servicechanges.htm#servicechanges_topic-GoldenGate
    *
    */
   "password"?: string;
@@ -57,7 +59,9 @@ export interface UpdateOracleConnectionDetails extends model.UpdateConnectionDet
   /**
    * The wallet contents Oracle GoldenGate uses to make connections to a database.
    * This attribute is expected to be base64 encoded.
-   * Deprecated: This field is deprecated and replaced by \"walletSecretId\". This field will be removed after February 15 2026.
+   * Deprecated: This field is deprecated and replaced by \"walletSecretId\".
+   * This change follows the GoldenGate \"Plain Text Fields in Connections\" deprecation:
+   * https://docs.oracle.com/en-us/iaas/Content/servicechanges.htm#servicechanges_topic-GoldenGate
    *
    */
   "wallet"?: string;
@@ -78,7 +82,7 @@ export interface UpdateOracleConnectionDetails extends model.UpdateConnectionDet
 The default is DIRECT, except when databaseId is provided and the discovered database relies on the SCAN listener.
 * In this case, the default is REDIRECT.
 * <p>
-Deprecated: Defaulting to the REDIRECT session mode will be removed after March 1, 2027.              
+Deprecated: Defaulting to the REDIRECT session mode will be removed after April 21, 2027.              
 * 
     */
   "sessionMode"?: string;

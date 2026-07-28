@@ -40,7 +40,9 @@ export interface UpdateKafkaSchemaRegistryConnectionDetails extends model.Update
   /**
    * The password to access Schema Registry using basic authentication.
    * This value is injected into 'schema.registry.basic.auth.user.info=user:password' configuration property.
-   * Deprecated: This field is deprecated and replaced by \"passwordSecretId\". This field will be removed after February 15 2026.
+   * Deprecated: This field is deprecated and replaced by \"passwordSecretId\".
+   * This change follows the GoldenGate \"Plain Text Fields in Connections\" deprecation:
+   * https://docs.oracle.com/en-us/iaas/Content/servicechanges.htm#servicechanges_topic-GoldenGate
    *
    */
   "password"?: string;
@@ -55,7 +57,9 @@ export interface UpdateKafkaSchemaRegistryConnectionDetails extends model.Update
   "passwordSecretId"?: string;
   /**
    * The base64 encoded content of the TrustStore file.
-   * Deprecated: This field is deprecated and replaced by \"trustStoreSecretId\". This field will be removed after February 15 2026.
+   * Deprecated: This field is deprecated and replaced by \"trustStoreSecretId\".
+   * This change follows the GoldenGate \"Plain Text Fields in Connections\" deprecation:
+   * https://docs.oracle.com/en-us/iaas/Content/servicechanges.htm#servicechanges_topic-GoldenGate
    *
    */
   "trustStore"?: string;
@@ -67,7 +71,9 @@ export interface UpdateKafkaSchemaRegistryConnectionDetails extends model.Update
   "trustStoreSecretId"?: string;
   /**
    * The TrustStore password.
-   * Deprecated: This field is deprecated and replaced by \"trustStorePasswordSecretId\". This field will be removed after February 15 2026.
+   * Deprecated: This field is deprecated and replaced by \"trustStorePasswordSecretId\".
+   * This change follows the GoldenGate \"Plain Text Fields in Connections\" deprecation:
+   * https://docs.oracle.com/en-us/iaas/Content/servicechanges.htm#servicechanges_topic-GoldenGate
    *
    */
   "trustStorePassword"?: string;
@@ -79,7 +85,9 @@ export interface UpdateKafkaSchemaRegistryConnectionDetails extends model.Update
   "trustStorePasswordSecretId"?: string;
   /**
    * The base64 encoded content of the KeyStore file.
-   * Deprecated: This field is deprecated and replaced by \"keyStoreSecretId\". This field will be removed after February 15 2026.
+   * Deprecated: This field is deprecated and replaced by \"keyStoreSecretId\".
+   * This change follows the GoldenGate \"Plain Text Fields in Connections\" deprecation:
+   * https://docs.oracle.com/en-us/iaas/Content/servicechanges.htm#servicechanges_topic-GoldenGate
    *
    */
   "keyStore"?: string;
@@ -91,7 +99,9 @@ export interface UpdateKafkaSchemaRegistryConnectionDetails extends model.Update
   "keyStoreSecretId"?: string;
   /**
    * The KeyStore password.
-   * Deprecated: This field is deprecated and replaced by \"keyStorePasswordSecretId\". This field will be removed after February 15 2026.
+   * Deprecated: This field is deprecated and replaced by \"keyStorePasswordSecretId\".
+   * This change follows the GoldenGate \"Plain Text Fields in Connections\" deprecation:
+   * https://docs.oracle.com/en-us/iaas/Content/servicechanges.htm#servicechanges_topic-GoldenGate
    *
    */
   "keyStorePassword"?: string;
@@ -104,7 +114,9 @@ export interface UpdateKafkaSchemaRegistryConnectionDetails extends model.Update
   /**
    * The password for the cert inside the KeyStore.
    * In case it differs from the KeyStore password, it should be provided.
-   * Deprecated: This field is deprecated and replaced by \"sslKeyPasswordSecretId\". This field will be removed after February 15 2026.
+   * Deprecated: This field is deprecated and replaced by \"sslKeyPasswordSecretId\".
+   * This change follows the GoldenGate \"Plain Text Fields in Connections\" deprecation:
+   * https://docs.oracle.com/en-us/iaas/Content/servicechanges.htm#servicechanges_topic-GoldenGate
    *
    */
   "sslKeyPassword"?: string;

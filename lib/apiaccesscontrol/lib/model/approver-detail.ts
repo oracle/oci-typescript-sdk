@@ -33,6 +33,10 @@ export interface ApproverDetail {
    */
   "approvalAction"?: string;
   /**
+   * The group level at which the approver approved. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "approverGroupLevel"?: number;
+  /**
    * Comment specified by the approver of the request.
    */
   "approvalComment"?: string;

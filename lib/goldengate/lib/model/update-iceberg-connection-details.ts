@@ -28,6 +28,8 @@ export interface UpdateIcebergConnectionDetails extends model.UpdateConnectionDe
     | model.UpdateGlueIcebergCatalogDetails;
   "storage"?:
     | model.UpdateAmazonS3IcebergStorageDetails
+    | model.UpdateOciObjectStorageS3ApiIcebergStorageDetails
+    | model.UpdateNoIcebergStorageDetails
     | model.UpdateGoogleCloudStorageIcebergStorageDetails
     | model.UpdateAzureDataLakeStorageIcebergStorageDetails;
 

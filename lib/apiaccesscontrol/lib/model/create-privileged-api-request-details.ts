@@ -40,7 +40,7 @@ export interface CreatePrivilegedApiRequestDetails {
   /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment.
    */
-  "compartmentId"?: string;
+  "compartmentId": string;
   /**
    * The OCID of the target resource associated with the access request. The operator raises an access request to get approval to access the target resource.
    *
