@@ -32,6 +32,9 @@ export enum LifecycleDetailsEnum {
   Deleting = "DELETING",
   Updating = "UPDATING",
   Deleted = "DELETED",
+  PendingCancellation = "PENDING_CANCELLATION",
+  Suspended = "SUSPENDED",
+  Canceled = "CANCELED",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

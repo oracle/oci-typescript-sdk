@@ -259,6 +259,11 @@ export namespace CreateAutonomousContainerDatabaseBase {
 
     if (obj && "source" in obj && obj.source) {
       switch (obj.source) {
+        case "BACKUP_FROM_TIMESTAMP":
+          return model.CreateAutonomousContainerDatabaseFromBackupTimestampDetails.getJsonObj(
+            <model.CreateAutonomousContainerDatabaseFromBackupTimestampDetails>(<object>jsonObj),
+            true
+          );
         case "NONE":
           return model.CreateAutonomousContainerDatabaseDetails.getJsonObj(
             <model.CreateAutonomousContainerDatabaseDetails>(<object>jsonObj),
@@ -309,6 +314,11 @@ export namespace CreateAutonomousContainerDatabaseBase {
 
     if (obj && "source" in obj && obj.source) {
       switch (obj.source) {
+        case "BACKUP_FROM_TIMESTAMP":
+          return model.CreateAutonomousContainerDatabaseFromBackupTimestampDetails.getDeserializedJsonObj(
+            <model.CreateAutonomousContainerDatabaseFromBackupTimestampDetails>(<object>jsonObj),
+            true
+          );
         case "NONE":
           return model.CreateAutonomousContainerDatabaseDetails.getDeserializedJsonObj(
             <model.CreateAutonomousContainerDatabaseDetails>(<object>jsonObj),

@@ -25,11 +25,36 @@ export interface CreateAutonomousContainerDatabaseFromBackupDetails
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the source ACD backup that you will clone to create a new ACD.
    */
   "autonomousContainerDatabaseBackupId": string;
+  /**
+   * The Autonomous AI Database clone type.
+   */
+  "cloneType"?: CreateAutonomousContainerDatabaseFromBackupDetails.CloneType;
+  /**
+   * A list of Autonomous Databases ( display name of the ADB in specific ) to be cloned from backup of the source Autonomous Container Database.
+   *
+   */
+  "autonomousDatabasesToClone"?: Array<string>;
+  /**
+   * The speed at which the Autonomous Container Database Clone from backup operation to be performed by OCI.
+   */
+  "cloneBandWidth"?: CreateAutonomousContainerDatabaseFromBackupDetails.CloneBandWidth;
 
   "source": string;
 }
 
 export namespace CreateAutonomousContainerDatabaseFromBackupDetails {
+  export enum CloneType {
+    Full = "FULL",
+    Metadata = "METADATA",
+    Partial = "PARTIAL"
+  }
+
+  export enum CloneBandWidth {
+    Slow = "SLOW",
+    Medium = "MEDIUM",
+    Fast = "FAST"
+  }
+
   export function getJsonObj(
     obj: CreateAutonomousContainerDatabaseFromBackupDetails,
     isParentJsonObj?: boolean

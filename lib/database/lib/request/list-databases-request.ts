@@ -54,6 +54,14 @@ export interface ListDatabasesRequest extends common.BaseRequest {
    * A filter to return only resources that match the entire database name given. The match is not case sensitive.
    */
   "dbName"?: string;
+  /**
+   * Filter the databases by managed auto failover param.
+   */
+  "managedAutoFailover"?: ListDatabasesRequest.ManagedAutoFailover;
+  /**
+   * Filter the databases by failoverTargets param.
+   */
+  "failoverTargets"?: ListDatabasesRequest.FailoverTargets;
 }
 
 export namespace ListDatabasesRequest {
@@ -65,5 +73,17 @@ export namespace ListDatabasesRequest {
   export enum SortOrder {
     Asc = "ASC",
     Desc = "DESC"
+  }
+
+  export enum ManagedAutoFailover {
+    Registered = "REGISTERED",
+    Unregistered = "UNREGISTERED",
+    All = "ALL"
+  }
+
+  export enum FailoverTargets {
+    Defined = "DEFINED",
+    Undefined = "UNDEFINED",
+    All = "ALL"
   }
 }

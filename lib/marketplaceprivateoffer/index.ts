@@ -17,6 +17,8 @@ import * as responses from "./lib/response";
 import * as client from "./lib/client";
 import * as attachment_waiter from "./lib/attachment-waiter";
 import * as offer_waiter from "./lib/offer-waiter";
+import * as offerquote_waiter from "./lib/offerquote-waiter";
+import * as quoteattachment_waiter from "./lib/quoteattachment-waiter";
 
 export { models };
 export { requests };
@@ -25,3 +27,7 @@ export import AttachmentClient = client.AttachmentClient;
 export import AttachmentWaiter = attachment_waiter.AttachmentWaiter;
 export import OfferClient = client.OfferClient;
 export import OfferWaiter = offer_waiter.OfferWaiter;
+export import OfferQuoteClient = client.OfferQuoteClient;
+export import OfferQuoteWaiter = offerquote_waiter.OfferQuoteWaiter;
+export import QuoteAttachmentClient = client.QuoteAttachmentClient;
+export import QuoteAttachmentWaiter = quoteattachment_waiter.QuoteAttachmentWaiter;

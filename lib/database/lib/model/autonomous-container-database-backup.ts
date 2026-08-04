@@ -100,13 +100,29 @@ Example: {@code {\"Department\": \"Finance\"}}
    * List of Autonomous AI Databases that is part of this Autonomous Container Database Backup
    */
   "autonomousDatabases"?: Array<model.AutonomousDatabaseInBackup>;
+  /**
+   * A valid Oracle AI Database version for Autonomous AI Database.
+   * When you specify 23ai for dbversion, the system will provision a 23ai database, but the UI will display it as 26ai.
+   * When you specify 26ai for dbversion, the system will provision and display a 26ai database as expected.
+   * For new databases, it is recommended to use either 19c or 26ai.
+   * <p>
+   **Note** Starting December 2026, 23ai will not be supported as a valid value for this parameter.
+   *
+   */
+  "dbVersion"?: string;
+  "backupDestinationDetails"?: model.BackupDestinationDetails;
 }
 
 export namespace AutonomousContainerDatabaseBackup {
   export enum Type {
     Incremental = "INCREMENTAL",
     Full = "FULL",
-    VirtualFull = "VIRTUAL_FULL"
+    VirtualFull = "VIRTUAL_FULL",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum LifecycleState {
@@ -114,12 +130,22 @@ export namespace AutonomousContainerDatabaseBackup {
     Active = "ACTIVE",
     Deleting = "DELETING",
     Deleted = "DELETED",
-    Failed = "FAILED"
+    Failed = "FAILED",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export enum InfrastructureType {
     Cloud = "CLOUD",
-    CloudAtCustomer = "CLOUD_AT_CUSTOMER"
+    CloudAtCustomer = "CLOUD_AT_CUSTOMER",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: AutonomousContainerDatabaseBackup): object {
@@ -130,6 +156,10 @@ export namespace AutonomousContainerDatabaseBackup {
           ? obj.autonomousDatabases.map(item => {
               return model.AutonomousDatabaseInBackup.getJsonObj(item);
             })
+          : undefined,
+
+        "backupDestinationDetails": obj.backupDestinationDetails
+          ? model.BackupDestinationDetails.getJsonObj(obj.backupDestinationDetails)
           : undefined
       }
     };
@@ -144,6 +174,10 @@ export namespace AutonomousContainerDatabaseBackup {
           ? obj.autonomousDatabases.map(item => {
               return model.AutonomousDatabaseInBackup.getDeserializedJsonObj(item);
             })
+          : undefined,
+
+        "backupDestinationDetails": obj.backupDestinationDetails
+          ? model.BackupDestinationDetails.getDeserializedJsonObj(obj.backupDestinationDetails)
           : undefined
       }
     };

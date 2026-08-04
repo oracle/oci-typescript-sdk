@@ -17,6 +17,8 @@ import * as model from "./model";
 import * as responses from "./response";
 import { AttachmentWaiter } from "./attachment-waiter";
 import { OfferWaiter } from "./offer-waiter";
+import { OfferQuoteWaiter } from "./offerquote-waiter";
+import { QuoteAttachmentWaiter } from "./quoteattachment-waiter";
 import {
   composeResponse,
   composeRequest,
@@ -1222,6 +1224,78 @@ export class OfferClient {
   }
 
   /**
+   * Sends an Offer to be reviewed and accepted by the buyer. Validation will be run on the offer first to verify the offer is valid and contains all required fields.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param SendOfferRequest
+   * @return SendOfferResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplaceprivateoffer/SendOffer.ts.html |here} to see how to use SendOffer API.
+   */
+  public async sendOffer(
+    sendOfferRequest: requests.SendOfferRequest
+  ): Promise<responses.SendOfferResponse> {
+    if (this.logger) this.logger.debug("Calling operation OfferClient#sendOffer.");
+    const operationName = "sendOffer";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{offerId}": sendOfferRequest.offerId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": sendOfferRequest.ifMatch,
+      "opc-request-id": sendOfferRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      sendOfferRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/offers/{offerId}/actions/sendOffer",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SendOfferResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Updates the Offer
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateOfferRequest
@@ -1291,6 +1365,1618 @@ export class OfferClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Withdraws an Offer and sends it back into DRAFT state. Offers can only be withdrawn before they are accepted by the buyer.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param WithdrawOfferRequest
+   * @return WithdrawOfferResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplaceprivateoffer/WithdrawOffer.ts.html |here} to see how to use WithdrawOffer API.
+   */
+  public async withdrawOffer(
+    withdrawOfferRequest: requests.WithdrawOfferRequest
+  ): Promise<responses.WithdrawOfferResponse> {
+    if (this.logger) this.logger.debug("Calling operation OfferClient#withdrawOffer.");
+    const operationName = "withdrawOffer";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{offerId}": withdrawOfferRequest.offerId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": withdrawOfferRequest.ifMatch,
+      "opc-request-id": withdrawOfferRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      withdrawOfferRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/offers/{offerId}/actions/withdrawOffer",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.WithdrawOfferResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+}
+export enum OfferQuoteApiKeys {}
+/**
+ * This service client uses {@link common.CircuitBreaker.DefaultConfiguration} for all the operations by default if no circuit breaker configuration is defined by the user.
+ */
+export class OfferQuoteClient {
+  protected static serviceEndpointTemplate =
+    "https://private-offer.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
+  protected "_endpoint": string = "";
+  protected "_defaultHeaders": any = {};
+  protected "_waiters": OfferQuoteWaiter;
+  protected "_clientConfiguration": common.ClientConfiguration;
+  protected _circuitBreaker: typeof Breaker | null = null;
+  protected _httpOptions: any = undefined;
+  protected _bodyDuplexMode: any = undefined;
+  public targetService = "OfferQuote";
+  protected _regionId: string = "";
+  protected "_region": common.Region;
+  protected _lastSetRegionOrRegionId: string = "";
+
+  protected _httpClient: common.HttpClient;
+  protected _authProvider: common.AuthenticationDetailsProvider | undefined;
+
+  constructor(params: common.AuthParams, clientConfiguration?: common.ClientConfiguration) {
+    const requestSigner = params.authenticationDetailsProvider
+      ? new common.DefaultRequestSigner(params.authenticationDetailsProvider)
+      : null;
+    this._authProvider = params.authenticationDetailsProvider;
+    if (clientConfiguration) {
+      this._clientConfiguration = clientConfiguration;
+      this._circuitBreaker = clientConfiguration.circuitBreaker
+        ? clientConfiguration.circuitBreaker!.circuit
+        : null;
+      this._httpOptions = clientConfiguration.httpOptions
+        ? clientConfiguration.httpOptions
+        : undefined;
+      this._bodyDuplexMode = clientConfiguration.bodyDuplexMode
+        ? clientConfiguration.bodyDuplexMode
+        : undefined;
+    }
+
+    if (!developerToolConfiguration.isServiceEnabled("marketplaceprivateoffer")) {
+      let errmsg =
+        "The developerToolConfiguration configuration disabled this service, this behavior is controlled by developerToolConfiguration.ociEnabledServiceSet variable. Please check if your local developer_tool_configuration file has configured the service you're targeting or contact the cloud provider on the availability of this service : ";
+      throw errmsg.concat("marketplaceprivateoffer");
+    }
+
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = true;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
+    }
+    this._httpClient =
+      params.httpClient ||
+      new common.FetchHttpClient(
+        requestSigner,
+        this._circuitBreaker,
+        this._httpOptions,
+        this._bodyDuplexMode
+      );
+
+    if (
+      params.authenticationDetailsProvider &&
+      common.isRegionProvider(params.authenticationDetailsProvider)
+    ) {
+      const provider: common.RegionProvider = params.authenticationDetailsProvider;
+      if (provider.getRegion()) {
+        this.region = provider.getRegion();
+      }
+    }
+  }
+
+  /**
+   * Get the endpoint that is being used to call (ex, https://www.example.com).
+   */
+  public get endpoint() {
+    return this._endpoint;
+  }
+
+  /**
+   * Sets the endpoint to call (ex, https://www.example.com).
+   * @param endpoint The endpoint of the service.
+   */
+  public set endpoint(endpoint: string) {
+    this._endpoint = endpoint;
+    this._endpoint = this._endpoint + "/20220901";
+    if (this.logger) this.logger.info(`OfferQuoteClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
+  }
+
+  /**
+   * Determines whether realm specific endpoint should be used or not.
+   * Set realmSpecificEndpointTemplateEnabled to "true" if the user wants to enable use of realm specific endpoint template, otherwise set it to "false"
+   * @param realmSpecificEndpointTemplateEnabled flag to enable the use of realm specific endpoint template
+   */
+  public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
+    this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
+    if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
+      this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
+        OfferQuoteClient.serviceEndpointTemplate,
+        this._region,
+        OfferQuoteClient.endpointServiceName
+      );
+    } else if (this._lastSetRegionOrRegionId === common.Region.REGION_ID_STRING) {
+      this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
+        OfferQuoteClient.serviceEndpointTemplate,
+        this._regionId,
+        OfferQuoteClient.endpointServiceName
+      );
+    }
+  }
+
+  /**
+   * Sets the region to call (ex, Region.US_PHOENIX_1).
+   * Note, this will call {@link #endpoint(String) endpoint} after resolving the endpoint.
+   * @param region The region of the service.
+   */
+  public set region(region: common.Region) {
+    this._region = region;
+    this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
+      OfferQuoteClient.serviceEndpointTemplate,
+      region,
+      OfferQuoteClient.endpointServiceName
+    );
+    this._lastSetRegionOrRegionId = common.Region.REGION_STRING;
+  }
+
+  /**
+   * Sets the regionId to call (ex, 'us-phoenix-1').
+   *
+   * Note, this will first try to map the region ID to a known Region and call {@link #region(Region) region}.
+   * If no known Region could be determined, it will create an endpoint assuming its in default Realm OC1
+   * and then call {@link #endpoint(String) endpoint}.
+   * @param regionId The public region ID.
+   */
+  public set regionId(regionId: string) {
+    this._regionId = regionId;
+    this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
+      OfferQuoteClient.serviceEndpointTemplate,
+      regionId,
+      OfferQuoteClient.endpointServiceName
+    );
+    this._lastSetRegionOrRegionId = common.Region.REGION_ID_STRING;
+  }
+
+  /**
+   * Creates a new OfferQuoteWaiter for resources for this service.
+   *
+   * @param config The waiter configuration for termination and delay strategy
+   * @return The service waiters.
+   */
+  public createWaiters(config?: common.WaiterConfiguration): OfferQuoteWaiter {
+    this._waiters = new OfferQuoteWaiter(this, config);
+    return this._waiters;
+  }
+
+  /**
+   * Gets the waiters available for resources for this service.
+   *
+   * @return The service waiters.
+   */
+  public getWaiters(): OfferQuoteWaiter {
+    if (this._waiters) {
+      return this._waiters;
+    }
+    throw Error("Waiters do not exist. Please create waiters.");
+  }
+
+  /**
+   * Shutdown the circuit breaker used by the client when it is no longer needed
+   */
+  public shutdownCircuitBreaker() {
+    if (this._circuitBreaker) {
+      this._circuitBreaker.shutdown();
+    }
+  }
+
+  /**
+   * Close the provider if possible which in turn shuts down any associated circuit breaker
+   */
+  public closeProvider() {
+    if (this._authProvider) {
+      if (this._authProvider instanceof common.AbstractRequestingAuthenticationDetailsProvider)
+        (<common.AbstractRequestingAuthenticationDetailsProvider>(
+          this._authProvider
+        )).closeProvider();
+    }
+  }
+
+  /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+    this.closeProvider();
+  }
+
+  /**
+   * Creates a new offer quote.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateOfferQuoteRequest
+   * @return CreateOfferQuoteResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplaceprivateoffer/CreateOfferQuote.ts.html |here} to see how to use CreateOfferQuote API.
+   */
+  public async createOfferQuote(
+    createOfferQuoteRequest: requests.CreateOfferQuoteRequest
+  ): Promise<responses.CreateOfferQuoteResponse> {
+    if (this.logger) this.logger.debug("Calling operation OfferQuoteClient#createOfferQuote.");
+    const operationName = "createOfferQuote";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createOfferQuoteRequest.opcRetryToken,
+      "opc-request-id": createOfferQuoteRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createOfferQuoteRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/offerQuotes",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createOfferQuoteRequest.createOfferQuoteDetails,
+        "CreateOfferQuoteDetails",
+        model.CreateOfferQuoteDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateOfferQuoteResponse>{},
+        body: await response.json(),
+        bodyKey: "offerQuote",
+        bodyModel: model.OfferQuote,
+        type: "model.OfferQuote",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-location"),
+            key: "contentLocation",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes an offer quote resource by identifier.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteOfferQuoteRequest
+   * @return DeleteOfferQuoteResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplaceprivateoffer/DeleteOfferQuote.ts.html |here} to see how to use DeleteOfferQuote API.
+   */
+  public async deleteOfferQuote(
+    deleteOfferQuoteRequest: requests.DeleteOfferQuoteRequest
+  ): Promise<responses.DeleteOfferQuoteResponse> {
+    if (this.logger) this.logger.debug("Calling operation OfferQuoteClient#deleteOfferQuote.");
+    const operationName = "deleteOfferQuote";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{offerQuoteId}": deleteOfferQuoteRequest.offerQuoteId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteOfferQuoteRequest.ifMatch,
+      "opc-request-id": deleteOfferQuoteRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteOfferQuoteRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/offerQuotes/{offerQuoteId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteOfferQuoteResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets an offer quote by identifier.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetOfferQuoteRequest
+   * @return GetOfferQuoteResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplaceprivateoffer/GetOfferQuote.ts.html |here} to see how to use GetOfferQuote API.
+   */
+  public async getOfferQuote(
+    getOfferQuoteRequest: requests.GetOfferQuoteRequest
+  ): Promise<responses.GetOfferQuoteResponse> {
+    if (this.logger) this.logger.debug("Calling operation OfferQuoteClient#getOfferQuote.");
+    const operationName = "getOfferQuote";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{offerQuoteId}": getOfferQuoteRequest.offerQuoteId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getOfferQuoteRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getOfferQuoteRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/offerQuotes/{offerQuoteId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetOfferQuoteResponse>{},
+        body: await response.json(),
+        bodyKey: "offerQuote",
+        bodyModel: model.OfferQuote,
+        type: "model.OfferQuote",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets an offer quote internal details by identifier.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetOfferQuoteInternalDetailRequest
+   * @return GetOfferQuoteInternalDetailResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplaceprivateoffer/GetOfferQuoteInternalDetail.ts.html |here} to see how to use GetOfferQuoteInternalDetail API.
+   */
+  public async getOfferQuoteInternalDetail(
+    getOfferQuoteInternalDetailRequest: requests.GetOfferQuoteInternalDetailRequest
+  ): Promise<responses.GetOfferQuoteInternalDetailResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OfferQuoteClient#getOfferQuoteInternalDetail.");
+    const operationName = "getOfferQuoteInternalDetail";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{offerQuoteId}": getOfferQuoteInternalDetailRequest.offerQuoteId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getOfferQuoteInternalDetailRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getOfferQuoteInternalDetailRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/offerQuotes/{offerQuoteId}/internalDetails",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetOfferQuoteInternalDetailResponse>{},
+        body: await response.json(),
+        bodyKey: "offerQuoteInternalDetail",
+        bodyModel: model.OfferQuoteInternalDetail,
+        type: "model.OfferQuoteInternalDetail",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns a list of offer quotes. Requires either a reseller compartment ID or an ISV compartment ID.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListOfferQuotesRequest
+   * @return ListOfferQuotesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplaceprivateoffer/ListOfferQuotes.ts.html |here} to see how to use ListOfferQuotes API.
+   */
+  public async listOfferQuotes(
+    listOfferQuotesRequest: requests.ListOfferQuotesRequest
+  ): Promise<responses.ListOfferQuotesResponse> {
+    if (this.logger) this.logger.debug("Calling operation OfferQuoteClient#listOfferQuotes.");
+    const operationName = "listOfferQuotes";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "resellerCompartmentId": listOfferQuotesRequest.resellerCompartmentId,
+      "isvCompartmentId": listOfferQuotesRequest.isvCompartmentId,
+      "lifecycleState": listOfferQuotesRequest.lifecycleState,
+      "displayName": listOfferQuotesRequest.displayName,
+      "id": listOfferQuotesRequest.id,
+      "limit": listOfferQuotesRequest.limit,
+      "page": listOfferQuotesRequest.page,
+      "sortOrder": listOfferQuotesRequest.sortOrder,
+      "sortBy": listOfferQuotesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listOfferQuotesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listOfferQuotesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/offerQuotes",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListOfferQuotesResponse>{},
+        body: await response.json(),
+        bodyKey: "offerQuoteCollection",
+        bodyModel: model.OfferQuoteCollection,
+        type: "model.OfferQuoteCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * ISV responds to an offer quote for reseller to review.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param RespondToOfferQuoteRequest
+   * @return RespondToOfferQuoteResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplaceprivateoffer/RespondToOfferQuote.ts.html |here} to see how to use RespondToOfferQuote API.
+   */
+  public async respondToOfferQuote(
+    respondToOfferQuoteRequest: requests.RespondToOfferQuoteRequest
+  ): Promise<responses.RespondToOfferQuoteResponse> {
+    if (this.logger) this.logger.debug("Calling operation OfferQuoteClient#respondToOfferQuote.");
+    const operationName = "respondToOfferQuote";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{offerQuoteId}": respondToOfferQuoteRequest.offerQuoteId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": respondToOfferQuoteRequest.ifMatch,
+      "opc-request-id": respondToOfferQuoteRequest.opcRequestId,
+      "opc-retry-token": respondToOfferQuoteRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      respondToOfferQuoteRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/offerQuotes/{offerQuoteId}/actions/respondToOfferQuote",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        respondToOfferQuoteRequest.respondToOfferQuoteDetails,
+        "RespondToOfferQuoteDetails",
+        model.RespondToOfferQuoteDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RespondToOfferQuoteResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Sends an offer quote to be reviewed and updated by the ISV. Validation will be run on the offer quote first to verify it is valid and contains all required fields.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param SendOfferQuoteRequest
+   * @return SendOfferQuoteResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplaceprivateoffer/SendOfferQuote.ts.html |here} to see how to use SendOfferQuote API.
+   */
+  public async sendOfferQuote(
+    sendOfferQuoteRequest: requests.SendOfferQuoteRequest
+  ): Promise<responses.SendOfferQuoteResponse> {
+    if (this.logger) this.logger.debug("Calling operation OfferQuoteClient#sendOfferQuote.");
+    const operationName = "sendOfferQuote";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{offerQuoteId}": sendOfferQuoteRequest.offerQuoteId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": sendOfferQuoteRequest.ifMatch,
+      "opc-request-id": sendOfferQuoteRequest.opcRequestId,
+      "opc-retry-token": sendOfferQuoteRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      sendOfferQuoteRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/offerQuotes/{offerQuoteId}/actions/sendOfferQuote",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SendOfferQuoteResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the offer quote.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateOfferQuoteRequest
+   * @return UpdateOfferQuoteResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplaceprivateoffer/UpdateOfferQuote.ts.html |here} to see how to use UpdateOfferQuote API.
+   */
+  public async updateOfferQuote(
+    updateOfferQuoteRequest: requests.UpdateOfferQuoteRequest
+  ): Promise<responses.UpdateOfferQuoteResponse> {
+    if (this.logger) this.logger.debug("Calling operation OfferQuoteClient#updateOfferQuote.");
+    const operationName = "updateOfferQuote";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{offerQuoteId}": updateOfferQuoteRequest.offerQuoteId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateOfferQuoteRequest.ifMatch,
+      "opc-request-id": updateOfferQuoteRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateOfferQuoteRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/offerQuotes/{offerQuoteId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateOfferQuoteRequest.updateOfferQuoteDetails,
+        "UpdateOfferQuoteDetails",
+        model.UpdateOfferQuoteDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateOfferQuoteResponse>{},
+        body: await response.json(),
+        bodyKey: "offerQuote",
+        bodyModel: model.OfferQuote,
+        type: "model.OfferQuote",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Withdraws an offer quote and transitions to previous state. Offer quotes can only be withdrawn by reseller before the ISV response and withdrawn by the ISV before reseller acceptance.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param WithdrawOfferQuoteRequest
+   * @return WithdrawOfferQuoteResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplaceprivateoffer/WithdrawOfferQuote.ts.html |here} to see how to use WithdrawOfferQuote API.
+   */
+  public async withdrawOfferQuote(
+    withdrawOfferQuoteRequest: requests.WithdrawOfferQuoteRequest
+  ): Promise<responses.WithdrawOfferQuoteResponse> {
+    if (this.logger) this.logger.debug("Calling operation OfferQuoteClient#withdrawOfferQuote.");
+    const operationName = "withdrawOfferQuote";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{offerQuoteId}": withdrawOfferQuoteRequest.offerQuoteId
+    };
+
+    const queryParams = {
+      "resellerCompartmentId": withdrawOfferQuoteRequest.resellerCompartmentId,
+      "isvCompartmentId": withdrawOfferQuoteRequest.isvCompartmentId
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": withdrawOfferQuoteRequest.ifMatch,
+      "opc-request-id": withdrawOfferQuoteRequest.opcRequestId,
+      "opc-retry-token": withdrawOfferQuoteRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      withdrawOfferQuoteRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/offerQuotes/{offerQuoteId}/actions/withdrawOfferQuote",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.WithdrawOfferQuoteResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+}
+export enum QuoteAttachmentApiKeys {}
+/**
+ * This service client uses {@link common.CircuitBreaker.DefaultConfiguration} for all the operations by default if no circuit breaker configuration is defined by the user.
+ */
+export class QuoteAttachmentClient {
+  protected static serviceEndpointTemplate =
+    "https://private-offer.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
+  protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
+  protected "_endpoint": string = "";
+  protected "_defaultHeaders": any = {};
+  protected "_waiters": QuoteAttachmentWaiter;
+  protected "_clientConfiguration": common.ClientConfiguration;
+  protected _circuitBreaker: typeof Breaker | null = null;
+  protected _httpOptions: any = undefined;
+  protected _bodyDuplexMode: any = undefined;
+  public targetService = "QuoteAttachment";
+  protected _regionId: string = "";
+  protected "_region": common.Region;
+  protected _lastSetRegionOrRegionId: string = "";
+
+  protected _httpClient: common.HttpClient;
+  protected _authProvider: common.AuthenticationDetailsProvider | undefined;
+
+  constructor(params: common.AuthParams, clientConfiguration?: common.ClientConfiguration) {
+    const requestSigner = params.authenticationDetailsProvider
+      ? new common.DefaultRequestSigner(params.authenticationDetailsProvider)
+      : null;
+    this._authProvider = params.authenticationDetailsProvider;
+    if (clientConfiguration) {
+      this._clientConfiguration = clientConfiguration;
+      this._circuitBreaker = clientConfiguration.circuitBreaker
+        ? clientConfiguration.circuitBreaker!.circuit
+        : null;
+      this._httpOptions = clientConfiguration.httpOptions
+        ? clientConfiguration.httpOptions
+        : undefined;
+      this._bodyDuplexMode = clientConfiguration.bodyDuplexMode
+        ? clientConfiguration.bodyDuplexMode
+        : undefined;
+    }
+
+    if (!developerToolConfiguration.isServiceEnabled("marketplaceprivateoffer")) {
+      let errmsg =
+        "The developerToolConfiguration configuration disabled this service, this behavior is controlled by developerToolConfiguration.ociEnabledServiceSet variable. Please check if your local developer_tool_configuration file has configured the service you're targeting or contact the cloud provider on the availability of this service : ";
+      throw errmsg.concat("marketplaceprivateoffer");
+    }
+
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = true;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
+    }
+    this._httpClient =
+      params.httpClient ||
+      new common.FetchHttpClient(
+        requestSigner,
+        this._circuitBreaker,
+        this._httpOptions,
+        this._bodyDuplexMode
+      );
+
+    if (
+      params.authenticationDetailsProvider &&
+      common.isRegionProvider(params.authenticationDetailsProvider)
+    ) {
+      const provider: common.RegionProvider = params.authenticationDetailsProvider;
+      if (provider.getRegion()) {
+        this.region = provider.getRegion();
+      }
+    }
+  }
+
+  /**
+   * Get the endpoint that is being used to call (ex, https://www.example.com).
+   */
+  public get endpoint() {
+    return this._endpoint;
+  }
+
+  /**
+   * Sets the endpoint to call (ex, https://www.example.com).
+   * @param endpoint The endpoint of the service.
+   */
+  public set endpoint(endpoint: string) {
+    this._endpoint = endpoint;
+    this._endpoint = this._endpoint + "/20220901";
+    if (this.logger) this.logger.info(`QuoteAttachmentClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
+  }
+
+  /**
+   * Determines whether realm specific endpoint should be used or not.
+   * Set realmSpecificEndpointTemplateEnabled to "true" if the user wants to enable use of realm specific endpoint template, otherwise set it to "false"
+   * @param realmSpecificEndpointTemplateEnabled flag to enable the use of realm specific endpoint template
+   */
+  public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
+    this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
+    if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
+      this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
+        QuoteAttachmentClient.serviceEndpointTemplate,
+        this._region,
+        QuoteAttachmentClient.endpointServiceName
+      );
+    } else if (this._lastSetRegionOrRegionId === common.Region.REGION_ID_STRING) {
+      this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
+        QuoteAttachmentClient.serviceEndpointTemplate,
+        this._regionId,
+        QuoteAttachmentClient.endpointServiceName
+      );
+    }
+  }
+
+  /**
+   * Sets the region to call (ex, Region.US_PHOENIX_1).
+   * Note, this will call {@link #endpoint(String) endpoint} after resolving the endpoint.
+   * @param region The region of the service.
+   */
+  public set region(region: common.Region) {
+    this._region = region;
+    this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
+      QuoteAttachmentClient.serviceEndpointTemplate,
+      region,
+      QuoteAttachmentClient.endpointServiceName
+    );
+    this._lastSetRegionOrRegionId = common.Region.REGION_STRING;
+  }
+
+  /**
+   * Sets the regionId to call (ex, 'us-phoenix-1').
+   *
+   * Note, this will first try to map the region ID to a known Region and call {@link #region(Region) region}.
+   * If no known Region could be determined, it will create an endpoint assuming its in default Realm OC1
+   * and then call {@link #endpoint(String) endpoint}.
+   * @param regionId The public region ID.
+   */
+  public set regionId(regionId: string) {
+    this._regionId = regionId;
+    this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
+      QuoteAttachmentClient.serviceEndpointTemplate,
+      regionId,
+      QuoteAttachmentClient.endpointServiceName
+    );
+    this._lastSetRegionOrRegionId = common.Region.REGION_ID_STRING;
+  }
+
+  /**
+   * Creates a new QuoteAttachmentWaiter for resources for this service.
+   *
+   * @param config The waiter configuration for termination and delay strategy
+   * @return The service waiters.
+   */
+  public createWaiters(config?: common.WaiterConfiguration): QuoteAttachmentWaiter {
+    this._waiters = new QuoteAttachmentWaiter(this, config);
+    return this._waiters;
+  }
+
+  /**
+   * Gets the waiters available for resources for this service.
+   *
+   * @return The service waiters.
+   */
+  public getWaiters(): QuoteAttachmentWaiter {
+    if (this._waiters) {
+      return this._waiters;
+    }
+    throw Error("Waiters do not exist. Please create waiters.");
+  }
+
+  /**
+   * Shutdown the circuit breaker used by the client when it is no longer needed
+   */
+  public shutdownCircuitBreaker() {
+    if (this._circuitBreaker) {
+      this._circuitBreaker.shutdown();
+    }
+  }
+
+  /**
+   * Close the provider if possible which in turn shuts down any associated circuit breaker
+   */
+  public closeProvider() {
+    if (this._authProvider) {
+      if (this._authProvider instanceof common.AbstractRequestingAuthenticationDetailsProvider)
+        (<common.AbstractRequestingAuthenticationDetailsProvider>(
+          this._authProvider
+        )).closeProvider();
+    }
+  }
+
+  /**
+   * Close the client once it is no longer needed
+   */
+  public close() {
+    this.shutdownCircuitBreaker();
+    this.closeProvider();
+  }
+
+  /**
+   * Creates a new offer quote attachment.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateQuoteAttachmentRequest
+   * @return CreateQuoteAttachmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplaceprivateoffer/CreateQuoteAttachment.ts.html |here} to see how to use CreateQuoteAttachment API.
+   */
+  public async createQuoteAttachment(
+    createQuoteAttachmentRequest: requests.CreateQuoteAttachmentRequest
+  ): Promise<responses.CreateQuoteAttachmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation QuoteAttachmentClient#createQuoteAttachment.");
+    const operationName = "createQuoteAttachment";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{offerQuoteId}": createQuoteAttachmentRequest.offerQuoteId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createQuoteAttachmentRequest.opcRequestId,
+      "opc-retry-token": createQuoteAttachmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createQuoteAttachmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/offerQuotes/{offerQuoteId}/quoteAttachments",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createQuoteAttachmentRequest.createQuoteAttachmentDetails,
+        "CreateQuoteAttachmentDetails",
+        model.CreateQuoteAttachmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateQuoteAttachmentResponse>{},
+        body: await response.json(),
+        bodyKey: "quoteAttachment",
+        bodyModel: model.QuoteAttachment,
+        type: "model.QuoteAttachment",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-location"),
+            key: "contentLocation",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes an offer quote attachment resource by identifier.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteQuoteAttachmentRequest
+   * @return DeleteQuoteAttachmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplaceprivateoffer/DeleteQuoteAttachment.ts.html |here} to see how to use DeleteQuoteAttachment API.
+   */
+  public async deleteQuoteAttachment(
+    deleteQuoteAttachmentRequest: requests.DeleteQuoteAttachmentRequest
+  ): Promise<responses.DeleteQuoteAttachmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation QuoteAttachmentClient#deleteQuoteAttachment.");
+    const operationName = "deleteQuoteAttachment";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{offerQuoteId}": deleteQuoteAttachmentRequest.offerQuoteId,
+      "{quoteAttachmentId}": deleteQuoteAttachmentRequest.quoteAttachmentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteQuoteAttachmentRequest.ifMatch,
+      "opc-request-id": deleteQuoteAttachmentRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteQuoteAttachmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/offerQuotes/{offerQuoteId}/quoteAttachments/{quoteAttachmentId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteQuoteAttachmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets an offer quote attachment by identifier.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetQuoteAttachmentRequest
+   * @return GetQuoteAttachmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplaceprivateoffer/GetQuoteAttachment.ts.html |here} to see how to use GetQuoteAttachment API.
+   */
+  public async getQuoteAttachment(
+    getQuoteAttachmentRequest: requests.GetQuoteAttachmentRequest
+  ): Promise<responses.GetQuoteAttachmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation QuoteAttachmentClient#getQuoteAttachment.");
+    const operationName = "getQuoteAttachment";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{offerQuoteId}": getQuoteAttachmentRequest.offerQuoteId,
+      "{quoteAttachmentId}": getQuoteAttachmentRequest.quoteAttachmentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getQuoteAttachmentRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getQuoteAttachmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/offerQuotes/{offerQuoteId}/quoteAttachments/{quoteAttachmentId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetQuoteAttachmentResponse>{},
+        body: await response.json(),
+        bodyKey: "quoteAttachment",
+        bodyModel: model.QuoteAttachment,
+        type: "model.QuoteAttachment",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets an offer quote attachment content by identifier.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetQuoteAttachmentContentRequest
+   * @return GetQuoteAttachmentContentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplaceprivateoffer/GetQuoteAttachmentContent.ts.html |here} to see how to use GetQuoteAttachmentContent API.
+   */
+  public async getQuoteAttachmentContent(
+    getQuoteAttachmentContentRequest: requests.GetQuoteAttachmentContentRequest
+  ): Promise<responses.GetQuoteAttachmentContentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation QuoteAttachmentClient#getQuoteAttachmentContent.");
+    const operationName = "getQuoteAttachmentContent";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{offerQuoteId}": getQuoteAttachmentContentRequest.offerQuoteId,
+      "{quoteAttachmentId}": getQuoteAttachmentContentRequest.quoteAttachmentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getQuoteAttachmentContentRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getQuoteAttachmentContentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/offerQuotes/{offerQuoteId}/quoteAttachments/{quoteAttachmentId}/content",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetQuoteAttachmentContentResponse>{},
+
+        body: response.body!,
+        bodyKey: "value",
+        bodyModel: "string",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns a list of offer quote attachments. Requires either a reseller compartment ID or an ISV compartment ID.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListQuoteAttachmentsRequest
+   * @return ListQuoteAttachmentsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplaceprivateoffer/ListQuoteAttachments.ts.html |here} to see how to use ListQuoteAttachments API.
+   */
+  public async listQuoteAttachments(
+    listQuoteAttachmentsRequest: requests.ListQuoteAttachmentsRequest
+  ): Promise<responses.ListQuoteAttachmentsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation QuoteAttachmentClient#listQuoteAttachments.");
+    const operationName = "listQuoteAttachments";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{offerQuoteId}": listQuoteAttachmentsRequest.offerQuoteId
+    };
+
+    const queryParams = {
+      "resellerCompartmentId": listQuoteAttachmentsRequest.resellerCompartmentId,
+      "isvCompartmentId": listQuoteAttachmentsRequest.isvCompartmentId,
+      "lifecycleState": listQuoteAttachmentsRequest.lifecycleState,
+      "displayName": listQuoteAttachmentsRequest.displayName,
+      "id": listQuoteAttachmentsRequest.id,
+      "limit": listQuoteAttachmentsRequest.limit,
+      "page": listQuoteAttachmentsRequest.page,
+      "sortOrder": listQuoteAttachmentsRequest.sortOrder,
+      "sortBy": listQuoteAttachmentsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listQuoteAttachmentsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listQuoteAttachmentsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/offerQuotes/{offerQuoteId}/quoteAttachments",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListQuoteAttachmentsResponse>{},
+        body: await response.json(),
+        bodyKey: "quoteAttachmentCollection",
+        bodyModel: model.QuoteAttachmentCollection,
+        type: "model.QuoteAttachmentCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
             dataType: "string"
           }
         ]

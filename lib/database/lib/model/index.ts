@@ -50,6 +50,8 @@ import * as AssociatedLongTermBackup from "./associated-long-term-backup";
 export import AssociatedLongTermBackup = AssociatedLongTermBackup.AssociatedLongTermBackup;
 import * as AssociatedResourceDetails from "./associated-resource-details";
 export import AssociatedResourceDetails = AssociatedResourceDetails.AssociatedResourceDetails;
+import * as AutoFailoverConfiguration from "./auto-failover-configuration";
+export import AutoFailoverConfiguration = AutoFailoverConfiguration.AutoFailoverConfiguration;
 import * as AutonomousContainerDatabase from "./autonomous-container-database";
 export import AutonomousContainerDatabase = AutonomousContainerDatabase.AutonomousContainerDatabase;
 import * as AutonomousContainerDatabaseBackup from "./autonomous-container-database-backup";
@@ -102,6 +104,10 @@ import * as AutonomousDatabaseEncryptionKeyHistoryEntry from "./autonomous-datab
 export import AutonomousDatabaseEncryptionKeyHistoryEntry = AutonomousDatabaseEncryptionKeyHistoryEntry.AutonomousDatabaseEncryptionKeyHistoryEntry;
 import * as AutonomousDatabaseInBackup from "./autonomous-database-in-backup";
 export import AutonomousDatabaseInBackup = AutonomousDatabaseInBackup.AutonomousDatabaseInBackup;
+import * as AutonomousDatabaseInBackupCollection from "./autonomous-database-in-backup-collection";
+export import AutonomousDatabaseInBackupCollection = AutonomousDatabaseInBackupCollection.AutonomousDatabaseInBackupCollection;
+import * as AutonomousDatabaseInBackupSummary from "./autonomous-database-in-backup-summary";
+export import AutonomousDatabaseInBackupSummary = AutonomousDatabaseInBackupSummary.AutonomousDatabaseInBackupSummary;
 import * as AutonomousDatabaseKeyHistoryEntry from "./autonomous-database-key-history-entry";
 export import AutonomousDatabaseKeyHistoryEntry = AutonomousDatabaseKeyHistoryEntry.AutonomousDatabaseKeyHistoryEntry;
 import * as AutonomousDatabaseMaintenanceWindowSummary from "./autonomous-database-maintenance-window-summary";
@@ -1059,6 +1065,8 @@ import * as CreateAutonomousContainerDatabaseDetails from "./create-autonomous-c
 export import CreateAutonomousContainerDatabaseDetails = CreateAutonomousContainerDatabaseDetails.CreateAutonomousContainerDatabaseDetails;
 import * as CreateAutonomousContainerDatabaseFromBackupDetails from "./create-autonomous-container-database-from-backup-details";
 export import CreateAutonomousContainerDatabaseFromBackupDetails = CreateAutonomousContainerDatabaseFromBackupDetails.CreateAutonomousContainerDatabaseFromBackupDetails;
+import * as CreateAutonomousContainerDatabaseFromBackupTimestampDetails from "./create-autonomous-container-database-from-backup-timestamp-details";
+export import CreateAutonomousContainerDatabaseFromBackupTimestampDetails = CreateAutonomousContainerDatabaseFromBackupTimestampDetails.CreateAutonomousContainerDatabaseFromBackupTimestampDetails;
 import * as CreateAutonomousDatabaseCloneDetails from "./create-autonomous-database-clone-details";
 export import CreateAutonomousDatabaseCloneDetails = CreateAutonomousDatabaseCloneDetails.CreateAutonomousDatabaseCloneDetails;
 import * as CreateAutonomousDatabaseDetails from "./create-autonomous-database-details";

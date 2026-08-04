@@ -32,6 +32,10 @@ export interface DataGuardGroup {
    *
    */
   "protectionMode"?: DataGuardGroup.ProtectionMode;
+  /**
+   * Specifies readiness of Managed Automatic failover.
+   */
+  "managedAutoFailOverReadiness"?: DataGuardGroup.ManagedAutoFailOverReadiness;
 }
 
 export namespace DataGuardGroup {
@@ -39,6 +43,16 @@ export namespace DataGuardGroup {
     MaximumAvailability = "MAXIMUM_AVAILABILITY",
     MaximumPerformance = "MAXIMUM_PERFORMANCE",
     MaximumProtection = "MAXIMUM_PROTECTION",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum ManagedAutoFailOverReadiness {
+    Healthy = "HEALTHY",
+    Critical = "CRITICAL",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

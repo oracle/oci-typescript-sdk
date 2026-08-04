@@ -368,6 +368,8 @@ import * as GetApplicationVipResponse from "./get-application-vip-response";
 export import GetApplicationVipResponse = GetApplicationVipResponse.GetApplicationVipResponse;
 import * as GetAutonomousContainerDatabaseResponse from "./get-autonomous-container-database-response";
 export import GetAutonomousContainerDatabaseResponse = GetAutonomousContainerDatabaseResponse.GetAutonomousContainerDatabaseResponse;
+import * as GetAutonomousContainerDatabaseBackupResponse from "./get-autonomous-container-database-backup-response";
+export import GetAutonomousContainerDatabaseBackupResponse = GetAutonomousContainerDatabaseBackupResponse.GetAutonomousContainerDatabaseBackupResponse;
 import * as GetAutonomousContainerDatabaseDataguardAssociationResponse from "./get-autonomous-container-database-dataguard-association-response";
 export import GetAutonomousContainerDatabaseDataguardAssociationResponse = GetAutonomousContainerDatabaseDataguardAssociationResponse.GetAutonomousContainerDatabaseDataguardAssociationResponse;
 import * as GetAutonomousContainerDatabaseResourceUsageResponse from "./get-autonomous-container-database-resource-usage-response";
@@ -558,6 +560,8 @@ import * as ListAutonomousDatabaseSoftwareImagesResponse from "./list-autonomous
 export import ListAutonomousDatabaseSoftwareImagesResponse = ListAutonomousDatabaseSoftwareImagesResponse.ListAutonomousDatabaseSoftwareImagesResponse;
 import * as ListAutonomousDatabasesResponse from "./list-autonomous-databases-response";
 export import ListAutonomousDatabasesResponse = ListAutonomousDatabasesResponse.ListAutonomousDatabasesResponse;
+import * as ListAutonomousDatabasesInAutonomousContainerDatabaseBackupResponse from "./list-autonomous-databases-in-autonomous-container-database-backup-response";
+export import ListAutonomousDatabasesInAutonomousContainerDatabaseBackupResponse = ListAutonomousDatabasesInAutonomousContainerDatabaseBackupResponse.ListAutonomousDatabasesInAutonomousContainerDatabaseBackupResponse;
 import * as ListAutonomousDbPreviewVersionsResponse from "./list-autonomous-db-preview-versions-response";
 export import ListAutonomousDbPreviewVersionsResponse = ListAutonomousDbPreviewVersionsResponse.ListAutonomousDbPreviewVersionsResponse;
 import * as ListAutonomousDbVersionsResponse from "./list-autonomous-db-versions-response";

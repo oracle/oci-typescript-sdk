@@ -15,12 +15,13 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Possible values for a metric types.
+ * Possible values for metric types.
  **/
 export enum MetricType {
   OcpuHours = "OCPU_HOURS",
   InstanceHours = "INSTANCE_HOURS",
   CoreHours = "CORE_HOURS",
+  Each = "EACH",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

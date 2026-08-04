@@ -13,10 +13,18 @@
 
 import * as ActivateSubscriptionResponse from "./activate-subscription-response";
 export import ActivateSubscriptionResponse = ActivateSubscriptionResponse.ActivateSubscriptionResponse;
+import * as ListPartnersResponse from "./list-partners-response";
+export import ListPartnersResponse = ListPartnersResponse.ListPartnersResponse;
 import * as ListingSubscriptionsResponse from "./listing-subscriptions-response";
 export import ListingSubscriptionsResponse = ListingSubscriptionsResponse.ListingSubscriptionsResponse;
 import * as ResolveSubscriptionResponse from "./resolve-subscription-response";
 export import ResolveSubscriptionResponse = ResolveSubscriptionResponse.ResolveSubscriptionResponse;
+import * as SubmitSubscriptionUsageBatchResponse from "./submit-subscription-usage-batch-response";
+export import SubmitSubscriptionUsageBatchResponse = SubmitSubscriptionUsageBatchResponse.SubmitSubscriptionUsageBatchResponse;
+import * as SubmitSubscriptionUsageRecordsResponse from "./submit-subscription-usage-records-response";
+export import SubmitSubscriptionUsageRecordsResponse = SubmitSubscriptionUsageRecordsResponse.SubmitSubscriptionUsageRecordsResponse;
+import * as CancelSubscriptionResponse from "./cancel-subscription-response";
+export import CancelSubscriptionResponse = CancelSubscriptionResponse.CancelSubscriptionResponse;
 import * as CancelWorkRequestResponse from "./cancel-work-request-response";
 export import CancelWorkRequestResponse = CancelWorkRequestResponse.CancelWorkRequestResponse;
 import * as ChangeSubscriptionCompartmentResponse from "./change-subscription-compartment-response";

@@ -26,6 +26,10 @@ export interface OfferInternalDetail {
    * Internal notes only intended for the Publisher of the Offer
    */
   "internalNotes": string;
+  /**
+   * A list of associated offer quotes.
+   */
+  "offerQuoteIds"?: Array<string>;
 }
 
 export namespace OfferInternalDetail {
