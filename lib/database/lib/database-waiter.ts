@@ -4664,6 +4664,25 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forAutonomousContainerDatabaseBackup till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetAutonomousContainerDatabaseBackupResponse | null (null in case of 404 response)
+   */
+  public async forAutonomousContainerDatabaseBackup(
+    request: serviceRequests.GetAutonomousContainerDatabaseBackupRequest,
+    ...targetStates: models.AutonomousContainerDatabaseBackup.LifecycleState[]
+  ): Promise<serviceResponses.GetAutonomousContainerDatabaseBackupResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getAutonomousContainerDatabaseBackup(request),
+      response => targetStates.includes(response.autonomousContainerDatabaseBackup.lifecycleState!),
+      targetStates.includes(models.AutonomousContainerDatabaseBackup.LifecycleState.Deleted)
+    );
+  }
+
+  /**
    * Waits forAutonomousContainerDatabaseDataguardAssociation till it reaches any of the provided states
    *
    * @param request the request to send

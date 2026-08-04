@@ -31,31 +31,28 @@ export interface PricingPlan {
    */
   "planDescription"?: string;
   /**
-   * Specifies the interval at which billing occurs for the subscription plan.
+   * Specifies the interval at which billing occurs for the subscription plan or usage dimension.
    */
-  "billingFrequency": PricingPlan.BillingFrequency;
+  "billingFrequency": model.BillingFrequency;
   /**
-   * Specifies the interval at which billing occurs for the subscription plan.
+   * Specifies the duration of the subscription plan.
    */
   "planDuration"?: PricingPlan.PlanDuration;
   /**
    * The pricing details of the subscription plan in various supported currencies.
    */
   "rates": Array<model.PricingRate>;
+  /**
+   * Metered usage dimensions associated with the pricing plan.
+   */
+  "dimensions"?: Array<model.UsageDimension>;
 }
 
 export namespace PricingPlan {
   export enum PlanType {
     Fixed = "FIXED",
-    /**
-     * This value is used if a service returns a value for this enum that is not recognized by this
-     * version of the SDK.
-     */
-    UnknownValue = "UNKNOWN_VALUE"
-  }
-
-  export enum BillingFrequency {
-    Yearly = "YEARLY",
+    UsageBased = "USAGE_BASED",
+    Hybrid = "HYBRID",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
@@ -64,7 +61,12 @@ export namespace PricingPlan {
   }
 
   export enum PlanDuration {
+    Monthly = "MONTHLY",
+    Quarterly = "QUARTERLY",
+    SemiAnnual = "SEMI_ANNUAL",
     Annual = "ANNUAL",
+    Biennial = "BIENNIAL",
+    Triennial = "TRIENNIAL",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
@@ -80,6 +82,11 @@ export namespace PricingPlan {
           ? obj.rates.map(item => {
               return model.PricingRate.getJsonObj(item);
             })
+          : undefined,
+        "dimensions": obj.dimensions
+          ? obj.dimensions.map(item => {
+              return model.UsageDimension.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -93,6 +100,11 @@ export namespace PricingPlan {
         "rates": obj.rates
           ? obj.rates.map(item => {
               return model.PricingRate.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "dimensions": obj.dimensions
+          ? obj.dimensions.map(item => {
+              return model.UsageDimension.getDeserializedJsonObj(item);
             })
           : undefined
       }

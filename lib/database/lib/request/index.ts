@@ -368,6 +368,8 @@ import * as GetApplicationVipRequest from "./get-application-vip-request";
 export import GetApplicationVipRequest = GetApplicationVipRequest.GetApplicationVipRequest;
 import * as GetAutonomousContainerDatabaseRequest from "./get-autonomous-container-database-request";
 export import GetAutonomousContainerDatabaseRequest = GetAutonomousContainerDatabaseRequest.GetAutonomousContainerDatabaseRequest;
+import * as GetAutonomousContainerDatabaseBackupRequest from "./get-autonomous-container-database-backup-request";
+export import GetAutonomousContainerDatabaseBackupRequest = GetAutonomousContainerDatabaseBackupRequest.GetAutonomousContainerDatabaseBackupRequest;
 import * as GetAutonomousContainerDatabaseDataguardAssociationRequest from "./get-autonomous-container-database-dataguard-association-request";
 export import GetAutonomousContainerDatabaseDataguardAssociationRequest = GetAutonomousContainerDatabaseDataguardAssociationRequest.GetAutonomousContainerDatabaseDataguardAssociationRequest;
 import * as GetAutonomousContainerDatabaseResourceUsageRequest from "./get-autonomous-container-database-resource-usage-request";
@@ -558,6 +560,8 @@ import * as ListAutonomousDatabaseSoftwareImagesRequest from "./list-autonomous-
 export import ListAutonomousDatabaseSoftwareImagesRequest = ListAutonomousDatabaseSoftwareImagesRequest.ListAutonomousDatabaseSoftwareImagesRequest;
 import * as ListAutonomousDatabasesRequest from "./list-autonomous-databases-request";
 export import ListAutonomousDatabasesRequest = ListAutonomousDatabasesRequest.ListAutonomousDatabasesRequest;
+import * as ListAutonomousDatabasesInAutonomousContainerDatabaseBackupRequest from "./list-autonomous-databases-in-autonomous-container-database-backup-request";
+export import ListAutonomousDatabasesInAutonomousContainerDatabaseBackupRequest = ListAutonomousDatabasesInAutonomousContainerDatabaseBackupRequest.ListAutonomousDatabasesInAutonomousContainerDatabaseBackupRequest;
 import * as ListAutonomousDbPreviewVersionsRequest from "./list-autonomous-db-preview-versions-request";
 export import ListAutonomousDbPreviewVersionsRequest = ListAutonomousDbPreviewVersionsRequest.ListAutonomousDbPreviewVersionsRequest;
 import * as ListAutonomousDbVersionsRequest from "./list-autonomous-db-versions-request";

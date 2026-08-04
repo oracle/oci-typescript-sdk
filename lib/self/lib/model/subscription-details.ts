@@ -31,7 +31,10 @@ export interface SubscriptionDetails {
    * Tha amount for the currency type. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "amount"?: number;
-  "billingDetails": model.BillingDetails;
+  /**
+   * Billing details associated with the subscription plan and its usage dimensions.
+   */
+  "billingDetails": Array<model.BillingDetails>;
   /**
    * Whether subscription should be auto-renewed at the end of cycle.
    */
@@ -46,7 +49,9 @@ export namespace SubscriptionDetails {
         "pricingPlan": obj.pricingPlan ? model.PricingPlan.getJsonObj(obj.pricingPlan) : undefined,
 
         "billingDetails": obj.billingDetails
-          ? model.BillingDetails.getJsonObj(obj.billingDetails)
+          ? obj.billingDetails.map(item => {
+              return model.BillingDetails.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -62,7 +67,9 @@ export namespace SubscriptionDetails {
           : undefined,
 
         "billingDetails": obj.billingDetails
-          ? model.BillingDetails.getDeserializedJsonObj(obj.billingDetails)
+          ? obj.billingDetails.map(item => {
+              return model.BillingDetails.getDeserializedJsonObj(item);
+            })
           : undefined
       }
     };

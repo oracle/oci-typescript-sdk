@@ -15,19 +15,19 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The contact information of an individual
+ * The contact information of an individual.
  */
 export interface Contact {
   /**
-   * The first name of the contact
+   * The first name of the contact.
    */
   "firstName"?: string;
   /**
-   * The last name of the contact
+   * The last name of the contact.
    */
   "lastName"?: string;
   /**
-   * The email of the contact
+   * The email of the contact.
    */
   "email"?: string;
 }

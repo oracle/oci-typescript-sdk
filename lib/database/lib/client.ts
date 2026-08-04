@@ -15194,6 +15194,80 @@ A failover might result in data loss depending on the protection mode in effect 
   }
 
   /**
+   * Gets information about the specified Autonomous Container Database backup.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetAutonomousContainerDatabaseBackupRequest
+   * @return GetAutonomousContainerDatabaseBackupResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetAutonomousContainerDatabaseBackup.ts.html |here} to see how to use GetAutonomousContainerDatabaseBackup API.
+   */
+  public async getAutonomousContainerDatabaseBackup(
+    getAutonomousContainerDatabaseBackupRequest: requests.GetAutonomousContainerDatabaseBackupRequest
+  ): Promise<responses.GetAutonomousContainerDatabaseBackupResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#getAutonomousContainerDatabaseBackup.");
+    const operationName = "getAutonomousContainerDatabaseBackup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousContainerDatabaseBackup/GetAutonomousContainerDatabaseBackup";
+    const pathParams = {
+      "{autonomousContainerDatabaseBackupId}":
+        getAutonomousContainerDatabaseBackupRequest.autonomousContainerDatabaseBackupId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getAutonomousContainerDatabaseBackupRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getAutonomousContainerDatabaseBackupRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/autonomousContainerDatabaseBackups/{autonomousContainerDatabaseBackupId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetAutonomousContainerDatabaseBackupResponse>{},
+        body: await response.json(),
+        bodyKey: "autonomousContainerDatabaseBackup",
+        bodyModel: model.AutonomousContainerDatabaseBackup,
+        type: "model.AutonomousContainerDatabaseBackup",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * **Deprecated.** Use the {@link #getAutonomousContainerDatabase(GetAutonomousContainerDatabaseRequest) getAutonomousContainerDatabase} operation to get the details of an Autonomous Container Database (ACD) enabled with Autonomous Data Guard associated with the specified ACD.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -22249,7 +22323,8 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       "type": listAutonomousDatabaseBackupsRequest.type,
       "backupDestinationId": listAutonomousDatabaseBackupsRequest.backupDestinationId,
       "keyStoreId": listAutonomousDatabaseBackupsRequest.keyStoreId,
-      "infrastructureType": listAutonomousDatabaseBackupsRequest.infrastructureType
+      "infrastructureType": listAutonomousDatabaseBackupsRequest.infrastructureType,
+      "isPitrEligible": listAutonomousDatabaseBackupsRequest.isPitrEligible
     };
 
     let headerParams = {
@@ -23104,6 +23179,96 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
     request: requests.ListAutonomousDatabasesRequest
   ): AsyncIterableIterator<responses.ListAutonomousDatabasesResponse> {
     return paginateResponses(request, req => this.listAutonomousDatabases(req));
+  }
+
+  /**
+   * Gets a list of Autonomous Databases associated with backups at the given timestamp for the specified Autonomous Container Database. If `compartmentId` is provided, filters to that compartment; otherwise, uses the container's compartment.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListAutonomousDatabasesInAutonomousContainerDatabaseBackupRequest
+   * @return ListAutonomousDatabasesInAutonomousContainerDatabaseBackupResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListAutonomousDatabasesInAutonomousContainerDatabaseBackup.ts.html |here} to see how to use ListAutonomousDatabasesInAutonomousContainerDatabaseBackup API.
+   */
+  public async listAutonomousDatabasesInAutonomousContainerDatabaseBackup(
+    listAutonomousDatabasesInAutonomousContainerDatabaseBackupRequest: requests.ListAutonomousDatabasesInAutonomousContainerDatabaseBackupRequest
+  ): Promise<responses.ListAutonomousDatabasesInAutonomousContainerDatabaseBackupResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#listAutonomousDatabasesInAutonomousContainerDatabaseBackup."
+      );
+    const operationName = "listAutonomousDatabasesInAutonomousContainerDatabaseBackup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabaseInBackup/ListAutonomousDatabasesInAutonomousContainerDatabaseBackup";
+    const pathParams = {};
+
+    const queryParams = {
+      "autonomousContainerDatabaseId":
+        listAutonomousDatabasesInAutonomousContainerDatabaseBackupRequest.autonomousContainerDatabaseId,
+      "timeStampRequested":
+        listAutonomousDatabasesInAutonomousContainerDatabaseBackupRequest.timeStampRequested,
+      "compartmentId":
+        listAutonomousDatabasesInAutonomousContainerDatabaseBackupRequest.compartmentId,
+      "limit": listAutonomousDatabasesInAutonomousContainerDatabaseBackupRequest.limit,
+      "page": listAutonomousDatabasesInAutonomousContainerDatabaseBackupRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id":
+        listAutonomousDatabasesInAutonomousContainerDatabaseBackupRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAutonomousDatabasesInAutonomousContainerDatabaseBackupRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/autonomousContainerDatabaseBackups/listAutonomousDatabasesInBackup",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <
+          responses.ListAutonomousDatabasesInAutonomousContainerDatabaseBackupResponse
+        >{},
+        body: await response.json(),
+        bodyKey: "autonomousDatabaseInBackupCollection",
+        bodyModel: model.AutonomousDatabaseInBackupCollection,
+        type: "model.AutonomousDatabaseInBackupCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
   }
 
   /**
@@ -26294,7 +26459,9 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       "sortBy": listDatabasesRequest.sortBy,
       "sortOrder": listDatabasesRequest.sortOrder,
       "lifecycleState": listDatabasesRequest.lifecycleState,
-      "dbName": listDatabasesRequest.dbName
+      "dbName": listDatabasesRequest.dbName,
+      "managedAutoFailover": listDatabasesRequest.managedAutoFailover,
+      "failoverTargets": listDatabasesRequest.failoverTargets
     };
 
     let headerParams = {

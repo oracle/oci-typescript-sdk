@@ -40,6 +40,10 @@ export interface UpdateOpensearchClusterDetails {
   "securitySamlConfig"?: model.SecuritySamlConfig;
   "backupPolicy"?: model.BackupPolicy;
   /**
+   * The OCID of the NSG where the private endpoint vnic will be attached.
+   */
+  "nsgId"?: string;
+  /**
    * The customer IP addresses of the endpoint in customer VCN
    */
   "reverseConnectionEndpointCustomerIps"?: Array<string>;

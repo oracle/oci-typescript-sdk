@@ -60,7 +60,6 @@ export namespace ListingSubscriptionsRequest {
   export enum SortBy {
     TimeCreated = "timeCreated",
     DisplayName = "displayName",
-    SelfTokenId = "selfTokenId",
     ProductId = "productId"
   }
 }

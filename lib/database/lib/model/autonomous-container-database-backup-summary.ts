@@ -103,6 +103,17 @@ Example: {@code {\"Department\": \"Finance\"}}
    * List of Autonomous AI Databases that is part of this Autonomous Container Database Backup
    */
   "autonomousDatabases"?: Array<model.AutonomousDatabaseInBackup>;
+  /**
+   * A valid Oracle AI Database version for Autonomous AI Database.
+   * When you specify 23ai for dbversion, the system will provision a 23ai database, but the UI will display it as 26ai.
+   * When you specify 26ai for dbversion, the system will provision and display a 26ai database as expected.
+   * For new databases, it is recommended to use either 19c or 26ai.
+   * <p>
+   **Note** Starting December 2026, 23ai will not be supported as a valid value for this parameter.
+   *
+   */
+  "dbVersion"?: string;
+  "backupDestinationDetails"?: model.BackupDestinationDetails;
 }
 
 export namespace AutonomousContainerDatabaseBackupSummary {
@@ -148,6 +159,10 @@ export namespace AutonomousContainerDatabaseBackupSummary {
           ? obj.autonomousDatabases.map(item => {
               return model.AutonomousDatabaseInBackup.getJsonObj(item);
             })
+          : undefined,
+
+        "backupDestinationDetails": obj.backupDestinationDetails
+          ? model.BackupDestinationDetails.getJsonObj(obj.backupDestinationDetails)
           : undefined
       }
     };
@@ -162,6 +177,10 @@ export namespace AutonomousContainerDatabaseBackupSummary {
           ? obj.autonomousDatabases.map(item => {
               return model.AutonomousDatabaseInBackup.getDeserializedJsonObj(item);
             })
+          : undefined,
+
+        "backupDestinationDetails": obj.backupDestinationDetails
+          ? model.BackupDestinationDetails.getDeserializedJsonObj(obj.backupDestinationDetails)
           : undefined
       }
     };
