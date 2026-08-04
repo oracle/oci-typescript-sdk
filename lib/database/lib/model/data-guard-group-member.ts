@@ -78,6 +78,8 @@ For more information, see
   "isActiveDataGuardEnabled"?: boolean;
   /**
    * The switchover readiness status of the Data Guard member.
+   * * HEALTHY_AND_NOT_ROLECHANGE_TARGET - Indicates that the respective standby member is healthy
+   * but not currently designated to take switchover, when auto failover is enabled.
    *
    */
   "switchoverReadiness"?: DataGuardGroupMember.SwitchoverReadiness;
@@ -89,6 +91,8 @@ For more information, see
   "switchoverReadinessMessage"?: string;
   /**
    * The failover readiness status of the Data Guard member.
+   * HEALTHY_AND_NOT_ROLECHANGE_TARGET - Indicates that the respective standby member is healthy
+   * but not currently designated to take failover, when auto failover is enabled.
    *
    */
   "failoverReadiness"?: DataGuardGroupMember.FailoverReadiness;
@@ -109,6 +113,15 @@ Example: {@code 2 seconds}
    * The date and time when the last successful Data Guard refresh occurred.
    */
   "timeUpdated"?: Date;
+  /**
+   * The state of managed auto failover.
+   */
+  "managedAutoFailover"?: DataGuardGroupMember.ManagedAutoFailover;
+  /**
+   * Specifies the {@code DB_UNIQUE_NAME} of the data guard group member databases.
+   *
+   */
+  "failoverTargets"?: Array<string>;
 }
 
 export namespace DataGuardGroupMember {
@@ -139,6 +152,7 @@ export namespace DataGuardGroupMember {
     Healthy = "HEALTHY",
     Warning = "WARNING",
     Critical = "CRITICAL",
+    HealthyAndNotRolechangeTarget = "HEALTHY_AND_NOT_ROLECHANGE_TARGET",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
@@ -150,6 +164,17 @@ export namespace DataGuardGroupMember {
     Healthy = "HEALTHY",
     Warning = "WARNING",
     Critical = "CRITICAL",
+    HealthyAndNotRolechangeTarget = "HEALTHY_AND_NOT_ROLECHANGE_TARGET",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum ManagedAutoFailover {
+    Enable = "ENABLE",
+    Disable = "DISABLE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

@@ -15,23 +15,23 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Resource Bundle associated with an Offer
+ * Resource bundle associated with an offer.
  */
 export interface ResourceBundle {
   /**
-   * The type of resources in the bundle
+   * The type of resources in the bundle.
    */
   "type"?: ResourceBundle.Type;
   /**
-   * The quantity of a resources associated with the bundle Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The quantity of a resources associated with the bundle. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "quantity"?: number;
   /**
-   * The unit of measurement for the resource bundle
+   * The unit of measurement for the resource bundle.
    */
   "unitOfMeasurement"?: ResourceBundle.UnitOfMeasurement;
   /**
-   * the ids of the resources in the Offer
+   * The IDs of the resources in the offer.
    */
   "resourceIds"?: Array<string>;
 }

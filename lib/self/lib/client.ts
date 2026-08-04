@@ -252,7 +252,7 @@ export class PartnerIntegerationClient {
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
-      path: "/partner/subscriptions/{subscriptionId}/actions/activate",
+      path: "/partners/subscriptions/{subscriptionId}/actions/activate",
       method: "POST",
       bodyContent: common.ObjectSerializer.serialize(
         activateSubscriptionRequest.activateSubscriptionDetails,
@@ -286,6 +286,87 @@ export class PartnerIntegerationClient {
           {
             value: response.headers.get("etag"),
             key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists marketplace publisher partner info for a compartment.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListPartnersRequest
+   * @return ListPartnersResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/self/ListPartners.ts.html |here} to see how to use ListPartners API.
+   */
+  public async listPartners(
+    listPartnersRequest: requests.ListPartnersRequest
+  ): Promise<responses.ListPartnersResponse> {
+    if (this.logger) this.logger.debug("Calling operation PartnerIntegerationClient#listPartners.");
+    const operationName = "listPartners";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listPartnersRequest.compartmentId,
+      "displayName": listPartnersRequest.displayName,
+      "sortBy": listPartnersRequest.sortBy,
+      "sortOrder": listPartnersRequest.sortOrder,
+      "limit": listPartnersRequest.limit,
+      "page": listPartnersRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listPartnersRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listPartnersRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/partners",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListPartnersResponse>{},
+        body: await response.json(),
+        bodyKey: "partnerCollection",
+        bodyModel: model.PartnerCollection,
+        type: "model.PartnerCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
             dataType: "string"
           }
         ]
@@ -338,7 +419,7 @@ export class PartnerIntegerationClient {
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
-      path: "/partner/subscriptions",
+      path: "/partners/subscriptions",
       method: "GET",
       pathParams: pathParams,
       headerParams: headerParams,
@@ -415,7 +496,7 @@ export class PartnerIntegerationClient {
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
-      path: "/partner/subscriptions/actions/resolve",
+      path: "/partners/subscriptions/actions/resolve",
       method: "POST",
       bodyContent: common.ObjectSerializer.serialize(
         resolveSubscriptionRequest.resolveSubscriptionDetails,
@@ -449,6 +530,160 @@ export class PartnerIntegerationClient {
           {
             value: response.headers.get("etag"),
             key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Asynchronously submits a UTF-8 CSV usage file for marketplace offers. The file
+   * must not exceed 50 MB or 10,000 rows and must include required usage columns.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param SubmitSubscriptionUsageBatchRequest
+   * @return SubmitSubscriptionUsageBatchResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/self/SubmitSubscriptionUsageBatch.ts.html |here} to see how to use SubmitSubscriptionUsageBatch API.
+   */
+  public async submitSubscriptionUsageBatch(
+    submitSubscriptionUsageBatchRequest: requests.SubmitSubscriptionUsageBatchRequest
+  ): Promise<responses.SubmitSubscriptionUsageBatchResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation PartnerIntegerationClient#submitSubscriptionUsageBatch."
+      );
+    const operationName = "submitSubscriptionUsageBatch";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "compartment-id": submitSubscriptionUsageBatchRequest.compartmentId,
+      "opc-retry-token": submitSubscriptionUsageBatchRequest.opcRetryToken,
+      "opc-request-id": submitSubscriptionUsageBatchRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      submitSubscriptionUsageBatchRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/partners/actions/batchUsageRecords",
+      method: "POST",
+      bodyContent: submitSubscriptionUsageBatchRequest.submitSubscriptionUsageBatchDetails,
+      pathParams: pathParams,
+      headerParams: headerParams,
+      backupBinaryBody: retrier.backUpBinaryBody,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SubmitSubscriptionUsageBatchResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Synchronously submits usage records for marketplace offers. Each record must include
+   * `id`, `marketplaceOfferId`, `amount`, `currencyCode`, `timeUsageStarted`,
+   * `timeUsageEnded`, and `usageDimensionName`.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param SubmitSubscriptionUsageRecordsRequest
+   * @return SubmitSubscriptionUsageRecordsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/self/SubmitSubscriptionUsageRecords.ts.html |here} to see how to use SubmitSubscriptionUsageRecords API.
+   */
+  public async submitSubscriptionUsageRecords(
+    submitSubscriptionUsageRecordsRequest: requests.SubmitSubscriptionUsageRecordsRequest
+  ): Promise<responses.SubmitSubscriptionUsageRecordsResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation PartnerIntegerationClient#submitSubscriptionUsageRecords."
+      );
+    const operationName = "submitSubscriptionUsageRecords";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "compartment-id": submitSubscriptionUsageRecordsRequest.compartmentId,
+      "opc-retry-token": submitSubscriptionUsageRecordsRequest.opcRetryToken,
+      "opc-request-id": submitSubscriptionUsageRecordsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      submitSubscriptionUsageRecordsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/partners/actions/submitUsageRecords",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        submitSubscriptionUsageRecordsRequest.submitSubscriptionUsageRecordsDetails,
+        "SubmitSubscriptionUsageRecordsDetails",
+        model.SubmitSubscriptionUsageRecordsDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SubmitSubscriptionUsageRecordsResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           }
         ]
@@ -666,6 +901,91 @@ export class SubscriptionClient {
   public close() {
     this.shutdownCircuitBreaker();
     this.closeProvider();
+  }
+
+  /**
+   * Requests cancellation of a Subscription. The subscription transitions to PendingCancellation
+   * and remains active until the end of the current billing cycle, at which point it transitions
+   * to Canceled. The subscription must be in the Active state to be canceled.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CancelSubscriptionRequest
+   * @return CancelSubscriptionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/self/CancelSubscription.ts.html |here} to see how to use CancelSubscription API.
+   */
+  public async cancelSubscription(
+    cancelSubscriptionRequest: requests.CancelSubscriptionRequest
+  ): Promise<responses.CancelSubscriptionResponse> {
+    if (this.logger) this.logger.debug("Calling operation SubscriptionClient#cancelSubscription.");
+    const operationName = "cancelSubscription";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{subscriptionId}": cancelSubscriptionRequest.subscriptionId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": cancelSubscriptionRequest.ifMatch,
+      "opc-request-id": cancelSubscriptionRequest.opcRequestId,
+      "opc-retry-token": cancelSubscriptionRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      cancelSubscriptionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/subscriptions/{subscriptionId}/actions/cancel",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        cancelSubscriptionRequest.cancelSubscriptionDetails,
+        "CancelSubscriptionDetails",
+        model.CancelSubscriptionDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CancelSubscriptionResponse>{},
+        body: await response.json(),
+        bodyKey: "subscription",
+        bodyModel: model.Subscription,
+        type: "model.Subscription",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
   }
 
   /**

@@ -56,9 +56,55 @@ Example: {@code {\"Department\": \"Finance\"}}
   "definedTags"?: { [key: string]: { [key: string]: any } };
   "managedSoftwareUpdateDetails"?: model.ManagedSoftwareUpdateInputDetails;
   "patchOptions"?: model.PatchOptions;
+  /**
+   * The administrator password of the primary database in this Data Guard association.
+   * <p>
+   **The password MUST be the same as the primary admin password.**
+   *
+   */
+  "databaseAdminPassword"?: string;
+  /**
+   * The protection mode of this Data Guard. For more information, see
+   * [Oracle Data Guard Protection Modes](http://docs.oracle.com/database/122/SBYDB/oracle-data-guard-protection-modes.htm#SBYDB02000)
+   * in the Oracle Data Guard documentation.
+   *
+   */
+  "protectionMode"?: UpdateDatabaseDetails.ProtectionMode;
+  /**
+    * The redo transport type to use for this Data Guard association.  Valid values depend on the specified {@code protectionMode}:
+* <p>
+* MAXIMUM_AVAILABILITY - SYNC or FASTSYNC
+* * MAXIMUM_PERFORMANCE - ASYNC
+* * MAXIMUM_PROTECTION - SYNC
+* <p>
+For more information, see
+* [Redo Transport Services](http://docs.oracle.com/database/122/SBYDB/oracle-data-guard-redo-transport-services.htm#SBYDB00400)
+* in the Oracle Data Guard documentation.
+* <p>
+**IMPORTANT** - The only transport type currently supported by the Database service is ASYNC.
+* 
+    */
+  "transportType"?: UpdateDatabaseDetails.TransportType;
+  /**
+   * True if active Data Guard is enabled.
+   */
+  "isActiveDataGuardEnabled"?: boolean;
+  "autoFailoverConfiguration"?: model.AutoFailoverConfiguration;
 }
 
 export namespace UpdateDatabaseDetails {
+  export enum ProtectionMode {
+    MaximumAvailability = "MAXIMUM_AVAILABILITY",
+    MaximumPerformance = "MAXIMUM_PERFORMANCE",
+    MaximumProtection = "MAXIMUM_PROTECTION"
+  }
+
+  export enum TransportType {
+    Sync = "SYNC",
+    Async = "ASYNC",
+    Fastsync = "FASTSYNC"
+  }
+
   export function getJsonObj(obj: UpdateDatabaseDetails): object {
     const jsonObj = {
       ...obj,
@@ -76,6 +122,10 @@ export namespace UpdateDatabaseDetails {
           : undefined,
         "patchOptions": obj.patchOptions
           ? model.PatchOptions.getJsonObj(obj.patchOptions)
+          : undefined,
+
+        "autoFailoverConfiguration": obj.autoFailoverConfiguration
+          ? model.AutoFailoverConfiguration.getJsonObj(obj.autoFailoverConfiguration)
           : undefined
       }
     };
@@ -101,6 +151,10 @@ export namespace UpdateDatabaseDetails {
           : undefined,
         "patchOptions": obj.patchOptions
           ? model.PatchOptions.getDeserializedJsonObj(obj.patchOptions)
+          : undefined,
+
+        "autoFailoverConfiguration": obj.autoFailoverConfiguration
+          ? model.AutoFailoverConfiguration.getDeserializedJsonObj(obj.autoFailoverConfiguration)
           : undefined
       }
     };

@@ -15,9 +15,17 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Sku details for billing subscription.
+ * Billing detail entry associated with a subscription.
  */
 export interface BillingDetails {
+  /**
+   * Unique key used to map this SKU to the pricing plan.
+   */
+  "pricingPlanKey": string;
+  /**
+   * The billing model this billing detail applies to.
+   */
+  "billingModel": BillingDetails.BillingModel;
   /**
    * Sku for service.
    */
@@ -41,6 +49,16 @@ export interface BillingDetails {
 }
 
 export namespace BillingDetails {
+  export enum BillingModel {
+    FlatRate = "FLAT_RATE",
+    UsageBased = "USAGE_BASED",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: BillingDetails): object {
     const jsonObj = {
       ...obj,

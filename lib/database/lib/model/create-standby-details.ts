@@ -90,6 +90,7 @@ Example: {@code {\"Department\": \"Finance\"}}
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  "autoFailoverConfiguration"?: model.AutoFailoverConfiguration;
 }
 
 export namespace CreateStandbyDetails {
@@ -115,6 +116,10 @@ export namespace CreateStandbyDetails {
 
         "storageSizeDetails": obj.storageSizeDetails
           ? model.DatabaseStorageSizeDetails.getJsonObj(obj.storageSizeDetails)
+          : undefined,
+
+        "autoFailoverConfiguration": obj.autoFailoverConfiguration
+          ? model.AutoFailoverConfiguration.getJsonObj(obj.autoFailoverConfiguration)
           : undefined
       }
     };
@@ -133,6 +138,10 @@ export namespace CreateStandbyDetails {
 
         "storageSizeDetails": obj.storageSizeDetails
           ? model.DatabaseStorageSizeDetails.getDeserializedJsonObj(obj.storageSizeDetails)
+          : undefined,
+
+        "autoFailoverConfiguration": obj.autoFailoverConfiguration
+          ? model.AutoFailoverConfiguration.getDeserializedJsonObj(obj.autoFailoverConfiguration)
           : undefined
       }
     };

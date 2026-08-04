@@ -15,19 +15,19 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * the pricing information for the offer
+ * The pricing information for the offer.
  */
 export interface Pricing {
   /**
-   * The currency supported for a given Offer, in the format specified by ISO-4217
+   * The currency supported for a given Offer, in the format specified by ISO-4217.
    */
   "currencyType"?: string;
   /**
-   * The total amount an Offer costs Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The total amount an offer costs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "totalAmount"?: number;
   /**
-   * The frequency at which the customer is billed for the Offer
+   * The frequency at which the customer is billed for the offer.
    */
   "billingCycle"?: Pricing.BillingCycle;
 }

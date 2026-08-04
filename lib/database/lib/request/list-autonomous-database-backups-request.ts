@@ -70,6 +70,11 @@ export interface ListAutonomousDatabaseBackupsRequest extends common.BaseRequest
    */
   "infrastructureType"?: string;
   /**
+   * Filters backups based on the current Autonomous AI Database configuration; returns only those relevant for point-in-time recovery (PITR). Does not guarantee exclusion of backups in orphan ranges.
+   *
+   */
+  "isPitrEligible"?: boolean;
+  /**
    * Unique identifier for the request.
    *
    */

@@ -28,9 +28,43 @@ export interface AutonomousDatabaseInBackup {
    * The user-friendly name for the Autonomous AI Database. The name does not have to be unique.
    */
   "displayName": string;
+  /**
+   * The current state of the Autonomous AI Database.
+   */
+  "lifecycleState"?: AutonomousDatabaseInBackup.LifecycleState;
 }
 
 export namespace AutonomousDatabaseInBackup {
+  export enum LifecycleState {
+    Provisioning = "PROVISIONING",
+    Available = "AVAILABLE",
+    Stopping = "STOPPING",
+    Stopped = "STOPPED",
+    Starting = "STARTING",
+    Terminating = "TERMINATING",
+    Terminated = "TERMINATED",
+    Unavailable = "UNAVAILABLE",
+    RestoreInProgress = "RESTORE_IN_PROGRESS",
+    RestoreFailed = "RESTORE_FAILED",
+    BackupInProgress = "BACKUP_IN_PROGRESS",
+    ScaleInProgress = "SCALE_IN_PROGRESS",
+    AvailableNeedsAttention = "AVAILABLE_NEEDS_ATTENTION",
+    Updating = "UPDATING",
+    MaintenanceInProgress = "MAINTENANCE_IN_PROGRESS",
+    Restarting = "RESTARTING",
+    Recreating = "RECREATING",
+    RoleChangeInProgress = "ROLE_CHANGE_IN_PROGRESS",
+    Upgrading = "UPGRADING",
+    Inaccessible = "INACCESSIBLE",
+    Standby = "STANDBY",
+    Transporting = "TRANSPORTING",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: AutonomousDatabaseInBackup): object {
     const jsonObj = { ...obj, ...{} };
 

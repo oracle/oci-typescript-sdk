@@ -72,7 +72,6 @@ export namespace ListSubscriptionsRequest {
   export enum SortBy {
     TimeCreated = "timeCreated",
     DisplayName = "displayName",
-    SelfTokenId = "selfTokenId",
     ProductId = "productId"
   }
 }

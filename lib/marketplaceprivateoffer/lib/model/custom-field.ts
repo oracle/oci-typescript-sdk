@@ -15,15 +15,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A key value pair specified by the seller of the offer
+ * A key value pair specified by the seller of the offer.
  */
 export interface CustomField {
   /**
-   * the key of the custom field
+   * The key of the custom field.
    */
   "key"?: string;
   /**
-   * the value of the custom field
+   * The value of the custom field.
    */
   "value"?: string;
 }
