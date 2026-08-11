@@ -910,6 +910,8 @@ import * as PublicIpPoolCollection from "./public-ip-pool-collection";
 export import PublicIpPoolCollection = PublicIpPoolCollection.PublicIpPoolCollection;
 import * as PublicIpPoolSummary from "./public-ip-pool-summary";
 export import PublicIpPoolSummary = PublicIpPoolSummary.PublicIpPoolSummary;
+import * as QuickRecycleSettings from "./quick-recycle-settings";
+export import QuickRecycleSettings = QuickRecycleSettings.QuickRecycleSettings;
 import * as RecycleDetails from "./recycle-details";
 export import RecycleDetails = RecycleDetails.RecycleDetails;
 import * as RemotePeeringConnection from "./remote-peering-connection";

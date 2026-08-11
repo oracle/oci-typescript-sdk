@@ -119,6 +119,12 @@ Example: {@code {\"Oracle-DataSecurity-ZPR\": {\"MaxEgressCount\": {\"value\":\"
     */
   "securityAttributes"?: { [key: string]: { [key: string]: any } };
   /**
+   * Usage of system tag keys. These predefined keys are scoped to namespaces.
+   * Example: {@code { \"orcl-cloud\": { \"free-tier-retained\": \"true\" } }}
+   *
+   */
+  "systemTags"?: { [key: string]: { [key: string]: any } };
+  /**
    * The VCN's Oracle ID ([OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm)).
    */
   "id": string;

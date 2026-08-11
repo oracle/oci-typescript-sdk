@@ -40,6 +40,7 @@ export interface HostGroupConfiguration {
    *
    */
   "recycleLevel"?: HostGroupConfiguration.RecycleLevel;
+  "quickRecycleSettings"?: model.QuickRecycleSettings;
   /**
    * The state of the host group configuration.
    */
@@ -68,12 +69,26 @@ export namespace HostGroupConfiguration {
   }
 
   export function getJsonObj(obj: HostGroupConfiguration): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "quickRecycleSettings": obj.quickRecycleSettings
+          ? model.QuickRecycleSettings.getJsonObj(obj.quickRecycleSettings)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: HostGroupConfiguration): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "quickRecycleSettings": obj.quickRecycleSettings
+          ? model.QuickRecycleSettings.getDeserializedJsonObj(obj.quickRecycleSettings)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
