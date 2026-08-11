@@ -77,6 +77,8 @@ import * as JobSummary from "./job-summary";
 export import JobSummary = JobSummary.JobSummary;
 import * as LogEntry from "./log-entry";
 export import LogEntry = LogEntry.LogEntry;
+import * as LogEntryCollection from "./log-entry-collection";
+export import LogEntryCollection = LogEntryCollection.LogEntryCollection;
 import * as PrivateEndpoint from "./private-endpoint";
 export import PrivateEndpoint = PrivateEndpoint.PrivateEndpoint;
 import * as PrivateEndpointCollection from "./private-endpoint-collection";

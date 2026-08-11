@@ -86,6 +86,12 @@ Example: {@code 2001:0db8:0123:1111:abcd:ef01:2345:6789}
    */
   "subnetId": string;
   /**
+   * Usage of system tag keys. These predefined keys are scoped to namespaces.
+   * Example: {@code { \"orcl-cloud\": { \"free-tier-retained\": \"true\" } }}
+   *
+   */
+  "systemTags"?: { [key: string]: { [key: string]: any } };
+  /**
     * The date and time the IPv6 was created, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
 * <p>
 Example: {@code 2016-08-25T21:10:29.600Z}

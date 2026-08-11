@@ -250,3 +250,5 @@ export import self = require("oci-self");
 export import databasetoolsruntime = require("oci-databasetoolsruntime");
 export import costad = require("oci-costad");
 export import datacc = require("oci-datacc");
+export import ddfs = require("oci-ddfs");
+export import distributeddatabasev26 = require("oci-distributeddatabasev26");

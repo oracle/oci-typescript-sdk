@@ -71,6 +71,12 @@ Example: {@code 2016-08-25T21:10:29.600Z}
     */
   "timeEnds"?: Date;
   /**
+   * IANA timezone identifier (e.g., 'America/New_York', 'UTC', 'Europe/London').
+   * This determines the timezone context for evaluating the recurrence expression.
+   *
+   */
+  "localTimeZone"?: string;
+  /**
     * This is the date and time the schedule was created, in the format defined by [RFC 3339](https://tools.ietf.org/html/rfc3339).
 * <p>
 Example: {@code 2016-08-25T21:10:29.600Z}

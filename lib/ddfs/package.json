@@ -1,0 +1,30 @@
+{
+  "name": "oci-ddfs",
+  "version": "2.139.1",
+  "description": "OCI NodeJS client for Ddfs Service",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/oracle/oci-typescript-sdk"
+  },
+  "main": "../../target/lib/ddfs/index.js",
+  "typings": "../../target/lib/ddfs/index.d.ts",
+  "scripts": {},
+  "author": {
+    "name": "Oracle Cloud Infrastructure",
+    "email": ""
+  },
+  "license": "(UPL-1.0 OR Apache-2.0)",
+  "dependencies": {
+    "oci-common": "../common",
+    "opossum": "5.0.1"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
+  "contributors": [
+    "Yash Chandra <yash.chandra@oracle.com>",
+    "Nivedita Parihar <nivedita.parihar@oracle.com>",
+    "Joshua Ramirez <joshua.r.ramirez@oracle.com>",
+    "Kalpana Ramasamy <kalpana.ramasamy@oracle.com>"
+  ]
+}

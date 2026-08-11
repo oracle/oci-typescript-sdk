@@ -42,10 +42,11 @@ export enum ObjectStorageApiKeys {}
  * This service client uses {@link common.CircuitBreaker.DefaultConfiguration} for all the operations by default if no circuit breaker configuration is defined by the user.
  */
 export class ObjectStorageClient {
-  protected static serviceEndpointTemplate = "https://objectstorage.{region}.{secondLevelDomain}";
+  protected static serviceEndpointTemplate =
+    "https://objectstorage.{region}.{dualStack?ds.oci.:}{secondLevelDomain}";
   protected static endpointServiceName = "objectstorage";
   protected static serviceEndpointTemplatePerRealm = {
-    "oc1": "https://{namespaceName+Dot}objectstorage.{region}.oci.customer-oci.com"
+    "oc1": "https://{namespaceName+Dot}objectstorage.{region}.{dualStack?ds.:}oci.customer-oci.com"
   };
   protected "_realmSpecificEndpointTemplateEnabled": boolean | undefined = undefined;
   protected "_endpoint": string = "";
@@ -59,6 +60,8 @@ export class ObjectStorageClient {
   protected _regionId: string = "";
   protected "_region": common.Region;
   protected _lastSetRegionOrRegionId: string = "";
+  protected _enableDualstackEndpoint: boolean | undefined = undefined;
+  protected _serviceUsesDualStackByDefault: boolean = false;
 
   protected _httpClient: common.HttpClient;
   protected _authProvider: common.AuthenticationDetailsProvider | undefined;
@@ -203,6 +206,10 @@ export class ObjectStorageClient {
     this._lastSetRegionOrRegionId = common.Region.REGION_ID_STRING;
   }
 
+  public set enableDualstackEndpoint(enableDualstackEndpoint: boolean) {
+    this._enableDualstackEndpoint = enableDualstackEndpoint;
+  }
+
   /**
    * Creates a new ObjectStorageWaiter for resources for this service.
    *
@@ -287,14 +294,20 @@ export class ObjectStorageClient {
       "opc-client-request-id": abortMultipartUploadRequest.opcClientRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
     const requiredParams = new Set<string>([
       "namespaceName",
       "bucketName",
       "objectName",
       "uploadId"
     ]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
       pathParams,
       queryParams,
       requiredParams
@@ -372,9 +385,15 @@ export class ObjectStorageClient {
       "opc-client-request-id": batchDeleteObjectsRequest.opcClientRequestId
     };
 
-    const requiredParams = new Set<string>(["namespaceName", "bucketName"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
       this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["namespaceName", "bucketName"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
       pathParams,
       queryParams,
       requiredParams
@@ -461,9 +480,15 @@ export class ObjectStorageClient {
       "opc-client-request-id": cancelWorkRequestRequest.opcClientRequestId
     };
 
-    const requiredParams = new Set<string>(["workRequestId"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
       this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["workRequestId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
       pathParams,
       queryParams,
       requiredParams
@@ -548,14 +573,20 @@ export class ObjectStorageClient {
       "opc-client-request-id": commitMultipartUploadRequest.opcClientRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
     const requiredParams = new Set<string>([
       "namespaceName",
       "bucketName",
       "objectName",
       "uploadId"
     ]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
       pathParams,
       queryParams,
       requiredParams
@@ -684,9 +715,15 @@ See [Object Names](https://docs.oracle.com/iaas/Content/Object/Tasks/managingobj
       "opc-sse-kms-key-id": copyObjectRequest.opcSseKmsKeyId
     };
 
-    const requiredParams = new Set<string>(["namespaceName", "bucketName"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
       this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["namespaceName", "bucketName"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
       pathParams,
       queryParams,
       requiredParams
@@ -775,9 +812,15 @@ See [Object Names](https://docs.oracle.com/iaas/Content/Object/Tasks/managingobj
       "opc-client-request-id": createBucketRequest.opcClientRequestId
     };
 
-    const requiredParams = new Set<string>(["namespaceName"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
       this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["namespaceName"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
       pathParams,
       queryParams,
       requiredParams
@@ -886,9 +929,15 @@ See [Object Names](https://docs.oracle.com/iaas/Content/Object/Tasks/managingobj
       "opc-checksum-algorithm": createMultipartUploadRequest.opcChecksumAlgorithm
     };
 
-    const requiredParams = new Set<string>(["namespaceName", "bucketName"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
       this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["namespaceName", "bucketName"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
       pathParams,
       queryParams,
       requiredParams
@@ -982,9 +1031,15 @@ See [Object Names](https://docs.oracle.com/iaas/Content/Object/Tasks/managingobj
       "opc-client-request-id": createPreauthenticatedRequestRequest.opcClientRequestId
     };
 
-    const requiredParams = new Set<string>(["namespaceName", "bucketName"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
       this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["namespaceName", "bucketName"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
       pathParams,
       queryParams,
       requiredParams
@@ -1072,9 +1127,15 @@ See [Object Names](https://docs.oracle.com/iaas/Content/Object/Tasks/managingobj
       "opc-client-request-id": createPrivateEndpointRequest.opcClientRequestId
     };
 
-    const requiredParams = new Set<string>(["namespaceName"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
       this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["namespaceName"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
       pathParams,
       queryParams,
       requiredParams
@@ -1164,9 +1225,15 @@ See [Object Names](https://docs.oracle.com/iaas/Content/Object/Tasks/managingobj
       "opc-client-request-id": createReplicationPolicyRequest.opcClientRequestId
     };
 
-    const requiredParams = new Set<string>(["namespaceName", "bucketName"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
       this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["namespaceName", "bucketName"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
       pathParams,
       queryParams,
       requiredParams
@@ -1256,9 +1323,15 @@ See [Object Names](https://docs.oracle.com/iaas/Content/Object/Tasks/managingobj
       "opc-client-request-id": createRetentionRuleRequest.opcClientRequestId
     };
 
-    const requiredParams = new Set<string>(["namespaceName", "bucketName"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
       this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["namespaceName", "bucketName"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
       pathParams,
       queryParams,
       requiredParams
@@ -1355,9 +1428,15 @@ See [Object Names](https://docs.oracle.com/iaas/Content/Object/Tasks/managingobj
       "opc-client-request-id": deleteBucketRequest.opcClientRequestId
     };
 
-    const requiredParams = new Set<string>(["namespaceName", "bucketName"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
       this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["namespaceName", "bucketName"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
       pathParams,
       queryParams,
       requiredParams
@@ -1440,9 +1519,15 @@ See [Object Names](https://docs.oracle.com/iaas/Content/Object/Tasks/managingobj
       "opc-client-request-id": deleteObjectRequest.opcClientRequestId
     };
 
-    const requiredParams = new Set<string>(["namespaceName", "bucketName", "objectName"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
       this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["namespaceName", "bucketName", "objectName"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
       pathParams,
       queryParams,
       requiredParams
@@ -1538,9 +1623,15 @@ See [Object Names](https://docs.oracle.com/iaas/Content/Object/Tasks/managingobj
       "if-match": deleteObjectLifecyclePolicyRequest.ifMatch
     };
 
-    const requiredParams = new Set<string>(["namespaceName", "bucketName"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
       this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["namespaceName", "bucketName"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
       pathParams,
       queryParams,
       requiredParams
@@ -1620,9 +1711,15 @@ See [Object Names](https://docs.oracle.com/iaas/Content/Object/Tasks/managingobj
       "opc-client-request-id": deletePreauthenticatedRequestRequest.opcClientRequestId
     };
 
-    const requiredParams = new Set<string>(["namespaceName", "bucketName", "parId"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
       this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["namespaceName", "bucketName", "parId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
       pathParams,
       queryParams,
       requiredParams
@@ -1703,9 +1800,15 @@ See [Object Names](https://docs.oracle.com/iaas/Content/Object/Tasks/managingobj
       "opc-client-request-id": deletePrivateEndpointRequest.opcClientRequestId
     };
 
-    const requiredParams = new Set<string>(["namespaceName", "peName"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
       this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["namespaceName", "peName"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
       pathParams,
       queryParams,
       requiredParams
@@ -1791,9 +1894,15 @@ See [Object Names](https://docs.oracle.com/iaas/Content/Object/Tasks/managingobj
       "opc-client-request-id": deleteReplicationPolicyRequest.opcClientRequestId
     };
 
-    const requiredParams = new Set<string>(["namespaceName", "bucketName", "replicationId"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
       this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["namespaceName", "bucketName", "replicationId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
       pathParams,
       queryParams,
       requiredParams
@@ -1874,9 +1983,15 @@ See [Object Names](https://docs.oracle.com/iaas/Content/Object/Tasks/managingobj
       "opc-client-request-id": deleteRetentionRuleRequest.opcClientRequestId
     };
 
-    const requiredParams = new Set<string>(["namespaceName", "bucketName", "retentionRuleId"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
       this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["namespaceName", "bucketName", "retentionRuleId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
       pathParams,
       queryParams,
       requiredParams
@@ -1959,9 +2074,15 @@ See [Object Names](https://docs.oracle.com/iaas/Content/Object/Tasks/managingobj
       "opc-client-request-id": getBucketRequest.opcClientRequestId
     };
 
-    const requiredParams = new Set<string>(["namespaceName", "bucketName"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
       this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["namespaceName", "bucketName"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
       pathParams,
       queryParams,
       requiredParams
@@ -2054,9 +2175,15 @@ GetNamespace returns the name of the Object Storage namespace for the user makin
       "opc-client-request-id": getNamespaceRequest.opcClientRequestId
     };
 
-    const requiredParams = new Set<string>([]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
       this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>([]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
       pathParams,
       queryParams,
       requiredParams
@@ -2134,9 +2261,15 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
       "opc-client-request-id": getNamespaceMetadataRequest.opcClientRequestId
     };
 
-    const requiredParams = new Set<string>(["namespaceName"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
       this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["namespaceName"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
       pathParams,
       queryParams,
       requiredParams
@@ -2234,9 +2367,15 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
       "opc-sse-customer-key-sha256": getObjectRequest.opcSseCustomerKeySha256
     };
 
-    const requiredParams = new Set<string>(["namespaceName", "bucketName", "objectName"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
       this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["namespaceName", "bucketName", "objectName"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
       pathParams,
       queryParams,
       requiredParams
@@ -2438,9 +2577,15 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
       "opc-client-request-id": getObjectLifecyclePolicyRequest.opcClientRequestId
     };
 
-    const requiredParams = new Set<string>(["namespaceName", "bucketName"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
       this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["namespaceName", "bucketName"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
       pathParams,
       queryParams,
       requiredParams
@@ -2529,9 +2674,15 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
       "opc-client-request-id": getPreauthenticatedRequestRequest.opcClientRequestId
     };
 
-    const requiredParams = new Set<string>(["namespaceName", "bucketName", "parId"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
       this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["namespaceName", "bucketName", "parId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
       pathParams,
       queryParams,
       requiredParams
@@ -2616,9 +2767,15 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
       "opc-client-request-id": getPrivateEndpointRequest.opcClientRequestId
     };
 
-    const requiredParams = new Set<string>(["namespaceName", "peName"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
       this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["namespaceName", "peName"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
       pathParams,
       queryParams,
       requiredParams
@@ -2708,9 +2865,15 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
       "opc-client-request-id": getReplicationPolicyRequest.opcClientRequestId
     };
 
-    const requiredParams = new Set<string>(["namespaceName", "bucketName", "replicationId"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
       this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["namespaceName", "bucketName", "replicationId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
       pathParams,
       queryParams,
       requiredParams
@@ -2793,9 +2956,15 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
       "opc-client-request-id": getRetentionRuleRequest.opcClientRequestId
     };
 
-    const requiredParams = new Set<string>(["namespaceName", "bucketName", "retentionRuleId"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
       this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["namespaceName", "bucketName", "retentionRuleId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
       pathParams,
       queryParams,
       requiredParams
@@ -2886,9 +3055,15 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
       "opc-client-request-id": getWorkRequestRequest.opcClientRequestId
     };
 
-    const requiredParams = new Set<string>(["workRequestId"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
       this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["workRequestId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
       pathParams,
       queryParams,
       requiredParams
@@ -2978,9 +3153,15 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
       "opc-client-request-id": headBucketRequest.opcClientRequestId
     };
 
-    const requiredParams = new Set<string>(["namespaceName", "bucketName"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
       this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["namespaceName", "bucketName"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
       pathParams,
       queryParams,
       requiredParams
@@ -3072,9 +3253,15 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
       "opc-sse-customer-key-sha256": headObjectRequest.opcSseCustomerKeySha256
     };
 
-    const requiredParams = new Set<string>(["namespaceName", "bucketName", "objectName"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
       this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["namespaceName", "bucketName", "objectName"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
       pathParams,
       queryParams,
       requiredParams
@@ -3273,9 +3460,15 @@ To use this and other API operations, you must be authorized in an IAM policy. I
       "opc-client-request-id": listBucketsRequest.opcClientRequestId
     };
 
-    const requiredParams = new Set<string>(["namespaceName", "compartmentId"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
       this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["namespaceName", "compartmentId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
       pathParams,
       queryParams,
       requiredParams
@@ -3421,14 +3614,20 @@ To use this and other API operations, you must be authorized in an IAM policy. I
       "opc-client-request-id": listMultipartUploadPartsRequest.opcClientRequestId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
     const requiredParams = new Set<string>([
       "namespaceName",
       "bucketName",
       "objectName",
       "uploadId"
     ]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
       pathParams,
       queryParams,
       requiredParams
@@ -3572,9 +3771,15 @@ To use this and other API operations, you must be authorized in an IAM policy. I
       "opc-client-request-id": listMultipartUploadsRequest.opcClientRequestId
     };
 
-    const requiredParams = new Set<string>(["namespaceName", "bucketName"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
       this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["namespaceName", "bucketName"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
       pathParams,
       queryParams,
       requiredParams
@@ -3730,9 +3935,15 @@ To use this and other API operations, you must be authorized in an IAM policy. I
       "opc-client-request-id": listObjectVersionsRequest.opcClientRequestId
     };
 
-    const requiredParams = new Set<string>(["namespaceName", "bucketName"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
       this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["namespaceName", "bucketName"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
       pathParams,
       queryParams,
       requiredParams
@@ -3837,9 +4048,15 @@ To use this and other API operations, you must be authorized in an IAM policy. I
       "opc-client-request-id": listObjectsRequest.opcClientRequestId
     };
 
-    const requiredParams = new Set<string>(["namespaceName", "bucketName"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
       this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["namespaceName", "bucketName"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
       pathParams,
       queryParams,
       requiredParams
@@ -4001,9 +4218,15 @@ To use this and other API operations, you must be authorized in an IAM policy. I
       "opc-client-request-id": listPreauthenticatedRequestsRequest.opcClientRequestId
     };
 
-    const requiredParams = new Set<string>(["namespaceName", "bucketName"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
       this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["namespaceName", "bucketName"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
       pathParams,
       queryParams,
       requiredParams
@@ -4152,9 +4375,15 @@ To use this and other API operations, you must be authorized in an IAM policy. I
       "opc-client-request-id": listPrivateEndpointsRequest.opcClientRequestId
     };
 
-    const requiredParams = new Set<string>(["namespaceName", "compartmentId"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
       this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["namespaceName", "compartmentId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
       pathParams,
       queryParams,
       requiredParams
@@ -4298,9 +4527,15 @@ To use this and other API operations, you must be authorized in an IAM policy. I
       "opc-client-request-id": listReplicationPoliciesRequest.opcClientRequestId
     };
 
-    const requiredParams = new Set<string>(["namespaceName", "bucketName"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
       this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["namespaceName", "bucketName"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
       pathParams,
       queryParams,
       requiredParams
@@ -4444,9 +4679,15 @@ To use this and other API operations, you must be authorized in an IAM policy. I
       "opc-client-request-id": listReplicationSourcesRequest.opcClientRequestId
     };
 
-    const requiredParams = new Set<string>(["namespaceName", "bucketName"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
       this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["namespaceName", "bucketName"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
       pathParams,
       queryParams,
       requiredParams
@@ -4588,9 +4829,15 @@ To use this and other API operations, you must be authorized in an IAM policy. I
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const requiredParams = new Set<string>(["namespaceName", "bucketName"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
       this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["namespaceName", "bucketName"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
       pathParams,
       queryParams,
       requiredParams
@@ -4680,9 +4927,15 @@ To use this and other API operations, you must be authorized in an IAM policy. I
       "opc-client-request-id": listWorkRequestErrorsRequest.opcClientRequestId
     };
 
-    const requiredParams = new Set<string>(["workRequestId"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
       this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["workRequestId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
       pathParams,
       queryParams,
       requiredParams
@@ -4824,9 +5077,15 @@ To use this and other API operations, you must be authorized in an IAM policy. I
       "opc-client-request-id": listWorkRequestLogsRequest.opcClientRequestId
     };
 
-    const requiredParams = new Set<string>(["workRequestId"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
       this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["workRequestId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
       pathParams,
       queryParams,
       requiredParams
@@ -4968,9 +5227,15 @@ To use this and other API operations, you must be authorized in an IAM policy. I
       "opc-client-request-id": listWorkRequestsRequest.opcClientRequestId
     };
 
-    const requiredParams = new Set<string>(["compartmentId"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
       this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["compartmentId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
       pathParams,
       queryParams,
       requiredParams
@@ -5113,9 +5378,15 @@ To use this and other API operations, you must be authorized in an IAM policy. I
       "opc-client-request-id": makeBucketWritableRequest.opcClientRequestId
     };
 
-    const requiredParams = new Set<string>(["namespaceName", "bucketName"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
       this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["namespaceName", "bucketName"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
       pathParams,
       queryParams,
       requiredParams
@@ -5226,9 +5497,15 @@ See [Special Instructions for Object Storage PUT](https://docs.oracle.com/iaas/C
       });
     }
 
-    const requiredParams = new Set<string>(["namespaceName", "bucketName", "objectName"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
       this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["namespaceName", "bucketName", "objectName"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
       pathParams,
       queryParams,
       requiredParams
@@ -5348,9 +5625,15 @@ See [Special Instructions for Object Storage PUT](https://docs.oracle.com/iaas/C
       "if-none-match": putObjectLifecyclePolicyRequest.ifNoneMatch
     };
 
-    const requiredParams = new Set<string>(["namespaceName", "bucketName"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
       this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["namespaceName", "bucketName"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
       pathParams,
       queryParams,
       requiredParams
@@ -5461,9 +5744,15 @@ Calling this API starts a work request task to re-encrypt the data encryption ke
       "opc-client-request-id": reencryptBucketRequest.opcClientRequestId
     };
 
-    const requiredParams = new Set<string>(["namespaceName", "bucketName"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
       this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["namespaceName", "bucketName"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
       pathParams,
       queryParams,
       requiredParams
@@ -5558,9 +5847,15 @@ You can alternatively employ one of these encryption strategies for an object:
       "opc-client-request-id": reencryptObjectRequest.opcClientRequestId
     };
 
-    const requiredParams = new Set<string>(["namespaceName", "bucketName", "objectName"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
       this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["namespaceName", "bucketName", "objectName"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
       pathParams,
       queryParams,
       requiredParams
@@ -5647,9 +5942,15 @@ See [Object Names](https://docs.oracle.com/iaas/Content/Object/Tasks/managingobj
       "opc-client-request-id": renameObjectRequest.opcClientRequestId
     };
 
-    const requiredParams = new Set<string>(["namespaceName", "bucketName"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
       this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["namespaceName", "bucketName"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
       pathParams,
       queryParams,
       requiredParams
@@ -5749,9 +6050,15 @@ See [Object Names](https://docs.oracle.com/iaas/Content/Object/Tasks/managingobj
       "opc-client-request-id": restoreObjectsRequest.opcClientRequestId
     };
 
-    const requiredParams = new Set<string>(["namespaceName", "bucketName"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
       this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["namespaceName", "bucketName"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
       pathParams,
       queryParams,
       requiredParams
@@ -5840,9 +6147,15 @@ Use UpdateBucket to move a bucket from one compartment to another within the sam
       "opc-client-request-id": updateBucketRequest.opcClientRequestId
     };
 
-    const requiredParams = new Set<string>(["namespaceName", "bucketName"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
       this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["namespaceName", "bucketName"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
       pathParams,
       queryParams,
       requiredParams
@@ -5941,9 +6254,15 @@ You can change the default Swift/Amazon S3 compartmentId designation to a differ
       "opc-client-request-id": updateNamespaceMetadataRequest.opcClientRequestId
     };
 
-    const requiredParams = new Set<string>(["namespaceName"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
       this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["namespaceName"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
       pathParams,
       queryParams,
       requiredParams
@@ -6032,9 +6351,15 @@ You can change the default Swift/Amazon S3 compartmentId designation to a differ
       "opc-client-request-id": updateObjectStorageTierRequest.opcClientRequestId
     };
 
-    const requiredParams = new Set<string>(["namespaceName", "bucketName"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
       this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["namespaceName", "bucketName"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
       pathParams,
       queryParams,
       requiredParams
@@ -6127,9 +6452,15 @@ This API follows replace semantics (rather than merge semantics). That means if 
       "if-match": updatePrivateEndpointRequest.ifMatch
     };
 
-    const requiredParams = new Set<string>(["namespaceName", "peName"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
       this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["namespaceName", "peName"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
       pathParams,
       queryParams,
       requiredParams
@@ -6221,9 +6552,15 @@ This API follows replace semantics (rather than merge semantics). That means if 
       "opc-client-request-id": updateRetentionRuleRequest.opcClientRequestId
     };
 
-    const requiredParams = new Set<string>(["namespaceName", "bucketName", "retentionRuleId"]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
       this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["namespaceName", "bucketName", "retentionRuleId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
       pathParams,
       queryParams,
       requiredParams
@@ -6332,6 +6669,12 @@ This API follows replace semantics (rather than merge semantics). That means if 
       "opc-sse-kms-key-id": uploadPartRequest.opcSseKmsKeyId
     };
 
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
     const requiredParams = new Set<string>([
       "namespaceName",
       "bucketName",
@@ -6339,8 +6682,8 @@ This API follows replace semantics (rather than merge semantics). That means if 
       "uploadId",
       "uploadPartNum"
     ]);
-    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
-      this.endpoint,
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
       pathParams,
       queryParams,
       requiredParams
