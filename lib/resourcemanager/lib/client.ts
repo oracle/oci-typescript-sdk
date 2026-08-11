@@ -2814,6 +2814,167 @@ export class ResourceManagerClient {
   }
 
   /**
+   * Returns console log entries for the specified work request in JSON format.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetWorkRequestLogEntriesRequest
+   * @return GetWorkRequestLogEntriesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/GetWorkRequestLogEntries.ts.html |here} to see how to use GetWorkRequestLogEntries API.
+   */
+  public async getWorkRequestLogEntries(
+    getWorkRequestLogEntriesRequest: requests.GetWorkRequestLogEntriesRequest
+  ): Promise<responses.GetWorkRequestLogEntriesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ResourceManagerClient#getWorkRequestLogEntries.");
+    const operationName = "getWorkRequestLogEntries";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/WorkRequest/GetWorkRequestLogEntries";
+    const pathParams = {
+      "{workRequestId}": getWorkRequestLogEntriesRequest.workRequestId
+    };
+
+    const queryParams = {
+      "type": getWorkRequestLogEntriesRequest.type,
+      "levelGreaterThanOrEqualTo": getWorkRequestLogEntriesRequest.levelGreaterThanOrEqualTo,
+      "sortOrder": getWorkRequestLogEntriesRequest.sortOrder,
+      "limit": getWorkRequestLogEntriesRequest.limit,
+      "page": getWorkRequestLogEntriesRequest.page,
+      "timestampGreaterThanOrEqualTo":
+        getWorkRequestLogEntriesRequest.timestampGreaterThanOrEqualTo,
+      "timestampLessThanOrEqualTo": getWorkRequestLogEntriesRequest.timestampLessThanOrEqualTo
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getWorkRequestLogEntriesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getWorkRequestLogEntriesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workRequests/{workRequestId}/logEntries",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetWorkRequestLogEntriesResponse>{},
+        body: await response.json(),
+        bodyKey: "logEntryCollection",
+        bodyModel: model.LogEntryCollection,
+        type: "model.LogEntryCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns the raw log file for the specified work request in text format.
+   * The file includes a maximum of 100,000 log entries.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetWorkRequestLogEntriesContentRequest
+   * @return GetWorkRequestLogEntriesContentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/GetWorkRequestLogEntriesContent.ts.html |here} to see how to use GetWorkRequestLogEntriesContent API.
+   */
+  public async getWorkRequestLogEntriesContent(
+    getWorkRequestLogEntriesContentRequest: requests.GetWorkRequestLogEntriesContentRequest
+  ): Promise<responses.GetWorkRequestLogEntriesContentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ResourceManagerClient#getWorkRequestLogEntriesContent.");
+    const operationName = "getWorkRequestLogEntriesContent";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/WorkRequest/GetWorkRequestLogEntriesContent";
+    const pathParams = {
+      "{workRequestId}": getWorkRequestLogEntriesContentRequest.workRequestId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getWorkRequestLogEntriesContentRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getWorkRequestLogEntriesContentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workRequests/{workRequestId}/logEntries/content",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetWorkRequestLogEntriesContentResponse>{},
+
+        body: await response.text(),
+        bodyKey: "value",
+        bodyModel: "string",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Lists configuration source providers according to the specified filter.
    * For more information, see
    * [Listing Configuration Source Providers](https://docs.oracle.com/iaas/Content/ResourceManager/Tasks/list-csp.htm).

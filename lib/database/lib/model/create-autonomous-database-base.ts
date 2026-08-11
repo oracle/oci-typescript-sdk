@@ -36,6 +36,10 @@ export interface CreateAutonomousDatabaseBase {
    */
   "compartmentId": string;
   /**
+   * The Autonomous Database Serverless instance's availability domain.
+   */
+  "availabilityDomain"?: string;
+  /**
     * The character set for the Autonomous AI Database. The default is AL32UTF8. Allowed values for an Autonomous AI Database Serverless instance as as returned by [List Autonomous AI Database Character Sets](https://docs.oracle.com/iaas/autonomous-database-serverless/doc/autonomous-character-set-selection.html)
 * <p>
 For an Autonomous AI Database on dedicated infrastructure, the allowed values are:

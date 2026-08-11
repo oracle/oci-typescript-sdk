@@ -67,6 +67,12 @@ Example: {@code 2016-08-25T21:10:29.600Z}
     */
   "timeEnds"?: Date;
   /**
+   * IANA timezone identifier (e.g., 'America/New_York', 'UTC', 'Europe/London').
+   * This determines the timezone context for evaluating the recurrence expression.
+   *
+   */
+  "localTimeZone"?: string;
+  /**
     * These are free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
 * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>

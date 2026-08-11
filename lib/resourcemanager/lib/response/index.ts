@@ -79,6 +79,10 @@ import * as GetTemplateTfConfigResponse from "./get-template-tf-config-response"
 export import GetTemplateTfConfigResponse = GetTemplateTfConfigResponse.GetTemplateTfConfigResponse;
 import * as GetWorkRequestResponse from "./get-work-request-response";
 export import GetWorkRequestResponse = GetWorkRequestResponse.GetWorkRequestResponse;
+import * as GetWorkRequestLogEntriesResponse from "./get-work-request-log-entries-response";
+export import GetWorkRequestLogEntriesResponse = GetWorkRequestLogEntriesResponse.GetWorkRequestLogEntriesResponse;
+import * as GetWorkRequestLogEntriesContentResponse from "./get-work-request-log-entries-content-response";
+export import GetWorkRequestLogEntriesContentResponse = GetWorkRequestLogEntriesContentResponse.GetWorkRequestLogEntriesContentResponse;
 import * as ListConfigurationSourceProvidersResponse from "./list-configuration-source-providers-response";
 export import ListConfigurationSourceProvidersResponse = ListConfigurationSourceProvidersResponse.ListConfigurationSourceProvidersResponse;
 import * as ListJobAssociatedResourcesResponse from "./list-job-associated-resources-response";

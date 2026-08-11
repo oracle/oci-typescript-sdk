@@ -105,6 +105,12 @@ Example: {@code 100}
    */
   "routeTableId"?: string;
   /**
+   * Usage of system tag keys. These predefined keys are scoped to namespaces.
+   * Example: {@code { \"orcl-cloud\": { \"free-tier-retained\": \"true\" } }}
+   *
+   */
+  "systemTags"?: { [key: string]: { [key: string]: any } };
+  /**
     * The date and time the VLAN was created, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
 * <p>
 Example: {@code 2016-08-25T21:10:29.600Z}

@@ -112,6 +112,22 @@ This cannot be updated in parallel with any of the following: licenseModel, dbEd
     */
   "isFreeTier"?: boolean;
   /**
+   * The Autonomous Database Serverless instance's availability domain.
+   */
+  "availabilityDomain"?: string;
+  /**
+   * The date and time when the Autonomous Database availability domain is to be updated.
+   */
+  "timeScheduledAdUpdate"?: Date;
+  /**
+   * True, if you want to disable Autonomous Database availability domain scheduled update.
+   */
+  "isDisableAdUpdateSchedule"?: boolean;
+  /**
+   * True, if you want to schedule Autonomous Database availability domain update to the earliest available time.
+   */
+  "isScheduleAdUpdateToEarliest"?: boolean;
+  /**
     * The password must be between 12 and 30 characters long, and must contain at least 1 uppercase, 1 lowercase, and 1 numeric character. It cannot contain the double quote symbol (\") or the username \"admin\", regardless of casing. It must be different from the last four passwords and it must not be a password used within the last 24 hours.
 * <p>
 This cannot be used in conjunction with with OCI vault secrets (secretId).

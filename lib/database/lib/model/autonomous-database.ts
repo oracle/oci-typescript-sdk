@@ -720,6 +720,22 @@ This cannot be updated in parallel with any of the following: licenseModel, dbEd
    */
   "clusterPlacementGroupId"?: string;
   /**
+   * The Availability Domain which is planned for Scheduled Update
+   */
+  "adScheduledForUpdate"?: string;
+  /**
+   * The earliest date and time to which you can schedule an Autonomous Database availability domain update.
+   */
+  "timeEarliestAvailableAdUpdate"?: Date;
+  /**
+   * The latest date and time to which you can schedule an Autonomous Database availability domain update.
+   */
+  "timeLatestAvailableAdUpdate"?: Date;
+  /**
+   * The date and time to which the Autonomous Database availability domain update is scheduled.
+   */
+  "timeScheduledAdUpdate"?: Date;
+  /**
    * A list of the source Autonomous AI Database's table space number(s) used to create this partial clone from the backup.
    */
   "cloneTableSpaceList"?: Array<number>;
