@@ -70,6 +70,10 @@ Example: {@code {\"Department\": \"Finance\"}}
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * The password for the VPC user that is used to access the Recovery Appliance, if the given backup is from a backup destination of type RECOVERY_APPLIANCE.
+   */
+  "recoveryApplianceVpcPassword"?: string;
 }
 
 export namespace CreateDatabaseFromBackupDetails {

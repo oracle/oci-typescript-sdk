@@ -173,6 +173,8 @@ export namespace Backup {
     ObjectStore = "OBJECT_STORE",
     Dbrs = "DBRS",
     AwsS3 = "AWS_S3",
+    Nfs = "NFS",
+    RecoveryAppliance = "RECOVERY_APPLIANCE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

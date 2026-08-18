@@ -906,6 +906,8 @@ import * as SystemVersionMinorVersionSummary from "./system-version-minor-versio
 export import SystemVersionMinorVersionSummary = SystemVersionMinorVersionSummary.SystemVersionMinorVersionSummary;
 import * as SystemVersionSummary from "./system-version-summary";
 export import SystemVersionSummary = SystemVersionSummary.SystemVersionSummary;
+import * as TdeWalletBackupDestination from "./tde-wallet-backup-destination";
+export import TdeWalletBackupDestination = TdeWalletBackupDestination.TdeWalletBackupDestination;
 import * as UnmountDbnodeSnapshotDetails from "./unmount-dbnode-snapshot-details";
 export import UnmountDbnodeSnapshotDetails = UnmountDbnodeSnapshotDetails.UnmountDbnodeSnapshotDetails;
 import * as UnregisterCloudAutonomousVmClusterPkcsDetails from "./unregister-cloud-autonomous-vm-cluster-pkcs-details";
