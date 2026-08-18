@@ -74,6 +74,10 @@ Example: {@code {\"Department\": \"Finance\"}}
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the VM cluster.
    */
   "vmClusterId"?: string;
+  /**
+   * The password for the VPC user that is used to access the Recovery Appliance, if the given backup is from a backup destination of type RECOVERY_APPLIANCE.
+   */
+  "recoveryApplianceVpcPassword"?: string;
 }
 
 export namespace CreateDatabaseFromAnotherDatabaseDetails {
