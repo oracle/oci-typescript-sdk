@@ -73,6 +73,7 @@ export interface BackupDestinationDetails {
    *
    */
   "remoteRegion"?: string;
+  "tdeWalletBackupDestination"?: model.TdeWalletBackupDestination;
 }
 
 export namespace BackupDestinationDetails {
@@ -101,12 +102,26 @@ export namespace BackupDestinationDetails {
   }
 
   export function getJsonObj(obj: BackupDestinationDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "tdeWalletBackupDestination": obj.tdeWalletBackupDestination
+          ? model.TdeWalletBackupDestination.getJsonObj(obj.tdeWalletBackupDestination)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: BackupDestinationDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "tdeWalletBackupDestination": obj.tdeWalletBackupDestination
+          ? model.TdeWalletBackupDestination.getDeserializedJsonObj(obj.tdeWalletBackupDestination)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
