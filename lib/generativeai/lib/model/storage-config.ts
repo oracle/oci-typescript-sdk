@@ -26,7 +26,7 @@ import common = require("oci-common");
  */
 export interface StorageConfig {
   /**
-   * The key of environment variable to store the database connection.
+   * The environment variable key for accessing the managed storage.
    */
   "environmentVariableKey": string;
   /**

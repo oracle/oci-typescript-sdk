@@ -72,6 +72,10 @@ export interface Node {
    */
   "faultDomain": string;
   /**
+   * The OCID of the Compute capacity reservation used by this node.
+   */
+  "computeCapacityReservationId"?: string;
+  /**
    * The time the node was created, shown as an RFC 3339 formatted datetime string.
    */
   "timeCreated": Date;

@@ -33,6 +33,17 @@ export interface UpdateSemanticStoreDetails {
    * A user-friendly name.
    */
   "displayName"?: string;
+  "modelSelection"?:
+    | model.DefaultSemanticStoreModelSelection
+    | model.CustomSemanticStoreModelSelection;
+  /**
+   * Whether to include user-defined semantic inputs, such as annotations, comments, and synonyms, during semantic-store enrichment.
+   * When true, enrichment uses both metadata and user-defined semantics.
+   * When false, enrichment uses metadata only.
+   * If omitted, the existing setting is unchanged.
+   *
+   */
+  "isUserDefinedSemanticsEnabled"?: boolean;
   "refreshSchedule"?:
     | model.RefreshScheduleOnCreateDetails
     | model.RefreshScheduleNoneDetails
@@ -61,6 +72,10 @@ export namespace UpdateSemanticStoreDetails {
     const jsonObj = {
       ...obj,
       ...{
+        "modelSelection": obj.modelSelection
+          ? model.SemanticStoreModelSelection.getJsonObj(obj.modelSelection)
+          : undefined,
+
         "refreshSchedule": obj.refreshSchedule
           ? model.RefreshScheduleDetails.getJsonObj(obj.refreshSchedule)
           : undefined,
@@ -74,6 +89,10 @@ export namespace UpdateSemanticStoreDetails {
     const jsonObj = {
       ...obj,
       ...{
+        "modelSelection": obj.modelSelection
+          ? model.SemanticStoreModelSelection.getDeserializedJsonObj(obj.modelSelection)
+          : undefined,
+
         "refreshSchedule": obj.refreshSchedule
           ? model.RefreshScheduleDetails.getDeserializedJsonObj(obj.refreshSchedule)
           : undefined,

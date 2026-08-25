@@ -12,6 +12,8 @@
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as ActivateBdsCapacityReservationConfigurationRequest from "./activate-bds-capacity-reservation-configuration-request";
+export import ActivateBdsCapacityReservationConfigurationRequest = ActivateBdsCapacityReservationConfigurationRequest.ActivateBdsCapacityReservationConfigurationRequest;
 import * as ActivateBdsMetastoreConfigurationRequest from "./activate-bds-metastore-configuration-request";
 export import ActivateBdsMetastoreConfigurationRequest = ActivateBdsMetastoreConfigurationRequest.ActivateBdsMetastoreConfigurationRequest;
 import * as ActivateIamUserSyncConfigurationRequest from "./activate-iam-user-sync-configuration-request";
@@ -38,6 +40,8 @@ import * as BdsInstanceResetPasswordRequest from "./bds-instance-reset-password-
 export import BdsInstanceResetPasswordRequest = BdsInstanceResetPasswordRequest.BdsInstanceResetPasswordRequest;
 import * as CertificateServiceInfoRequest from "./certificate-service-info-request";
 export import CertificateServiceInfoRequest = CertificateServiceInfoRequest.CertificateServiceInfoRequest;
+import * as ChangeBdsCapacityReservationCompartmentRequest from "./change-bds-capacity-reservation-compartment-request";
+export import ChangeBdsCapacityReservationCompartmentRequest = ChangeBdsCapacityReservationCompartmentRequest.ChangeBdsCapacityReservationCompartmentRequest;
 import * as ChangeBdsInstanceCompartmentRequest from "./change-bds-instance-compartment-request";
 export import ChangeBdsInstanceCompartmentRequest = ChangeBdsInstanceCompartmentRequest.ChangeBdsInstanceCompartmentRequest;
 import * as ChangeShapeRequest from "./change-shape-request";
@@ -46,6 +50,10 @@ import * as CreateBdsApiKeyRequest from "./create-bds-api-key-request";
 export import CreateBdsApiKeyRequest = CreateBdsApiKeyRequest.CreateBdsApiKeyRequest;
 import * as CreateBdsCapacityReportRequest from "./create-bds-capacity-report-request";
 export import CreateBdsCapacityReportRequest = CreateBdsCapacityReportRequest.CreateBdsCapacityReportRequest;
+import * as CreateBdsCapacityReservationRequest from "./create-bds-capacity-reservation-request";
+export import CreateBdsCapacityReservationRequest = CreateBdsCapacityReservationRequest.CreateBdsCapacityReservationRequest;
+import * as CreateBdsCapacityReservationConfigurationRequest from "./create-bds-capacity-reservation-configuration-request";
+export import CreateBdsCapacityReservationConfigurationRequest = CreateBdsCapacityReservationConfigurationRequest.CreateBdsCapacityReservationConfigurationRequest;
 import * as CreateBdsCertificateConfigurationRequest from "./create-bds-certificate-configuration-request";
 export import CreateBdsCertificateConfigurationRequest = CreateBdsCertificateConfigurationRequest.CreateBdsCertificateConfigurationRequest;
 import * as CreateBdsInstanceRequest from "./create-bds-instance-request";
@@ -60,12 +68,18 @@ import * as CreateNodeReplaceConfigurationRequest from "./create-node-replace-co
 export import CreateNodeReplaceConfigurationRequest = CreateNodeReplaceConfigurationRequest.CreateNodeReplaceConfigurationRequest;
 import * as CreateResourcePrincipalConfigurationRequest from "./create-resource-principal-configuration-request";
 export import CreateResourcePrincipalConfigurationRequest = CreateResourcePrincipalConfigurationRequest.CreateResourcePrincipalConfigurationRequest;
+import * as DeactivateBdsCapacityReservationConfigurationRequest from "./deactivate-bds-capacity-reservation-configuration-request";
+export import DeactivateBdsCapacityReservationConfigurationRequest = DeactivateBdsCapacityReservationConfigurationRequest.DeactivateBdsCapacityReservationConfigurationRequest;
 import * as DeactivateIamUserSyncConfigurationRequest from "./deactivate-iam-user-sync-configuration-request";
 export import DeactivateIamUserSyncConfigurationRequest = DeactivateIamUserSyncConfigurationRequest.DeactivateIamUserSyncConfigurationRequest;
 import * as DeactivateUpstConfigurationRequest from "./deactivate-upst-configuration-request";
 export import DeactivateUpstConfigurationRequest = DeactivateUpstConfigurationRequest.DeactivateUpstConfigurationRequest;
 import * as DeleteBdsApiKeyRequest from "./delete-bds-api-key-request";
 export import DeleteBdsApiKeyRequest = DeleteBdsApiKeyRequest.DeleteBdsApiKeyRequest;
+import * as DeleteBdsCapacityReservationRequest from "./delete-bds-capacity-reservation-request";
+export import DeleteBdsCapacityReservationRequest = DeleteBdsCapacityReservationRequest.DeleteBdsCapacityReservationRequest;
+import * as DeleteBdsCapacityReservationConfigurationRequest from "./delete-bds-capacity-reservation-configuration-request";
+export import DeleteBdsCapacityReservationConfigurationRequest = DeleteBdsCapacityReservationConfigurationRequest.DeleteBdsCapacityReservationConfigurationRequest;
 import * as DeleteBdsCertificateConfigurationRequest from "./delete-bds-certificate-configuration-request";
 export import DeleteBdsCertificateConfigurationRequest = DeleteBdsCertificateConfigurationRequest.DeleteBdsCertificateConfigurationRequest;
 import * as DeleteBdsInstanceRequest from "./delete-bds-instance-request";
@@ -92,6 +106,10 @@ import * as GetAutoScalingConfigurationRequest from "./get-auto-scaling-configur
 export import GetAutoScalingConfigurationRequest = GetAutoScalingConfigurationRequest.GetAutoScalingConfigurationRequest;
 import * as GetBdsApiKeyRequest from "./get-bds-api-key-request";
 export import GetBdsApiKeyRequest = GetBdsApiKeyRequest.GetBdsApiKeyRequest;
+import * as GetBdsCapacityReservationRequest from "./get-bds-capacity-reservation-request";
+export import GetBdsCapacityReservationRequest = GetBdsCapacityReservationRequest.GetBdsCapacityReservationRequest;
+import * as GetBdsCapacityReservationConfigurationRequest from "./get-bds-capacity-reservation-configuration-request";
+export import GetBdsCapacityReservationConfigurationRequest = GetBdsCapacityReservationConfigurationRequest.GetBdsCapacityReservationConfigurationRequest;
 import * as GetBdsCertificateConfigurationRequest from "./get-bds-certificate-configuration-request";
 export import GetBdsCertificateConfigurationRequest = GetBdsCertificateConfigurationRequest.GetBdsCertificateConfigurationRequest;
 import * as GetBdsInstanceRequest from "./get-bds-instance-request";
@@ -124,6 +142,12 @@ import * as ListAutoScalingConfigurationsRequest from "./list-auto-scaling-confi
 export import ListAutoScalingConfigurationsRequest = ListAutoScalingConfigurationsRequest.ListAutoScalingConfigurationsRequest;
 import * as ListBdsApiKeysRequest from "./list-bds-api-keys-request";
 export import ListBdsApiKeysRequest = ListBdsApiKeysRequest.ListBdsApiKeysRequest;
+import * as ListBdsCapacityReservationAssociatedConfigurationsRequest from "./list-bds-capacity-reservation-associated-configurations-request";
+export import ListBdsCapacityReservationAssociatedConfigurationsRequest = ListBdsCapacityReservationAssociatedConfigurationsRequest.ListBdsCapacityReservationAssociatedConfigurationsRequest;
+import * as ListBdsCapacityReservationConfigurationsRequest from "./list-bds-capacity-reservation-configurations-request";
+export import ListBdsCapacityReservationConfigurationsRequest = ListBdsCapacityReservationConfigurationsRequest.ListBdsCapacityReservationConfigurationsRequest;
+import * as ListBdsCapacityReservationsRequest from "./list-bds-capacity-reservations-request";
+export import ListBdsCapacityReservationsRequest = ListBdsCapacityReservationsRequest.ListBdsCapacityReservationsRequest;
 import * as ListBdsCertificateConfigurationsRequest from "./list-bds-certificate-configurations-request";
 export import ListBdsCertificateConfigurationsRequest = ListBdsCertificateConfigurationsRequest.ListBdsCertificateConfigurationsRequest;
 import * as ListBdsClusterVersionsRequest from "./list-bds-cluster-versions-request";
@@ -194,6 +218,10 @@ import * as TestBdsObjectStorageConnectionRequest from "./test-bds-object-storag
 export import TestBdsObjectStorageConnectionRequest = TestBdsObjectStorageConnectionRequest.TestBdsObjectStorageConnectionRequest;
 import * as UpdateAutoScalingConfigurationRequest from "./update-auto-scaling-configuration-request";
 export import UpdateAutoScalingConfigurationRequest = UpdateAutoScalingConfigurationRequest.UpdateAutoScalingConfigurationRequest;
+import * as UpdateBdsCapacityReservationRequest from "./update-bds-capacity-reservation-request";
+export import UpdateBdsCapacityReservationRequest = UpdateBdsCapacityReservationRequest.UpdateBdsCapacityReservationRequest;
+import * as UpdateBdsCapacityReservationConfigurationRequest from "./update-bds-capacity-reservation-configuration-request";
+export import UpdateBdsCapacityReservationConfigurationRequest = UpdateBdsCapacityReservationConfigurationRequest.UpdateBdsCapacityReservationConfigurationRequest;
 import * as UpdateBdsInstanceRequest from "./update-bds-instance-request";
 export import UpdateBdsInstanceRequest = UpdateBdsInstanceRequest.UpdateBdsInstanceRequest;
 import * as UpdateBdsMetastoreConfigurationRequest from "./update-bds-metastore-configuration-request";

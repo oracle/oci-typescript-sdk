@@ -240,6 +240,88 @@ export class BdsClient {
   }
 
   /**
+   * Activates the BDS capacity reservation configuration identified by the given ID.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ActivateBdsCapacityReservationConfigurationRequest
+   * @return ActivateBdsCapacityReservationConfigurationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/ActivateBdsCapacityReservationConfiguration.ts.html |here} to see how to use ActivateBdsCapacityReservationConfiguration API.
+   */
+  public async activateBdsCapacityReservationConfiguration(
+    activateBdsCapacityReservationConfigurationRequest: requests.ActivateBdsCapacityReservationConfigurationRequest
+  ): Promise<responses.ActivateBdsCapacityReservationConfigurationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation BdsClient#activateBdsCapacityReservationConfiguration.");
+    const operationName = "activateBdsCapacityReservationConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsCapacityReservationConfiguration/ActivateBdsCapacityReservationConfiguration";
+    const pathParams = {
+      "{bdsInstanceId}": activateBdsCapacityReservationConfigurationRequest.bdsInstanceId,
+      "{bdsCapacityReservationConfigurationId}":
+        activateBdsCapacityReservationConfigurationRequest.bdsCapacityReservationConfigurationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": activateBdsCapacityReservationConfigurationRequest.opcRequestId,
+      "opc-retry-token": activateBdsCapacityReservationConfigurationRequest.opcRetryToken,
+      "if-match": activateBdsCapacityReservationConfigurationRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      activateBdsCapacityReservationConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/bdsInstances/{bdsInstanceId}/bdsCapacityReservationConfigurations/{bdsCapacityReservationConfigurationId}/actions/activate",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ActivateBdsCapacityReservationConfigurationResponse>{},
+        body: await response.json(),
+        bodyKey: "bdsCapacityReservationConfiguration",
+        bodyModel: model.BdsCapacityReservationConfiguration,
+        type: "model.BdsCapacityReservationConfiguration",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Activate specified metastore configuration.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -1293,6 +1375,82 @@ export class BdsClient {
   }
 
   /**
+   * Moves a BDS capacity reservation into a different compartment.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ChangeBdsCapacityReservationCompartmentRequest
+   * @return ChangeBdsCapacityReservationCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/ChangeBdsCapacityReservationCompartment.ts.html |here} to see how to use ChangeBdsCapacityReservationCompartment API.
+   */
+  public async changeBdsCapacityReservationCompartment(
+    changeBdsCapacityReservationCompartmentRequest: requests.ChangeBdsCapacityReservationCompartmentRequest
+  ): Promise<responses.ChangeBdsCapacityReservationCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation BdsClient#changeBdsCapacityReservationCompartment.");
+    const operationName = "changeBdsCapacityReservationCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsCapacityReservation/ChangeBdsCapacityReservationCompartment";
+    const pathParams = {
+      "{bdsCapacityReservationId}":
+        changeBdsCapacityReservationCompartmentRequest.bdsCapacityReservationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": changeBdsCapacityReservationCompartmentRequest.opcRequestId,
+      "if-match": changeBdsCapacityReservationCompartmentRequest.ifMatch,
+      "opc-retry-token": changeBdsCapacityReservationCompartmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeBdsCapacityReservationCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/bdsCapacityReservations/{bdsCapacityReservationId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeBdsCapacityReservationCompartmentRequest.changeBdsCapacityReservationCompartmentDetails,
+        "ChangeBdsCapacityReservationCompartmentDetails",
+        model.ChangeBdsCapacityReservationCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeBdsCapacityReservationCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Moves a Big Data Service cluster into a different compartment.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -1596,6 +1754,201 @@ export class BdsClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a reusable BDS capacity reservation resource.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateBdsCapacityReservationRequest
+   * @return CreateBdsCapacityReservationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/CreateBdsCapacityReservation.ts.html |here} to see how to use CreateBdsCapacityReservation API.
+   */
+  public async createBdsCapacityReservation(
+    createBdsCapacityReservationRequest: requests.CreateBdsCapacityReservationRequest
+  ): Promise<responses.CreateBdsCapacityReservationResponse> {
+    if (this.logger) this.logger.debug("Calling operation BdsClient#createBdsCapacityReservation.");
+    const operationName = "createBdsCapacityReservation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsCapacityReservation/CreateBdsCapacityReservation";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createBdsCapacityReservationRequest.opcRequestId,
+      "opc-retry-token": createBdsCapacityReservationRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createBdsCapacityReservationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/bdsCapacityReservations",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createBdsCapacityReservationRequest.createBdsCapacityReservationDetails,
+        "CreateBdsCapacityReservationDetails",
+        model.CreateBdsCapacityReservationDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateBdsCapacityReservationResponse>{},
+        body: await response.json(),
+        bodyKey: "bdsCapacityReservation",
+        bodyModel: model.BdsCapacityReservation,
+        type: "model.BdsCapacityReservation",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-location"),
+            key: "contentLocation",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a configuration between the specified BDS cluster and a BDS capacity reservation.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateBdsCapacityReservationConfigurationRequest
+   * @return CreateBdsCapacityReservationConfigurationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/CreateBdsCapacityReservationConfiguration.ts.html |here} to see how to use CreateBdsCapacityReservationConfiguration API.
+   */
+  public async createBdsCapacityReservationConfiguration(
+    createBdsCapacityReservationConfigurationRequest: requests.CreateBdsCapacityReservationConfigurationRequest
+  ): Promise<responses.CreateBdsCapacityReservationConfigurationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation BdsClient#createBdsCapacityReservationConfiguration.");
+    const operationName = "createBdsCapacityReservationConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsCapacityReservationConfiguration/CreateBdsCapacityReservationConfiguration";
+    const pathParams = {
+      "{bdsInstanceId}": createBdsCapacityReservationConfigurationRequest.bdsInstanceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createBdsCapacityReservationConfigurationRequest.opcRequestId,
+      "opc-retry-token": createBdsCapacityReservationConfigurationRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createBdsCapacityReservationConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/bdsInstances/{bdsInstanceId}/bdsCapacityReservationConfigurations",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createBdsCapacityReservationConfigurationRequest.createBdsCapacityReservationConfigurationDetails,
+        "CreateBdsCapacityReservationConfigurationDetails",
+        model.CreateBdsCapacityReservationConfigurationDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateBdsCapacityReservationConfigurationResponse>{},
+        body: await response.json(),
+        bodyKey: "bdsCapacityReservationConfiguration",
+        bodyModel: model.BdsCapacityReservationConfiguration,
+        type: "model.BdsCapacityReservationConfiguration",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-location"),
+            key: "contentLocation",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
             dataType: "string"
           }
         ]
@@ -2163,6 +2516,90 @@ export class BdsClient {
   }
 
   /**
+   * Deactivates the BDS capacity reservation configuration identified by the given ID.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeactivateBdsCapacityReservationConfigurationRequest
+   * @return DeactivateBdsCapacityReservationConfigurationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/DeactivateBdsCapacityReservationConfiguration.ts.html |here} to see how to use DeactivateBdsCapacityReservationConfiguration API.
+   */
+  public async deactivateBdsCapacityReservationConfiguration(
+    deactivateBdsCapacityReservationConfigurationRequest: requests.DeactivateBdsCapacityReservationConfigurationRequest
+  ): Promise<responses.DeactivateBdsCapacityReservationConfigurationResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation BdsClient#deactivateBdsCapacityReservationConfiguration."
+      );
+    const operationName = "deactivateBdsCapacityReservationConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsCapacityReservationConfiguration/DeactivateBdsCapacityReservationConfiguration";
+    const pathParams = {
+      "{bdsInstanceId}": deactivateBdsCapacityReservationConfigurationRequest.bdsInstanceId,
+      "{bdsCapacityReservationConfigurationId}":
+        deactivateBdsCapacityReservationConfigurationRequest.bdsCapacityReservationConfigurationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": deactivateBdsCapacityReservationConfigurationRequest.opcRequestId,
+      "opc-retry-token": deactivateBdsCapacityReservationConfigurationRequest.opcRetryToken,
+      "if-match": deactivateBdsCapacityReservationConfigurationRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deactivateBdsCapacityReservationConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/bdsInstances/{bdsInstanceId}/bdsCapacityReservationConfigurations/{bdsCapacityReservationConfigurationId}/actions/deactivate",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeactivateBdsCapacityReservationConfigurationResponse>{},
+        body: await response.json(),
+        bodyKey: "bdsCapacityReservationConfiguration",
+        bodyModel: model.BdsCapacityReservationConfiguration,
+        type: "model.BdsCapacityReservationConfiguration",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deactivate the IAM user sync configuration.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeactivateIamUserSyncConfigurationRequest
@@ -2388,6 +2825,146 @@ export class BdsClient {
           {
             value: response.headers.get("opc-work-request-id"),
             key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the BDS capacity reservation identified by the given ID.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteBdsCapacityReservationRequest
+   * @return DeleteBdsCapacityReservationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/DeleteBdsCapacityReservation.ts.html |here} to see how to use DeleteBdsCapacityReservation API.
+   */
+  public async deleteBdsCapacityReservation(
+    deleteBdsCapacityReservationRequest: requests.DeleteBdsCapacityReservationRequest
+  ): Promise<responses.DeleteBdsCapacityReservationResponse> {
+    if (this.logger) this.logger.debug("Calling operation BdsClient#deleteBdsCapacityReservation.");
+    const operationName = "deleteBdsCapacityReservation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsCapacityReservation/DeleteBdsCapacityReservation";
+    const pathParams = {
+      "{bdsCapacityReservationId}": deleteBdsCapacityReservationRequest.bdsCapacityReservationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteBdsCapacityReservationRequest.ifMatch,
+      "opc-request-id": deleteBdsCapacityReservationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteBdsCapacityReservationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/bdsCapacityReservations/{bdsCapacityReservationId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteBdsCapacityReservationResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the BDS capacity reservation configuration identified by the given ID.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteBdsCapacityReservationConfigurationRequest
+   * @return DeleteBdsCapacityReservationConfigurationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/DeleteBdsCapacityReservationConfiguration.ts.html |here} to see how to use DeleteBdsCapacityReservationConfiguration API.
+   */
+  public async deleteBdsCapacityReservationConfiguration(
+    deleteBdsCapacityReservationConfigurationRequest: requests.DeleteBdsCapacityReservationConfigurationRequest
+  ): Promise<responses.DeleteBdsCapacityReservationConfigurationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation BdsClient#deleteBdsCapacityReservationConfiguration.");
+    const operationName = "deleteBdsCapacityReservationConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsCapacityReservationConfiguration/DeleteBdsCapacityReservationConfiguration";
+    const pathParams = {
+      "{bdsInstanceId}": deleteBdsCapacityReservationConfigurationRequest.bdsInstanceId,
+      "{bdsCapacityReservationConfigurationId}":
+        deleteBdsCapacityReservationConfigurationRequest.bdsCapacityReservationConfigurationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteBdsCapacityReservationConfigurationRequest.ifMatch,
+      "opc-request-id": deleteBdsCapacityReservationConfigurationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteBdsCapacityReservationConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/bdsInstances/{bdsInstanceId}/bdsCapacityReservationConfigurations/{bdsCapacityReservationConfigurationId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteBdsCapacityReservationConfigurationResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           }
         ]
@@ -3387,6 +3964,162 @@ export class BdsClient {
         bodyKey: "bdsApiKey",
         bodyModel: model.BdsApiKey,
         type: "model.BdsApiKey",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns information about the BDS capacity reservation identified by the given ID.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetBdsCapacityReservationRequest
+   * @return GetBdsCapacityReservationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/GetBdsCapacityReservation.ts.html |here} to see how to use GetBdsCapacityReservation API.
+   */
+  public async getBdsCapacityReservation(
+    getBdsCapacityReservationRequest: requests.GetBdsCapacityReservationRequest
+  ): Promise<responses.GetBdsCapacityReservationResponse> {
+    if (this.logger) this.logger.debug("Calling operation BdsClient#getBdsCapacityReservation.");
+    const operationName = "getBdsCapacityReservation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsCapacityReservation/GetBdsCapacityReservation";
+    const pathParams = {
+      "{bdsCapacityReservationId}": getBdsCapacityReservationRequest.bdsCapacityReservationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getBdsCapacityReservationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getBdsCapacityReservationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/bdsCapacityReservations/{bdsCapacityReservationId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetBdsCapacityReservationResponse>{},
+        body: await response.json(),
+        bodyKey: "bdsCapacityReservation",
+        bodyModel: model.BdsCapacityReservation,
+        type: "model.BdsCapacityReservation",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns information about the BDS capacity reservation configuration identified by the given ID.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetBdsCapacityReservationConfigurationRequest
+   * @return GetBdsCapacityReservationConfigurationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/GetBdsCapacityReservationConfiguration.ts.html |here} to see how to use GetBdsCapacityReservationConfiguration API.
+   */
+  public async getBdsCapacityReservationConfiguration(
+    getBdsCapacityReservationConfigurationRequest: requests.GetBdsCapacityReservationConfigurationRequest
+  ): Promise<responses.GetBdsCapacityReservationConfigurationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation BdsClient#getBdsCapacityReservationConfiguration.");
+    const operationName = "getBdsCapacityReservationConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsCapacityReservationConfiguration/GetBdsCapacityReservationConfiguration";
+    const pathParams = {
+      "{bdsInstanceId}": getBdsCapacityReservationConfigurationRequest.bdsInstanceId,
+      "{bdsCapacityReservationConfigurationId}":
+        getBdsCapacityReservationConfigurationRequest.bdsCapacityReservationConfigurationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getBdsCapacityReservationConfigurationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getBdsCapacityReservationConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/bdsInstances/{bdsInstanceId}/bdsCapacityReservationConfigurations/{bdsCapacityReservationConfigurationId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetBdsCapacityReservationConfigurationResponse>{},
+        body: await response.json(),
+        bodyKey: "bdsCapacityReservationConfiguration",
+        bodyModel: model.BdsCapacityReservationConfiguration,
+        type: "model.BdsCapacityReservationConfiguration",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -4787,6 +5520,263 @@ export class BdsClient {
     request: requests.ListBdsApiKeysRequest
   ): AsyncIterableIterator<responses.ListBdsApiKeysResponse> {
     return paginateResponses(request, req => this.listBdsApiKeys(req));
+  }
+
+  /**
+   * Returns a list of BDS capacity reservation configurations associated with the specified BDS capacity reservation.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListBdsCapacityReservationAssociatedConfigurationsRequest
+   * @return ListBdsCapacityReservationAssociatedConfigurationsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/ListBdsCapacityReservationAssociatedConfigurations.ts.html |here} to see how to use ListBdsCapacityReservationAssociatedConfigurations API.
+   */
+  public async listBdsCapacityReservationAssociatedConfigurations(
+    listBdsCapacityReservationAssociatedConfigurationsRequest: requests.ListBdsCapacityReservationAssociatedConfigurationsRequest
+  ): Promise<responses.ListBdsCapacityReservationAssociatedConfigurationsResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation BdsClient#listBdsCapacityReservationAssociatedConfigurations."
+      );
+    const operationName = "listBdsCapacityReservationAssociatedConfigurations";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsCapacityReservationConfiguration/ListBdsCapacityReservationAssociatedConfigurations";
+    const pathParams = {
+      "{bdsCapacityReservationId}":
+        listBdsCapacityReservationAssociatedConfigurationsRequest.bdsCapacityReservationId
+    };
+
+    const queryParams = {
+      "compartmentId": listBdsCapacityReservationAssociatedConfigurationsRequest.compartmentId,
+      "lifecycleState": listBdsCapacityReservationAssociatedConfigurationsRequest.lifecycleState,
+      "page": listBdsCapacityReservationAssociatedConfigurationsRequest.page,
+      "limit": listBdsCapacityReservationAssociatedConfigurationsRequest.limit,
+      "sortBy": listBdsCapacityReservationAssociatedConfigurationsRequest.sortBy,
+      "sortOrder": listBdsCapacityReservationAssociatedConfigurationsRequest.sortOrder,
+      "displayName": listBdsCapacityReservationAssociatedConfigurationsRequest.displayName
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listBdsCapacityReservationAssociatedConfigurationsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listBdsCapacityReservationAssociatedConfigurationsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/bdsCapacityReservations/{bdsCapacityReservationId}/associatedConfigurations",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListBdsCapacityReservationAssociatedConfigurationsResponse>{},
+        body: await response.json(),
+        bodyKey: "bdsCapacityReservationAssociatedConfigurationCollection",
+        bodyModel: model.BdsCapacityReservationAssociatedConfigurationCollection,
+        type: "model.BdsCapacityReservationAssociatedConfigurationCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns a list of BDS capacity reservation configurations for the specified BDS cluster.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListBdsCapacityReservationConfigurationsRequest
+   * @return ListBdsCapacityReservationConfigurationsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/ListBdsCapacityReservationConfigurations.ts.html |here} to see how to use ListBdsCapacityReservationConfigurations API.
+   */
+  public async listBdsCapacityReservationConfigurations(
+    listBdsCapacityReservationConfigurationsRequest: requests.ListBdsCapacityReservationConfigurationsRequest
+  ): Promise<responses.ListBdsCapacityReservationConfigurationsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation BdsClient#listBdsCapacityReservationConfigurations.");
+    const operationName = "listBdsCapacityReservationConfigurations";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsCapacityReservationConfiguration/ListBdsCapacityReservationConfigurations";
+    const pathParams = {
+      "{bdsInstanceId}": listBdsCapacityReservationConfigurationsRequest.bdsInstanceId
+    };
+
+    const queryParams = {
+      "lifecycleState": listBdsCapacityReservationConfigurationsRequest.lifecycleState,
+      "page": listBdsCapacityReservationConfigurationsRequest.page,
+      "limit": listBdsCapacityReservationConfigurationsRequest.limit,
+      "sortBy": listBdsCapacityReservationConfigurationsRequest.sortBy,
+      "sortOrder": listBdsCapacityReservationConfigurationsRequest.sortOrder,
+      "displayName": listBdsCapacityReservationConfigurationsRequest.displayName
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listBdsCapacityReservationConfigurationsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listBdsCapacityReservationConfigurationsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/bdsInstances/{bdsInstanceId}/bdsCapacityReservationConfigurations",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListBdsCapacityReservationConfigurationsResponse>{},
+        body: await response.json(),
+        bodyKey: "bdsCapacityReservationConfigurationCollection",
+        bodyModel: model.BdsCapacityReservationConfigurationCollection,
+        type: "model.BdsCapacityReservationConfigurationCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns a list of BDS capacity reservations in a compartment.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListBdsCapacityReservationsRequest
+   * @return ListBdsCapacityReservationsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/ListBdsCapacityReservations.ts.html |here} to see how to use ListBdsCapacityReservations API.
+   */
+  public async listBdsCapacityReservations(
+    listBdsCapacityReservationsRequest: requests.ListBdsCapacityReservationsRequest
+  ): Promise<responses.ListBdsCapacityReservationsResponse> {
+    if (this.logger) this.logger.debug("Calling operation BdsClient#listBdsCapacityReservations.");
+    const operationName = "listBdsCapacityReservations";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsCapacityReservation/ListBdsCapacityReservations";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listBdsCapacityReservationsRequest.compartmentId,
+      "lifecycleState": listBdsCapacityReservationsRequest.lifecycleState,
+      "page": listBdsCapacityReservationsRequest.page,
+      "limit": listBdsCapacityReservationsRequest.limit,
+      "sortBy": listBdsCapacityReservationsRequest.sortBy,
+      "sortOrder": listBdsCapacityReservationsRequest.sortOrder,
+      "displayName": listBdsCapacityReservationsRequest.displayName
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listBdsCapacityReservationsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listBdsCapacityReservationsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/bdsCapacityReservations",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListBdsCapacityReservationsResponse>{},
+        body: await response.json(),
+        bodyKey: "bdsCapacityReservationCollection",
+        bodyModel: model.BdsCapacityReservationCollection,
+        type: "model.BdsCapacityReservationCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
   }
 
   /**
@@ -8439,6 +9429,176 @@ export class BdsClient {
           {
             value: response.headers.get("opc-work-request-id"),
             key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the BDS capacity reservation identified by the given ID.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateBdsCapacityReservationRequest
+   * @return UpdateBdsCapacityReservationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/UpdateBdsCapacityReservation.ts.html |here} to see how to use UpdateBdsCapacityReservation API.
+   */
+  public async updateBdsCapacityReservation(
+    updateBdsCapacityReservationRequest: requests.UpdateBdsCapacityReservationRequest
+  ): Promise<responses.UpdateBdsCapacityReservationResponse> {
+    if (this.logger) this.logger.debug("Calling operation BdsClient#updateBdsCapacityReservation.");
+    const operationName = "updateBdsCapacityReservation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsCapacityReservation/UpdateBdsCapacityReservation";
+    const pathParams = {
+      "{bdsCapacityReservationId}": updateBdsCapacityReservationRequest.bdsCapacityReservationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateBdsCapacityReservationRequest.ifMatch,
+      "opc-request-id": updateBdsCapacityReservationRequest.opcRequestId,
+      "opc-retry-token": updateBdsCapacityReservationRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateBdsCapacityReservationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/bdsCapacityReservations/{bdsCapacityReservationId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateBdsCapacityReservationRequest.updateBdsCapacityReservationDetails,
+        "UpdateBdsCapacityReservationDetails",
+        model.UpdateBdsCapacityReservationDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateBdsCapacityReservationResponse>{},
+        body: await response.json(),
+        bodyKey: "bdsCapacityReservation",
+        bodyModel: model.BdsCapacityReservation,
+        type: "model.BdsCapacityReservation",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the BDS capacity reservation configuration identified by the given ID.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateBdsCapacityReservationConfigurationRequest
+   * @return UpdateBdsCapacityReservationConfigurationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/UpdateBdsCapacityReservationConfiguration.ts.html |here} to see how to use UpdateBdsCapacityReservationConfiguration API.
+   */
+  public async updateBdsCapacityReservationConfiguration(
+    updateBdsCapacityReservationConfigurationRequest: requests.UpdateBdsCapacityReservationConfigurationRequest
+  ): Promise<responses.UpdateBdsCapacityReservationConfigurationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation BdsClient#updateBdsCapacityReservationConfiguration.");
+    const operationName = "updateBdsCapacityReservationConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsCapacityReservationConfiguration/UpdateBdsCapacityReservationConfiguration";
+    const pathParams = {
+      "{bdsInstanceId}": updateBdsCapacityReservationConfigurationRequest.bdsInstanceId,
+      "{bdsCapacityReservationConfigurationId}":
+        updateBdsCapacityReservationConfigurationRequest.bdsCapacityReservationConfigurationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateBdsCapacityReservationConfigurationRequest.ifMatch,
+      "opc-request-id": updateBdsCapacityReservationConfigurationRequest.opcRequestId,
+      "opc-retry-token": updateBdsCapacityReservationConfigurationRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateBdsCapacityReservationConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/bdsInstances/{bdsInstanceId}/bdsCapacityReservationConfigurations/{bdsCapacityReservationConfigurationId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateBdsCapacityReservationConfigurationRequest.updateBdsCapacityReservationConfigurationDetails,
+        "UpdateBdsCapacityReservationConfigurationDetails",
+        model.UpdateBdsCapacityReservationConfigurationDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateBdsCapacityReservationConfigurationResponse>{},
+        body: await response.json(),
+        bodyKey: "bdsCapacityReservationConfiguration",
+        bodyModel: model.BdsCapacityReservationConfiguration,
+        type: "model.BdsCapacityReservationConfiguration",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
             dataType: "string"
           }
         ]

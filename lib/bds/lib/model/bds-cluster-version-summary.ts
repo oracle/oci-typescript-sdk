@@ -22,7 +22,7 @@ export interface BdsClusterVersionSummary {
   /**
    * BDS version to be used for cluster creation
    */
-  "bdsVersion": string;
+  "bdsVersion"?: string;
   /**
    * ODH version to be used for cluster creation
    */

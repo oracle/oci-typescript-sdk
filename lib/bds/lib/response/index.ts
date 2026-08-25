@@ -12,6 +12,8 @@
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as ActivateBdsCapacityReservationConfigurationResponse from "./activate-bds-capacity-reservation-configuration-response";
+export import ActivateBdsCapacityReservationConfigurationResponse = ActivateBdsCapacityReservationConfigurationResponse.ActivateBdsCapacityReservationConfigurationResponse;
 import * as ActivateBdsMetastoreConfigurationResponse from "./activate-bds-metastore-configuration-response";
 export import ActivateBdsMetastoreConfigurationResponse = ActivateBdsMetastoreConfigurationResponse.ActivateBdsMetastoreConfigurationResponse;
 import * as ActivateIamUserSyncConfigurationResponse from "./activate-iam-user-sync-configuration-response";
@@ -38,6 +40,8 @@ import * as BdsInstanceResetPasswordResponse from "./bds-instance-reset-password
 export import BdsInstanceResetPasswordResponse = BdsInstanceResetPasswordResponse.BdsInstanceResetPasswordResponse;
 import * as CertificateServiceInfoResponse from "./certificate-service-info-response";
 export import CertificateServiceInfoResponse = CertificateServiceInfoResponse.CertificateServiceInfoResponse;
+import * as ChangeBdsCapacityReservationCompartmentResponse from "./change-bds-capacity-reservation-compartment-response";
+export import ChangeBdsCapacityReservationCompartmentResponse = ChangeBdsCapacityReservationCompartmentResponse.ChangeBdsCapacityReservationCompartmentResponse;
 import * as ChangeBdsInstanceCompartmentResponse from "./change-bds-instance-compartment-response";
 export import ChangeBdsInstanceCompartmentResponse = ChangeBdsInstanceCompartmentResponse.ChangeBdsInstanceCompartmentResponse;
 import * as ChangeShapeResponse from "./change-shape-response";
@@ -46,6 +50,10 @@ import * as CreateBdsApiKeyResponse from "./create-bds-api-key-response";
 export import CreateBdsApiKeyResponse = CreateBdsApiKeyResponse.CreateBdsApiKeyResponse;
 import * as CreateBdsCapacityReportResponse from "./create-bds-capacity-report-response";
 export import CreateBdsCapacityReportResponse = CreateBdsCapacityReportResponse.CreateBdsCapacityReportResponse;
+import * as CreateBdsCapacityReservationResponse from "./create-bds-capacity-reservation-response";
+export import CreateBdsCapacityReservationResponse = CreateBdsCapacityReservationResponse.CreateBdsCapacityReservationResponse;
+import * as CreateBdsCapacityReservationConfigurationResponse from "./create-bds-capacity-reservation-configuration-response";
+export import CreateBdsCapacityReservationConfigurationResponse = CreateBdsCapacityReservationConfigurationResponse.CreateBdsCapacityReservationConfigurationResponse;
 import * as CreateBdsCertificateConfigurationResponse from "./create-bds-certificate-configuration-response";
 export import CreateBdsCertificateConfigurationResponse = CreateBdsCertificateConfigurationResponse.CreateBdsCertificateConfigurationResponse;
 import * as CreateBdsInstanceResponse from "./create-bds-instance-response";
@@ -60,12 +68,18 @@ import * as CreateNodeReplaceConfigurationResponse from "./create-node-replace-c
 export import CreateNodeReplaceConfigurationResponse = CreateNodeReplaceConfigurationResponse.CreateNodeReplaceConfigurationResponse;
 import * as CreateResourcePrincipalConfigurationResponse from "./create-resource-principal-configuration-response";
 export import CreateResourcePrincipalConfigurationResponse = CreateResourcePrincipalConfigurationResponse.CreateResourcePrincipalConfigurationResponse;
+import * as DeactivateBdsCapacityReservationConfigurationResponse from "./deactivate-bds-capacity-reservation-configuration-response";
+export import DeactivateBdsCapacityReservationConfigurationResponse = DeactivateBdsCapacityReservationConfigurationResponse.DeactivateBdsCapacityReservationConfigurationResponse;
 import * as DeactivateIamUserSyncConfigurationResponse from "./deactivate-iam-user-sync-configuration-response";
 export import DeactivateIamUserSyncConfigurationResponse = DeactivateIamUserSyncConfigurationResponse.DeactivateIamUserSyncConfigurationResponse;
 import * as DeactivateUpstConfigurationResponse from "./deactivate-upst-configuration-response";
 export import DeactivateUpstConfigurationResponse = DeactivateUpstConfigurationResponse.DeactivateUpstConfigurationResponse;
 import * as DeleteBdsApiKeyResponse from "./delete-bds-api-key-response";
 export import DeleteBdsApiKeyResponse = DeleteBdsApiKeyResponse.DeleteBdsApiKeyResponse;
+import * as DeleteBdsCapacityReservationResponse from "./delete-bds-capacity-reservation-response";
+export import DeleteBdsCapacityReservationResponse = DeleteBdsCapacityReservationResponse.DeleteBdsCapacityReservationResponse;
+import * as DeleteBdsCapacityReservationConfigurationResponse from "./delete-bds-capacity-reservation-configuration-response";
+export import DeleteBdsCapacityReservationConfigurationResponse = DeleteBdsCapacityReservationConfigurationResponse.DeleteBdsCapacityReservationConfigurationResponse;
 import * as DeleteBdsCertificateConfigurationResponse from "./delete-bds-certificate-configuration-response";
 export import DeleteBdsCertificateConfigurationResponse = DeleteBdsCertificateConfigurationResponse.DeleteBdsCertificateConfigurationResponse;
 import * as DeleteBdsInstanceResponse from "./delete-bds-instance-response";
@@ -92,6 +106,10 @@ import * as GetAutoScalingConfigurationResponse from "./get-auto-scaling-configu
 export import GetAutoScalingConfigurationResponse = GetAutoScalingConfigurationResponse.GetAutoScalingConfigurationResponse;
 import * as GetBdsApiKeyResponse from "./get-bds-api-key-response";
 export import GetBdsApiKeyResponse = GetBdsApiKeyResponse.GetBdsApiKeyResponse;
+import * as GetBdsCapacityReservationResponse from "./get-bds-capacity-reservation-response";
+export import GetBdsCapacityReservationResponse = GetBdsCapacityReservationResponse.GetBdsCapacityReservationResponse;
+import * as GetBdsCapacityReservationConfigurationResponse from "./get-bds-capacity-reservation-configuration-response";
+export import GetBdsCapacityReservationConfigurationResponse = GetBdsCapacityReservationConfigurationResponse.GetBdsCapacityReservationConfigurationResponse;
 import * as GetBdsCertificateConfigurationResponse from "./get-bds-certificate-configuration-response";
 export import GetBdsCertificateConfigurationResponse = GetBdsCertificateConfigurationResponse.GetBdsCertificateConfigurationResponse;
 import * as GetBdsInstanceResponse from "./get-bds-instance-response";
@@ -124,6 +142,12 @@ import * as ListAutoScalingConfigurationsResponse from "./list-auto-scaling-conf
 export import ListAutoScalingConfigurationsResponse = ListAutoScalingConfigurationsResponse.ListAutoScalingConfigurationsResponse;
 import * as ListBdsApiKeysResponse from "./list-bds-api-keys-response";
 export import ListBdsApiKeysResponse = ListBdsApiKeysResponse.ListBdsApiKeysResponse;
+import * as ListBdsCapacityReservationAssociatedConfigurationsResponse from "./list-bds-capacity-reservation-associated-configurations-response";
+export import ListBdsCapacityReservationAssociatedConfigurationsResponse = ListBdsCapacityReservationAssociatedConfigurationsResponse.ListBdsCapacityReservationAssociatedConfigurationsResponse;
+import * as ListBdsCapacityReservationConfigurationsResponse from "./list-bds-capacity-reservation-configurations-response";
+export import ListBdsCapacityReservationConfigurationsResponse = ListBdsCapacityReservationConfigurationsResponse.ListBdsCapacityReservationConfigurationsResponse;
+import * as ListBdsCapacityReservationsResponse from "./list-bds-capacity-reservations-response";
+export import ListBdsCapacityReservationsResponse = ListBdsCapacityReservationsResponse.ListBdsCapacityReservationsResponse;
 import * as ListBdsCertificateConfigurationsResponse from "./list-bds-certificate-configurations-response";
 export import ListBdsCertificateConfigurationsResponse = ListBdsCertificateConfigurationsResponse.ListBdsCertificateConfigurationsResponse;
 import * as ListBdsClusterVersionsResponse from "./list-bds-cluster-versions-response";
@@ -194,6 +218,10 @@ import * as TestBdsObjectStorageConnectionResponse from "./test-bds-object-stora
 export import TestBdsObjectStorageConnectionResponse = TestBdsObjectStorageConnectionResponse.TestBdsObjectStorageConnectionResponse;
 import * as UpdateAutoScalingConfigurationResponse from "./update-auto-scaling-configuration-response";
 export import UpdateAutoScalingConfigurationResponse = UpdateAutoScalingConfigurationResponse.UpdateAutoScalingConfigurationResponse;
+import * as UpdateBdsCapacityReservationResponse from "./update-bds-capacity-reservation-response";
+export import UpdateBdsCapacityReservationResponse = UpdateBdsCapacityReservationResponse.UpdateBdsCapacityReservationResponse;
+import * as UpdateBdsCapacityReservationConfigurationResponse from "./update-bds-capacity-reservation-configuration-response";
+export import UpdateBdsCapacityReservationConfigurationResponse = UpdateBdsCapacityReservationConfigurationResponse.UpdateBdsCapacityReservationConfigurationResponse;
 import * as UpdateBdsInstanceResponse from "./update-bds-instance-response";
 export import UpdateBdsInstanceResponse = UpdateBdsInstanceResponse.UpdateBdsInstanceResponse;
 import * as UpdateBdsMetastoreConfigurationResponse from "./update-bds-metastore-configuration-response";

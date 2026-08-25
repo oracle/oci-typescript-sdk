@@ -21,7 +21,7 @@ export interface ListWorkRequestsRequest extends common.BaseRequest {
   /**
    * The compartment OCID.
    */
-  "compartmentId": string;
+  "compartmentId"?: string;
   /**
    * Unique Oracle-assigned identifier of the work request.
    */
