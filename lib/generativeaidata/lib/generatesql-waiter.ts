@@ -14,30 +14,30 @@
 import * as serviceRequests from "./request";
 import * as serviceResponses from "./response";
 import * as models from "./model";
-import { GetEnrichmentJobClient } from "./client";
+import { GenerateSqlClient } from "./client";
 import { genericWaiter, genericTerminalConditionWaiter, WaiterConfiguration } from "oci-common";
 
-export class GetEnrichmentJobWaiter {
+export class GenerateSqlWaiter {
   public constructor(
-    private client: GetEnrichmentJobClient,
+    private client: GenerateSqlClient,
     private readonly config?: WaiterConfiguration
   ) {}
 
   /**
-   * Waits forEnrichmentJob till it reaches any of the provided states
+   * Waits forGenerateSqlFromNlJob till it reaches any of the provided states
    *
    * @param request the request to send
    * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
-   * @return response returns GetEnrichmentJobResponse
+   * @return response returns GetGenerateSqlFromNlJobResponse
    */
-  public async forEnrichmentJob(
-    request: serviceRequests.GetEnrichmentJobRequest,
+  public async forGenerateSqlFromNlJob(
+    request: serviceRequests.GetGenerateSqlFromNlJobRequest,
     ...targetStates: models.LifecycleState[]
-  ): Promise<serviceResponses.GetEnrichmentJobResponse> {
+  ): Promise<serviceResponses.GetGenerateSqlFromNlJobResponse> {
     return genericWaiter(
       this.config,
-      () => this.client.getEnrichmentJob(request),
-      response => targetStates.includes(response.enrichmentJob.lifecycleState!)
+      () => this.client.getGenerateSqlFromNlJob(request),
+      response => targetStates.includes(response.generateSqlFromNlJob.lifecycleState!)
     );
   }
 }

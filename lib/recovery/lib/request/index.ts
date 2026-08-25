@@ -11,6 +11,8 @@
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as CancelLongTermBackupRequest from "./cancel-long-term-backup-request";
+export import CancelLongTermBackupRequest = CancelLongTermBackupRequest.CancelLongTermBackupRequest;
 import * as CancelProtectedDatabaseDeletionRequest from "./cancel-protected-database-deletion-request";
 export import CancelProtectedDatabaseDeletionRequest = CancelProtectedDatabaseDeletionRequest.CancelProtectedDatabaseDeletionRequest;
 import * as ChangeProtectedDatabaseCompartmentRequest from "./change-protected-database-compartment-request";
@@ -21,12 +23,16 @@ import * as ChangeProtectionPolicyCompartmentRequest from "./change-protection-p
 export import ChangeProtectionPolicyCompartmentRequest = ChangeProtectionPolicyCompartmentRequest.ChangeProtectionPolicyCompartmentRequest;
 import * as ChangeRecoveryServiceSubnetCompartmentRequest from "./change-recovery-service-subnet-compartment-request";
 export import ChangeRecoveryServiceSubnetCompartmentRequest = ChangeRecoveryServiceSubnetCompartmentRequest.ChangeRecoveryServiceSubnetCompartmentRequest;
+import * as CreateLongTermBackupRequest from "./create-long-term-backup-request";
+export import CreateLongTermBackupRequest = CreateLongTermBackupRequest.CreateLongTermBackupRequest;
 import * as CreateProtectedDatabaseRequest from "./create-protected-database-request";
 export import CreateProtectedDatabaseRequest = CreateProtectedDatabaseRequest.CreateProtectedDatabaseRequest;
 import * as CreateProtectionPolicyRequest from "./create-protection-policy-request";
 export import CreateProtectionPolicyRequest = CreateProtectionPolicyRequest.CreateProtectionPolicyRequest;
 import * as CreateRecoveryServiceSubnetRequest from "./create-recovery-service-subnet-request";
 export import CreateRecoveryServiceSubnetRequest = CreateRecoveryServiceSubnetRequest.CreateRecoveryServiceSubnetRequest;
+import * as DeleteLongTermBackupRequest from "./delete-long-term-backup-request";
+export import DeleteLongTermBackupRequest = DeleteLongTermBackupRequest.DeleteLongTermBackupRequest;
 import * as DeleteProtectedDatabaseRequest from "./delete-protected-database-request";
 export import DeleteProtectedDatabaseRequest = DeleteProtectedDatabaseRequest.DeleteProtectedDatabaseRequest;
 import * as DeleteProtectionPolicyRequest from "./delete-protection-policy-request";
@@ -35,6 +41,8 @@ import * as DeleteRecoveryServiceSubnetRequest from "./delete-recovery-service-s
 export import DeleteRecoveryServiceSubnetRequest = DeleteRecoveryServiceSubnetRequest.DeleteRecoveryServiceSubnetRequest;
 import * as FetchProtectedDatabaseConfigurationRequest from "./fetch-protected-database-configuration-request";
 export import FetchProtectedDatabaseConfigurationRequest = FetchProtectedDatabaseConfigurationRequest.FetchProtectedDatabaseConfigurationRequest;
+import * as GetLongTermBackupRequest from "./get-long-term-backup-request";
+export import GetLongTermBackupRequest = GetLongTermBackupRequest.GetLongTermBackupRequest;
 import * as GetProtectedDatabaseRequest from "./get-protected-database-request";
 export import GetProtectedDatabaseRequest = GetProtectedDatabaseRequest.GetProtectedDatabaseRequest;
 import * as GetProtectionPolicyRequest from "./get-protection-policy-request";
@@ -43,6 +51,8 @@ import * as GetRecoveryServiceSubnetRequest from "./get-recovery-service-subnet-
 export import GetRecoveryServiceSubnetRequest = GetRecoveryServiceSubnetRequest.GetRecoveryServiceSubnetRequest;
 import * as GetWorkRequestRequest from "./get-work-request-request";
 export import GetWorkRequestRequest = GetWorkRequestRequest.GetWorkRequestRequest;
+import * as ListLongTermBackupsRequest from "./list-long-term-backups-request";
+export import ListLongTermBackupsRequest = ListLongTermBackupsRequest.ListLongTermBackupsRequest;
 import * as ListProtectedDatabasesRequest from "./list-protected-databases-request";
 export import ListProtectedDatabasesRequest = ListProtectedDatabasesRequest.ListProtectedDatabasesRequest;
 import * as ListProtectionPoliciesRequest from "./list-protection-policies-request";
@@ -57,6 +67,8 @@ import * as ListWorkRequestsRequest from "./list-work-requests-request";
 export import ListWorkRequestsRequest = ListWorkRequestsRequest.ListWorkRequestsRequest;
 import * as ScheduleProtectedDatabaseDeletionRequest from "./schedule-protected-database-deletion-request";
 export import ScheduleProtectedDatabaseDeletionRequest = ScheduleProtectedDatabaseDeletionRequest.ScheduleProtectedDatabaseDeletionRequest;
+import * as UpdateLongTermBackupRequest from "./update-long-term-backup-request";
+export import UpdateLongTermBackupRequest = UpdateLongTermBackupRequest.UpdateLongTermBackupRequest;
 import * as UpdateProtectedDatabaseRequest from "./update-protected-database-request";
 export import UpdateProtectedDatabaseRequest = UpdateProtectedDatabaseRequest.UpdateProtectedDatabaseRequest;
 import * as UpdateProtectionPolicyRequest from "./update-protection-policy-request";

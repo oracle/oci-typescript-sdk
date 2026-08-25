@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface EnrichmentJobSummary {
   /**
-   * Unique identifier that is immutable on creation.
+   * The OCID of the Semantic Store job.
    */
   "id": string;
   /**
-   * Owning SemanticStore [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) for a GenerateSqlJob.
+   * Owning SemanticStore [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) for the EnrichmentJob.
    */
   "semanticStoreId": string;
   /**
@@ -31,15 +31,19 @@ export interface EnrichmentJobSummary {
    */
   "displayName"?: string;
   /**
-   * Enrichment job type. Currently supported Full Build (All supported objects in a given schema) and Partial Build (Selected tables and/or supported objects in a given schema).
+   * Enrichment job type. Supported values are Full Build (all supported objects in a given schema), Partial Build (selected tables and/or supported objects in a given schema), and Delta Refresh (objects in a given schema that have changed since the previous enrichment job).
    */
   "enrichmentJobType": model.EnrichmentJobType;
+  /**
+   * The generative AI modelId used for Enrichment. You can use the ListModels API to list the available models. https://docs.oracle.com/en-us/iaas/api/#/en/generative-ai/20231130/ModelCollection/ListModels
+   */
+  "modelId": string;
   /**
    * The date and time that the enrichment job was accepted in the format of an RFC3339 datetime string.
    */
   "timeAccepted": Date;
   /**
-   * The lifecycleState of GenerateSqlJob.
+   * The lifecycle state of the EnrichmentJob.
    */
   "lifecycleState": model.LifecycleState;
   /**

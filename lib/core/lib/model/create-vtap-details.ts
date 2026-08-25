@@ -134,7 +134,8 @@ export namespace CreateVtapDetails {
     LoadBalancer = "LOAD_BALANCER",
     DbSystem = "DB_SYSTEM",
     ExadataVmCluster = "EXADATA_VM_CLUSTER",
-    AutonomousDataWarehouse = "AUTONOMOUS_DATA_WAREHOUSE"
+    AutonomousDataWarehouse = "AUTONOMOUS_DATA_WAREHOUSE",
+    NetworkFirewall = "NETWORK_FIREWALL"
   }
 
   export enum TrafficMode {

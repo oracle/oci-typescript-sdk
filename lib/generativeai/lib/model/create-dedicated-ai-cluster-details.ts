@@ -51,7 +51,7 @@ Allowed values are:
    */
   "unitCount": number;
   /**
-    * The shape of dedicated unit in this AI cluster. The underlying hardware configuration is hidden from customers.
+    * The shape of dedicated unit in this AI cluster.
 * <p>
 Allowed values are:
 * - LARGE_COHERE
@@ -101,6 +101,10 @@ The following shapes can only be used to deploy imported models:
 * - H100_X1, H100_X2, H100_X4, H100_X8
 * - H100_X16, H100_X32
 * - H200_X1, H200_X2, H200_X4, H200_X8
+* - B200_X16, B200_X32
+* - B300_X1, B300_X2, B300_X4, B300_X8, B300_X16, B300_X32
+* - L40S_X1, L40S_X2, L40S_X4, L40S_X8, L40S_X16, L40S_X32
+* - MI300X_X1, MI300X_X2, MI300X_X4, MI300X_X8, MI300X_X16, MI300X_X32
 * - OAI_A10_X2
 * - OAI_H100_X1
 * - OAI_H100_X2
@@ -118,6 +122,26 @@ The following shapes can only be used to deploy imported models:
 * - OAI_B200_X4
 * - OAI_B200_X8
 * - SB_B200_X1
+* - B200_X16
+* - B200_X32
+* - B300_X1
+* - B300_X2
+* - B300_X4
+* - B300_X8
+* - B300_X16
+* - B300_X32
+* - L40S_X1
+* - L40S_X2
+* - L40S_X4
+* - L40S_X8
+* - L40S_X16
+* - L40S_X32
+* - MI300X_X1
+* - MI300X_X2
+* - MI300X_X4
+* - MI300X_X8
+* - MI300X_X16
+* - MI300X_X32
 * - COHERE_B300_X1
 * - META_B300_X1
 * - OAI_B300_X1

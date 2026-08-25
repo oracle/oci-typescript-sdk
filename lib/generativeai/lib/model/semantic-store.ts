@@ -61,7 +61,18 @@ export interface SemanticStore {
    * A message describing the current state in more detail that can provide actionable information.
    */
   "lifecycleDetails"?: string;
+  /**
+   * Whether user-defined semantic inputs, such as annotations, comments, and synonyms, are enabled for semantic-store enrichment.
+   * When true, enrichment uses both metadata and user-defined semantics.
+   * When false, enrichment uses metadata only.
+   * If not specified when the semantic store is created, this value defaults to true.
+   *
+   */
+  "isUserDefinedSemanticsEnabled"?: boolean;
   "dataSource": model.DataSourceDatabaseToolsConnectionDetails;
+  "modelSelection"?:
+    | model.DefaultSemanticStoreModelSelection
+    | model.CustomSemanticStoreModelSelection;
   "refreshSchedule"?:
     | model.RefreshScheduleOnCreateDetails
     | model.RefreshScheduleNoneDetails
@@ -114,6 +125,9 @@ export namespace SemanticStore {
         "dataSource": obj.dataSource
           ? model.DataSourceDetails.getJsonObj(obj.dataSource)
           : undefined,
+        "modelSelection": obj.modelSelection
+          ? model.SemanticStoreModelSelection.getJsonObj(obj.modelSelection)
+          : undefined,
         "refreshSchedule": obj.refreshSchedule
           ? model.RefreshScheduleDetails.getJsonObj(obj.refreshSchedule)
           : undefined,
@@ -129,6 +143,9 @@ export namespace SemanticStore {
       ...{
         "dataSource": obj.dataSource
           ? model.DataSourceDetails.getDeserializedJsonObj(obj.dataSource)
+          : undefined,
+        "modelSelection": obj.modelSelection
+          ? model.SemanticStoreModelSelection.getDeserializedJsonObj(obj.modelSelection)
           : undefined,
         "refreshSchedule": obj.refreshSchedule
           ? model.RefreshScheduleDetails.getDeserializedJsonObj(obj.refreshSchedule)

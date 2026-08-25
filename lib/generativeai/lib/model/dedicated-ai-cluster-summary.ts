@@ -81,7 +81,7 @@ Allowed values are:
    */
   "unitCount": number;
   /**
-   * The shape of dedicated unit in this AI cluster. The underlying hardware configuration is hidden from customers.
+   * The shape of dedicated unit in this AI cluster.
    */
   "unitShape": string;
   "capacity"?: model.DedicatedAiClusterHostingCapacity;

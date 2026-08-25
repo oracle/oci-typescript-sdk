@@ -21,7 +21,7 @@ export interface ListRecoveryServiceSubnetsRequest extends common.BaseRequest {
   /**
    * The compartment OCID.
    */
-  "compartmentId": string;
+  "compartmentId"?: string;
   /**
    * A filter to return only the resources that match the specified lifecycle state.
    */

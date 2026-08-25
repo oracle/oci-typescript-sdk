@@ -34,6 +34,17 @@ export interface GenerateSqlFromNlDetails {
    */
   "inputNaturalLanguageQuery": string;
   /**
+   * The generative AI modelId to use for Generate SQL. You can use the ListModels API to list the available models. https://docs.oracle.com/en-us/iaas/api/#/en/generative-ai/20231130/ModelCollection/ListModels
+   */
+  "modelId"?: string;
+  /**
+   * Controls whether GenerateSqlFromNl should be accepted as a background job or wait for completion.
+   * BACKGROUND_JOB accepts the request for background processing and returns a pollable job.
+   * WAIT_FOR_COMPLETION waits for completion within the service-defined timeout.
+   *
+   */
+  "completionMode"?: model.CompletionMode;
+  /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
    * Example: {@code {\"bar-key\": \"value\"}}
    *

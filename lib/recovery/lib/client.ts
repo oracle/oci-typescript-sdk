@@ -237,6 +237,80 @@ export class DatabaseRecoveryClient {
   }
 
   /**
+   * Cancels a long-term backup that is being created or scheduled to be created. You must specify the unique identifier or OCID of the long-term backup that you want to cancel. You can cancel a long-term backup only if the current state of the backup resource is WAITING_FOR_BACKUP_FROM_DB, or SCHEDULED_FOR_ARCHIVAL, or ARCHIVAL_IN_PROGRESS.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CancelLongTermBackupRequest
+   * @return CancelLongTermBackupResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/recovery/CancelLongTermBackup.ts.html |here} to see how to use CancelLongTermBackup API.
+   */
+  public async cancelLongTermBackup(
+    cancelLongTermBackupRequest: requests.CancelLongTermBackupRequest
+  ): Promise<responses.CancelLongTermBackupResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseRecoveryClient#cancelLongTermBackup.");
+    const operationName = "cancelLongTermBackup";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{longTermBackupId}": cancelLongTermBackupRequest.longTermBackupId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": cancelLongTermBackupRequest.opcRetryToken,
+      "if-match": cancelLongTermBackupRequest.ifMatch,
+      "opc-request-id": cancelLongTermBackupRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      cancelLongTermBackupRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/longTermBackups/{longTermBackupId}/actions/cancel",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CancelLongTermBackupResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Cancels the scheduled deletion of a protected database, and returns the protected database to an ACTIVE state. You can cancel the deletion only if the protected database is in the DELETE SCHEDULED state.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CancelProtectedDatabaseDeletionRequest
@@ -261,6 +335,7 @@ export class DatabaseRecoveryClient {
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": cancelProtectedDatabaseDeletionRequest.opcRetryToken,
       "if-match": cancelProtectedDatabaseDeletionRequest.ifMatch,
       "opc-request-id": cancelProtectedDatabaseDeletionRequest.opcRequestId
     };
@@ -331,6 +406,7 @@ export class DatabaseRecoveryClient {
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": changeProtectedDatabaseCompartmentRequest.opcRetryToken,
       "if-match": changeProtectedDatabaseCompartmentRequest.ifMatch,
       "opc-request-id": changeProtectedDatabaseCompartmentRequest.opcRequestId
     };
@@ -411,6 +487,7 @@ export class DatabaseRecoveryClient {
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": changeProtectedDatabaseSubscriptionRequest.opcRetryToken,
       "opc-request-id": changeProtectedDatabaseSubscriptionRequest.opcRequestId,
       "if-match": changeProtectedDatabaseSubscriptionRequest.ifMatch
     };
@@ -491,6 +568,7 @@ export class DatabaseRecoveryClient {
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": changeProtectionPolicyCompartmentRequest.opcRetryToken,
       "if-match": changeProtectionPolicyCompartmentRequest.ifMatch,
       "opc-request-id": changeProtectionPolicyCompartmentRequest.opcRequestId
     };
@@ -572,6 +650,7 @@ export class DatabaseRecoveryClient {
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": changeRecoveryServiceSubnetCompartmentRequest.opcRetryToken,
       "if-match": changeRecoveryServiceSubnetCompartmentRequest.ifMatch,
       "opc-request-id": changeRecoveryServiceSubnetCompartmentRequest.opcRequestId
     };
@@ -608,6 +687,97 @@ export class DatabaseRecoveryClient {
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeRecoveryServiceSubnetCompartmentResponse>{},
         responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a long-term backup of a specified protected database.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateLongTermBackupRequest
+   * @return CreateLongTermBackupResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/recovery/CreateLongTermBackup.ts.html |here} to see how to use CreateLongTermBackup API.
+   */
+  public async createLongTermBackup(
+    createLongTermBackupRequest: requests.CreateLongTermBackupRequest
+  ): Promise<responses.CreateLongTermBackupResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseRecoveryClient#createLongTermBackup.");
+    const operationName = "createLongTermBackup";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createLongTermBackupRequest.opcRetryToken,
+      "opc-request-id": createLongTermBackupRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createLongTermBackupRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/longTermBackups",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createLongTermBackupRequest.createLongTermBackupDetails,
+        "CreateLongTermBackupDetails",
+        model.CreateLongTermBackupDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateLongTermBackupResponse>{},
+        body: await response.json(),
+        bodyKey: "longTermBackup",
+        bodyModel: model.LongTermBackup,
+        type: "model.LongTermBackup",
+        responseHeaders: [
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
           {
             value: response.headers.get("opc-work-request-id"),
             key: "opcWorkRequestId",
@@ -902,7 +1072,83 @@ export class DatabaseRecoveryClient {
   }
 
   /**
+   * Deletes a long-term backup. You can delete a long-term backup only if the current state of the backup is ACTIVE, FAILED, or CANCELED.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteLongTermBackupRequest
+   * @return DeleteLongTermBackupResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/recovery/DeleteLongTermBackup.ts.html |here} to see how to use DeleteLongTermBackup API.
+   */
+  public async deleteLongTermBackup(
+    deleteLongTermBackupRequest: requests.DeleteLongTermBackupRequest
+  ): Promise<responses.DeleteLongTermBackupResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseRecoveryClient#deleteLongTermBackup.");
+    const operationName = "deleteLongTermBackup";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{longTermBackupId}": deleteLongTermBackupRequest.longTermBackupId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteLongTermBackupRequest.ifMatch,
+      "opc-request-id": deleteLongTermBackupRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteLongTermBackupRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/longTermBackups/{longTermBackupId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteLongTermBackupResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes a protected database based on the specified protected database ID.
+   * Only the user or the Oracle Database service that created the protected database is allowed to modify or delete it.
+   *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteProtectedDatabaseRequest
    * @return DeleteProtectedDatabaseResponse
@@ -1149,6 +1395,7 @@ export class DatabaseRecoveryClient {
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": fetchProtectedDatabaseConfigurationRequest.opcRetryToken,
       "opc-request-id": fetchProtectedDatabaseConfigurationRequest.opcRequestId,
       "if-match": fetchProtectedDatabaseConfigurationRequest.ifMatch
     };
@@ -1207,6 +1454,82 @@ export class DatabaseRecoveryClient {
           {
             value: response.headers.get("opc-checksum"),
             key: "opcChecksum",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Retrieves information regarding a long-term backup.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetLongTermBackupRequest
+   * @return GetLongTermBackupResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/recovery/GetLongTermBackup.ts.html |here} to see how to use GetLongTermBackup API.
+   */
+  public async getLongTermBackup(
+    getLongTermBackupRequest: requests.GetLongTermBackupRequest
+  ): Promise<responses.GetLongTermBackupResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseRecoveryClient#getLongTermBackup.");
+    const operationName = "getLongTermBackup";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{longTermBackupId}": getLongTermBackupRequest.longTermBackupId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getLongTermBackupRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getLongTermBackupRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/longTermBackups/{longTermBackupId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetLongTermBackupResponse>{},
+        body: await response.json(),
+        bodyKey: "longTermBackup",
+        bodyModel: model.LongTermBackup,
+        type: "model.LongTermBackup",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           }
         ]
@@ -1522,6 +1845,91 @@ export class DatabaseRecoveryClient {
   }
 
   /**
+   * Lists the long-term backups associated with a protected database. You can filter the results using the unique identifier (OCID) of a specific compartment, a protected database, or a long-term backup.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListLongTermBackupsRequest
+   * @return ListLongTermBackupsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/recovery/ListLongTermBackups.ts.html |here} to see how to use ListLongTermBackups API.
+   */
+  public async listLongTermBackups(
+    listLongTermBackupsRequest: requests.ListLongTermBackupsRequest
+  ): Promise<responses.ListLongTermBackupsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseRecoveryClient#listLongTermBackups.");
+    const operationName = "listLongTermBackups";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listLongTermBackupsRequest.compartmentId,
+      "id": listLongTermBackupsRequest.id,
+      "displayName": listLongTermBackupsRequest.displayName,
+      "protectedDatabaseId": listLongTermBackupsRequest.protectedDatabaseId,
+      "lifecycleState": listLongTermBackupsRequest.lifecycleState,
+      "limit": listLongTermBackupsRequest.limit,
+      "page": listLongTermBackupsRequest.page,
+      "sortOrder": listLongTermBackupsRequest.sortOrder,
+      "sortBy": listLongTermBackupsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listLongTermBackupsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listLongTermBackupsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/longTermBackups",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListLongTermBackupsResponse>{},
+        body: await response.json(),
+        bodyKey: "longTermBackupCollection",
+        bodyModel: model.LongTermBackupCollection,
+        type: "model.LongTermBackupCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Lists the protected databases based on the specified parameters.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -1546,6 +1954,7 @@ export class DatabaseRecoveryClient {
       "id": listProtectedDatabasesRequest.id,
       "protectionPolicyId": listProtectedDatabasesRequest.protectionPolicyId,
       "recoveryServiceSubnetId": listProtectedDatabasesRequest.recoveryServiceSubnetId,
+      "backupCloudLocation": listProtectedDatabasesRequest.backupCloudLocation,
       "limit": listProtectedDatabasesRequest.limit,
       "page": listProtectedDatabasesRequest.page,
       "sortOrder": listProtectedDatabasesRequest.sortOrder,
@@ -1631,6 +2040,7 @@ export class DatabaseRecoveryClient {
       "displayName": listProtectionPoliciesRequest.displayName,
       "protectionPolicyId": listProtectionPoliciesRequest.protectionPolicyId,
       "owner": listProtectionPoliciesRequest.owner,
+      "mustEnforceCloudLocality": listProtectionPoliciesRequest.mustEnforceCloudLocality,
       "limit": listProtectionPoliciesRequest.limit,
       "page": listProtectionPoliciesRequest.page,
       "sortOrder": listProtectionPoliciesRequest.sortOrder,
@@ -2026,16 +2436,18 @@ export class DatabaseRecoveryClient {
   }
 
   /**
-   * Defines a preferred schedule to delete a protected database after you terminate the source database.
-   * The default schedule is DELETE_AFTER_72_HOURS, so that the delete operation can occur 72 hours (3 days) after the source database is terminated.
-   * The alternate schedule is DELETE_AFTER_RETENTION_PERIOD. Specify this option if you want to delete a protected database only after the policy-defined backup retention period expires.
-   *
-   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-   * @param ScheduleProtectedDatabaseDeletionRequest
-   * @return ScheduleProtectedDatabaseDeletionResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/recovery/ScheduleProtectedDatabaseDeletion.ts.html |here} to see how to use ScheduleProtectedDatabaseDeletion API.
-   */
+     * Defines a preferred schedule to delete a protected database after you terminate the source database.
+* Only the user or the Oracle Database service that created the protected database is allowed to modify or delete it.
+* <p>
+The default schedule is DELETE_AFTER_72_HOURS, so that the delete operation can occur 72 hours (3 days) after the source database is terminated.
+* The alternate schedule is DELETE_AFTER_RETENTION_PERIOD. Specify this option if you want to delete a protected database only after the policy-defined backup retention period expires.
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param ScheduleProtectedDatabaseDeletionRequest
+     * @return ScheduleProtectedDatabaseDeletionResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/recovery/ScheduleProtectedDatabaseDeletion.ts.html |here} to see how to use ScheduleProtectedDatabaseDeletion API.
+     */
   public async scheduleProtectedDatabaseDeletion(
     scheduleProtectedDatabaseDeletionRequest: requests.ScheduleProtectedDatabaseDeletionRequest
   ): Promise<responses.ScheduleProtectedDatabaseDeletionResponse> {
@@ -2053,6 +2465,7 @@ export class DatabaseRecoveryClient {
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": scheduleProtectedDatabaseDeletionRequest.opcRetryToken,
       "if-match": scheduleProtectedDatabaseDeletionRequest.ifMatch,
       "opc-request-id": scheduleProtectedDatabaseDeletionRequest.opcRequestId
     };
@@ -2088,6 +2501,84 @@ export class DatabaseRecoveryClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.ScheduleProtectedDatabaseDeletionResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the specified long term backup.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateLongTermBackupRequest
+   * @return UpdateLongTermBackupResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/recovery/UpdateLongTermBackup.ts.html |here} to see how to use UpdateLongTermBackup API.
+   */
+  public async updateLongTermBackup(
+    updateLongTermBackupRequest: requests.UpdateLongTermBackupRequest
+  ): Promise<responses.UpdateLongTermBackupResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseRecoveryClient#updateLongTermBackup.");
+    const operationName = "updateLongTermBackup";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{longTermBackupId}": updateLongTermBackupRequest.longTermBackupId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateLongTermBackupRequest.ifMatch,
+      "opc-request-id": updateLongTermBackupRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateLongTermBackupRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/longTermBackups/{longTermBackupId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateLongTermBackupRequest.updateLongTermBackupDetails,
+        "UpdateLongTermBackupDetails",
+        model.UpdateLongTermBackupDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateLongTermBackupResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),

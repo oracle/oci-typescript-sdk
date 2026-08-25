@@ -21,7 +21,7 @@ export interface ListProtectionPoliciesRequest extends common.BaseRequest {
   /**
    * The compartment OCID.
    */
-  "compartmentId": string;
+  "compartmentId"?: string;
   /**
    * A filter to return only resources their lifecycleState matches the given lifecycleState.
    */
@@ -38,6 +38,10 @@ export interface ListProtectionPoliciesRequest extends common.BaseRequest {
    * A filter to return only the policies that match the owner as 'Customer' or 'Oracle'.
    */
   "owner"?: ListProtectionPoliciesRequest.Owner;
+  /**
+   * A filter to return only the protection policies that enforce backup colocation (mustEnforceCloudLocality is set to TRUE).
+   */
+  "mustEnforceCloudLocality"?: boolean;
   /**
    * The maximum number of items to return. Specify a value greater than 4.
    */

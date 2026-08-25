@@ -65,6 +65,12 @@ export interface CreateBdsInstanceDetails {
    */
   "nodes": Array<model.CreateNodeDetails>;
   /**
+   * Optional BDS capacity reservation configurations to associate with the cluster during creation.
+   */
+  "bdsCapacityReservationConfigurations"?: Array<
+    model.CreateBdsCapacityReservationConfigurationDetails
+  >;
+  /**
    * The user-defined kerberos realm name.
    */
   "kerberosRealmName"?: string;
@@ -105,6 +111,11 @@ export namespace CreateBdsInstanceDetails {
               return model.CreateNodeDetails.getJsonObj(item);
             })
           : undefined,
+        "bdsCapacityReservationConfigurations": obj.bdsCapacityReservationConfigurations
+          ? obj.bdsCapacityReservationConfigurations.map(item => {
+              return model.CreateBdsCapacityReservationConfigurationDetails.getJsonObj(item);
+            })
+          : undefined,
 
         "bdsClusterVersionSummary": obj.bdsClusterVersionSummary
           ? model.BdsClusterVersionSummary.getJsonObj(obj.bdsClusterVersionSummary)
@@ -125,6 +136,13 @@ export namespace CreateBdsInstanceDetails {
         "nodes": obj.nodes
           ? obj.nodes.map(item => {
               return model.CreateNodeDetails.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "bdsCapacityReservationConfigurations": obj.bdsCapacityReservationConfigurations
+          ? obj.bdsCapacityReservationConfigurations.map(item => {
+              return model.CreateBdsCapacityReservationConfigurationDetails.getDeserializedJsonObj(
+                item
+              );
             })
           : undefined,
 

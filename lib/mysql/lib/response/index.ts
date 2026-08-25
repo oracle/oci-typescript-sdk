@@ -11,6 +11,20 @@
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as ChangeBlueGreenDeploymentCompartmentResponse from "./change-blue-green-deployment-compartment-response";
+export import ChangeBlueGreenDeploymentCompartmentResponse = ChangeBlueGreenDeploymentCompartmentResponse.ChangeBlueGreenDeploymentCompartmentResponse;
+import * as CreateBlueGreenDeploymentResponse from "./create-blue-green-deployment-response";
+export import CreateBlueGreenDeploymentResponse = CreateBlueGreenDeploymentResponse.CreateBlueGreenDeploymentResponse;
+import * as DeleteBlueGreenDeploymentResponse from "./delete-blue-green-deployment-response";
+export import DeleteBlueGreenDeploymentResponse = DeleteBlueGreenDeploymentResponse.DeleteBlueGreenDeploymentResponse;
+import * as GetBlueGreenDeploymentResponse from "./get-blue-green-deployment-response";
+export import GetBlueGreenDeploymentResponse = GetBlueGreenDeploymentResponse.GetBlueGreenDeploymentResponse;
+import * as ListBlueGreenDeploymentsResponse from "./list-blue-green-deployments-response";
+export import ListBlueGreenDeploymentsResponse = ListBlueGreenDeploymentsResponse.ListBlueGreenDeploymentsResponse;
+import * as SwitchoverBlueGreenDeploymentResponse from "./switchover-blue-green-deployment-response";
+export import SwitchoverBlueGreenDeploymentResponse = SwitchoverBlueGreenDeploymentResponse.SwitchoverBlueGreenDeploymentResponse;
+import * as UpdateBlueGreenDeploymentResponse from "./update-blue-green-deployment-response";
+export import UpdateBlueGreenDeploymentResponse = UpdateBlueGreenDeploymentResponse.UpdateBlueGreenDeploymentResponse;
 import * as CreateChannelResponse from "./create-channel-response";
 export import CreateChannelResponse = CreateChannelResponse.CreateChannelResponse;
 import * as DeleteChannelResponse from "./delete-channel-response";

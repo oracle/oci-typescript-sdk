@@ -21,7 +21,7 @@ export interface ListProtectedDatabasesRequest extends common.BaseRequest {
   /**
    * The compartment OCID.
    */
-  "compartmentId": string;
+  "compartmentId"?: string;
   /**
    * A filter to return only the resources that match the specified lifecycle state.
    */
@@ -42,6 +42,10 @@ export interface ListProtectedDatabasesRequest extends common.BaseRequest {
    * The recovery service subnet OCID.
    */
   "recoveryServiceSubnetId"?: string;
+  /**
+   * Filter for cloud location of protected database.
+   */
+  "backupCloudLocation"?: model.BackupCloudLocation;
   /**
    * The maximum number of items to return per page.
    */

@@ -60,6 +60,45 @@ export class BdsWaiter {
   }
 
   /**
+   * Waits forBdsCapacityReservation till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetBdsCapacityReservationResponse | null (null in case of 404 response)
+   */
+  public async forBdsCapacityReservation(
+    request: serviceRequests.GetBdsCapacityReservationRequest,
+    ...targetStates: models.BdsCapacityReservation.LifecycleState[]
+  ): Promise<serviceResponses.GetBdsCapacityReservationResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getBdsCapacityReservation(request),
+      response => targetStates.includes(response.bdsCapacityReservation.lifecycleState!),
+      targetStates.includes(models.BdsCapacityReservation.LifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forBdsCapacityReservationConfiguration till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetBdsCapacityReservationConfigurationResponse | null (null in case of 404 response)
+   */
+  public async forBdsCapacityReservationConfiguration(
+    request: serviceRequests.GetBdsCapacityReservationConfigurationRequest,
+    ...targetStates: models.BdsCapacityReservationConfiguration.LifecycleState[]
+  ): Promise<serviceResponses.GetBdsCapacityReservationConfigurationResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getBdsCapacityReservationConfiguration(request),
+      response =>
+        targetStates.includes(response.bdsCapacityReservationConfiguration.lifecycleState!),
+      targetStates.includes(models.BdsCapacityReservationConfiguration.LifecycleState.Deleted)
+    );
+  }
+
+  /**
    * Waits forBdsCertificateConfiguration till it reaches any of the provided states
    *
    * @param request the request to send

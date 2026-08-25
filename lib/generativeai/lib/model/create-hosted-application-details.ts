@@ -43,9 +43,7 @@ export interface CreateHostedApplicationDetails {
   "scalingConfig"?: model.ScalingConfig;
   "networkingConfig"?: model.NetworkingConfig;
   /**
-   * The list of storage configuration for the Hosted Application.
-   * Defines a list of service-managed storage back-ends.
-   *
+   * A list of managed storage configurations for the application.
    */
   "storageConfigs"?: Array<model.StorageConfig>;
   /**

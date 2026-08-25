@@ -27,9 +27,9 @@ export interface GenerateEnrichmentJobDetails {
    */
   "displayName"?: string;
   /**
-   * Enrichment job type. Currently supported Full Build (All supported objects in a given schema) and Partial Build (Selected tables and/or supported objects in a given schema).
+   * Deprecated. Use EnrichmentJobConfiguration.enrichmentJobType instead.
    */
-  "enrichmentJobType": model.EnrichmentJobType;
+  "enrichmentJobType"?: model.EnrichmentJobType;
   "enrichmentJobConfiguration":
     | model.DeltaRefreshEnrichmentJobConfiguration
     | model.PartialBuildEnrichmentJobConfiguration

@@ -64,7 +64,7 @@ export interface HostedApplication {
   "lifecycleDetails"?: string;
   "scalingConfig"?: model.ScalingConfig;
   /**
-   * A list of storageConfigs managed by the OCI GenAI Platform and attached to the application.
+   * A list of managed storage configurations for the application.
    */
   "storageConfigs"?: Array<model.StorageConfig>;
   "networkingConfig"?: model.NetworkingConfig;

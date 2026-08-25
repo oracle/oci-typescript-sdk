@@ -104,6 +104,10 @@ The retention lock feature controls whether Recovery Service strictly preserves 
   "isReadOnlyResource"?: boolean;
   "metrics"?: model.MetricsSummary;
   /**
+   * Indicates the cloud service environment where the protected database is provisioned. For example, Oracle Cloud or Microsoft Azure.
+   */
+  "backupCloudLocation"?: model.BackupCloudLocation;
+  /**
    * The OCID of the cloud service subscription to which the protected database is linked.
    */
   "subscriptionId"?: string;

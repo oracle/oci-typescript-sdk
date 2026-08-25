@@ -37,6 +37,17 @@ export interface CreateSemanticStoreDetails {
    * A user-friendly name.
    */
   "displayName": string;
+  /**
+   * Whether to include user-defined semantic inputs, such as annotations, comments, and synonyms, during semantic-store enrichment.
+   * When true, enrichment uses both metadata and user-defined semantics.
+   * When false, enrichment uses metadata only.
+   * When omitted, this value defaults to true.
+   *
+   */
+  "isUserDefinedSemanticsEnabled"?: boolean;
+  "modelSelection"?:
+    | model.DefaultSemanticStoreModelSelection
+    | model.CustomSemanticStoreModelSelection;
   "dataSource": model.CreateDataSourceDatabaseToolsConnectionDetails;
   "refreshSchedule"?:
     | model.RefreshScheduleOnCreateDetails
@@ -66,6 +77,9 @@ export namespace CreateSemanticStoreDetails {
     const jsonObj = {
       ...obj,
       ...{
+        "modelSelection": obj.modelSelection
+          ? model.SemanticStoreModelSelection.getJsonObj(obj.modelSelection)
+          : undefined,
         "dataSource": obj.dataSource
           ? model.CreateDataSourceDetails.getJsonObj(obj.dataSource)
           : undefined,
@@ -82,6 +96,9 @@ export namespace CreateSemanticStoreDetails {
     const jsonObj = {
       ...obj,
       ...{
+        "modelSelection": obj.modelSelection
+          ? model.SemanticStoreModelSelection.getDeserializedJsonObj(obj.modelSelection)
+          : undefined,
         "dataSource": obj.dataSource
           ? model.CreateDataSourceDetails.getDeserializedJsonObj(obj.dataSource)
           : undefined,
