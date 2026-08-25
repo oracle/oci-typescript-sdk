@@ -38,7 +38,7 @@ export interface CreateHostedApplicationStorageDetails {
    */
   "compartmentId": string;
   /**
-   * type like Cache, Postgresql and ADB.
+   * The managed storage type for the application.
    */
   "storageType": string;
   /**

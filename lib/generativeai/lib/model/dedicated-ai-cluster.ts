@@ -70,7 +70,7 @@ export interface DedicatedAiCluster {
    */
   "unitCount": number;
   /**
-   * The shape of dedicated unit in this AI cluster. The underlying hardware configuration is hidden from customers.
+   * The shape of dedicated unit in this AI cluster.
    */
   "unitShape": DedicatedAiCluster.UnitShape;
   "capacity"?: model.DedicatedAiClusterHostingCapacity;
@@ -230,6 +230,26 @@ export namespace DedicatedAiCluster {
     OaiB200X4 = "OAI_B200_X4",
     OaiB200X8 = "OAI_B200_X8",
     SbB200X1 = "SB_B200_X1",
+    B200X16 = "B200_X16",
+    B200X32 = "B200_X32",
+    B300X1 = "B300_X1",
+    B300X2 = "B300_X2",
+    B300X4 = "B300_X4",
+    B300X8 = "B300_X8",
+    B300X16 = "B300_X16",
+    B300X32 = "B300_X32",
+    L40SX1 = "L40S_X1",
+    L40SX2 = "L40S_X2",
+    L40SX4 = "L40S_X4",
+    L40SX8 = "L40S_X8",
+    L40SX16 = "L40S_X16",
+    L40SX32 = "L40S_X32",
+    Mi300XX1 = "MI300X_X1",
+    Mi300XX2 = "MI300X_X2",
+    Mi300XX4 = "MI300X_X4",
+    Mi300XX8 = "MI300X_X8",
+    Mi300XX16 = "MI300X_X16",
+    Mi300XX32 = "MI300X_X32",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

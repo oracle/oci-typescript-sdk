@@ -16,7 +16,8 @@ import common = require("oci-common");
 
 /**
  * A DeltaRefreshEnrichmentJobConfiguration is an EnrichmentJobConfiguration [indicated by the first item under {@code allOf}, which is a reference to EnrichmentJobConfiguration]
- * that describes the database schema that will be the scope of the enrichment job and the schedule on which the job will run. As distinguished by enrichmentJobType [with specific characteristics defined by the second item under {@code allOf}].
+ * that describes the database schema that will be the scope of the delta refresh enrichment job. As distinguished by enrichmentJobType [with specific characteristics defined by the second item under {@code allOf}].
+ * deltaRefreshSchedule is optional, is not used by the service, and is retained only for backward compatibility. It should be treated as deprecated.
  *
  */
 export interface DeltaRefreshEnrichmentJobConfiguration extends model.EnrichmentJobConfiguration {
@@ -25,9 +26,9 @@ export interface DeltaRefreshEnrichmentJobConfiguration extends model.Enrichment
    */
   "schemaName": string;
   /**
-   * Schedule for occurrences of Delta Refresh jobs
+   * Deprecated schedule for occurrences of Delta Refresh jobs. This value is not used by the service.
    */
-  "deltaRefreshSchedule": any;
+  "deltaRefreshSchedule"?: any;
 
   "enrichmentJobType": string;
 }

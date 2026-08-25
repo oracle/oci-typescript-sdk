@@ -69,6 +69,10 @@ export interface BdsInstance {
    * The list of nodes in the cluster.
    */
   "nodes": Array<model.Node>;
+  /**
+   * The list of BDS capacity reservation configurations associated with the cluster.
+   */
+  "bdsCapacityReservationConfigurations"?: Array<model.BdsCapacityReservationConfiguration>;
   "cloudSqlDetails"?: model.CloudSqlDetails;
   /**
    * The user who created the cluster.
@@ -183,6 +187,11 @@ export namespace BdsInstance {
               return model.Node.getJsonObj(item);
             })
           : undefined,
+        "bdsCapacityReservationConfigurations": obj.bdsCapacityReservationConfigurations
+          ? obj.bdsCapacityReservationConfigurations.map(item => {
+              return model.BdsCapacityReservationConfiguration.getJsonObj(item);
+            })
+          : undefined,
         "cloudSqlDetails": obj.cloudSqlDetails
           ? model.CloudSqlDetails.getJsonObj(obj.cloudSqlDetails)
           : undefined,
@@ -208,6 +217,11 @@ export namespace BdsInstance {
         "nodes": obj.nodes
           ? obj.nodes.map(item => {
               return model.Node.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "bdsCapacityReservationConfigurations": obj.bdsCapacityReservationConfigurations
+          ? obj.bdsCapacityReservationConfigurations.map(item => {
+              return model.BdsCapacityReservationConfiguration.getDeserializedJsonObj(item);
             })
           : undefined,
         "cloudSqlDetails": obj.cloudSqlDetails

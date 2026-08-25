@@ -11,6 +11,8 @@
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as CancelLongTermBackupResponse from "./cancel-long-term-backup-response";
+export import CancelLongTermBackupResponse = CancelLongTermBackupResponse.CancelLongTermBackupResponse;
 import * as CancelProtectedDatabaseDeletionResponse from "./cancel-protected-database-deletion-response";
 export import CancelProtectedDatabaseDeletionResponse = CancelProtectedDatabaseDeletionResponse.CancelProtectedDatabaseDeletionResponse;
 import * as ChangeProtectedDatabaseCompartmentResponse from "./change-protected-database-compartment-response";
@@ -21,12 +23,16 @@ import * as ChangeProtectionPolicyCompartmentResponse from "./change-protection-
 export import ChangeProtectionPolicyCompartmentResponse = ChangeProtectionPolicyCompartmentResponse.ChangeProtectionPolicyCompartmentResponse;
 import * as ChangeRecoveryServiceSubnetCompartmentResponse from "./change-recovery-service-subnet-compartment-response";
 export import ChangeRecoveryServiceSubnetCompartmentResponse = ChangeRecoveryServiceSubnetCompartmentResponse.ChangeRecoveryServiceSubnetCompartmentResponse;
+import * as CreateLongTermBackupResponse from "./create-long-term-backup-response";
+export import CreateLongTermBackupResponse = CreateLongTermBackupResponse.CreateLongTermBackupResponse;
 import * as CreateProtectedDatabaseResponse from "./create-protected-database-response";
 export import CreateProtectedDatabaseResponse = CreateProtectedDatabaseResponse.CreateProtectedDatabaseResponse;
 import * as CreateProtectionPolicyResponse from "./create-protection-policy-response";
 export import CreateProtectionPolicyResponse = CreateProtectionPolicyResponse.CreateProtectionPolicyResponse;
 import * as CreateRecoveryServiceSubnetResponse from "./create-recovery-service-subnet-response";
 export import CreateRecoveryServiceSubnetResponse = CreateRecoveryServiceSubnetResponse.CreateRecoveryServiceSubnetResponse;
+import * as DeleteLongTermBackupResponse from "./delete-long-term-backup-response";
+export import DeleteLongTermBackupResponse = DeleteLongTermBackupResponse.DeleteLongTermBackupResponse;
 import * as DeleteProtectedDatabaseResponse from "./delete-protected-database-response";
 export import DeleteProtectedDatabaseResponse = DeleteProtectedDatabaseResponse.DeleteProtectedDatabaseResponse;
 import * as DeleteProtectionPolicyResponse from "./delete-protection-policy-response";
@@ -35,6 +41,8 @@ import * as DeleteRecoveryServiceSubnetResponse from "./delete-recovery-service-
 export import DeleteRecoveryServiceSubnetResponse = DeleteRecoveryServiceSubnetResponse.DeleteRecoveryServiceSubnetResponse;
 import * as FetchProtectedDatabaseConfigurationResponse from "./fetch-protected-database-configuration-response";
 export import FetchProtectedDatabaseConfigurationResponse = FetchProtectedDatabaseConfigurationResponse.FetchProtectedDatabaseConfigurationResponse;
+import * as GetLongTermBackupResponse from "./get-long-term-backup-response";
+export import GetLongTermBackupResponse = GetLongTermBackupResponse.GetLongTermBackupResponse;
 import * as GetProtectedDatabaseResponse from "./get-protected-database-response";
 export import GetProtectedDatabaseResponse = GetProtectedDatabaseResponse.GetProtectedDatabaseResponse;
 import * as GetProtectionPolicyResponse from "./get-protection-policy-response";
@@ -43,6 +51,8 @@ import * as GetRecoveryServiceSubnetResponse from "./get-recovery-service-subnet
 export import GetRecoveryServiceSubnetResponse = GetRecoveryServiceSubnetResponse.GetRecoveryServiceSubnetResponse;
 import * as GetWorkRequestResponse from "./get-work-request-response";
 export import GetWorkRequestResponse = GetWorkRequestResponse.GetWorkRequestResponse;
+import * as ListLongTermBackupsResponse from "./list-long-term-backups-response";
+export import ListLongTermBackupsResponse = ListLongTermBackupsResponse.ListLongTermBackupsResponse;
 import * as ListProtectedDatabasesResponse from "./list-protected-databases-response";
 export import ListProtectedDatabasesResponse = ListProtectedDatabasesResponse.ListProtectedDatabasesResponse;
 import * as ListProtectionPoliciesResponse from "./list-protection-policies-response";
@@ -57,6 +67,8 @@ import * as ListWorkRequestsResponse from "./list-work-requests-response";
 export import ListWorkRequestsResponse = ListWorkRequestsResponse.ListWorkRequestsResponse;
 import * as ScheduleProtectedDatabaseDeletionResponse from "./schedule-protected-database-deletion-response";
 export import ScheduleProtectedDatabaseDeletionResponse = ScheduleProtectedDatabaseDeletionResponse.ScheduleProtectedDatabaseDeletionResponse;
+import * as UpdateLongTermBackupResponse from "./update-long-term-backup-response";
+export import UpdateLongTermBackupResponse = UpdateLongTermBackupResponse.UpdateLongTermBackupResponse;
 import * as UpdateProtectedDatabaseResponse from "./update-protected-database-response";
 export import UpdateProtectedDatabaseResponse = UpdateProtectedDatabaseResponse.UpdateProtectedDatabaseResponse;
 import * as UpdateProtectionPolicyResponse from "./update-protection-policy-response";

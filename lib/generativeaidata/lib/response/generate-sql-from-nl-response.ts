@@ -27,8 +27,7 @@ export interface GenerateSqlFromNlResponse {
    */
   "opcRequestId": string;
   /**
-   * Unique Oracle-assigned identifier for the asynchronous work. You can use this to query its status.
-   *
+   * Not used when {@code 200} status is returned
    */
   "opcWorkRequestId": string;
   /**

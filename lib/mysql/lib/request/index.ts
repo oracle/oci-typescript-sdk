@@ -11,6 +11,20 @@
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as ChangeBlueGreenDeploymentCompartmentRequest from "./change-blue-green-deployment-compartment-request";
+export import ChangeBlueGreenDeploymentCompartmentRequest = ChangeBlueGreenDeploymentCompartmentRequest.ChangeBlueGreenDeploymentCompartmentRequest;
+import * as CreateBlueGreenDeploymentRequest from "./create-blue-green-deployment-request";
+export import CreateBlueGreenDeploymentRequest = CreateBlueGreenDeploymentRequest.CreateBlueGreenDeploymentRequest;
+import * as DeleteBlueGreenDeploymentRequest from "./delete-blue-green-deployment-request";
+export import DeleteBlueGreenDeploymentRequest = DeleteBlueGreenDeploymentRequest.DeleteBlueGreenDeploymentRequest;
+import * as GetBlueGreenDeploymentRequest from "./get-blue-green-deployment-request";
+export import GetBlueGreenDeploymentRequest = GetBlueGreenDeploymentRequest.GetBlueGreenDeploymentRequest;
+import * as ListBlueGreenDeploymentsRequest from "./list-blue-green-deployments-request";
+export import ListBlueGreenDeploymentsRequest = ListBlueGreenDeploymentsRequest.ListBlueGreenDeploymentsRequest;
+import * as SwitchoverBlueGreenDeploymentRequest from "./switchover-blue-green-deployment-request";
+export import SwitchoverBlueGreenDeploymentRequest = SwitchoverBlueGreenDeploymentRequest.SwitchoverBlueGreenDeploymentRequest;
+import * as UpdateBlueGreenDeploymentRequest from "./update-blue-green-deployment-request";
+export import UpdateBlueGreenDeploymentRequest = UpdateBlueGreenDeploymentRequest.UpdateBlueGreenDeploymentRequest;
 import * as CreateChannelRequest from "./create-channel-request";
 export import CreateChannelRequest = CreateChannelRequest.CreateChannelRequest;
 import * as DeleteChannelRequest from "./delete-channel-request";

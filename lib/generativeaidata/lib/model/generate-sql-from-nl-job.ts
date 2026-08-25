@@ -16,13 +16,13 @@ import common = require("oci-common");
 
 /**
  * Object representing to GenerateSqlFromNlJob.
- * ocidEntityType: generativeaiGenerateSqlFromNlJob
+ * ocidEntityType: generativeaisemanticstorejob
  * adLocality: regional
  *
  */
 export interface GenerateSqlFromNlJob {
   /**
-   * Unique identifier that is immutable on creation.
+   * The OCID of the Semantic Store job.
    */
   "id": string;
   /**
@@ -38,20 +38,26 @@ export interface GenerateSqlFromNlJob {
    */
   "displayName"?: string;
   /**
-   * The date and time that the enrichment job was accepted in the format of an RFC3339 datetime string.
+   * The date and time that the GenerateSqlFromNlJob was accepted in the format of an RFC3339 datetime string.
    */
   "timeAccepted": Date;
   /**
-   * The date and time that the enrichment job was started in the format of an RFC3339 datetime string.
+   * The date and time that the GenerateSqlFromNlJob was started in the format of an RFC3339 datetime string.
    */
   "timeStarted"?: Date;
   /**
-   * The date and time that the enrichment job was finished in the format of an RFC3339 datetime string.
+   * The date and time that the GenerateSqlFromNlJob was finished in the format of an RFC3339 datetime string.
    */
   "timeFinished"?: Date;
   /**
-   * The lifecycleState of GenerateSqlFromNlJob.
-   */
+    * The current state of GenerateSqlFromNlJob.
+* <p>
+- ACCEPTED: Job has been created but not yet started.
+* - IN_PROGRESS: Job is currently running.
+* - SUCCEEDED: Job completed successfully. The result is available in jobOutput.
+* - FAILED: Job failed. See lifecycleDetails for error information.
+* 
+    */
   "lifecycleState": model.LifecycleState;
   /**
    * A message describing the current state in more detail that can provide actionable information.
@@ -64,6 +70,10 @@ export interface GenerateSqlFromNlJob {
    *
    */
   "inputNaturalLanguageQuery"?: string;
+  /**
+   * The generative AI modelId used for Generate SQL. You can use the ListModels API to list the available models. https://docs.oracle.com/en-us/iaas/api/#/en/generative-ai/20231130/ModelCollection/ListModels
+   */
+  "modelId": string;
   "jobOutput"?: model.InlineJobOutput;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
