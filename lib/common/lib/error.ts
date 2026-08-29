@@ -24,7 +24,7 @@ export class OciError extends Error {
   ) {
     super(message);
 
-    const apiErrorsInfo = `See ${TROUBLESHOOT_LINK}#apierrors_${statusCode}__${statusCode}_${serviceCode.toLowerCase()} for more information about resolving this error`;
+    const apiErrorsInfo = `See ${TROUBLESHOOT_LINK}#apierrors_${statusCode}__${statusCode}_${(serviceCode+'').toLowerCase()} for more information about resolving this error`;
     const contactInfo = `If you are unable to resolve this ${targetService} issue, please contact Oracle support and provide them this full error message.`;
 
     if (apiReferenceLink) {
