@@ -304,7 +304,7 @@ export function formatDateToRFC3339(date: Date): string {
     "-" +
     ("0" + date.getDate()).slice(-2) +
     "T" +
-    date.getHours() +
+    ("0" + date.getHours()).slice(-2) + 
     ":" +
     ("0" + date.getMinutes()).slice(-2) +
     ":" +
