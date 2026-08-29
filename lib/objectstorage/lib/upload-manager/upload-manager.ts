@@ -158,16 +158,23 @@ export class UploadManager {
       };
     } catch (e) {
       if (this.numberOfSingleUploadRetry < 3) {
-        if (this.logger) this.logger.error(`putObject failed, will retry. Last known error: ${e}`);
+        if (this.logger)
+          this.logger.error(
+            `putObject failed, will retry. Last known error: ${UploadManager.stringifyError(e)}`
+          );
         this.numberOfSingleUploadRetry += 1;
         return await this.singleUpload(requestDetails, content);
       } else {
         if (this.logger)
           this.logger.error(
-            `putObject failed to retry ${this.numberOfSingleUploadRetry} times. Error: ${e}`
+            `putObject failed to retry ${
+              this.numberOfSingleUploadRetry
+            } times. Error: ${UploadManager.stringifyError(e)}`
           );
         const error = {
-          message: `putObject failed to retry ${this.numberOfSingleUploadRetry} times. Error: ${e}`,
+          message: `putObject failed to retry ${
+            this.numberOfSingleUploadRetry
+          } times. Error: ${UploadManager.stringifyError(e)}`,
           troubleShootingInfo: UPLOAD_MANAGER_DEBUG_INFORMATION_LOG
         };
         throw error;
@@ -234,7 +241,9 @@ export class UploadManager {
         : 1;
       if (this.numberOfRetries[uploadId] < 4) {
         if (this.logger)
-          this.logger.error(`Upload part failed, will retry. Last known error: ${ex}`);
+          this.logger.error(
+            `Upload part failed, will retry. Last known error: ${UploadManager.stringifyError(ex)}`
+          );
         return await this.triggerUploadPart(
           content,
           requestDetails,
@@ -246,7 +255,11 @@ export class UploadManager {
         );
       } else {
         const error = {
-          message: `Upload part retried ${this.numberOfRetries[uploadId]} times and failed. Upload of part: ${uploadPartNum} failed due to ${ex}`,
+          message: `Upload part retried ${
+            this.numberOfRetries[uploadId]
+          } times and failed. Upload of part: ${uploadPartNum} failed due to ${UploadManager.stringifyError(
+            ex
+          )}`,
           troubleShootingInfo: UPLOAD_MANAGER_DEBUG_INFORMATION_LOG
         };
         throw error;
@@ -368,11 +381,40 @@ export class UploadManager {
       }
       if (ex instanceof OciError) throw ex;
       const error = {
-        message: `Failed to upload due to ${ex}`,
+        message: `Failed to upload due to ${UploadManager.stringifyError(ex)}`,
         troubleShootingInfo: UPLOAD_MANAGER_DEBUG_INFORMATION_LOG
       };
       throw error;
     }
+  }
+
+  /**
+   * Converts a caught value into a human readable string for logging and error messages.
+   *
+   * A plain template interpolation (`${error}`) relies on `Object.prototype.toString`, which
+   * yields "[object Object]" for anything that is not an `Error`. Non-service (transport/client
+   * side) errors are re-thrown by {@link GenericRetrier.makeServiceCall} as plain objects
+   * (carrying `code`/`message`), so interpolating them directly hides the real cause. This
+   * helper surfaces the underlying detail instead.
+   *
+   * @param error The caught value (may be an Error, a plain object, or a primitive).
+   * @return A meaningful string representation of the error.
+   */
+  private static stringifyError(error: any): string {
+    if (error instanceof Error) {
+      return error.stack || `${error.name}: ${error.message}`;
+    }
+    if (error !== null && typeof error === "object") {
+      if (error.message) {
+        return error.code ? `${error.code}: ${error.message}` : `${error.message}`;
+      }
+      try {
+        return JSON.stringify(error);
+      } catch (jsonError) {
+        return String(error);
+      }
+    }
+    return String(error);
   }
 
   private static composeRequestDetails(requestDetails: RequestDetails) {
