@@ -33,6 +33,16 @@ export interface DigitalTwinAdapterInboundRoute {
   "condition": string;
   "referencePayload"?: model.DigitalTwinAdapterJsonPayload;
   /**
+   * Optional. JQ expression to map the target resource, which is externalKey of digital twin instance, the incoming data belongs to.
+   *
+   */
+  "target"?: string;
+  /**
+   * JSON Path string to override the context root before delegating to the adapter of the target digital twin instance.
+   *
+   */
+  "contentRoot"?: string;
+  /**
     * A set of key-value JQ expressions used to transform the incoming payload into a shape
 * compatible with the digital twin model's context or schema.
 * <p>

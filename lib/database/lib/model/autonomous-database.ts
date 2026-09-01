@@ -648,6 +648,11 @@ Service Change: The default value of the isMTLSConnectionRequired attribute will
    * The date until which Autonomous AI Database maintenance is temporarily paused.
    */
   "timeMaintenancePauseUntil"?: Date;
+  "scheduledMaintenanceWindow"?: model.AutonomousDatabaseMaintenanceWindowSummary;
+  /**
+   * The date and time at which operation to change Maintenance Window is scheduled to take place.
+   */
+  "timeScheduledMaintenanceWindowUpdate"?: Date;
   /**
     * The list of scheduled operations. Consists of values such as dayOfWeek, scheduledStartTime, scheduledStopTime.
 * <p>
@@ -1056,6 +1061,12 @@ export namespace AutonomousDatabase {
             )
           : undefined,
 
+        "scheduledMaintenanceWindow": obj.scheduledMaintenanceWindow
+          ? model.AutonomousDatabaseMaintenanceWindowSummary.getJsonObj(
+              obj.scheduledMaintenanceWindow
+            )
+          : undefined,
+
         "scheduledOperations": obj.scheduledOperations
           ? obj.scheduledOperations.map(item => {
               return model.ScheduledOperationDetails.getJsonObj(item);
@@ -1149,6 +1160,12 @@ export namespace AutonomousDatabase {
         "autonomousDatabaseMaintenanceWindow": obj.autonomousDatabaseMaintenanceWindow
           ? model.AutonomousDatabaseMaintenanceWindowSummary.getDeserializedJsonObj(
               obj.autonomousDatabaseMaintenanceWindow
+            )
+          : undefined,
+
+        "scheduledMaintenanceWindow": obj.scheduledMaintenanceWindow
+          ? model.AutonomousDatabaseMaintenanceWindowSummary.getDeserializedJsonObj(
+              obj.scheduledMaintenanceWindow
             )
           : undefined,
 

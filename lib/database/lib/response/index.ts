@@ -186,6 +186,8 @@ import * as CreateExternalNonContainerDatabaseResponse from "./create-external-n
 export import CreateExternalNonContainerDatabaseResponse = CreateExternalNonContainerDatabaseResponse.CreateExternalNonContainerDatabaseResponse;
 import * as CreateExternalPluggableDatabaseResponse from "./create-external-pluggable-database-response";
 export import CreateExternalPluggableDatabaseResponse = CreateExternalPluggableDatabaseResponse.CreateExternalPluggableDatabaseResponse;
+import * as CreateGiHomeResponse from "./create-gi-home-response";
+export import CreateGiHomeResponse = CreateGiHomeResponse.CreateGiHomeResponse;
 import * as CreateKeyStoreResponse from "./create-key-store-response";
 export import CreateKeyStoreResponse = CreateKeyStoreResponse.CreateKeyStoreResponse;
 import * as CreateMaintenanceRunResponse from "./create-maintenance-run-response";
@@ -264,6 +266,8 @@ import * as DeleteExternalNonContainerDatabaseResponse from "./delete-external-n
 export import DeleteExternalNonContainerDatabaseResponse = DeleteExternalNonContainerDatabaseResponse.DeleteExternalNonContainerDatabaseResponse;
 import * as DeleteExternalPluggableDatabaseResponse from "./delete-external-pluggable-database-response";
 export import DeleteExternalPluggableDatabaseResponse = DeleteExternalPluggableDatabaseResponse.DeleteExternalPluggableDatabaseResponse;
+import * as DeleteGiHomeResponse from "./delete-gi-home-response";
+export import DeleteGiHomeResponse = DeleteGiHomeResponse.DeleteGiHomeResponse;
 import * as DeleteKeyStoreResponse from "./delete-key-store-response";
 export import DeleteKeyStoreResponse = DeleteKeyStoreResponse.DeleteKeyStoreResponse;
 import * as DeleteOneoffPatchResponse from "./delete-oneoff-patch-response";
@@ -490,6 +494,8 @@ import * as GetExternalNonContainerDatabaseResponse from "./get-external-non-con
 export import GetExternalNonContainerDatabaseResponse = GetExternalNonContainerDatabaseResponse.GetExternalNonContainerDatabaseResponse;
 import * as GetExternalPluggableDatabaseResponse from "./get-external-pluggable-database-response";
 export import GetExternalPluggableDatabaseResponse = GetExternalPluggableDatabaseResponse.GetExternalPluggableDatabaseResponse;
+import * as GetGiHomeResponse from "./get-gi-home-response";
+export import GetGiHomeResponse = GetGiHomeResponse.GetGiHomeResponse;
 import * as GetInfrastructureTargetVersionsResponse from "./get-infrastructure-target-versions-response";
 export import GetInfrastructureTargetVersionsResponse = GetInfrastructureTargetVersionsResponse.GetInfrastructureTargetVersionsResponse;
 import * as GetKeyStoreResponse from "./get-key-store-response";
@@ -576,6 +582,8 @@ import * as ListAutonomousVmClusterAcdResourceUsageResponse from "./list-autonom
 export import ListAutonomousVmClusterAcdResourceUsageResponse = ListAutonomousVmClusterAcdResourceUsageResponse.ListAutonomousVmClusterAcdResourceUsageResponse;
 import * as ListAutonomousVmClustersResponse from "./list-autonomous-vm-clusters-response";
 export import ListAutonomousVmClustersResponse = ListAutonomousVmClustersResponse.ListAutonomousVmClustersResponse;
+import * as ListAvailableMaintenanceWindowsResponse from "./list-available-maintenance-windows-response";
+export import ListAvailableMaintenanceWindowsResponse = ListAvailableMaintenanceWindowsResponse.ListAvailableMaintenanceWindowsResponse;
 import * as ListBackupDestinationResponse from "./list-backup-destination-response";
 export import ListBackupDestinationResponse = ListBackupDestinationResponse.ListBackupDestinationResponse;
 import * as ListBackupsResponse from "./list-backups-response";
@@ -672,6 +680,8 @@ import * as ListExternalPluggableDatabasesResponse from "./list-external-pluggab
 export import ListExternalPluggableDatabasesResponse = ListExternalPluggableDatabasesResponse.ListExternalPluggableDatabasesResponse;
 import * as ListFlexComponentsResponse from "./list-flex-components-response";
 export import ListFlexComponentsResponse = ListFlexComponentsResponse.ListFlexComponentsResponse;
+import * as ListGiHomesResponse from "./list-gi-homes-response";
+export import ListGiHomesResponse = ListGiHomesResponse.ListGiHomesResponse;
 import * as ListGiVersionMinorVersionsResponse from "./list-gi-version-minor-versions-response";
 export import ListGiVersionMinorVersionsResponse = ListGiVersionMinorVersionsResponse.ListGiVersionMinorVersionsResponse;
 import * as ListGiVersionsResponse from "./list-gi-versions-response";
@@ -928,6 +938,8 @@ import * as UpdateExternalNonContainerDatabaseResponse from "./update-external-n
 export import UpdateExternalNonContainerDatabaseResponse = UpdateExternalNonContainerDatabaseResponse.UpdateExternalNonContainerDatabaseResponse;
 import * as UpdateExternalPluggableDatabaseResponse from "./update-external-pluggable-database-response";
 export import UpdateExternalPluggableDatabaseResponse = UpdateExternalPluggableDatabaseResponse.UpdateExternalPluggableDatabaseResponse;
+import * as UpdateGiHomeResponse from "./update-gi-home-response";
+export import UpdateGiHomeResponse = UpdateGiHomeResponse.UpdateGiHomeResponse;
 import * as UpdateKeyStoreResponse from "./update-key-store-response";
 export import UpdateKeyStoreResponse = UpdateKeyStoreResponse.UpdateKeyStoreResponse;
 import * as UpdateMaintenanceRunResponse from "./update-maintenance-run-response";

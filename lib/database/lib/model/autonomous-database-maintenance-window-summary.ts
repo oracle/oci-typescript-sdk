@@ -29,6 +29,14 @@ export interface AutonomousDatabaseMaintenanceWindowSummary {
    * The maintenance end time. The value must use the ISO-8601 format \"hh:mm\".
    */
   "maintenanceEndTime"?: string;
+  /**
+   * The AD in which the maintenance will occur.
+   */
+  "availabilityDomain"?: string;
+  /**
+   * Indicates if the maintenance window change is scheduled or not for the Autonomous AI Database.
+   */
+  "isMaintenanceWindowChangeScheduled"?: boolean;
 }
 
 export namespace AutonomousDatabaseMaintenanceWindowSummary {

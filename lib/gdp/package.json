@@ -1,6 +1,6 @@
 {
   "name": "oci-gdp",
-  "version": "2.140.0",
+  "version": "2.140.1",
   "description": "OCI NodeJS client for Gdp Service",
   "repository": {
     "type": "git",

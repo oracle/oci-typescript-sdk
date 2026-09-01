@@ -284,6 +284,7 @@ export namespace ExadbVmClusterSummary {
   export enum GridImageType {
     ReleaseUpdate = "RELEASE_UPDATE",
     CustomImage = "CUSTOM_IMAGE",
+    GridHome = "GRID_HOME",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

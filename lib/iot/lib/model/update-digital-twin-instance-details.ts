@@ -22,6 +22,10 @@ import common = require("oci-common");
  */
 export interface UpdateDigitalTwinInstanceDetails {
   /**
+   * Connectivity type of the digital twin instance.
+   */
+  "connectivityType"?: model.DigitalTwinInstanceConnectivityType;
+  /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the resource (like VaultSecret, ClientCertificate etc.,) used to authenticate the digital twin instance.
    */
   "authId"?: string;

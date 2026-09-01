@@ -110,6 +110,8 @@ import * as AutonomousDatabaseInBackupSummary from "./autonomous-database-in-bac
 export import AutonomousDatabaseInBackupSummary = AutonomousDatabaseInBackupSummary.AutonomousDatabaseInBackupSummary;
 import * as AutonomousDatabaseKeyHistoryEntry from "./autonomous-database-key-history-entry";
 export import AutonomousDatabaseKeyHistoryEntry = AutonomousDatabaseKeyHistoryEntry.AutonomousDatabaseKeyHistoryEntry;
+import * as AutonomousDatabaseMaintenanceWindowCollection from "./autonomous-database-maintenance-window-collection";
+export import AutonomousDatabaseMaintenanceWindowCollection = AutonomousDatabaseMaintenanceWindowCollection.AutonomousDatabaseMaintenanceWindowCollection;
 import * as AutonomousDatabaseMaintenanceWindowSummary from "./autonomous-database-maintenance-window-summary";
 export import AutonomousDatabaseMaintenanceWindowSummary = AutonomousDatabaseMaintenanceWindowSummary.AutonomousDatabaseMaintenanceWindowSummary;
 import * as AutonomousDatabaseManualRefreshDetails from "./autonomous-database-manual-refresh-details";
@@ -392,6 +394,8 @@ import * as CreateExternalNonContainerDatabaseDetails from "./create-external-no
 export import CreateExternalNonContainerDatabaseDetails = CreateExternalNonContainerDatabaseDetails.CreateExternalNonContainerDatabaseDetails;
 import * as CreateExternalPluggableDatabaseDetails from "./create-external-pluggable-database-details";
 export import CreateExternalPluggableDatabaseDetails = CreateExternalPluggableDatabaseDetails.CreateExternalPluggableDatabaseDetails;
+import * as CreateGiHomeDetails from "./create-gi-home-details";
+export import CreateGiHomeDetails = CreateGiHomeDetails.CreateGiHomeDetails;
 import * as CreateKeyStoreDetails from "./create-key-store-details";
 export import CreateKeyStoreDetails = CreateKeyStoreDetails.CreateKeyStoreDetails;
 import * as CreateMaintenanceRunDetails from "./create-maintenance-run-details";
@@ -672,6 +676,12 @@ import * as GenerateAutonomousDatabaseWalletDetails from "./generate-autonomous-
 export import GenerateAutonomousDatabaseWalletDetails = GenerateAutonomousDatabaseWalletDetails.GenerateAutonomousDatabaseWalletDetails;
 import * as GenerateRecommendedNetworkDetails from "./generate-recommended-network-details";
 export import GenerateRecommendedNetworkDetails = GenerateRecommendedNetworkDetails.GenerateRecommendedNetworkDetails;
+import * as GiHome from "./gi-home";
+export import GiHome = GiHome.GiHome;
+import * as GiHomeCollection from "./gi-home-collection";
+export import GiHomeCollection = GiHomeCollection.GiHomeCollection;
+import * as GiHomeSummary from "./gi-home-summary";
+export import GiHomeSummary = GiHomeSummary.GiHomeSummary;
 import * as GiMinorVersionSummary from "./gi-minor-version-summary";
 export import GiMinorVersionSummary = GiMinorVersionSummary.GiMinorVersionSummary;
 import * as GiVersionSummary from "./gi-version-summary";
@@ -990,6 +1000,8 @@ import * as UpdateExternalNonContainerDatabaseDetails from "./update-external-no
 export import UpdateExternalNonContainerDatabaseDetails = UpdateExternalNonContainerDatabaseDetails.UpdateExternalNonContainerDatabaseDetails;
 import * as UpdateExternalPluggableDatabaseDetails from "./update-external-pluggable-database-details";
 export import UpdateExternalPluggableDatabaseDetails = UpdateExternalPluggableDatabaseDetails.UpdateExternalPluggableDatabaseDetails;
+import * as UpdateGiHomeDetails from "./update-gi-home-details";
+export import UpdateGiHomeDetails = UpdateGiHomeDetails.UpdateGiHomeDetails;
 import * as UpdateHistoryEntry from "./update-history-entry";
 export import UpdateHistoryEntry = UpdateHistoryEntry.UpdateHistoryEntry;
 import * as UpdateHistoryEntrySummary from "./update-history-entry-summary";
