@@ -7773,6 +7773,90 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   }
 
   /**
+   * Creates a new Grid Infrastructure Home in the specified database system based on the request parameters you provide.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateGiHomeRequest
+   * @return CreateGiHomeResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateGiHome.ts.html |here} to see how to use CreateGiHome API.
+   */
+  public async createGiHome(
+    createGiHomeRequest: requests.CreateGiHomeRequest
+  ): Promise<responses.CreateGiHomeResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#createGiHome.");
+    const operationName = "createGiHome";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createGiHomeRequest.opcRetryToken,
+      "opc-request-id": createGiHomeRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createGiHomeRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/giHomes",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createGiHomeRequest.createGiHomeDetails,
+        "CreateGiHomeDetails",
+        model.CreateGiHomeDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateGiHomeResponse>{},
+        body: await response.json(),
+        bodyKey: "giHome",
+        bodyModel: model.GiHome,
+        type: "model.GiHome",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates a Key Store.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -10819,6 +10903,80 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteExternalPluggableDatabaseResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes a Grid Infrastructure Home.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteGiHomeRequest
+   * @return DeleteGiHomeResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteGiHome.ts.html |here} to see how to use DeleteGiHome API.
+   */
+  public async deleteGiHome(
+    deleteGiHomeRequest: requests.DeleteGiHomeRequest
+  ): Promise<responses.DeleteGiHomeResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#deleteGiHome.");
+    const operationName = "deleteGiHome";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/GiHome/DeleteGiHome";
+    const pathParams = {
+      "{giHomeId}": deleteGiHomeRequest.giHomeId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteGiHomeRequest.ifMatch,
+      "opc-request-id": deleteGiHomeRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteGiHomeRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/giHomes/{giHomeId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteGiHomeResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -19905,6 +20063,82 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
   }
 
   /**
+   * Gets information about the specified Grid Infrastructure Home.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetGiHomeRequest
+   * @return GetGiHomeResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetGiHome.ts.html |here} to see how to use GetGiHome API.
+   */
+  public async getGiHome(
+    getGiHomeRequest: requests.GetGiHomeRequest
+  ): Promise<responses.GetGiHomeResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#getGiHome.");
+    const operationName = "getGiHome";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/GiHome/GetGiHome";
+    const pathParams = {
+      "{giHomeId}": getGiHomeRequest.giHomeId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getGiHomeRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getGiHomeRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/giHomes/{giHomeId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetGiHomeResponse>{},
+        body: await response.json(),
+        bodyKey: "giHome",
+        bodyModel: model.GiHome,
+        type: "model.GiHome",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets details of the Exadata Infrastructure target system software versions that can be applied to the specified infrastructure resource for maintenance updates.
    * Applies to Exadata Cloud@Customer and Exadata Cloud instances only.
    *
@@ -24216,6 +24450,86 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
     request: requests.ListAutonomousVmClustersRequest
   ): AsyncIterableIterator<responses.ListAutonomousVmClustersResponse> {
     return paginateResponses(request, req => this.listAutonomousVmClusters(req));
+  }
+
+  /**
+   * Retrieves the list of available maintenance window options for the specified Autonomous AI Database.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListAvailableMaintenanceWindowsRequest
+   * @return ListAvailableMaintenanceWindowsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListAvailableMaintenanceWindows.ts.html |here} to see how to use ListAvailableMaintenanceWindows API.
+   */
+  public async listAvailableMaintenanceWindows(
+    listAvailableMaintenanceWindowsRequest: requests.ListAvailableMaintenanceWindowsRequest
+  ): Promise<responses.ListAvailableMaintenanceWindowsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#listAvailableMaintenanceWindows.");
+    const operationName = "listAvailableMaintenanceWindows";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabase/ListAvailableMaintenanceWindows";
+    const pathParams = {
+      "{autonomousDatabaseId}": listAvailableMaintenanceWindowsRequest.autonomousDatabaseId
+    };
+
+    const queryParams = {
+      "limit": listAvailableMaintenanceWindowsRequest.limit,
+      "page": listAvailableMaintenanceWindowsRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listAvailableMaintenanceWindowsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAvailableMaintenanceWindowsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/autonomousDatabases/{autonomousDatabaseId}/availableMaintenanceWindows",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListAvailableMaintenanceWindowsResponse>{},
+        body: await response.json(),
+        bodyKey: "autonomousDatabaseMaintenanceWindowCollection",
+        bodyModel: model.AutonomousDatabaseMaintenanceWindowCollection,
+        type: "model.AutonomousDatabaseMaintenanceWindowCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
   }
 
   /**
@@ -30349,6 +30663,91 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
         bodyKey: "flexComponentCollection",
         bodyModel: model.FlexComponentCollection,
         type: "model.FlexComponentCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists the Grid Infrastructure Homes.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListGiHomesRequest
+   * @return ListGiHomesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListGiHomes.ts.html |here} to see how to use ListGiHomes API.
+   */
+  public async listGiHomes(
+    listGiHomesRequest: requests.ListGiHomesRequest
+  ): Promise<responses.ListGiHomesResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#listGiHomes.");
+    const operationName = "listGiHomes";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/GiHome/ListGiHomes";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listGiHomesRequest.compartmentId,
+      "dbSystemId": listGiHomesRequest.dbSystemId,
+      "giVersion": listGiHomesRequest.giVersion,
+      "limit": listGiHomesRequest.limit,
+      "page": listGiHomesRequest.page,
+      "sortBy": listGiHomesRequest.sortBy,
+      "sortOrder": listGiHomesRequest.sortOrder,
+      "lifecycleState": listGiHomesRequest.lifecycleState,
+      "displayName": listGiHomesRequest.displayName
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listGiHomesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listGiHomesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/giHomes",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListGiHomesResponse>{},
+        body: await response.json(),
+        bodyKey: "giHomeCollection",
+        bodyModel: model.GiHomeCollection,
+        type: "model.GiHomeCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -42262,6 +42661,88 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
             key: "opcWorkRequestId",
             dataType: "string"
           },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the tags and display name of a specified Grid Infrastructure Home.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateGiHomeRequest
+   * @return UpdateGiHomeResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateGiHome.ts.html |here} to see how to use UpdateGiHome API.
+   */
+  public async updateGiHome(
+    updateGiHomeRequest: requests.UpdateGiHomeRequest
+  ): Promise<responses.UpdateGiHomeResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#updateGiHome.");
+    const operationName = "updateGiHome";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/GiHome/UpdateGiHome";
+    const pathParams = {
+      "{giHomeId}": updateGiHomeRequest.giHomeId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateGiHomeRequest.ifMatch,
+      "opc-request-id": updateGiHomeRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateGiHomeRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/giHomes/{giHomeId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateGiHomeRequest.updateGiHomeDetails,
+        "UpdateGiHomeDetails",
+        model.UpdateGiHomeDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateGiHomeResponse>{},
+        body: await response.json(),
+        bodyKey: "giHome",
+        bodyModel: model.GiHome,
+        type: "model.GiHome",
+        responseHeaders: [
           {
             value: response.headers.get("etag"),
             key: "etag",

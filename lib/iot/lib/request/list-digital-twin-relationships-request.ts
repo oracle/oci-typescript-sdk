@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ListDigitalTwinRelationshipsRequest extends common.BaseRequest {
   /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the IoT domain in which to list digital twin resources.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the IoT domain in which to list IoT resources.
    *
    */
   "iotDomainId": string;
