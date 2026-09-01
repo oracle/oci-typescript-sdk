@@ -1,6 +1,6 @@
 {
   "name": "oci-distributeddatabasev26",
-  "version": "2.140.0",
+  "version": "2.140.1",
   "description": "OCI NodeJS client for Distributed Database V26 Service",
   "repository": {
     "type": "git",

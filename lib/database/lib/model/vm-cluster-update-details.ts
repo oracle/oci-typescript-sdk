@@ -25,6 +25,13 @@ export interface VmClusterUpdateDetails {
    */
   "updateId"?: string;
   /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Grid Infrastructure Home.
+   * Specify this field for out of place Grid Infrastructure Home patching and upgrade of the VM Cluster.
+   * This is mutually exclusive option to {@code updateId} and {@code giSoftwareImageId} which are used for in place patching and upgrade using Oracle supplied and custom images respectively.
+   *
+   */
+  "giHomeId"?: string;
+  /**
    * The update mode to perform for OS Update.
    */
   "updateMode"?: VmClusterUpdateDetails.UpdateMode;

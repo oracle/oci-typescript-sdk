@@ -114,7 +114,7 @@ To get a list of shapes, use the {@link #listDbSystemShapes(ListDbSystemShapesRe
   /**
    * The public key portion of the key pair to use for SSH access to the DB system. Multiple public keys can be provided. The length of the combined keys cannot exceed 40,000 characters.
    */
-  "sshPublicKeys": Array<string>;
+  "sshPublicKeys"?: Array<string>;
   /**
     * The hostname for the DB system. The hostname must begin with an alphabetic character, and
 * can contain alphanumeric characters and hyphens (-). The maximum length of the hostname is 16 characters for bare metal and virtual machine DB systems, and 12 characters for Exadata DB systems.

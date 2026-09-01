@@ -29,7 +29,7 @@ export interface DigitalTwinInstanceSummary {
    */
   "iotDomainId": string;
   /**
-   * Connectivity type of the digital twin instance
+   * Connectivity type of the digital twin instance.
    */
   "connectivityType": model.DigitalTwinInstanceConnectivityType;
   /**

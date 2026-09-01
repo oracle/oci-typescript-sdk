@@ -37,7 +37,7 @@ export interface ListIotDomainGroupsRequest extends common.BaseRequest {
    */
   "lifecycleState"?: string;
   /**
-   * Filter resources by type. Valid values are LIGHTWEIGHT or STANDARD.
+   * Filter resources by type. Valid values are DEVELOPMENT or PRODUCTION. LIGHTWEIGHT and STANDARD are deprecated aliases for DEVELOPMENT and PRODUCTION, respectively.
    */
   "type"?: string;
   /**

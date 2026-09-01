@@ -1,0 +1,30 @@
+{
+  "name": "oci-clusterhealth",
+  "version": "2.140.1",
+  "description": "OCI NodeJS client for Cluster Health Service",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/oracle/oci-typescript-sdk"
+  },
+  "main": "../../target/lib/clusterhealth/index.js",
+  "typings": "../../target/lib/clusterhealth/index.d.ts",
+  "scripts": {},
+  "author": {
+    "name": "Oracle Cloud Infrastructure",
+    "email": ""
+  },
+  "license": "(UPL-1.0 OR Apache-2.0)",
+  "dependencies": {
+    "oci-common": "../common",
+    "opossum": "5.0.1"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
+  "contributors": [
+    "Yash Chandra <yash.chandra@oracle.com>",
+    "Nivedita Parihar <nivedita.parihar@oracle.com>",
+    "Joshua Ramirez <joshua.r.ramirez@oracle.com>",
+    "Kalpana Ramasamy <kalpana.ramasamy@oracle.com>"
+  ]
+}

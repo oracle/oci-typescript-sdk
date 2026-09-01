@@ -239,6 +239,80 @@ export class IotClient {
   }
 
   /**
+   * Activates the IoT flow runtime identified by the specified OCID.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ActivateIotFlowRuntimeRequest
+   * @return ActivateIotFlowRuntimeResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/iot/ActivateIotFlowRuntime.ts.html |here} to see how to use ActivateIotFlowRuntime API.
+   */
+  public async activateIotFlowRuntime(
+    activateIotFlowRuntimeRequest: requests.ActivateIotFlowRuntimeRequest
+  ): Promise<responses.ActivateIotFlowRuntimeResponse> {
+    if (this.logger) this.logger.debug("Calling operation IotClient#activateIotFlowRuntime.");
+    const operationName = "activateIotFlowRuntime";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{iotFlowRuntimeId}": activateIotFlowRuntimeRequest.iotFlowRuntimeId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": activateIotFlowRuntimeRequest.ifMatch,
+      "opc-request-id": activateIotFlowRuntimeRequest.opcRequestId,
+      "opc-retry-token": activateIotFlowRuntimeRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      activateIotFlowRuntimeRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/iotFlowRuntimes/{iotFlowRuntimeId}/actions/activate",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ActivateIotFlowRuntimeResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Moves an IoT domain to a different compartment within the same tenancy. For information about moving resources between
    * compartments, see [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
@@ -459,6 +533,87 @@ export class IotClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeIotDomainGroupCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Moves an IoT flow runtime to a different compartment within the same tenancy. For information about moving resources between
+   * compartments, see [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ChangeIotFlowRuntimeCompartmentRequest
+   * @return ChangeIotFlowRuntimeCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/iot/ChangeIotFlowRuntimeCompartment.ts.html |here} to see how to use ChangeIotFlowRuntimeCompartment API.
+   */
+  public async changeIotFlowRuntimeCompartment(
+    changeIotFlowRuntimeCompartmentRequest: requests.ChangeIotFlowRuntimeCompartmentRequest
+  ): Promise<responses.ChangeIotFlowRuntimeCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IotClient#changeIotFlowRuntimeCompartment.");
+    const operationName = "changeIotFlowRuntimeCompartment";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{iotFlowRuntimeId}": changeIotFlowRuntimeCompartmentRequest.iotFlowRuntimeId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeIotFlowRuntimeCompartmentRequest.ifMatch,
+      "opc-request-id": changeIotFlowRuntimeCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeIotFlowRuntimeCompartmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeIotFlowRuntimeCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/iotFlowRuntimes/{iotFlowRuntimeId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeIotFlowRuntimeCompartmentRequest.changeIotFlowRuntimeCompartmentDetails,
+        "ChangeIotFlowRuntimeCompartmentDetails",
+        model.ChangeIotFlowRuntimeCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeIotFlowRuntimeCompartmentResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -1149,6 +1304,175 @@ export class IotClient {
   }
 
   /**
+   * Creates an IoT flow runtime.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateIotFlowRuntimeRequest
+   * @return CreateIotFlowRuntimeResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/iot/CreateIotFlowRuntime.ts.html |here} to see how to use CreateIotFlowRuntime API.
+   */
+  public async createIotFlowRuntime(
+    createIotFlowRuntimeRequest: requests.CreateIotFlowRuntimeRequest
+  ): Promise<responses.CreateIotFlowRuntimeResponse> {
+    if (this.logger) this.logger.debug("Calling operation IotClient#createIotFlowRuntime.");
+    const operationName = "createIotFlowRuntime";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createIotFlowRuntimeRequest.opcRetryToken,
+      "opc-request-id": createIotFlowRuntimeRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createIotFlowRuntimeRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/iotFlowRuntimes",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createIotFlowRuntimeRequest.createIotFlowRuntimeDetails,
+        "CreateIotFlowRuntimeDetails",
+        model.CreateIotFlowRuntimeDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateIotFlowRuntimeResponse>{},
+        body: await response.json(),
+        bodyKey: "iotFlowRuntime",
+        bodyModel: model.IotFlowRuntime,
+        type: "model.IotFlowRuntime",
+        responseHeaders: [
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-location"),
+            key: "contentLocation",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deactivates the IoT flow runtime identified by the specified OCID.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeactivateIotFlowRuntimeRequest
+   * @return DeactivateIotFlowRuntimeResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/iot/DeactivateIotFlowRuntime.ts.html |here} to see how to use DeactivateIotFlowRuntime API.
+   */
+  public async deactivateIotFlowRuntime(
+    deactivateIotFlowRuntimeRequest: requests.DeactivateIotFlowRuntimeRequest
+  ): Promise<responses.DeactivateIotFlowRuntimeResponse> {
+    if (this.logger) this.logger.debug("Calling operation IotClient#deactivateIotFlowRuntime.");
+    const operationName = "deactivateIotFlowRuntime";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{iotFlowRuntimeId}": deactivateIotFlowRuntimeRequest.iotFlowRuntimeId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deactivateIotFlowRuntimeRequest.ifMatch,
+      "opc-request-id": deactivateIotFlowRuntimeRequest.opcRequestId,
+      "opc-retry-token": deactivateIotFlowRuntimeRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deactivateIotFlowRuntimeRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/iotFlowRuntimes/{iotFlowRuntimeId}/actions/deactivate",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeactivateIotFlowRuntimeResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes the digital twin adapter identified by the specified OCID.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteDigitalTwinAdapterRequest
@@ -1541,6 +1865,78 @@ export class IotClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteIotDomainGroupResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the IoT flow runtime identified by the specified OCID.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteIotFlowRuntimeRequest
+   * @return DeleteIotFlowRuntimeResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/iot/DeleteIotFlowRuntime.ts.html |here} to see how to use DeleteIotFlowRuntime API.
+   */
+  public async deleteIotFlowRuntime(
+    deleteIotFlowRuntimeRequest: requests.DeleteIotFlowRuntimeRequest
+  ): Promise<responses.DeleteIotFlowRuntimeResponse> {
+    if (this.logger) this.logger.debug("Calling operation IotClient#deleteIotFlowRuntime.");
+    const operationName = "deleteIotFlowRuntime";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{iotFlowRuntimeId}": deleteIotFlowRuntimeRequest.iotFlowRuntimeId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteIotFlowRuntimeRequest.ifMatch,
+      "opc-request-id": deleteIotFlowRuntimeRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteIotFlowRuntimeRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/iotFlowRuntimes/{iotFlowRuntimeId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteIotFlowRuntimeResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -2146,6 +2542,156 @@ export class IotClient {
         bodyKey: "iotDomainGroup",
         bodyModel: model.IotDomainGroup,
         type: "model.IotDomainGroup",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the IoT flow runtime identified by the specified OCID.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetIotFlowRuntimeRequest
+   * @return GetIotFlowRuntimeResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/iot/GetIotFlowRuntime.ts.html |here} to see how to use GetIotFlowRuntime API.
+   */
+  public async getIotFlowRuntime(
+    getIotFlowRuntimeRequest: requests.GetIotFlowRuntimeRequest
+  ): Promise<responses.GetIotFlowRuntimeResponse> {
+    if (this.logger) this.logger.debug("Calling operation IotClient#getIotFlowRuntime.");
+    const operationName = "getIotFlowRuntime";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{iotFlowRuntimeId}": getIotFlowRuntimeRequest.iotFlowRuntimeId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getIotFlowRuntimeRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getIotFlowRuntimeRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/iotFlowRuntimes/{iotFlowRuntimeId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetIotFlowRuntimeResponse>{},
+        body: await response.json(),
+        bodyKey: "iotFlowRuntime",
+        bodyModel: model.IotFlowRuntime,
+        type: "model.IotFlowRuntime",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the opaque flows document for the IoT flow runtime identified by the specified OCID.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetIotFlowRuntimeFlowsRequest
+   * @return GetIotFlowRuntimeFlowsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/iot/GetIotFlowRuntimeFlows.ts.html |here} to see how to use GetIotFlowRuntimeFlows API.
+   */
+  public async getIotFlowRuntimeFlows(
+    getIotFlowRuntimeFlowsRequest: requests.GetIotFlowRuntimeFlowsRequest
+  ): Promise<responses.GetIotFlowRuntimeFlowsResponse> {
+    if (this.logger) this.logger.debug("Calling operation IotClient#getIotFlowRuntimeFlows.");
+    const operationName = "getIotFlowRuntimeFlows";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{iotFlowRuntimeId}": getIotFlowRuntimeFlowsRequest.iotFlowRuntimeId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getIotFlowRuntimeFlowsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getIotFlowRuntimeFlowsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/iotFlowRuntimes/{iotFlowRuntimeId}/flows",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetIotFlowRuntimeFlowsResponse>{},
+        body: await response.json(),
+        bodyKey: "value",
+        bodyModel: "{ [key: string]: any; }",
+        type: "{ [key: string]: any; }",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -2840,6 +3386,95 @@ export class IotClient {
         bodyKey: "iotDomainCollection",
         bodyModel: model.IotDomainCollection,
         type: "model.IotDomainCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists IoT flow runtimes in the specified compartment.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListIotFlowRuntimesRequest
+   * @return ListIotFlowRuntimesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/iot/ListIotFlowRuntimes.ts.html |here} to see how to use ListIotFlowRuntimes API.
+   */
+  public async listIotFlowRuntimes(
+    listIotFlowRuntimesRequest: requests.ListIotFlowRuntimesRequest
+  ): Promise<responses.ListIotFlowRuntimesResponse> {
+    if (this.logger) this.logger.debug("Calling operation IotClient#listIotFlowRuntimes.");
+    const operationName = "listIotFlowRuntimes";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listIotFlowRuntimesRequest.compartmentId,
+      "id": listIotFlowRuntimesRequest.id,
+      "iotDomainId": listIotFlowRuntimesRequest.iotDomainId,
+      "displayName": listIotFlowRuntimesRequest.displayName,
+      "lifecycleState": listIotFlowRuntimesRequest.lifecycleState,
+      "limit": listIotFlowRuntimesRequest.limit,
+      "page": listIotFlowRuntimesRequest.page,
+      "sortOrder": listIotFlowRuntimesRequest.sortOrder,
+      "sortBy": listIotFlowRuntimesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listIotFlowRuntimesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listIotFlowRuntimesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/iotFlowRuntimes",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListIotFlowRuntimesResponse>{},
+        body: await response.json(),
+        bodyKey: "iotFlowRuntimeCollection",
+        bodyModel: model.IotFlowRuntimeCollection,
+        type: "model.IotFlowRuntimeCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3588,6 +4223,164 @@ export class IotClient {
           {
             value: response.headers.get("opc-work-request-id"),
             key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the IoT flow runtime identified by the specified OCID.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateIotFlowRuntimeRequest
+   * @return UpdateIotFlowRuntimeResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/iot/UpdateIotFlowRuntime.ts.html |here} to see how to use UpdateIotFlowRuntime API.
+   */
+  public async updateIotFlowRuntime(
+    updateIotFlowRuntimeRequest: requests.UpdateIotFlowRuntimeRequest
+  ): Promise<responses.UpdateIotFlowRuntimeResponse> {
+    if (this.logger) this.logger.debug("Calling operation IotClient#updateIotFlowRuntime.");
+    const operationName = "updateIotFlowRuntime";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{iotFlowRuntimeId}": updateIotFlowRuntimeRequest.iotFlowRuntimeId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateIotFlowRuntimeRequest.ifMatch,
+      "opc-request-id": updateIotFlowRuntimeRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateIotFlowRuntimeRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/iotFlowRuntimes/{iotFlowRuntimeId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateIotFlowRuntimeRequest.updateIotFlowRuntimeDetails,
+        "UpdateIotFlowRuntimeDetails",
+        model.UpdateIotFlowRuntimeDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateIotFlowRuntimeResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Replaces the complete flows document for the IoT flow runtime identified by the specified OCID.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateIotFlowRuntimeFlowsRequest
+   * @return UpdateIotFlowRuntimeFlowsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/iot/UpdateIotFlowRuntimeFlows.ts.html |here} to see how to use UpdateIotFlowRuntimeFlows API.
+   */
+  public async updateIotFlowRuntimeFlows(
+    updateIotFlowRuntimeFlowsRequest: requests.UpdateIotFlowRuntimeFlowsRequest
+  ): Promise<responses.UpdateIotFlowRuntimeFlowsResponse> {
+    if (this.logger) this.logger.debug("Calling operation IotClient#updateIotFlowRuntimeFlows.");
+    const operationName = "updateIotFlowRuntimeFlows";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{iotFlowRuntimeId}": updateIotFlowRuntimeFlowsRequest.iotFlowRuntimeId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateIotFlowRuntimeFlowsRequest.ifMatch,
+      "opc-request-id": updateIotFlowRuntimeFlowsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateIotFlowRuntimeFlowsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/iotFlowRuntimes/{iotFlowRuntimeId}/flows",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateIotFlowRuntimeFlowsRequest.flowsDocument,
+        "any"
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateIotFlowRuntimeFlowsResponse>{},
+        body: await response.json(),
+        bodyKey: "value",
+        bodyModel: "{ [key: string]: any; }",
+        type: "{ [key: string]: any; }",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
             dataType: "string"
           },
           {

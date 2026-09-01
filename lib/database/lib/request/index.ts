@@ -186,6 +186,8 @@ import * as CreateExternalNonContainerDatabaseRequest from "./create-external-no
 export import CreateExternalNonContainerDatabaseRequest = CreateExternalNonContainerDatabaseRequest.CreateExternalNonContainerDatabaseRequest;
 import * as CreateExternalPluggableDatabaseRequest from "./create-external-pluggable-database-request";
 export import CreateExternalPluggableDatabaseRequest = CreateExternalPluggableDatabaseRequest.CreateExternalPluggableDatabaseRequest;
+import * as CreateGiHomeRequest from "./create-gi-home-request";
+export import CreateGiHomeRequest = CreateGiHomeRequest.CreateGiHomeRequest;
 import * as CreateKeyStoreRequest from "./create-key-store-request";
 export import CreateKeyStoreRequest = CreateKeyStoreRequest.CreateKeyStoreRequest;
 import * as CreateMaintenanceRunRequest from "./create-maintenance-run-request";
@@ -264,6 +266,8 @@ import * as DeleteExternalNonContainerDatabaseRequest from "./delete-external-no
 export import DeleteExternalNonContainerDatabaseRequest = DeleteExternalNonContainerDatabaseRequest.DeleteExternalNonContainerDatabaseRequest;
 import * as DeleteExternalPluggableDatabaseRequest from "./delete-external-pluggable-database-request";
 export import DeleteExternalPluggableDatabaseRequest = DeleteExternalPluggableDatabaseRequest.DeleteExternalPluggableDatabaseRequest;
+import * as DeleteGiHomeRequest from "./delete-gi-home-request";
+export import DeleteGiHomeRequest = DeleteGiHomeRequest.DeleteGiHomeRequest;
 import * as DeleteKeyStoreRequest from "./delete-key-store-request";
 export import DeleteKeyStoreRequest = DeleteKeyStoreRequest.DeleteKeyStoreRequest;
 import * as DeleteOneoffPatchRequest from "./delete-oneoff-patch-request";
@@ -490,6 +494,8 @@ import * as GetExternalNonContainerDatabaseRequest from "./get-external-non-cont
 export import GetExternalNonContainerDatabaseRequest = GetExternalNonContainerDatabaseRequest.GetExternalNonContainerDatabaseRequest;
 import * as GetExternalPluggableDatabaseRequest from "./get-external-pluggable-database-request";
 export import GetExternalPluggableDatabaseRequest = GetExternalPluggableDatabaseRequest.GetExternalPluggableDatabaseRequest;
+import * as GetGiHomeRequest from "./get-gi-home-request";
+export import GetGiHomeRequest = GetGiHomeRequest.GetGiHomeRequest;
 import * as GetInfrastructureTargetVersionsRequest from "./get-infrastructure-target-versions-request";
 export import GetInfrastructureTargetVersionsRequest = GetInfrastructureTargetVersionsRequest.GetInfrastructureTargetVersionsRequest;
 import * as GetKeyStoreRequest from "./get-key-store-request";
@@ -576,6 +582,8 @@ import * as ListAutonomousVmClusterAcdResourceUsageRequest from "./list-autonomo
 export import ListAutonomousVmClusterAcdResourceUsageRequest = ListAutonomousVmClusterAcdResourceUsageRequest.ListAutonomousVmClusterAcdResourceUsageRequest;
 import * as ListAutonomousVmClustersRequest from "./list-autonomous-vm-clusters-request";
 export import ListAutonomousVmClustersRequest = ListAutonomousVmClustersRequest.ListAutonomousVmClustersRequest;
+import * as ListAvailableMaintenanceWindowsRequest from "./list-available-maintenance-windows-request";
+export import ListAvailableMaintenanceWindowsRequest = ListAvailableMaintenanceWindowsRequest.ListAvailableMaintenanceWindowsRequest;
 import * as ListBackupDestinationRequest from "./list-backup-destination-request";
 export import ListBackupDestinationRequest = ListBackupDestinationRequest.ListBackupDestinationRequest;
 import * as ListBackupsRequest from "./list-backups-request";
@@ -672,6 +680,8 @@ import * as ListExternalPluggableDatabasesRequest from "./list-external-pluggabl
 export import ListExternalPluggableDatabasesRequest = ListExternalPluggableDatabasesRequest.ListExternalPluggableDatabasesRequest;
 import * as ListFlexComponentsRequest from "./list-flex-components-request";
 export import ListFlexComponentsRequest = ListFlexComponentsRequest.ListFlexComponentsRequest;
+import * as ListGiHomesRequest from "./list-gi-homes-request";
+export import ListGiHomesRequest = ListGiHomesRequest.ListGiHomesRequest;
 import * as ListGiVersionMinorVersionsRequest from "./list-gi-version-minor-versions-request";
 export import ListGiVersionMinorVersionsRequest = ListGiVersionMinorVersionsRequest.ListGiVersionMinorVersionsRequest;
 import * as ListGiVersionsRequest from "./list-gi-versions-request";
@@ -928,6 +938,8 @@ import * as UpdateExternalNonContainerDatabaseRequest from "./update-external-no
 export import UpdateExternalNonContainerDatabaseRequest = UpdateExternalNonContainerDatabaseRequest.UpdateExternalNonContainerDatabaseRequest;
 import * as UpdateExternalPluggableDatabaseRequest from "./update-external-pluggable-database-request";
 export import UpdateExternalPluggableDatabaseRequest = UpdateExternalPluggableDatabaseRequest.UpdateExternalPluggableDatabaseRequest;
+import * as UpdateGiHomeRequest from "./update-gi-home-request";
+export import UpdateGiHomeRequest = UpdateGiHomeRequest.UpdateGiHomeRequest;
 import * as UpdateKeyStoreRequest from "./update-key-store-request";
 export import UpdateKeyStoreRequest = UpdateKeyStoreRequest.UpdateKeyStoreRequest;
 import * as UpdateMaintenanceRunRequest from "./update-maintenance-run-request";

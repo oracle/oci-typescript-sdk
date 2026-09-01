@@ -38,6 +38,7 @@ Example: For payload {@code {\"time\": \"<timestamp>\",\"temp\": 65,\"hum\": 55}
   "target"?: string;
   /**
    * JSON Path string to override the context root before delegating to the adapter of the target digital twin instance.
+   *
    */
   "contentRoot"?: string;
 }
