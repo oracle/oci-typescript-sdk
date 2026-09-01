@@ -137,6 +137,25 @@ export class IotWaiter {
   }
 
   /**
+   * Waits forIotFlowRuntime till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetIotFlowRuntimeResponse | null (null in case of 404 response)
+   */
+  public async forIotFlowRuntime(
+    request: serviceRequests.GetIotFlowRuntimeRequest,
+    ...targetStates: models.IotFlowRuntime.LifecycleState[]
+  ): Promise<serviceResponses.GetIotFlowRuntimeResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getIotFlowRuntime(request),
+      response => targetStates.includes(response.iotFlowRuntime.lifecycleState!),
+      targetStates.includes(models.IotFlowRuntime.LifecycleState.Deleted)
+    );
+  }
+
+  /**
    * Waits forWorkRequest
    *
    * @param request the request to send

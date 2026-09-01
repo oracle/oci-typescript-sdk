@@ -72,6 +72,10 @@ Example: {@code {\"Department\": \"Finance\"}}
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Database Home.
    */
   "sourceDbHomeId"?: string;
+  /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Grid Infrastructure Home.
+   */
+  "sourceGiHomeId"?: string;
 }
 
 export namespace CreateDatabaseSoftwareImageDetails {

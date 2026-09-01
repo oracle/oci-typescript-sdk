@@ -2527,6 +2527,29 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forCreateGiHome
+   *
+   * @param request the request to send
+   * @return response returns CreateGiHomeResponse, GetWorkRequestResponse tuple
+   */
+  public async forCreateGiHome(
+    request: serviceRequests.CreateGiHomeRequest
+  ): Promise<{
+    response: serviceResponses.CreateGiHomeResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const createGiHomeResponse = await this.client.createGiHome(request);
+    if (createGiHomeResponse.opcWorkRequestId === undefined)
+      return { response: createGiHomeResponse, workRequestResponse: undefined as any };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      createGiHomeResponse.opcWorkRequestId
+    );
+    return { response: createGiHomeResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
    * Waits forCreateOneoffPatch
    *
    * @param request the request to send
@@ -3454,6 +3477,29 @@ export class DatabaseWaiter {
       response: deleteExternalPluggableDatabaseResponse,
       workRequestResponse: getWorkRequestResponse
     };
+  }
+
+  /**
+   * Waits forDeleteGiHome
+   *
+   * @param request the request to send
+   * @return response returns DeleteGiHomeResponse, GetWorkRequestResponse tuple
+   */
+  public async forDeleteGiHome(
+    request: serviceRequests.DeleteGiHomeRequest
+  ): Promise<{
+    response: serviceResponses.DeleteGiHomeResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const deleteGiHomeResponse = await this.client.deleteGiHome(request);
+    if (deleteGiHomeResponse.opcWorkRequestId === undefined)
+      return { response: deleteGiHomeResponse, workRequestResponse: undefined as any };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      deleteGiHomeResponse.opcWorkRequestId
+    );
+    return { response: deleteGiHomeResponse, workRequestResponse: getWorkRequestResponse };
   }
 
   /**
@@ -5511,6 +5557,25 @@ export class DatabaseWaiter {
       () => this.client.getExternalPluggableDatabase(request),
       response => targetStates.includes(response.externalPluggableDatabase.lifecycleState!),
       targetStates.includes(models.ExternalPluggableDatabase.LifecycleState.Terminated)
+    );
+  }
+
+  /**
+   * Waits forGiHome till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetGiHomeResponse | null (null in case of 404 response)
+   */
+  public async forGiHome(
+    request: serviceRequests.GetGiHomeRequest,
+    ...targetStates: models.GiHome.LifecycleState[]
+  ): Promise<serviceResponses.GetGiHomeResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getGiHome(request),
+      response => targetStates.includes(response.giHome.lifecycleState!),
+      targetStates.includes(models.GiHome.LifecycleState.Terminated)
     );
   }
 
