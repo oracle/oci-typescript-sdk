@@ -16,6 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
+ * Note: Deprecated. Use the new resource model APIs instead.
  * Configuration specifying a constant amount of provisioned concurrency.
  *
  */

@@ -16,6 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
+ * Note: Deprecated. Use the new resource model APIs instead.
  * An application contains functions and defined attributes shared between those functions, such as network configuration and configuration. Avoid entering confidential information.
  *
  */

@@ -187,6 +187,11 @@ Example: {@code 2016-08-25T21:10:29.600Z}
    *
    */
   "vsphereType": model.VsphereTypes;
+  /**
+   * The initial fault domain host distribution mode for the Cluster.
+   *
+   */
+  "initialFaultDomainHostDistribution"?: model.FaultDomainHostDistributionModes;
   "clusterByolAllocationDetails"?: model.ClusterByolAllocationDetails;
   /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the initial VMware BYOL Allocation used to deploy VMware Cloud Foundation.

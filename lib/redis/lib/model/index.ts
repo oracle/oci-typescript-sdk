@@ -33,10 +33,14 @@ import * as ChangeOciCacheUserCompartmentDetails from "./change-oci-cache-user-c
 export import ChangeOciCacheUserCompartmentDetails = ChangeOciCacheUserCompartmentDetails.ChangeOciCacheUserCompartmentDetails;
 import * as ChangeRedisClusterCompartmentDetails from "./change-redis-cluster-compartment-details";
 export import ChangeRedisClusterCompartmentDetails = ChangeRedisClusterCompartmentDetails.ChangeRedisClusterCompartmentDetails;
+import * as ClusterReplicationTopology from "./cluster-replication-topology";
+export import ClusterReplicationTopology = ClusterReplicationTopology.ClusterReplicationTopology;
 import * as ConfigurationDetails from "./configuration-details";
 export import ConfigurationDetails = ConfigurationDetails.ConfigurationDetails;
 import * as ConfigurationInfo from "./configuration-info";
 export import ConfigurationInfo = ConfigurationInfo.ConfigurationInfo;
+import * as ConvertToSecondaryClusterDetails from "./convert-to-secondary-cluster-details";
+export import ConvertToSecondaryClusterDetails = ConvertToSecondaryClusterDetails.ConvertToSecondaryClusterDetails;
 import * as CreateIdentityTokenDetails from "./create-identity-token-details";
 export import CreateIdentityTokenDetails = CreateIdentityTokenDetails.CreateIdentityTokenDetails;
 import * as CreateOciCacheBackupDetails from "./create-oci-cache-backup-details";
@@ -63,6 +67,8 @@ import * as ImportOciCacheFromObjectStorageDetails from "./import-oci-cache-from
 export import ImportOciCacheFromObjectStorageDetails = ImportOciCacheFromObjectStorageDetails.ImportOciCacheFromObjectStorageDetails;
 import * as ImportOciCacheFromObjectStorageObject from "./import-oci-cache-from-object-storage-object";
 export import ImportOciCacheFromObjectStorageObject = ImportOciCacheFromObjectStorageObject.ImportOciCacheFromObjectStorageObject;
+import * as MemberCluster from "./member-cluster";
+export import MemberCluster = MemberCluster.MemberCluster;
 import * as Node from "./node";
 export import Node = Node.Node;
 import * as NodeCollection from "./node-collection";

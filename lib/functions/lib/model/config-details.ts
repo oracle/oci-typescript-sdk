@@ -16,7 +16,9 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
+ * Note: Deprecated. Use the new resource model APIs instead.
  * Details about the required and optional Function configurations needed for proper performance of the PBF.
+ *
  */
 export interface ConfigDetails {
   /**

@@ -16,6 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
+ * Note: Deprecated. Use the new resource model APIs instead.
  * PbfListing resources provide details about the available PBFs for consumption by the user.
  * This resource contains details about PBF's functionality, policies required, configuration parameters expected
  * etc.

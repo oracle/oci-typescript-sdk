@@ -103,6 +103,11 @@ For example, if the value is {@code myCluster}, the ESXi hosts are named {@code 
    *
    */
   "datastoreClusterIds"?: Array<string>;
+  /**
+   * Initial Fault Domain Host distribution mode for the Cluster.
+   *
+   */
+  "initialFaultDomainHostDistribution"?: model.FaultDomainHostDistributionModes;
   "clusterByolAllocationDetails"?: model.ClusterByolAllocationDetails;
   /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the initial VMware BYOL Allocation used to deploy VMware Cloud Foundation.
