@@ -16,6 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
+* Note: Deprecated. Use the new resource model APIs instead.
 * The destination topic in the Notifications service to which to send the response of the successful detached function invocation.
 * <p>
 Example: {@code {\"kind\": \"NOTIFICATION\", \"topicId\": \"topic_OCID\"}}

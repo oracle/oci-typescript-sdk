@@ -16,7 +16,9 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
+ * Note: Deprecated. Use the new resource model APIs instead.
  * PBF specific triggers for activating a PBF.
+ *
  */
 export interface Trigger {
   /**

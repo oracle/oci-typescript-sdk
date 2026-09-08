@@ -120,6 +120,15 @@ Example: {@code {\"Oracle-ZPR\": {\"MaxEgressCount\": {\"value\": \"42\", \"mode
     */
   "securityAttributes"?: { [key: string]: { [key: string]: any } };
   /**
+   * The current role of the cluster.
+   */
+  "clusterRole"?: RedisCluster.ClusterRole;
+  /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm#Oracle) of the primary cluster in CRR.
+   */
+  "primaryClusterId"?: string;
+  "clusterReplicationTopology"?: model.ClusterReplicationTopology;
+  /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
    * Example: {@code {\"bar-key\": \"value\"}}
    *
@@ -176,6 +185,17 @@ export namespace RedisCluster {
     UnknownValue = "UNKNOWN_VALUE"
   }
 
+  export enum ClusterRole {
+    Primary = "PRIMARY",
+    Secondary = "SECONDARY",
+    Standalone = "STANDALONE",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: RedisCluster): object {
     const jsonObj = {
       ...obj,
@@ -188,6 +208,10 @@ export namespace RedisCluster {
           ? model.ImportOciCacheFromObjectStorageDetails.getJsonObj(
               obj.importFromObjectStorageDetails
             )
+          : undefined,
+
+        "clusterReplicationTopology": obj.clusterReplicationTopology
+          ? model.ClusterReplicationTopology.getJsonObj(obj.clusterReplicationTopology)
           : undefined
       }
     };
@@ -206,6 +230,10 @@ export namespace RedisCluster {
           ? model.ImportOciCacheFromObjectStorageDetails.getDeserializedJsonObj(
               obj.importFromObjectStorageDetails
             )
+          : undefined,
+
+        "clusterReplicationTopology": obj.clusterReplicationTopology
+          ? model.ClusterReplicationTopology.getDeserializedJsonObj(obj.clusterReplicationTopology)
           : undefined
       }
     };

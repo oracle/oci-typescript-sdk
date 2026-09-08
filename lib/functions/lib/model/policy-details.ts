@@ -16,7 +16,9 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A policy required for this PBF execution.
+ * Note: Deprecated. Use the new resource model APIs instead.
+ * \"A policy required for this PBF execution.\"
+ *
  */
 export interface PolicyDetails {
   /**

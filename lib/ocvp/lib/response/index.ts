@@ -43,6 +43,8 @@ import * as CreateClusterResponse from "./create-cluster-response";
 export import CreateClusterResponse = CreateClusterResponse.CreateClusterResponse;
 import * as DeleteClusterResponse from "./delete-cluster-response";
 export import DeleteClusterResponse = DeleteClusterResponse.DeleteClusterResponse;
+import * as GenerateHostDistributionReportResponse from "./generate-host-distribution-report-response";
+export import GenerateHostDistributionReportResponse = GenerateHostDistributionReportResponse.GenerateHostDistributionReportResponse;
 import * as GetClusterResponse from "./get-cluster-response";
 export import GetClusterResponse = GetClusterResponse.GetClusterResponse;
 import * as ListClustersResponse from "./list-clusters-response";

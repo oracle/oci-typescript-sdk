@@ -16,7 +16,9 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
+ * Note: Deprecated. Use the new resource model APIs instead.
  * Contains details about the publisher of this PBF Listing.
+ *
  */
 export interface PublisherDetails {
   /**

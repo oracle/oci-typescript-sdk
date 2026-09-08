@@ -135,6 +135,11 @@ Example: {@code 2016-08-25T21:10:29.600Z}
    */
   "computeAvailabilityDomain": string;
   /**
+   * The fault domain of the ESXi host.
+   *
+   */
+  "computeFaultDomain"?: string;
+  /**
    * The compute shape name of the ESXi host.
    * {@link #listSupportedHostShapes(ListSupportedHostShapesRequest) listSupportedHostShapes}.
    *

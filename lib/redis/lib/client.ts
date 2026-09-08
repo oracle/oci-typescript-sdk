@@ -3462,6 +3462,159 @@ export class RedisClusterClient {
   }
 
   /**
+   * Converts an existing cluster into a secondary cluster by transforming it into a replica cache that replicates data from the specified primary cluster.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ConvertToSecondaryClusterRequest
+   * @return ConvertToSecondaryClusterResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/redis/ConvertToSecondaryCluster.ts.html |here} to see how to use ConvertToSecondaryCluster API.
+   */
+  public async convertToSecondaryCluster(
+    convertToSecondaryClusterRequest: requests.ConvertToSecondaryClusterRequest
+  ): Promise<responses.ConvertToSecondaryClusterResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation RedisClusterClient#convertToSecondaryCluster.");
+    const operationName = "convertToSecondaryCluster";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{redisClusterId}": convertToSecondaryClusterRequest.redisClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": convertToSecondaryClusterRequest.ifMatch,
+      "opc-retry-token": convertToSecondaryClusterRequest.opcRetryToken,
+      "opc-request-id": convertToSecondaryClusterRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      convertToSecondaryClusterRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/redisClusters/{redisClusterId}/actions/convertToSecondaryCluster",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        convertToSecondaryClusterRequest.convertToSecondaryClusterDetails,
+        "ConvertToSecondaryClusterDetails",
+        model.ConvertToSecondaryClusterDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ConvertToSecondaryClusterResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Converts a secondary cluster into a standalone cluster so that it operates as an independent cluster.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ConvertToStandaloneClusterRequest
+   * @return ConvertToStandaloneClusterResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/redis/ConvertToStandaloneCluster.ts.html |here} to see how to use ConvertToStandaloneCluster API.
+   */
+  public async convertToStandaloneCluster(
+    convertToStandaloneClusterRequest: requests.ConvertToStandaloneClusterRequest
+  ): Promise<responses.ConvertToStandaloneClusterResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation RedisClusterClient#convertToStandaloneCluster.");
+    const operationName = "convertToStandaloneCluster";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{redisClusterId}": convertToStandaloneClusterRequest.redisClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": convertToStandaloneClusterRequest.ifMatch,
+      "opc-retry-token": convertToStandaloneClusterRequest.opcRetryToken,
+      "opc-request-id": convertToStandaloneClusterRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      convertToStandaloneClusterRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/redisClusters/{redisClusterId}/actions/convertToStandaloneCluster",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ConvertToStandaloneClusterResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates a new OCI Cache cluster. A cluster is a memory-based storage solution.
    * You can optionally initialize the cluster data by restoring from an OCI Cache Backup (backupId) or by importing from Object Storage RDB file(s) (importFromObjectStorageDetails).
    * For more information, see [OCI Cache](https://docs.oracle.com/iaas/Content/ocicache/home.htm).
@@ -4389,6 +4542,79 @@ export class RedisClusterClient {
           {
             value: response.headers.get("opc-next-page"),
             key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Switchover the roles between a secondary cluster and its primary cluster, making the secondary cluster the new primary and the original primary its secondary.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param SwitchoverRequest
+   * @return SwitchoverResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/redis/Switchover.ts.html |here} to see how to use Switchover API.
+   */
+  public async switchover(
+    switchoverRequest: requests.SwitchoverRequest
+  ): Promise<responses.SwitchoverResponse> {
+    if (this.logger) this.logger.debug("Calling operation RedisClusterClient#switchover.");
+    const operationName = "switchover";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{redisClusterId}": switchoverRequest.redisClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": switchoverRequest.ifMatch,
+      "opc-retry-token": switchoverRequest.opcRetryToken,
+      "opc-request-id": switchoverRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      switchoverRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/redisClusters/{redisClusterId}/actions/switchover",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SwitchoverResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           }
         ]

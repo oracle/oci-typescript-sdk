@@ -16,6 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
+ * Note: Deprecated. Use the new resource model APIs instead.
  * Results of a PbfListingVersion search. Contains both PbfListingVersionSummary
  * items and other information, such as metadata.
  *
