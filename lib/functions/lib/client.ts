@@ -156,7 +156,9 @@ export class FunctionsInvokeClient {
   }
 
   /**
-   * Invokes a function
+   * Note: Deprecated. Use the new operation instead.
+   * \"Invokes a function\"
+   *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param InvokeFunctionRequest
    * @return InvokeFunctionResponse
@@ -440,6 +442,7 @@ export class FunctionsManagementClient {
   }
 
   /**
+   * Note: Deprecated. Use the new operation instead.
    * Moves an application into a different compartment within the same tenancy.
    * For information about moving resources between compartments, see [Moving Resources Between Compartments](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
@@ -518,7 +521,9 @@ export class FunctionsManagementClient {
   }
 
   /**
-   * Creates a new application.
+   * Note: Deprecated. Use the new operation instead.
+   * \"Creates a new application.\"
+   *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateApplicationRequest
    * @return CreateApplicationResponse
@@ -598,7 +603,9 @@ export class FunctionsManagementClient {
   }
 
   /**
-   * Creates a new function.
+   * Note: Deprecated. Use the new operation instead.
+   * \"Creates a new function.\"
+   *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateFunctionRequest
    * @return CreateFunctionResponse
@@ -678,7 +685,9 @@ export class FunctionsManagementClient {
   }
 
   /**
+   * Note: Deprecated. Use the new operation instead.
    * Deletes an application.
+   *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteApplicationRequest
    * @return DeleteApplicationResponse
@@ -747,7 +756,9 @@ export class FunctionsManagementClient {
   }
 
   /**
+   * Note: Deprecated. Use the new operation instead.
    * Deletes a function.
+   *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteFunctionRequest
    * @return DeleteFunctionResponse
@@ -816,7 +827,9 @@ export class FunctionsManagementClient {
   }
 
   /**
-   * Retrieves an application.
+   * Note: Deprecated. Use the new operation instead.
+   * \"Retrieves an application.\"
+   *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetApplicationRequest
    * @return GetApplicationResponse
@@ -893,7 +906,9 @@ export class FunctionsManagementClient {
   }
 
   /**
-   * Retrieves a function.
+   * Note: Deprecated. Use the new operation instead.
+   * \"Retrieves a function.\"
+   *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetFunctionRequest
    * @return GetFunctionResponse
@@ -969,6 +984,7 @@ export class FunctionsManagementClient {
   }
 
   /**
+   * Note: Deprecated. Use the new operation instead.
    * Fetches a Pre-built Function(PBF) Listing. Returns a PbfListing response model.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -1047,7 +1063,9 @@ export class FunctionsManagementClient {
   }
 
   /**
+   * Note: Deprecated. Use the new operation instead.
    * Gets a PbfListingVersion by identifier for a PbfListing.
+   *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetPbfListingVersionRequest
    * @return GetPbfListingVersionResponse
@@ -1124,7 +1142,9 @@ export class FunctionsManagementClient {
   }
 
   /**
-   * Lists applications for a compartment.
+   * Note: Deprecated. Use the new operation instead.
+   * \"Lists applications for a compartment.\"
+   *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListApplicationsRequest
    * @return ListApplicationsResponse
@@ -1260,7 +1280,9 @@ export class FunctionsManagementClient {
   }
 
   /**
-   * Lists functions for an application.
+   * Note: Deprecated. Use the new operation instead.
+   * \"Lists functions for an application.\"
+   *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListFunctionsRequest
    * @return ListFunctionsResponse
@@ -1396,7 +1418,8 @@ export class FunctionsManagementClient {
   }
 
   /**
-     * Fetches a wrapped list of all Pre-built Function(PBF) Listing versions. Returns a PbfListingVersionCollection 
+     * Note: Deprecated. Use the new operation instead.
+* Fetches a wrapped list of all Pre-built Function(PBF) Listing versions. Returns a PbfListingVersionCollection
 * containing an array of PbfListingVersionSummary response models.
 * <p>
 Note that the PbfListingIdentifier must be provided as a query parameter, otherwise an exception shall 
@@ -1486,6 +1509,7 @@ Note that the PbfListingIdentifier must be provided as a query parameter, otherw
   }
 
   /**
+   * Note: Deprecated. Use the new operation instead.
    * Fetches a wrapped list of all Pre-built Function(PBF) Listings. Returns a PbfListingCollection containing
    * an array of PbfListingSummary response models.
    *
@@ -1574,6 +1598,7 @@ Note that the PbfListingIdentifier must be provided as a query parameter, otherw
   }
 
   /**
+   * Note: Deprecated. Use the new operation instead.
    * Returns a list of Triggers.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -1654,7 +1679,9 @@ Note that the PbfListingIdentifier must be provided as a query parameter, otherw
   }
 
   /**
-   * Modifies an application
+   * Note: Deprecated. Use the new operation instead.
+   * \"Modifies an application\"
+   *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateApplicationRequest
    * @return UpdateApplicationResponse
@@ -1737,7 +1764,9 @@ Note that the PbfListingIdentifier must be provided as a query parameter, otherw
   }
 
   /**
-   * Modifies a function
+   * Note: Deprecated. Use the new operation instead.
+   * \"Modifies a function\"
+   *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateFunctionRequest
    * @return UpdateFunctionResponse

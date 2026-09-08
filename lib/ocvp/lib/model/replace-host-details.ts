@@ -30,6 +30,11 @@ export interface ReplaceHostDetails {
    */
   "esxiSoftwareVersion"?: string;
   /**
+   * Initial Fault Domain Host distribution mode for the ESXi host.
+   *
+   */
+  "initialFaultDomainHostDistribution"?: model.FaultDomainHostDistributionModes;
+  /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Byol Allocation for VCF (VMware Cloud Foundation) deployment.
    *
    */

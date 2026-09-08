@@ -16,6 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
+* Note: Deprecated. Use the new resource model APIs instead.
 * The destination queue or channel in the Queue service to which to send the response of the successful detached function invocation.
 * <p>
 Example: {@code {\"kind\": \"QUEUE\", \"queueId\": \"queue_OCID\", \"channelId\": \"channel_Id\"}}

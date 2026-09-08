@@ -36,17 +36,33 @@ export interface GiHome {
    */
   "isDefaultCreated"?: boolean;
   /**
+   * Indicates whether the Grid Infrastructure Home is currently active for the cluster.
+   */
+  "isActive"?: boolean;
+  /**
    * The current state of the Grid Infrastructure Home.
    */
   "lifecycleState": GiHome.LifecycleState;
   /**
    * The time and date as an RFC3339 formatted string, e.g., 2024-04-11T01:59:07.032Z, when the grid infrastructure home was created
    */
-  "timeCreated"?: Date;
+  "timeCreated": Date;
   /**
    * The path of the Grid Infrastructure Home.
    */
   "homePath": string;
+  /**
+   * The possible Grid Infrastructure update actions that can be performed using this Grid Infrastructure Home.
+   */
+  "availableActions"?: Array<GiHome.AvailableActions>;
+  /**
+   * The type of update that the Grid Infrastructure Home can be used for.
+   */
+  "availableType"?: GiHome.AvailableType;
+  /**
+   * Additional information about the current lifecycle state.
+   */
+  "lifecycleDetails"?: string;
   /**
    * A valid Oracle Grid Infrastructure (GI) software version.
    */
@@ -58,7 +74,7 @@ export interface GiHome {
   /**
    * The time and date as an RFC3339 formatted string, e.g., 2024-04-11T01:59:07.032Z, when the grid infrastructure home was updated
    */
-  "timeUpdated"?: Date;
+  "timeUpdated": Date;
   /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the DB system.
    */
@@ -94,6 +110,28 @@ export namespace GiHome {
     Terminated = "TERMINATED",
     Failed = "FAILED",
     Inactive = "INACTIVE",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum AvailableActions {
+    Precheck = "PRECHECK",
+    RollingApply = "ROLLING_APPLY",
+    Retry = "RETRY",
+    Rollback = "ROLLBACK",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum AvailableType {
+    GiUpgrade = "GI_UPGRADE",
+    GiPatch = "GI_PATCH",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

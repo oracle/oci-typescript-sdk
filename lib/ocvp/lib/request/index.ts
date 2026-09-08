@@ -43,6 +43,8 @@ import * as CreateClusterRequest from "./create-cluster-request";
 export import CreateClusterRequest = CreateClusterRequest.CreateClusterRequest;
 import * as DeleteClusterRequest from "./delete-cluster-request";
 export import DeleteClusterRequest = DeleteClusterRequest.DeleteClusterRequest;
+import * as GenerateHostDistributionReportRequest from "./generate-host-distribution-report-request";
+export import GenerateHostDistributionReportRequest = GenerateHostDistributionReportRequest.GenerateHostDistributionReportRequest;
 import * as GetClusterRequest from "./get-cluster-request";
 export import GetClusterRequest = GetClusterRequest.GetClusterRequest;
 import * as ListClustersRequest from "./list-clusters-request";

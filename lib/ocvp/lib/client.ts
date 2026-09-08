@@ -1856,6 +1856,84 @@ Use the {@link WorkRequest} operations to track the
   }
 
   /**
+   * Generates report for how ESXi hosts are distributed across Fault Domains.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GenerateHostDistributionReportRequest
+   * @return GenerateHostDistributionReportResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/GenerateHostDistributionReport.ts.html |here} to see how to use GenerateHostDistributionReport API.
+   */
+  public async generateHostDistributionReport(
+    generateHostDistributionReportRequest: requests.GenerateHostDistributionReportRequest
+  ): Promise<responses.GenerateHostDistributionReportResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ClusterClient#generateHostDistributionReport.");
+    const operationName = "generateHostDistributionReport";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vmware/20230701/Cluster/GenerateHostDistributionReport";
+    const pathParams = {
+      "{clusterId}": generateHostDistributionReportRequest.clusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": generateHostDistributionReportRequest.opcRequestId,
+      "opc-retry-token": generateHostDistributionReportRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      generateHostDistributionReportRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/clusters/{clusterId}/actions/generateHostDistributionReport",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GenerateHostDistributionReportResponse>{},
+        body: await response.json(),
+        bodyKey: "hostDistributionReportDetails",
+        bodyModel: model.HostDistributionReportDetails,
+        type: "model.HostDistributionReportDetails",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets the specified Cluster's information.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetClusterRequest

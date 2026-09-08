@@ -16,7 +16,9 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
+ * Note: Deprecated. Use the new resource model APIs instead.
  * The properties that define the kms keys used by Functions for Image Signature verification.
+ *
  */
 export interface KeyDetails {
   /**
