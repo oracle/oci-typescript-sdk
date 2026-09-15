@@ -6,11 +6,12 @@
 import { handleErrorBody, handleErrorResponse } from "./helper";
 import { LOG, sanitizeSensitiveDataForLogging } from "./log";
 import { DefaultRetryCondition } from "./retrier";
+import { fetchWithSelectedTransport } from "./http-options";
 
 const Breaker = require("opossum");
 
 async function FetchWrapper(
-  req: RequestInfo,
+  req: string,
   options: RequestInit | undefined,
   targetService: string,
   operationName: string,
@@ -20,7 +21,7 @@ async function FetchWrapper(
 ) {
   return new Promise(async (resolve, reject) => {
     try {
-      const response = await fetch(req, options);
+      const response = await fetchWithSelectedTransport(req, options);
       if (response.status && response.status >= 200 && response.status <= 299) {
         resolve({ response });
       } else {

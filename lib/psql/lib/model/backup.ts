@@ -100,6 +100,10 @@ Example: {@code 2016-08-25T21:10:29.600Z}
    */
   "copyStatus"?: Array<model.BackupCopyStatusDetails>;
   /**
+   * The OCID of the master encryption key for the backup.
+   */
+  "kmsKeyId"?: string;
+  /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
    * Example: {@code {\"bar-key\": \"value\"}}
    *

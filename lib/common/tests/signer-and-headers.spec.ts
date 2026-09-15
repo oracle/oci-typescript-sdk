@@ -3,10 +3,9 @@
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
-import "isomorphic-fetch";
 import { expect } from "chai";
 import path from "path";
-import { DefaultRequestSigner } from "../lib/signer";
+import { DefaultRequestSigner, SignerRequest } from "../lib/signer";
 import { ConfigFileAuthenticationDetailsProvider } from "../lib/auth/config-file-auth";
 import { HttpRequest } from "../lib/http-request";
 
@@ -94,5 +93,55 @@ describe("Signer and header helpers", () => {
 
     expect(request.headers.get("x-content-sha256")).to.equal(EMPTY_SHA);
     expect(request.headers.get("Content-Length")).to.equal("0");
+  });
+
+  it("should use the normalized request target and host when signing", async function() {
+    const uri = "https://example.com:443/path/../path%2Fsegment?first=value with space#fragment";
+    const signerRequest = new SignerRequest("GET", uri, new Headers());
+
+    expect(signerRequest.path).to.equal("/path%2Fsegment?first=value%20with%20space");
+
+    const signer = createSigner();
+    const request: HttpRequest = {
+      uri,
+      method: "GET",
+      headers: new Headers()
+    };
+
+    await signer.signHttpRequest(request);
+
+    expect(request.headers.get("host")).to.equal("example.com");
+  });
+
+  it("should retain a non-default port in the signed host", async function() {
+    const signer = createSigner();
+    const request: HttpRequest = {
+      uri: "https://example.com:8443/20160918/regions",
+      method: "GET",
+      headers: new Headers()
+    };
+
+    await signer.signHttpRequest(request);
+
+    expect(request.headers.get("host")).to.equal("example.com:8443");
+  });
+
+  it("should retain the existing error for invalid request URIs", async function() {
+    const signer = createSigner();
+
+    for (const uri of ["not-a-url", "https:example.com", "https:///path"]) {
+      const request: HttpRequest = {
+        uri,
+        method: "GET",
+        headers: new Headers()
+      };
+
+      try {
+        await signer.signHttpRequest(request);
+        expect.fail("Expected signing to reject an invalid request URI");
+      } catch (error) {
+        expect(error.message).to.equal("Cannot parse host from url");
+      }
+    }
   });
 });

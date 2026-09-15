@@ -13,12 +13,18 @@
 
 import * as ActivateSubscriptionResponse from "./activate-subscription-response";
 export import ActivateSubscriptionResponse = ActivateSubscriptionResponse.ActivateSubscriptionResponse;
+import * as ActivateSubscriptionDeprecatedResponse from "./activate-subscription-deprecated-response";
+export import ActivateSubscriptionDeprecatedResponse = ActivateSubscriptionDeprecatedResponse.ActivateSubscriptionDeprecatedResponse;
 import * as ListPartnersResponse from "./list-partners-response";
 export import ListPartnersResponse = ListPartnersResponse.ListPartnersResponse;
 import * as ListingSubscriptionsResponse from "./listing-subscriptions-response";
 export import ListingSubscriptionsResponse = ListingSubscriptionsResponse.ListingSubscriptionsResponse;
+import * as ListingSubscriptionsDeprecatedResponse from "./listing-subscriptions-deprecated-response";
+export import ListingSubscriptionsDeprecatedResponse = ListingSubscriptionsDeprecatedResponse.ListingSubscriptionsDeprecatedResponse;
 import * as ResolveSubscriptionResponse from "./resolve-subscription-response";
 export import ResolveSubscriptionResponse = ResolveSubscriptionResponse.ResolveSubscriptionResponse;
+import * as ResolveSubscriptionDeprecatedResponse from "./resolve-subscription-deprecated-response";
+export import ResolveSubscriptionDeprecatedResponse = ResolveSubscriptionDeprecatedResponse.ResolveSubscriptionDeprecatedResponse;
 import * as SubmitSubscriptionUsageBatchResponse from "./submit-subscription-usage-batch-response";
 export import SubmitSubscriptionUsageBatchResponse = SubmitSubscriptionUsageBatchResponse.SubmitSubscriptionUsageBatchResponse;
 import * as SubmitSubscriptionUsageRecordsResponse from "./submit-subscription-usage-records-response";

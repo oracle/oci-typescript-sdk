@@ -7,7 +7,7 @@ import auth = require("./auth/auth");
 import { getStringFromRequestBody } from "./helper";
 import jsSHA from "jssha";
 import { parsePrivateKey } from "sshpk";
-import UrlParser = require("url");
+import { URL } from "url";
 import { Method } from "./request-generator";
 import { HttpRequest } from "./http-request";
 import InstancePrincipalsAuthenticationDetailsProviderBuilder from "./auth/instance-principals-authentication-detail-provider";
@@ -23,12 +23,47 @@ const OPC_OBO_TOKEN = "opc-obo-token";
 // We have to manually define that value here to avoid hanging forever
 const EMPTY_SHA = "47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=";
 
+/**
+ * Parses the absolute request URI used for HTTP signing with the WHATWG URL API
+ * instead of the deprecated url.parse() API. It derives the host and HTTP
+ * request target (path and query), and requires an explicit scheme and authority
+ * to preserve the SDK's existing URI validation.
+ */
+function parseRequestUrl(uri: string): URL {
+  try {
+    // HTTP signing requires an absolute URI with an explicit scheme and host.
+    if (!/^[a-z][a-z\d+.-]*:\/\/[^/?#]+/i.test(uri)) {
+      throw new Error("Request URI must be an absolute URL with a scheme and host");
+    }
+    const url = new URL(uri);
+    if (!url.host) {
+      throw new Error("Cannot parse host from url");
+    }
+    return url;
+  } catch {
+    throw new Error("Cannot parse host from url");
+  }
+}
+
+export function validateRequestUri(uri: string): void {
+  parseRequestUrl(uri);
+}
+
+export function getHostFromRequestUri(uri: string): string {
+  return parseRequestUrl(uri).host;
+}
+
+export function getRequestTargetFromUri(uri: string): string {
+  const url = parseRequestUrl(uri);
+  return `${url.pathname}${url.search}`;
+}
+
 export class SignerRequest {
   method: string;
   path?: string | null;
   constructor(method: Method, url: string, private headers: Headers) {
     this.method = method;
-    this.path = UrlParser.parse(url).path;
+    this.path = getRequestTargetFromUri(url);
   }
 
   public getHeader(name: string): string | null {
@@ -105,9 +140,9 @@ export class DefaultRequestSigner implements RequestSigner {
     }
 
     if (!request.headers.has("host")) {
-      const url = UrlParser.parse(request.uri);
-      if (url.host) {
-        request.headers.set("host", url.host);
+      const host = getHostFromRequestUri(request.uri);
+      if (host) {
+        request.headers.set("host", host);
       } else {
         throw new Error("Cannot parse host from url");
       }

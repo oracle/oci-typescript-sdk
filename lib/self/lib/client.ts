@@ -298,6 +298,93 @@ export class PartnerIntegerationClient {
   }
 
   /**
+   * Deprecated. This endpoint has moved permanently to
+   * `/partners/subscriptions/{subscriptionId}/actions/activate`.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ActivateSubscriptionDeprecatedRequest
+   * @return ActivateSubscriptionDeprecatedResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/self/ActivateSubscriptionDeprecated.ts.html |here} to see how to use ActivateSubscriptionDeprecated API.
+   */
+  public async activateSubscriptionDeprecated(
+    activateSubscriptionDeprecatedRequest: requests.ActivateSubscriptionDeprecatedRequest
+  ): Promise<responses.ActivateSubscriptionDeprecatedResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation PartnerIntegerationClient#activateSubscriptionDeprecated."
+      );
+    const operationName = "activateSubscriptionDeprecated";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{subscriptionId}": activateSubscriptionDeprecatedRequest.subscriptionId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": activateSubscriptionDeprecatedRequest.opcRetryToken,
+      "opc-request-id": activateSubscriptionDeprecatedRequest.opcRequestId,
+      "if-match": activateSubscriptionDeprecatedRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      activateSubscriptionDeprecatedRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/partner/subscriptions/{subscriptionId}/actions/activate",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        activateSubscriptionDeprecatedRequest.activateSubscriptionDetails,
+        "ActivateSubscriptionDetails",
+        model.ActivateSubscriptionDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ActivateSubscriptionDeprecatedResponse>{},
+        body: await response.json(),
+        bodyKey: "activateSubscriptionResult",
+        bodyModel: model.ActivateSubscriptionResult,
+        type: "model.ActivateSubscriptionResult",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Lists marketplace publisher partner info for a compartment.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -460,6 +547,89 @@ export class PartnerIntegerationClient {
   }
 
   /**
+   * Deprecated. This endpoint has moved permanently to `/partners/subscriptions`.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListingSubscriptionsDeprecatedRequest
+   * @return ListingSubscriptionsDeprecatedResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/self/ListingSubscriptionsDeprecated.ts.html |here} to see how to use ListingSubscriptionsDeprecated API.
+   */
+  public async listingSubscriptionsDeprecated(
+    listingSubscriptionsDeprecatedRequest: requests.ListingSubscriptionsDeprecatedRequest
+  ): Promise<responses.ListingSubscriptionsDeprecatedResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation PartnerIntegerationClient#listingSubscriptionsDeprecated."
+      );
+    const operationName = "listingSubscriptionsDeprecated";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "listingId": listingSubscriptionsDeprecatedRequest.listingId,
+      "displayName": listingSubscriptionsDeprecatedRequest.displayName,
+      "sortBy": listingSubscriptionsDeprecatedRequest.sortBy,
+      "sortOrder": listingSubscriptionsDeprecatedRequest.sortOrder,
+      "limit": listingSubscriptionsDeprecatedRequest.limit,
+      "page": listingSubscriptionsDeprecatedRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listingSubscriptionsDeprecatedRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listingSubscriptionsDeprecatedRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/partner/subscriptions",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListingSubscriptionsDeprecatedResponse>{},
+        body: await response.json(),
+        bodyKey: "listingSubscriptionsCollection",
+        bodyModel: model.ListingSubscriptionsCollection,
+        type: "model.ListingSubscriptionsCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * This API returns the subscription details by resolving JWT token to corresponding subscription and move its state to Pending Activation state.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -542,8 +712,93 @@ export class PartnerIntegerationClient {
   }
 
   /**
+   * Deprecated. This endpoint has moved permanently to `/partners/subscriptions/actions/resolve`.
+   * It returns a 301 response and does not resolve a subscription.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ResolveSubscriptionDeprecatedRequest
+   * @return ResolveSubscriptionDeprecatedResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/self/ResolveSubscriptionDeprecated.ts.html |here} to see how to use ResolveSubscriptionDeprecated API.
+   */
+  public async resolveSubscriptionDeprecated(
+    resolveSubscriptionDeprecatedRequest: requests.ResolveSubscriptionDeprecatedRequest
+  ): Promise<responses.ResolveSubscriptionDeprecatedResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation PartnerIntegerationClient#resolveSubscriptionDeprecated."
+      );
+    const operationName = "resolveSubscriptionDeprecated";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": resolveSubscriptionDeprecatedRequest.opcRetryToken,
+      "opc-request-id": resolveSubscriptionDeprecatedRequest.opcRequestId,
+      "if-match": resolveSubscriptionDeprecatedRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      resolveSubscriptionDeprecatedRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/partner/subscriptions/actions/resolve",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        resolveSubscriptionDeprecatedRequest.resolveSubscriptionDetails,
+        "ResolveSubscriptionDetails",
+        model.ResolveSubscriptionDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ResolveSubscriptionDeprecatedResponse>{},
+        body: await response.json(),
+        bodyKey: "partnerSubscription",
+        bodyModel: model.PartnerSubscription,
+        type: "model.PartnerSubscription",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Asynchronously submits a UTF-8 CSV usage file for marketplace offers. The file
-   * must not exceed 50 MB or 10,000 rows and must include required usage columns.
+   * must not exceed 50 MB or 30,000 rows and must include required usage columns.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param SubmitSubscriptionUsageBatchRequest

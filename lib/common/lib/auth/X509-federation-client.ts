@@ -3,7 +3,6 @@
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
-import UrlParser = require("url");
 const httpSignature: any = require("http-signature");
 import jsSHA from "jssha";
 import FederationClient from "./models/federation-client";
@@ -11,9 +10,8 @@ import SessionKeySupplier from "./models/session-key-supplier";
 import X509CertificateSupplier from "./models/X509-certificate-supplier";
 import SecurityTokenAdapter from "./security-token-adapter";
 import AuthUtils from "./helpers/auth-utils";
-import { RequestSigner } from "../signer";
+import { getHostFromRequestUri, RequestSigner, SignerRequest } from "../signer";
 import { HttpRequest } from "../http-request";
-import { SignerRequest } from "../signer";
 import { FetchHttpClient } from "../http";
 import { PrivateKey } from "sshpk";
 import { getStringFromRequestBody } from "../helper";
@@ -316,9 +314,9 @@ class AuthTokenRequestSigner implements RequestSigner {
     const EMPTY_SHA = "47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=";
 
     if (!request.headers.has("host")) {
-      const url = UrlParser.parse(request.uri);
-      if (url.host) {
-        request.headers.set("host", url.host);
+      const host = getHostFromRequestUri(request.uri);
+      if (host) {
+        request.headers.set("host", host);
       } else {
         throw new Error("Cannot parse host from url");
       }
