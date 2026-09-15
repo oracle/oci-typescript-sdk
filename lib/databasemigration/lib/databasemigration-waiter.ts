@@ -80,6 +80,24 @@ export class DatabaseMigrationWaiter {
   }
 
   /**
+   * Waits forDataVerificationDetail till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetDataVerificationDetailResponse
+   */
+  public async forDataVerificationDetail(
+    request: serviceRequests.GetDataVerificationDetailRequest,
+    ...targetStates: models.DataVerificationDetail.LifecycleState[]
+  ): Promise<serviceResponses.GetDataVerificationDetailResponse> {
+    return genericWaiter(
+      this.config,
+      () => this.client.getDataVerificationDetail(request),
+      response => targetStates.includes(response.dataVerificationDetail.lifecycleState!)
+    );
+  }
+
+  /**
    * Waits forJob till it reaches any of the provided states
    *
    * @param request the request to send

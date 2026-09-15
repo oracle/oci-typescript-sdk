@@ -26,6 +26,10 @@ export interface UpdateStorageDetailsParams {
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "iops"?: number;
+  /**
+   * The OCID of the Vault service key to assign as the master encryption key for the database system.
+   */
+  "kmsKeyId"?: string;
 }
 
 export namespace UpdateStorageDetailsParams {

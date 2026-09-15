@@ -15,9 +15,16 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Oracle Clone Migration Summary
+ * Oracle Clone Migration details.
+ * Deprecated: The parent-level Oracle clone configuration properties on this model are deprecated.
+ * Use {@code migrationSettings} instead.
+ *
  */
 export interface OracleCloneMigrationDetails extends model.CloneMigrationDetails {
+  "migrationSettings"?:
+    | model.CloneOracleOfflineLogicalMigrationSettings
+    | model.CloneOracleOnlineLogicalMigrationSettings
+    | model.CloneOracleOnlineStandbyMigrationSettings;
   /**
    * The OCID of the resource being referenced.
    */
@@ -36,7 +43,11 @@ export namespace OracleCloneMigrationDetails {
       ...(isParentJsonObj
         ? obj
         : (model.CloneMigrationDetails.getJsonObj(obj) as OracleCloneMigrationDetails)),
-      ...{}
+      ...{
+        "migrationSettings": obj.migrationSettings
+          ? model.CloneOracleMigrationSettings.getJsonObj(obj.migrationSettings)
+          : undefined
+      }
     };
 
     return jsonObj;
@@ -50,7 +61,11 @@ export namespace OracleCloneMigrationDetails {
       ...(isParentJsonObj
         ? obj
         : (model.CloneMigrationDetails.getDeserializedJsonObj(obj) as OracleCloneMigrationDetails)),
-      ...{}
+      ...{
+        "migrationSettings": obj.migrationSettings
+          ? model.CloneOracleMigrationSettings.getDeserializedJsonObj(obj.migrationSettings)
+          : undefined
+      }
     };
 
     return jsonObj;

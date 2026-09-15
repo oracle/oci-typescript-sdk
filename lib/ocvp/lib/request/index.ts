@@ -125,6 +125,8 @@ import * as DeleteSddcRequest from "./delete-sddc-request";
 export import DeleteSddcRequest = DeleteSddcRequest.DeleteSddcRequest;
 import * as DowngradeHcxRequest from "./downgrade-hcx-request";
 export import DowngradeHcxRequest = DowngradeHcxRequest.DowngradeHcxRequest;
+import * as GenerateVmwareBinaryDownloadInfoRequest from "./generate-vmware-binary-download-info-request";
+export import GenerateVmwareBinaryDownloadInfoRequest = GenerateVmwareBinaryDownloadInfoRequest.GenerateVmwareBinaryDownloadInfoRequest;
 import * as GetSddcRequest from "./get-sddc-request";
 export import GetSddcRequest = GetSddcRequest.GetSddcRequest;
 import * as ListSddcsRequest from "./list-sddcs-request";
@@ -139,6 +141,8 @@ import * as RefreshHcxLicenseStatusRequest from "./refresh-hcx-license-status-re
 export import RefreshHcxLicenseStatusRequest = RefreshHcxLicenseStatusRequest.RefreshHcxLicenseStatusRequest;
 import * as RetrievePasswordRequest from "./retrieve-password-request";
 export import RetrievePasswordRequest = RetrievePasswordRequest.RetrievePasswordRequest;
+import * as RetrieveVmwareBinariesRequest from "./retrieve-vmware-binaries-request";
+export import RetrieveVmwareBinariesRequest = RetrieveVmwareBinariesRequest.RetrieveVmwareBinariesRequest;
 import * as UpdateSddcRequest from "./update-sddc-request";
 export import UpdateSddcRequest = UpdateSddcRequest.UpdateSddcRequest;
 import * as UpgradeHcxRequest from "./upgrade-hcx-request";

@@ -6217,6 +6217,85 @@ Use the {@link WorkRequest} operations to track the
   }
 
   /**
+   * Generate the VMware binary download information.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GenerateVmwareBinaryDownloadInfoRequest
+   * @return GenerateVmwareBinaryDownloadInfoResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/GenerateVmwareBinaryDownloadInfo.ts.html |here} to see how to use GenerateVmwareBinaryDownloadInfo API.
+   */
+  public async generateVmwareBinaryDownloadInfo(
+    generateVmwareBinaryDownloadInfoRequest: requests.GenerateVmwareBinaryDownloadInfoRequest
+  ): Promise<responses.GenerateVmwareBinaryDownloadInfoResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation SddcClient#generateVmwareBinaryDownloadInfo.");
+    const operationName = "generateVmwareBinaryDownloadInfo";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vmware/20230701/Sddc/GenerateVmwareBinaryDownloadInfo";
+    const pathParams = {
+      "{sddcId}": generateVmwareBinaryDownloadInfoRequest.sddcId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": generateVmwareBinaryDownloadInfoRequest.opcRequestId,
+      "opc-retry-token": generateVmwareBinaryDownloadInfoRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      generateVmwareBinaryDownloadInfoRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sddcs/{sddcId}/actions/generateVmwareBinaryDownloadInfo",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        generateVmwareBinaryDownloadInfoRequest.generateVmwareBinaryDownloadInfoDetails,
+        "GenerateVmwareBinaryDownloadInfoDetails",
+        model.GenerateVmwareBinaryDownloadInfoDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GenerateVmwareBinaryDownloadInfoResponse>{},
+        body: await response.json(),
+        bodyKey: "vmwareBinaryDownloadInfo",
+        bodyModel: model.VmwareBinaryDownloadInfo,
+        type: "model.VmwareBinaryDownloadInfo",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets the specified SDDC's information.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetSddcRequest
@@ -6766,6 +6845,87 @@ Use the {@link WorkRequest} operations to track the
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Retrieve the list of available VMware binaries for the SDDC.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param RetrieveVmwareBinariesRequest
+   * @return RetrieveVmwareBinariesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/RetrieveVmwareBinaries.ts.html |here} to see how to use RetrieveVmwareBinaries API.
+   */
+  public async retrieveVmwareBinaries(
+    retrieveVmwareBinariesRequest: requests.RetrieveVmwareBinariesRequest
+  ): Promise<responses.RetrieveVmwareBinariesResponse> {
+    if (this.logger) this.logger.debug("Calling operation SddcClient#retrieveVmwareBinaries.");
+    const operationName = "retrieveVmwareBinaries";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vmware/20230701/Sddc/RetrieveVmwareBinaries";
+    const pathParams = {
+      "{sddcId}": retrieveVmwareBinariesRequest.sddcId
+    };
+
+    const queryParams = {
+      "limit": retrieveVmwareBinariesRequest.limit,
+      "page": retrieveVmwareBinariesRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": retrieveVmwareBinariesRequest.opcRequestId,
+      "opc-retry-token": retrieveVmwareBinariesRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      retrieveVmwareBinariesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sddcs/{sddcId}/actions/retrieveVmwareBinaries",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RetrieveVmwareBinariesResponse>{},
+        body: await response.json(),
+        bodyKey: "vmwareBinaryCollection",
+        bodyModel: model.VmwareBinaryCollection,
+        type: "model.VmwareBinaryCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
             dataType: "string"
           }
         ]

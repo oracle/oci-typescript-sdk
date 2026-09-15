@@ -5,9 +5,10 @@
 
 import * as promise from "es6-promise";
 import "isomorphic-fetch";
-import { RequestSigner } from "./signer";
+import { RequestSigner, validateRequestUri } from "./signer";
 import { HttpRequest } from "./http-request";
 import { getSignerAndReqBody } from "./helper";
+import { getFetchRequestUri, fetchWithSelectedTransport } from "./http-options";
 const Breaker = require("opossum");
 promise.polyfill();
 
@@ -54,6 +55,12 @@ export class FetchHttpClient implements HttpClient {
     endpoint: string = "",
     apiReferenceLink: string = ""
   ): Promise<Response> {
+    // Validate the original request URI before normalization so signing continues to
+    // reject malformed URIs.
+    if (this.signer) {
+      validateRequestUri(req.uri);
+    }
+    const requestUri = getFetchRequestUri(req.uri, this.httpOptions);
     // Get Request body
     const body = getSignerAndReqBody(req.body, forceExcludeBody);
     // Sign Request
@@ -62,7 +69,7 @@ export class FetchHttpClient implements HttpClient {
         {
           method: req.method,
           headers: req.headers,
-          uri: req.uri,
+          uri: requestUri,
           body: body.signerBody
         },
         forceExcludeBody
@@ -81,46 +88,36 @@ export class FetchHttpClient implements HttpClient {
         : FetchHttpClient.DEFAULT_DUPLEX_VALUE;
     }
 
-    const request = new Request(req.uri, reqInit);
+    const requestOptions: any = this.httpOptions ? { ...reqInit, ...this.httpOptions } : reqInit;
     // Send Request
     // Need to convert to type RequestInit for Fetch() type compatibility
-    let options: RequestInit = (this.httpOptions as unknown) as RequestInit;
+    let options: RequestInit = (requestOptions as unknown) as RequestInit;
 
     if (this.circuitBreaker) {
-      return options
-        ? this.circuitBreaker.fire(
-            request,
-            options,
-            targetService,
-            operationName,
-            timestamp,
-            endpoint,
-            apiReferenceLink
-          )
-        : this.circuitBreaker
-            .fire(
-              request,
-              undefined,
-              targetService,
-              operationName,
-              timestamp,
-              endpoint,
-              apiReferenceLink
-            )
-            .then((e: any) => {
-              return e.response ? e.response : e;
-            })
-            .catch((e: any) => {
-              if (e.response) {
-                // If error contains response field, it is an actual server error, return it.
-                return e.response;
-              } else {
-                // These are client side error. Throw exception.
-                throw e;
-              }
-            });
+      return this.circuitBreaker
+        .fire(
+          requestUri,
+          options,
+          targetService,
+          operationName,
+          timestamp,
+          endpoint,
+          apiReferenceLink
+        )
+        .then((e: any) => {
+          return e.response ? e.response : e;
+        })
+        .catch((e: any) => {
+          if (e.response) {
+            // If error contains response field, it is an actual server error, return it.
+            return e.response;
+          } else {
+            // These are client side error. Throw exception.
+            throw e;
+          }
+        });
     } else {
-      return options ? fetch(request, options) : fetch(request);
+      return fetchWithSelectedTransport(requestUri, options);
     }
   }
 }

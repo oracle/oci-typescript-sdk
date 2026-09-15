@@ -35,6 +35,10 @@ export interface StorageDetails {
    *
    */
   "availabilityDomain"?: string;
+  /**
+   * The OCID of the Vault service key to assign as the master encryption key for the database system.
+   */
+  "kmsKeyId"?: string;
 
   "systemType": string;
 }

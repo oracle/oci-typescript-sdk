@@ -81,10 +81,6 @@ export interface CreateSubscriptionUsageRecordDetails {
    */
   "additionalMetadata"?: Array<model.ExtendedMetadata>;
   /**
-   * Partner-provided usage record identifier for traceability.
-   */
-  "usageRecordId"?: string;
-  /**
    * The inclusive start timestamp for the usage window. This value must be before {@code timeUsageEnded}.
    */
   "timeUsageStarted": Date;

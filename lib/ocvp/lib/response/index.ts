@@ -125,6 +125,8 @@ import * as DeleteSddcResponse from "./delete-sddc-response";
 export import DeleteSddcResponse = DeleteSddcResponse.DeleteSddcResponse;
 import * as DowngradeHcxResponse from "./downgrade-hcx-response";
 export import DowngradeHcxResponse = DowngradeHcxResponse.DowngradeHcxResponse;
+import * as GenerateVmwareBinaryDownloadInfoResponse from "./generate-vmware-binary-download-info-response";
+export import GenerateVmwareBinaryDownloadInfoResponse = GenerateVmwareBinaryDownloadInfoResponse.GenerateVmwareBinaryDownloadInfoResponse;
 import * as GetSddcResponse from "./get-sddc-response";
 export import GetSddcResponse = GetSddcResponse.GetSddcResponse;
 import * as ListSddcsResponse from "./list-sddcs-response";
@@ -139,6 +141,8 @@ import * as RefreshHcxLicenseStatusResponse from "./refresh-hcx-license-status-r
 export import RefreshHcxLicenseStatusResponse = RefreshHcxLicenseStatusResponse.RefreshHcxLicenseStatusResponse;
 import * as RetrievePasswordResponse from "./retrieve-password-response";
 export import RetrievePasswordResponse = RetrievePasswordResponse.RetrievePasswordResponse;
+import * as RetrieveVmwareBinariesResponse from "./retrieve-vmware-binaries-response";
+export import RetrieveVmwareBinariesResponse = RetrieveVmwareBinariesResponse.RetrieveVmwareBinariesResponse;
 import * as UpdateSddcResponse from "./update-sddc-response";
 export import UpdateSddcResponse = UpdateSddcResponse.UpdateSddcResponse;
 import * as UpgradeHcxResponse from "./upgrade-hcx-response";

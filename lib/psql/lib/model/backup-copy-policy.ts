@@ -32,6 +32,10 @@ export interface BackupCopyPolicy {
    * List of region names of the remote region
    */
   "regions"?: Array<string>;
+  /**
+   * List of key ids of the remote regions
+   */
+  "kmsKeyIds"?: Array<string>;
 }
 
 export namespace BackupCopyPolicy {

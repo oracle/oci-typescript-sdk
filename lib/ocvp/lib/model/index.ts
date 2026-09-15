@@ -115,6 +115,8 @@ import * as FaultDomainHostDistributionModes from "./fault-domain-host-distribut
 export import FaultDomainHostDistributionModes = FaultDomainHostDistributionModes.FaultDomainHostDistributionModes;
 import * as FaultDomainHostDistributionState from "./fault-domain-host-distribution-state";
 export import FaultDomainHostDistributionState = FaultDomainHostDistributionState.FaultDomainHostDistributionState;
+import * as GenerateVmwareBinaryDownloadInfoDetails from "./generate-vmware-binary-download-info-details";
+export import GenerateVmwareBinaryDownloadInfoDetails = GenerateVmwareBinaryDownloadInfoDetails.GenerateVmwareBinaryDownloadInfoDetails;
 import * as HcxLicenseStatus from "./hcx-license-status";
 export import HcxLicenseStatus = HcxLicenseStatus.HcxLicenseStatus;
 import * as HcxLicenseSummary from "./hcx-license-summary";
@@ -207,6 +209,12 @@ import * as UpdateManagementApplianceDetails from "./update-management-appliance
 export import UpdateManagementApplianceDetails = UpdateManagementApplianceDetails.UpdateManagementApplianceDetails;
 import * as UpdateSddcDetails from "./update-sddc-details";
 export import UpdateSddcDetails = UpdateSddcDetails.UpdateSddcDetails;
+import * as VmwareBinary from "./vmware-binary";
+export import VmwareBinary = VmwareBinary.VmwareBinary;
+import * as VmwareBinaryCollection from "./vmware-binary-collection";
+export import VmwareBinaryCollection = VmwareBinaryCollection.VmwareBinaryCollection;
+import * as VmwareBinaryDownloadInfo from "./vmware-binary-download-info";
+export import VmwareBinaryDownloadInfo = VmwareBinaryDownloadInfo.VmwareBinaryDownloadInfo;
 import * as VsphereLicense from "./vsphere-license";
 export import VsphereLicense = VsphereLicense.VsphereLicense;
 import * as VsphereTypes from "./vsphere-types";

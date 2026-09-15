@@ -16,8 +16,15 @@ import common = require("oci-common");
 
 /**
  * Create Migration resource parameters.
+ * Deprecated: The parent-level Oracle migration configuration properties on this model are deprecated.
+ * Use {@code migrationSettings} instead.
+ *
  */
 export interface CreateOracleMigrationDetails extends model.CreateMigrationDetails {
+  "migrationSettings"?:
+    | model.CreateOracleOfflineLogicalMigrationSettings
+    | model.CreateOracleOnlineStandbyMigrationSettings
+    | model.CreateOracleOnlineLogicalMigrationSettings;
   "dataTransferMediumDetails"?:
     | model.CreateOracleDbLinkDataTransferMediumDetails
     | model.CreateOracleNfsDataTransferMediumDetails
@@ -66,6 +73,9 @@ export namespace CreateOracleMigrationDetails {
         ? obj
         : (model.CreateMigrationDetails.getJsonObj(obj) as CreateOracleMigrationDetails)),
       ...{
+        "migrationSettings": obj.migrationSettings
+          ? model.CreateOracleMigrationSettings.getJsonObj(obj.migrationSettings)
+          : undefined,
         "dataTransferMediumDetails": obj.dataTransferMediumDetails
           ? model.CreateOracleDataTransferMediumDetails.getJsonObj(obj.dataTransferMediumDetails)
           : undefined,
@@ -114,6 +124,9 @@ export namespace CreateOracleMigrationDetails {
             obj
           ) as CreateOracleMigrationDetails)),
       ...{
+        "migrationSettings": obj.migrationSettings
+          ? model.CreateOracleMigrationSettings.getDeserializedJsonObj(obj.migrationSettings)
+          : undefined,
         "dataTransferMediumDetails": obj.dataTransferMediumDetails
           ? model.CreateOracleDataTransferMediumDetails.getDeserializedJsonObj(
               obj.dataTransferMediumDetails
