@@ -1,6 +1,6 @@
 {
   "name": "oci-sdk",
-  "version": "2.140.2",
+  "version": "2.141.0",
   "author": {
     "name": "Oracle Cloud Infrastructure",
     "email": ""
@@ -12,12 +12,13 @@
     "Kalpana Ramasamy <kalpana.ramasamy@oracle.com>"
   ],
   "description": "OCI SDK for TypeScript and JavaScript",
-  "supportedNodeVersions": "14, 16, 18, 20",
+  "supportedNodeVersions": "14, 16, 18, 20, 22, 24",
   "main": "./target/index.js",
   "typings": "./target/index.d.ts",
   "scripts": {
     "prebuild": "npm run cleanup",
     "build": "tsc -p tsconfig.json",
+    "integ-test": "mocha -r ts-node/register 'integ-test/**/*.ts' --timeout 60000 --color true",
     "prettier:check": "prettier --config .prettierrc --c \"**/*.ts\"",
     "prettier:format": "prettier --config .prettierrc --write",
     "prettier:format-all": "npm run prettier:format -- \"**/*.ts\"",

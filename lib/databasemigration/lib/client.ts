@@ -2237,6 +2237,85 @@ export class DatabaseMigrationClient {
   }
 
   /**
+   * Returns availability and report status information used by the Data Verification UI.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetDataVerificationDetailRequest
+   * @return GetDataVerificationDetailResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/GetDataVerificationDetail.ts.html |here} to see how to use GetDataVerificationDetail API.
+   */
+  public async getDataVerificationDetail(
+    getDataVerificationDetailRequest: requests.GetDataVerificationDetailRequest
+  ): Promise<responses.GetDataVerificationDetailResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseMigrationClient#getDataVerificationDetail.");
+    const operationName = "getDataVerificationDetail";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-migration/20230518/DataVerificationDetail/GetDataVerificationDetail";
+    const pathParams = {
+      "{migrationId}": getDataVerificationDetailRequest.migrationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getDataVerificationDetailRequest.opcRequestId,
+      "if-match": getDataVerificationDetailRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDataVerificationDetailRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/migrations/{migrationId}/dataVerification/detail",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetDataVerificationDetailResponse>{},
+        body: await response.json(),
+        bodyKey: "dataVerificationDetail",
+        bodyModel: model.DataVerificationDetail,
+        type: "model.DataVerificationDetail",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Get a migration job.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -3428,6 +3507,284 @@ export class DatabaseMigrationClient {
         bodyKey: "connectionCollection",
         bodyModel: model.ConnectionCollection,
         type: "model.ConnectionCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+     * Lists per-object status comparison results for a migration.
+* <p>
+The `objectType` filter is a database-specific string and is validated by the backend.
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param ListDataVerificationObjectStatusesRequest
+     * @return ListDataVerificationObjectStatusesResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/ListDataVerificationObjectStatuses.ts.html |here} to see how to use ListDataVerificationObjectStatuses API.
+     */
+  public async listDataVerificationObjectStatuses(
+    listDataVerificationObjectStatusesRequest: requests.ListDataVerificationObjectStatusesRequest
+  ): Promise<responses.ListDataVerificationObjectStatusesResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseMigrationClient#listDataVerificationObjectStatuses."
+      );
+    const operationName = "listDataVerificationObjectStatuses";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-migration/20230518/DataVerificationObjectStatusCollection/ListDataVerificationObjectStatuses";
+    const pathParams = {
+      "{migrationId}": listDataVerificationObjectStatusesRequest.migrationId
+    };
+
+    const queryParams = {
+      "compartmentId": listDataVerificationObjectStatusesRequest.compartmentId,
+      "name": listDataVerificationObjectStatusesRequest.name,
+      "owner": listDataVerificationObjectStatusesRequest.owner,
+      "objectType": listDataVerificationObjectStatusesRequest.objectType,
+      "filter": listDataVerificationObjectStatusesRequest.filter,
+      "isMatch": listDataVerificationObjectStatusesRequest.isMatch,
+      "limit": listDataVerificationObjectStatusesRequest.limit,
+      "page": listDataVerificationObjectStatusesRequest.page,
+      "sortBy": listDataVerificationObjectStatusesRequest.sortBy,
+      "sortOrder": listDataVerificationObjectStatusesRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listDataVerificationObjectStatusesRequest.opcRequestId,
+      "if-match": listDataVerificationObjectStatusesRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDataVerificationObjectStatusesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/migrations/{migrationId}/dataVerification/objectStatuses",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListDataVerificationObjectStatusesResponse>{},
+        body: await response.json(),
+        bodyKey: "dataVerificationObjectStatusCollection",
+        bodyModel: model.DataVerificationObjectStatusCollection,
+        type: "model.DataVerificationObjectStatusCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+     * Lists object type count comparison results for a migration.
+* <p>
+The `objectType` filter is a database-specific string and is validated by the backend.
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param ListDataVerificationObjectTypeCountsRequest
+     * @return ListDataVerificationObjectTypeCountsResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/ListDataVerificationObjectTypeCounts.ts.html |here} to see how to use ListDataVerificationObjectTypeCounts API.
+     */
+  public async listDataVerificationObjectTypeCounts(
+    listDataVerificationObjectTypeCountsRequest: requests.ListDataVerificationObjectTypeCountsRequest
+  ): Promise<responses.ListDataVerificationObjectTypeCountsResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseMigrationClient#listDataVerificationObjectTypeCounts."
+      );
+    const operationName = "listDataVerificationObjectTypeCounts";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-migration/20230518/DataVerificationObjectTypeCountCollection/ListDataVerificationObjectTypeCounts";
+    const pathParams = {
+      "{migrationId}": listDataVerificationObjectTypeCountsRequest.migrationId
+    };
+
+    const queryParams = {
+      "compartmentId": listDataVerificationObjectTypeCountsRequest.compartmentId,
+      "schemaName": listDataVerificationObjectTypeCountsRequest.schemaName,
+      "objectType": listDataVerificationObjectTypeCountsRequest.objectType,
+      "filter": listDataVerificationObjectTypeCountsRequest.filter,
+      "minAbsDeltaPercent": listDataVerificationObjectTypeCountsRequest.minAbsDeltaPercent,
+      "limit": listDataVerificationObjectTypeCountsRequest.limit,
+      "page": listDataVerificationObjectTypeCountsRequest.page,
+      "sortBy": listDataVerificationObjectTypeCountsRequest.sortBy,
+      "sortOrder": listDataVerificationObjectTypeCountsRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listDataVerificationObjectTypeCountsRequest.opcRequestId,
+      "if-match": listDataVerificationObjectTypeCountsRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDataVerificationObjectTypeCountsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/migrations/{migrationId}/dataVerification/objectTypeCounts",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListDataVerificationObjectTypeCountsResponse>{},
+        body: await response.json(),
+        bodyKey: "dataVerificationObjectTypeCountCollection",
+        bodyModel: model.DataVerificationObjectTypeCountCollection,
+        type: "model.DataVerificationObjectTypeCountCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists table row count comparison results for a migration.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListDataVerificationTableRowCountsRequest
+   * @return ListDataVerificationTableRowCountsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/ListDataVerificationTableRowCounts.ts.html |here} to see how to use ListDataVerificationTableRowCounts API.
+   */
+  public async listDataVerificationTableRowCounts(
+    listDataVerificationTableRowCountsRequest: requests.ListDataVerificationTableRowCountsRequest
+  ): Promise<responses.ListDataVerificationTableRowCountsResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseMigrationClient#listDataVerificationTableRowCounts."
+      );
+    const operationName = "listDataVerificationTableRowCounts";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-migration/20230518/DataVerificationTableRowCountCollection/ListDataVerificationTableRowCounts";
+    const pathParams = {
+      "{migrationId}": listDataVerificationTableRowCountsRequest.migrationId
+    };
+
+    const queryParams = {
+      "compartmentId": listDataVerificationTableRowCountsRequest.compartmentId,
+      "owner": listDataVerificationTableRowCountsRequest.owner,
+      "tableName": listDataVerificationTableRowCountsRequest.tableName,
+      "filter": listDataVerificationTableRowCountsRequest.filter,
+      "minAbsDeltaPercent": listDataVerificationTableRowCountsRequest.minAbsDeltaPercent,
+      "limit": listDataVerificationTableRowCountsRequest.limit,
+      "page": listDataVerificationTableRowCountsRequest.page,
+      "sortBy": listDataVerificationTableRowCountsRequest.sortBy,
+      "sortOrder": listDataVerificationTableRowCountsRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listDataVerificationTableRowCountsRequest.opcRequestId,
+      "if-match": listDataVerificationTableRowCountsRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDataVerificationTableRowCountsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/migrations/{migrationId}/dataVerification/tableRowCounts",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListDataVerificationTableRowCountsResponse>{},
+        body: await response.json(),
+        bodyKey: "dataVerificationTableRowCountCollection",
+        bodyModel: model.DataVerificationTableRowCountCollection,
+        type: "model.DataVerificationTableRowCountCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -5084,6 +5441,91 @@ export class DatabaseMigrationClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Runs Data Verification for a migration and returns the updated Data Verification summary.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param RunDataVerificationRequest
+   * @return RunDataVerificationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/RunDataVerification.ts.html |here} to see how to use RunDataVerification API.
+   */
+  public async runDataVerification(
+    runDataVerificationRequest: requests.RunDataVerificationRequest
+  ): Promise<responses.RunDataVerificationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseMigrationClient#runDataVerification.");
+    const operationName = "runDataVerification";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-migration/20230518/Migration/RunDataVerification";
+    const pathParams = {
+      "{migrationId}": runDataVerificationRequest.migrationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": runDataVerificationRequest.ifMatch,
+      "opc-retry-token": runDataVerificationRequest.opcRetryToken,
+      "opc-request-id": runDataVerificationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      runDataVerificationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/migrations/{migrationId}/actions/runDataVerification",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        runDataVerificationRequest.runDataVerificationDetails,
+        "RunDataVerificationDetails",
+        model.RunDataVerificationDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RunDataVerificationResponse>{},
+        body: await response.json(),
+        bodyKey: "dataVerificationDetail",
+        bodyModel: model.DataVerificationDetail,
+        type: "model.DataVerificationDetail",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
             dataType: "string"
           }
         ]

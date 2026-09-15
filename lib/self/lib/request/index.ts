@@ -13,12 +13,18 @@
 
 import * as ActivateSubscriptionRequest from "./activate-subscription-request";
 export import ActivateSubscriptionRequest = ActivateSubscriptionRequest.ActivateSubscriptionRequest;
+import * as ActivateSubscriptionDeprecatedRequest from "./activate-subscription-deprecated-request";
+export import ActivateSubscriptionDeprecatedRequest = ActivateSubscriptionDeprecatedRequest.ActivateSubscriptionDeprecatedRequest;
 import * as ListPartnersRequest from "./list-partners-request";
 export import ListPartnersRequest = ListPartnersRequest.ListPartnersRequest;
 import * as ListingSubscriptionsRequest from "./listing-subscriptions-request";
 export import ListingSubscriptionsRequest = ListingSubscriptionsRequest.ListingSubscriptionsRequest;
+import * as ListingSubscriptionsDeprecatedRequest from "./listing-subscriptions-deprecated-request";
+export import ListingSubscriptionsDeprecatedRequest = ListingSubscriptionsDeprecatedRequest.ListingSubscriptionsDeprecatedRequest;
 import * as ResolveSubscriptionRequest from "./resolve-subscription-request";
 export import ResolveSubscriptionRequest = ResolveSubscriptionRequest.ResolveSubscriptionRequest;
+import * as ResolveSubscriptionDeprecatedRequest from "./resolve-subscription-deprecated-request";
+export import ResolveSubscriptionDeprecatedRequest = ResolveSubscriptionDeprecatedRequest.ResolveSubscriptionDeprecatedRequest;
 import * as SubmitSubscriptionUsageBatchRequest from "./submit-subscription-usage-batch-request";
 export import SubmitSubscriptionUsageBatchRequest = SubmitSubscriptionUsageBatchRequest.SubmitSubscriptionUsageBatchRequest;
 import * as SubmitSubscriptionUsageRecordsRequest from "./submit-subscription-usage-records-request";

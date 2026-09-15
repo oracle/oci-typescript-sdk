@@ -20,7 +20,7 @@ import common = require("oci-common");
  */
 export interface SubmitSubscriptionUsageRecordsDetails {
   /**
-   * The usage records to submit. The array must contain at least one record and no more than 100 records.
+   * The usage records to submit. The array must contain at least one record and no more than 1,000 records.
    */
   "subscriptionUsageRecords": Array<model.CreateSubscriptionUsageRecordDetails>;
 }

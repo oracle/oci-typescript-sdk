@@ -15,9 +15,16 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Oracle Migration Summary
+ * Oracle Migration Summary.
+ * Deprecated: The parent-level Oracle migration configuration properties on this model are deprecated.
+ * Use {@code migrationSettings} instead.
+ *
  */
 export interface OracleMigrationSummary extends model.MigrationSummary {
+  "migrationSettings"?:
+    | model.OracleOfflineLogicalMigrationSettingsSummary
+    | model.OracleOnlineStandbyMigrationSettingsSummary
+    | model.OracleOnlineLogicalMigrationSettingsSummary;
   /**
    * The OCID of the resource being referenced.
    */
@@ -36,7 +43,11 @@ export namespace OracleMigrationSummary {
       ...(isParentJsonObj
         ? obj
         : (model.MigrationSummary.getJsonObj(obj) as OracleMigrationSummary)),
-      ...{}
+      ...{
+        "migrationSettings": obj.migrationSettings
+          ? model.OracleMigrationSettingsSummary.getJsonObj(obj.migrationSettings)
+          : undefined
+      }
     };
 
     return jsonObj;
@@ -50,7 +61,11 @@ export namespace OracleMigrationSummary {
       ...(isParentJsonObj
         ? obj
         : (model.MigrationSummary.getDeserializedJsonObj(obj) as OracleMigrationSummary)),
-      ...{}
+      ...{
+        "migrationSettings": obj.migrationSettings
+          ? model.OracleMigrationSettingsSummary.getDeserializedJsonObj(obj.migrationSettings)
+          : undefined
+      }
     };
 
     return jsonObj;
