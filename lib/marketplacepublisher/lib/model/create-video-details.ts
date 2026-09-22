@@ -22,6 +22,10 @@ export interface CreateVideoDetails {
    * The URL of the video.
    */
   "contentUrl": string;
+  /**
+   * The specified attachment type is Internal or External.
+   */
+  "sourceType"?: string;
 }
 
 export namespace CreateVideoDetails {

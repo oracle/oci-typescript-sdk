@@ -32,6 +32,14 @@ export interface UpdateOciListingRevisionDetails extends model.UpdateListingRevi
    */
   "products"?: Array<model.ListingProduct>;
   /**
+   * The url provided by partner for the registration of subscription.
+   */
+  "partnerRegistrationUrl"?: string;
+  /**
+   * The unique id of the term attached to the listing.
+   */
+  "termId"?: string;
+  /**
    * Custom link to the listing
    */
   "vanityUrl"?: string;
@@ -51,6 +59,14 @@ export interface UpdateOciListingRevisionDetails extends model.UpdateListingRevi
    * Is this listing rover exportable
    */
   "isRoverExportable"?: boolean;
+  /**
+   * Url to demo of the listing
+   */
+  "demoUrl"?: string;
+  /**
+   * Url to training resources of the listing
+   */
+  "selfPacedTrainingUrl"?: string;
 
   "listingType": string;
 }

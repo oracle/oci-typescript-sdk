@@ -31,6 +31,10 @@ export interface CreateSupportedServiceAttachment
    * Type of the service
    */
   "type": string;
+  /**
+   * The specified attachment type is Internal or External.
+   */
+  "sourceType"?: string;
 
   "attachmentType": string;
 }

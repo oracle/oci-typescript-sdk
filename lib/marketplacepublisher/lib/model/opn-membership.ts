@@ -29,7 +29,7 @@ export interface OpnMembership {
   /**
    * OPN status
    */
-  "opnStatus"?: OpnMembership.OpnStatus;
+  "opnStatus"?: string;
   /**
    * OPN Number number
    */
@@ -41,17 +41,6 @@ export interface OpnMembership {
 }
 
 export namespace OpnMembership {
-  export enum OpnStatus {
-    Active = "ACTIVE",
-    Inactive = "INACTIVE",
-    RenewalInProgress = "RENEWAL_IN_PROGRESS",
-    /**
-     * This value is used if a service returns a value for this enum that is not recognized by this
-     * version of the SDK.
-     */
-    UnknownValue = "UNKNOWN_VALUE"
-  }
-
   export function getJsonObj(obj: OpnMembership): object {
     const jsonObj = { ...obj, ...{} };
 

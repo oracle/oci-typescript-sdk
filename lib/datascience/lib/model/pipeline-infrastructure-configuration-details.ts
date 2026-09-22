@@ -40,6 +40,11 @@ export interface PipelineInfrastructureConfigurationDetails {
    *
    */
   "blockStorageSizeInGBsParameterized"?: string;
+  /**
+   * This specifies the [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the customer-managed compute capacity reservation to be used for launching pipelines.
+   *
+   */
+  "capacityReservationId"?: string;
 }
 
 export namespace PipelineInfrastructureConfigurationDetails {

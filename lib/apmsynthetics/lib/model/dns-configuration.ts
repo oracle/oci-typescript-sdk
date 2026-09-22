@@ -23,7 +23,7 @@ export interface DnsConfiguration {
    */
   "isOverrideDns"?: boolean;
   /**
-   * Attribute to override the DNS IP value. This value will be honored only if isOverrideDns is set to true.
+   * Attribute to override the DNS IP value. This value is required only if isOverrideDns is set to true.
    */
   "overrideDnsIp"?: string;
 }

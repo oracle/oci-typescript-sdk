@@ -39,6 +39,11 @@ export interface NotebookSessionConfigDetails {
    *
    */
   "privateEndpointId"?: string;
+  /**
+   * This specifies the [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the customer-managed compute capacity reservation to be used for launching notebook sessions.
+   *
+   */
+  "capacityReservationId"?: string;
   "notebookSessionShapeConfigDetails"?: model.NotebookSessionShapeConfigDetails;
 }
 

@@ -61,6 +61,24 @@ export class MarketplacePublisherWaiter {
   }
 
   /**
+   * Waits forCustomerInstanceReportExport till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetCustomerInstanceReportExportResponse
+   */
+  public async forCustomerInstanceReportExport(
+    request: serviceRequests.GetCustomerInstanceReportExportRequest,
+    ...targetStates: models.CustomerInstanceReportExport.LifecycleState[]
+  ): Promise<serviceResponses.GetCustomerInstanceReportExportResponse> {
+    return genericWaiter(
+      this.config,
+      () => this.client.getCustomerInstanceReportExport(request),
+      response => targetStates.includes(response.customerInstanceReportExport.lifecycleState!)
+    );
+  }
+
+  /**
    * Waits forLead till it reaches any of the provided states
    *
    * @param request the request to send

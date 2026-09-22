@@ -84,6 +84,7 @@ export interface ListingRevision {
    */
   "supportLinks"?: Array<model.NamedLink>;
   "icon"?: model.ListingRevisionIconAttachment;
+  "banner"?: model.ListingRevisionBannerAttachment;
   /**
    * The current status for the Listing revision.
    */
@@ -185,7 +186,10 @@ export namespace ListingRevision {
               return model.NamedLink.getJsonObj(item);
             })
           : undefined,
-        "icon": obj.icon ? model.ListingRevisionIconAttachment.getJsonObj(obj.icon) : undefined
+        "icon": obj.icon ? model.ListingRevisionIconAttachment.getJsonObj(obj.icon) : undefined,
+        "banner": obj.banner
+          ? model.ListingRevisionBannerAttachment.getJsonObj(obj.banner)
+          : undefined
       }
     };
 
@@ -236,6 +240,9 @@ export namespace ListingRevision {
           : undefined,
         "icon": obj.icon
           ? model.ListingRevisionIconAttachment.getDeserializedJsonObj(obj.icon)
+          : undefined,
+        "banner": obj.banner
+          ? model.ListingRevisionBannerAttachment.getDeserializedJsonObj(obj.banner)
           : undefined
       }
     };

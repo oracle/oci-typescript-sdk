@@ -20,6 +20,10 @@ import common = require("oci-common");
  */
 export interface SaaSPricingPlan extends model.PricingPlan {
   /**
+   * Unique identifier of the pricing plan.
+   */
+  "pricingPlanKey"?: string;
+  /**
    * The plan name.
    */
   "name": string;
@@ -31,6 +35,10 @@ export interface SaaSPricingPlan extends model.PricingPlan {
    * The plan billing frequency.
    */
   "billingFrequency": SaaSPricingPlan.BillingFrequency;
+  /**
+   * The plan duration.
+   */
+  "planDuration"?: SaaSPricingPlan.PlanDuration;
   /**
    * Additional metadata key/value pairs for the saas pricing.
    *
@@ -44,7 +52,24 @@ export namespace SaaSPricingPlan {
   export enum BillingFrequency {
     Monthly = "MONTHLY",
     Quarterly = "QUARTERLY",
-    Yearly = "YEARLY",
+    SemiAnnual = "SEMI_ANNUAL",
+    Annual = "ANNUAL",
+    Biennial = "BIENNIAL",
+    Triennial = "TRIENNIAL",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum PlanDuration {
+    Monthly = "MONTHLY",
+    Quarterly = "QUARTERLY",
+    SemiAnnual = "SEMI_ANNUAL",
+    Annual = "ANNUAL",
+    Biennial = "BIENNIAL",
+    Triennial = "TRIENNIAL",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

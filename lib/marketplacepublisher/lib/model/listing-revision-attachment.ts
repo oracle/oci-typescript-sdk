@@ -39,6 +39,11 @@ export interface ListingRevisionAttachment {
    */
   "description"?: string;
   /**
+   * Possible values for the publisher listing revision attachments. The source type informs whether the type of attachment for the listing revision is external or internal.
+   *
+   */
+  "sourceType"?: ListingRevisionAttachment.SourceType;
+  /**
    * The current state of the attachment.
    */
   "lifecycleState": ListingRevisionAttachment.LifecycleState;
@@ -73,6 +78,16 @@ export interface ListingRevisionAttachment {
 }
 
 export namespace ListingRevisionAttachment {
+  export enum SourceType {
+    External = "EXTERNAL",
+    Internal = "INTERNAL",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export enum LifecycleState {
     Active = "ACTIVE",
     Inactive = "INACTIVE",

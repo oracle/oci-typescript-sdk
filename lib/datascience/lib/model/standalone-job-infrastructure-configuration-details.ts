@@ -34,6 +34,11 @@ export interface StandaloneJobInfrastructureConfigurationDetails
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "blockStorageSizeInGBs": number;
+  /**
+   * This specifies the [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the customer-managed compute capacity reservation to be used for launching jobs.
+   *
+   */
+  "capacityReservationId"?: string;
   "jobShapeConfigDetails"?: model.JobShapeConfigDetails;
 
   "jobInfrastructureType": string;

@@ -4,6 +4,24 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
+## 2.142.0 - 2026-09-22
+### Added 
+- Support for recurring maintenance windows in the Application Performance Monitoring Synthetics service 
+- Support for crypto posture assessments in the Data Safe service 
+- Support for customer-managed compute capacity reservations for model deployments, notebook sessions, jobs, and pipelines in the Data Science service 
+- Support for code-only functions with managed runtimes and automated image builds in the Functions service 
+- Support for routing profiles and model discovery in the Generative AI service 
+- Support for generating, filtering, and downloading Customer Instance Report exports in the Marketplace Publisher service   
+
+### Breaking Changes 
+- The `distributeddatabasev26` package was renamed to `distributeddatabase` in the Globally Distributed Database service 
+- The fields `image` and `imageDigest` were removed from the models `CreateFunctionDetails`, `UpdateFunctionDetails`, `Function`, and `FunctionSummary` in the Functions service 
+- The fields `tenantAdminName` and `tenantAdminEmail` were removed from the model `CustomerInstanceReportRecord` in the Marketplace Publisher service 
+- The field `dateRange` was removed from the request model `ListCustomerInstanceReportRecordsRequest` in the Marketplace Publisher service 
+- The type of the field `metricType` was changed to `model.MetricType` in the model `ListingPart` in the Marketplace Publisher service 
+- The type of the field `opnStatus` was changed to `string` in the model `OpnMembership` in the Marketplace Publisher service 
+- The type of the field `publisherStatus` was changed to `model.PublisherStatus` in the model `Publisher` in the Marketplace Publisher service
+
 ## 2.141.0 - 2026-09-15
 ### Added 
 - Support for higher usage submission limits for metered SaaS listings and legacy subscription endpoints in the Service Enablement Lifecycle Framework service 

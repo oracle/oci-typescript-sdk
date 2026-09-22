@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface RunUserAssessmentDetails {
   /**
-   * The OCID of the compartment that contains the user assessment.
+   * This field is ignored when refreshing a user assessment.
    */
   "compartmentId"?: string;
   /**

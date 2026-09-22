@@ -39,6 +39,10 @@ export interface ListingRevisionNote {
    */
   "noteDetails": string;
   /**
+   * Email address of the administrator who created the note, if available.
+   */
+  "adminEmail"?: string;
+  /**
    * The current state of the listing revision note.
    */
   "lifecycleState"?: ListingRevisionNote.LifecycleState;

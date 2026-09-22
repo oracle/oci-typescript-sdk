@@ -21,6 +21,7 @@ export enum ReportDefinitionDataSource {
   Events = "EVENTS",
   Alerts = "ALERTS",
   SecurityAssessment = "SECURITY_ASSESSMENT",
+  CryptoAssessment = "CRYPTO_ASSESSMENT",
   Violations = "VIOLATIONS",
   AllowedSql = "ALLOWED_SQL",
 

@@ -27,6 +27,10 @@ export interface CreateReviewSupportDocumentAttachment
    * Type of review support document
    */
   "templateCode": string;
+  /**
+   * The specified attachment type is Internal or External.
+   */
+  "sourceType"?: string;
 
   "attachmentType": string;
 }

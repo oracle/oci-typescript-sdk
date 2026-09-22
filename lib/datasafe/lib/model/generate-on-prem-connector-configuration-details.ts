@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface GenerateOnPremConnectorConfigurationDetails {
   /**
-   * The password to encrypt the keys inside the wallet included as part of the configuration. The password must be between 12 and 30 characters long and must contain atleast 1 uppercase, 1 lowercase, 1 numeric, and 1 special character.
+   * The password to encrypt the keys inside the wallet included as part of the configuration. The password must be between 15 and 30 characters long and must contain atleast 1 uppercase, 1 lowercase, 1 numeric, and 1 special character.
    */
   "password": string;
 }

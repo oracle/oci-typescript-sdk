@@ -172,6 +172,25 @@ export class DataSafeWaiter {
   }
 
   /**
+   * Waits forCryptoAssessment till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetCryptoAssessmentResponse | null (null in case of 404 response)
+   */
+  public async forCryptoAssessment(
+    request: serviceRequests.GetCryptoAssessmentRequest,
+    ...targetStates: models.CryptoAssessment.LifecycleState[]
+  ): Promise<serviceResponses.GetCryptoAssessmentResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getCryptoAssessment(request),
+      response => targetStates.includes(response.cryptoAssessment.lifecycleState!),
+      targetStates.includes(models.CryptoAssessment.LifecycleState.Deleted)
+    );
+  }
+
+  /**
    * Waits forDataSafeConfiguration till it reaches any of the provided states
    *
    * @param request the request to send

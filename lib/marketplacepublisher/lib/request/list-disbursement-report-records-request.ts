@@ -57,7 +57,11 @@ export interface ListDisbursementReportRecordsRequest extends common.BaseRequest
 export namespace ListDisbursementReportRecordsRequest {
   export enum DateRange {
     LastMonth = "LAST_MONTH",
-    LastThreeMonths = "LAST_THREE_MONTHS"
+    LastThreeMonths = "LAST_THREE_MONTHS",
+    LastSixMonths = "LAST_SIX_MONTHS",
+    LastTwelveMonths = "LAST_TWELVE_MONTHS",
+    LastEighteenMonths = "LAST_EIGHTEEN_MONTHS",
+    AllTime = "ALL_TIME"
   }
 
   export enum SortBy {

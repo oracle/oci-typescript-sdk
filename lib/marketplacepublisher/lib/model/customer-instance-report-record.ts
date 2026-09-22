@@ -81,13 +81,13 @@ export interface CustomerInstanceReportRecord {
    */
   "ociTenancy"?: string;
   /**
-   * The name of the tenant adminstrator
+   * The domain of the tenant administrator email address
    */
-  "tenantAdminName"?: string;
+  "tenantAdminDomain"?: string;
   /**
-   * The email of the tenant adminstrator
+   * The legacy listing id of the listing
    */
-  "tenantAdminEmail"?: string;
+  "legacyListingId"?: string;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
    * Example: {@code {\"bar-key\": \"value\"}}

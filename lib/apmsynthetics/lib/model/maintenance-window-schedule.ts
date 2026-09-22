@@ -19,6 +19,10 @@ import common = require("oci-common");
  */
 export interface MaintenanceWindowSchedule {
   /**
+   * Type of maintenance window schedule. If not provided, a schedule with timeStarted and timeEnded is treated as ONE_TIME.
+   */
+  "scheduleType"?: model.MaintenanceWindowScheduleType;
+  /**
    * Start time of the maintenance window, expressed in [RFC 3339](https://tools.ietf.org/html/rfc3339) timestamp format.
    * Example: {@code 2020-02-12T22:47:12.613Z}
    *
@@ -30,6 +34,10 @@ export interface MaintenanceWindowSchedule {
    *
    */
   "timeEnded"?: Date;
+  /**
+   * Type of recurrence for a recurring maintenance window.
+   */
+  "recurrenceType"?: model.MaintenanceWindowRecurrenceType;
 }
 
 export namespace MaintenanceWindowSchedule {
