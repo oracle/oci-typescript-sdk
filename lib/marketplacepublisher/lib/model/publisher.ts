@@ -21,13 +21,21 @@ export interface Publisher {
   /**
    * publisher status.
    */
-  "publisherStatus": Publisher.PublisherStatus;
+  "publisherStatus": model.PublisherStatus;
   /**
    * The private email address of the publisher product team.
    */
   "notificationEmail"?: string;
+  /**
+   * Oracle Cloud Marketplace agreement status
+   */
+  "enrollmentStatus"?: string;
   "opnMembership"?: model.OpnMembership;
   "privateOfferAccountDetails"?: model.PrivateOfferAccountDetails;
+  /**
+   * Whether automatic FX conversion is enabled for the publisher.
+   */
+  "isFxEnabled"?: boolean;
   /**
    * Unique OCID identifier for the publisher.
    */
@@ -98,6 +106,38 @@ export interface Publisher {
    */
   "timeUpdated": Date;
   /**
+   * Email address of the publisher.
+   */
+  "email"?: string;
+  /**
+   * The business phone number of the publisher.
+   */
+  "businessPhoneNumber"?: string;
+  /**
+   * Count of employees in publisher's company Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "employeeCount"?: number;
+  /**
+   * A description of the publisher solutions.
+   */
+  "solutionDescription"?: string;
+  /**
+   * OPN membership number of the publisher
+   */
+  "opnNumber"?: string;
+  /**
+   * Country in which partner company resides
+   */
+  "country"?: string;
+  /**
+   * City in which partner company resides
+   */
+  "city"?: string;
+  /**
+   * State in which partner company resides
+   */
+  "state"?: string;
+  /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
    * Example: {@code {\"bar-key\": \"value\"}}
    *
@@ -118,20 +158,6 @@ export interface Publisher {
 }
 
 export namespace Publisher {
-  export enum PublisherStatus {
-    New = "NEW",
-    Approved = "APPROVED",
-    Suspended = "SUSPENDED",
-    Removed = "REMOVED",
-    Rejected = "REJECTED",
-    Contacted = "CONTACTED",
-    /**
-     * This value is used if a service returns a value for this enum that is not recognized by this
-     * version of the SDK.
-     */
-    UnknownValue = "UNKNOWN_VALUE"
-  }
-
   export enum PublisherType {
     Internal = "INTERNAL",
     External = "EXTERNAL",

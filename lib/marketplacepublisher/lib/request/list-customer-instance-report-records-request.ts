@@ -23,11 +23,6 @@ export interface ListCustomerInstanceReportRecordsRequest extends common.BaseReq
    */
   "compartmentId": string;
   /**
-   * The date range of the report
-   *
-   */
-  "dateRange": ListCustomerInstanceReportRecordsRequest.DateRange;
-  /**
    * The client request ID for tracing.
    */
   "opcRequestId"?: string;
@@ -44,7 +39,7 @@ export interface ListCustomerInstanceReportRecordsRequest extends common.BaseReq
    */
   "sortOrder"?: model.SortOrder;
   /**
-   * The field to sort by. Only one sort order may be provided. Default order for timeCreated is descending. Default order for displayName is ascending.
+   * The field to sort by. Only one sort order may be provided. Default order for instance_id is ascending.
    *
    */
   "sortBy"?: ListCustomerInstanceReportRecordsRequest.SortBy;
@@ -52,19 +47,70 @@ export interface ListCustomerInstanceReportRecordsRequest extends common.BaseReq
    * A filter to return only resources that match the entire name given.
    */
   "name"?: string;
+  /**
+   * Listing OCID to query resource against.
+   */
+  "listingId"?: string;
+  /**
+   * A filter to return only report records that match the instance status.
+   */
+  "status"?: ListCustomerInstanceReportRecordsRequest.Status;
+  /**
+   * A filter to return only report records that match the instance shape.
+   */
+  "shape"?: string;
+  /**
+   * A filter to return only report records that match the instance region.
+   */
+  "region"?: string;
+  /**
+   * A filter to return only report records that match the instance realm.
+   */
+  "realm"?: string;
+  /**
+   * A filter to return only report records that match the tenant administrator domain.
+   */
+  "tenantAdminDomain"?: string;
+  /**
+   * A filter to return only report records that match the package version.
+   */
+  "packageVersion"?: string;
+  /**
+   * A filter to return only report records that match the instance OCID.
+   */
+  "instanceOcid"?: string;
+  /**
+   * The inclusive earliest instance creation time, in RFC 3339 format.
+   */
+  "timeInstanceCreationFromDate"?: Date;
+  /**
+   * The inclusive latest instance creation time, in RFC 3339 format.
+   */
+  "timeInstanceCreationToDate"?: Date;
+  /**
+   * The inclusive earliest instance termination time, in RFC 3339 format.
+   */
+  "timeInstanceTerminationFromDate"?: Date;
+  /**
+   * The inclusive latest instance termination time, in RFC 3339 format.
+   */
+  "timeInstanceTerminationToDate"?: Date;
 }
 
 export namespace ListCustomerInstanceReportRecordsRequest {
-  export enum DateRange {
-    ThisWeek = "THIS_WEEK",
-    LastWeek = "LAST_WEEK",
-    ThisMonth = "THIS_MONTH",
-    LastMonth = "LAST_MONTH",
-    LastThreeMonths = "LAST_THREE_MONTHS"
+  export enum SortBy {
+    InstanceId = "INSTANCE_ID"
   }
 
-  export enum SortBy {
-    TimeCreated = "timeCreated",
-    DisplayName = "displayName"
+  export enum Status {
+    Provisioning = "PROVISIONING",
+    Running = "RUNNING",
+    Stopped = "STOPPED",
+    Terminating = "TERMINATING",
+    Terminated = "TERMINATED",
+    Disabled = "DISABLED",
+    Starting = "STARTING",
+    Stopping = "STOPPING",
+    Snapshotting = "SNAPSHOTTING"
   }
 }

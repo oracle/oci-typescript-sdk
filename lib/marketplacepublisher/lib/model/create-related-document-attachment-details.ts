@@ -24,6 +24,18 @@ export interface CreateRelatedDocumentAttachmentDetails
    * The document category of the listing revision attachment.
    */
   "documentCategory": string;
+  /**
+   * The document URL of the listing revision attachment.
+   */
+  "sourceUrl"?: string;
+  /**
+   * The specified attachment type is Internal or External.
+   */
+  "sourceType"?: string;
+  /**
+   * Identifies whether the attachment is for Internal Oracle Users or external users as well.
+   */
+  "isOracleUsersOnly"?: boolean;
 
   "attachmentType": string;
 }

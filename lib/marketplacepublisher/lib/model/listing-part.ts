@@ -23,9 +23,17 @@ export interface ListingPart {
    */
   "sku": string;
   /**
+   * Unique identifier of the pricing plan.
+   */
+  "pricingPlanKey"?: string;
+  /**
+   * The billing model for SaaS paid listing parts.
+   */
+  "billingModel"?: ListingPart.BillingModel;
+  /**
    * The part's metric.
    */
-  "metricType": ListingPart.MetricType;
+  "metricType": model.MetricType;
   /**
    * rate allocation, these are calculated based on rate information at listing revision. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
@@ -41,10 +49,14 @@ export interface ListingPart {
 }
 
 export namespace ListingPart {
-  export enum MetricType {
-    OcpuHours = "OCPU_HOURS",
-    InstanceHours = "INSTANCE_HOURS",
-    CoreHours = "CORE_HOURS"
+  export enum BillingModel {
+    FlatRate = "FLAT_RATE",
+    UsageBased = "USAGE_BASED",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: ListingPart): object {

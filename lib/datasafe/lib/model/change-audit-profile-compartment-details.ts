@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Moves the specified audit profile and its assoicated resources into a different compartment.
+ * Moves the specified audit profile and its associated resources into a different compartment.
  */
 export interface ChangeAuditProfileCompartmentDetails {
   /**

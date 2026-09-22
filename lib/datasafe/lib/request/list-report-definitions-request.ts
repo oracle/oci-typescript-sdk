@@ -101,6 +101,7 @@ export namespace ListReportDefinitionsRequest {
   export enum Category {
     CustomReports = "CUSTOM_REPORTS",
     Summary = "SUMMARY",
-    ActivityAuditing = "ACTIVITY_AUDITING"
+    ActivityAuditing = "ACTIVITY_AUDITING",
+    CryptoAssessment = "CRYPTO_ASSESSMENT"
   }
 }

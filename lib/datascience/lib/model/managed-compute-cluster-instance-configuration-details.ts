@@ -24,6 +24,10 @@ export interface ManagedComputeClusterInstanceConfigurationDetails {
    */
   "instanceShape": string;
   /**
+   * The list of [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compute capacity reservation.
+   */
+  "capacityReservationIds"?: Array<string>;
+  /**
    * The size of the boot volume to attach to the instance. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "bootVolumeSizeInGBs"?: number;

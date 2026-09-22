@@ -31,6 +31,10 @@ export interface CreateCustomerSuccessAttachment
    * List of product codes for success story
    */
   "productCodes"?: Array<string>;
+  /**
+   * The specified attachment type is Internal or External.
+   */
+  "sourceType"?: string;
 
   "attachmentType": string;
 }

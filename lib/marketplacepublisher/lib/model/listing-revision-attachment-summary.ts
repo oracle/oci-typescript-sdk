@@ -39,6 +39,10 @@ export interface ListingRevisionAttachmentSummary {
    */
   "attachmentType": string;
   /**
+   * The specified attachment type is Internal or External.
+   */
+  "sourceType"?: string;
+  /**
    * Possible lifecycle states.
    */
   "documentCategory"?: ListingRevisionAttachmentSummary.DocumentCategory;

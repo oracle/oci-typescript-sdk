@@ -88,6 +88,38 @@ export interface PublisherSummary {
    */
   "timeUpdated": Date;
   /**
+   * Email address of the publisher.
+   */
+  "email"?: string;
+  /**
+   * The business phone number of the publisher.
+   */
+  "businessPhoneNumber"?: string;
+  /**
+   * Count of employees in publisher's company Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "employeeCount"?: number;
+  /**
+   * A description of the publisher solutions.
+   */
+  "solutionDescription"?: string;
+  /**
+   * OPN membership number of the publisher
+   */
+  "opnNumber"?: string;
+  /**
+   * Country in which partner company resides
+   */
+  "country"?: string;
+  /**
+   * City in which partner company resides
+   */
+  "city"?: string;
+  /**
+   * State in which partner company resides
+   */
+  "state"?: string;
+  /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
    * Example: {@code {\"bar-key\": \"value\"}}
    *

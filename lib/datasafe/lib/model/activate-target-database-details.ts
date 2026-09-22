@@ -18,7 +18,7 @@ import common = require("oci-common");
  * The details required to reactivate a previously deactived target database in Data Safe.
  */
 export interface ActivateTargetDatabaseDetails {
-  "credentials": model.Credentials;
+  "credentials"?: model.Credentials;
 }
 
 export namespace ActivateTargetDatabaseDetails {

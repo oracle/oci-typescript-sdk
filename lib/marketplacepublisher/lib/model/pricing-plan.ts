@@ -41,6 +41,16 @@ export namespace PricingPlan {
 
     if (obj && "planType" in obj && obj.planType) {
       switch (obj.planType) {
+        case "HYBRID":
+          return model.HybridPricingPlan.getJsonObj(
+            <model.HybridPricingPlan>(<object>jsonObj),
+            true
+          );
+        case "USAGE_BASED":
+          return model.UsageBasedPricingPlan.getJsonObj(
+            <model.UsageBasedPricingPlan>(<object>jsonObj),
+            true
+          );
         case "METERED":
           return model.MeteredPricingPlan.getJsonObj(
             <model.MeteredPricingPlan>(<object>jsonObj),
@@ -68,6 +78,16 @@ export namespace PricingPlan {
 
     if (obj && "planType" in obj && obj.planType) {
       switch (obj.planType) {
+        case "HYBRID":
+          return model.HybridPricingPlan.getDeserializedJsonObj(
+            <model.HybridPricingPlan>(<object>jsonObj),
+            true
+          );
+        case "USAGE_BASED":
+          return model.UsageBasedPricingPlan.getDeserializedJsonObj(
+            <model.UsageBasedPricingPlan>(<object>jsonObj),
+            true
+          );
         case "METERED":
           return model.MeteredPricingPlan.getDeserializedJsonObj(
             <model.MeteredPricingPlan>(<object>jsonObj),

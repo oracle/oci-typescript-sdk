@@ -27,6 +27,13 @@ export interface AdditionalFilter {
    */
   "code"?: string;
   /**
+    * The date and time the additional filter was created, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
+* <p>
+Example: {@code 2022-09-15T21:10:29.600Z}
+* 
+    */
+  "timeCreated"?: Date;
+  /**
    * Usage instructions for the properties
    */
   "usageInstructions"?: string;

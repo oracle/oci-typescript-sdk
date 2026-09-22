@@ -1742,6 +1742,88 @@ export class DataSafeClient {
   }
 
   /**
+   * Moves the specified saved crypto assessment into a different compartment.
+   * Only `SAVED` crypto assessments are supported.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ChangeCryptoAssessmentCompartmentRequest
+   * @return ChangeCryptoAssessmentCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeCryptoAssessmentCompartment.ts.html |here} to see how to use ChangeCryptoAssessmentCompartment API.
+   */
+  public async changeCryptoAssessmentCompartment(
+    changeCryptoAssessmentCompartmentRequest: requests.ChangeCryptoAssessmentCompartmentRequest
+  ): Promise<responses.ChangeCryptoAssessmentCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#changeCryptoAssessmentCompartment.");
+    const operationName = "changeCryptoAssessmentCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/CryptoAssessment/ChangeCryptoAssessmentCompartment";
+    const pathParams = {
+      "{cryptoAssessmentId}": changeCryptoAssessmentCompartmentRequest.cryptoAssessmentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": changeCryptoAssessmentCompartmentRequest.opcRequestId,
+      "if-match": changeCryptoAssessmentCompartmentRequest.ifMatch,
+      "opc-retry-token": changeCryptoAssessmentCompartmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeCryptoAssessmentCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cryptoAssessments/{cryptoAssessmentId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeCryptoAssessmentCompartmentRequest.changeCryptoAssessmentCompartmentDetails,
+        "ChangeCryptoAssessmentCompartmentDetails",
+        model.ChangeCryptoAssessmentCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeCryptoAssessmentCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Moves the Data Safe private endpoint and its dependent resources to the specified compartment.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeDataSafePrivateEndpointCompartmentRequest
@@ -7376,6 +7458,81 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   }
 
   /**
+   * Deletes the specified saved crypto assessment.
+   * Only assessments of type `SAVED` can be deleted. Attempts to delete a `LATEST` assessment return `400 InvalidParameter`.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteCryptoAssessmentRequest
+   * @return DeleteCryptoAssessmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteCryptoAssessment.ts.html |here} to see how to use DeleteCryptoAssessment API.
+   */
+  public async deleteCryptoAssessment(
+    deleteCryptoAssessmentRequest: requests.DeleteCryptoAssessmentRequest
+  ): Promise<responses.DeleteCryptoAssessmentResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#deleteCryptoAssessment.");
+    const operationName = "deleteCryptoAssessment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/CryptoAssessment/DeleteCryptoAssessment";
+    const pathParams = {
+      "{cryptoAssessmentId}": deleteCryptoAssessmentRequest.cryptoAssessmentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteCryptoAssessmentRequest.ifMatch,
+      "opc-request-id": deleteCryptoAssessmentRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteCryptoAssessmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cryptoAssessments/{cryptoAssessmentId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteCryptoAssessmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes the specified Data Safe private endpoint.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteDataSafePrivateEndpointRequest
@@ -9797,6 +9954,97 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   }
 
   /**
+   * Downloads the report of the specified crypto assessment. To download the crypto assessment report, it needs to be generated first.
+   * Please use GenerateCryptoAssessmentReport to generate a downloadable report in the preferred format (PDF, XLS).
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DownloadCryptoAssessmentReportRequest
+   * @return DownloadCryptoAssessmentReportResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DownloadCryptoAssessmentReport.ts.html |here} to see how to use DownloadCryptoAssessmentReport API.
+   */
+  public async downloadCryptoAssessmentReport(
+    downloadCryptoAssessmentReportRequest: requests.DownloadCryptoAssessmentReportRequest
+  ): Promise<responses.DownloadCryptoAssessmentReportResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#downloadCryptoAssessmentReport.");
+    const operationName = "downloadCryptoAssessmentReport";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/CryptoAssessment/DownloadCryptoAssessmentReport";
+    const pathParams = {
+      "{cryptoAssessmentId}": downloadCryptoAssessmentReportRequest.cryptoAssessmentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": downloadCryptoAssessmentReportRequest.ifMatch,
+      "opc-retry-token": downloadCryptoAssessmentReportRequest.opcRetryToken,
+      "opc-request-id": downloadCryptoAssessmentReportRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      downloadCryptoAssessmentReportRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cryptoAssessments/{cryptoAssessmentId}/actions/downloadReport",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        downloadCryptoAssessmentReportRequest.downloadCryptoAssessmentReportDetails,
+        "DownloadCryptoAssessmentReportDetails",
+        model.DownloadCryptoAssessmentReportDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DownloadCryptoAssessmentReportResponse>{},
+
+        body: response.body!,
+        bodyKey: "value",
+        bodyModel: "string",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-length"),
+            key: "contentLength",
+            dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Downloads an already-generated discovery report. Note that the GenerateDiscoveryReportForDownload operation is a
    * prerequisite for the DownloadDiscoveryReport operation. Use GenerateDiscoveryReportForDownload to generate a discovery
    * report file and then use DownloadDiscoveryReport to download the generated file. By default, it downloads report for
@@ -10656,6 +10904,88 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.EnableDataSafeConfigurationResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Generates the report of the specified crypto assessment.
+   * Supported output formats are PDF and XLS.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GenerateCryptoAssessmentReportRequest
+   * @return GenerateCryptoAssessmentReportResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GenerateCryptoAssessmentReport.ts.html |here} to see how to use GenerateCryptoAssessmentReport API.
+   */
+  public async generateCryptoAssessmentReport(
+    generateCryptoAssessmentReportRequest: requests.GenerateCryptoAssessmentReportRequest
+  ): Promise<responses.GenerateCryptoAssessmentReportResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#generateCryptoAssessmentReport.");
+    const operationName = "generateCryptoAssessmentReport";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/CryptoAssessment/GenerateCryptoAssessmentReport";
+    const pathParams = {
+      "{cryptoAssessmentId}": generateCryptoAssessmentReportRequest.cryptoAssessmentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": generateCryptoAssessmentReportRequest.ifMatch,
+      "opc-retry-token": generateCryptoAssessmentReportRequest.opcRetryToken,
+      "opc-request-id": generateCryptoAssessmentReportRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      generateCryptoAssessmentReportRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cryptoAssessments/{cryptoAssessmentId}/actions/generateReport",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        generateCryptoAssessmentReportRequest.generateCryptoAssessmentReportDetails,
+        "GenerateCryptoAssessmentReportDetails",
+        model.GenerateCryptoAssessmentReportDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GenerateCryptoAssessmentReportResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -12274,6 +12604,169 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
           {
             value: response.headers.get("opc-prev-page"),
             key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the details of the specified crypto assessment.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetCryptoAssessmentRequest
+   * @return GetCryptoAssessmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetCryptoAssessment.ts.html |here} to see how to use GetCryptoAssessment API.
+   */
+  public async getCryptoAssessment(
+    getCryptoAssessmentRequest: requests.GetCryptoAssessmentRequest
+  ): Promise<responses.GetCryptoAssessmentResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#getCryptoAssessment.");
+    const operationName = "getCryptoAssessment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/CryptoAssessment/GetCryptoAssessment";
+    const pathParams = {
+      "{cryptoAssessmentId}": getCryptoAssessmentRequest.cryptoAssessmentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getCryptoAssessmentRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getCryptoAssessmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cryptoAssessments/{cryptoAssessmentId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetCryptoAssessmentResponse>{},
+        body: await response.json(),
+        bodyKey: "cryptoAssessment",
+        bodyModel: model.CryptoAssessment,
+        type: "model.CryptoAssessment",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets SQLNET.ORA parameter values and quantum-readiness evaluation for the specified crypto assessment.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetCryptoAssessmentSqlnetParametersRequest
+   * @return GetCryptoAssessmentSqlnetParametersResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetCryptoAssessmentSqlnetParameters.ts.html |here} to see how to use GetCryptoAssessmentSqlnetParameters API.
+   */
+  public async getCryptoAssessmentSqlnetParameters(
+    getCryptoAssessmentSqlnetParametersRequest: requests.GetCryptoAssessmentSqlnetParametersRequest
+  ): Promise<responses.GetCryptoAssessmentSqlnetParametersResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#getCryptoAssessmentSqlnetParameters.");
+    const operationName = "getCryptoAssessmentSqlnetParameters";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/CryptoAssessment/GetCryptoAssessmentSqlnetParameters";
+    const pathParams = {
+      "{cryptoAssessmentId}": getCryptoAssessmentSqlnetParametersRequest.cryptoAssessmentId
+    };
+
+    const queryParams = {
+      "parameter": getCryptoAssessmentSqlnetParametersRequest.parameter,
+      "quantumReadiness": getCryptoAssessmentSqlnetParametersRequest.quantumReadiness,
+      "limit": getCryptoAssessmentSqlnetParametersRequest.limit,
+      "page": getCryptoAssessmentSqlnetParametersRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getCryptoAssessmentSqlnetParametersRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getCryptoAssessmentSqlnetParametersRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cryptoAssessments/{cryptoAssessmentId}/sqlnetParameters",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetCryptoAssessmentSqlnetParametersResponse>{},
+        body: await response.json(),
+        bodyKey: "cryptoAssessmentSqlnetParameters",
+        bodyModel: model.CryptoAssessmentSqlnetParameters,
+        type: "model.CryptoAssessmentSqlnetParameters",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           }
         ]
@@ -17843,6 +18336,924 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
     request: requests.ListColumnsRequest
   ): AsyncIterableIterator<responses.ListColumnsResponse> {
     return paginateResponses(request, req => this.listColumns(req));
+  }
+
+  /**
+   * Gets backup set summaries across targets in a compartment. Use assessmentId to narrow results to one crypto assessment.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListCryptoAssessmentBackupSetsRequest
+   * @return ListCryptoAssessmentBackupSetsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListCryptoAssessmentBackupSets.ts.html |here} to see how to use ListCryptoAssessmentBackupSets API.
+   */
+  public async listCryptoAssessmentBackupSets(
+    listCryptoAssessmentBackupSetsRequest: requests.ListCryptoAssessmentBackupSetsRequest
+  ): Promise<responses.ListCryptoAssessmentBackupSetsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#listCryptoAssessmentBackupSets.");
+    const operationName = "listCryptoAssessmentBackupSets";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/CryptoAssessment/ListCryptoAssessmentBackupSets";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listCryptoAssessmentBackupSetsRequest.compartmentId,
+      "compartmentIdInSubtree": listCryptoAssessmentBackupSetsRequest.compartmentIdInSubtree,
+      "accessLevel": listCryptoAssessmentBackupSetsRequest.accessLevel,
+      "assessmentId": listCryptoAssessmentBackupSetsRequest.assessmentId,
+      "assessmentType": listCryptoAssessmentBackupSetsRequest.assessmentType,
+      "targetId": listCryptoAssessmentBackupSetsRequest.targetId,
+      "targetIds": listCryptoAssessmentBackupSetsRequest.targetIds,
+      "backupSetKey": listCryptoAssessmentBackupSetsRequest.backupSetKey,
+      "isEncrypted": listCryptoAssessmentBackupSetsRequest.isEncrypted,
+      "sortBy": listCryptoAssessmentBackupSetsRequest.sortBy,
+      "sortOrder": listCryptoAssessmentBackupSetsRequest.sortOrder,
+      "limit": listCryptoAssessmentBackupSetsRequest.limit,
+      "page": listCryptoAssessmentBackupSetsRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listCryptoAssessmentBackupSetsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listCryptoAssessmentBackupSetsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cryptoAssessments/backupSets",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListCryptoAssessmentBackupSetsResponse>{},
+        body: await response.json(),
+        bodyKey: "cryptoAssessmentBackupSetCollection",
+        bodyModel: model.CryptoAssessmentBackupSetCollection,
+        type: "model.CryptoAssessmentBackupSetCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists the CBOM items for the specified crypto assessment.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListCryptoAssessmentCbomItemsRequest
+   * @return ListCryptoAssessmentCbomItemsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListCryptoAssessmentCbomItems.ts.html |here} to see how to use ListCryptoAssessmentCbomItems API.
+   */
+  public async listCryptoAssessmentCbomItems(
+    listCryptoAssessmentCbomItemsRequest: requests.ListCryptoAssessmentCbomItemsRequest
+  ): Promise<responses.ListCryptoAssessmentCbomItemsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#listCryptoAssessmentCbomItems.");
+    const operationName = "listCryptoAssessmentCbomItems";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/CryptoAssessment/ListCryptoAssessmentCbomItems";
+    const pathParams = {
+      "{cryptoAssessmentId}": listCryptoAssessmentCbomItemsRequest.cryptoAssessmentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listCryptoAssessmentCbomItemsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listCryptoAssessmentCbomItemsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cryptoAssessments/{cryptoAssessmentId}/cbomItems",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListCryptoAssessmentCbomItemsResponse>{},
+        body: await response.json(),
+        bodyKey: "cryptoAssessmentCbomItemCollection",
+        bodyModel: model.CryptoAssessmentCbomItemCollection,
+        type: "model.CryptoAssessmentCbomItemCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists certificates discovered across targets in a compartment, including target, wallet location, issuer, subject, validity window, expiry bucket, public key type, and status so expiring or weak certificates can be identified and prioritized.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListCryptoAssessmentCertificatesRequest
+   * @return ListCryptoAssessmentCertificatesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListCryptoAssessmentCertificates.ts.html |here} to see how to use ListCryptoAssessmentCertificates API.
+   */
+  public async listCryptoAssessmentCertificates(
+    listCryptoAssessmentCertificatesRequest: requests.ListCryptoAssessmentCertificatesRequest
+  ): Promise<responses.ListCryptoAssessmentCertificatesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#listCryptoAssessmentCertificates.");
+    const operationName = "listCryptoAssessmentCertificates";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/CryptoAssessment/ListCryptoAssessmentCertificates";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listCryptoAssessmentCertificatesRequest.compartmentId,
+      "compartmentIdInSubtree": listCryptoAssessmentCertificatesRequest.compartmentIdInSubtree,
+      "accessLevel": listCryptoAssessmentCertificatesRequest.accessLevel,
+      "assessmentId": listCryptoAssessmentCertificatesRequest.assessmentId,
+      "assessmentType": listCryptoAssessmentCertificatesRequest.assessmentType,
+      "targetId": listCryptoAssessmentCertificatesRequest.targetId,
+      "targetIds": listCryptoAssessmentCertificatesRequest.targetIds,
+      "certificateType": listCryptoAssessmentCertificatesRequest.certificateType,
+      "status": listCryptoAssessmentCertificatesRequest.status,
+      "publicKeyType": listCryptoAssessmentCertificatesRequest.publicKeyType,
+      "signatureAlgorithm": listCryptoAssessmentCertificatesRequest.signatureAlgorithm,
+      "expiryBucket": listCryptoAssessmentCertificatesRequest.expiryBucket,
+      "daysToExpiry": listCryptoAssessmentCertificatesRequest.daysToExpiry,
+      "sortBy": listCryptoAssessmentCertificatesRequest.sortBy,
+      "sortOrder": listCryptoAssessmentCertificatesRequest.sortOrder,
+      "limit": listCryptoAssessmentCertificatesRequest.limit,
+      "page": listCryptoAssessmentCertificatesRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listCryptoAssessmentCertificatesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listCryptoAssessmentCertificatesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cryptoAssessments/certificates",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListCryptoAssessmentCertificatesResponse>{},
+        body: await response.json(),
+        bodyKey: "cryptoAssessmentCertificateCollection",
+        bodyModel: model.CryptoAssessmentCertificateCollection,
+        type: "model.CryptoAssessmentCertificateCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists findings in a compartment with the number of affected targets.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListCryptoAssessmentFindingAnalyticsRequest
+   * @return ListCryptoAssessmentFindingAnalyticsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListCryptoAssessmentFindingAnalytics.ts.html |here} to see how to use ListCryptoAssessmentFindingAnalytics API.
+   */
+  public async listCryptoAssessmentFindingAnalytics(
+    listCryptoAssessmentFindingAnalyticsRequest: requests.ListCryptoAssessmentFindingAnalyticsRequest
+  ): Promise<responses.ListCryptoAssessmentFindingAnalyticsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#listCryptoAssessmentFindingAnalytics.");
+    const operationName = "listCryptoAssessmentFindingAnalytics";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/CryptoAssessment/ListCryptoAssessmentFindingAnalytics";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listCryptoAssessmentFindingAnalyticsRequest.compartmentId,
+      "compartmentIdInSubtree": listCryptoAssessmentFindingAnalyticsRequest.compartmentIdInSubtree,
+      "accessLevel": listCryptoAssessmentFindingAnalyticsRequest.accessLevel,
+      "category": listCryptoAssessmentFindingAnalyticsRequest.category,
+      "findingKey": listCryptoAssessmentFindingAnalyticsRequest.findingKey,
+      "isQuantumReadinessCheck":
+        listCryptoAssessmentFindingAnalyticsRequest.isQuantumReadinessCheck,
+      "sortBy": listCryptoAssessmentFindingAnalyticsRequest.sortBy,
+      "sortOrder": listCryptoAssessmentFindingAnalyticsRequest.sortOrder,
+      "limit": listCryptoAssessmentFindingAnalyticsRequest.limit,
+      "page": listCryptoAssessmentFindingAnalyticsRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listCryptoAssessmentFindingAnalyticsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listCryptoAssessmentFindingAnalyticsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cryptoAssessments/findingAnalytics",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListCryptoAssessmentFindingAnalyticsResponse>{},
+        body: await response.json(),
+        bodyKey: "cryptoAssessmentFindingAnalyticsCollection",
+        bodyModel: model.CryptoAssessmentFindingAnalyticsCollection,
+        type: "model.CryptoAssessmentFindingAnalyticsCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * For a selected finding, lists targets where it occurs in assessments.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListCryptoAssessmentFindingTargetsRequest
+   * @return ListCryptoAssessmentFindingTargetsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListCryptoAssessmentFindingTargets.ts.html |here} to see how to use ListCryptoAssessmentFindingTargets API.
+   */
+  public async listCryptoAssessmentFindingTargets(
+    listCryptoAssessmentFindingTargetsRequest: requests.ListCryptoAssessmentFindingTargetsRequest
+  ): Promise<responses.ListCryptoAssessmentFindingTargetsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#listCryptoAssessmentFindingTargets.");
+    const operationName = "listCryptoAssessmentFindingTargets";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/CryptoAssessment/ListCryptoAssessmentFindingTargets";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listCryptoAssessmentFindingTargetsRequest.compartmentId,
+      "findingKey": listCryptoAssessmentFindingTargetsRequest.findingKey,
+      "assessmentType": listCryptoAssessmentFindingTargetsRequest.assessmentType,
+      "targetId": listCryptoAssessmentFindingTargetsRequest.targetId,
+      "targetIds": listCryptoAssessmentFindingTargetsRequest.targetIds,
+      "status": listCryptoAssessmentFindingTargetsRequest.status,
+      "isQuantumReadinessCheck": listCryptoAssessmentFindingTargetsRequest.isQuantumReadinessCheck,
+      "sortBy": listCryptoAssessmentFindingTargetsRequest.sortBy,
+      "sortOrder": listCryptoAssessmentFindingTargetsRequest.sortOrder,
+      "compartmentIdInSubtree": listCryptoAssessmentFindingTargetsRequest.compartmentIdInSubtree,
+      "accessLevel": listCryptoAssessmentFindingTargetsRequest.accessLevel,
+      "limit": listCryptoAssessmentFindingTargetsRequest.limit,
+      "page": listCryptoAssessmentFindingTargetsRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listCryptoAssessmentFindingTargetsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listCryptoAssessmentFindingTargetsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cryptoAssessments/findingTargets",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListCryptoAssessmentFindingTargetsResponse>{},
+        body: await response.json(),
+        bodyKey: "cryptoAssessmentFindingTargetCollection",
+        bodyModel: model.CryptoAssessmentFindingTargetCollection,
+        type: "model.CryptoAssessmentFindingTargetCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists crypto deviation findings for the specified crypto assessment.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListCryptoAssessmentFindingsRequest
+   * @return ListCryptoAssessmentFindingsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListCryptoAssessmentFindings.ts.html |here} to see how to use ListCryptoAssessmentFindings API.
+   */
+  public async listCryptoAssessmentFindings(
+    listCryptoAssessmentFindingsRequest: requests.ListCryptoAssessmentFindingsRequest
+  ): Promise<responses.ListCryptoAssessmentFindingsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#listCryptoAssessmentFindings.");
+    const operationName = "listCryptoAssessmentFindings";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/CryptoAssessment/ListCryptoAssessmentFindings";
+    const pathParams = {
+      "{cryptoAssessmentId}": listCryptoAssessmentFindingsRequest.cryptoAssessmentId
+    };
+
+    const queryParams = {
+      "findingKey": listCryptoAssessmentFindingsRequest.findingKey,
+      "title": listCryptoAssessmentFindingsRequest.title,
+      "category": listCryptoAssessmentFindingsRequest.category,
+      "status": listCryptoAssessmentFindingsRequest.status,
+      "isQuantumReadinessCheck": listCryptoAssessmentFindingsRequest.isQuantumReadinessCheck,
+      "limit": listCryptoAssessmentFindingsRequest.limit,
+      "page": listCryptoAssessmentFindingsRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listCryptoAssessmentFindingsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listCryptoAssessmentFindingsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cryptoAssessments/{cryptoAssessmentId}/findings",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListCryptoAssessmentFindingsResponse>{},
+        body: await response.json(),
+        bodyKey: "cryptoAssessmentFindingCollection",
+        bodyModel: model.CryptoAssessmentFindingCollection,
+        type: "model.CryptoAssessmentFindingCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a paginated list of cryptographic keys across targets in a compartment. Use assessmentId to narrow results to one crypto assessment.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListCryptoAssessmentKeysRequest
+   * @return ListCryptoAssessmentKeysResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListCryptoAssessmentKeys.ts.html |here} to see how to use ListCryptoAssessmentKeys API.
+   */
+  public async listCryptoAssessmentKeys(
+    listCryptoAssessmentKeysRequest: requests.ListCryptoAssessmentKeysRequest
+  ): Promise<responses.ListCryptoAssessmentKeysResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#listCryptoAssessmentKeys.");
+    const operationName = "listCryptoAssessmentKeys";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/CryptoAssessment/ListCryptoAssessmentKeys";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listCryptoAssessmentKeysRequest.compartmentId,
+      "compartmentIdInSubtree": listCryptoAssessmentKeysRequest.compartmentIdInSubtree,
+      "accessLevel": listCryptoAssessmentKeysRequest.accessLevel,
+      "assessmentId": listCryptoAssessmentKeysRequest.assessmentId,
+      "assessmentType": listCryptoAssessmentKeysRequest.assessmentType,
+      "targetId": listCryptoAssessmentKeysRequest.targetId,
+      "targetIds": listCryptoAssessmentKeysRequest.targetIds,
+      "feature": listCryptoAssessmentKeysRequest.feature,
+      "keyId": listCryptoAssessmentKeysRequest.keyId,
+      "keyType": listCryptoAssessmentKeysRequest.keyType,
+      "keyManagerType": listCryptoAssessmentKeysRequest.keyManagerType,
+      "sortBy": listCryptoAssessmentKeysRequest.sortBy,
+      "sortOrder": listCryptoAssessmentKeysRequest.sortOrder,
+      "limit": listCryptoAssessmentKeysRequest.limit,
+      "page": listCryptoAssessmentKeysRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listCryptoAssessmentKeysRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listCryptoAssessmentKeysRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cryptoAssessments/keys",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListCryptoAssessmentKeysResponse>{},
+        body: await response.json(),
+        bodyKey: "cryptoAssessmentKeyCollection",
+        bodyModel: model.CryptoAssessmentKeyCollection,
+        type: "model.CryptoAssessmentKeyCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists TDE object encryption summaries across targets in a compartment. Use assessmentId to narrow results to one crypto assessment, and objectType to return either tablespace-level or column-level TDE observations.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListCryptoAssessmentTdeObjectsRequest
+   * @return ListCryptoAssessmentTdeObjectsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListCryptoAssessmentTdeObjects.ts.html |here} to see how to use ListCryptoAssessmentTdeObjects API.
+   */
+  public async listCryptoAssessmentTdeObjects(
+    listCryptoAssessmentTdeObjectsRequest: requests.ListCryptoAssessmentTdeObjectsRequest
+  ): Promise<responses.ListCryptoAssessmentTdeObjectsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#listCryptoAssessmentTdeObjects.");
+    const operationName = "listCryptoAssessmentTdeObjects";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/CryptoAssessment/ListCryptoAssessmentTdeObjects";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listCryptoAssessmentTdeObjectsRequest.compartmentId,
+      "compartmentIdInSubtree": listCryptoAssessmentTdeObjectsRequest.compartmentIdInSubtree,
+      "accessLevel": listCryptoAssessmentTdeObjectsRequest.accessLevel,
+      "assessmentId": listCryptoAssessmentTdeObjectsRequest.assessmentId,
+      "assessmentType": listCryptoAssessmentTdeObjectsRequest.assessmentType,
+      "targetId": listCryptoAssessmentTdeObjectsRequest.targetId,
+      "targetIds": listCryptoAssessmentTdeObjectsRequest.targetIds,
+      "objectType": listCryptoAssessmentTdeObjectsRequest.objectType,
+      "quantumReadiness": listCryptoAssessmentTdeObjectsRequest.quantumReadiness,
+      "encryptionObserved": listCryptoAssessmentTdeObjectsRequest.encryptionObserved,
+      "encryptionStatus": listCryptoAssessmentTdeObjectsRequest.encryptionStatus,
+      "sortBy": listCryptoAssessmentTdeObjectsRequest.sortBy,
+      "sortOrder": listCryptoAssessmentTdeObjectsRequest.sortOrder,
+      "limit": listCryptoAssessmentTdeObjectsRequest.limit,
+      "page": listCryptoAssessmentTdeObjectsRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listCryptoAssessmentTdeObjectsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listCryptoAssessmentTdeObjectsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cryptoAssessments/tdeObjects",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListCryptoAssessmentTdeObjectsResponse>{},
+        body: await response.json(),
+        bodyKey: "cryptoAssessmentTdeObjectCollection",
+        bodyModel: model.CryptoAssessmentTdeObjectCollection,
+        type: "model.CryptoAssessmentTdeObjectCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets wallet details across targets in a compartment. Use assessmentId to narrow results to one crypto assessment.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListCryptoAssessmentWalletsRequest
+   * @return ListCryptoAssessmentWalletsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListCryptoAssessmentWallets.ts.html |here} to see how to use ListCryptoAssessmentWallets API.
+   */
+  public async listCryptoAssessmentWallets(
+    listCryptoAssessmentWalletsRequest: requests.ListCryptoAssessmentWalletsRequest
+  ): Promise<responses.ListCryptoAssessmentWalletsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#listCryptoAssessmentWallets.");
+    const operationName = "listCryptoAssessmentWallets";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/CryptoAssessment/ListCryptoAssessmentWallets";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listCryptoAssessmentWalletsRequest.compartmentId,
+      "compartmentIdInSubtree": listCryptoAssessmentWalletsRequest.compartmentIdInSubtree,
+      "accessLevel": listCryptoAssessmentWalletsRequest.accessLevel,
+      "assessmentId": listCryptoAssessmentWalletsRequest.assessmentId,
+      "assessmentType": listCryptoAssessmentWalletsRequest.assessmentType,
+      "targetId": listCryptoAssessmentWalletsRequest.targetId,
+      "targetIds": listCryptoAssessmentWalletsRequest.targetIds,
+      "feature": listCryptoAssessmentWalletsRequest.feature,
+      "walletEncryptionAlgorithm": listCryptoAssessmentWalletsRequest.walletEncryptionAlgorithm,
+      "sortBy": listCryptoAssessmentWalletsRequest.sortBy,
+      "sortOrder": listCryptoAssessmentWalletsRequest.sortOrder,
+      "limit": listCryptoAssessmentWalletsRequest.limit,
+      "page": listCryptoAssessmentWalletsRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listCryptoAssessmentWalletsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listCryptoAssessmentWalletsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cryptoAssessments/wallets",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListCryptoAssessmentWalletsResponse>{},
+        body: await response.json(),
+        bodyKey: "cryptoAssessmentWalletCollection",
+        bodyModel: model.CryptoAssessmentWalletCollection,
+        type: "model.CryptoAssessmentWalletCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a list of crypto assessments with filtering and pagination support.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListCryptoAssessmentsRequest
+   * @return ListCryptoAssessmentsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListCryptoAssessments.ts.html |here} to see how to use ListCryptoAssessments API.
+   */
+  public async listCryptoAssessments(
+    listCryptoAssessmentsRequest: requests.ListCryptoAssessmentsRequest
+  ): Promise<responses.ListCryptoAssessmentsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listCryptoAssessments.");
+    const operationName = "listCryptoAssessments";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/CryptoAssessment/ListCryptoAssessments";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listCryptoAssessmentsRequest.compartmentId,
+      "compartmentIdInSubtree": listCryptoAssessmentsRequest.compartmentIdInSubtree,
+      "accessLevel": listCryptoAssessmentsRequest.accessLevel,
+      "displayName": listCryptoAssessmentsRequest.displayName,
+      "type": listCryptoAssessmentsRequest.type,
+      "assessmentId": listCryptoAssessmentsRequest.assessmentId,
+      "targetId": listCryptoAssessmentsRequest.targetId,
+      "targetIds": listCryptoAssessmentsRequest.targetIds,
+      "targetDatabaseGroupId": listCryptoAssessmentsRequest.targetDatabaseGroupId,
+      "targetType": listCryptoAssessmentsRequest.targetType,
+      "postureCategory": listCryptoAssessmentsRequest.postureCategory,
+      "isAssessmentScheduled": listCryptoAssessmentsRequest.isAssessmentScheduled,
+      "lifecycleState": listCryptoAssessmentsRequest.lifecycleState,
+      "sortBy": listCryptoAssessmentsRequest.sortBy,
+      "sortOrder": listCryptoAssessmentsRequest.sortOrder,
+      "limit": listCryptoAssessmentsRequest.limit,
+      "page": listCryptoAssessmentsRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listCryptoAssessmentsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listCryptoAssessmentsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cryptoAssessments",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListCryptoAssessmentsResponse>{},
+        body: await response.json(),
+        bodyKey: "cryptoAssessmentCollection",
+        bodyModel: model.CryptoAssessmentCollection,
+        type: "model.CryptoAssessmentCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
   }
 
   /**
@@ -27605,6 +29016,88 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   }
 
   /**
+   * Runs a crypto assessment, refreshes the latest assessment, and saves it for future reference.
+   * This operation runs with a cryptoAssessmentId of type LATEST.
+   * Before you start, first call the ListCryptoAssessments operation with filter \"type = latest\" to get the crypto assessment ID for the target's latest assessment.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param RefreshCryptoAssessmentRequest
+   * @return RefreshCryptoAssessmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/RefreshCryptoAssessment.ts.html |here} to see how to use RefreshCryptoAssessment API.
+   */
+  public async refreshCryptoAssessment(
+    refreshCryptoAssessmentRequest: requests.RefreshCryptoAssessmentRequest
+  ): Promise<responses.RefreshCryptoAssessmentResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#refreshCryptoAssessment.");
+    const operationName = "refreshCryptoAssessment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/CryptoAssessment/RefreshCryptoAssessment";
+    const pathParams = {
+      "{cryptoAssessmentId}": refreshCryptoAssessmentRequest.cryptoAssessmentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": refreshCryptoAssessmentRequest.opcRetryToken,
+      "opc-request-id": refreshCryptoAssessmentRequest.opcRequestId,
+      "if-match": refreshCryptoAssessmentRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      refreshCryptoAssessmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cryptoAssessments/{cryptoAssessmentId}/actions/refresh",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        refreshCryptoAssessmentRequest.runCryptoAssessmentDetails,
+        "RunCryptoAssessmentDetails",
+        model.RunCryptoAssessmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RefreshCryptoAssessmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Refreshes the specified database security configuration.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param RefreshDatabaseSecurityConfigurationRequest
@@ -29831,6 +31324,84 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateAuditTrailResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates one or more attributes of the specified crypto assessment.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateCryptoAssessmentRequest
+   * @return UpdateCryptoAssessmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateCryptoAssessment.ts.html |here} to see how to use UpdateCryptoAssessment API.
+   */
+  public async updateCryptoAssessment(
+    updateCryptoAssessmentRequest: requests.UpdateCryptoAssessmentRequest
+  ): Promise<responses.UpdateCryptoAssessmentResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#updateCryptoAssessment.");
+    const operationName = "updateCryptoAssessment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/CryptoAssessment/UpdateCryptoAssessment";
+    const pathParams = {
+      "{cryptoAssessmentId}": updateCryptoAssessmentRequest.cryptoAssessmentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateCryptoAssessmentRequest.opcRequestId,
+      "if-match": updateCryptoAssessmentRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateCryptoAssessmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cryptoAssessments/{cryptoAssessmentId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateCryptoAssessmentRequest.updateCryptoAssessmentDetails,
+        "UpdateCryptoAssessmentDetails",
+        model.UpdateCryptoAssessmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateCryptoAssessmentResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),

@@ -24,9 +24,9 @@ export interface WorkRequestResource {
   "entityType": string;
   /**
    * The way in which this resource was affected by the operation that spawned the work request.
-   * A resource being created, updated, or deleted will remain in the IN_PROGRESS state until
-   * work is complete for that resource at which point it will transition to CREATED, UPDATED,
-   * or DELETED, respectively.
+   * A resource being created, updated, deleted, or tracked by a nested operation will remain in
+   * the IN_PROGRESS state until work is complete for that resource at which point it will
+   * transition to CREATED, UPDATED, DELETED, SUCCEEDED, FAILED, or CANCELED as appropriate.
    *
    */
   "actionType": WorkRequestResource.ActionType;
@@ -46,7 +46,9 @@ export namespace WorkRequestResource {
     Updated = "UPDATED",
     Deleted = "DELETED",
     InProgress = "IN_PROGRESS",
+    Succeeded = "SUCCEEDED",
     Failed = "FAILED",
+    Canceled = "CANCELED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

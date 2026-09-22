@@ -1,6 +1,6 @@
 {
   "name": "oci-ddfs",
-  "version": "2.141.0",
+  "version": "2.142.0",
   "description": "OCI NodeJS client for Ddfs Service",
   "repository": {
     "type": "git",

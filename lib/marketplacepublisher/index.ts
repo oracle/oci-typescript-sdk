@@ -20,5 +20,8 @@ import * as marketplacepublisher_waiter from "./lib/marketplacepublisher-waiter"
 export { models };
 export { requests };
 export { responses };
+export import AdministratorArtifactClient = client.AdministratorArtifactClient;
+export import AdministratorPublisherClient = client.AdministratorPublisherClient;
+export import MarketplaceAdministratorClient = client.MarketplaceAdministratorClient;
 export import MarketplacePublisherClient = client.MarketplacePublisherClient;
 export import MarketplacePublisherWaiter = marketplacepublisher_waiter.MarketplacePublisherWaiter;
