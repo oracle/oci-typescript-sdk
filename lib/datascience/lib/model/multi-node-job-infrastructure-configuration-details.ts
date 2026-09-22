@@ -28,6 +28,11 @@ export interface MultiNodeJobInfrastructureConfigurationDetails
    * The size of the block storage volume to attach to the instance running the job Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "blockStorageSizeInGBs": number;
+  /**
+   * This specifies the list of [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the customer-managed compute capacity reservation to be used for launching jobs.
+   *
+   */
+  "capacityReservationIds"?: Array<string>;
   "jobShapeConfigDetails"?: model.JobShapeConfigDetails;
 
   "jobInfrastructureType": string;

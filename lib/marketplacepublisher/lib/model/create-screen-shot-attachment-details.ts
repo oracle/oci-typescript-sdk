@@ -20,6 +20,11 @@ import common = require("oci-common");
  */
 export interface CreateScreenShotAttachmentDetails
   extends model.CreateListingRevisionAttachmentDetails {
+  /**
+   * The specified attachment type is Internal or External.
+   */
+  "sourceType"?: string;
+
   "attachmentType": string;
 }
 

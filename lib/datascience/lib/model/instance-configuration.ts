@@ -40,6 +40,10 @@ export interface InstanceConfiguration {
    * Network Access type of model deployment.
    */
   "networkAccessType"?: InstanceConfiguration.NetworkAccessType;
+  /**
+   * This specifies the list of [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the customer-managed capacity reservation to be used for launching model deployment instances.
+   */
+  "capacityReservationIds"?: Array<string>;
 }
 
 export namespace InstanceConfiguration {

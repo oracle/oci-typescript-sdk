@@ -20,6 +20,10 @@ import common = require("oci-common");
  */
 export interface UpdateManagedComputeClusterInstanceConfigurationDetails {
   /**
+   * The list of [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compute capacity reservation.
+   */
+  "capacityReservationIds"?: Array<string>;
+  /**
    * The shape used to launch the instances in compute target. Supported shapes can be retrieved using compute target shapes api.
    */
   "instanceShape"?: string;

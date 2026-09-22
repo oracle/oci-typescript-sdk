@@ -240,6 +240,25 @@ export class GenerativeAiWaiter {
   }
 
   /**
+   * Waits forRoutingProfile till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetRoutingProfileResponse | null (null in case of 404 response)
+   */
+  public async forRoutingProfile(
+    request: serviceRequests.GetRoutingProfileRequest,
+    ...targetStates: models.RoutingProfile.LifecycleState[]
+  ): Promise<serviceResponses.GetRoutingProfileResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getRoutingProfile(request),
+      response => targetStates.includes(response.routingProfile.lifecycleState!),
+      targetStates.includes(models.RoutingProfile.LifecycleState.Deleted)
+    );
+  }
+
+  /**
    * Waits forSemanticStore till it reaches any of the provided states
    *
    * @param request the request to send

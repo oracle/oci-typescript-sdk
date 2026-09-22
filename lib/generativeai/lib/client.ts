@@ -1319,6 +1319,93 @@ export class GenerativeAiClient {
   }
 
   /**
+   * Moves a routing profile into a different compartment within the same tenancy. For information about moving resources between compartments, see [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ChangeRoutingProfileCompartmentRequest
+   * @return ChangeRoutingProfileCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/ChangeRoutingProfileCompartment.ts.html |here} to see how to use ChangeRoutingProfileCompartment API.
+   */
+  public async changeRoutingProfileCompartment(
+    changeRoutingProfileCompartmentRequest: requests.ChangeRoutingProfileCompartmentRequest
+  ): Promise<responses.ChangeRoutingProfileCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GenerativeAiClient#changeRoutingProfileCompartment.");
+    const operationName = "changeRoutingProfileCompartment";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{routingProfileId}": changeRoutingProfileCompartmentRequest.routingProfileId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeRoutingProfileCompartmentRequest.ifMatch,
+      "opc-request-id": changeRoutingProfileCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeRoutingProfileCompartmentRequest.opcRetryToken
+    };
+
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["routingProfileId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeRoutingProfileCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/routingProfiles/{routingProfileId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeRoutingProfileCompartmentRequest.changeRoutingProfileCompartmentDetails,
+        "ChangeRoutingProfileCompartmentDetails",
+        model.ChangeRoutingProfileCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeRoutingProfileCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Moves a SemanticStore into a different compartment within the same tenancy. For information about moving resources between compartments, see [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeSemanticStoreCompartmentRequest
@@ -2495,6 +2582,99 @@ The header contains an opc-work-request-id, which is the id for the WorkRequest 
           {
             value: response.headers.get("model-deprecation-info"),
             key: "modelDeprecationInfo",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a routing profile.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateRoutingProfileRequest
+   * @return CreateRoutingProfileResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/CreateRoutingProfile.ts.html |here} to see how to use CreateRoutingProfile API.
+   */
+  public async createRoutingProfile(
+    createRoutingProfileRequest: requests.CreateRoutingProfileRequest
+  ): Promise<responses.CreateRoutingProfileResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GenerativeAiClient#createRoutingProfile.");
+    const operationName = "createRoutingProfile";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createRoutingProfileRequest.opcRetryToken,
+      "opc-request-id": createRoutingProfileRequest.opcRequestId
+    };
+
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>([]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createRoutingProfileRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/routingProfiles",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createRoutingProfileRequest.createRoutingProfileDetails,
+        "CreateRoutingProfileDetails",
+        model.CreateRoutingProfileDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateRoutingProfileResponse>{},
+        body: await response.json(),
+        bodyKey: "routingProfile",
+        bodyModel: model.RoutingProfile,
+        type: "model.RoutingProfile",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           }
         ]
@@ -3843,6 +4023,87 @@ You can only delete clusters without attached resources. Before you delete a hos
   }
 
   /**
+   * Deletes a routing profile.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteRoutingProfileRequest
+   * @return DeleteRoutingProfileResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/DeleteRoutingProfile.ts.html |here} to see how to use DeleteRoutingProfile API.
+   */
+  public async deleteRoutingProfile(
+    deleteRoutingProfileRequest: requests.DeleteRoutingProfileRequest
+  ): Promise<responses.DeleteRoutingProfileResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GenerativeAiClient#deleteRoutingProfile.");
+    const operationName = "deleteRoutingProfile";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{routingProfileId}": deleteRoutingProfileRequest.routingProfileId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteRoutingProfileRequest.ifMatch,
+      "opc-request-id": deleteRoutingProfileRequest.opcRequestId
+    };
+
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["routingProfileId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteRoutingProfileRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/routingProfiles/{routingProfileId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteRoutingProfileResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes a semanticStore.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteSemanticStoreRequest
@@ -4969,6 +5230,94 @@ You can only delete clusters without attached resources. Before you delete a hos
         bodyKey: "model",
         bodyModel: model.Model,
         type: "model.Model",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets information about a routing profile.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetRoutingProfileRequest
+   * @return GetRoutingProfileResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/GetRoutingProfile.ts.html |here} to see how to use GetRoutingProfile API.
+   */
+  public async getRoutingProfile(
+    getRoutingProfileRequest: requests.GetRoutingProfileRequest
+  ): Promise<responses.GetRoutingProfileResponse> {
+    if (this.logger) this.logger.debug("Calling operation GenerativeAiClient#getRoutingProfile.");
+    const operationName = "getRoutingProfile";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{routingProfileId}": getRoutingProfileRequest.routingProfileId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getRoutingProfileRequest.opcRequestId
+    };
+
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["routingProfileId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getRoutingProfileRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/routingProfiles/{routingProfileId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetRoutingProfileResponse>{},
+        body: await response.json(),
+        bodyKey: "routingProfile",
+        bodyModel: model.RoutingProfile,
+        type: "model.RoutingProfile",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -6404,6 +6753,108 @@ You can only delete clusters without attached resources. Before you delete a hos
   }
 
   /**
+   * Retrieves a list of models along with their capabilities, supported features, and deployment availability.
+   * Results can be filtered by attributes such as region, realm, model identifier, supported inference APIs, serving modes, and access type.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListModelDiscoveryRequest
+   * @return ListModelDiscoveryResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/ListModelDiscovery.ts.html |here} to see how to use ListModelDiscovery API.
+   */
+  public async listModelDiscovery(
+    listModelDiscoveryRequest: requests.ListModelDiscoveryRequest
+  ): Promise<responses.ListModelDiscoveryResponse> {
+    if (this.logger) this.logger.debug("Calling operation GenerativeAiClient#listModelDiscovery.");
+    const operationName = "listModelDiscovery";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listModelDiscoveryRequest.compartmentId,
+      "realm": listModelDiscoveryRequest.realm,
+      "region": listModelDiscoveryRequest.region,
+      "modelId": listModelDiscoveryRequest.modelId,
+      "servingMode": listModelDiscoveryRequest.servingMode,
+      "apiCapability": listModelDiscoveryRequest.apiCapability,
+      "capability": listModelDiscoveryRequest.capability,
+      "modelAccess": listModelDiscoveryRequest.modelAccess,
+      "isDeprecated": listModelDiscoveryRequest.isDeprecated,
+      "isOnDemandRetired": listModelDiscoveryRequest.isOnDemandRetired,
+      "isDedicatedRetired": listModelDiscoveryRequest.isDedicatedRetired,
+      "limit": listModelDiscoveryRequest.limit,
+      "page": listModelDiscoveryRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listModelDiscoveryRequest.opcRequestId
+    };
+
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["compartmentId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listModelDiscoveryRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/modelDiscovery",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListModelDiscoveryResponse>{},
+        body: await response.json(),
+        bodyKey: "modelDiscoveryCollection",
+        bodyModel: model.ModelDiscoveryCollection,
+        type: "model.ModelDiscoveryCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Lists the models in a specific compartment. Includes pretrained base models and fine-tuned custom models.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListModelsRequest
@@ -6480,6 +6931,101 @@ You can only delete clusters without attached resources. Before you delete a hos
         bodyKey: "modelCollection",
         bodyModel: model.ModelCollection,
         type: "model.ModelCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists the routing profiles of a specific compartment.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListRoutingProfilesRequest
+   * @return ListRoutingProfilesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/ListRoutingProfiles.ts.html |here} to see how to use ListRoutingProfiles API.
+   */
+  public async listRoutingProfiles(
+    listRoutingProfilesRequest: requests.ListRoutingProfilesRequest
+  ): Promise<responses.ListRoutingProfilesResponse> {
+    if (this.logger) this.logger.debug("Calling operation GenerativeAiClient#listRoutingProfiles.");
+    const operationName = "listRoutingProfiles";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listRoutingProfilesRequest.compartmentId,
+      "lifecycleState": listRoutingProfilesRequest.lifecycleState,
+      "displayName": listRoutingProfilesRequest.displayName,
+      "id": listRoutingProfilesRequest.id,
+      "limit": listRoutingProfilesRequest.limit,
+      "page": listRoutingProfilesRequest.page,
+      "sortOrder": listRoutingProfilesRequest.sortOrder,
+      "sortBy": listRoutingProfilesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listRoutingProfilesRequest.opcRequestId
+    };
+
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["compartmentId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listRoutingProfilesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/routingProfiles",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListRoutingProfilesResponse>{},
+        body: await response.json(),
+        bodyKey: "routingProfileCollection",
+        bodyModel: model.RoutingProfileCollection,
+        type: "model.RoutingProfileCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -8418,6 +8964,101 @@ You can only delete clusters without attached resources. Before you delete a hos
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the properties of a routing profile.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateRoutingProfileRequest
+   * @return UpdateRoutingProfileResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/UpdateRoutingProfile.ts.html |here} to see how to use UpdateRoutingProfile API.
+   */
+  public async updateRoutingProfile(
+    updateRoutingProfileRequest: requests.UpdateRoutingProfileRequest
+  ): Promise<responses.UpdateRoutingProfileResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GenerativeAiClient#updateRoutingProfile.");
+    const operationName = "updateRoutingProfile";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{routingProfileId}": updateRoutingProfileRequest.routingProfileId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateRoutingProfileRequest.ifMatch,
+      "opc-request-id": updateRoutingProfileRequest.opcRequestId
+    };
+
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["routingProfileId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateRoutingProfileRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/routingProfiles/{routingProfileId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateRoutingProfileRequest.updateRoutingProfileDetails,
+        "UpdateRoutingProfileDetails",
+        model.UpdateRoutingProfileDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateRoutingProfileResponse>{},
+        body: await response.json(),
+        bodyKey: "routingProfile",
+        bodyModel: model.RoutingProfile,
+        type: "model.RoutingProfile",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
             dataType: "string"
           }
         ]
