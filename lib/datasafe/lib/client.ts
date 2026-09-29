@@ -2368,6 +2368,95 @@ export class DataSafeClient {
   }
 
   /**
+   * Moves the registration policy to the specified compartment.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ChangeRegistrationPolicyCompartmentRequest
+   * @return ChangeRegistrationPolicyCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeRegistrationPolicyCompartment.ts.html |here} to see how to use ChangeRegistrationPolicyCompartment API.
+   */
+  public async changeRegistrationPolicyCompartment(
+    changeRegistrationPolicyCompartmentRequest: requests.ChangeRegistrationPolicyCompartmentRequest
+  ): Promise<responses.ChangeRegistrationPolicyCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#changeRegistrationPolicyCompartment.");
+    const operationName = "changeRegistrationPolicyCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/RegistrationPolicy/ChangeRegistrationPolicyCompartment";
+    const pathParams = {
+      "{registrationPolicyId}": changeRegistrationPolicyCompartmentRequest.registrationPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeRegistrationPolicyCompartmentRequest.ifMatch,
+      "opc-request-id": changeRegistrationPolicyCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeRegistrationPolicyCompartmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeRegistrationPolicyCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/registrationPolicies/{registrationPolicyId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeRegistrationPolicyCompartmentRequest.changeRegistrationPolicyCompartmentDetails,
+        "ChangeRegistrationPolicyCompartmentDetails",
+        model.ChangeRegistrationPolicyCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeRegistrationPolicyCompartmentResponse>{},
+        body: await response.json(),
+        bodyKey: "registrationPolicy",
+        bodyModel: model.RegistrationPolicy,
+        type: "model.RegistrationPolicy",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Moves a resource into a different compartment. When provided, If-Match is checked against ETag values of the resource.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeReportCompartmentRequest
@@ -3454,6 +3543,158 @@ The existing saved security assessments created due to the schedule are not move
             key: "opcWorkRequestId",
             dataType: "string"
           },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Moves the specified subsetting policy and its dependent resources into a different compartment.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ChangeSubsettingPolicyCompartmentRequest
+   * @return ChangeSubsettingPolicyCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeSubsettingPolicyCompartment.ts.html |here} to see how to use ChangeSubsettingPolicyCompartment API.
+   */
+  public async changeSubsettingPolicyCompartment(
+    changeSubsettingPolicyCompartmentRequest: requests.ChangeSubsettingPolicyCompartmentRequest
+  ): Promise<responses.ChangeSubsettingPolicyCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#changeSubsettingPolicyCompartment.");
+    const operationName = "changeSubsettingPolicyCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SubsettingPolicy/ChangeSubsettingPolicyCompartment";
+    const pathParams = {
+      "{subsettingPolicyId}": changeSubsettingPolicyCompartmentRequest.subsettingPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeSubsettingPolicyCompartmentRequest.ifMatch,
+      "opc-request-id": changeSubsettingPolicyCompartmentRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeSubsettingPolicyCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/subsettingPolicies/{subsettingPolicyId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeSubsettingPolicyCompartmentRequest.changeSubsettingPolicyCompartmentDetails,
+        "ChangeSubsettingPolicyCompartmentDetails",
+        model.ChangeSubsettingPolicyCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeSubsettingPolicyCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Moves the specified subsetting policy health report and its dependent resources into a different compartment.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ChangeSubsettingPolicyHealthReportCompartmentRequest
+   * @return ChangeSubsettingPolicyHealthReportCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeSubsettingPolicyHealthReportCompartment.ts.html |here} to see how to use ChangeSubsettingPolicyHealthReportCompartment API.
+   */
+  public async changeSubsettingPolicyHealthReportCompartment(
+    changeSubsettingPolicyHealthReportCompartmentRequest: requests.ChangeSubsettingPolicyHealthReportCompartmentRequest
+  ): Promise<responses.ChangeSubsettingPolicyHealthReportCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DataSafeClient#changeSubsettingPolicyHealthReportCompartment."
+      );
+    const operationName = "changeSubsettingPolicyHealthReportCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SubsettingPolicyHealthReport/ChangeSubsettingPolicyHealthReportCompartment";
+    const pathParams = {
+      "{subsettingPolicyHealthReportId}":
+        changeSubsettingPolicyHealthReportCompartmentRequest.subsettingPolicyHealthReportId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeSubsettingPolicyHealthReportCompartmentRequest.ifMatch,
+      "opc-request-id": changeSubsettingPolicyHealthReportCompartmentRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeSubsettingPolicyHealthReportCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/subsettingPolicyHealthReports/{subsettingPolicyHealthReportId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeSubsettingPolicyHealthReportCompartmentRequest.changeSubsettingPolicyHealthReportCompartmentDetails,
+        "ChangeSubsettingPolicyHealthReportCompartmentDetails",
+        model.ChangeSubsettingPolicyHealthReportCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeSubsettingPolicyHealthReportCompartmentResponse>{},
+        responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -5391,6 +5632,94 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   }
 
   /**
+   * Creates a new OptIn/Registration Policy
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateRegistrationPolicyRequest
+   * @return CreateRegistrationPolicyResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CreateRegistrationPolicy.ts.html |here} to see how to use CreateRegistrationPolicy API.
+   */
+  public async createRegistrationPolicy(
+    createRegistrationPolicyRequest: requests.CreateRegistrationPolicyRequest
+  ): Promise<responses.CreateRegistrationPolicyResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#createRegistrationPolicy.");
+    const operationName = "createRegistrationPolicy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/RegistrationPolicy/CreateRegistrationPolicy";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-dry-run": createRegistrationPolicyRequest.opcDryRun,
+      "x-cluster-id": createRegistrationPolicyRequest.xClusterId,
+      "opc-retry-token": createRegistrationPolicyRequest.opcRetryToken,
+      "opc-request-id": createRegistrationPolicyRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createRegistrationPolicyRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/registrationPolicies",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createRegistrationPolicyRequest.createRegistrationPolicyDetails,
+        "CreateRegistrationPolicyDetails",
+        model.CreateRegistrationPolicyDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateRegistrationPolicyResponse>{},
+        body: await response.json(),
+        bodyKey: "registrationPolicy",
+        bodyModel: model.RegistrationPolicy,
+        type: "model.RegistrationPolicy",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates a new report definition with parameters specified in the body. The report definition is stored in the specified compartment.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -6470,6 +6799,261 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
           {
             value: response.headers.get("location"),
             key: "location",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+     * Creates a new subsetting policy and associates it with a sensitive data model or a target database.
+* <p>
+To use a sensitive data model as the source of subsetting schemas, set the schemaSource attribute to
+* SENSITIVE_DATA_MODEL and provide the sensitiveDataModelId attribute. In this case, the target database associated with the
+* sensitive data model is used for subsetting rules validations.
+* <p>
+You can also create a subsetting policy without using a sensitive data model. In this case,
+* you need to associate your subsetting policy with a target database by setting the schemaSource
+* attribute to TARGET and providing the targetId attribute. The specified target database
+* is used for subsetting rules validations.
+* <p>
+After creating a subsetting policy, you can use the CreateSubsettingRule
+* operation to manually add subsetting rules to the policy.
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param CreateSubsettingPolicyRequest
+     * @return CreateSubsettingPolicyResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CreateSubsettingPolicy.ts.html |here} to see how to use CreateSubsettingPolicy API.
+     */
+  public async createSubsettingPolicy(
+    createSubsettingPolicyRequest: requests.CreateSubsettingPolicyRequest
+  ): Promise<responses.CreateSubsettingPolicyResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#createSubsettingPolicy.");
+    const operationName = "createSubsettingPolicy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SubsettingPolicy/CreateSubsettingPolicy";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createSubsettingPolicyRequest.opcRetryToken,
+      "opc-request-id": createSubsettingPolicyRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createSubsettingPolicyRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/subsettingPolicies",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createSubsettingPolicyRequest.createSubsettingPolicyDetails,
+        "CreateSubsettingPolicyDetails",
+        model.CreateSubsettingPolicyDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateSubsettingPolicyResponse>{},
+        body: await response.json(),
+        bodyKey: "subsettingPolicy",
+        bodyModel: model.SubsettingPolicy,
+        type: "model.SubsettingPolicy",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Details to create a new subsetting rule
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateSubsettingRuleRequest
+   * @return CreateSubsettingRuleResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CreateSubsettingRule.ts.html |here} to see how to use CreateSubsettingRule API.
+   */
+  public async createSubsettingRule(
+    createSubsettingRuleRequest: requests.CreateSubsettingRuleRequest
+  ): Promise<responses.CreateSubsettingRuleResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#createSubsettingRule.");
+    const operationName = "createSubsettingRule";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SubsettingRule/CreateSubsettingRule";
+    const pathParams = {
+      "{subsettingPolicyId}": createSubsettingRuleRequest.subsettingPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createSubsettingRuleRequest.opcRetryToken,
+      "opc-request-id": createSubsettingRuleRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createSubsettingRuleRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/subsettingPolicies/{subsettingPolicyId}/subsettingRules",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createSubsettingRuleRequest.createSubsettingRuleDetails,
+        "CreateSubsettingRuleDetails",
+        model.CreateSubsettingRuleDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateSubsettingRuleResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Details to create a new referential relation.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateSubsettingSchemaRelationRequest
+   * @return CreateSubsettingSchemaRelationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CreateSubsettingSchemaRelation.ts.html |here} to see how to use CreateSubsettingSchemaRelation API.
+   */
+  public async createSubsettingSchemaRelation(
+    createSubsettingSchemaRelationRequest: requests.CreateSubsettingSchemaRelationRequest
+  ): Promise<responses.CreateSubsettingSchemaRelationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#createSubsettingSchemaRelation.");
+    const operationName = "createSubsettingSchemaRelation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SubsettingSchemaRelationSummary/CreateSubsettingSchemaRelation";
+    const pathParams = {
+      "{subsettingPolicyId}": createSubsettingSchemaRelationRequest.subsettingPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createSubsettingSchemaRelationRequest.opcRetryToken,
+      "opc-request-id": createSubsettingSchemaRelationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createSubsettingSchemaRelationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/subsettingPolicies/{subsettingPolicyId}/subsettingSchemaRelations",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createSubsettingSchemaRelationRequest.createSubsettingSchemaRelationDetails,
+        "CreateSubsettingSchemaRelationDetails",
+        model.CreateSubsettingSchemaRelationDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateSubsettingSchemaRelationResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           }
         ]
@@ -8328,6 +8912,80 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   }
 
   /**
+   * Deletes the specified registration policy.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteRegistrationPolicyRequest
+   * @return DeleteRegistrationPolicyResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteRegistrationPolicy.ts.html |here} to see how to use DeleteRegistrationPolicy API.
+   */
+  public async deleteRegistrationPolicy(
+    deleteRegistrationPolicyRequest: requests.DeleteRegistrationPolicyRequest
+  ): Promise<responses.DeleteRegistrationPolicyResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#deleteRegistrationPolicy.");
+    const operationName = "deleteRegistrationPolicy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/RegistrationPolicy/DeleteRegistrationPolicy";
+    const pathParams = {
+      "{registrationPolicyId}": deleteRegistrationPolicyRequest.registrationPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteRegistrationPolicyRequest.ifMatch,
+      "opc-request-id": deleteRegistrationPolicyRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteRegistrationPolicyRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/registrationPolicies/{registrationPolicyId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteRegistrationPolicyResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes the specified report definition. Only the user created report definition can be deleted. The seeded report definitions cannot be deleted.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteReportDefinitionRequest
@@ -9330,6 +9988,378 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteSqlFirewallPolicyResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the specified subsetting policy.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteSubsettingPolicyRequest
+   * @return DeleteSubsettingPolicyResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteSubsettingPolicy.ts.html |here} to see how to use DeleteSubsettingPolicy API.
+   */
+  public async deleteSubsettingPolicy(
+    deleteSubsettingPolicyRequest: requests.DeleteSubsettingPolicyRequest
+  ): Promise<responses.DeleteSubsettingPolicyResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#deleteSubsettingPolicy.");
+    const operationName = "deleteSubsettingPolicy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SubsettingPolicy/DeleteSubsettingPolicy";
+    const pathParams = {
+      "{subsettingPolicyId}": deleteSubsettingPolicyRequest.subsettingPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteSubsettingPolicyRequest.ifMatch,
+      "opc-request-id": deleteSubsettingPolicyRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteSubsettingPolicyRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/subsettingPolicies/{subsettingPolicyId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteSubsettingPolicyResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the specified subsetting policy health report.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteSubsettingPolicyHealthReportRequest
+   * @return DeleteSubsettingPolicyHealthReportResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteSubsettingPolicyHealthReport.ts.html |here} to see how to use DeleteSubsettingPolicyHealthReport API.
+   */
+  public async deleteSubsettingPolicyHealthReport(
+    deleteSubsettingPolicyHealthReportRequest: requests.DeleteSubsettingPolicyHealthReportRequest
+  ): Promise<responses.DeleteSubsettingPolicyHealthReportResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#deleteSubsettingPolicyHealthReport.");
+    const operationName = "deleteSubsettingPolicyHealthReport";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SubsettingPolicyHealthReport/DeleteSubsettingPolicyHealthReport";
+    const pathParams = {
+      "{subsettingPolicyHealthReportId}":
+        deleteSubsettingPolicyHealthReportRequest.subsettingPolicyHealthReportId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteSubsettingPolicyHealthReportRequest.ifMatch,
+      "opc-request-id": deleteSubsettingPolicyHealthReportRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteSubsettingPolicyHealthReportRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/subsettingPolicyHealthReports/{subsettingPolicyHealthReportId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteSubsettingPolicyHealthReportResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the specified subsetting report.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteSubsettingReportRequest
+   * @return DeleteSubsettingReportResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteSubsettingReport.ts.html |here} to see how to use DeleteSubsettingReport API.
+   */
+  public async deleteSubsettingReport(
+    deleteSubsettingReportRequest: requests.DeleteSubsettingReportRequest
+  ): Promise<responses.DeleteSubsettingReportResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#deleteSubsettingReport.");
+    const operationName = "deleteSubsettingReport";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SubsettingReport/DeleteSubsettingReport";
+    const pathParams = {
+      "{subsettingReportId}": deleteSubsettingReportRequest.subsettingReportId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteSubsettingReportRequest.ifMatch,
+      "opc-request-id": deleteSubsettingReportRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteSubsettingReportRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/subsettingReports/{subsettingReportId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteSubsettingReportResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the specified subsetting rule.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteSubsettingRuleRequest
+   * @return DeleteSubsettingRuleResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteSubsettingRule.ts.html |here} to see how to use DeleteSubsettingRule API.
+   */
+  public async deleteSubsettingRule(
+    deleteSubsettingRuleRequest: requests.DeleteSubsettingRuleRequest
+  ): Promise<responses.DeleteSubsettingRuleResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#deleteSubsettingRule.");
+    const operationName = "deleteSubsettingRule";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SubsettingRule/DeleteSubsettingRule";
+    const pathParams = {
+      "{subsettingRuleKey}": deleteSubsettingRuleRequest.subsettingRuleKey,
+      "{subsettingPolicyId}": deleteSubsettingRuleRequest.subsettingPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteSubsettingRuleRequest.ifMatch,
+      "opc-request-id": deleteSubsettingRuleRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteSubsettingRuleRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/subsettingPolicies/{subsettingPolicyId}/subsettingRules/{subsettingRuleKey}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteSubsettingRuleResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the specified referential relation. Note that only the relation created by the user can be deleted
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteSubsettingSchemaRelationRequest
+   * @return DeleteSubsettingSchemaRelationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteSubsettingSchemaRelation.ts.html |here} to see how to use DeleteSubsettingSchemaRelation API.
+   */
+  public async deleteSubsettingSchemaRelation(
+    deleteSubsettingSchemaRelationRequest: requests.DeleteSubsettingSchemaRelationRequest
+  ): Promise<responses.DeleteSubsettingSchemaRelationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#deleteSubsettingSchemaRelation.");
+    const operationName = "deleteSubsettingSchemaRelation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SubsettingSchemaRelation/DeleteSubsettingSchemaRelation";
+    const pathParams = {
+      "{subsettingSchemaRelationKey}":
+        deleteSubsettingSchemaRelationRequest.subsettingSchemaRelationKey,
+      "{subsettingPolicyId}": deleteSubsettingSchemaRelationRequest.subsettingPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteSubsettingSchemaRelationRequest.ifMatch,
+      "opc-request-id": deleteSubsettingSchemaRelationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteSubsettingSchemaRelationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/subsettingPolicies/{subsettingPolicyId}/subsettingSchemaRelations/{subsettingSchemaRelationKey}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteSubsettingSchemaRelationResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -10754,6 +11784,273 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   }
 
   /**
+   * Downloads the subsetting log generated by the last subsetting operation on a target database using the specified subsetting policy.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DownloadSubsettingLogRequest
+   * @return DownloadSubsettingLogResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DownloadSubsettingLog.ts.html |here} to see how to use DownloadSubsettingLog API.
+   */
+  public async downloadSubsettingLog(
+    downloadSubsettingLogRequest: requests.DownloadSubsettingLogRequest
+  ): Promise<responses.DownloadSubsettingLogResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#downloadSubsettingLog.");
+    const operationName = "downloadSubsettingLog";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SubsettingPolicy/DownloadSubsettingLog";
+    const pathParams = {
+      "{subsettingPolicyId}": downloadSubsettingLogRequest.subsettingPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": downloadSubsettingLogRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      downloadSubsettingLogRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/subsettingPolicies/{subsettingPolicyId}/actions/downloadLog",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        downloadSubsettingLogRequest.downloadSubsettingLogDetails,
+        "DownloadSubsettingLogDetails",
+        model.DownloadSubsettingLogDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DownloadSubsettingLogResponse>{},
+
+        body: response.body!,
+        bodyKey: "value",
+        bodyModel: "string",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-length"),
+            key: "contentLength",
+            dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Downloads an already-generated file corresponding to the specified subsetting policy.
+   * Note that the GenerateSubsettingPolicyForDownload operation is a prerequisite for the
+   * DownloadSubsettingPolicy operation. Use GenerateSubsettingPolicyForDownload to generate
+   * a subsetting policy file and then use DownloadSubsettingPolicy to download the generated file.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DownloadSubsettingPolicyRequest
+   * @return DownloadSubsettingPolicyResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DownloadSubsettingPolicy.ts.html |here} to see how to use DownloadSubsettingPolicy API.
+   */
+  public async downloadSubsettingPolicy(
+    downloadSubsettingPolicyRequest: requests.DownloadSubsettingPolicyRequest
+  ): Promise<responses.DownloadSubsettingPolicyResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#downloadSubsettingPolicy.");
+    const operationName = "downloadSubsettingPolicy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SubsettingPolicy/DownloadSubsettingPolicy";
+    const pathParams = {
+      "{subsettingPolicyId}": downloadSubsettingPolicyRequest.subsettingPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": downloadSubsettingPolicyRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      downloadSubsettingPolicyRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/subsettingPolicies/{subsettingPolicyId}/actions/download",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        downloadSubsettingPolicyRequest.downloadSubsettingPolicyDetails,
+        "DownloadSubsettingPolicyDetails",
+        model.DownloadSubsettingPolicyDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DownloadSubsettingPolicyResponse>{},
+
+        body: response.body!,
+        bodyKey: "value",
+        bodyModel: "string",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-length"),
+            key: "contentLength",
+            dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Downloads an already-generated subsetting report. Note that the GenerateSubsettingReportForDownload
+   * operation is a prerequisite for the DownloadSubsettingReport operation. Use GenerateSubsettingReportForDownload
+   * to generate a subsetting report file and then use DownloadSubsettingReport to download the generated file.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DownloadSubsettingReportRequest
+   * @return DownloadSubsettingReportResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DownloadSubsettingReport.ts.html |here} to see how to use DownloadSubsettingReport API.
+   */
+  public async downloadSubsettingReport(
+    downloadSubsettingReportRequest: requests.DownloadSubsettingReportRequest
+  ): Promise<responses.DownloadSubsettingReportResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#downloadSubsettingReport.");
+    const operationName = "downloadSubsettingReport";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SubsettingPolicy/DownloadSubsettingReport";
+    const pathParams = {
+      "{subsettingPolicyId}": downloadSubsettingReportRequest.subsettingPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": downloadSubsettingReportRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      downloadSubsettingReportRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/subsettingPolicies/{subsettingPolicyId}/actions/downloadReport",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        downloadSubsettingReportRequest.downloadSubsettingReportDetails,
+        "DownloadSubsettingReportDetails",
+        model.DownloadSubsettingReportDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DownloadSubsettingReportResponse>{},
+
+        body: response.body!,
+        bodyKey: "value",
+        bodyModel: "string",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-length"),
+            key: "contentLength",
+            dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Downloads the report of the specified user assessment. To download the user assessment report, it needs to be generated first.
    * Please use GenerateUserAssessmentReport to generate a downloadable report in the preferred format (PDF, XLS).
    *
@@ -10904,6 +12201,84 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.EnableDataSafeConfigurationResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Estimates table sizes for the specified subsetting policy and target database.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param EstimateTableSizesRequest
+   * @return EstimateTableSizesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/EstimateTableSizes.ts.html |here} to see how to use EstimateTableSizes API.
+   */
+  public async estimateTableSizes(
+    estimateTableSizesRequest: requests.EstimateTableSizesRequest
+  ): Promise<responses.EstimateTableSizesResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#estimateTableSizes.");
+    const operationName = "estimateTableSizes";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SubsettingPolicy/EstimateTableSizes";
+    const pathParams = {
+      "{subsettingPolicyId}": estimateTableSizesRequest.subsettingPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": estimateTableSizesRequest.opcRetryToken,
+      "opc-request-id": estimateTableSizesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      estimateTableSizesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/subsettingPolicies/{subsettingPolicyId}/actions/estimateTableSizes",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        estimateTableSizesRequest.estimateTableSizesDetails,
+        "EstimateTableSizesDetails",
+        model.EstimateTableSizesDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.EstimateTableSizesResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -11721,6 +13096,250 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.GenerateSqlFirewallPolicyResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Performs health check on the subsetting policy.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GenerateSubsettingHealthReportRequest
+   * @return GenerateSubsettingHealthReportResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GenerateSubsettingHealthReport.ts.html |here} to see how to use GenerateSubsettingHealthReport API.
+   */
+  public async generateSubsettingHealthReport(
+    generateSubsettingHealthReportRequest: requests.GenerateSubsettingHealthReportRequest
+  ): Promise<responses.GenerateSubsettingHealthReportResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#generateSubsettingHealthReport.");
+    const operationName = "generateSubsettingHealthReport";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SubsettingPolicyHealthReport/GenerateSubsettingHealthReport";
+    const pathParams = {
+      "{subsettingPolicyId}": generateSubsettingHealthReportRequest.subsettingPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": generateSubsettingHealthReportRequest.opcRequestId,
+      "opc-retry-token": generateSubsettingHealthReportRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      generateSubsettingHealthReportRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/subsettingPolicies/{subsettingPolicyId}/actions/generateHealthReport",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        generateSubsettingHealthReportRequest.generateSubsettingHealthReportDetails,
+        "GenerateSubsettingHealthReportDetails",
+        model.GenerateSubsettingHealthReportDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GenerateSubsettingHealthReportResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Generates a downloadable file corresponding to the specified subsetting policy. It's
+   * a prerequisite for the DownloadSubsettingPolicy operation. Use this operation to generate
+   * a subsetting policy file and then use DownloadSubsettingPolicy to download the generated file.
+   * Note that file generation and download are serial operations. The download operation
+   * can't be invoked while the generate operation is in progress.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GenerateSubsettingPolicyForDownloadRequest
+   * @return GenerateSubsettingPolicyForDownloadResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GenerateSubsettingPolicyForDownload.ts.html |here} to see how to use GenerateSubsettingPolicyForDownload API.
+   */
+  public async generateSubsettingPolicyForDownload(
+    generateSubsettingPolicyForDownloadRequest: requests.GenerateSubsettingPolicyForDownloadRequest
+  ): Promise<responses.GenerateSubsettingPolicyForDownloadResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#generateSubsettingPolicyForDownload.");
+    const operationName = "generateSubsettingPolicyForDownload";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SubsettingPolicy/GenerateSubsettingPolicyForDownload";
+    const pathParams = {
+      "{subsettingPolicyId}": generateSubsettingPolicyForDownloadRequest.subsettingPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": generateSubsettingPolicyForDownloadRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      generateSubsettingPolicyForDownloadRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/subsettingPolicies/{subsettingPolicyId}/actions/generatePolicyForDownload",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        generateSubsettingPolicyForDownloadRequest.generateSubsettingPolicyForDownloadDetails,
+        "GenerateSubsettingPolicyForDownloadDetails",
+        model.GenerateSubsettingPolicyForDownloadDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GenerateSubsettingPolicyForDownloadResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Generates a downloadable subsetting report. It's a prerequisite for the
+   * DownloadSubsettingReport operation. Use this endpoint to generate a
+   * subsetting report file and then use DownloadSubsettingReport to download
+   * the generated file.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GenerateSubsettingReportForDownloadRequest
+   * @return GenerateSubsettingReportForDownloadResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GenerateSubsettingReportForDownload.ts.html |here} to see how to use GenerateSubsettingReportForDownload API.
+   */
+  public async generateSubsettingReportForDownload(
+    generateSubsettingReportForDownloadRequest: requests.GenerateSubsettingReportForDownloadRequest
+  ): Promise<responses.GenerateSubsettingReportForDownloadResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#generateSubsettingReportForDownload.");
+    const operationName = "generateSubsettingReportForDownload";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SubsettingPolicy/GenerateSubsettingReportForDownload";
+    const pathParams = {
+      "{subsettingPolicyId}": generateSubsettingReportForDownloadRequest.subsettingPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": generateSubsettingReportForDownloadRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      generateSubsettingReportForDownloadRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/subsettingPolicies/{subsettingPolicyId}/actions/generateReportForDownload",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        generateSubsettingReportForDownloadRequest.generateSubsettingReportForDownloadDetails,
+        "GenerateSubsettingReportForDownloadDetails",
+        model.GenerateSubsettingReportForDownloadDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GenerateSubsettingReportForDownloadResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -14182,6 +15801,83 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
   }
 
   /**
+   * Returns the details of the specified Registration Policy.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetRegistrationPolicyRequest
+   * @return GetRegistrationPolicyResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetRegistrationPolicy.ts.html |here} to see how to use GetRegistrationPolicy API.
+   */
+  public async getRegistrationPolicy(
+    getRegistrationPolicyRequest: requests.GetRegistrationPolicyRequest
+  ): Promise<responses.GetRegistrationPolicyResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#getRegistrationPolicy.");
+    const operationName = "getRegistrationPolicy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/RegistrationPolicy/GetRegistrationPolicy";
+    const pathParams = {
+      "{registrationPolicyId}": getRegistrationPolicyRequest.registrationPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getRegistrationPolicyRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getRegistrationPolicyRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/registrationPolicies/{registrationPolicyId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetRegistrationPolicyResponse>{},
+        body: await response.json(),
+        bodyKey: "registrationPolicy",
+        bodyModel: model.RegistrationPolicy,
+        type: "model.RegistrationPolicy",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets a report by identifier
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetReportRequest
@@ -15628,6 +17324,393 @@ The GetProfile operation returns only the profiles in the specified 'userAssessm
         bodyKey: "sqlFirewallPolicy",
         bodyModel: model.SqlFirewallPolicy,
         type: "model.SqlFirewallPolicy",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the details of the specified subsetting policy.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetSubsettingPolicyRequest
+   * @return GetSubsettingPolicyResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetSubsettingPolicy.ts.html |here} to see how to use GetSubsettingPolicy API.
+   */
+  public async getSubsettingPolicy(
+    getSubsettingPolicyRequest: requests.GetSubsettingPolicyRequest
+  ): Promise<responses.GetSubsettingPolicyResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#getSubsettingPolicy.");
+    const operationName = "getSubsettingPolicy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SubsettingPolicy/GetSubsettingPolicy";
+    const pathParams = {
+      "{subsettingPolicyId}": getSubsettingPolicyRequest.subsettingPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getSubsettingPolicyRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getSubsettingPolicyRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/subsettingPolicies/{subsettingPolicyId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetSubsettingPolicyResponse>{},
+        body: await response.json(),
+        bodyKey: "subsettingPolicy",
+        bodyModel: model.SubsettingPolicy,
+        type: "model.SubsettingPolicy",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the details of the specified subsetting policy health report.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetSubsettingPolicyHealthReportRequest
+   * @return GetSubsettingPolicyHealthReportResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetSubsettingPolicyHealthReport.ts.html |here} to see how to use GetSubsettingPolicyHealthReport API.
+   */
+  public async getSubsettingPolicyHealthReport(
+    getSubsettingPolicyHealthReportRequest: requests.GetSubsettingPolicyHealthReportRequest
+  ): Promise<responses.GetSubsettingPolicyHealthReportResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#getSubsettingPolicyHealthReport.");
+    const operationName = "getSubsettingPolicyHealthReport";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SubsettingPolicyHealthReport/GetSubsettingPolicyHealthReport";
+    const pathParams = {
+      "{subsettingPolicyHealthReportId}":
+        getSubsettingPolicyHealthReportRequest.subsettingPolicyHealthReportId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getSubsettingPolicyHealthReportRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getSubsettingPolicyHealthReportRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/subsettingPolicyHealthReports/{subsettingPolicyHealthReportId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetSubsettingPolicyHealthReportResponse>{},
+        body: await response.json(),
+        bodyKey: "subsettingPolicyHealthReport",
+        bodyModel: model.SubsettingPolicyHealthReport,
+        type: "model.SubsettingPolicyHealthReport",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the details of the specified subsetting report.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetSubsettingReportRequest
+   * @return GetSubsettingReportResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetSubsettingReport.ts.html |here} to see how to use GetSubsettingReport API.
+   */
+  public async getSubsettingReport(
+    getSubsettingReportRequest: requests.GetSubsettingReportRequest
+  ): Promise<responses.GetSubsettingReportResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#getSubsettingReport.");
+    const operationName = "getSubsettingReport";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SubsettingReport/GetSubsettingReport";
+    const pathParams = {
+      "{subsettingReportId}": getSubsettingReportRequest.subsettingReportId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getSubsettingReportRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getSubsettingReportRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/subsettingReports/{subsettingReportId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetSubsettingReportResponse>{},
+        body: await response.json(),
+        bodyKey: "subsettingReport",
+        bodyModel: model.SubsettingReport,
+        type: "model.SubsettingReport",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the details of the specified subsetting rule.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetSubsettingRuleRequest
+   * @return GetSubsettingRuleResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetSubsettingRule.ts.html |here} to see how to use GetSubsettingRule API.
+   */
+  public async getSubsettingRule(
+    getSubsettingRuleRequest: requests.GetSubsettingRuleRequest
+  ): Promise<responses.GetSubsettingRuleResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#getSubsettingRule.");
+    const operationName = "getSubsettingRule";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SubsettingRule/GetSubsettingRule";
+    const pathParams = {
+      "{subsettingPolicyId}": getSubsettingRuleRequest.subsettingPolicyId,
+      "{subsettingRuleKey}": getSubsettingRuleRequest.subsettingRuleKey
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getSubsettingRuleRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getSubsettingRuleRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/subsettingPolicies/{subsettingPolicyId}/subsettingRules/{subsettingRuleKey}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetSubsettingRuleResponse>{},
+        body: await response.json(),
+        bodyKey: "subsettingRule",
+        bodyModel: model.SubsettingRule,
+        type: "model.SubsettingRule",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the details of the specified referential relation in the subsetting policy.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetSubsettingSchemaRelationRequest
+   * @return GetSubsettingSchemaRelationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetSubsettingSchemaRelation.ts.html |here} to see how to use GetSubsettingSchemaRelation API.
+   */
+  public async getSubsettingSchemaRelation(
+    getSubsettingSchemaRelationRequest: requests.GetSubsettingSchemaRelationRequest
+  ): Promise<responses.GetSubsettingSchemaRelationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#getSubsettingSchemaRelation.");
+    const operationName = "getSubsettingSchemaRelation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SubsettingSchemaRelation/GetSubsettingSchemaRelation";
+    const pathParams = {
+      "{subsettingPolicyId}": getSubsettingSchemaRelationRequest.subsettingPolicyId,
+      "{subsettingSchemaRelationKey}":
+        getSubsettingSchemaRelationRequest.subsettingSchemaRelationKey
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getSubsettingSchemaRelationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getSubsettingSchemaRelationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/subsettingPolicies/{subsettingPolicyId}/subsettingSchemaRelations/{subsettingSchemaRelationKey}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetSubsettingSchemaRelationResponse>{},
+        body: await response.json(),
+        bodyKey: "subsettingSchemaRelation",
+        bodyModel: model.SubsettingSchemaRelation,
+        type: "model.SubsettingSchemaRelation",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -22523,6 +24606,189 @@ The parameter 'compartmentIdInSubtree' applies when you perform ListUserProfiles
   }
 
   /**
+   * Retrieves a list of registration policies according to the specified query parameters.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListRegistrationPoliciesRequest
+   * @return ListRegistrationPoliciesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListRegistrationPolicies.ts.html |here} to see how to use ListRegistrationPolicies API.
+   */
+  public async listRegistrationPolicies(
+    listRegistrationPoliciesRequest: requests.ListRegistrationPoliciesRequest
+  ): Promise<responses.ListRegistrationPoliciesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#listRegistrationPolicies.");
+    const operationName = "listRegistrationPolicies";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/RegistrationPolicySummary/ListRegistrationPolicies";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listRegistrationPoliciesRequest.compartmentId,
+      "displayName": listRegistrationPoliciesRequest.displayName,
+      "sortBy": listRegistrationPoliciesRequest.sortBy,
+      "lifecycleState": listRegistrationPoliciesRequest.lifecycleState,
+      "enablementLevel": listRegistrationPoliciesRequest.enablementLevel,
+      "resourceId": listRegistrationPoliciesRequest.resourceId,
+      "compartmentIdInSubtree": listRegistrationPoliciesRequest.compartmentIdInSubtree,
+      "accessLevel": listRegistrationPoliciesRequest.accessLevel,
+      "sortOrder": listRegistrationPoliciesRequest.sortOrder,
+      "timeCreatedGreaterThanOrEqualTo":
+        listRegistrationPoliciesRequest.timeCreatedGreaterThanOrEqualTo,
+      "timeCreatedLessThan": listRegistrationPoliciesRequest.timeCreatedLessThan,
+      "limit": listRegistrationPoliciesRequest.limit,
+      "page": listRegistrationPoliciesRequest.page,
+      "registrationPolicyId": listRegistrationPoliciesRequest.registrationPolicyId,
+      "connectionType": listRegistrationPoliciesRequest.connectionType,
+      "connectionId": listRegistrationPoliciesRequest.connectionId
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listRegistrationPoliciesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listRegistrationPoliciesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/registrationPolicies",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListRegistrationPoliciesResponse>{},
+        body: await response.json(),
+        bodyKey: "registrationPolicyCollection",
+        bodyModel: model.RegistrationPolicyCollection,
+        type: "model.RegistrationPolicyCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Retrieves the OCIDs of target databases registered via the specified registration policy. Supports optional filtering by registration status (OPTIN/OPTOUT) and by target database OCID.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListRegistrationPolicyTargetDatabasesRequest
+   * @return ListRegistrationPolicyTargetDatabasesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListRegistrationPolicyTargetDatabases.ts.html |here} to see how to use ListRegistrationPolicyTargetDatabases API.
+   */
+  public async listRegistrationPolicyTargetDatabases(
+    listRegistrationPolicyTargetDatabasesRequest: requests.ListRegistrationPolicyTargetDatabasesRequest
+  ): Promise<responses.ListRegistrationPolicyTargetDatabasesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#listRegistrationPolicyTargetDatabases.");
+    const operationName = "listRegistrationPolicyTargetDatabases";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/RegistrationPolicy/ListRegistrationPolicyTargetDatabases";
+    const pathParams = {
+      "{registrationPolicyId}": listRegistrationPolicyTargetDatabasesRequest.registrationPolicyId
+    };
+
+    const queryParams = {
+      "compartmentId": listRegistrationPolicyTargetDatabasesRequest.compartmentId,
+      "targetDatabaseId": listRegistrationPolicyTargetDatabasesRequest.targetDatabaseId,
+      "membershipStatus": listRegistrationPolicyTargetDatabasesRequest.membershipStatus,
+      "limit": listRegistrationPolicyTargetDatabasesRequest.limit,
+      "page": listRegistrationPolicyTargetDatabasesRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listRegistrationPolicyTargetDatabasesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listRegistrationPolicyTargetDatabasesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/registrationPolicies/{registrationPolicyId}/targetDatabases",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListRegistrationPolicyTargetDatabasesResponse>{},
+        body: await response.json(),
+        bodyKey: "registrationPolicyTargetDatabaseSummaryCollection",
+        bodyModel: model.RegistrationPolicyTargetDatabaseSummaryCollection,
+        type: "model.RegistrationPolicyTargetDatabaseSummaryCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets a list of report definitions.
    * The ListReportDefinitions operation returns only the report definitions in the specified `compartmentId`.
    * It also returns the seeded report definitions which are available to all the compartments.
@@ -25815,6 +28081,1197 @@ The parameter `compartmentIdInSubtree` applies when you perform SummarizedSqlFir
   }
 
   /**
+   * Gets a list of subsetted tables present in the specified subsetting report and based on the specified query parameters.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListSubsettedObjectsRequest
+   * @return ListSubsettedObjectsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSubsettedObjects.ts.html |here} to see how to use ListSubsettedObjects API.
+   */
+  public async listSubsettedObjects(
+    listSubsettedObjectsRequest: requests.ListSubsettedObjectsRequest
+  ): Promise<responses.ListSubsettedObjectsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listSubsettedObjects.");
+    const operationName = "listSubsettedObjects";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SubsettedObjectSummary/ListSubsettedObjects";
+    const pathParams = {
+      "{subsettingReportId}": listSubsettedObjectsRequest.subsettingReportId
+    };
+
+    const queryParams = {
+      "limit": listSubsettedObjectsRequest.limit,
+      "page": listSubsettedObjectsRequest.page,
+      "sortOrder": listSubsettedObjectsRequest.sortOrder,
+      "sortBy": listSubsettedObjectsRequest.sortBy,
+      "schemaName": listSubsettedObjectsRequest.schemaName,
+      "objectName": listSubsettedObjectsRequest.objectName
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listSubsettedObjectsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSubsettedObjectsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/subsettingReports/{subsettingReportId}/subsettedObjects",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListSubsettedObjectsResponse>{},
+        body: await response.json(),
+        bodyKey: "subsettedObjectCollection",
+        bodyModel: model.SubsettedObjectCollection,
+        type: "model.SubsettedObjectCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets consolidated subsetting analytics data based on the specified query parameters.
+   * If CompartmentIdInSubtreeQueryParam is specified as true, the behaviour
+   * is equivalent to accessLevel \"ACCESSIBLE\" by default.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListSubsettingAnalyticsRequest
+   * @return ListSubsettingAnalyticsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSubsettingAnalytics.ts.html |here} to see how to use ListSubsettingAnalytics API.
+   */
+  public async listSubsettingAnalytics(
+    listSubsettingAnalyticsRequest: requests.ListSubsettingAnalyticsRequest
+  ): Promise<responses.ListSubsettingAnalyticsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listSubsettingAnalytics.");
+    const operationName = "listSubsettingAnalytics";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SubsettingPolicy/ListSubsettingAnalytics";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listSubsettingAnalyticsRequest.compartmentId,
+      "compartmentIdInSubtree": listSubsettingAnalyticsRequest.compartmentIdInSubtree,
+      "groupBy": listSubsettingAnalyticsRequest.groupBy,
+      "targetId": listSubsettingAnalyticsRequest.targetId,
+      "subsettingPolicyId": listSubsettingAnalyticsRequest.subsettingPolicyId,
+      "targetDatabaseGroupId": listSubsettingAnalyticsRequest.targetDatabaseGroupId,
+      "sortBy": listSubsettingAnalyticsRequest.sortBy,
+      "sortOrder": listSubsettingAnalyticsRequest.sortOrder,
+      "timeCreatedGreaterThanOrEqualTo":
+        listSubsettingAnalyticsRequest.timeCreatedGreaterThanOrEqualTo,
+      "timeCreatedLessThan": listSubsettingAnalyticsRequest.timeCreatedLessThan,
+      "limit": listSubsettingAnalyticsRequest.limit,
+      "page": listSubsettingAnalyticsRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listSubsettingAnalyticsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSubsettingAnalyticsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/subsettingAnalytics",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListSubsettingAnalyticsResponse>{},
+        body: await response.json(),
+        bodyKey: "subsettingAnalyticsCollection",
+        bodyModel: model.SubsettingAnalyticsCollection,
+        type: "model.SubsettingAnalyticsCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a list of subsetting errors in a subsetting run based on the specified query parameters.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListSubsettingErrorsRequest
+   * @return ListSubsettingErrorsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSubsettingErrors.ts.html |here} to see how to use ListSubsettingErrors API.
+   */
+  public async listSubsettingErrors(
+    listSubsettingErrorsRequest: requests.ListSubsettingErrorsRequest
+  ): Promise<responses.ListSubsettingErrorsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listSubsettingErrors.");
+    const operationName = "listSubsettingErrors";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SubsettingErrorSummary/ListSubsettingErrors";
+    const pathParams = {
+      "{subsettingReportId}": listSubsettingErrorsRequest.subsettingReportId
+    };
+
+    const queryParams = {
+      "stepName": listSubsettingErrorsRequest.stepName,
+      "sortBy": listSubsettingErrorsRequest.sortBy,
+      "limit": listSubsettingErrorsRequest.limit,
+      "page": listSubsettingErrorsRequest.page,
+      "sortOrder": listSubsettingErrorsRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listSubsettingErrorsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSubsettingErrorsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/subsettingReports/{subsettingReportId}/subsettingErrors",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListSubsettingErrorsResponse>{},
+        body: await response.json(),
+        bodyKey: "subsettingErrorCollection",
+        bodyModel: model.SubsettingErrorCollection,
+        type: "model.SubsettingErrorCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a list of subsetting policies based on the specified query parameters.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListSubsettingPoliciesRequest
+   * @return ListSubsettingPoliciesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSubsettingPolicies.ts.html |here} to see how to use ListSubsettingPolicies API.
+   */
+  public async listSubsettingPolicies(
+    listSubsettingPoliciesRequest: requests.ListSubsettingPoliciesRequest
+  ): Promise<responses.ListSubsettingPoliciesResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listSubsettingPolicies.");
+    const operationName = "listSubsettingPolicies";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SubsettingPolicy/ListSubsettingPolicies";
+    const pathParams = {};
+
+    const queryParams = {
+      "subsettingPolicyId": listSubsettingPoliciesRequest.subsettingPolicyId,
+      "maskingPolicyId": listSubsettingPoliciesRequest.maskingPolicyId,
+      "compartmentId": listSubsettingPoliciesRequest.compartmentId,
+      "displayName": listSubsettingPoliciesRequest.displayName,
+      "limit": listSubsettingPoliciesRequest.limit,
+      "page": listSubsettingPoliciesRequest.page,
+      "lifecycleState": listSubsettingPoliciesRequest.lifecycleState,
+      "sortOrder": listSubsettingPoliciesRequest.sortOrder,
+      "sortBy": listSubsettingPoliciesRequest.sortBy,
+      "sensitiveDataModelId": listSubsettingPoliciesRequest.sensitiveDataModelId,
+      "targetId": listSubsettingPoliciesRequest.targetId,
+      "timeCreatedGreaterThanOrEqualTo":
+        listSubsettingPoliciesRequest.timeCreatedGreaterThanOrEqualTo,
+      "timeCreatedLessThan": listSubsettingPoliciesRequest.timeCreatedLessThan,
+      "compartmentIdInSubtree": listSubsettingPoliciesRequest.compartmentIdInSubtree,
+      "accessLevel": listSubsettingPoliciesRequest.accessLevel
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listSubsettingPoliciesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSubsettingPoliciesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/subsettingPolicies",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListSubsettingPoliciesResponse>{},
+        body: await response.json(),
+        bodyKey: "subsettingPolicyCollection",
+        bodyModel: model.SubsettingPolicyCollection,
+        type: "model.SubsettingPolicyCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a list of errors and warnings from a subsetting policy health check.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListSubsettingPolicyHealthReportLogsRequest
+   * @return ListSubsettingPolicyHealthReportLogsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSubsettingPolicyHealthReportLogs.ts.html |here} to see how to use ListSubsettingPolicyHealthReportLogs API.
+   */
+  public async listSubsettingPolicyHealthReportLogs(
+    listSubsettingPolicyHealthReportLogsRequest: requests.ListSubsettingPolicyHealthReportLogsRequest
+  ): Promise<responses.ListSubsettingPolicyHealthReportLogsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#listSubsettingPolicyHealthReportLogs.");
+    const operationName = "listSubsettingPolicyHealthReportLogs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SubsettingPolicyHealthReport/ListSubsettingPolicyHealthReportLogs";
+    const pathParams = {
+      "{subsettingPolicyHealthReportId}":
+        listSubsettingPolicyHealthReportLogsRequest.subsettingPolicyHealthReportId
+    };
+
+    const queryParams = {
+      "limit": listSubsettingPolicyHealthReportLogsRequest.limit,
+      "page": listSubsettingPolicyHealthReportLogsRequest.page,
+      "sortOrder": listSubsettingPolicyHealthReportLogsRequest.sortOrder,
+      "sortBy": listSubsettingPolicyHealthReportLogsRequest.sortBy,
+      "messageType": listSubsettingPolicyHealthReportLogsRequest.messageType
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listSubsettingPolicyHealthReportLogsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSubsettingPolicyHealthReportLogsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/subsettingPolicyHealthReports/{subsettingPolicyHealthReportId}/logs",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListSubsettingPolicyHealthReportLogsResponse>{},
+        body: await response.json(),
+        bodyKey: "subsettingPolicyHealthReportLogCollection",
+        bodyModel: model.SubsettingPolicyHealthReportLogCollection,
+        type: "model.SubsettingPolicyHealthReportLogCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a list of subsetting policy health reports based on the specified query parameters.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListSubsettingPolicyHealthReportsRequest
+   * @return ListSubsettingPolicyHealthReportsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSubsettingPolicyHealthReports.ts.html |here} to see how to use ListSubsettingPolicyHealthReports API.
+   */
+  public async listSubsettingPolicyHealthReports(
+    listSubsettingPolicyHealthReportsRequest: requests.ListSubsettingPolicyHealthReportsRequest
+  ): Promise<responses.ListSubsettingPolicyHealthReportsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#listSubsettingPolicyHealthReports.");
+    const operationName = "listSubsettingPolicyHealthReports";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SubsettingPolicyHealthReport/ListSubsettingPolicyHealthReports";
+    const pathParams = {};
+
+    const queryParams = {
+      "subsettingPolicyHealthReportId":
+        listSubsettingPolicyHealthReportsRequest.subsettingPolicyHealthReportId,
+      "limit": listSubsettingPolicyHealthReportsRequest.limit,
+      "page": listSubsettingPolicyHealthReportsRequest.page,
+      "compartmentId": listSubsettingPolicyHealthReportsRequest.compartmentId,
+      "compartmentIdInSubtree": listSubsettingPolicyHealthReportsRequest.compartmentIdInSubtree,
+      "accessLevel": listSubsettingPolicyHealthReportsRequest.accessLevel,
+      "sortBy": listSubsettingPolicyHealthReportsRequest.sortBy,
+      "sortOrder": listSubsettingPolicyHealthReportsRequest.sortOrder,
+      "displayName": listSubsettingPolicyHealthReportsRequest.displayName,
+      "targetId": listSubsettingPolicyHealthReportsRequest.targetId,
+      "subsettingPolicyId": listSubsettingPolicyHealthReportsRequest.subsettingPolicyId,
+      "lifecycleState": listSubsettingPolicyHealthReportsRequest.lifecycleState
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listSubsettingPolicyHealthReportsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSubsettingPolicyHealthReportsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/subsettingPolicyHealthReports",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListSubsettingPolicyHealthReportsResponse>{},
+        body: await response.json(),
+        bodyKey: "subsettingPolicyHealthReportCollection",
+        bodyModel: model.SubsettingPolicyHealthReportCollection,
+        type: "model.SubsettingPolicyHealthReportCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a list of subsetting reports based on the specified query parameters.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListSubsettingReportsRequest
+   * @return ListSubsettingReportsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSubsettingReports.ts.html |here} to see how to use ListSubsettingReports API.
+   */
+  public async listSubsettingReports(
+    listSubsettingReportsRequest: requests.ListSubsettingReportsRequest
+  ): Promise<responses.ListSubsettingReportsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listSubsettingReports.");
+    const operationName = "listSubsettingReports";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SubsettingReport/ListSubsettingReports";
+    const pathParams = {};
+
+    const queryParams = {
+      "limit": listSubsettingReportsRequest.limit,
+      "page": listSubsettingReportsRequest.page,
+      "subsettingPolicyId": listSubsettingReportsRequest.subsettingPolicyId,
+      "targetId": listSubsettingReportsRequest.targetId,
+      "targetDatabaseGroupId": listSubsettingReportsRequest.targetDatabaseGroupId,
+      "sortOrder": listSubsettingReportsRequest.sortOrder,
+      "sortBy": listSubsettingReportsRequest.sortBy,
+      "compartmentId": listSubsettingReportsRequest.compartmentId,
+      "compartmentIdInSubtree": listSubsettingReportsRequest.compartmentIdInSubtree,
+      "accessLevel": listSubsettingReportsRequest.accessLevel
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listSubsettingReportsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSubsettingReportsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/subsettingReports",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListSubsettingReportsResponse>{},
+        body: await response.json(),
+        bodyKey: "subsettingReportCollection",
+        bodyModel: model.SubsettingReportCollection,
+        type: "model.SubsettingReportCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a list of objects of processing chain based on the specified query parameters generated for a subsetting rule.
+   * A processing chain is the relationship path that determines how a subsetting rule is applied across related tables.
+   * It is built from the selected subsetting table, subsetting rule, the chosen relatedTablesPropagation direction,
+   * and the referential relationships in the schema.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListSubsettingRuleProcessingChainObjectsRequest
+   * @return ListSubsettingRuleProcessingChainObjectsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSubsettingRuleProcessingChainObjects.ts.html |here} to see how to use ListSubsettingRuleProcessingChainObjects API.
+   */
+  public async listSubsettingRuleProcessingChainObjects(
+    listSubsettingRuleProcessingChainObjectsRequest: requests.ListSubsettingRuleProcessingChainObjectsRequest
+  ): Promise<responses.ListSubsettingRuleProcessingChainObjectsResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DataSafeClient#listSubsettingRuleProcessingChainObjects."
+      );
+    const operationName = "listSubsettingRuleProcessingChainObjects";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SubsettingRuleProcessingChainObjectSummary/ListSubsettingRuleProcessingChainObjects";
+    const pathParams = {
+      "{subsettingPolicyId}": listSubsettingRuleProcessingChainObjectsRequest.subsettingPolicyId,
+      "{subsettingRuleKey}": listSubsettingRuleProcessingChainObjectsRequest.subsettingRuleKey
+    };
+
+    const queryParams = {
+      "page": listSubsettingRuleProcessingChainObjectsRequest.page,
+      "limit": listSubsettingRuleProcessingChainObjectsRequest.limit,
+      "sortBy": listSubsettingRuleProcessingChainObjectsRequest.sortBy,
+      "isEnabledForProcessing":
+        listSubsettingRuleProcessingChainObjectsRequest.isEnabledForProcessing,
+      "sortOrder": listSubsettingRuleProcessingChainObjectsRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listSubsettingRuleProcessingChainObjectsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSubsettingRuleProcessingChainObjectsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/subsettingPolicies/{subsettingPolicyId}/subsettingRules/{subsettingRuleKey}/processingChainObjects",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListSubsettingRuleProcessingChainObjectsResponse>{},
+        body: await response.json(),
+        bodyKey: "subsettingRuleProcessingChainObjectsCollection",
+        bodyModel: model.SubsettingRuleProcessingChainObjectsCollection,
+        type: "model.SubsettingRuleProcessingChainObjectsCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a list of subsetting rules present in the specified subsetting policy and based on the specified query parameters.
+   * A subsetting rule is the criteria that tells Data Safe which rows to retain from the selected starting table for a subsetting operation.
+   * It is the entry point for the subset. Data Safe uses this rule, along with the propagation setting,
+   * to determine the related rows that must also be retained across parent and child tables.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListSubsettingRulesRequest
+   * @return ListSubsettingRulesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSubsettingRules.ts.html |here} to see how to use ListSubsettingRules API.
+   */
+  public async listSubsettingRules(
+    listSubsettingRulesRequest: requests.ListSubsettingRulesRequest
+  ): Promise<responses.ListSubsettingRulesResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listSubsettingRules.");
+    const operationName = "listSubsettingRules";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SubsettingRule/ListSubsettingRules";
+    const pathParams = {
+      "{subsettingPolicyId}": listSubsettingRulesRequest.subsettingPolicyId
+    };
+
+    const queryParams = {
+      "limit": listSubsettingRulesRequest.limit,
+      "page": listSubsettingRulesRequest.page,
+      "sortOrder": listSubsettingRulesRequest.sortOrder,
+      "sortBy": listSubsettingRulesRequest.sortBy,
+      "schemaName": listSubsettingRulesRequest.schemaName,
+      "objectName": listSubsettingRulesRequest.objectName
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listSubsettingRulesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSubsettingRulesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/subsettingPolicies/{subsettingPolicyId}/subsettingRules",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListSubsettingRulesResponse>{},
+        body: await response.json(),
+        bodyKey: "subsettingRuleCollection",
+        bodyModel: model.SubsettingRuleCollection,
+        type: "model.SubsettingRuleCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a list of objects/tables present in the specified subsetting policy schemas based on the specified query parameters.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListSubsettingSchemaObjectsRequest
+   * @return ListSubsettingSchemaObjectsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSubsettingSchemaObjects.ts.html |here} to see how to use ListSubsettingSchemaObjects API.
+   */
+  public async listSubsettingSchemaObjects(
+    listSubsettingSchemaObjectsRequest: requests.ListSubsettingSchemaObjectsRequest
+  ): Promise<responses.ListSubsettingSchemaObjectsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#listSubsettingSchemaObjects.");
+    const operationName = "listSubsettingSchemaObjects";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SubsettingSchemaObjectSummary/ListSubsettingSchemaObjects";
+    const pathParams = {
+      "{subsettingPolicyId}": listSubsettingSchemaObjectsRequest.subsettingPolicyId
+    };
+
+    const queryParams = {
+      "schemaName": listSubsettingSchemaObjectsRequest.schemaName,
+      "objectName": listSubsettingSchemaObjectsRequest.objectName,
+      "page": listSubsettingSchemaObjectsRequest.page,
+      "limit": listSubsettingSchemaObjectsRequest.limit,
+      "sortBy": listSubsettingSchemaObjectsRequest.sortBy,
+      "sortOrder": listSubsettingSchemaObjectsRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listSubsettingSchemaObjectsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSubsettingSchemaObjectsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/subsettingPolicies/{subsettingPolicyId}/subsettingSchemaObjects",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListSubsettingSchemaObjectsResponse>{},
+        body: await response.json(),
+        bodyKey: "subsettingSchemaObjectCollection",
+        bodyModel: model.SubsettingSchemaObjectCollection,
+        type: "model.SubsettingSchemaObjectCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a list of referential relations present in the specified subsetting policy schemas based on the specified query parameters.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListSubsettingSchemaRelationsRequest
+   * @return ListSubsettingSchemaRelationsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSubsettingSchemaRelations.ts.html |here} to see how to use ListSubsettingSchemaRelations API.
+   */
+  public async listSubsettingSchemaRelations(
+    listSubsettingSchemaRelationsRequest: requests.ListSubsettingSchemaRelationsRequest
+  ): Promise<responses.ListSubsettingSchemaRelationsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#listSubsettingSchemaRelations.");
+    const operationName = "listSubsettingSchemaRelations";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SubsettingSchemaRelationSummary/ListSubsettingSchemaRelations";
+    const pathParams = {
+      "{subsettingPolicyId}": listSubsettingSchemaRelationsRequest.subsettingPolicyId
+    };
+
+    const queryParams = {
+      "schemaName": listSubsettingSchemaRelationsRequest.schemaName,
+      "objectName": listSubsettingSchemaRelationsRequest.objectName,
+      "relationType": listSubsettingSchemaRelationsRequest.relationType,
+      "limit": listSubsettingSchemaRelationsRequest.limit,
+      "page": listSubsettingSchemaRelationsRequest.page,
+      "sortOrder": listSubsettingSchemaRelationsRequest.sortOrder,
+      "sortBy": listSubsettingSchemaRelationsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listSubsettingSchemaRelationsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSubsettingSchemaRelationsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/subsettingPolicies/{subsettingPolicyId}/subsettingSchemaRelations",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListSubsettingSchemaRelationsResponse>{},
+        body: await response.json(),
+        bodyKey: "subsettingSchemaRelationCollection",
+        bodyModel: model.SubsettingSchemaRelationCollection,
+        type: "model.SubsettingSchemaRelationCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a list of subsetting schemas present in the specified subsetting policy and based on the specified query parameters.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListSubsettingSchemasRequest
+   * @return ListSubsettingSchemasResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSubsettingSchemas.ts.html |here} to see how to use ListSubsettingSchemas API.
+   */
+  public async listSubsettingSchemas(
+    listSubsettingSchemasRequest: requests.ListSubsettingSchemasRequest
+  ): Promise<responses.ListSubsettingSchemasResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listSubsettingSchemas.");
+    const operationName = "listSubsettingSchemas";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SubsettingSchemaCollection/ListSubsettingSchemas";
+    const pathParams = {
+      "{subsettingPolicyId}": listSubsettingSchemasRequest.subsettingPolicyId
+    };
+
+    const queryParams = {
+      "limit": listSubsettingSchemasRequest.limit,
+      "page": listSubsettingSchemasRequest.page,
+      "sortOrder": listSubsettingSchemasRequest.sortOrder,
+      "sortBy": listSubsettingSchemasRequest.sortBy,
+      "schemaName": listSubsettingSchemasRequest.schemaName,
+      "isDerivedSchema": listSubsettingSchemasRequest.isDerivedSchema
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listSubsettingSchemasRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSubsettingSchemasRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/subsettingPolicies/{subsettingPolicyId}/subsettingSchemas",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListSubsettingSchemasResponse>{},
+        body: await response.json(),
+        bodyKey: "subsettingSchemaCollection",
+        bodyModel: model.SubsettingSchemaCollection,
+        type: "model.SubsettingSchemaCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets table size estimates for the specified subsetting policy.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListTableEstimatesRequest
+   * @return ListTableEstimatesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListTableEstimates.ts.html |here} to see how to use ListTableEstimates API.
+   */
+  public async listTableEstimates(
+    listTableEstimatesRequest: requests.ListTableEstimatesRequest
+  ): Promise<responses.ListTableEstimatesResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listTableEstimates.");
+    const operationName = "listTableEstimates";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/TableEstimateSummary/ListTableEstimates";
+    const pathParams = {
+      "{subsettingPolicyId}": listTableEstimatesRequest.subsettingPolicyId
+    };
+
+    const queryParams = {
+      "schemaName": listTableEstimatesRequest.schemaName,
+      "objectName": listTableEstimatesRequest.objectName,
+      "targetId": listTableEstimatesRequest.targetId,
+      "sortOrder": listTableEstimatesRequest.sortOrder,
+      "sortBy": listTableEstimatesRequest.sortBy,
+      "limit": listTableEstimatesRequest.limit,
+      "page": listTableEstimatesRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listTableEstimatesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listTableEstimatesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/subsettingPolicies/{subsettingPolicyId}/tableEstimates",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListTableEstimatesResponse>{},
+        body: await response.json(),
+        bodyKey: "tableEstimateCollection",
+        bodyModel: model.TableEstimateCollection,
+        type: "model.TableEstimateCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Returns a list of table metadata objects.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -26268,6 +29725,7 @@ The parameter `compartmentIdInSubtree` applies when you perform SummarizedSqlFir
     const queryParams = {
       "compartmentId": listTargetDatabasesRequest.compartmentId,
       "associatedResourceId": listTargetDatabasesRequest.associatedResourceId,
+      "enablementResourceOcid": listTargetDatabasesRequest.enablementResourceOcid,
       "targetDatabaseId": listTargetDatabasesRequest.targetDatabaseId,
       "displayName": listTargetDatabasesRequest.displayName,
       "lifecycleState": listTargetDatabasesRequest.lifecycleState,
@@ -27904,6 +31362,85 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   }
 
   /**
+   * Updates the Data Safe target database Privileges.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ManagePrivilegesRequest
+   * @return ManagePrivilegesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ManagePrivileges.ts.html |here} to see how to use ManagePrivileges API.
+   */
+  public async managePrivileges(
+    managePrivilegesRequest: requests.ManagePrivilegesRequest
+  ): Promise<responses.ManagePrivilegesResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#managePrivileges.");
+    const operationName = "managePrivileges";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/TargetDatabase/ManagePrivileges";
+    const pathParams = {
+      "{targetDatabaseId}": managePrivilegesRequest.targetDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": managePrivilegesRequest.ifMatch,
+      "opc-request-id": managePrivilegesRequest.opcRequestId,
+      "opc-retry-token": managePrivilegesRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      managePrivilegesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/targetDatabases/{targetDatabaseId}/actions/managePrivileges",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        managePrivilegesRequest.managePrivilegesDetails,
+        "ManagePrivilegesDetails",
+        model.ManagePrivilegesDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ManagePrivilegesResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Masks data using the specified masking policy.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param MaskDataRequest
@@ -28764,6 +32301,88 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.PatchSqlFirewallAllowedSqlResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Patches one or more subsetting rules in the specified subsetting policy. Use INSERT to add
+   * a new rule with CreateSubsettingRuleDetails as the patch value, and MERGE to update an
+   * existing rule with UpdateSubsettingRuleDetails as the patch value. To delete a rule, use
+   * the existing DeleteSubsettingRule API.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param PatchSubsettingRulesRequest
+   * @return PatchSubsettingRulesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/PatchSubsettingRules.ts.html |here} to see how to use PatchSubsettingRules API.
+   */
+  public async patchSubsettingRules(
+    patchSubsettingRulesRequest: requests.PatchSubsettingRulesRequest
+  ): Promise<responses.PatchSubsettingRulesResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#patchSubsettingRules.");
+    const operationName = "patchSubsettingRules";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SubsettingRule/PatchSubsettingRules";
+    const pathParams = {
+      "{subsettingPolicyId}": patchSubsettingRulesRequest.subsettingPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": patchSubsettingRulesRequest.ifMatch,
+      "opc-request-id": patchSubsettingRulesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      patchSubsettingRulesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/subsettingPolicies/{subsettingPolicyId}/subsettingRules",
+      method: "PATCH",
+      bodyContent: common.ObjectSerializer.serialize(
+        patchSubsettingRulesRequest.patchSubsettingRulesDetails,
+        "PatchSubsettingRulesDetails",
+        model.PatchSubsettingRulesDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.PatchSubsettingRulesResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -30474,6 +34093,84 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   }
 
   /**
+   * Subsets data using the specified subsetting policy.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param SubsetDataRequest
+   * @return SubsetDataResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/SubsetData.ts.html |here} to see how to use SubsetData API.
+   */
+  public async subsetData(
+    subsetDataRequest: requests.SubsetDataRequest
+  ): Promise<responses.SubsetDataResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#subsetData.");
+    const operationName = "subsetData";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SubsettingPolicy/SubsetData";
+    const pathParams = {
+      "{subsettingPolicyId}": subsetDataRequest.subsettingPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": subsetDataRequest.opcRetryToken,
+      "opc-request-id": subsetDataRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      subsetDataRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/subsettingPolicies/{subsettingPolicyId}/actions/subset",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        subsetDataRequest.subsetDataDetails,
+        "SubsetDataDetails",
+        model.SubsetDataDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SubsetDataResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Suspend the given work request. Issuing a suspend does not guarantee of a immediate suspend of the work request.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -32139,6 +35836,178 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   }
 
   /**
+   * Updates one or more attributes of the specified processing chain object.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateProcessingChainObjectRequest
+   * @return UpdateProcessingChainObjectResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateProcessingChainObject.ts.html |here} to see how to use UpdateProcessingChainObject API.
+   */
+  public async updateProcessingChainObject(
+    updateProcessingChainObjectRequest: requests.UpdateProcessingChainObjectRequest
+  ): Promise<responses.UpdateProcessingChainObjectResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#updateProcessingChainObject.");
+    const operationName = "updateProcessingChainObject";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SubsettingRuleProcessingChainObjectSummary/UpdateProcessingChainObject";
+    const pathParams = {
+      "{processingChainObjectKey}": updateProcessingChainObjectRequest.processingChainObjectKey,
+      "{subsettingRuleKey}": updateProcessingChainObjectRequest.subsettingRuleKey,
+      "{subsettingPolicyId}": updateProcessingChainObjectRequest.subsettingPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateProcessingChainObjectRequest.ifMatch,
+      "opc-request-id": updateProcessingChainObjectRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateProcessingChainObjectRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/subsettingPolicies/{subsettingPolicyId}/subsettingRules/{subsettingRuleKey}/processingChainObjects/{processingChainObjectKey}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateProcessingChainObjectRequest.updateProcessingChainObjectDetails,
+        "UpdateProcessingChainObjectDetails",
+        model.UpdateProcessingChainObjectDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateProcessingChainObjectResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates one or more attributes of the specified registration policy.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateRegistrationPolicyRequest
+   * @return UpdateRegistrationPolicyResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateRegistrationPolicy.ts.html |here} to see how to use UpdateRegistrationPolicy API.
+   */
+  public async updateRegistrationPolicy(
+    updateRegistrationPolicyRequest: requests.UpdateRegistrationPolicyRequest
+  ): Promise<responses.UpdateRegistrationPolicyResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#updateRegistrationPolicy.");
+    const operationName = "updateRegistrationPolicy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/RegistrationPolicy/UpdateRegistrationPolicy";
+    const pathParams = {
+      "{registrationPolicyId}": updateRegistrationPolicyRequest.registrationPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateRegistrationPolicyRequest.opcRequestId,
+      "if-match": updateRegistrationPolicyRequest.ifMatch,
+      "opc-retry-token": updateRegistrationPolicyRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateRegistrationPolicyRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/registrationPolicies/{registrationPolicyId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateRegistrationPolicyRequest.updateRegistrationPolicyDetails,
+        "UpdateRegistrationPolicyDetails",
+        model.UpdateRegistrationPolicyDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateRegistrationPolicyResponse>{},
+        body: await response.json(),
+        bodyKey: "registrationPolicy",
+        bodyModel: model.RegistrationPolicy,
+        type: "model.RegistrationPolicy",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Updates the specified report. Only tags can be updated.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateReportRequest
@@ -33246,6 +37115,164 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   }
 
   /**
+   * Updates one or more attributes of the specified subsetting policy.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateSubsettingPolicyRequest
+   * @return UpdateSubsettingPolicyResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateSubsettingPolicy.ts.html |here} to see how to use UpdateSubsettingPolicy API.
+   */
+  public async updateSubsettingPolicy(
+    updateSubsettingPolicyRequest: requests.UpdateSubsettingPolicyRequest
+  ): Promise<responses.UpdateSubsettingPolicyResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#updateSubsettingPolicy.");
+    const operationName = "updateSubsettingPolicy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SubsettingPolicy/UpdateSubsettingPolicy";
+    const pathParams = {
+      "{subsettingPolicyId}": updateSubsettingPolicyRequest.subsettingPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateSubsettingPolicyRequest.ifMatch,
+      "opc-request-id": updateSubsettingPolicyRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateSubsettingPolicyRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/subsettingPolicies/{subsettingPolicyId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateSubsettingPolicyRequest.updateSubsettingPolicyDetails,
+        "UpdateSubsettingPolicyDetails",
+        model.UpdateSubsettingPolicyDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateSubsettingPolicyResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates one or more attributes of the specified subsetting rule. Note that updating the subsettingRuleEntry attribute replaces the currently assigned subsettingRuleEntry
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateSubsettingRuleRequest
+   * @return UpdateSubsettingRuleResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateSubsettingRule.ts.html |here} to see how to use UpdateSubsettingRule API.
+   */
+  public async updateSubsettingRule(
+    updateSubsettingRuleRequest: requests.UpdateSubsettingRuleRequest
+  ): Promise<responses.UpdateSubsettingRuleResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#updateSubsettingRule.");
+    const operationName = "updateSubsettingRule";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SubsettingRule/UpdateSubsettingRule";
+    const pathParams = {
+      "{subsettingRuleKey}": updateSubsettingRuleRequest.subsettingRuleKey,
+      "{subsettingPolicyId}": updateSubsettingRuleRequest.subsettingPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateSubsettingRuleRequest.ifMatch,
+      "opc-request-id": updateSubsettingRuleRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateSubsettingRuleRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/subsettingPolicies/{subsettingPolicyId}/subsettingRules/{subsettingRuleKey}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateSubsettingRuleRequest.updateSubsettingRuleDetails,
+        "UpdateSubsettingRuleDetails",
+        model.UpdateSubsettingRuleDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateSubsettingRuleResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Updates the specified target-alert policy association.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateTargetAlertPolicyAssociationRequest
@@ -33860,6 +37887,85 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.UploadSensitiveDataModelResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Uploads a subsetting policy file (also called template) to update the specified subsetting policy.
+   * To create a new subsetting policy using a file, first use the CreateSubsettingPolicy operation
+   * to create an empty subsetting policy and then use this operation to upload the subsetting policy file.
+   * Note that the upload operation replaces the content of the specified subsetting policy,
+   * including all the subsetting rules, with the content of the file.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UploadSubsettingPolicyRequest
+   * @return UploadSubsettingPolicyResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UploadSubsettingPolicy.ts.html |here} to see how to use UploadSubsettingPolicy API.
+   */
+  public async uploadSubsettingPolicy(
+    uploadSubsettingPolicyRequest: requests.UploadSubsettingPolicyRequest
+  ): Promise<responses.UploadSubsettingPolicyResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#uploadSubsettingPolicy.");
+    const operationName = "uploadSubsettingPolicy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SubsettingPolicy/UploadSubsettingPolicy";
+    const pathParams = {
+      "{subsettingPolicyId}": uploadSubsettingPolicyRequest.subsettingPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "if-match": uploadSubsettingPolicyRequest.ifMatch,
+      "opc-request-id": uploadSubsettingPolicyRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      uploadSubsettingPolicyRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/subsettingPolicies/{subsettingPolicyId}/actions/upload",
+      method: "POST",
+      bodyContent: uploadSubsettingPolicyRequest.uploadSubsettingPolicyDetails,
+      pathParams: pathParams,
+      headerParams: headerParams,
+      backupBinaryBody: retrier.backUpBinaryBody,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UploadSubsettingPolicyResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),

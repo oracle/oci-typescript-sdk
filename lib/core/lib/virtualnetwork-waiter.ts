@@ -33,6 +33,29 @@ export class VirtualNetworkWaiter {
   ) {}
 
   /**
+   * Waits forAddDrgNatRules
+   *
+   * @param request the request to send
+   * @return response returns AddDrgNatRulesResponse, GetWorkRequestResponse tuple
+   */
+  public async forAddDrgNatRules(
+    request: serviceRequests.AddDrgNatRulesRequest
+  ): Promise<{
+    response: serviceResponses.AddDrgNatRulesResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const addDrgNatRulesResponse = await this.client.addDrgNatRules(request);
+    if (addDrgNatRulesResponse.opcWorkRequestId === undefined)
+      return { response: addDrgNatRulesResponse, workRequestResponse: undefined as any };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      addDrgNatRulesResponse.opcWorkRequestId
+    );
+    return { response: addDrgNatRulesResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
    * Waits forAddIpv4SubnetCidr
    *
    * @param request the request to send
@@ -481,6 +504,29 @@ export class VirtualNetworkWaiter {
   }
 
   /**
+   * Waits forDeleteDrgNatPolicy
+   *
+   * @param request the request to send
+   * @return response returns DeleteDrgNatPolicyResponse, GetWorkRequestResponse tuple
+   */
+  public async forDeleteDrgNatPolicy(
+    request: serviceRequests.DeleteDrgNatPolicyRequest
+  ): Promise<{
+    response: serviceResponses.DeleteDrgNatPolicyResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const deleteDrgNatPolicyResponse = await this.client.deleteDrgNatPolicy(request);
+    if (deleteDrgNatPolicyResponse.opcWorkRequestId === undefined)
+      return { response: deleteDrgNatPolicyResponse, workRequestResponse: undefined as any };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      deleteDrgNatPolicyResponse.opcWorkRequestId
+    );
+    return { response: deleteDrgNatPolicyResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
    * Waits forDeleteVtap
    *
    * @param request the request to send
@@ -651,6 +697,25 @@ export class VirtualNetworkWaiter {
       this.config,
       () => this.client.getDrgAttachment(request),
       response => targetStates.includes(response.drgAttachment.lifecycleState!)
+    );
+  }
+
+  /**
+   * Waits forDrgNatPolicy till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetDrgNatPolicyResponse | null (null in case of 404 response)
+   */
+  public async forDrgNatPolicy(
+    request: serviceRequests.GetDrgNatPolicyRequest,
+    ...targetStates: models.DrgNatPolicy.LifecycleState[]
+  ): Promise<serviceResponses.GetDrgNatPolicyResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getDrgNatPolicy(request),
+      response => targetStates.includes(response.drgNatPolicy.lifecycleState!),
+      targetStates.includes(models.DrgNatPolicy.LifecycleState.Deleted)
     );
   }
 
@@ -1249,6 +1314,29 @@ export class VirtualNetworkWaiter {
   }
 
   /**
+   * Waits forRemoveDrgNatRules
+   *
+   * @param request the request to send
+   * @return response returns RemoveDrgNatRulesResponse, GetWorkRequestResponse tuple
+   */
+  public async forRemoveDrgNatRules(
+    request: serviceRequests.RemoveDrgNatRulesRequest
+  ): Promise<{
+    response: serviceResponses.RemoveDrgNatRulesResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const removeDrgNatRulesResponse = await this.client.removeDrgNatRules(request);
+    if (removeDrgNatRulesResponse.opcWorkRequestId === undefined)
+      return { response: removeDrgNatRulesResponse, workRequestResponse: undefined as any };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      removeDrgNatRulesResponse.opcWorkRequestId
+    );
+    return { response: removeDrgNatRulesResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
    * Waits forRemoveIpv4SubnetCidr
    *
    * @param request the request to send
@@ -1361,6 +1449,29 @@ export class VirtualNetworkWaiter {
       setOriginAsnResponse.opcWorkRequestId
     );
     return { response: setOriginAsnResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forUpdateDrgNatRules
+   *
+   * @param request the request to send
+   * @return response returns UpdateDrgNatRulesResponse, GetWorkRequestResponse tuple
+   */
+  public async forUpdateDrgNatRules(
+    request: serviceRequests.UpdateDrgNatRulesRequest
+  ): Promise<{
+    response: serviceResponses.UpdateDrgNatRulesResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const updateDrgNatRulesResponse = await this.client.updateDrgNatRules(request);
+    if (updateDrgNatRulesResponse.opcWorkRequestId === undefined)
+      return { response: updateDrgNatRulesResponse, workRequestResponse: undefined as any };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      updateDrgNatRulesResponse.opcWorkRequestId
+    );
+    return { response: updateDrgNatRulesResponse, workRequestResponse: getWorkRequestResponse };
   }
 
   /**

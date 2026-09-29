@@ -29,6 +29,18 @@ export interface UpdateDrgAttachmentDetails {
    */
   "displayName"?: string;
   /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the DRG attachment's DRG NAT policy.
+   *
+   */
+  "drgNatPolicyId"?: string;
+  /**
+   * By default, only translated DrgNatRule CIDRs are imported into the DrgRouteTable to prevent
+   * routing complications. Enable this option to also preserve original CIDRs. The original source CIDRs is not advertised if this value is set to false, else it is advertised.
+   * default: {@code false}
+   *
+   */
+  "doesPreserveOriginalRoutesWithNat"?: boolean;
+  /**
     * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the DRG route table that is assigned to this attachment.
 * <p>
 The DRG route table manages traffic inside the DRG.

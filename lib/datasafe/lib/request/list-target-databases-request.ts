@@ -27,6 +27,10 @@ export interface ListTargetDatabasesRequest extends common.BaseRequest {
    */
   "associatedResourceId"?: string;
   /**
+   * A filter to return target databases filtered by the enablementResourceOcid column (always a DbaasDatabase OCID).
+   */
+  "enablementResourceOcid"?: string;
+  /**
    * A filter to return the target database that matches the specified OCID.
    */
   "targetDatabaseId"?: string;

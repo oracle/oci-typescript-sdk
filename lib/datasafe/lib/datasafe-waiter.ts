@@ -416,6 +416,24 @@ export class DataSafeWaiter {
   }
 
   /**
+   * Waits forRegistrationPolicy till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetRegistrationPolicyResponse
+   */
+  public async forRegistrationPolicy(
+    request: serviceRequests.GetRegistrationPolicyRequest,
+    ...targetStates: models.RegistrationPolicy.LifecycleState[]
+  ): Promise<serviceResponses.GetRegistrationPolicyResponse> {
+    return genericWaiter(
+      this.config,
+      () => this.client.getRegistrationPolicy(request),
+      response => targetStates.includes(response.registrationPolicy.lifecycleState!)
+    );
+  }
+
+  /**
    * Waits forReport till it reaches any of the provided states
    *
    * @param request the request to send
@@ -733,6 +751,62 @@ export class DataSafeWaiter {
       () => this.client.getSqlFirewallPolicy(request),
       response => targetStates.includes(response.sqlFirewallPolicy.lifecycleState!),
       targetStates.includes(models.SqlFirewallPolicyLifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forSubsettingPolicy till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetSubsettingPolicyResponse | null (null in case of 404 response)
+   */
+  public async forSubsettingPolicy(
+    request: serviceRequests.GetSubsettingPolicyRequest,
+    ...targetStates: models.SubsettingPolicy.LifecycleState[]
+  ): Promise<serviceResponses.GetSubsettingPolicyResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getSubsettingPolicy(request),
+      response => targetStates.includes(response.subsettingPolicy.lifecycleState!),
+      targetStates.includes(models.SubsettingPolicy.LifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forSubsettingPolicyHealthReport till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetSubsettingPolicyHealthReportResponse
+   */
+  public async forSubsettingPolicyHealthReport(
+    request: serviceRequests.GetSubsettingPolicyHealthReportRequest,
+    ...targetStates: models.SubsettingPolicyHealthReport.LifecycleState[]
+  ): Promise<serviceResponses.GetSubsettingPolicyHealthReportResponse> {
+    return genericWaiter(
+      this.config,
+      () => this.client.getSubsettingPolicyHealthReport(request),
+      response => targetStates.includes(response.subsettingPolicyHealthReport.lifecycleState!)
+    );
+  }
+
+  /**
+   * Waits forSubsettingReport till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetSubsettingReportResponse | null (null in case of 404 response)
+   */
+  public async forSubsettingReport(
+    request: serviceRequests.GetSubsettingReportRequest,
+    ...targetStates: models.SubsettingReport.LifecycleState[]
+  ): Promise<serviceResponses.GetSubsettingReportResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getSubsettingReport(request),
+      response => targetStates.includes(response.subsettingReport.lifecycleState!),
+      targetStates.includes(models.SubsettingReport.LifecycleState.Deleted)
     );
   }
 
