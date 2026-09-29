@@ -47,6 +47,10 @@ Example: {@code 50}
    */
   "page"?: string;
   /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the DrgNatPolicy.
+   */
+  "drgNatPolicyId"?: string;
+  /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the resource (virtual circuit, VCN, IPSec tunnel, or remote peering connection) attached to the DRG.
    */
   "networkId"?: string;

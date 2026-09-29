@@ -42,6 +42,15 @@ export interface UpdateCloudAutonomousVmClusterDetails {
    */
   "totalContainerDatabases"?: number;
   /**
+   * The amount of memory (in GBs) to be enabled per OCPU or ECPU.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "memoryPerOracleComputeUnitInGBs"?: number;
+  /**
+   * The new value of percentage of ECPU memory allocated for SGA(System Global Area). Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "sgaPercentage"?: number;
+  /**
     * The Oracle license model that applies to the Oracle Autonomous AI Database. Bring your own license (BYOL) allows you to apply your current on-premises Oracle software licenses to equivalent, highly automated Oracle services in the cloud.
 * License Included allows you to subscribe to new Oracle AI Database software licenses and the Oracle AI Database service.
 * Note that when provisioning an [Autonomous AI Database on dedicated Exadata infrastructure](https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html), this attribute must be null. It is already set at the

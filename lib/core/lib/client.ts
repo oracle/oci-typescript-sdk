@@ -24071,6 +24071,99 @@ export class VirtualNetworkClient {
   }
 
   /**
+   * Adds DRG NAT rules to the specified DRG NAT policy.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param AddDrgNatRulesRequest
+   * @return AddDrgNatRulesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/AddDrgNatRules.ts.html |here} to see how to use AddDrgNatRules API.
+   */
+  public async addDrgNatRules(
+    addDrgNatRulesRequest: requests.AddDrgNatRulesRequest
+  ): Promise<responses.AddDrgNatRulesResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#addDrgNatRules.");
+    const operationName = "addDrgNatRules";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DrgNatRule/AddDrgNatRules";
+    const pathParams = {
+      "{drgNatPolicyId}": addDrgNatRulesRequest.drgNatPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": addDrgNatRulesRequest.opcRetryToken,
+      "opc-request-id": addDrgNatRulesRequest.opcRequestId,
+      "if-match": addDrgNatRulesRequest.ifMatch
+    };
+
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["drgNatPolicyId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      addDrgNatRulesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/drgNatPolicies/{drgNatPolicyId}/actions/addDrgNatRules",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        addDrgNatRulesRequest.addDrgNatRulesDetails,
+        "AddDrgNatRulesDetails",
+        model.AddDrgNatRulesDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AddDrgNatRulesResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Adds one or more route distribution statements to the specified route distribution.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -26655,6 +26748,97 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
           {
             value: response.headers.get("opc-work-request-id"),
             key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Moves a DrgNatPolicy into a different compartment within the same tenancy. For information
+   * about moving resources between compartments, see
+   * [Moving Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ChangeDrgNatPolicyCompartmentRequest
+   * @return ChangeDrgNatPolicyCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeDrgNatPolicyCompartment.ts.html |here} to see how to use ChangeDrgNatPolicyCompartment API.
+   */
+  public async changeDrgNatPolicyCompartment(
+    changeDrgNatPolicyCompartmentRequest: requests.ChangeDrgNatPolicyCompartmentRequest
+  ): Promise<responses.ChangeDrgNatPolicyCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#changeDrgNatPolicyCompartment.");
+    const operationName = "changeDrgNatPolicyCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DrgNatPolicy/ChangeDrgNatPolicyCompartment";
+    const pathParams = {
+      "{drgNatPolicyId}": changeDrgNatPolicyCompartmentRequest.drgNatPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeDrgNatPolicyCompartmentRequest.ifMatch,
+      "opc-request-id": changeDrgNatPolicyCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeDrgNatPolicyCompartmentRequest.opcRetryToken
+    };
+
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["drgNatPolicyId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeDrgNatPolicyCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/drgNatPolicies/{drgNatPolicyId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeDrgNatPolicyCompartmentRequest.changeDrgNatPolicyCompartmentDetails,
+        "ChangeDrgNatPolicyCompartmentDetails",
+        model.ChangeDrgNatPolicyCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeDrgNatPolicyCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           }
         ]
@@ -29312,6 +29496,112 @@ For the purposes of access control, the DRG attachment is automatically placed i
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new DRG NAT policy. Assign the DRG NAT policy to a DRG attachment
+   * using the `UpdateDrgAttachment` or `CreateDrgAttachment` operations.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateDrgNatPolicyRequest
+   * @return CreateDrgNatPolicyResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateDrgNatPolicy.ts.html |here} to see how to use CreateDrgNatPolicy API.
+   */
+  public async createDrgNatPolicy(
+    createDrgNatPolicyRequest: requests.CreateDrgNatPolicyRequest
+  ): Promise<responses.CreateDrgNatPolicyResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#createDrgNatPolicy.");
+    const operationName = "createDrgNatPolicy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DrgNatPolicy/CreateDrgNatPolicy";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createDrgNatPolicyRequest.opcRetryToken,
+      "opc-request-id": createDrgNatPolicyRequest.opcRequestId
+    };
+
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>([]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createDrgNatPolicyRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/drgNatPolicies",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createDrgNatPolicyRequest.createDrgNatPolicyDetails,
+        "CreateDrgNatPolicyDetails",
+        model.CreateDrgNatPolicyDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateDrgNatPolicyResponse>{},
+        body: await response.json(),
+        bodyKey: "drgNatPolicy",
+        bodyModel: model.DrgNatPolicy,
+        type: "model.DrgNatPolicy",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-location"),
+            key: "contentLocation",
             dataType: "string"
           }
         ]
@@ -32133,6 +32423,94 @@ This is an asynchronous operation. The state of the set of options will switch t
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteDrgAttachmentResponse>{},
         responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the specified DRG NAT policy.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteDrgNatPolicyRequest
+   * @return DeleteDrgNatPolicyResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteDrgNatPolicy.ts.html |here} to see how to use DeleteDrgNatPolicy API.
+   */
+  public async deleteDrgNatPolicy(
+    deleteDrgNatPolicyRequest: requests.DeleteDrgNatPolicyRequest
+  ): Promise<responses.DeleteDrgNatPolicyResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#deleteDrgNatPolicy.");
+    const operationName = "deleteDrgNatPolicy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DrgNatPolicy/DeleteDrgNatPolicy";
+    const pathParams = {
+      "{drgNatPolicyId}": deleteDrgNatPolicyRequest.drgNatPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteDrgNatPolicyRequest.ifMatch,
+      "opc-request-id": deleteDrgNatPolicyRequest.opcRequestId
+    };
+
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["drgNatPolicyId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteDrgNatPolicyRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/drgNatPolicies/{drgNatPolicyId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteDrgNatPolicyResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -35323,6 +35701,95 @@ The operation returns configuration information for *all* of the
         bodyKey: "drgAttachment",
         bodyModel: model.DrgAttachment,
         type: "model.DrgAttachment",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the specified DRG NAT policy's information.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetDrgNatPolicyRequest
+   * @return GetDrgNatPolicyResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetDrgNatPolicy.ts.html |here} to see how to use GetDrgNatPolicy API.
+   */
+  public async getDrgNatPolicy(
+    getDrgNatPolicyRequest: requests.GetDrgNatPolicyRequest
+  ): Promise<responses.GetDrgNatPolicyResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getDrgNatPolicy.");
+    const operationName = "getDrgNatPolicy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DrgNatPolicy/GetDrgNatPolicy";
+    const pathParams = {
+      "{drgNatPolicyId}": getDrgNatPolicyRequest.drgNatPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getDrgNatPolicyRequest.opcRequestId
+    };
+
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["drgNatPolicyId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDrgNatPolicyRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/drgNatPolicies/{drgNatPolicyId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetDrgNatPolicyResponse>{},
+        body: await response.json(),
+        bodyKey: "drgNatPolicy",
+        bodyModel: model.DrgNatPolicy,
+        type: "model.DrgNatPolicy",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -41169,6 +41636,7 @@ The LIST API lists DRG attachments by attachment type. It will default to list V
       "drgId": listDrgAttachmentsRequest.drgId,
       "limit": listDrgAttachmentsRequest.limit,
       "page": listDrgAttachmentsRequest.page,
+      "drgNatPolicyId": listDrgAttachmentsRequest.drgNatPolicyId,
       "networkId": listDrgAttachmentsRequest.networkId,
       "attachmentType": listDrgAttachmentsRequest.attachmentType,
       "drgRouteTableId": listDrgAttachmentsRequest.drgRouteTableId,
@@ -41295,6 +41763,299 @@ The LIST API lists DRG attachments by attachment type. It will default to list V
     request: requests.ListDrgAttachmentsRequest
   ): AsyncIterableIterator<responses.ListDrgAttachmentsResponse> {
     return paginateResponses(request, req => this.listDrgAttachments(req));
+  }
+
+  /**
+   * The list of DRG NAT policies in the compartment.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListDrgNatPoliciesRequest
+   * @return ListDrgNatPoliciesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListDrgNatPolicies.ts.html |here} to see how to use ListDrgNatPolicies API.
+   */
+  public async listDrgNatPolicies(
+    listDrgNatPoliciesRequest: requests.ListDrgNatPoliciesRequest
+  ): Promise<responses.ListDrgNatPoliciesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#listDrgNatPolicies.");
+    const operationName = "listDrgNatPolicies";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DrgNatPolicy/ListDrgNatPolicies";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listDrgNatPoliciesRequest.compartmentId,
+      "limit": listDrgNatPoliciesRequest.limit,
+      "page": listDrgNatPoliciesRequest.page,
+      "sortBy": listDrgNatPoliciesRequest.sortBy,
+      "sortOrder": listDrgNatPoliciesRequest.sortOrder,
+      "displayName": listDrgNatPoliciesRequest.displayName
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listDrgNatPoliciesRequest.opcRequestId
+    };
+
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["compartmentId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDrgNatPoliciesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/drgNatPolicies",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListDrgNatPoliciesResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.DrgNatPolicy,
+        type: "Array<model.DrgNatPolicy>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listDrgNatPoliciesRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.DrgNatPolicy objects
+   * contained in responses from the listDrgNatPolicies operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllDrgNatPolicies(
+    request: requests.ListDrgNatPoliciesRequest
+  ): AsyncIterableIterator<model.DrgNatPolicy> {
+    return paginateRecords(request, req => this.listDrgNatPolicies(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listDrgNatPoliciesResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listDrgNatPolicies operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllDrgNatPoliciesResponses(
+    request: requests.ListDrgNatPoliciesRequest
+  ): AsyncIterableIterator<responses.ListDrgNatPoliciesResponse> {
+    return paginateResponses(request, req => this.listDrgNatPolicies(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.DrgNatPolicy objects
+   * contained in responses from the listDrgNatPolicies operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listDrgNatPoliciesRecordIterator(
+    request: requests.ListDrgNatPoliciesRequest
+  ): AsyncIterableIterator<model.DrgNatPolicy> {
+    return paginateRecords(request, req => this.listDrgNatPolicies(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listDrgNatPolicies operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listDrgNatPoliciesResponseIterator(
+    request: requests.ListDrgNatPoliciesRequest
+  ): AsyncIterableIterator<responses.ListDrgNatPoliciesResponse> {
+    return paginateResponses(request, req => this.listDrgNatPolicies(req));
+  }
+
+  /**
+   * Lists the rules for the specified DRG NAT policy.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListDrgNatRulesRequest
+   * @return ListDrgNatRulesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListDrgNatRules.ts.html |here} to see how to use ListDrgNatRules API.
+   */
+  public async listDrgNatRules(
+    listDrgNatRulesRequest: requests.ListDrgNatRulesRequest
+  ): Promise<responses.ListDrgNatRulesResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#listDrgNatRules.");
+    const operationName = "listDrgNatRules";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DrgNatRule/ListDrgNatRules";
+    const pathParams = {
+      "{drgNatPolicyId}": listDrgNatRulesRequest.drgNatPolicyId
+    };
+
+    const queryParams = {
+      "limit": listDrgNatRulesRequest.limit,
+      "page": listDrgNatRulesRequest.page,
+      "sortBy": listDrgNatRulesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listDrgNatRulesRequest.opcRequestId
+    };
+
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["drgNatPolicyId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDrgNatRulesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/drgNatPolicies/{drgNatPolicyId}/drgNatRules",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListDrgNatRulesResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.DrgNatRule,
+        type: "Array<model.DrgNatRule>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listDrgNatRulesRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.DrgNatRule objects
+   * contained in responses from the listDrgNatRules operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllDrgNatRules(
+    request: requests.ListDrgNatRulesRequest
+  ): AsyncIterableIterator<model.DrgNatRule> {
+    return paginateRecords(request, req => this.listDrgNatRules(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listDrgNatRulesResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listDrgNatRules operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllDrgNatRulesResponses(
+    request: requests.ListDrgNatRulesRequest
+  ): AsyncIterableIterator<responses.ListDrgNatRulesResponse> {
+    return paginateResponses(request, req => this.listDrgNatRules(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.DrgNatRule objects
+   * contained in responses from the listDrgNatRules operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listDrgNatRulesRecordIterator(
+    request: requests.ListDrgNatRulesRequest
+  ): AsyncIterableIterator<model.DrgNatRule> {
+    return paginateRecords(request, req => this.listDrgNatRules(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listDrgNatRules operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listDrgNatRulesResponseIterator(
+    request: requests.ListDrgNatRulesRequest
+  ): AsyncIterableIterator<responses.ListDrgNatRulesResponse> {
+    return paginateResponses(request, req => this.listDrgNatRules(req));
   }
 
   /**
@@ -47038,6 +47799,190 @@ To list the ephemeral public IPs assigned to private IPs:
   }
 
   /**
+   * Dissociates the DRG NAT policy from the DRG attachment so no DRG NAT rules are advertised to it.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param RemoveDrgNatPolicyRequest
+   * @return RemoveDrgNatPolicyResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/RemoveDrgNatPolicy.ts.html |here} to see how to use RemoveDrgNatPolicy API.
+   */
+  public async removeDrgNatPolicy(
+    removeDrgNatPolicyRequest: requests.RemoveDrgNatPolicyRequest
+  ): Promise<responses.RemoveDrgNatPolicyResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#removeDrgNatPolicy.");
+    const operationName = "removeDrgNatPolicy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DrgAttachment/RemoveDrgNatPolicy";
+    const pathParams = {
+      "{drgAttachmentId}": removeDrgNatPolicyRequest.drgAttachmentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": removeDrgNatPolicyRequest.ifMatch
+    };
+
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["drgAttachmentId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removeDrgNatPolicyRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/drgAttachments/{drgAttachmentId}/actions/removeDrgNatPolicy",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RemoveDrgNatPolicyResponse>{},
+        body: await response.json(),
+        bodyKey: "drgAttachment",
+        bodyModel: model.DrgAttachment,
+        type: "model.DrgAttachment",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Request with DRG NAT rules to remove from the DRG NAT policy.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param RemoveDrgNatRulesRequest
+   * @return RemoveDrgNatRulesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/RemoveDrgNatRules.ts.html |here} to see how to use RemoveDrgNatRules API.
+   */
+  public async removeDrgNatRules(
+    removeDrgNatRulesRequest: requests.RemoveDrgNatRulesRequest
+  ): Promise<responses.RemoveDrgNatRulesResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#removeDrgNatRules.");
+    const operationName = "removeDrgNatRules";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DrgNatRule/RemoveDrgNatRules";
+    const pathParams = {
+      "{drgNatPolicyId}": removeDrgNatRulesRequest.drgNatPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": removeDrgNatRulesRequest.ifMatch,
+      "opc-request-id": removeDrgNatRulesRequest.opcRequestId,
+      "opc-retry-token": removeDrgNatRulesRequest.opcRetryToken
+    };
+
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["drgNatPolicyId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removeDrgNatRulesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/drgNatPolicies/{drgNatPolicyId}/actions/removeDrgNatRules",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        removeDrgNatRulesRequest.removeDrgNatRulesDetails,
+        "RemoveDrgNatRulesDetails",
+        model.RemoveDrgNatRulesDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RemoveDrgNatRulesResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Removes one or more route distribution statements from the specified route distribution's map.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -49094,6 +50039,196 @@ Note that the `options` object you provide replaces the entire existing set of o
           {
             value: response.headers.get("etag"),
             key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the specified DRG NAT policy
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateDrgNatPolicyRequest
+   * @return UpdateDrgNatPolicyResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateDrgNatPolicy.ts.html |here} to see how to use UpdateDrgNatPolicy API.
+   */
+  public async updateDrgNatPolicy(
+    updateDrgNatPolicyRequest: requests.UpdateDrgNatPolicyRequest
+  ): Promise<responses.UpdateDrgNatPolicyResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation VirtualNetworkClient#updateDrgNatPolicy.");
+    const operationName = "updateDrgNatPolicy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DrgNatPolicy/UpdateDrgNatPolicy";
+    const pathParams = {
+      "{drgNatPolicyId}": updateDrgNatPolicyRequest.drgNatPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateDrgNatPolicyRequest.ifMatch,
+      "opc-request-id": updateDrgNatPolicyRequest.opcRequestId
+    };
+
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["drgNatPolicyId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateDrgNatPolicyRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/drgNatPolicies/{drgNatPolicyId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateDrgNatPolicyRequest.updateDrgNatPolicyDetails,
+        "UpdateDrgNatPolicyDetails",
+        model.UpdateDrgNatPolicyDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateDrgNatPolicyResponse>{},
+        body: await response.json(),
+        bodyKey: "drgNatPolicy",
+        bodyModel: model.DrgNatPolicy,
+        type: "model.DrgNatPolicy",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates DRG NAT rules in the specified DRG NAT policy.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateDrgNatRulesRequest
+   * @return UpdateDrgNatRulesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateDrgNatRules.ts.html |here} to see how to use UpdateDrgNatRules API.
+   */
+  public async updateDrgNatRules(
+    updateDrgNatRulesRequest: requests.UpdateDrgNatRulesRequest
+  ): Promise<responses.UpdateDrgNatRulesResponse> {
+    if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#updateDrgNatRules.");
+    const operationName = "updateDrgNatRules";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DrgNatRule/UpdateDrgNatRules";
+    const pathParams = {
+      "{drgNatPolicyId}": updateDrgNatRulesRequest.drgNatPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateDrgNatRulesRequest.ifMatch,
+      "opc-request-id": updateDrgNatRulesRequest.opcRequestId,
+      "opc-retry-token": updateDrgNatRulesRequest.opcRetryToken
+    };
+
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["drgNatPolicyId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateDrgNatRulesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/drgNatPolicies/{drgNatPolicyId}/actions/updateDrgNatRules",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateDrgNatRulesRequest.updateDrgNatRulesDetails,
+        "UpdateDrgNatRulesDetails",
+        model.UpdateDrgNatRulesDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateDrgNatRulesResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           },
           {
