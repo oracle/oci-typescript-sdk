@@ -35,6 +35,10 @@ export interface MaskingReportSummary {
    */
   "maskingPolicyId": string;
   /**
+   * The OCID of the subsetting report associated with this masking report
+   */
+  "subsettingReportId"?: string;
+  /**
    * The OCID of the target database masked.
    */
   "targetId": string;

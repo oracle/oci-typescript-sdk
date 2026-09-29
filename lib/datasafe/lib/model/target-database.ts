@@ -62,6 +62,10 @@ export interface TargetDatabase {
    */
   "timeUpdated"?: Date;
   /**
+   * List of enabled features based on granted ORA_DSCS_* roles in target database
+   */
+  "features"?: Array<string>;
+  /**
    * The OCIDs of associated resources like database, Data Safe private endpoint, etc.
    */
   "peerTargetDatabases"?: Array<model.PeerTargetDatabase>;

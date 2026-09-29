@@ -52,6 +52,15 @@ Example: {@code {\"Department\": \"Finance\"}}
    */
   "totalContainerDatabases"?: number;
   /**
+   * The amount of memory (in GBs) to be enabled per OCPU or ECPU.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "memoryPerOracleComputeUnitInGBs"?: number;
+  /**
+   * The new value of percentage of ECPU memory allocated for SGA(System Global Area). Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "sgaPercentage"?: number;
+  /**
    * The time zone to use for the Autonomous VM cluster. For details, see [DB System Time Zones](https://docs.oracle.com/iaas/Content/Database/References/timezones.htm).
    */
   "timeZone"?: string;

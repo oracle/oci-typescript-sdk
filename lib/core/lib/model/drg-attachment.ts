@@ -106,6 +106,18 @@ This field is deprecated. Instead, use the {@code networkDetails} field to view 
    */
   "vcnId"?: string;
   /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the DRG attachment's DRG NAT policy.
+   *
+   */
+  "drgNatPolicyId"?: string;
+  /**
+   * By default, only translated DrgNatRule CIDRs are imported into the DrgRouteTable to prevent
+   * routing complications. Enable this option to also preserve original CIDRs. The original source CIDRs is not advertised if this value is set to false, else it is advertised.
+   * default: {@code false}
+   *
+   */
+  "doesPreserveOriginalRoutesWithNat"?: boolean;
+  /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the export route distribution used to specify how routes in the assigned DRG route table
    * are advertised to the attachment.
    * If this value is null, no routes are advertised through this attachment.

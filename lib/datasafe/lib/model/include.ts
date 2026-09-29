@@ -16,7 +16,7 @@ import common = require("oci-common");
 
 /**
  * Criteria to determine whether a target database should be included in the target database group.
- * If the database satisfies any of compartments, targetDatabaseIds, freeformTags, definedTags or systemTags criteria then it qualifies for inclusion in the target database group.
+ * If the database satisfies any of compartments, targetDatabaseIds, freeformTags, definedTags, freeformTagsIn or systemTags criteria then it qualifies for inclusion in the target database group.
  *
  */
 export interface Include {
@@ -41,6 +41,14 @@ Example: {@code {\"Department\": \"Finance\"}}
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * Map of freeform tag filters. Each key maps to an array of strings. Target database matches the key if it's tag value equals any of the values in the array.
+   */
+  "freeformTagsIn"?: { [key: string]: any };
+  /**
+   * Map of system tag filters. Target database matches when for each specified namespace.key and the tag value equals any of the values in the array.
+   */
+  "systemTags"?: { [key: string]: { [key: string]: any } };
 }
 
 export namespace Include {
