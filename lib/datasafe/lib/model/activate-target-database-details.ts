@@ -22,6 +22,20 @@ export interface ActivateTargetDatabaseDetails {
 }
 
 export namespace ActivateTargetDatabaseDetails {
+  export function redactForLog(obj: ActivateTargetDatabaseDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "credentials")) {
+      const value = obj.credentials;
+      redactedObj["credentials"] = value == null ? value : model.Credentials.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: ActivateTargetDatabaseDetails): object {
     const jsonObj = {
       ...obj,

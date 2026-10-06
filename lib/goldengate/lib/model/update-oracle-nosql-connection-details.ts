@@ -85,6 +85,27 @@ export interface UpdateOracleNosqlConnectionDetails extends model.UpdateConnecti
 }
 
 export namespace UpdateOracleNosqlConnectionDetails {
+  export function redactForLog(obj: UpdateOracleNosqlConnectionDetails): object {
+    if (!obj || obj.connectionType !== "ORACLE_NOSQL") {
+      return model.UpdateConnectionDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "privateKeyFile")) {
+      redactedObj["privateKeyFile"] = "<redacted>";
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "privateKeyPassphrase")) {
+      redactedObj["privateKeyPassphrase"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: UpdateOracleNosqlConnectionDetails,
     isParentJsonObj?: boolean

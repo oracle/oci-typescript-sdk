@@ -88,6 +88,24 @@ export namespace ExternalDbSystemConnector {
     UnknownValue = "UNKNOWN_VALUE"
   }
 
+  export function redactForLog(obj: ExternalDbSystemConnector): object {
+    if (obj && Object.prototype.hasOwnProperty.call(obj, "connectorType")) {
+      switch (obj.connectorType) {
+        case "MACS":
+          return model.ExternalDbSystemMacsConnector.redactForLog(
+            obj as model.ExternalDbSystemMacsConnector
+          );
+      }
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: ExternalDbSystemConnector): object {
     const jsonObj = { ...obj, ...{} };
 

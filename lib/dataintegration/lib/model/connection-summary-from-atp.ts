@@ -40,6 +40,23 @@ export interface ConnectionSummaryFromAtp extends model.ConnectionSummary {
 }
 
 export namespace ConnectionSummaryFromAtp {
+  export function redactForLog(obj: ConnectionSummaryFromAtp): object {
+    if (!obj || obj.modelType !== "ORACLE_ATP_CONNECTION") {
+      return model.ConnectionSummary.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "password")) {
+      redactedObj["password"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: ConnectionSummaryFromAtp, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj

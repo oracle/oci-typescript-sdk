@@ -56,6 +56,23 @@ export interface UpdateAmazonRedshiftConnectionDetails extends model.UpdateConne
 }
 
 export namespace UpdateAmazonRedshiftConnectionDetails {
+  export function redactForLog(obj: UpdateAmazonRedshiftConnectionDetails): object {
+    if (!obj || obj.connectionType !== "AMAZON_REDSHIFT") {
+      return model.UpdateConnectionDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "password")) {
+      redactedObj["password"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: UpdateAmazonRedshiftConnectionDetails,
     isParentJsonObj?: boolean

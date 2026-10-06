@@ -25,6 +25,21 @@ export interface DataFlowSummaryCollection {
 }
 
 export namespace DataFlowSummaryCollection {
+  export function redactForLog(obj: DataFlowSummaryCollection): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "items")) {
+      const value = obj.items;
+      redactedObj["items"] =
+        value == null ? value : value.map(item => model.DataFlowSummary.redactForLog(item));
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: DataFlowSummaryCollection): object {
     const jsonObj = {
       ...obj,

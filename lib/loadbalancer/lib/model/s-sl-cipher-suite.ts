@@ -262,28 +262,6 @@ Oracle created the following predefined cipher suites that you can specify when 
 */
 export interface SSLCipherSuite {
   /**
-    * A friendly name for the SSL cipher suite. It must be unique and it cannot be changed.
-* <p>
-**Note:** The name of your user-defined cipher suite must not be the same as any of Oracle's predefined or
-*           reserved SSL cipher suite names:
-* <p>
-* oci-default-ssl-cipher-suite-v1
-* * oci-modern-ssl-cipher-suite-v1
-* * oci-compatible-ssl-cipher-suite-v1
-* * oci-wider-compatible-ssl-cipher-suite-v1
-* * oci-customized-ssl-cipher-suite
-* * oci-default-http2-ssl-cipher-suite-v1
-* * oci-default-http2-tls-13-ssl-cipher-suite-v1
-* * oci-default-http2-tls-12-13-ssl-cipher-suite-v1
-* * oci-tls-13-recommended-ssl-cipher-suite-v1
-* * oci-tls-12-13-wider-ssl-cipher-suite-v1
-* * oci-tls-11-12-13-wider-ssl-cipher-suite-v1
-* <p>
-example: {@code example_cipher_suite}
-* 
-    */
-  "name": string;
-  /**
     * A list of SSL ciphers the load balancer must support for HTTPS or SSL connections.
 * <p>
 The following ciphers are valid values for this property:
@@ -401,6 +379,28 @@ example: {@code [\"ECDHE-RSA-AES256-GCM-SHA384\",\"ECDHE-ECDSA-AES256-GCM-SHA384
 * 
     */
   "ciphers": Array<string>;
+  /**
+    * A friendly name for the SSL cipher suite. It must be unique and it cannot be changed.
+* <p>
+**Note:** The name of your user-defined cipher suite must not be the same as any of Oracle's predefined or
+*           reserved SSL cipher suite names:
+* <p>
+* oci-default-ssl-cipher-suite-v1
+* * oci-modern-ssl-cipher-suite-v1
+* * oci-compatible-ssl-cipher-suite-v1
+* * oci-wider-compatible-ssl-cipher-suite-v1
+* * oci-customized-ssl-cipher-suite
+* * oci-default-http2-ssl-cipher-suite-v1
+* * oci-default-http2-tls-13-ssl-cipher-suite-v1
+* * oci-default-http2-tls-12-13-ssl-cipher-suite-v1
+* * oci-tls-13-recommended-ssl-cipher-suite-v1
+* * oci-tls-12-13-wider-ssl-cipher-suite-v1
+* * oci-tls-11-12-13-wider-ssl-cipher-suite-v1
+* <p>
+example: {@code example_cipher_suite}
+*
+    */
+  "name": string;
 }
 
 export namespace SSLCipherSuite {

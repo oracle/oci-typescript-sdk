@@ -131,6 +131,39 @@ export interface CreateRedisConnectionDetails extends model.CreateConnectionDeta
 }
 
 export namespace CreateRedisConnectionDetails {
+  export function redactForLog(obj: CreateRedisConnectionDetails): object {
+    if (!obj || obj.connectionType !== "REDIS") {
+      return model.CreateConnectionDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "password")) {
+      redactedObj["password"] = "<redacted>";
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "trustStore")) {
+      redactedObj["trustStore"] = "<redacted>";
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "trustStorePassword")) {
+      redactedObj["trustStorePassword"] = "<redacted>";
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "keyStore")) {
+      redactedObj["keyStore"] = "<redacted>";
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "keyStorePassword")) {
+      redactedObj["keyStorePassword"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreateRedisConnectionDetails, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj

@@ -24,6 +24,24 @@ export interface UpdateTaskFromPipelineTask extends model.UpdateTaskDetails {
 }
 
 export namespace UpdateTaskFromPipelineTask {
+  export function redactForLog(obj: UpdateTaskFromPipelineTask): object {
+    if (!obj || obj.modelType !== "PIPELINE_TASK") {
+      return model.UpdateTaskDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "pipeline")) {
+      const value = obj.pipeline;
+      redactedObj["pipeline"] = value == null ? value : model.Pipeline.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: UpdateTaskFromPipelineTask, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj

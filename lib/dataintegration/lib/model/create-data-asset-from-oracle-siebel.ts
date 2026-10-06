@@ -46,6 +46,25 @@ export interface CreateDataAssetFromOracleSiebel extends model.CreateDataAssetDe
 }
 
 export namespace CreateDataAssetFromOracleSiebel {
+  export function redactForLog(obj: CreateDataAssetFromOracleSiebel): object {
+    if (!obj || obj.modelType !== "ORACLE_SIEBEL_DATA_ASSET") {
+      return model.CreateDataAssetDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "defaultConnection")) {
+      const value = obj.defaultConnection;
+      redactedObj["defaultConnection"] =
+        value == null ? value : model.CreateConnectionFromOracleSiebel.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: CreateDataAssetFromOracleSiebel,
     isParentJsonObj?: boolean

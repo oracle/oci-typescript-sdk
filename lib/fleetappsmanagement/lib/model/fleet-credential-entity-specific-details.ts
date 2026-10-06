@@ -29,6 +29,25 @@ export interface FleetCredentialEntitySpecificDetails
 }
 
 export namespace FleetCredentialEntitySpecificDetails {
+  export function redactForLog(obj: FleetCredentialEntitySpecificDetails): object {
+    if (!obj || obj.credentialLevel !== "FLEET") {
+      return model.CredentialEntitySpecificDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "variables")) {
+      const value = obj.variables;
+      redactedObj["variables"] =
+        value == null ? value : value.map(item => model.Variable.redactForLog(item));
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: FleetCredentialEntitySpecificDetails,
     isParentJsonObj?: boolean

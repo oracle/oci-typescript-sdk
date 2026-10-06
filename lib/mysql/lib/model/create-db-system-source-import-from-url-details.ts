@@ -34,6 +34,22 @@ export interface CreateDbSystemSourceImportFromUrlDetails
 }
 
 export namespace CreateDbSystemSourceImportFromUrlDetails {
+  export function redactForLog(obj: CreateDbSystemSourceImportFromUrlDetails): object {
+    if (!obj || obj.sourceType !== "IMPORTURL") {
+      return model.CreateDbSystemSourceDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+    if (Object.prototype.hasOwnProperty.call(obj, "sourceUrl")) {
+      redactedObj["sourceUrl"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: CreateDbSystemSourceImportFromUrlDetails,
     isParentJsonObj?: boolean

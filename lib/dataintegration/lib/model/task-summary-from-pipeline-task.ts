@@ -24,6 +24,24 @@ export interface TaskSummaryFromPipelineTask extends model.TaskSummary {
 }
 
 export namespace TaskSummaryFromPipelineTask {
+  export function redactForLog(obj: TaskSummaryFromPipelineTask): object {
+    if (!obj || obj.modelType !== "PIPELINE_TASK") {
+      return model.TaskSummary.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "pipeline")) {
+      const value = obj.pipeline;
+      redactedObj["pipeline"] = value == null ? value : model.Pipeline.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: TaskSummaryFromPipelineTask, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj

@@ -32,6 +32,23 @@ export interface CreateConnectionFromMySQL extends model.CreateConnectionDetails
 }
 
 export namespace CreateConnectionFromMySQL {
+  export function redactForLog(obj: CreateConnectionFromMySQL): object {
+    if (!obj || obj.modelType !== "MYSQL_CONNECTION") {
+      return model.CreateConnectionDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "password")) {
+      redactedObj["password"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreateConnectionFromMySQL, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj

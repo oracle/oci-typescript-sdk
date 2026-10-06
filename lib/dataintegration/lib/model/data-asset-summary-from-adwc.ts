@@ -36,6 +36,25 @@ export interface DataAssetSummaryFromAdwc extends model.DataAssetSummary {
 }
 
 export namespace DataAssetSummaryFromAdwc {
+  export function redactForLog(obj: DataAssetSummaryFromAdwc): object {
+    if (!obj || obj.modelType !== "ORACLE_ADWC_DATA_ASSET") {
+      return model.DataAssetSummary.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "defaultConnection")) {
+      const value = obj.defaultConnection;
+      redactedObj["defaultConnection"] =
+        value == null ? value : model.ConnectionSummaryFromAdwc.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: DataAssetSummaryFromAdwc, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj

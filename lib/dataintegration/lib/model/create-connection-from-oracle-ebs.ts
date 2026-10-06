@@ -32,6 +32,23 @@ export interface CreateConnectionFromOracleEbs extends model.CreateConnectionDet
 }
 
 export namespace CreateConnectionFromOracleEbs {
+  export function redactForLog(obj: CreateConnectionFromOracleEbs): object {
+    if (!obj || obj.modelType !== "ORACLE_EBS_CONNECTION") {
+      return model.CreateConnectionDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "password")) {
+      redactedObj["password"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: CreateConnectionFromOracleEbs,
     isParentJsonObj?: boolean

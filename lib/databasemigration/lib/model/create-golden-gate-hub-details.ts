@@ -45,6 +45,21 @@ export interface CreateGoldenGateHubDetails {
 }
 
 export namespace CreateGoldenGateHubDetails {
+  export function redactForLog(obj: CreateGoldenGateHubDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "restAdminCredentials")) {
+      const value = obj.restAdminCredentials;
+      redactedObj["restAdminCredentials"] =
+        value == null ? value : model.CreateAdminCredentials.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreateGoldenGateHubDetails): object {
     const jsonObj = {
       ...obj,

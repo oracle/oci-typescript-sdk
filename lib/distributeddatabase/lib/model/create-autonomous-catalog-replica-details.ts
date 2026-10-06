@@ -29,6 +29,21 @@ export interface CreateAutonomousCatalogReplicaDetails {
 }
 
 export namespace CreateAutonomousCatalogReplicaDetails {
+  export function redactForLog(obj: CreateAutonomousCatalogReplicaDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "database")) {
+      const value = obj.database;
+      redactedObj["database"] =
+        value == null ? value : model.CreateAutonomousCatalogDatabaseDetails.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreateAutonomousCatalogReplicaDetails): object {
     const jsonObj = {
       ...obj,

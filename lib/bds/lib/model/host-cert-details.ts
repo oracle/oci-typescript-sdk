@@ -34,6 +34,19 @@ export interface HostCertDetails {
 }
 
 export namespace HostCertDetails {
+  export function redactForLog(obj: HostCertDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "privateKey")) {
+      redactedObj["privateKey"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: HostCertDetails): object {
     const jsonObj = { ...obj, ...{} };
 

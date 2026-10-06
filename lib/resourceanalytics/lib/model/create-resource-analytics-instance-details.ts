@@ -79,6 +79,21 @@ export namespace CreateResourceAnalyticsInstanceDetails {
     BringYourOwnLicense = "BRING_YOUR_OWN_LICENSE"
   }
 
+  export function redactForLog(obj: CreateResourceAnalyticsInstanceDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "adwAdminPassword")) {
+      const value = obj.adwAdminPassword;
+      redactedObj["adwAdminPassword"] =
+        value == null ? value : model.AdwAdminPasswordDetails.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreateResourceAnalyticsInstanceDetails): object {
     const jsonObj = {
       ...obj,

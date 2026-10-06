@@ -95,6 +95,24 @@ export interface CreateDistributedAutonomousDatabaseShardWithDedicatedInfraDetai
 }
 
 export namespace CreateDistributedAutonomousDatabaseShardWithDedicatedInfraDetails {
+  export function redactForLog(
+    obj: CreateDistributedAutonomousDatabaseShardWithDedicatedInfraDetails
+  ): object {
+    if (!obj || obj.source !== "ADBD_EXISTING_CLUSTER") {
+      return model.CreateDistributedAutonomousDatabaseShardDatabaseDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+    if (Object.prototype.hasOwnProperty.call(obj, "adminPassword")) {
+      redactedObj["adminPassword"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: CreateDistributedAutonomousDatabaseShardWithDedicatedInfraDetails,
     isParentJsonObj?: boolean

@@ -56,6 +56,54 @@ export interface CreateDataAssetDetails {
 }
 
 export namespace CreateDataAssetDetails {
+  export function redactForLog(obj: CreateDataAssetDetails): object {
+    if (obj && Object.prototype.hasOwnProperty.call(obj, "modelType")) {
+      switch (obj.modelType) {
+        case "MYSQL_HEATWAVE_DATA_ASSET":
+          return model.CreateDataAssetFromMySqlHeatWave.redactForLog(
+            obj as model.CreateDataAssetFromMySqlHeatWave
+          );
+        case "REST_DATA_ASSET":
+          return model.CreateDataAssetFromRest.redactForLog(obj as model.CreateDataAssetFromRest);
+        case "ORACLE_SIEBEL_DATA_ASSET":
+          return model.CreateDataAssetFromOracleSiebel.redactForLog(
+            obj as model.CreateDataAssetFromOracleSiebel
+          );
+        case "GENERIC_JDBC_DATA_ASSET":
+          return model.CreateDataAssetFromJdbc.redactForLog(obj as model.CreateDataAssetFromJdbc);
+        case "MYSQL_DATA_ASSET":
+          return model.CreateDataAssetFromMySQL.redactForLog(obj as model.CreateDataAssetFromMySQL);
+        case "ORACLE_DATA_ASSET":
+          return model.CreateDataAssetFromOracle.redactForLog(
+            obj as model.CreateDataAssetFromOracle
+          );
+        case "ORACLE_ADWC_DATA_ASSET":
+          return model.CreateDataAssetFromAdwc.redactForLog(obj as model.CreateDataAssetFromAdwc);
+        case "ORACLE_EBS_DATA_ASSET":
+          return model.CreateDataAssetFromOracleEbs.redactForLog(
+            obj as model.CreateDataAssetFromOracleEbs
+          );
+        case "ORACLE_PEOPLESOFT_DATA_ASSET":
+          return model.CreateDataAssetFromOraclePeopleSoft.redactForLog(
+            obj as model.CreateDataAssetFromOraclePeopleSoft
+          );
+        case "FUSION_APP_DATA_ASSET":
+          return model.CreateDataAssetFromFusionApp.redactForLog(
+            obj as model.CreateDataAssetFromFusionApp
+          );
+        case "ORACLE_ATP_DATA_ASSET":
+          return model.CreateDataAssetFromAtp.redactForLog(obj as model.CreateDataAssetFromAtp);
+      }
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreateDataAssetDetails): object {
     const jsonObj = {
       ...obj,

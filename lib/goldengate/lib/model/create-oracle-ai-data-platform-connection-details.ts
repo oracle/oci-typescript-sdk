@@ -95,6 +95,27 @@ export interface CreateOracleAiDataPlatformConnectionDetails extends model.Creat
 }
 
 export namespace CreateOracleAiDataPlatformConnectionDetails {
+  export function redactForLog(obj: CreateOracleAiDataPlatformConnectionDetails): object {
+    if (!obj || obj.connectionType !== "ORACLE_AI_DATA_PLATFORM") {
+      return model.CreateConnectionDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "privateKeyFile")) {
+      redactedObj["privateKeyFile"] = "<redacted>";
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "privateKeyPassphrase")) {
+      redactedObj["privateKeyPassphrase"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: CreateOracleAiDataPlatformConnectionDetails,
     isParentJsonObj?: boolean

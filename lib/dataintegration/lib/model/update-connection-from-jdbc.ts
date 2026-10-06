@@ -32,6 +32,23 @@ export interface UpdateConnectionFromJdbc extends model.UpdateConnectionDetails 
 }
 
 export namespace UpdateConnectionFromJdbc {
+  export function redactForLog(obj: UpdateConnectionFromJdbc): object {
+    if (!obj || obj.modelType !== "GENERIC_JDBC_CONNECTION") {
+      return model.UpdateConnectionDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "password")) {
+      redactedObj["password"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: UpdateConnectionFromJdbc, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj

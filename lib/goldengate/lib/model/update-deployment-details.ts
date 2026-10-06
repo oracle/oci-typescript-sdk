@@ -135,6 +135,21 @@ Example: {@code {\"Oracle-ZPR\": {\"MaxEgressCount\": {\"value\": \"42\", \"mode
 }
 
 export namespace UpdateDeploymentDetails {
+  export function redactForLog(obj: UpdateDeploymentDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "oggData")) {
+      const value = obj.oggData;
+      redactedObj["oggData"] =
+        value == null ? value : model.UpdateOggDeploymentDetails.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: UpdateDeploymentDetails): object {
     const jsonObj = {
       ...obj,

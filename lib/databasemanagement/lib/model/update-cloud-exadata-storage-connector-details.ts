@@ -47,6 +47,21 @@ export interface UpdateCloudExadataStorageConnectorDetails {
 }
 
 export namespace UpdateCloudExadataStorageConnectorDetails {
+  export function redactForLog(obj: UpdateCloudExadataStorageConnectorDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "credentialInfo")) {
+      const value = obj.credentialInfo;
+      redactedObj["credentialInfo"] =
+        value == null ? value : model.RestCredential.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: UpdateCloudExadataStorageConnectorDetails): object {
     const jsonObj = {
       ...obj,

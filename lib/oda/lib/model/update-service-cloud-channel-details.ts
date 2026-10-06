@@ -59,6 +59,23 @@ export interface UpdateServiceCloudChannelDetails extends model.UpdateChannelDet
 }
 
 export namespace UpdateServiceCloudChannelDetails {
+  export function redactForLog(obj: UpdateServiceCloudChannelDetails): object {
+    if (!obj || obj.type !== "SERVICECLOUD") {
+      return model.UpdateChannelDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "password")) {
+      redactedObj["password"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: UpdateServiceCloudChannelDetails,
     isParentJsonObj?: boolean

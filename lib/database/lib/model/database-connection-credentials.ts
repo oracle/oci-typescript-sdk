@@ -24,6 +24,27 @@ export interface DatabaseConnectionCredentials {
 }
 
 export namespace DatabaseConnectionCredentials {
+  export function redactForLog(obj: DatabaseConnectionCredentials): object {
+    if (obj && Object.prototype.hasOwnProperty.call(obj, "credentialType")) {
+      switch (obj.credentialType) {
+        case "SSL_DETAILS":
+          return model.DatabaseSslConnectionCredentials.redactForLog(
+            obj as model.DatabaseSslConnectionCredentials
+          );
+        case "DETAILS":
+          return model.DatabaseConnectionCredentialsByDetails.redactForLog(
+            obj as model.DatabaseConnectionCredentialsByDetails
+          );
+      }
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: DatabaseConnectionCredentials): object {
     const jsonObj = { ...obj, ...{} };
 

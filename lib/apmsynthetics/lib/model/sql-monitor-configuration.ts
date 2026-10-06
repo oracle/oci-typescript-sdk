@@ -45,6 +45,25 @@ export interface SqlMonitorConfiguration extends model.MonitorConfiguration {
 }
 
 export namespace SqlMonitorConfiguration {
+  export function redactForLog(obj: SqlMonitorConfiguration): object {
+    if (!obj || obj.configType !== "SQL_CONFIG") {
+      return model.MonitorConfiguration.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "databaseAuthenticationDetails")) {
+      const value = obj.databaseAuthenticationDetails;
+      redactedObj["databaseAuthenticationDetails"] =
+        value == null ? value : model.BasicAuthenticationDetails.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: SqlMonitorConfiguration, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj

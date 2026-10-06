@@ -43,6 +43,23 @@ export interface UpdateRestIcebergCatalogDetails extends model.UpdateIcebergCata
 }
 
 export namespace UpdateRestIcebergCatalogDetails {
+  export function redactForLog(obj: UpdateRestIcebergCatalogDetails): object {
+    if (!obj || obj.catalogType !== "REST") {
+      return model.UpdateIcebergCatalogDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "properties")) {
+      redactedObj["properties"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: UpdateRestIcebergCatalogDetails,
     isParentJsonObj?: boolean

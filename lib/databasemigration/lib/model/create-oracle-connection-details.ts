@@ -63,6 +63,27 @@ export interface CreateOracleConnectionDetails extends model.CreateConnectionDet
 }
 
 export namespace CreateOracleConnectionDetails {
+  export function redactForLog(obj: CreateOracleConnectionDetails): object {
+    if (!obj || obj.connectionType !== "ORACLE") {
+      return model.CreateConnectionDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "password")) {
+      redactedObj["password"] = "<redacted>";
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "replicationPassword")) {
+      redactedObj["replicationPassword"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: CreateOracleConnectionDetails,
     isParentJsonObj?: boolean

@@ -28,6 +28,18 @@ export interface DownloadOperationsInsightsWarehouseWalletDetails {
 }
 
 export namespace DownloadOperationsInsightsWarehouseWalletDetails {
+  export function redactForLog(obj: DownloadOperationsInsightsWarehouseWalletDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+    if (Object.prototype.hasOwnProperty.call(obj, "operationsInsightsWarehouseWalletPassword")) {
+      redactedObj["operationsInsightsWarehouseWalletPassword"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: DownloadOperationsInsightsWarehouseWalletDetails): object {
     const jsonObj = { ...obj, ...{} };
 

@@ -63,6 +63,30 @@ export interface OracleAtpWriteAttributes extends model.AbstractWriteAttribute {
 }
 
 export namespace OracleAtpWriteAttributes {
+  export function redactForLog(obj: OracleAtpWriteAttributes): object {
+    if (!obj || obj.modelType !== "ORACLE_ATP_WRITE_ATTRIBUTE") {
+      return model.AbstractWriteAttribute.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "stagingDataAsset")) {
+      const value = obj.stagingDataAsset;
+      redactedObj["stagingDataAsset"] = value == null ? value : model.DataAsset.redactForLog(value);
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "stagingConnection")) {
+      const value = obj.stagingConnection;
+      redactedObj["stagingConnection"] =
+        value == null ? value : model.Connection.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: OracleAtpWriteAttributes, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj

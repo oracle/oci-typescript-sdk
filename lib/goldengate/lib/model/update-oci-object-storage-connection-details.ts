@@ -85,6 +85,27 @@ export interface UpdateOciObjectStorageConnectionDetails extends model.UpdateCon
 }
 
 export namespace UpdateOciObjectStorageConnectionDetails {
+  export function redactForLog(obj: UpdateOciObjectStorageConnectionDetails): object {
+    if (!obj || obj.connectionType !== "OCI_OBJECT_STORAGE") {
+      return model.UpdateConnectionDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "privateKeyFile")) {
+      redactedObj["privateKeyFile"] = "<redacted>";
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "privateKeyPassphrase")) {
+      redactedObj["privateKeyPassphrase"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: UpdateOciObjectStorageConnectionDetails,
     isParentJsonObj?: boolean

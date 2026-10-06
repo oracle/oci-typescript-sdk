@@ -53,6 +53,27 @@ export interface CreatePluggableDatabaseFromRemoteCloneDetails
 }
 
 export namespace CreatePluggableDatabaseFromRemoteCloneDetails {
+  export function redactForLog(obj: CreatePluggableDatabaseFromRemoteCloneDetails): object {
+    if (!obj || obj.creationType !== "REMOTE_CLONE_PDB") {
+      return model.CreatePluggableDatabaseCreationTypeDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "dblinkUserPassword")) {
+      redactedObj["dblinkUserPassword"] = "<redacted>";
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "sourceContainerDatabaseAdminPassword")) {
+      redactedObj["sourceContainerDatabaseAdminPassword"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: CreatePluggableDatabaseFromRemoteCloneDetails,
     isParentJsonObj?: boolean

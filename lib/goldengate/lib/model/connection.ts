@@ -207,6 +207,22 @@ export namespace Connection {
     UnknownValue = "UNKNOWN_VALUE"
   }
 
+  export function redactForLog(obj: Connection): object {
+    if (obj && Object.prototype.hasOwnProperty.call(obj, "connectionType")) {
+      switch (obj.connectionType) {
+        case "AI_MODEL":
+          return model.AiModelConnection.redactForLog(obj as model.AiModelConnection);
+      }
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: Connection): object {
     const jsonObj = {
       ...obj,

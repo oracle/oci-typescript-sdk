@@ -68,6 +68,11 @@ export namespace InstanceConfigurationAttachVolumeDetails {
             <model.InstanceConfigurationParavirtualizedAttachVolumeDetails>(<object>jsonObj),
             true
           );
+        case "nvme":
+          return model.InstanceConfigurationNvmeAttachVolumeDetails.getJsonObj(
+            <model.InstanceConfigurationNvmeAttachVolumeDetails>(<object>jsonObj),
+            true
+          );
         default:
           if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.type}`);
       }
@@ -87,6 +92,11 @@ export namespace InstanceConfigurationAttachVolumeDetails {
         case "paravirtualized":
           return model.InstanceConfigurationParavirtualizedAttachVolumeDetails.getDeserializedJsonObj(
             <model.InstanceConfigurationParavirtualizedAttachVolumeDetails>(<object>jsonObj),
+            true
+          );
+        case "nvme":
+          return model.InstanceConfigurationNvmeAttachVolumeDetails.getDeserializedJsonObj(
+            <model.InstanceConfigurationNvmeAttachVolumeDetails>(<object>jsonObj),
             true
           );
         default:

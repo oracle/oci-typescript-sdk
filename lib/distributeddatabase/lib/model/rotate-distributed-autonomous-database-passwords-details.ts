@@ -26,6 +26,23 @@ export interface RotateDistributedAutonomousDatabasePasswordsDetails {
 }
 
 export namespace RotateDistributedAutonomousDatabasePasswordsDetails {
+  export function redactForLog(obj: RotateDistributedAutonomousDatabasePasswordsDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "databaseDetails")) {
+      const value = obj.databaseDetails;
+      redactedObj["databaseDetails"] =
+        value == null
+          ? value
+          : value.map(item => model.RotateDistributedAutonomousDatabaseDetails.redactForLog(item));
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: RotateDistributedAutonomousDatabasePasswordsDetails): object {
     const jsonObj = {
       ...obj,

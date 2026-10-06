@@ -36,6 +36,25 @@ export interface UpdateAiModelConnectionDetails extends model.UpdateConnectionDe
 }
 
 export namespace UpdateAiModelConnectionDetails {
+  export function redactForLog(obj: UpdateAiModelConnectionDetails): object {
+    if (!obj || obj.connectionType !== "AI_MODEL") {
+      return model.UpdateConnectionDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "authDetails")) {
+      const value = obj.authDetails;
+      redactedObj["authDetails"] =
+        value == null ? value : model.UpdateAiModelAuthDetails.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: UpdateAiModelConnectionDetails,
     isParentJsonObj?: boolean

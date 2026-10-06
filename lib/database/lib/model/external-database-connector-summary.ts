@@ -88,6 +88,24 @@ Example: {@code {\"Department\": \"Finance\"}}
 }
 
 export namespace ExternalDatabaseConnectorSummary {
+  export function redactForLog(obj: ExternalDatabaseConnectorSummary): object {
+    if (obj && Object.prototype.hasOwnProperty.call(obj, "connectorType")) {
+      switch (obj.connectorType) {
+        case "MACS":
+          return model.ExternalMacsConnectorSummary.redactForLog(
+            obj as model.ExternalMacsConnectorSummary
+          );
+      }
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: ExternalDatabaseConnectorSummary): object {
     const jsonObj = { ...obj, ...{} };
 

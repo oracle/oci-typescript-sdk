@@ -30,6 +30,25 @@ export interface CreateDbHomeWithDbSystemIdFromDatabaseDetails extends model.Cre
 }
 
 export namespace CreateDbHomeWithDbSystemIdFromDatabaseDetails {
+  export function redactForLog(obj: CreateDbHomeWithDbSystemIdFromDatabaseDetails): object {
+    if (!obj || obj.source !== "DATABASE") {
+      return model.CreateDbHomeBase.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "database")) {
+      const value = obj.database;
+      redactedObj["database"] =
+        value == null ? value : model.CreateDatabaseFromAnotherDatabaseDetails.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: CreateDbHomeWithDbSystemIdFromDatabaseDetails,
     isParentJsonObj?: boolean

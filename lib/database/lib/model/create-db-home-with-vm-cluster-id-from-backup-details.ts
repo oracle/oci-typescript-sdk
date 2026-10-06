@@ -30,6 +30,25 @@ export interface CreateDbHomeWithVmClusterIdFromBackupDetails extends model.Crea
 }
 
 export namespace CreateDbHomeWithVmClusterIdFromBackupDetails {
+  export function redactForLog(obj: CreateDbHomeWithVmClusterIdFromBackupDetails): object {
+    if (!obj || obj.source !== "VM_CLUSTER_BACKUP") {
+      return model.CreateDbHomeBase.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "database")) {
+      const value = obj.database;
+      redactedObj["database"] =
+        value == null ? value : model.CreateDatabaseFromBackupDetails.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: CreateDbHomeWithVmClusterIdFromBackupDetails,
     isParentJsonObj?: boolean

@@ -48,6 +48,19 @@ export interface CreateBlueGreenDeploymentChannelDetails {
 }
 
 export namespace CreateBlueGreenDeploymentChannelDetails {
+  export function redactForLog(obj: CreateBlueGreenDeploymentChannelDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "sourcePassword")) {
+      redactedObj["sourcePassword"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreateBlueGreenDeploymentChannelDetails): object {
     const jsonObj = {
       ...obj,

@@ -32,6 +32,23 @@ export interface ConnectionSummaryFromOracleEbs extends model.ConnectionSummary 
 }
 
 export namespace ConnectionSummaryFromOracleEbs {
+  export function redactForLog(obj: ConnectionSummaryFromOracleEbs): object {
+    if (!obj || obj.modelType !== "ORACLE_EBS_CONNECTION") {
+      return model.ConnectionSummary.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "password")) {
+      redactedObj["password"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: ConnectionSummaryFromOracleEbs,
     isParentJsonObj?: boolean

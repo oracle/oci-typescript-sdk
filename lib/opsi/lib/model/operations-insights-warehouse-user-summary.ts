@@ -90,6 +90,19 @@ export interface OperationsInsightsWarehouseUserSummary {
 }
 
 export namespace OperationsInsightsWarehouseUserSummary {
+  export function redactForLog(obj: OperationsInsightsWarehouseUserSummary): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "connectionPassword")) {
+      redactedObj["connectionPassword"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: OperationsInsightsWarehouseUserSummary): object {
     const jsonObj = { ...obj, ...{} };
 

@@ -27,6 +27,21 @@ export interface AdwAdminPasswordDetails {
 }
 
 export namespace AdwAdminPasswordDetails {
+  export function redactForLog(obj: AdwAdminPasswordDetails): object {
+    if (obj && Object.prototype.hasOwnProperty.call(obj, "passwordType")) {
+      switch (obj.passwordType) {
+        case "PLAIN_TEXT":
+          return model.PlainTextPasswordDetails.redactForLog(obj as model.PlainTextPasswordDetails);
+      }
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: AdwAdminPasswordDetails): object {
     const jsonObj = { ...obj, ...{} };
 

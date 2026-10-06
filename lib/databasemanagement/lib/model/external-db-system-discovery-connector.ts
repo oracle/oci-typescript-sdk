@@ -44,6 +44,24 @@ export interface ExternalDbSystemDiscoveryConnector {
 }
 
 export namespace ExternalDbSystemDiscoveryConnector {
+  export function redactForLog(obj: ExternalDbSystemDiscoveryConnector): object {
+    if (obj && Object.prototype.hasOwnProperty.call(obj, "connectorType")) {
+      switch (obj.connectorType) {
+        case "MACS":
+          return model.ExternalDbSystemDiscoveryMacsConnector.redactForLog(
+            obj as model.ExternalDbSystemDiscoveryMacsConnector
+          );
+      }
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: ExternalDbSystemDiscoveryConnector): object {
     const jsonObj = { ...obj, ...{} };
 

@@ -102,6 +102,19 @@ export interface CreateAuthenticationProviderDetails {
 }
 
 export namespace CreateAuthenticationProviderDetails {
+  export function redactForLog(obj: CreateAuthenticationProviderDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "clientSecret")) {
+      redactedObj["clientSecret"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreateAuthenticationProviderDetails): object {
     const jsonObj = { ...obj, ...{} };
 

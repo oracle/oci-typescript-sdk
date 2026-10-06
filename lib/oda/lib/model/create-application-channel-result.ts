@@ -43,6 +43,23 @@ export interface CreateApplicationChannelResult extends model.CreateChannelResul
 }
 
 export namespace CreateApplicationChannelResult {
+  export function redactForLog(obj: CreateApplicationChannelResult): object {
+    if (!obj || obj.type !== "APPLICATION") {
+      return model.CreateChannelResult.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "secretKey")) {
+      redactedObj["secretKey"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: CreateApplicationChannelResult,
     isParentJsonObj?: boolean

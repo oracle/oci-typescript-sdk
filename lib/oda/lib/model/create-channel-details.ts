@@ -48,6 +48,48 @@ export interface CreateChannelDetails {
 }
 
 export namespace CreateChannelDetails {
+  export function redactForLog(obj: CreateChannelDetails): object {
+    if (obj && Object.prototype.hasOwnProperty.call(obj, "type")) {
+      switch (obj.type) {
+        case "MSTEAMS":
+          return model.CreateMSTeamsChannelDetails.redactForLog(
+            obj as model.CreateMSTeamsChannelDetails
+          );
+        case "FACEBOOK":
+          return model.CreateFacebookChannelDetails.redactForLog(
+            obj as model.CreateFacebookChannelDetails
+          );
+        case "SERVICECLOUD":
+          return model.CreateServiceCloudChannelDetails.redactForLog(
+            obj as model.CreateServiceCloudChannelDetails
+          );
+        case "SLACK":
+          return model.CreateSlackChannelDetails.redactForLog(
+            obj as model.CreateSlackChannelDetails
+          );
+        case "OSVC":
+          return model.CreateOsvcChannelDetails.redactForLog(obj as model.CreateOsvcChannelDetails);
+        case "OSS":
+          return model.CreateOSSChannelDetails.redactForLog(obj as model.CreateOSSChannelDetails);
+        case "CORTANA":
+          return model.CreateCortanaChannelDetails.redactForLog(
+            obj as model.CreateCortanaChannelDetails
+          );
+        case "TWILIO":
+          return model.CreateTwilioChannelDetails.redactForLog(
+            obj as model.CreateTwilioChannelDetails
+          );
+      }
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreateChannelDetails): object {
     const jsonObj = { ...obj, ...{} };
 

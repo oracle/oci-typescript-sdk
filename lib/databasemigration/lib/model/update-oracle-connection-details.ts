@@ -59,6 +59,27 @@ export interface UpdateOracleConnectionDetails extends model.UpdateConnectionDet
 }
 
 export namespace UpdateOracleConnectionDetails {
+  export function redactForLog(obj: UpdateOracleConnectionDetails): object {
+    if (!obj || obj.connectionType !== "ORACLE") {
+      return model.UpdateConnectionDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "password")) {
+      redactedObj["password"] = "<redacted>";
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "replicationPassword")) {
+      redactedObj["replicationPassword"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: UpdateOracleConnectionDetails,
     isParentJsonObj?: boolean

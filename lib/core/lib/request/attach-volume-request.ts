@@ -25,6 +25,7 @@ export interface AttachVolumeRequest extends common.BaseRequest {
     | model.AttachServiceDeterminedVolumeDetails
     | model.AttachEmulatedVolumeDetails
     | model.AttachIScsiVolumeDetails
+    | model.AttachNvmeVolumeDetails
     | model.AttachParavirtualizedVolumeDetails;
   /**
    * A token that uniquely identifies a request so it can be retried in case of a timeout or

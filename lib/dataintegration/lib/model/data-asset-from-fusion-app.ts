@@ -46,6 +46,25 @@ export interface DataAssetFromFusionApp extends model.DataAsset {
 }
 
 export namespace DataAssetFromFusionApp {
+  export function redactForLog(obj: DataAssetFromFusionApp): object {
+    if (!obj || obj.modelType !== "FUSION_APP_DATA_ASSET") {
+      return model.DataAsset.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "defaultConnection")) {
+      const value = obj.defaultConnection;
+      redactedObj["defaultConnection"] =
+        value == null ? value : model.ConnectionDetails.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: DataAssetFromFusionApp, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj ? obj : (model.DataAsset.getJsonObj(obj) as DataAssetFromFusionApp)),

@@ -65,6 +65,24 @@ export interface Operator {
 }
 
 export namespace Operator {
+  export function redactForLog(obj: Operator): object {
+    if (obj && Object.prototype.hasOwnProperty.call(obj, "modelType")) {
+      switch (obj.modelType) {
+        case "TASK_OPERATOR":
+          return model.TaskOperator.redactForLog(obj as model.TaskOperator);
+        case "TARGET_OPERATOR":
+          return model.Target.redactForLog(obj as model.Target);
+      }
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: Operator): object {
     const jsonObj = {
       ...obj,

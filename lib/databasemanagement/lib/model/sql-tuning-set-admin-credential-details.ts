@@ -39,6 +39,24 @@ export namespace SqlTuningSetAdminCredentialDetails {
     Sysdba = "SYSDBA"
   }
 
+  export function redactForLog(obj: SqlTuningSetAdminCredentialDetails): object {
+    if (obj && Object.prototype.hasOwnProperty.call(obj, "sqlTuningSetAdminCredentialType")) {
+      switch (obj.sqlTuningSetAdminCredentialType) {
+        case "PASSWORD":
+          return model.SqlTuningSetAdminPasswordCredentialDetails.redactForLog(
+            obj as model.SqlTuningSetAdminPasswordCredentialDetails
+          );
+      }
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: SqlTuningSetAdminCredentialDetails): object {
     const jsonObj = { ...obj, ...{} };
 

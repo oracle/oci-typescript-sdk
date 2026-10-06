@@ -28,6 +28,24 @@ export interface CreateImagePullSecretDetails {
 }
 
 export namespace CreateImagePullSecretDetails {
+  export function redactForLog(obj: CreateImagePullSecretDetails): object {
+    if (obj && Object.prototype.hasOwnProperty.call(obj, "secretType")) {
+      switch (obj.secretType) {
+        case "BASIC":
+          return model.CreateBasicImagePullSecretDetails.redactForLog(
+            obj as model.CreateBasicImagePullSecretDetails
+          );
+      }
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreateImagePullSecretDetails): object {
     const jsonObj = { ...obj, ...{} };
 

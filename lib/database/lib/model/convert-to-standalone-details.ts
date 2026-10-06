@@ -30,6 +30,18 @@ export interface ConvertToStandaloneDetails {
 }
 
 export namespace ConvertToStandaloneDetails {
+  export function redactForLog(obj: ConvertToStandaloneDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+    if (Object.prototype.hasOwnProperty.call(obj, "databaseAdminPassword")) {
+      redactedObj["databaseAdminPassword"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: ConvertToStandaloneDetails): object {
     const jsonObj = { ...obj, ...{} };
 

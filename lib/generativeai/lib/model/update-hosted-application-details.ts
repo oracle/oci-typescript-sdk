@@ -27,6 +27,13 @@ import common = require("oci-common");
 export interface UpdateHostedApplicationDetails {
   "inboundAuthConfig"?: model.InboundAuthConfig;
   /**
+   * A list of hosted application path patterns that can be accessed without
+   * inbound authentication. Values can be exact paths such as {@code /health} or {@code /callback},
+   * or wildcard paths such as {@code /assets/*} or {@code /public/*}.
+   *
+   */
+  "publicAccessPathPatterns"?: Array<string>;
+  /**
    * A user-friendly name. Does not have to be unique, and it's changeable.
    */
   "displayName"?: string;

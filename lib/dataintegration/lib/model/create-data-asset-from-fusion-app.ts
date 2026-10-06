@@ -49,6 +49,25 @@ export interface CreateDataAssetFromFusionApp extends model.CreateDataAssetDetai
 }
 
 export namespace CreateDataAssetFromFusionApp {
+  export function redactForLog(obj: CreateDataAssetFromFusionApp): object {
+    if (!obj || obj.modelType !== "FUSION_APP_DATA_ASSET") {
+      return model.CreateDataAssetDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "defaultConnection")) {
+      const value = obj.defaultConnection;
+      redactedObj["defaultConnection"] =
+        value == null ? value : model.CreateConnectionDetails.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreateDataAssetFromFusionApp, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj

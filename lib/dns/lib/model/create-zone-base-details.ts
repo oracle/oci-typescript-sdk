@@ -61,6 +61,24 @@ Unicode characters will be converted into punycode, see [RFC 3492](https://tools
 }
 
 export namespace CreateZoneBaseDetails {
+  export function redactForLog(obj: CreateZoneBaseDetails): object {
+    if (obj && Object.prototype.hasOwnProperty.call(obj, "migrationSource")) {
+      switch (obj.migrationSource) {
+        case "DYNECT":
+          return model.CreateMigratedDynectZoneDetails.redactForLog(
+            obj as model.CreateMigratedDynectZoneDetails
+          );
+      }
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreateZoneBaseDetails): object {
     const jsonObj = { ...obj, ...{} };
 

@@ -32,6 +32,23 @@ export interface CreateConnectionFromJdbc extends model.CreateConnectionDetails 
 }
 
 export namespace CreateConnectionFromJdbc {
+  export function redactForLog(obj: CreateConnectionFromJdbc): object {
+    if (!obj || obj.modelType !== "GENERIC_JDBC_CONNECTION") {
+      return model.CreateConnectionDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "password")) {
+      redactedObj["password"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreateConnectionFromJdbc, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj

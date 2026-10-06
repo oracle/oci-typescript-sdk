@@ -38,6 +38,20 @@ export interface CreatePeerTargetDatabaseDetails {
 }
 
 export namespace CreatePeerTargetDatabaseDetails {
+  export function redactForLog(obj: CreatePeerTargetDatabaseDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "tlsConfig")) {
+      const value = obj.tlsConfig;
+      redactedObj["tlsConfig"] = value == null ? value : model.TlsConfig.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreatePeerTargetDatabaseDetails): object {
     const jsonObj = {
       ...obj,

@@ -45,6 +45,23 @@ export interface CreateGooglePubSubConnectionDetails extends model.CreateConnect
 }
 
 export namespace CreateGooglePubSubConnectionDetails {
+  export function redactForLog(obj: CreateGooglePubSubConnectionDetails): object {
+    if (!obj || obj.connectionType !== "GOOGLE_PUBSUB") {
+      return model.CreateConnectionDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "serviceAccountKeyFile")) {
+      redactedObj["serviceAccountKeyFile"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: CreateGooglePubSubConnectionDetails,
     isParentJsonObj?: boolean

@@ -61,6 +61,25 @@ export interface ConfigurationDetails {
 }
 
 export namespace ConfigurationDetails {
+  export function redactForLog(obj: ConfigurationDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "dataAsset")) {
+      const value = obj.dataAsset;
+      redactedObj["dataAsset"] = value == null ? value : model.DataAsset.redactForLog(value);
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "connection")) {
+      const value = obj.connection;
+      redactedObj["connection"] = value == null ? value : model.Connection.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: ConfigurationDetails): object {
     const jsonObj = {
       ...obj,

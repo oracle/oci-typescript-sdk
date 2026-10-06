@@ -67,6 +67,18 @@ export namespace UpdateDataGuardDetails {
     Fastsync = "FASTSYNC"
   }
 
+  export function redactForLog(obj: UpdateDataGuardDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+    if (Object.prototype.hasOwnProperty.call(obj, "databaseAdminPassword")) {
+      redactedObj["databaseAdminPassword"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: UpdateDataGuardDetails): object {
     const jsonObj = { ...obj, ...{} };
 

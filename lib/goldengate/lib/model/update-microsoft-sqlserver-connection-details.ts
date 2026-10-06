@@ -88,6 +88,23 @@ For deprecated connections created with this field in the past, either the priva
 }
 
 export namespace UpdateMicrosoftSqlserverConnectionDetails {
+  export function redactForLog(obj: UpdateMicrosoftSqlserverConnectionDetails): object {
+    if (!obj || obj.connectionType !== "MICROSOFT_SQLSERVER") {
+      return model.UpdateConnectionDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "password")) {
+      redactedObj["password"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: UpdateMicrosoftSqlserverConnectionDetails,
     isParentJsonObj?: boolean

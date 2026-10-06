@@ -55,6 +55,23 @@ export interface UpdateGoogleCloudStorageIcebergStorageDetails
 }
 
 export namespace UpdateGoogleCloudStorageIcebergStorageDetails {
+  export function redactForLog(obj: UpdateGoogleCloudStorageIcebergStorageDetails): object {
+    if (!obj || obj.storageType !== "GOOGLE_CLOUD_STORAGE") {
+      return model.UpdateIcebergStorageDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "serviceAccountKeyFile")) {
+      redactedObj["serviceAccountKeyFile"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: UpdateGoogleCloudStorageIcebergStorageDetails,
     isParentJsonObj?: boolean

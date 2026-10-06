@@ -66,6 +66,44 @@ Example: {@code {\"Department\": \"Finance\"}}
 }
 
 export namespace CreateDbHomeBase {
+  export function redactForLog(obj: CreateDbHomeBase): object {
+    if (obj && Object.prototype.hasOwnProperty.call(obj, "source")) {
+      switch (obj.source) {
+        case "DATABASE":
+          return model.CreateDbHomeWithDbSystemIdFromDatabaseDetails.redactForLog(
+            obj as model.CreateDbHomeWithDbSystemIdFromDatabaseDetails
+          );
+        case "DB_BACKUP":
+          return model.CreateDbHomeWithDbSystemIdFromBackupDetails.redactForLog(
+            obj as model.CreateDbHomeWithDbSystemIdFromBackupDetails
+          );
+        case "VM_CLUSTER_DATABASE":
+          return model.CreateDbHomeWithVmClusterIdFromDatabaseDetails.redactForLog(
+            obj as model.CreateDbHomeWithVmClusterIdFromDatabaseDetails
+          );
+        case "VM_CLUSTER_BACKUP":
+          return model.CreateDbHomeWithVmClusterIdFromBackupDetails.redactForLog(
+            obj as model.CreateDbHomeWithVmClusterIdFromBackupDetails
+          );
+        case "NONE":
+          return model.CreateDbHomeWithDbSystemIdDetails.redactForLog(
+            obj as model.CreateDbHomeWithDbSystemIdDetails
+          );
+        case "VM_CLUSTER_NEW":
+          return model.CreateDbHomeWithVmClusterIdDetails.redactForLog(
+            obj as model.CreateDbHomeWithVmClusterIdDetails
+          );
+      }
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreateDbHomeBase): object {
     const jsonObj = { ...obj, ...{} };
 

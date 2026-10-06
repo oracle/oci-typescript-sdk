@@ -26,61 +26,34 @@ To use SSL, a listener must be associated with a {@link Certificate}.
 */
 export interface SSLConfiguration {
   /**
-    * The maximum depth for peer certificate chain verification.
+    * A list of SSL protocols the load balancer must support for HTTPS or SSL connections.
 * <p>
-Example: {@code 3}
-*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
-    */
-  "verifyDepth": number;
-  /**
-    * Whether the load balancer listener should verify peer certificates.
+The load balancer uses SSL protocols to establish a secure connection between a client and a server. A secure
+* connection ensures that all data passed between the client and the server is private.
 * <p>
-Example: {@code true}
+The Load Balancing service supports the following protocols:
+* <p>
+*  TLSv1
+* *  TLSv1.1
+* *  TLSv1.2
+* *  TLSv1.3
+* <p>
+If this field is not specified, TLSv1.2 is the default.
+* <p>
+**Warning:** All SSL listeners created on a given port must use the same set of SSL protocols.
+* <p>
+**Notes:**
+* <p>
+*  The handshake to establish an SSL connection fails if the client supports none of the specified protocols.
+* *  You must ensure compatibility between the specified SSL protocols and the ciphers configured in the cipher
+*    suite.
+* *  For all existing load balancer listeners and backend sets that predate this feature, the {@code GET} operation
+*    displays a list of SSL protocols currently used by those resources.
+* <p>
+example: {@code [\"TLSv1.1\", \"TLSv1.2\"]}
 * 
     */
-  "verifyPeerCertificate": boolean;
-  /**
-    * Whether the load balancer listener should resume an encrypted session by reusing the cryptographic parameters of a previous TLS session, without having to perform a full handshake again.
-* If \"true\", the service resumes the previous TLS encrypted session.
-* If \"false\", the service starts a new TLS encrypted session.
-* Enabling session resumption improves performance but provides a lower level of security. Disabling session resumption improves security but reduces performance.
-* <p>
-Example: {@code true}
-* 
-    */
-  "hasSessionResumption"?: boolean;
-  /**
-    * Ids for OCI certificates service CA or CA bundles for the load balancer to trust.
-* <p>
-Example: {@code [ocid1.cabundle.oc1.us-ashburn-1.amaaaaaaav3bgsaagl4zzyqdop5i2vuwoqewdvauuw34llqa74otq2jdsfyq]}
-* 
-    */
-  "trustedCertificateAuthorityIds"?: Array<string>;
-  /**
-    * Ids for OCI certificates service certificates. Currently only a single Id may be passed.
-* <p>
-Example: {@code [ocid1.certificate.oc1.us-ashburn-1.amaaaaaaav3bgsaa5o2q7rh5nfmkkukfkogasqhk6af2opufhjlqg7m6jqzq]}
-* 
-    */
-  "certificateIds"?: Array<string>;
-  /**
-    * A friendly name for the certificate bundle. It must be unique and it cannot be changed.
-* Valid certificate bundle names include only alphanumeric characters, dashes, and underscores.
-* Certificate bundle names cannot contain spaces. Avoid entering confidential information.
-* <p>
-Example: {@code example_certificate_bundle}
-* 
-    */
-  "certificateName"?: string;
-  /**
-   * When this attribute is set to ENABLED, the system gives preference to the server ciphers over the client
-   * ciphers.
-   * <p>
-   **Note:** This configuration is applicable only when the load balancer is acting as an SSL/HTTPS server. This
-   *           field is ignored when the {@code SSLConfiguration} object is associated with a backend set.
-   *
-   */
-  "serverOrderPreference"?: SSLConfiguration.ServerOrderPreference;
+  "protocols"?: Array<string>;
   /**
     * The name of the cipher suite to use for HTTPS or SSL connections.
 * <p>
@@ -111,34 +84,61 @@ example: {@code example_cipher_suite}
     */
   "cipherSuiteName"?: string;
   /**
-    * A list of SSL protocols the load balancer must support for HTTPS or SSL connections.
+   * When this attribute is set to ENABLED, the system gives preference to the server ciphers over the client
+   * ciphers.
+   * <p>
+   **Note:** This configuration is applicable only when the load balancer is acting as an SSL/HTTPS server. This
+   *           field is ignored when the {@code SSLConfiguration} object is associated with a backend set.
+   *
+   */
+  "serverOrderPreference"?: SSLConfiguration.ServerOrderPreference;
+  /**
+    * A friendly name for the certificate bundle. It must be unique and it cannot be changed.
+* Valid certificate bundle names include only alphanumeric characters, dashes, and underscores.
+* Certificate bundle names cannot contain spaces. Avoid entering confidential information.
 * <p>
-The load balancer uses SSL protocols to establish a secure connection between a client and a server. A secure
-* connection ensures that all data passed between the client and the server is private.
+Example: {@code example_certificate_bundle}
+*
+    */
+  "certificateName"?: string;
+  /**
+    * Ids for OCI certificates service certificates. Currently only a single Id may be passed.
 * <p>
-The Load Balancing service supports the following protocols:
+Example: {@code [ocid1.certificate.oc1.us-ashburn-1.amaaaaaaav3bgsaa5o2q7rh5nfmkkukfkogasqhk6af2opufhjlqg7m6jqzq]}
+*
+    */
+  "certificateIds"?: Array<string>;
+  /**
+    * Ids for OCI certificates service CA or CA bundles for the load balancer to trust.
 * <p>
-*  TLSv1
-* *  TLSv1.1
-* *  TLSv1.2
-* *  TLSv1.3
+Example: {@code [ocid1.cabundle.oc1.us-ashburn-1.amaaaaaaav3bgsaagl4zzyqdop5i2vuwoqewdvauuw34llqa74otq2jdsfyq]}
+*
+    */
+  "trustedCertificateAuthorityIds"?: Array<string>;
+  /**
+    * Whether the load balancer listener should resume an encrypted session by reusing the cryptographic parameters of a previous TLS session, without having to perform a full handshake again.
+* If \"true\", the service resumes the previous TLS encrypted session.
+* If \"false\", the service starts a new TLS encrypted session.
+* Enabling session resumption improves performance but provides a lower level of security. Disabling session resumption improves security but reduces performance.
 * <p>
-If this field is not specified, TLSv1.2 is the default.
+Example: {@code true}
+*
+    */
+  "hasSessionResumption"?: boolean;
+  /**
+    * Whether the load balancer listener should verify peer certificates.
 * <p>
-**Warning:** All SSL listeners created on a given port must use the same set of SSL protocols.
-* <p>
-**Notes:**
-* <p>
-*  The handshake to establish an SSL connection fails if the client supports none of the specified protocols.
-* *  You must ensure compatibility between the specified SSL protocols and the ciphers configured in the cipher
-*    suite.
-* *  For all existing load balancer listeners and backend sets that predate this feature, the {@code GET} operation
-*    displays a list of SSL protocols currently used by those resources.
-* <p>
-example: {@code [\"TLSv1.1\", \"TLSv1.2\"]}
+Example: {@code true}
 * 
     */
-  "protocols"?: Array<string>;
+  "verifyPeerCertificate": boolean;
+  /**
+    * The maximum depth for peer certificate chain verification.
+* <p>
+Example: {@code 3}
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+    */
+  "verifyDepth": number;
 }
 
 export namespace SSLConfiguration {

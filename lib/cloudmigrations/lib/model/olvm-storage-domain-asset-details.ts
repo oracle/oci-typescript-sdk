@@ -22,6 +22,21 @@ export interface OlvmStorageDomainAssetDetails {
 }
 
 export namespace OlvmStorageDomainAssetDetails {
+  export function redactForLog(obj: OlvmStorageDomainAssetDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "olvmStorageDomain")) {
+      const value = obj.olvmStorageDomain;
+      redactedObj["olvmStorageDomain"] =
+        value == null ? value : model.OlvmStorageDomainProperties.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: OlvmStorageDomainAssetDetails): object {
     const jsonObj = {
       ...obj,

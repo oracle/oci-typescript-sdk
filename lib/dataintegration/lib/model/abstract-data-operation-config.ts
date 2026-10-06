@@ -32,6 +32,22 @@ export interface AbstractDataOperationConfig {
 }
 
 export namespace AbstractDataOperationConfig {
+  export function redactForLog(obj: AbstractDataOperationConfig): object {
+    if (obj && Object.prototype.hasOwnProperty.call(obj, "modelType")) {
+      switch (obj.modelType) {
+        case "WRITE_OPERATION_CONFIG":
+          return model.WriteOperationConfig.redactForLog(obj as model.WriteOperationConfig);
+      }
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: AbstractDataOperationConfig): object {
     const jsonObj = {
       ...obj,

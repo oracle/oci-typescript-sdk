@@ -48,6 +48,27 @@ Use {@code MEMORY} to make the change in memory and ensure that it takes
 }
 
 export namespace ResetDatabaseParametersDetails {
+  export function redactForLog(obj: ResetDatabaseParametersDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "credentials")) {
+      const value = obj.credentials;
+      redactedObj["credentials"] =
+        value == null ? value : model.DatabaseCredentials.redactForLog(value);
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "databaseCredential")) {
+      const value = obj.databaseCredential;
+      redactedObj["databaseCredential"] =
+        value == null ? value : model.DatabaseCredentialDetails.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: ResetDatabaseParametersDetails): object {
     const jsonObj = {
       ...obj,

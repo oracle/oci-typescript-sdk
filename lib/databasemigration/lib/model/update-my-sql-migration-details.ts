@@ -28,6 +28,25 @@ export interface UpdateMySqlMigrationDetails extends model.UpdateMigrationDetail
 }
 
 export namespace UpdateMySqlMigrationDetails {
+  export function redactForLog(obj: UpdateMySqlMigrationDetails): object {
+    if (!obj || obj.databaseCombination !== "MYSQL") {
+      return model.UpdateMigrationDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "hubDetails")) {
+      const value = obj.hubDetails;
+      redactedObj["hubDetails"] =
+        value == null ? value : model.UpdateGoldenGateHubDetails.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: UpdateMySqlMigrationDetails, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj

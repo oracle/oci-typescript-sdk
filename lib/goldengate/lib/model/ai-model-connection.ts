@@ -66,6 +66,25 @@ export namespace AiModelConnection {
     UnknownValue = "UNKNOWN_VALUE"
   }
 
+  export function redactForLog(obj: AiModelConnection): object {
+    if (!obj || obj.connectionType !== "AI_MODEL") {
+      return model.Connection.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "authDetails")) {
+      const value = obj.authDetails;
+      redactedObj["authDetails"] =
+        value == null ? value : model.AiModelAuthDetails.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: AiModelConnection, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj ? obj : (model.Connection.getJsonObj(obj) as AiModelConnection)),

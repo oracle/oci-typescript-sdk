@@ -40,6 +40,23 @@ export interface ConnectionSummaryFromAdwc extends model.ConnectionSummary {
 }
 
 export namespace ConnectionSummaryFromAdwc {
+  export function redactForLog(obj: ConnectionSummaryFromAdwc): object {
+    if (!obj || obj.modelType !== "ORACLE_ADWC_CONNECTION") {
+      return model.ConnectionSummary.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "password")) {
+      redactedObj["password"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: ConnectionSummaryFromAdwc, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj

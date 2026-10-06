@@ -58,6 +58,25 @@ export namespace DiscoveredExternalClusterInstance {
     UnknownValue = "UNKNOWN_VALUE"
   }
 
+  export function redactForLog(obj: DiscoveredExternalClusterInstance): object {
+    if (!obj || obj.componentType !== "CLUSTER_INSTANCE") {
+      return model.DiscoveredExternalDbSystemComponent.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "connector")) {
+      const value = obj.connector;
+      redactedObj["connector"] =
+        value == null ? value : model.ExternalDbSystemDiscoveryConnector.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: DiscoveredExternalClusterInstance,
     isParentJsonObj?: boolean

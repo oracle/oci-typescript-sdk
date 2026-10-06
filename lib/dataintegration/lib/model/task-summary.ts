@@ -75,6 +75,32 @@ export interface TaskSummary {
 }
 
 export namespace TaskSummary {
+  export function redactForLog(obj: TaskSummary): object {
+    if (obj && Object.prototype.hasOwnProperty.call(obj, "modelType")) {
+      switch (obj.modelType) {
+        case "INTEGRATION_TASK":
+          return model.TaskSummaryFromIntegrationTask.redactForLog(
+            obj as model.TaskSummaryFromIntegrationTask
+          );
+        case "PIPELINE_TASK":
+          return model.TaskSummaryFromPipelineTask.redactForLog(
+            obj as model.TaskSummaryFromPipelineTask
+          );
+        case "DATA_LOADER_TASK":
+          return model.TaskSummaryFromDataLoaderTask.redactForLog(
+            obj as model.TaskSummaryFromDataLoaderTask
+          );
+      }
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: TaskSummary): object {
     const jsonObj = {
       ...obj,

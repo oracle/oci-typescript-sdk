@@ -94,6 +94,33 @@ export namespace DiscoveredExternalDatabase {
     UnknownValue = "UNKNOWN_VALUE"
   }
 
+  export function redactForLog(obj: DiscoveredExternalDatabase): object {
+    if (!obj || obj.componentType !== "DATABASE") {
+      return model.DiscoveredExternalDbSystemComponent.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "pluggableDatabases")) {
+      const value = obj.pluggableDatabases;
+      redactedObj["pluggableDatabases"] =
+        value == null
+          ? value
+          : value.map(item => model.DiscoveredExternalPluggableDatabase.redactForLog(item));
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "connector")) {
+      const value = obj.connector;
+      redactedObj["connector"] =
+        value == null ? value : model.ExternalDbSystemDiscoveryConnector.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: DiscoveredExternalDatabase, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj

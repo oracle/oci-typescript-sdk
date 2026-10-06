@@ -60,6 +60,23 @@ Deprecated: This field is deprecated and replaced by \"secretAccessKeySecretId\"
 }
 
 export namespace UpdateAmazonS3ConnectionDetails {
+  export function redactForLog(obj: UpdateAmazonS3ConnectionDetails): object {
+    if (!obj || obj.connectionType !== "AMAZON_S3") {
+      return model.UpdateConnectionDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "secretAccessKey")) {
+      redactedObj["secretAccessKey"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: UpdateAmazonS3ConnectionDetails,
     isParentJsonObj?: boolean

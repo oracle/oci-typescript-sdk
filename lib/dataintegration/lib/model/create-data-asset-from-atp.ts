@@ -90,6 +90,36 @@ export interface CreateDataAssetFromAtp extends model.CreateDataAssetDetails {
 }
 
 export namespace CreateDataAssetFromAtp {
+  export function redactForLog(obj: CreateDataAssetFromAtp): object {
+    if (!obj || obj.modelType !== "ORACLE_ATP_DATA_ASSET") {
+      return model.CreateDataAssetDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "defaultConnection")) {
+      const value = obj.defaultConnection;
+      redactedObj["defaultConnection"] =
+        value == null ? value : model.CreateConnectionFromAtp.redactForLog(value);
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "stagingDataAsset")) {
+      const value = obj.stagingDataAsset;
+      redactedObj["stagingDataAsset"] = value == null ? value : model.DataAsset.redactForLog(value);
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "stagingConnection")) {
+      const value = obj.stagingConnection;
+      redactedObj["stagingConnection"] =
+        value == null ? value : model.Connection.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreateDataAssetFromAtp, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj

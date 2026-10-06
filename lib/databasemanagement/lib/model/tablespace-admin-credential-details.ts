@@ -39,6 +39,24 @@ export namespace TablespaceAdminCredentialDetails {
     Sysdba = "SYSDBA"
   }
 
+  export function redactForLog(obj: TablespaceAdminCredentialDetails): object {
+    if (obj && Object.prototype.hasOwnProperty.call(obj, "tablespaceAdminCredentialType")) {
+      switch (obj.tablespaceAdminCredentialType) {
+        case "PASSWORD":
+          return model.TablespaceAdminPasswordCredentialDetails.redactForLog(
+            obj as model.TablespaceAdminPasswordCredentialDetails
+          );
+      }
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: TablespaceAdminCredentialDetails): object {
     const jsonObj = { ...obj, ...{} };
 

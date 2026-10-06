@@ -61,6 +61,21 @@ export namespace GenerateHealthReportDetails {
     All = "ALL"
   }
 
+  export function redactForLog(obj: GenerateHealthReportDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "targetCredentials")) {
+      const value = obj.targetCredentials;
+      redactedObj["targetCredentials"] =
+        value == null ? value : model.Credentials.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: GenerateHealthReportDetails): object {
     const jsonObj = {
       ...obj,

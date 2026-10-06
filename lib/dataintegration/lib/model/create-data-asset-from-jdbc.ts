@@ -36,6 +36,25 @@ export interface CreateDataAssetFromJdbc extends model.CreateDataAssetDetails {
 }
 
 export namespace CreateDataAssetFromJdbc {
+  export function redactForLog(obj: CreateDataAssetFromJdbc): object {
+    if (!obj || obj.modelType !== "GENERIC_JDBC_DATA_ASSET") {
+      return model.CreateDataAssetDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "defaultConnection")) {
+      const value = obj.defaultConnection;
+      redactedObj["defaultConnection"] =
+        value == null ? value : model.CreateConnectionFromJdbc.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreateDataAssetFromJdbc, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj

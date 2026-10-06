@@ -25,6 +25,23 @@ export interface ExternalDbSystemConnectionInfo {
 }
 
 export namespace ExternalDbSystemConnectionInfo {
+  export function redactForLog(obj: ExternalDbSystemConnectionInfo): object {
+    if (obj && Object.prototype.hasOwnProperty.call(obj, "componentType")) {
+      switch (obj.componentType) {
+        case "DATABASE":
+          return model.ExternalDatabaseConnectionInfo.redactForLog(
+            obj as model.ExternalDatabaseConnectionInfo
+          );
+      }
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: ExternalDbSystemConnectionInfo): object {
     const jsonObj = { ...obj, ...{} };
 

@@ -24,6 +24,21 @@ export interface ConfigureIotDomainDataAccessDetails {
 }
 
 export namespace ConfigureIotDomainDataAccessDetails {
+  export function redactForLog(obj: ConfigureIotDomainDataAccessDetails): object {
+    if (obj && Object.prototype.hasOwnProperty.call(obj, "type")) {
+      switch (obj.type) {
+        case "APEX":
+          return model.ApexDataAccessDetails.redactForLog(obj as model.ApexDataAccessDetails);
+      }
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: ConfigureIotDomainDataAccessDetails): object {
     const jsonObj = { ...obj, ...{} };
 

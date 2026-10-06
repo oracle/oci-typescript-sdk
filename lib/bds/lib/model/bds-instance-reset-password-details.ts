@@ -41,6 +41,18 @@ export namespace BdsInstanceResetPasswordDetails {
     Jupyterhub = "JUPYTERHUB"
   }
 
+  export function redactForLog(obj: BdsInstanceResetPasswordDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+    if (Object.prototype.hasOwnProperty.call(obj, "clusterAdminPassword")) {
+      redactedObj["clusterAdminPassword"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: BdsInstanceResetPasswordDetails): object {
     const jsonObj = { ...obj, ...{} };
 

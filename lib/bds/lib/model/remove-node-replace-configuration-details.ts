@@ -30,6 +30,18 @@ export interface RemoveNodeReplaceConfigurationDetails {
 }
 
 export namespace RemoveNodeReplaceConfigurationDetails {
+  export function redactForLog(obj: RemoveNodeReplaceConfigurationDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+    if (Object.prototype.hasOwnProperty.call(obj, "clusterAdminPassword")) {
+      redactedObj["clusterAdminPassword"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: RemoveNodeReplaceConfigurationDetails): object {
     const jsonObj = { ...obj, ...{} };
 

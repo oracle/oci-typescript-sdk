@@ -30,6 +30,18 @@ export interface DeactivateUpstConfigurationDetails {
 }
 
 export namespace DeactivateUpstConfigurationDetails {
+  export function redactForLog(obj: DeactivateUpstConfigurationDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+    if (Object.prototype.hasOwnProperty.call(obj, "clusterAdminPassword")) {
+      redactedObj["clusterAdminPassword"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: DeactivateUpstConfigurationDetails): object {
     const jsonObj = { ...obj, ...{} };
 

@@ -141,6 +141,61 @@ export interface CreateDistributedDatabaseDetails {
 }
 
 export namespace CreateDistributedDatabaseDetails {
+  export function redactForLog(obj: CreateDistributedDatabaseDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "compositeRaftShardSpaces")) {
+      const value = obj.compositeRaftShardSpaces;
+      redactedObj["compositeRaftShardSpaces"] =
+        value == null
+          ? value
+          : value.map(item => model.CreateCompositeRaftShardSpaceDetails.redactForLog(item));
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "compositeDataGuardShardSpaces")) {
+      const value = obj.compositeDataGuardShardSpaces;
+      redactedObj["compositeDataGuardShardSpaces"] =
+        value == null
+          ? value
+          : value.map(item => model.CreateCompositeDataGuardShardSpaceDetails.redactForLog(item));
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "systemRaftClusters")) {
+      const value = obj.systemRaftClusters;
+      redactedObj["systemRaftClusters"] =
+        value == null
+          ? value
+          : value.map(item => model.CreateSystemRaftClusterDetails.redactForLog(item));
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "systemDataGuardDatabases")) {
+      const value = obj.systemDataGuardDatabases;
+      redactedObj["systemDataGuardDatabases"] =
+        value == null ? value : model.CreateSystemDataGuardDatabaseDetails.redactForLog(value);
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "userShardSpaces")) {
+      const value = obj.userShardSpaces;
+      redactedObj["userShardSpaces"] =
+        value == null
+          ? value
+          : value.map(item => model.CreateUserShardSpaceDetails.redactForLog(item));
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "catalogDetails")) {
+      const value = obj.catalogDetails;
+      redactedObj["catalogDetails"] =
+        value == null
+          ? value
+          : value.map(item => model.CreateDistributedDatabaseCatalogDetails.redactForLog(item));
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreateDistributedDatabaseDetails): object {
     const jsonObj = {
       ...obj,

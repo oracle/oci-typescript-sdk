@@ -25,6 +25,21 @@ export interface ExtractDetailsCollection {
 }
 
 export namespace ExtractDetailsCollection {
+  export function redactForLog(obj: ExtractDetailsCollection): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "items")) {
+      const value = obj.items;
+      redactedObj["items"] =
+        value == null ? value : value.map(item => model.ExtractDetailsSummary.redactForLog(item));
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: ExtractDetailsCollection): object {
     const jsonObj = {
       ...obj,

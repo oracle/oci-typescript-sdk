@@ -23,6 +23,23 @@ export interface CredentialEntitySpecificDetails {
 }
 
 export namespace CredentialEntitySpecificDetails {
+  export function redactForLog(obj: CredentialEntitySpecificDetails): object {
+    if (obj && Object.prototype.hasOwnProperty.call(obj, "credentialLevel")) {
+      switch (obj.credentialLevel) {
+        case "FLEET":
+          return model.FleetCredentialEntitySpecificDetails.redactForLog(
+            obj as model.FleetCredentialEntitySpecificDetails
+          );
+      }
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CredentialEntitySpecificDetails): object {
     const jsonObj = { ...obj, ...{} };
 

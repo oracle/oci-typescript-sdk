@@ -73,6 +73,27 @@ Example: {@code {\"Department\": \"Finance\"}}
 }
 
 export namespace CreatePluggableDatabaseDetails {
+  export function redactForLog(obj: CreatePluggableDatabaseDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "containerDatabaseAdminPassword")) {
+      redactedObj["containerDatabaseAdminPassword"] = "<redacted>";
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "pdbCreationTypeDetails")) {
+      const value = obj.pdbCreationTypeDetails;
+      redactedObj["pdbCreationTypeDetails"] =
+        value == null
+          ? value
+          : model.CreatePluggableDatabaseCreationTypeDetails.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreatePluggableDatabaseDetails): object {
     const jsonObj = {
       ...obj,

@@ -63,6 +63,23 @@ export interface UpdateOsvcChannelDetails extends model.UpdateChannelDetails {
 }
 
 export namespace UpdateOsvcChannelDetails {
+  export function redactForLog(obj: UpdateOsvcChannelDetails): object {
+    if (!obj || obj.type !== "OSVC") {
+      return model.UpdateChannelDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "password")) {
+      redactedObj["password"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: UpdateOsvcChannelDetails, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj

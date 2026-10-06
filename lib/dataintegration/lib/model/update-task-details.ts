@@ -71,6 +71,32 @@ export interface UpdateTaskDetails {
 }
 
 export namespace UpdateTaskDetails {
+  export function redactForLog(obj: UpdateTaskDetails): object {
+    if (obj && Object.prototype.hasOwnProperty.call(obj, "modelType")) {
+      switch (obj.modelType) {
+        case "PIPELINE_TASK":
+          return model.UpdateTaskFromPipelineTask.redactForLog(
+            obj as model.UpdateTaskFromPipelineTask
+          );
+        case "DATA_LOADER_TASK":
+          return model.UpdateTaskFromDataLoaderTask.redactForLog(
+            obj as model.UpdateTaskFromDataLoaderTask
+          );
+        case "INTEGRATION_TASK":
+          return model.UpdateTaskFromIntegrationTask.redactForLog(
+            obj as model.UpdateTaskFromIntegrationTask
+          );
+      }
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: UpdateTaskDetails): object {
     const jsonObj = {
       ...obj,

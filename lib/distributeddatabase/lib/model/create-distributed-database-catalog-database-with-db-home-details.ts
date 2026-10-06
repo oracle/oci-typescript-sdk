@@ -63,6 +63,25 @@ export interface CreateDistributedDatabaseCatalogDatabaseWithDbHomeDetails
 }
 
 export namespace CreateDistributedDatabaseCatalogDatabaseWithDbHomeDetails {
+  export function redactForLog(
+    obj: CreateDistributedDatabaseCatalogDatabaseWithDbHomeDetails
+  ): object {
+    if (!obj || obj.source !== "EXISTING_DB_HOME") {
+      return model.CreateDistributedDatabaseCatalogDatabaseDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "adminPassword")) {
+      redactedObj["adminPassword"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: CreateDistributedDatabaseCatalogDatabaseWithDbHomeDetails,
     isParentJsonObj?: boolean

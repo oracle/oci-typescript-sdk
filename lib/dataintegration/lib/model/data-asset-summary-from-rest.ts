@@ -50,6 +50,25 @@ export interface DataAssetSummaryFromRest extends model.DataAssetSummary {
 }
 
 export namespace DataAssetSummaryFromRest {
+  export function redactForLog(obj: DataAssetSummaryFromRest): object {
+    if (!obj || obj.modelType !== "REST_DATA_ASSET") {
+      return model.DataAssetSummary.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "defaultConnection")) {
+      const value = obj.defaultConnection;
+      redactedObj["defaultConnection"] =
+        value == null ? value : model.ConnectionSummary.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: DataAssetSummaryFromRest, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj

@@ -24,6 +24,27 @@ export interface UpdateIcebergCatalogDetails {
 }
 
 export namespace UpdateIcebergCatalogDetails {
+  export function redactForLog(obj: UpdateIcebergCatalogDetails): object {
+    if (obj && Object.prototype.hasOwnProperty.call(obj, "catalogType")) {
+      switch (obj.catalogType) {
+        case "REST":
+          return model.UpdateRestIcebergCatalogDetails.redactForLog(
+            obj as model.UpdateRestIcebergCatalogDetails
+          );
+        case "POLARIS":
+          return model.UpdatePolarisIcebergCatalogDetails.redactForLog(
+            obj as model.UpdatePolarisIcebergCatalogDetails
+          );
+      }
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: UpdateIcebergCatalogDetails): object {
     const jsonObj = { ...obj, ...{} };
 

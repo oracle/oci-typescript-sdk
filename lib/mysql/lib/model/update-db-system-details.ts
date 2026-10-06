@@ -217,6 +217,19 @@ It is not possible to decrease data storage size.
 }
 
 export namespace UpdateDbSystemDetails {
+  export function redactForLog(obj: UpdateDbSystemDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "adminPassword")) {
+      redactedObj["adminPassword"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: UpdateDbSystemDetails): object {
     const jsonObj = {
       ...obj,

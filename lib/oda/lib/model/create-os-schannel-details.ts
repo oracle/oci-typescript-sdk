@@ -63,6 +63,23 @@ export interface CreateOSSChannelDetails extends model.CreateChannelDetails {
 }
 
 export namespace CreateOSSChannelDetails {
+  export function redactForLog(obj: CreateOSSChannelDetails): object {
+    if (!obj || obj.type !== "OSS") {
+      return model.CreateChannelDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "authToken")) {
+      redactedObj["authToken"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreateOSSChannelDetails, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj

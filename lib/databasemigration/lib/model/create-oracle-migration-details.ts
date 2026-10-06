@@ -67,6 +67,37 @@ export interface CreateOracleMigrationDetails extends model.CreateMigrationDetai
 }
 
 export namespace CreateOracleMigrationDetails {
+  export function redactForLog(obj: CreateOracleMigrationDetails): object {
+    if (!obj || obj.databaseCombination !== "ORACLE") {
+      return model.CreateMigrationDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "migrationSettings")) {
+      const value = obj.migrationSettings;
+      redactedObj["migrationSettings"] =
+        value == null ? value : model.CreateOracleMigrationSettings.redactForLog(value);
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "dataTransferMediumDetails")) {
+      const value = obj.dataTransferMediumDetails;
+      redactedObj["dataTransferMediumDetails"] =
+        value == null ? value : model.CreateOracleDataTransferMediumDetails.redactForLog(value);
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "hubDetails")) {
+      const value = obj.hubDetails;
+      redactedObj["hubDetails"] =
+        value == null ? value : model.CreateGoldenGateHubDetails.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreateOracleMigrationDetails, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj

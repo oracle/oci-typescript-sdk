@@ -63,6 +63,23 @@ export interface CreateChannelSourceFromMysqlDetails extends model.CreateChannel
 }
 
 export namespace CreateChannelSourceFromMysqlDetails {
+  export function redactForLog(obj: CreateChannelSourceFromMysqlDetails): object {
+    if (!obj || obj.sourceType !== "MYSQL") {
+      return model.CreateChannelSourceDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "password")) {
+      redactedObj["password"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: CreateChannelSourceFromMysqlDetails,
     isParentJsonObj?: boolean

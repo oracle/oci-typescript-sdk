@@ -44,6 +44,19 @@ export interface AddKafkaDetails {
 }
 
 export namespace AddKafkaDetails {
+  export function redactForLog(obj: AddKafkaDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "clusterAdminPassword")) {
+      redactedObj["clusterAdminPassword"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: AddKafkaDetails): object {
     const jsonObj = {
       ...obj,

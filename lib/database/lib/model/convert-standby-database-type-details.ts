@@ -52,6 +52,18 @@ export namespace ConvertStandbyDatabaseTypeDetails {
     Physical = "PHYSICAL"
   }
 
+  export function redactForLog(obj: ConvertStandbyDatabaseTypeDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+    if (Object.prototype.hasOwnProperty.call(obj, "databaseAdminPassword")) {
+      redactedObj["databaseAdminPassword"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: ConvertStandbyDatabaseTypeDetails): object {
     const jsonObj = { ...obj, ...{} };
 

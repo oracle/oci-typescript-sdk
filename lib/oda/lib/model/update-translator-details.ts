@@ -47,6 +47,19 @@ export interface UpdateTranslatorDetails {
 }
 
 export namespace UpdateTranslatorDetails {
+  export function redactForLog(obj: UpdateTranslatorDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "authToken")) {
+      redactedObj["authToken"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: UpdateTranslatorDetails): object {
     const jsonObj = { ...obj, ...{} };
 

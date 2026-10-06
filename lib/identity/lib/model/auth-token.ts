@@ -90,6 +90,18 @@ export namespace AuthToken {
     UnknownValue = "UNKNOWN_VALUE"
   }
 
+  export function redactForLog(obj: AuthToken): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+    if (Object.prototype.hasOwnProperty.call(obj, "token")) {
+      redactedObj["token"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: AuthToken): object {
     const jsonObj = { ...obj, ...{} };
 

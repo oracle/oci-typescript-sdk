@@ -36,6 +36,25 @@ export interface UpdateDataAssetFromMySQL extends model.UpdateDataAssetDetails {
 }
 
 export namespace UpdateDataAssetFromMySQL {
+  export function redactForLog(obj: UpdateDataAssetFromMySQL): object {
+    if (!obj || obj.modelType !== "MYSQL_DATA_ASSET") {
+      return model.UpdateDataAssetDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "defaultConnection")) {
+      const value = obj.defaultConnection;
+      redactedObj["defaultConnection"] =
+        value == null ? value : model.UpdateConnectionFromMySQL.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: UpdateDataAssetFromMySQL, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj

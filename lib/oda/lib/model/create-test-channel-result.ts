@@ -35,6 +35,23 @@ export interface CreateTestChannelResult extends model.CreateChannelResult {
 }
 
 export namespace CreateTestChannelResult {
+  export function redactForLog(obj: CreateTestChannelResult): object {
+    if (!obj || obj.type !== "TEST") {
+      return model.CreateChannelResult.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "secretKey")) {
+      redactedObj["secretKey"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreateTestChannelResult, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj

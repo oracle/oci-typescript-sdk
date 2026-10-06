@@ -30,6 +30,19 @@ export interface Variable {
 }
 
 export namespace Variable {
+  export function redactForLog(obj: Variable): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "value")) {
+      redactedObj["value"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: Variable): object {
     const jsonObj = { ...obj, ...{} };
 

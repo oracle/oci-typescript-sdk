@@ -62,6 +62,46 @@ export interface ConnectionDetails {
 }
 
 export namespace ConnectionDetails {
+  export function redactForLog(obj: ConnectionDetails): object {
+    if (obj && Object.prototype.hasOwnProperty.call(obj, "modelType")) {
+      switch (obj.modelType) {
+        case "ORACLE_SIEBEL_CONNECTION":
+          return model.ConnectionFromOracleSiebelDetails.redactForLog(
+            obj as model.ConnectionFromOracleSiebelDetails
+          );
+        case "MYSQL_HEATWAVE_CONNECTION":
+          return model.ConnectionFromMySqlHeatWaveDetails.redactForLog(
+            obj as model.ConnectionFromMySqlHeatWaveDetails
+          );
+        case "ORACLE_ATP_CONNECTION":
+          return model.ConnectionFromAtpDetails.redactForLog(obj as model.ConnectionFromAtpDetails);
+        case "ORACLE_PEOPLESOFT_CONNECTION":
+          return model.ConnectionFromOraclePeopleSoftDetails.redactForLog(
+            obj as model.ConnectionFromOraclePeopleSoftDetails
+          );
+        case "ORACLE_ADWC_CONNECTION":
+          return model.ConnectionFromAdwcDetails.redactForLog(
+            obj as model.ConnectionFromAdwcDetails
+          );
+        case "ORACLEDB_CONNECTION":
+          return model.ConnectionFromOracleDetails.redactForLog(
+            obj as model.ConnectionFromOracleDetails
+          );
+        case "ORACLE_EBS_CONNECTION":
+          return model.ConnectionFromOracleEbsDetails.redactForLog(
+            obj as model.ConnectionFromOracleEbsDetails
+          );
+      }
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: ConnectionDetails): object {
     const jsonObj = {
       ...obj,

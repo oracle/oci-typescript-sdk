@@ -30,6 +30,18 @@ export interface RefreshUpstTokenExchangeKeytabDetails {
 }
 
 export namespace RefreshUpstTokenExchangeKeytabDetails {
+  export function redactForLog(obj: RefreshUpstTokenExchangeKeytabDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+    if (Object.prototype.hasOwnProperty.call(obj, "clusterAdminPassword")) {
+      redactedObj["clusterAdminPassword"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: RefreshUpstTokenExchangeKeytabDetails): object {
     const jsonObj = { ...obj, ...{} };
 

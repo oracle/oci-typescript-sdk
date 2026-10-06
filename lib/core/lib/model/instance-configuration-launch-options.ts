@@ -36,6 +36,7 @@ export interface InstanceConfigurationLaunchOptions {
    * volumes on platform images.
    * * {@code PARAVIRTUALIZED} - Paravirtualized disk. This is the default for boot volumes and remote block
    * storage volumes on platform images.
+   * * {@code NVME} - NVMe attached remote block storage device.
    *
    */
   "bootVolumeType"?: InstanceConfigurationLaunchOptions.BootVolumeType;
@@ -67,15 +68,19 @@ export interface InstanceConfigurationLaunchOptions {
    * volumes on platform images.
    * * {@code PARAVIRTUALIZED} - Paravirtualized disk. This is the default for boot volumes and remote block
    * storage volumes on platform images.
+   *   * {@code NVME} - NVMe attached remote block storage device.
    *
    */
   "remoteDataVolumeType"?: InstanceConfigurationLaunchOptions.RemoteDataVolumeType;
   /**
-   * Deprecated. Instead use {@code isPvEncryptionInTransitEnabled} in
-   * {@link #instanceConfigurationLaunchInstanceDetails(InstanceConfigurationLaunchInstanceDetailsRequest) instanceConfigurationLaunchInstanceDetails}.
+   * Deprecated. Use {@code isEncryptionInTransitEnabled} instead.
    *
    */
   "isPvEncryptionInTransitEnabled"?: boolean;
+  /**
+   * Whether in-transit encryption for the data volume's attachment is enabled or not.
+   */
+  "isEncryptionInTransitEnabled"?: boolean;
   /**
    * Whether to enable consistent volume naming feature. Defaults to false.
    */
@@ -89,6 +94,7 @@ export namespace InstanceConfigurationLaunchOptions {
     Ide = "IDE",
     Vfio = "VFIO",
     Paravirtualized = "PARAVIRTUALIZED",
+    Nvme = "NVME",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
@@ -124,6 +130,7 @@ export namespace InstanceConfigurationLaunchOptions {
     Ide = "IDE",
     Vfio = "VFIO",
     Paravirtualized = "PARAVIRTUALIZED",
+    Nvme = "NVME",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

@@ -22,6 +22,21 @@ export interface Password {
 }
 
 export namespace Password {
+  export function redactForLog(obj: Password): object {
+    if (obj && Object.prototype.hasOwnProperty.call(obj, "passwordType")) {
+      switch (obj.passwordType) {
+        case "IN_TEXT":
+          return model.PasswordInText.redactForLog(obj as model.PasswordInText);
+      }
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: Password): object {
     const jsonObj = { ...obj, ...{} };
 

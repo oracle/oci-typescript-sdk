@@ -51,6 +51,23 @@ export interface CreateGoogleBigQueryConnectionDetails extends model.CreateConne
 }
 
 export namespace CreateGoogleBigQueryConnectionDetails {
+  export function redactForLog(obj: CreateGoogleBigQueryConnectionDetails): object {
+    if (!obj || obj.connectionType !== "GOOGLE_BIGQUERY") {
+      return model.CreateConnectionDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "serviceAccountKeyFile")) {
+      redactedObj["serviceAccountKeyFile"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: CreateGoogleBigQueryConnectionDetails,
     isParentJsonObj?: boolean

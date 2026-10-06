@@ -91,6 +91,24 @@ export interface CreateDistributedAutonomousDatabaseCatalogWithDedicatedInfraDet
 }
 
 export namespace CreateDistributedAutonomousDatabaseCatalogWithDedicatedInfraDetails {
+  export function redactForLog(
+    obj: CreateDistributedAutonomousDatabaseCatalogWithDedicatedInfraDetails
+  ): object {
+    if (!obj || obj.source !== "ADBD_EXISTING_CLUSTER") {
+      return model.CreateAutonomousCatalogDatabaseDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+    if (Object.prototype.hasOwnProperty.call(obj, "adminPassword")) {
+      redactedObj["adminPassword"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: CreateDistributedAutonomousDatabaseCatalogWithDedicatedInfraDetails,
     isParentJsonObj?: boolean

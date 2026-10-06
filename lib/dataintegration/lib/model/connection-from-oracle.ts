@@ -32,6 +32,23 @@ export interface ConnectionFromOracle extends model.Connection {
 }
 
 export namespace ConnectionFromOracle {
+  export function redactForLog(obj: ConnectionFromOracle): object {
+    if (!obj || obj.modelType !== "ORACLEDB_CONNECTION") {
+      return model.Connection.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "password")) {
+      redactedObj["password"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: ConnectionFromOracle, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj ? obj : (model.Connection.getJsonObj(obj) as ConnectionFromOracle)),

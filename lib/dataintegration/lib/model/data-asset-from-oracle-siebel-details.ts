@@ -46,6 +46,25 @@ export interface DataAssetFromOracleSiebelDetails extends model.DataAsset {
 }
 
 export namespace DataAssetFromOracleSiebelDetails {
+  export function redactForLog(obj: DataAssetFromOracleSiebelDetails): object {
+    if (!obj || obj.modelType !== "ORACLE_SIEBEL_DATA_ASSET") {
+      return model.DataAsset.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "defaultConnection")) {
+      const value = obj.defaultConnection;
+      redactedObj["defaultConnection"] =
+        value == null ? value : model.ConnectionFromOracleSiebelDetails.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: DataAssetFromOracleSiebelDetails,
     isParentJsonObj?: boolean

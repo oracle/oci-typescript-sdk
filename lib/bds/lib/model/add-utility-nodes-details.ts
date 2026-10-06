@@ -44,6 +44,18 @@ export interface AddUtilityNodesDetails {
 }
 
 export namespace AddUtilityNodesDetails {
+  export function redactForLog(obj: AddUtilityNodesDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+    if (Object.prototype.hasOwnProperty.call(obj, "clusterAdminPassword")) {
+      redactedObj["clusterAdminPassword"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: AddUtilityNodesDetails): object {
     const jsonObj = {
       ...obj,

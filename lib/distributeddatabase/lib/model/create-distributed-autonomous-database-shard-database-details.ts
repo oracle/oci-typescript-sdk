@@ -22,6 +22,25 @@ export interface CreateDistributedAutonomousDatabaseShardDatabaseDetails {
 }
 
 export namespace CreateDistributedAutonomousDatabaseShardDatabaseDetails {
+  export function redactForLog(
+    obj: CreateDistributedAutonomousDatabaseShardDatabaseDetails
+  ): object {
+    if (obj && Object.prototype.hasOwnProperty.call(obj, "source")) {
+      switch (obj.source) {
+        case "ADBD_EXISTING_CLUSTER":
+          return model.CreateDistributedAutonomousDatabaseShardWithDedicatedInfraDetails.redactForLog(
+            obj as model.CreateDistributedAutonomousDatabaseShardWithDedicatedInfraDetails
+          );
+      }
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreateDistributedAutonomousDatabaseShardDatabaseDetails): object {
     const jsonObj = { ...obj, ...{} };
 

@@ -49,6 +49,22 @@ export namespace DatabasePasswordCredentialDetails {
     UnknownValue = "UNKNOWN_VALUE"
   }
 
+  export function redactForLog(obj: DatabasePasswordCredentialDetails): object {
+    if (!obj || obj.credentialType !== "PASSWORD") {
+      return model.DatabaseCredentialDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+    if (Object.prototype.hasOwnProperty.call(obj, "password")) {
+      redactedObj["password"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: DatabasePasswordCredentialDetails,
     isParentJsonObj?: boolean

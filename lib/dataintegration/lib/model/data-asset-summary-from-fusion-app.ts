@@ -49,6 +49,25 @@ export interface DataAssetSummaryFromFusionApp extends model.DataAssetSummary {
 }
 
 export namespace DataAssetSummaryFromFusionApp {
+  export function redactForLog(obj: DataAssetSummaryFromFusionApp): object {
+    if (!obj || obj.modelType !== "FUSION_APP_DATA_ASSET") {
+      return model.DataAssetSummary.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "defaultConnection")) {
+      const value = obj.defaultConnection;
+      redactedObj["defaultConnection"] =
+        value == null ? value : model.ConnectionSummary.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: DataAssetSummaryFromFusionApp,
     isParentJsonObj?: boolean

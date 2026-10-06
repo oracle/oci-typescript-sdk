@@ -38,6 +38,24 @@ export interface PublishedObjectSummaryFromDataLoaderTask extends model.Publishe
 }
 
 export namespace PublishedObjectSummaryFromDataLoaderTask {
+  export function redactForLog(obj: PublishedObjectSummaryFromDataLoaderTask): object {
+    if (!obj || obj.modelType !== "DATA_LOADER_TASK") {
+      return model.PublishedObjectSummary.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "dataFlow")) {
+      const value = obj.dataFlow;
+      redactedObj["dataFlow"] = value == null ? value : model.DataFlow.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: PublishedObjectSummaryFromDataLoaderTask,
     isParentJsonObj?: boolean

@@ -34,6 +34,22 @@ export interface ActivateBdsMetastoreConfigurationDetails {
 }
 
 export namespace ActivateBdsMetastoreConfigurationDetails {
+  export function redactForLog(obj: ActivateBdsMetastoreConfigurationDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+    if (Object.prototype.hasOwnProperty.call(obj, "bdsApiKeyPassphrase")) {
+      redactedObj["bdsApiKeyPassphrase"] = "<redacted>";
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "clusterAdminPassword")) {
+      redactedObj["clusterAdminPassword"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: ActivateBdsMetastoreConfigurationDetails): object {
     const jsonObj = { ...obj, ...{} };
 

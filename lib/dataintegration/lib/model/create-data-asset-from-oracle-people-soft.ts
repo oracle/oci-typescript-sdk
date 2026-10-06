@@ -46,6 +46,25 @@ export interface CreateDataAssetFromOraclePeopleSoft extends model.CreateDataAss
 }
 
 export namespace CreateDataAssetFromOraclePeopleSoft {
+  export function redactForLog(obj: CreateDataAssetFromOraclePeopleSoft): object {
+    if (!obj || obj.modelType !== "ORACLE_PEOPLESOFT_DATA_ASSET") {
+      return model.CreateDataAssetDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "defaultConnection")) {
+      const value = obj.defaultConnection;
+      redactedObj["defaultConnection"] =
+        value == null ? value : model.CreateConnectionFromOraclePeopleSoft.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: CreateDataAssetFromOraclePeopleSoft,
     isParentJsonObj?: boolean

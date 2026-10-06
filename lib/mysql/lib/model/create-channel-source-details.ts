@@ -22,6 +22,23 @@ export interface CreateChannelSourceDetails {
 }
 
 export namespace CreateChannelSourceDetails {
+  export function redactForLog(obj: CreateChannelSourceDetails): object {
+    if (obj && Object.prototype.hasOwnProperty.call(obj, "sourceType")) {
+      switch (obj.sourceType) {
+        case "MYSQL":
+          return model.CreateChannelSourceFromMysqlDetails.redactForLog(
+            obj as model.CreateChannelSourceFromMysqlDetails
+          );
+      }
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreateChannelSourceDetails): object {
     const jsonObj = { ...obj, ...{} };
 

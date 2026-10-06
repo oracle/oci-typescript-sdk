@@ -40,6 +40,25 @@ export interface CreateAutonomousCompositeRaftShardSpaceDetails {
 }
 
 export namespace CreateAutonomousCompositeRaftShardSpaceDetails {
+  export function redactForLog(obj: CreateAutonomousCompositeRaftShardSpaceDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "raftClusters")) {
+      const value = obj.raftClusters;
+      redactedObj["raftClusters"] =
+        value == null
+          ? value
+          : value.map(item =>
+              model.CreateAutonomousCompositeShardSpaceRaftClusterDetails.redactForLog(item)
+            );
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreateAutonomousCompositeRaftShardSpaceDetails): object {
     const jsonObj = {
       ...obj,

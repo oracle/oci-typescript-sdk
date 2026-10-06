@@ -66,6 +66,44 @@ export namespace DiscoveredExternalDbSystemComponent {
     UnknownValue = "UNKNOWN_VALUE"
   }
 
+  export function redactForLog(obj: DiscoveredExternalDbSystemComponent): object {
+    if (obj && Object.prototype.hasOwnProperty.call(obj, "componentType")) {
+      switch (obj.componentType) {
+        case "CLUSTER":
+          return model.DiscoveredExternalCluster.redactForLog(
+            obj as model.DiscoveredExternalCluster
+          );
+        case "DATABASE":
+          return model.DiscoveredExternalDatabase.redactForLog(
+            obj as model.DiscoveredExternalDatabase
+          );
+        case "PLUGGABLE_DATABASE":
+          return model.DiscoveredExternalPluggableDatabase.redactForLog(
+            obj as model.DiscoveredExternalPluggableDatabase
+          );
+        case "CLUSTER_INSTANCE":
+          return model.DiscoveredExternalClusterInstance.redactForLog(
+            obj as model.DiscoveredExternalClusterInstance
+          );
+        case "LISTENER":
+          return model.DiscoveredExternalListener.redactForLog(
+            obj as model.DiscoveredExternalListener
+          );
+        case "DATABASE_NODE":
+          return model.DiscoveredExternalDbNode.redactForLog(obj as model.DiscoveredExternalDbNode);
+        case "ASM":
+          return model.DiscoveredExternalAsm.redactForLog(obj as model.DiscoveredExternalAsm);
+      }
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: DiscoveredExternalDbSystemComponent): object {
     const jsonObj = {
       ...obj,

@@ -60,6 +60,23 @@ export interface CreateAzureSynapseConnectionDetails extends model.CreateConnect
 }
 
 export namespace CreateAzureSynapseConnectionDetails {
+  export function redactForLog(obj: CreateAzureSynapseConnectionDetails): object {
+    if (!obj || obj.connectionType !== "AZURE_SYNAPSE_ANALYTICS") {
+      return model.CreateConnectionDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "password")) {
+      redactedObj["password"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: CreateAzureSynapseConnectionDetails,
     isParentJsonObj?: boolean

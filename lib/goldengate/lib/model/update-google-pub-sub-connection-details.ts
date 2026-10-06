@@ -41,6 +41,23 @@ export interface UpdateGooglePubSubConnectionDetails extends model.UpdateConnect
 }
 
 export namespace UpdateGooglePubSubConnectionDetails {
+  export function redactForLog(obj: UpdateGooglePubSubConnectionDetails): object {
+    if (!obj || obj.connectionType !== "GOOGLE_PUBSUB") {
+      return model.UpdateConnectionDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "serviceAccountKeyFile")) {
+      redactedObj["serviceAccountKeyFile"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: UpdateGooglePubSubConnectionDetails,
     isParentJsonObj?: boolean

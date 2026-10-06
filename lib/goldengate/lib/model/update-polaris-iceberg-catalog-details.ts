@@ -53,6 +53,23 @@ export interface UpdatePolarisIcebergCatalogDetails extends model.UpdateIcebergC
 }
 
 export namespace UpdatePolarisIcebergCatalogDetails {
+  export function redactForLog(obj: UpdatePolarisIcebergCatalogDetails): object {
+    if (!obj || obj.catalogType !== "POLARIS") {
+      return model.UpdateIcebergCatalogDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "clientSecret")) {
+      redactedObj["clientSecret"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: UpdatePolarisIcebergCatalogDetails,
     isParentJsonObj?: boolean

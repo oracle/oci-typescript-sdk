@@ -38,6 +38,24 @@ export interface PublishedObjectFromPipelineTask extends model.PublishedObject {
 }
 
 export namespace PublishedObjectFromPipelineTask {
+  export function redactForLog(obj: PublishedObjectFromPipelineTask): object {
+    if (!obj || obj.modelType !== "PIPELINE_TASK") {
+      return model.PublishedObject.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "pipeline")) {
+      const value = obj.pipeline;
+      redactedObj["pipeline"] = value == null ? value : model.Pipeline.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: PublishedObjectFromPipelineTask,
     isParentJsonObj?: boolean

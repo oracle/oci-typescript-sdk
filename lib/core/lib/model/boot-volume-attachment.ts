@@ -77,13 +77,16 @@ Example: {@code 2016-08-25T21:10:29.600Z}
     */
   "timeUpdated"?: Date;
   /**
-   * Whether in-transit encryption for the boot volume's paravirtualized attachment is enabled or not.
+   * Deprecated. Use {@code isEncryptionInTransitEnabled} instead.
    *
    */
   "isPvEncryptionInTransitEnabled"?: boolean;
   /**
-   * Refer the top-level definition of encryptionInTransitType.
-   * The default value is NONE.
+   * Specifies whether in-transit encryption is enabled for the boot volume's attachment.
+   */
+  "isEncryptionInTransitEnabled"?: boolean;
+  /**
+   * Deprecated. Use {@code isEncryptionInTransitEnabled} instead.
    *
    */
   "encryptionInTransitType"?: model.EncryptionInTransitType;

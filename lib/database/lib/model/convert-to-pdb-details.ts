@@ -40,6 +40,21 @@ export namespace ConvertToPdbDetails {
     SyncRollback = "SYNC_ROLLBACK"
   }
 
+  export function redactForLog(obj: ConvertToPdbDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "convertToPdbTargetDetails")) {
+      const value = obj.convertToPdbTargetDetails;
+      redactedObj["convertToPdbTargetDetails"] =
+        value == null ? value : model.ConvertToPdbTargetBase.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: ConvertToPdbDetails): object {
     const jsonObj = {
       ...obj,

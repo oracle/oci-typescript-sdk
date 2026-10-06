@@ -76,6 +76,27 @@ export interface UpdateDatabricksConnectionDetails extends model.UpdateConnectio
 }
 
 export namespace UpdateDatabricksConnectionDetails {
+  export function redactForLog(obj: UpdateDatabricksConnectionDetails): object {
+    if (!obj || obj.connectionType !== "DATABRICKS") {
+      return model.UpdateConnectionDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "password")) {
+      redactedObj["password"] = "<redacted>";
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "clientSecret")) {
+      redactedObj["clientSecret"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: UpdateDatabricksConnectionDetails,
     isParentJsonObj?: boolean

@@ -53,6 +53,21 @@ Example: {@code {\"Department\": \"Finance\"}}
 }
 
 export namespace CreateDbHomeFromBackupDetails {
+  export function redactForLog(obj: CreateDbHomeFromBackupDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "database")) {
+      const value = obj.database;
+      redactedObj["database"] =
+        value == null ? value : model.CreateDatabaseFromBackupDetails.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreateDbHomeFromBackupDetails): object {
     const jsonObj = {
       ...obj,

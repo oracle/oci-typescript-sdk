@@ -57,6 +57,23 @@ export interface UpdateMicrosoftFabricConnectionDetails extends model.UpdateConn
 }
 
 export namespace UpdateMicrosoftFabricConnectionDetails {
+  export function redactForLog(obj: UpdateMicrosoftFabricConnectionDetails): object {
+    if (!obj || obj.connectionType !== "MICROSOFT_FABRIC") {
+      return model.UpdateConnectionDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "clientSecret")) {
+      redactedObj["clientSecret"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: UpdateMicrosoftFabricConnectionDetails,
     isParentJsonObj?: boolean

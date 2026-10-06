@@ -44,6 +44,27 @@ export interface CreatePluggableDatabaseFromRelocateDetails
 }
 
 export namespace CreatePluggableDatabaseFromRelocateDetails {
+  export function redactForLog(obj: CreatePluggableDatabaseFromRelocateDetails): object {
+    if (!obj || obj.creationType !== "RELOCATE_PDB") {
+      return model.CreatePluggableDatabaseCreationTypeDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "dblinkUserPassword")) {
+      redactedObj["dblinkUserPassword"] = "<redacted>";
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "sourceContainerDatabaseAdminPassword")) {
+      redactedObj["sourceContainerDatabaseAdminPassword"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: CreatePluggableDatabaseFromRelocateDetails,
     isParentJsonObj?: boolean

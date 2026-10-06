@@ -24,6 +24,23 @@ export interface AiModelAuthDetails {
 }
 
 export namespace AiModelAuthDetails {
+  export function redactForLog(obj: AiModelAuthDetails): object {
+    if (obj && Object.prototype.hasOwnProperty.call(obj, "authType")) {
+      switch (obj.authType) {
+        case "OCI_GEN_AI":
+          return model.OciGenAiModelAuthDetails.redactForLog(obj as model.OciGenAiModelAuthDetails);
+        case "API_KEY":
+          return model.ApiKeyAiModelAuthDetails.redactForLog(obj as model.ApiKeyAiModelAuthDetails);
+      }
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: AiModelAuthDetails): object {
     const jsonObj = { ...obj, ...{} };
 

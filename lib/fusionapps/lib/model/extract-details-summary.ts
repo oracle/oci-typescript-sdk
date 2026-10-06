@@ -33,6 +33,19 @@ export interface ExtractDetailsSummary {
 }
 
 export namespace ExtractDetailsSummary {
+  export function redactForLog(obj: ExtractDetailsSummary): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "password")) {
+      redactedObj["password"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: ExtractDetailsSummary): object {
     const jsonObj = { ...obj, ...{} };
 

@@ -59,6 +59,25 @@ Example: {@code {\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}}
 }
 
 export namespace ExternalDbSystemMacsConnector {
+  export function redactForLog(obj: ExternalDbSystemMacsConnector): object {
+    if (!obj || obj.connectorType !== "MACS") {
+      return model.ExternalDbSystemConnector.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "connectionInfo")) {
+      const value = obj.connectionInfo;
+      redactedObj["connectionInfo"] =
+        value == null ? value : model.ExternalDbSystemConnectionInfo.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: ExternalDbSystemMacsConnector,
     isParentJsonObj?: boolean

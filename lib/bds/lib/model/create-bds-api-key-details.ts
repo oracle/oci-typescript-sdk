@@ -46,6 +46,19 @@ export interface CreateBdsApiKeyDetails {
 }
 
 export namespace CreateBdsApiKeyDetails {
+  export function redactForLog(obj: CreateBdsApiKeyDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "passphrase")) {
+      redactedObj["passphrase"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreateBdsApiKeyDetails): object {
     const jsonObj = { ...obj, ...{} };
 

@@ -31,6 +31,23 @@ export interface UpdateCredentialBasicDetails extends model.UpdateCredentialDeta
 }
 
 export namespace UpdateCredentialBasicDetails {
+  export function redactForLog(obj: UpdateCredentialBasicDetails): object {
+    if (!obj || obj.type !== "BASIC") {
+      return model.UpdateCredentialDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "password")) {
+      redactedObj["password"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: UpdateCredentialBasicDetails, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj

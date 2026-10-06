@@ -30,6 +30,18 @@ export interface FailoverDataGuardDetails {
 }
 
 export namespace FailoverDataGuardDetails {
+  export function redactForLog(obj: FailoverDataGuardDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+    if (Object.prototype.hasOwnProperty.call(obj, "databaseAdminPassword")) {
+      redactedObj["databaseAdminPassword"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: FailoverDataGuardDetails): object {
     const jsonObj = { ...obj, ...{} };
 

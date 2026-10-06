@@ -80,6 +80,27 @@ export interface CreateDatabricksConnectionDetails extends model.CreateConnectio
 }
 
 export namespace CreateDatabricksConnectionDetails {
+  export function redactForLog(obj: CreateDatabricksConnectionDetails): object {
+    if (!obj || obj.connectionType !== "DATABRICKS") {
+      return model.CreateConnectionDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "password")) {
+      redactedObj["password"] = "<redacted>";
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "clientSecret")) {
+      redactedObj["clientSecret"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: CreateDatabricksConnectionDetails,
     isParentJsonObj?: boolean
