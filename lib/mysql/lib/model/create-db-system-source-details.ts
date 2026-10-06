@@ -23,6 +23,27 @@ export interface CreateDbSystemSourceDetails {
 }
 
 export namespace CreateDbSystemSourceDetails {
+  export function redactForLog(obj: CreateDbSystemSourceDetails): object {
+    if (obj && Object.prototype.hasOwnProperty.call(obj, "sourceType")) {
+      switch (obj.sourceType) {
+        case "DBSYSTEM":
+          return model.CreateDbSystemSourceFromDbSystemDetails.redactForLog(
+            obj as model.CreateDbSystemSourceFromDbSystemDetails
+          );
+        case "IMPORTURL":
+          return model.CreateDbSystemSourceImportFromUrlDetails.redactForLog(
+            obj as model.CreateDbSystemSourceImportFromUrlDetails
+          );
+      }
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreateDbSystemSourceDetails): object {
     const jsonObj = { ...obj, ...{} };
 

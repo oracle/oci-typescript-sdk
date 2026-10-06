@@ -46,6 +46,25 @@ export interface DataAssetSummaryFromOracleSiebel extends model.DataAssetSummary
 }
 
 export namespace DataAssetSummaryFromOracleSiebel {
+  export function redactForLog(obj: DataAssetSummaryFromOracleSiebel): object {
+    if (!obj || obj.modelType !== "ORACLE_SIEBEL_DATA_ASSET") {
+      return model.DataAssetSummary.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "defaultConnection")) {
+      const value = obj.defaultConnection;
+      redactedObj["defaultConnection"] =
+        value == null ? value : model.ConnectionSummaryFromOracleSiebel.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: DataAssetSummaryFromOracleSiebel,
     isParentJsonObj?: boolean

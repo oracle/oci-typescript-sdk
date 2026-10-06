@@ -37,6 +37,33 @@ export interface CreateCompositeDataGuardShardSpaceDetails {
 }
 
 export namespace CreateCompositeDataGuardShardSpaceDetails {
+  export function redactForLog(obj: CreateCompositeDataGuardShardSpaceDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "originalReplica")) {
+      const value = obj.originalReplica;
+      redactedObj["originalReplica"] =
+        value == null
+          ? value
+          : model.CreateCompositeDataGuardShardSpaceReplicaDetails.redactForLog(value);
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "dataGuardReplicas")) {
+      const value = obj.dataGuardReplicas;
+      redactedObj["dataGuardReplicas"] =
+        value == null
+          ? value
+          : value.map(item =>
+              model.CreateCompositeDataGuardShardSpaceReplicaDetails.redactForLog(item)
+            );
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreateCompositeDataGuardShardSpaceDetails): object {
     const jsonObj = {
       ...obj,

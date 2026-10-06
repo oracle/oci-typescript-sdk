@@ -28,6 +28,24 @@ export interface MonitorConfiguration {
 }
 
 export namespace MonitorConfiguration {
+  export function redactForLog(obj: MonitorConfiguration): object {
+    if (obj && Object.prototype.hasOwnProperty.call(obj, "configType")) {
+      switch (obj.configType) {
+        case "FTP_CONFIG":
+          return model.FtpMonitorConfiguration.redactForLog(obj as model.FtpMonitorConfiguration);
+        case "SQL_CONFIG":
+          return model.SqlMonitorConfiguration.redactForLog(obj as model.SqlMonitorConfiguration);
+      }
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: MonitorConfiguration): object {
     const jsonObj = {
       ...obj,

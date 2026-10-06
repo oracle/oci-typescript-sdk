@@ -24,6 +24,24 @@ export interface UpdateTaskFromIntegrationTask extends model.UpdateTaskDetails {
 }
 
 export namespace UpdateTaskFromIntegrationTask {
+  export function redactForLog(obj: UpdateTaskFromIntegrationTask): object {
+    if (!obj || obj.modelType !== "INTEGRATION_TASK") {
+      return model.UpdateTaskDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "dataFlow")) {
+      const value = obj.dataFlow;
+      redactedObj["dataFlow"] = value == null ? value : model.DataFlow.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: UpdateTaskFromIntegrationTask,
     isParentJsonObj?: boolean

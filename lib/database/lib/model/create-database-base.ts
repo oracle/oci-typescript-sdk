@@ -47,6 +47,32 @@ This cannot be updated in parallel with any of the following: licenseModel, dbEd
 }
 
 export namespace CreateDatabaseBase {
+  export function redactForLog(obj: CreateDatabaseBase): object {
+    if (obj && Object.prototype.hasOwnProperty.call(obj, "source")) {
+      switch (obj.source) {
+        case "NONE":
+          return model.CreateNewDatabaseDetails.redactForLog(obj as model.CreateNewDatabaseDetails);
+        case "DATAGUARD":
+          return model.CreateStandByDatabaseDetails.redactForLog(
+            obj as model.CreateStandByDatabaseDetails
+          );
+        case "DATABASE":
+          return model.CreateDatabaseFromDatabase.redactForLog(
+            obj as model.CreateDatabaseFromDatabase
+          );
+        case "DB_BACKUP":
+          return model.CreateDatabaseFromBackup.redactForLog(obj as model.CreateDatabaseFromBackup);
+      }
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreateDatabaseBase): object {
     const jsonObj = { ...obj, ...{} };
 

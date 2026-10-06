@@ -81,6 +81,25 @@ Example: {@code {\"Department\": \"Finance\"}}
 }
 
 export namespace CreateDatabaseFromAnotherDatabaseDetails {
+  export function redactForLog(obj: CreateDatabaseFromAnotherDatabaseDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "sourceEncryptionKeyLocationDetails")) {
+      const value = obj.sourceEncryptionKeyLocationDetails;
+      redactedObj["sourceEncryptionKeyLocationDetails"] =
+        value == null ? value : model.EncryptionKeyLocationDetails.redactForLog(value);
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "recoveryApplianceVpcPassword")) {
+      redactedObj["recoveryApplianceVpcPassword"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreateDatabaseFromAnotherDatabaseDetails): object {
     const jsonObj = {
       ...obj,

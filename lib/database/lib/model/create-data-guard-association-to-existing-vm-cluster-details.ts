@@ -38,6 +38,25 @@ export interface CreateDataGuardAssociationToExistingVmClusterDetails
 }
 
 export namespace CreateDataGuardAssociationToExistingVmClusterDetails {
+  export function redactForLog(obj: CreateDataGuardAssociationToExistingVmClusterDetails): object {
+    if (!obj || obj.creationType !== "ExistingVmCluster") {
+      return model.CreateDataGuardAssociationDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "sourceEncryptionKeyLocationDetails")) {
+      const value = obj.sourceEncryptionKeyLocationDetails;
+      redactedObj["sourceEncryptionKeyLocationDetails"] =
+        value == null ? value : model.EncryptionKeyLocationDetails.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: CreateDataGuardAssociationToExistingVmClusterDetails,
     isParentJsonObj?: boolean

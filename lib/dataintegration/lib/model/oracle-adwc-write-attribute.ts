@@ -66,6 +66,30 @@ export interface OracleAdwcWriteAttribute extends model.AbstractWriteAttribute {
 }
 
 export namespace OracleAdwcWriteAttribute {
+  export function redactForLog(obj: OracleAdwcWriteAttribute): object {
+    if (!obj || obj.modelType !== "ORACLEADWCWRITEATTRIBUTE") {
+      return model.AbstractWriteAttribute.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "stagingDataAsset")) {
+      const value = obj.stagingDataAsset;
+      redactedObj["stagingDataAsset"] = value == null ? value : model.DataAsset.redactForLog(value);
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "stagingConnection")) {
+      const value = obj.stagingConnection;
+      redactedObj["stagingConnection"] =
+        value == null ? value : model.Connection.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: OracleAdwcWriteAttribute, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj

@@ -32,6 +32,23 @@ export interface ConnectionSummaryFromOracle extends model.ConnectionSummary {
 }
 
 export namespace ConnectionSummaryFromOracle {
+  export function redactForLog(obj: ConnectionSummaryFromOracle): object {
+    if (!obj || obj.modelType !== "ORACLEDB_CONNECTION") {
+      return model.ConnectionSummary.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "password")) {
+      redactedObj["password"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: ConnectionSummaryFromOracle, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj

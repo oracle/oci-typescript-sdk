@@ -57,6 +57,33 @@ Example: {@code {\"Department\": \"Finance\"}}
 }
 
 export namespace CreateTargetDatabaseDetails {
+  export function redactForLog(obj: CreateTargetDatabaseDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "credentials")) {
+      const value = obj.credentials;
+      redactedObj["credentials"] = value == null ? value : model.Credentials.redactForLog(value);
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "tlsConfig")) {
+      const value = obj.tlsConfig;
+      redactedObj["tlsConfig"] = value == null ? value : model.TlsConfig.redactForLog(value);
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "peerTargetDatabaseDetails")) {
+      const value = obj.peerTargetDatabaseDetails;
+      redactedObj["peerTargetDatabaseDetails"] =
+        value == null
+          ? value
+          : value.map(item => model.CreatePeerTargetDatabaseDetails.redactForLog(item));
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreateTargetDatabaseDetails): object {
     const jsonObj = {
       ...obj,

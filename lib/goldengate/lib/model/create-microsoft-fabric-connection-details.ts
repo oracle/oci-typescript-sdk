@@ -61,6 +61,23 @@ export interface CreateMicrosoftFabricConnectionDetails extends model.CreateConn
 }
 
 export namespace CreateMicrosoftFabricConnectionDetails {
+  export function redactForLog(obj: CreateMicrosoftFabricConnectionDetails): object {
+    if (!obj || obj.connectionType !== "MICROSOFT_FABRIC") {
+      return model.CreateConnectionDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "clientSecret")) {
+      redactedObj["clientSecret"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: CreateMicrosoftFabricConnectionDetails,
     isParentJsonObj?: boolean

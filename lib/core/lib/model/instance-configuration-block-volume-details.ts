@@ -28,7 +28,8 @@ import common = require("oci-common");
 export interface InstanceConfigurationBlockVolumeDetails {
   "attachDetails"?:
     | model.InstanceConfigurationIscsiAttachVolumeDetails
-    | model.InstanceConfigurationParavirtualizedAttachVolumeDetails;
+    | model.InstanceConfigurationParavirtualizedAttachVolumeDetails
+    | model.InstanceConfigurationNvmeAttachVolumeDetails;
   "createDetails"?: model.InstanceConfigurationCreateVolumeDetails;
   /**
    * The OCID of the volume.

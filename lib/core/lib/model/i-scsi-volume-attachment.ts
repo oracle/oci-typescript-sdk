@@ -74,8 +74,7 @@ Example: {@code 3260}
    */
   "multipathDevices"?: Array<model.MultipathDevice>;
   /**
-   * Refer the top-level definition of encryptionInTransitType.
-   * The default value is NONE.
+   * Deprecated. Use {@code isEncryptionInTransitEnabled} instead.
    *
    */
   "encryptionInTransitType"?: model.EncryptionInTransitType;

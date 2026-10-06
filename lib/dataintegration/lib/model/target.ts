@@ -80,6 +80,25 @@ export namespace Target {
     UnknownValue = "UNKNOWN_VALUE"
   }
 
+  export function redactForLog(obj: Target): object {
+    if (!obj || obj.modelType !== "TARGET_OPERATOR") {
+      return model.Operator.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "writeOperationConfig")) {
+      const value = obj.writeOperationConfig;
+      redactedObj["writeOperationConfig"] =
+        value == null ? value : model.WriteOperationConfig.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: Target, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj ? obj : (model.Operator.getJsonObj(obj) as Target)),

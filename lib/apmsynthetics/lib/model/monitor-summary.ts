@@ -144,6 +144,21 @@ export interface MonitorSummary {
 }
 
 export namespace MonitorSummary {
+  export function redactForLog(obj: MonitorSummary): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "configuration")) {
+      const value = obj.configuration;
+      redactedObj["configuration"] =
+        value == null ? value : model.MonitorConfiguration.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: MonitorSummary): object {
     const jsonObj = {
       ...obj,

@@ -34,6 +34,25 @@ export interface OracleOfflineLogicalMigrationSettings extends model.OracleMigra
 }
 
 export namespace OracleOfflineLogicalMigrationSettings {
+  export function redactForLog(obj: OracleOfflineLogicalMigrationSettings): object {
+    if (!obj || obj.migrationMethod !== "OFFLINE_LOGICAL") {
+      return model.OracleMigrationSettings.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "dataTransferMediumDetails")) {
+      const value = obj.dataTransferMediumDetails;
+      redactedObj["dataTransferMediumDetails"] =
+        value == null ? value : model.OracleDataTransferMediumDetails.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: OracleOfflineLogicalMigrationSettings,
     isParentJsonObj?: boolean

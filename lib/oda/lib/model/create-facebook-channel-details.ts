@@ -35,6 +35,27 @@ export interface CreateFacebookChannelDetails extends model.CreateChannelDetails
 }
 
 export namespace CreateFacebookChannelDetails {
+  export function redactForLog(obj: CreateFacebookChannelDetails): object {
+    if (!obj || obj.type !== "FACEBOOK") {
+      return model.CreateChannelDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "appSecret")) {
+      redactedObj["appSecret"] = "<redacted>";
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "pageAccessToken")) {
+      redactedObj["pageAccessToken"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreateFacebookChannelDetails, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj

@@ -64,6 +64,23 @@ export interface CreateGoldenGateConnectionDetails extends model.CreateConnectio
 }
 
 export namespace CreateGoldenGateConnectionDetails {
+  export function redactForLog(obj: CreateGoldenGateConnectionDetails): object {
+    if (!obj || obj.connectionType !== "GOLDENGATE") {
+      return model.CreateConnectionDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "password")) {
+      redactedObj["password"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: CreateGoldenGateConnectionDetails,
     isParentJsonObj?: boolean

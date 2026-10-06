@@ -62,6 +62,25 @@ export namespace LaunchDbSystemFromBackupDetails {
     BringYourOwnLicense = "BRING_YOUR_OWN_LICENSE"
   }
 
+  export function redactForLog(obj: LaunchDbSystemFromBackupDetails): object {
+    if (!obj || obj.source !== "DB_BACKUP") {
+      return model.LaunchDbSystemBase.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "dbHome")) {
+      const value = obj.dbHome;
+      redactedObj["dbHome"] =
+        value == null ? value : model.CreateDbHomeFromBackupDetails.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: LaunchDbSystemFromBackupDetails,
     isParentJsonObj?: boolean

@@ -36,6 +36,19 @@ export interface EnableAiFeatureDetails {
 }
 
 export namespace EnableAiFeatureDetails {
+  export function redactForLog(obj: EnableAiFeatureDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "vectorDbAdminCred")) {
+      redactedObj["vectorDbAdminCred"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: EnableAiFeatureDetails): object {
     const jsonObj = { ...obj, ...{} };
 

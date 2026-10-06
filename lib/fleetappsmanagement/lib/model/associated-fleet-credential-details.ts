@@ -46,6 +46,21 @@ Example: {@code My new resource}
 }
 
 export namespace AssociatedFleetCredentialDetails {
+  export function redactForLog(obj: AssociatedFleetCredentialDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "entitySpecifics")) {
+      const value = obj.entitySpecifics;
+      redactedObj["entitySpecifics"] =
+        value == null ? value : model.CredentialEntitySpecificDetails.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: AssociatedFleetCredentialDetails): object {
     const jsonObj = {
       ...obj,

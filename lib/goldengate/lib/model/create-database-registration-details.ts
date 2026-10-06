@@ -141,6 +141,23 @@ export namespace CreateDatabaseRegistrationDetails {
     Redirect = "REDIRECT"
   }
 
+  export function redactForLog(obj: CreateDatabaseRegistrationDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "password")) {
+      redactedObj["password"] = "<redacted>";
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "wallet")) {
+      redactedObj["wallet"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreateDatabaseRegistrationDetails): object {
     const jsonObj = { ...obj, ...{} };
 

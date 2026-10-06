@@ -60,6 +60,50 @@ export interface UpdateDataAssetDetails {
 }
 
 export namespace UpdateDataAssetDetails {
+  export function redactForLog(obj: UpdateDataAssetDetails): object {
+    if (obj && Object.prototype.hasOwnProperty.call(obj, "modelType")) {
+      switch (obj.modelType) {
+        case "REST_DATA_ASSET":
+          return model.UpdateDataAssetFromRest.redactForLog(obj as model.UpdateDataAssetFromRest);
+        case "MYSQL_HEATWAVE_DATA_ASSET":
+          return model.UpdateDataAssetFromMySqlHeatWave.redactForLog(
+            obj as model.UpdateDataAssetFromMySqlHeatWave
+          );
+        case "ORACLE_EBS_DATA_ASSET":
+          return model.UpdateDataAssetFromOracleEbs.redactForLog(
+            obj as model.UpdateDataAssetFromOracleEbs
+          );
+        case "ORACLE_ADWC_DATA_ASSET":
+          return model.UpdateDataAssetFromAdwc.redactForLog(obj as model.UpdateDataAssetFromAdwc);
+        case "ORACLE_PEOPLESOFT_DATA_ASSET":
+          return model.UpdateDataAssetFromOraclePeopleSoft.redactForLog(
+            obj as model.UpdateDataAssetFromOraclePeopleSoft
+          );
+        case "MYSQL_DATA_ASSET":
+          return model.UpdateDataAssetFromMySQL.redactForLog(obj as model.UpdateDataAssetFromMySQL);
+        case "ORACLE_SIEBEL_DATA_ASSET":
+          return model.UpdateDataAssetFromOracleSiebel.redactForLog(
+            obj as model.UpdateDataAssetFromOracleSiebel
+          );
+        case "ORACLE_ATP_DATA_ASSET":
+          return model.UpdateDataAssetFromAtp.redactForLog(obj as model.UpdateDataAssetFromAtp);
+        case "GENERIC_JDBC_DATA_ASSET":
+          return model.UpdateDataAssetFromJdbc.redactForLog(obj as model.UpdateDataAssetFromJdbc);
+        case "ORACLE_DATA_ASSET":
+          return model.UpdateDataAssetFromOracle.redactForLog(
+            obj as model.UpdateDataAssetFromOracle
+          );
+      }
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: UpdateDataAssetDetails): object {
     const jsonObj = {
       ...obj,

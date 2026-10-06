@@ -49,6 +49,25 @@ export namespace CreateAutonomousCompositeShardSpaceRaftClusterDetails {
     ReadWrite = "READ_WRITE"
   }
 
+  export function redactForLog(obj: CreateAutonomousCompositeShardSpaceRaftClusterDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "databases")) {
+      const value = obj.databases;
+      redactedObj["databases"] =
+        value == null
+          ? value
+          : value.map(item =>
+              model.CreateDistributedAutonomousDatabaseShardDatabaseDetails.redactForLog(item)
+            );
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreateAutonomousCompositeShardSpaceRaftClusterDetails): object {
     const jsonObj = {
       ...obj,

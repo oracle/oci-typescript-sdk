@@ -129,6 +129,7 @@ If the shape does not have any local disks, this field is {@code null}.
   "networkingBandwidthOptions"?: model.ShapeNetworkingBandwidthOptions;
   "maxVnicAttachmentOptions"?: model.ShapeMaxVnicAttachmentOptions;
   "platformConfigOptions"?: model.ShapePlatformConfigOptions;
+  "bsNvmeAttachmentsConfig"?: model.BsNvmeAttachmentsConfig;
   /**
    * Whether billing continues when the instances that use this shape are in the stopped state.
    *
@@ -217,6 +218,9 @@ export namespace Shape {
         "platformConfigOptions": obj.platformConfigOptions
           ? model.ShapePlatformConfigOptions.getJsonObj(obj.platformConfigOptions)
           : undefined,
+        "bsNvmeAttachmentsConfig": obj.bsNvmeAttachmentsConfig
+          ? model.BsNvmeAttachmentsConfig.getJsonObj(obj.bsNvmeAttachmentsConfig)
+          : undefined,
 
         "recommendedAlternatives": obj.recommendedAlternatives
           ? obj.recommendedAlternatives.map(item => {
@@ -248,6 +252,9 @@ export namespace Shape {
           : undefined,
         "platformConfigOptions": obj.platformConfigOptions
           ? model.ShapePlatformConfigOptions.getDeserializedJsonObj(obj.platformConfigOptions)
+          : undefined,
+        "bsNvmeAttachmentsConfig": obj.bsNvmeAttachmentsConfig
+          ? model.BsNvmeAttachmentsConfig.getDeserializedJsonObj(obj.bsNvmeAttachmentsConfig)
           : undefined,
 
         "recommendedAlternatives": obj.recommendedAlternatives

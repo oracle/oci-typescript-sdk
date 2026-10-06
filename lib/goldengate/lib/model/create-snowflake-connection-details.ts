@@ -92,6 +92,31 @@ export interface CreateSnowflakeConnectionDetails extends model.CreateConnection
 }
 
 export namespace CreateSnowflakeConnectionDetails {
+  export function redactForLog(obj: CreateSnowflakeConnectionDetails): object {
+    if (!obj || obj.connectionType !== "SNOWFLAKE") {
+      return model.CreateConnectionDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "password")) {
+      redactedObj["password"] = "<redacted>";
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "privateKeyFile")) {
+      redactedObj["privateKeyFile"] = "<redacted>";
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "privateKeyPassphrase")) {
+      redactedObj["privateKeyPassphrase"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: CreateSnowflakeConnectionDetails,
     isParentJsonObj?: boolean

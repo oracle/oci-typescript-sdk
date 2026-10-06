@@ -24,6 +24,24 @@ export interface TaskSummaryFromIntegrationTask extends model.TaskSummary {
 }
 
 export namespace TaskSummaryFromIntegrationTask {
+  export function redactForLog(obj: TaskSummaryFromIntegrationTask): object {
+    if (!obj || obj.modelType !== "INTEGRATION_TASK") {
+      return model.TaskSummary.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "dataFlow")) {
+      const value = obj.dataFlow;
+      redactedObj["dataFlow"] = value == null ? value : model.DataFlow.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: TaskSummaryFromIntegrationTask,
     isParentJsonObj?: boolean

@@ -32,6 +32,19 @@ export interface UpdateAdminCredentials {
 }
 
 export namespace UpdateAdminCredentials {
+  export function redactForLog(obj: UpdateAdminCredentials): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "password")) {
+      redactedObj["password"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: UpdateAdminCredentials): object {
     const jsonObj = { ...obj, ...{} };
 

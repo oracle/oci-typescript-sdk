@@ -35,6 +35,23 @@ export interface UpdateMSTeamsChannelDetails extends model.UpdateChannelDetails 
 }
 
 export namespace UpdateMSTeamsChannelDetails {
+  export function redactForLog(obj: UpdateMSTeamsChannelDetails): object {
+    if (!obj || obj.type !== "MSTEAMS") {
+      return model.UpdateChannelDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "msaAppPassword")) {
+      redactedObj["msaAppPassword"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: UpdateMSTeamsChannelDetails, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj

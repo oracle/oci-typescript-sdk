@@ -91,6 +91,31 @@ Example: {@code {\"Department\": \"Finance\"}}
 }
 
 export namespace TargetDatabase {
+  export function redactForLog(obj: TargetDatabase): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "credentials")) {
+      const value = obj.credentials;
+      redactedObj["credentials"] = value == null ? value : model.Credentials.redactForLog(value);
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "tlsConfig")) {
+      const value = obj.tlsConfig;
+      redactedObj["tlsConfig"] = value == null ? value : model.TlsConfig.redactForLog(value);
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "peerTargetDatabases")) {
+      const value = obj.peerTargetDatabases;
+      redactedObj["peerTargetDatabases"] =
+        value == null ? value : value.map(item => model.PeerTargetDatabase.redactForLog(item));
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: TargetDatabase): object {
     const jsonObj = {
       ...obj,

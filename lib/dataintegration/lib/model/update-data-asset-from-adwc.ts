@@ -54,6 +54,25 @@ export interface UpdateDataAssetFromAdwc extends model.UpdateDataAssetDetails {
 }
 
 export namespace UpdateDataAssetFromAdwc {
+  export function redactForLog(obj: UpdateDataAssetFromAdwc): object {
+    if (!obj || obj.modelType !== "ORACLE_ADWC_DATA_ASSET") {
+      return model.UpdateDataAssetDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "defaultConnection")) {
+      const value = obj.defaultConnection;
+      redactedObj["defaultConnection"] =
+        value == null ? value : model.UpdateConnectionFromAdwc.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: UpdateDataAssetFromAdwc, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj

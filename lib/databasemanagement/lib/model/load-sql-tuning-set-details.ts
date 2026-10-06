@@ -265,6 +265,27 @@ export namespace LoadSqlTuningSetDetails {
     Null = "NULL"
   }
 
+  export function redactForLog(obj: LoadSqlTuningSetDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "credentialDetails")) {
+      const value = obj.credentialDetails;
+      redactedObj["credentialDetails"] =
+        value == null ? value : model.SqlTuningSetAdminCredentialDetails.redactForLog(value);
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "databaseCredential")) {
+      const value = obj.databaseCredential;
+      redactedObj["databaseCredential"] =
+        value == null ? value : model.DatabaseCredentialDetails.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: LoadSqlTuningSetDetails): object {
     const jsonObj = {
       ...obj,

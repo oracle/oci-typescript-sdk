@@ -37,6 +37,31 @@ export interface UpdateIcebergConnectionDetails extends model.UpdateConnectionDe
 }
 
 export namespace UpdateIcebergConnectionDetails {
+  export function redactForLog(obj: UpdateIcebergConnectionDetails): object {
+    if (!obj || obj.connectionType !== "ICEBERG") {
+      return model.UpdateConnectionDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "catalog")) {
+      const value = obj.catalog;
+      redactedObj["catalog"] =
+        value == null ? value : model.UpdateIcebergCatalogDetails.redactForLog(value);
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "storage")) {
+      const value = obj.storage;
+      redactedObj["storage"] =
+        value == null ? value : model.UpdateIcebergStorageDetails.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: UpdateIcebergConnectionDetails,
     isParentJsonObj?: boolean

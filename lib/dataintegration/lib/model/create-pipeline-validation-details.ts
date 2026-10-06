@@ -68,6 +68,21 @@ export interface CreatePipelineValidationDetails {
 }
 
 export namespace CreatePipelineValidationDetails {
+  export function redactForLog(obj: CreatePipelineValidationDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "nodes")) {
+      const value = obj.nodes;
+      redactedObj["nodes"] =
+        value == null ? value : value.map(item => model.FlowNode.redactForLog(item));
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreatePipelineValidationDetails): object {
     const jsonObj = {
       ...obj,

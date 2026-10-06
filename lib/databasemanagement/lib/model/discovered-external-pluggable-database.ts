@@ -40,6 +40,25 @@ export interface DiscoveredExternalPluggableDatabase
 }
 
 export namespace DiscoveredExternalPluggableDatabase {
+  export function redactForLog(obj: DiscoveredExternalPluggableDatabase): object {
+    if (!obj || obj.componentType !== "PLUGGABLE_DATABASE") {
+      return model.DiscoveredExternalDbSystemComponent.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "connector")) {
+      const value = obj.connector;
+      redactedObj["connector"] =
+        value == null ? value : model.ExternalDbSystemDiscoveryConnector.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: DiscoveredExternalPluggableDatabase,
     isParentJsonObj?: boolean

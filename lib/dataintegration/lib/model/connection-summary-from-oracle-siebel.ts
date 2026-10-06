@@ -32,6 +32,23 @@ export interface ConnectionSummaryFromOracleSiebel extends model.ConnectionSumma
 }
 
 export namespace ConnectionSummaryFromOracleSiebel {
+  export function redactForLog(obj: ConnectionSummaryFromOracleSiebel): object {
+    if (!obj || obj.modelType !== "ORACLE_SIEBEL_CONNECTION") {
+      return model.ConnectionSummary.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "password")) {
+      redactedObj["password"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: ConnectionSummaryFromOracleSiebel,
     isParentJsonObj?: boolean

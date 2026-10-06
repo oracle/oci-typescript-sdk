@@ -34,6 +34,19 @@ export interface StopBdsInstanceDetails {
 }
 
 export namespace StopBdsInstanceDetails {
+  export function redactForLog(obj: StopBdsInstanceDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "clusterAdminPassword")) {
+      redactedObj["clusterAdminPassword"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: StopBdsInstanceDetails): object {
     const jsonObj = { ...obj, ...{} };
 

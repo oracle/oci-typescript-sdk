@@ -92,6 +92,21 @@ export namespace ExternalPublicationSummary {
     UnknownValue = "UNKNOWN_VALUE"
   }
 
+  export function redactForLog(obj: ExternalPublicationSummary): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "configurationDetails")) {
+      const value = obj.configurationDetails;
+      redactedObj["configurationDetails"] =
+        value == null ? value : model.ConfigurationDetails.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: ExternalPublicationSummary): object {
     const jsonObj = {
       ...obj,

@@ -22,6 +22,21 @@ export interface OlvmTemplateAssetDetails {
 }
 
 export namespace OlvmTemplateAssetDetails {
+  export function redactForLog(obj: OlvmTemplateAssetDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "olvmTemplate")) {
+      const value = obj.olvmTemplate;
+      redactedObj["olvmTemplate"] =
+        value == null ? value : model.OlvmTemplateProperties.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: OlvmTemplateAssetDetails): object {
     const jsonObj = {
       ...obj,

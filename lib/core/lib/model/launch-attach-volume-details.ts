@@ -70,6 +70,11 @@ export namespace LaunchAttachVolumeDetails {
 
     if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
+        case "nvme":
+          return model.LaunchAttachNvmeVolumeDetails.getJsonObj(
+            <model.LaunchAttachNvmeVolumeDetails>(<object>jsonObj),
+            true
+          );
         case "paravirtualized":
           return model.LaunchAttachParavirtualizedVolumeDetails.getJsonObj(
             <model.LaunchAttachParavirtualizedVolumeDetails>(<object>jsonObj),
@@ -98,6 +103,11 @@ export namespace LaunchAttachVolumeDetails {
 
     if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
+        case "nvme":
+          return model.LaunchAttachNvmeVolumeDetails.getDeserializedJsonObj(
+            <model.LaunchAttachNvmeVolumeDetails>(<object>jsonObj),
+            true
+          );
         case "paravirtualized":
           return model.LaunchAttachParavirtualizedVolumeDetails.getDeserializedJsonObj(
             <model.LaunchAttachParavirtualizedVolumeDetails>(<object>jsonObj),

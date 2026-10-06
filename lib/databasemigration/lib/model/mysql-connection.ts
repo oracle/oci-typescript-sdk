@@ -96,6 +96,27 @@ export namespace MysqlConnection {
     UnknownValue = "UNKNOWN_VALUE"
   }
 
+  export function redactForLog(obj: MysqlConnection): object {
+    if (!obj || obj.connectionType !== "MYSQL") {
+      return model.Connection.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "password")) {
+      redactedObj["password"] = "<redacted>";
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "replicationPassword")) {
+      redactedObj["replicationPassword"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: MysqlConnection, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj ? obj : (model.Connection.getJsonObj(obj) as MysqlConnection)),

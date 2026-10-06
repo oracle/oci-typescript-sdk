@@ -46,6 +46,24 @@ Example: {@code {\"Department\": \"Finance\"}}
 }
 
 export namespace UpdateExternalDatabaseConnectorDetails {
+  export function redactForLog(obj: UpdateExternalDatabaseConnectorDetails): object {
+    if (obj && Object.prototype.hasOwnProperty.call(obj, "connectorType")) {
+      switch (obj.connectorType) {
+        case "MACS":
+          return model.UpdateExternalMacsConnectorDetails.redactForLog(
+            obj as model.UpdateExternalMacsConnectorDetails
+          );
+      }
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: UpdateExternalDatabaseConnectorDetails): object {
     const jsonObj = { ...obj, ...{} };
 

@@ -67,6 +67,23 @@ export interface UpdateOggDeploymentDetails {
 }
 
 export namespace UpdateOggDeploymentDetails {
+  export function redactForLog(obj: UpdateOggDeploymentDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "adminPassword")) {
+      redactedObj["adminPassword"] = "<redacted>";
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "key")) {
+      redactedObj["key"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: UpdateOggDeploymentDetails): object {
     const jsonObj = {
       ...obj,

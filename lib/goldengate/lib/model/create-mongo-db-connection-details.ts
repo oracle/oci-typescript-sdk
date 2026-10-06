@@ -99,6 +99,31 @@ export interface CreateMongoDbConnectionDetails extends model.CreateConnectionDe
 }
 
 export namespace CreateMongoDbConnectionDetails {
+  export function redactForLog(obj: CreateMongoDbConnectionDetails): object {
+    if (!obj || obj.connectionType !== "MONGODB") {
+      return model.CreateConnectionDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "password")) {
+      redactedObj["password"] = "<redacted>";
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "tlsCertificateKeyFile")) {
+      redactedObj["tlsCertificateKeyFile"] = "<redacted>";
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "tlsCertificateKeyFilePassword")) {
+      redactedObj["tlsCertificateKeyFilePassword"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: CreateMongoDbConnectionDetails,
     isParentJsonObj?: boolean

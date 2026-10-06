@@ -44,6 +44,23 @@ export interface MigrateVaultKeyDetails {
 }
 
 export namespace MigrateVaultKeyDetails {
+  export function redactForLog(obj: MigrateVaultKeyDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "tdeWalletPassword")) {
+      redactedObj["tdeWalletPassword"] = "<redacted>";
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "adminPassword")) {
+      redactedObj["adminPassword"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: MigrateVaultKeyDetails): object {
     const jsonObj = { ...obj, ...{} };
 

@@ -192,6 +192,47 @@ export interface CreateJavaMessageServiceConnectionDetails extends model.CreateC
 }
 
 export namespace CreateJavaMessageServiceConnectionDetails {
+  export function redactForLog(obj: CreateJavaMessageServiceConnectionDetails): object {
+    if (!obj || obj.connectionType !== "JAVA_MESSAGE_SERVICE") {
+      return model.CreateConnectionDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "jndiSecurityCredentials")) {
+      redactedObj["jndiSecurityCredentials"] = "<redacted>";
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "password")) {
+      redactedObj["password"] = "<redacted>";
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "trustStore")) {
+      redactedObj["trustStore"] = "<redacted>";
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "trustStorePassword")) {
+      redactedObj["trustStorePassword"] = "<redacted>";
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "keyStore")) {
+      redactedObj["keyStore"] = "<redacted>";
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "keyStorePassword")) {
+      redactedObj["keyStorePassword"] = "<redacted>";
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "sslKeyPassword")) {
+      redactedObj["sslKeyPassword"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: CreateJavaMessageServiceConnectionDetails,
     isParentJsonObj?: boolean

@@ -47,6 +47,27 @@ Use {@code MEMORY} to make the change in memory and affect it immediately.
 }
 
 export namespace ChangeDatabaseParametersDetails {
+  export function redactForLog(obj: ChangeDatabaseParametersDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "credentials")) {
+      const value = obj.credentials;
+      redactedObj["credentials"] =
+        value == null ? value : model.DatabaseCredentials.redactForLog(value);
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "databaseCredential")) {
+      const value = obj.databaseCredential;
+      redactedObj["databaseCredential"] =
+        value == null ? value : model.DatabaseCredentialDetails.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: ChangeDatabaseParametersDetails): object {
     const jsonObj = {
       ...obj,

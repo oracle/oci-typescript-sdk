@@ -112,6 +112,22 @@ export interface Migration {
 }
 
 export namespace Migration {
+  export function redactForLog(obj: Migration): object {
+    if (obj && Object.prototype.hasOwnProperty.call(obj, "databaseCombination")) {
+      switch (obj.databaseCombination) {
+        case "ORACLE":
+          return model.OracleMigration.redactForLog(obj as model.OracleMigration);
+      }
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: Migration): object {
     const jsonObj = { ...obj, ...{} };
 

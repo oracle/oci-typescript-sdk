@@ -51,6 +51,23 @@ export interface CreateGoogleCloudStorageConnectionDetails extends model.CreateC
 }
 
 export namespace CreateGoogleCloudStorageConnectionDetails {
+  export function redactForLog(obj: CreateGoogleCloudStorageConnectionDetails): object {
+    if (!obj || obj.connectionType !== "GOOGLE_CLOUD_STORAGE") {
+      return model.CreateConnectionDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "serviceAccountKeyFile")) {
+      redactedObj["serviceAccountKeyFile"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: CreateGoogleCloudStorageConnectionDetails,
     isParentJsonObj?: boolean

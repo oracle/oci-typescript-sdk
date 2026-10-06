@@ -49,6 +49,23 @@ export namespace RestCredential {
     Bcfks = "BCFKS"
   }
 
+  export function redactForLog(obj: RestCredential): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "password")) {
+      redactedObj["password"] = "<redacted>";
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "sslTrustStorePassword")) {
+      redactedObj["sslTrustStorePassword"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: RestCredential): object {
     const jsonObj = { ...obj, ...{} };
 

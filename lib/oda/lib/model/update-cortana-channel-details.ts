@@ -35,6 +35,23 @@ export interface UpdateCortanaChannelDetails extends model.UpdateChannelDetails 
 }
 
 export namespace UpdateCortanaChannelDetails {
+  export function redactForLog(obj: UpdateCortanaChannelDetails): object {
+    if (!obj || obj.type !== "CORTANA") {
+      return model.UpdateChannelDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "msaAppPassword")) {
+      redactedObj["msaAppPassword"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: UpdateCortanaChannelDetails, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj

@@ -26,6 +26,33 @@ export interface CreateDistributedDatabaseCatalogDetails {
 }
 
 export namespace CreateDistributedDatabaseCatalogDetails {
+  export function redactForLog(obj: CreateDistributedDatabaseCatalogDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "originalReplica")) {
+      const value = obj.originalReplica;
+      redactedObj["originalReplica"] =
+        value == null
+          ? value
+          : model.CreateDistributedDatabaseCatalogReplicaDetails.redactForLog(value);
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "dataGuardReplicas")) {
+      const value = obj.dataGuardReplicas;
+      redactedObj["dataGuardReplicas"] =
+        value == null
+          ? value
+          : value.map(item =>
+              model.CreateDistributedDatabaseCatalogReplicaDetails.redactForLog(item)
+            );
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreateDistributedDatabaseCatalogDetails): object {
     const jsonObj = {
       ...obj,

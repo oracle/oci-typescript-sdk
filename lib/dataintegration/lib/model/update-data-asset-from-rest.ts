@@ -50,6 +50,25 @@ export interface UpdateDataAssetFromRest extends model.UpdateDataAssetDetails {
 }
 
 export namespace UpdateDataAssetFromRest {
+  export function redactForLog(obj: UpdateDataAssetFromRest): object {
+    if (!obj || obj.modelType !== "REST_DATA_ASSET") {
+      return model.UpdateDataAssetDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "defaultConnection")) {
+      const value = obj.defaultConnection;
+      redactedObj["defaultConnection"] =
+        value == null ? value : model.UpdateConnectionDetails.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: UpdateDataAssetFromRest, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj

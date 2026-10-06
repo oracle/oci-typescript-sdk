@@ -53,6 +53,21 @@ export interface CreateChannelDetails {
 }
 
 export namespace CreateChannelDetails {
+  export function redactForLog(obj: CreateChannelDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "source")) {
+      const value = obj.source;
+      redactedObj["source"] =
+        value == null ? value : model.CreateChannelSourceDetails.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreateChannelDetails): object {
     const jsonObj = {
       ...obj,

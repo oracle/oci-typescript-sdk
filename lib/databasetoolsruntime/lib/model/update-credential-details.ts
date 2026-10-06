@@ -22,6 +22,23 @@ export interface UpdateCredentialDetails {
 }
 
 export namespace UpdateCredentialDetails {
+  export function redactForLog(obj: UpdateCredentialDetails): object {
+    if (obj && Object.prototype.hasOwnProperty.call(obj, "type")) {
+      switch (obj.type) {
+        case "BASIC":
+          return model.UpdateCredentialBasicDetails.redactForLog(
+            obj as model.UpdateCredentialBasicDetails
+          );
+      }
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: UpdateCredentialDetails): object {
     const jsonObj = { ...obj, ...{} };
 

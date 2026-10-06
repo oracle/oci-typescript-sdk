@@ -120,6 +120,21 @@ export interface CreateMonitorDetails {
 }
 
 export namespace CreateMonitorDetails {
+  export function redactForLog(obj: CreateMonitorDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "configuration")) {
+      const value = obj.configuration;
+      redactedObj["configuration"] =
+        value == null ? value : model.MonitorConfiguration.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreateMonitorDetails): object {
     const jsonObj = {
       ...obj,

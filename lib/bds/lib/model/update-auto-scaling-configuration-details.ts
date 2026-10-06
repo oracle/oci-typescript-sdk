@@ -44,6 +44,19 @@ export interface UpdateAutoScalingConfigurationDetails {
 }
 
 export namespace UpdateAutoScalingConfigurationDetails {
+  export function redactForLog(obj: UpdateAutoScalingConfigurationDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "clusterAdminPassword")) {
+      redactedObj["clusterAdminPassword"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: UpdateAutoScalingConfigurationDetails): object {
     const jsonObj = {
       ...obj,

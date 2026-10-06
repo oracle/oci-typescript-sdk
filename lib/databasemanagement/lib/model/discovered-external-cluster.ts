@@ -55,6 +55,27 @@ export interface DiscoveredExternalCluster extends model.DiscoveredExternalDbSys
 }
 
 export namespace DiscoveredExternalCluster {
+  export function redactForLog(obj: DiscoveredExternalCluster): object {
+    if (!obj || obj.componentType !== "CLUSTER") {
+      return model.DiscoveredExternalDbSystemComponent.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "clusterInstances")) {
+      const value = obj.clusterInstances;
+      redactedObj["clusterInstances"] =
+        value == null
+          ? value
+          : value.map(item => model.DiscoveredExternalClusterInstance.redactForLog(item));
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: DiscoveredExternalCluster, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj

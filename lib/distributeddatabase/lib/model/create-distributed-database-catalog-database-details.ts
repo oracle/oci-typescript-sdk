@@ -38,6 +38,39 @@ export interface CreateDistributedDatabaseCatalogDatabaseDetails {
 }
 
 export namespace CreateDistributedDatabaseCatalogDatabaseDetails {
+  export function redactForLog(obj: CreateDistributedDatabaseCatalogDatabaseDetails): object {
+    if (obj && Object.prototype.hasOwnProperty.call(obj, "source")) {
+      switch (obj.source) {
+        case "XS_NEW_VAULT_AND_CLUSTER":
+          return model.CreateDistributedDatabaseCatalogWithExadbXsNewVaultAndClusterDetails.redactForLog(
+            obj as model.CreateDistributedDatabaseCatalogWithExadbXsNewVaultAndClusterDetails
+          );
+        case "EXISTING_DB_HOME":
+          return model.CreateDistributedDatabaseCatalogDatabaseWithDbHomeDetails.redactForLog(
+            obj as model.CreateDistributedDatabaseCatalogDatabaseWithDbHomeDetails
+          );
+        case "XS_EXISTING_CLUSTER":
+          return model.CreateDistributedDatabaseCatalogDatabaseWithExadbXsDetails.redactForLog(
+            obj as model.CreateDistributedDatabaseCatalogDatabaseWithExadbXsDetails
+          );
+        case "XD_EXISTING_CLUSTER":
+          return model.CreateDistributedDatabaseCatalogDatabaseWithExadbXdDetails.redactForLog(
+            obj as model.CreateDistributedDatabaseCatalogDatabaseWithExadbXdDetails
+          );
+        case "XS_NEW_CLUSTER":
+          return model.CreateDistributedDatabaseCatalogWithExadbXsNewClusterDetails.redactForLog(
+            obj as model.CreateDistributedDatabaseCatalogWithExadbXsNewClusterDetails
+          );
+      }
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreateDistributedDatabaseCatalogDatabaseDetails): object {
     const jsonObj = { ...obj, ...{} };
 

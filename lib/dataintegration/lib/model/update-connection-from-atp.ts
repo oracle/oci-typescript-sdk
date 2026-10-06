@@ -40,6 +40,23 @@ export interface UpdateConnectionFromAtp extends model.UpdateConnectionDetails {
 }
 
 export namespace UpdateConnectionFromAtp {
+  export function redactForLog(obj: UpdateConnectionFromAtp): object {
+    if (!obj || obj.modelType !== "ORACLE_ATP_CONNECTION") {
+      return model.UpdateConnectionDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "password")) {
+      redactedObj["password"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: UpdateConnectionFromAtp, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj

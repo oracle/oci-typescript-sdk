@@ -46,6 +46,25 @@ export interface DataAssetFromOraclePeopleSoftDetails extends model.DataAsset {
 }
 
 export namespace DataAssetFromOraclePeopleSoftDetails {
+  export function redactForLog(obj: DataAssetFromOraclePeopleSoftDetails): object {
+    if (!obj || obj.modelType !== "ORACLE_PEOPLESOFT_DATA_ASSET") {
+      return model.DataAsset.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "defaultConnection")) {
+      const value = obj.defaultConnection;
+      redactedObj["defaultConnection"] =
+        value == null ? value : model.ConnectionFromOraclePeopleSoftDetails.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: DataAssetFromOraclePeopleSoftDetails,
     isParentJsonObj?: boolean

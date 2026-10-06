@@ -32,6 +32,23 @@ export interface CreateConnectionFromOraclePeopleSoft extends model.CreateConnec
 }
 
 export namespace CreateConnectionFromOraclePeopleSoft {
+  export function redactForLog(obj: CreateConnectionFromOraclePeopleSoft): object {
+    if (!obj || obj.modelType !== "ORACLE_PEOPLESOFT_CONNECTION") {
+      return model.CreateConnectionDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "password")) {
+      redactedObj["password"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: CreateConnectionFromOraclePeopleSoft,
     isParentJsonObj?: boolean

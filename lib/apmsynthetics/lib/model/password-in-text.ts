@@ -27,6 +27,22 @@ export interface PasswordInText extends model.Password {
 }
 
 export namespace PasswordInText {
+  export function redactForLog(obj: PasswordInText): object {
+    if (!obj || obj.passwordType !== "IN_TEXT") {
+      return model.Password.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+    if (Object.prototype.hasOwnProperty.call(obj, "password")) {
+      redactedObj["password"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: PasswordInText, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj ? obj : (model.Password.getJsonObj(obj) as PasswordInText)),

@@ -53,6 +53,23 @@ export interface CreatePolarisIcebergCatalogDetails extends model.CreateIcebergC
 }
 
 export namespace CreatePolarisIcebergCatalogDetails {
+  export function redactForLog(obj: CreatePolarisIcebergCatalogDetails): object {
+    if (!obj || obj.catalogType !== "POLARIS") {
+      return model.CreateIcebergCatalogDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "clientSecret")) {
+      redactedObj["clientSecret"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: CreatePolarisIcebergCatalogDetails,
     isParentJsonObj?: boolean

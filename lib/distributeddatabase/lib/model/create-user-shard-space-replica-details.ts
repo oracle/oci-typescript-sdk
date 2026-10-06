@@ -34,6 +34,23 @@ export interface CreateUserShardSpaceReplicaDetails {
 }
 
 export namespace CreateUserShardSpaceReplicaDetails {
+  export function redactForLog(obj: CreateUserShardSpaceReplicaDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "database")) {
+      const value = obj.database;
+      redactedObj["database"] =
+        value == null
+          ? value
+          : model.CreateDistributedDatabaseShardDatabaseDetails.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreateUserShardSpaceReplicaDetails): object {
     const jsonObj = {
       ...obj,

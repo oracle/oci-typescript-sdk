@@ -393,6 +393,21 @@ export namespace AutonomousContainerDatabaseSummary {
     UnknownValue = "UNKNOWN_VALUE"
   }
 
+  export function redactForLog(obj: AutonomousContainerDatabaseSummary): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "encryptionKeyLocationDetails")) {
+      const value = obj.encryptionKeyLocationDetails;
+      redactedObj["encryptionKeyLocationDetails"] =
+        value == null ? value : model.EncryptionKeyLocationDetails.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: AutonomousContainerDatabaseSummary): object {
     const jsonObj = {
       ...obj,

@@ -42,6 +42,19 @@ export interface InstallOsPatchDetails {
 }
 
 export namespace InstallOsPatchDetails {
+  export function redactForLog(obj: InstallOsPatchDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "clusterAdminPassword")) {
+      redactedObj["clusterAdminPassword"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: InstallOsPatchDetails): object {
     const jsonObj = {
       ...obj,

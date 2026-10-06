@@ -47,6 +47,23 @@ export interface CreateWebhookChannelResult extends model.CreateChannelResult {
 }
 
 export namespace CreateWebhookChannelResult {
+  export function redactForLog(obj: CreateWebhookChannelResult): object {
+    if (!obj || obj.type !== "WEBHOOK") {
+      return model.CreateChannelResult.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "secretKey")) {
+      redactedObj["secretKey"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreateWebhookChannelResult, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj

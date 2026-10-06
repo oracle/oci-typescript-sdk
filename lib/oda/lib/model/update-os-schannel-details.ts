@@ -63,6 +63,23 @@ export interface UpdateOSSChannelDetails extends model.UpdateChannelDetails {
 }
 
 export namespace UpdateOSSChannelDetails {
+  export function redactForLog(obj: UpdateOSSChannelDetails): object {
+    if (!obj || obj.type !== "OSS") {
+      return model.UpdateChannelDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "authToken")) {
+      redactedObj["authToken"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: UpdateOSSChannelDetails, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj

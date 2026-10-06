@@ -63,6 +63,23 @@ export interface CreateAmazonKinesisConnectionDetails extends model.CreateConnec
 }
 
 export namespace CreateAmazonKinesisConnectionDetails {
+  export function redactForLog(obj: CreateAmazonKinesisConnectionDetails): object {
+    if (!obj || obj.connectionType !== "AMAZON_KINESIS") {
+      return model.CreateConnectionDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "secretAccessKey")) {
+      redactedObj["secretAccessKey"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: CreateAmazonKinesisConnectionDetails,
     isParentJsonObj?: boolean

@@ -34,6 +34,18 @@ export interface ReinstateDataGuardDetails {
 }
 
 export namespace ReinstateDataGuardDetails {
+  export function redactForLog(obj: ReinstateDataGuardDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+    if (Object.prototype.hasOwnProperty.call(obj, "databaseAdminPassword")) {
+      redactedObj["databaseAdminPassword"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: ReinstateDataGuardDetails): object {
     const jsonObj = { ...obj, ...{} };
 

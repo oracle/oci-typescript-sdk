@@ -29,6 +29,25 @@ export interface CreateMigratedDynectZoneDetails extends model.CreateZoneBaseDet
 }
 
 export namespace CreateMigratedDynectZoneDetails {
+  export function redactForLog(obj: CreateMigratedDynectZoneDetails): object {
+    if (!obj || obj.migrationSource !== "DYNECT") {
+      return model.CreateZoneBaseDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "dynectMigrationDetails")) {
+      const value = obj.dynectMigrationDetails;
+      redactedObj["dynectMigrationDetails"] =
+        value == null ? value : model.DynectMigrationDetails.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: CreateMigratedDynectZoneDetails,
     isParentJsonObj?: boolean

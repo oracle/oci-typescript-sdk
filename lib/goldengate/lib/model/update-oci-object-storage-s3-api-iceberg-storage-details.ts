@@ -62,6 +62,23 @@ Note: Despite the \"Id\" suffix, this value is not an OCI OCID.
 }
 
 export namespace UpdateOciObjectStorageS3ApiIcebergStorageDetails {
+  export function redactForLog(obj: UpdateOciObjectStorageS3ApiIcebergStorageDetails): object {
+    if (!obj || obj.storageType !== "OCI_OBJECT_STORAGE_S3_API") {
+      return model.UpdateIcebergStorageDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "secretAccessKey")) {
+      redactedObj["secretAccessKey"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: UpdateOciObjectStorageS3ApiIcebergStorageDetails,
     isParentJsonObj?: boolean

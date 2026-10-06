@@ -36,6 +36,25 @@ export interface DataAssetSummaryFromMySqlHeatWave extends model.DataAssetSummar
 }
 
 export namespace DataAssetSummaryFromMySqlHeatWave {
+  export function redactForLog(obj: DataAssetSummaryFromMySqlHeatWave): object {
+    if (!obj || obj.modelType !== "MYSQL_HEATWAVE_DATA_ASSET") {
+      return model.DataAssetSummary.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "defaultConnection")) {
+      const value = obj.defaultConnection;
+      redactedObj["defaultConnection"] =
+        value == null ? value : model.ConnectionSummaryFromMySqlHeatWave.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: DataAssetSummaryFromMySqlHeatWave,
     isParentJsonObj?: boolean

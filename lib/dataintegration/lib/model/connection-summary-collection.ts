@@ -25,6 +25,21 @@ export interface ConnectionSummaryCollection {
 }
 
 export namespace ConnectionSummaryCollection {
+  export function redactForLog(obj: ConnectionSummaryCollection): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "items")) {
+      const value = obj.items;
+      redactedObj["items"] =
+        value == null ? value : value.map(item => model.ConnectionSummary.redactForLog(item));
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: ConnectionSummaryCollection): object {
     const jsonObj = {
       ...obj,

@@ -32,6 +32,23 @@ export interface ConnectionFromMySqlHeatWave extends model.Connection {
 }
 
 export namespace ConnectionFromMySqlHeatWave {
+  export function redactForLog(obj: ConnectionFromMySqlHeatWave): object {
+    if (!obj || obj.modelType !== "MYSQL_HEATWAVE_CONNECTION") {
+      return model.Connection.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "password")) {
+      redactedObj["password"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: ConnectionFromMySqlHeatWave, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj

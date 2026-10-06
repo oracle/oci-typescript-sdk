@@ -32,6 +32,23 @@ export interface UpdateConnectionFromOracleSiebel extends model.UpdateConnection
 }
 
 export namespace UpdateConnectionFromOracleSiebel {
+  export function redactForLog(obj: UpdateConnectionFromOracleSiebel): object {
+    if (!obj || obj.modelType !== "ORACLE_SIEBEL_CONNECTION") {
+      return model.UpdateConnectionDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "password")) {
+      redactedObj["password"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: UpdateConnectionFromOracleSiebel,
     isParentJsonObj?: boolean

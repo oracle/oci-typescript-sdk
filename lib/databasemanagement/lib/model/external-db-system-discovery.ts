@@ -108,6 +108,23 @@ export namespace ExternalDbSystemDiscovery {
     UnknownValue = "UNKNOWN_VALUE"
   }
 
+  export function redactForLog(obj: ExternalDbSystemDiscovery): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "discoveredComponents")) {
+      const value = obj.discoveredComponents;
+      redactedObj["discoveredComponents"] =
+        value == null
+          ? value
+          : value.map(item => model.DiscoveredExternalDbSystemComponent.redactForLog(item));
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: ExternalDbSystemDiscovery): object {
     const jsonObj = {
       ...obj,

@@ -91,10 +91,14 @@ Example: {@code 2016-08-25T21:10:29.600Z}
    */
   "volumeId": string;
   /**
-   * Whether in-transit encryption for the data volume's paravirtualized attachment is enabled or not.
+   * Deprecated. Use {@code isEncryptionInTransitEnabled} instead.
    *
    */
   "isPvEncryptionInTransitEnabled"?: boolean;
+  /**
+   * Whether in-transit encryption for the data volume's attachment is enabled or not.
+   */
+  "isEncryptionInTransitEnabled"?: boolean;
   /**
    * Whether the Iscsi or Paravirtualized attachment is multipath or not, it is not applicable to NVMe attachment.
    */
@@ -158,6 +162,11 @@ export namespace VolumeAttachment {
             <model.EmulatedVolumeAttachment>(<object>jsonObj),
             true
           );
+        case "nvme":
+          return model.NvmeVolumeAttachment.getJsonObj(
+            <model.NvmeVolumeAttachment>(<object>jsonObj),
+            true
+          );
         case "paravirtualized":
           return model.ParavirtualizedVolumeAttachment.getJsonObj(
             <model.ParavirtualizedVolumeAttachment>(<object>jsonObj),
@@ -182,6 +191,11 @@ export namespace VolumeAttachment {
         case "emulated":
           return model.EmulatedVolumeAttachment.getDeserializedJsonObj(
             <model.EmulatedVolumeAttachment>(<object>jsonObj),
+            true
+          );
+        case "nvme":
+          return model.NvmeVolumeAttachment.getDeserializedJsonObj(
+            <model.NvmeVolumeAttachment>(<object>jsonObj),
             true
           );
         case "paravirtualized":

@@ -31,6 +31,21 @@ export interface ExternalKeyManagerMetadata {
 }
 
 export namespace ExternalKeyManagerMetadata {
+  export function redactForLog(obj: ExternalKeyManagerMetadata): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "oauthMetadata")) {
+      const value = obj.oauthMetadata;
+      redactedObj["oauthMetadata"] =
+        value == null ? value : model.OauthMetadata.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: ExternalKeyManagerMetadata): object {
     const jsonObj = {
       ...obj,

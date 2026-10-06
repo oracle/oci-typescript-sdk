@@ -123,6 +123,30 @@ export namespace Storage {
     Posixfs = "POSIXFS"
   }
 
+  export function redactForLog(obj: Storage): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "logicalUnits")) {
+      const value = obj.logicalUnits;
+      redactedObj["logicalUnits"] =
+        value == null ? value : value.map(item => model.LogicalUnit.redactForLog(item));
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "password")) {
+      redactedObj["password"] = "<redacted>";
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "volumeGroup")) {
+      const value = obj.volumeGroup;
+      redactedObj["volumeGroup"] = value == null ? value : model.VolumeGroup.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: Storage): object {
     const jsonObj = {
       ...obj,

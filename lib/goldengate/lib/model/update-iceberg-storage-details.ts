@@ -24,6 +24,35 @@ export interface UpdateIcebergStorageDetails {
 }
 
 export namespace UpdateIcebergStorageDetails {
+  export function redactForLog(obj: UpdateIcebergStorageDetails): object {
+    if (obj && Object.prototype.hasOwnProperty.call(obj, "storageType")) {
+      switch (obj.storageType) {
+        case "AMAZON_S3":
+          return model.UpdateAmazonS3IcebergStorageDetails.redactForLog(
+            obj as model.UpdateAmazonS3IcebergStorageDetails
+          );
+        case "OCI_OBJECT_STORAGE_S3_API":
+          return model.UpdateOciObjectStorageS3ApiIcebergStorageDetails.redactForLog(
+            obj as model.UpdateOciObjectStorageS3ApiIcebergStorageDetails
+          );
+        case "GOOGLE_CLOUD_STORAGE":
+          return model.UpdateGoogleCloudStorageIcebergStorageDetails.redactForLog(
+            obj as model.UpdateGoogleCloudStorageIcebergStorageDetails
+          );
+        case "AZURE_DATA_LAKE_STORAGE":
+          return model.UpdateAzureDataLakeStorageIcebergStorageDetails.redactForLog(
+            obj as model.UpdateAzureDataLakeStorageIcebergStorageDetails
+          );
+      }
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: UpdateIcebergStorageDetails): object {
     const jsonObj = { ...obj, ...{} };
 

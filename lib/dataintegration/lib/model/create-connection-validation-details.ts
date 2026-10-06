@@ -57,6 +57,27 @@ export interface CreateConnectionValidationDetails {
 }
 
 export namespace CreateConnectionValidationDetails {
+  export function redactForLog(obj: CreateConnectionValidationDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "dataAsset")) {
+      const value = obj.dataAsset;
+      redactedObj["dataAsset"] =
+        value == null ? value : model.CreateDataAssetDetails.redactForLog(value);
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "connection")) {
+      const value = obj.connection;
+      redactedObj["connection"] =
+        value == null ? value : model.CreateConnectionDetails.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreateConnectionValidationDetails): object {
     const jsonObj = {
       ...obj,

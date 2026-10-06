@@ -31,6 +31,7 @@ export interface UpdateLaunchOptions {
 * * {@code ISCSI} - ISCSI attached block storage device.
 * * {@code PARAVIRTUALIZED} - Paravirtualized disk. This is the default for boot volumes and remote block
 * storage volumes on platform images.
+* * {@code NVME} - NVMe attached remote block storage device.
 * <p>
 Before you change the boot volume attachment type, detach all block volumes and VNICs except for
 * the boot volume and the primary VNIC.
@@ -84,7 +85,8 @@ For more information, see [Block Volume Encryption](https://docs.oracle.com/iaas
 export namespace UpdateLaunchOptions {
   export enum BootVolumeType {
     Iscsi = "ISCSI",
-    Paravirtualized = "PARAVIRTUALIZED"
+    Paravirtualized = "PARAVIRTUALIZED",
+    Nvme = "NVME"
   }
 
   export enum NetworkType {

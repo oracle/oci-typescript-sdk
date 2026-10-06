@@ -84,6 +84,36 @@ export interface UpdateConnectionDetails {
 }
 
 export namespace UpdateConnectionDetails {
+  export function redactForLog(obj: UpdateConnectionDetails): object {
+    if (obj && Object.prototype.hasOwnProperty.call(obj, "connectionType")) {
+      switch (obj.connectionType) {
+        case "ORACLE":
+          return model.UpdateOracleConnectionDetails.redactForLog(
+            obj as model.UpdateOracleConnectionDetails
+          );
+        case "MYSQL":
+          return model.UpdateMysqlConnectionDetails.redactForLog(
+            obj as model.UpdateMysqlConnectionDetails
+          );
+      }
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "password")) {
+      redactedObj["password"] = "<redacted>";
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "replicationPassword")) {
+      redactedObj["replicationPassword"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: UpdateConnectionDetails): object {
     const jsonObj = { ...obj, ...{} };
 

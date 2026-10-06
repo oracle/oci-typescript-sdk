@@ -67,6 +67,32 @@ export interface CreateTaskValidationDetails {
 }
 
 export namespace CreateTaskValidationDetails {
+  export function redactForLog(obj: CreateTaskValidationDetails): object {
+    if (obj && Object.prototype.hasOwnProperty.call(obj, "modelType")) {
+      switch (obj.modelType) {
+        case "DATA_LOADER_TASK":
+          return model.CreateTaskValidationFromDataLoaderTask.redactForLog(
+            obj as model.CreateTaskValidationFromDataLoaderTask
+          );
+        case "PIPELINE_TASK":
+          return model.CreateTaskValidationFromPipelineTask.redactForLog(
+            obj as model.CreateTaskValidationFromPipelineTask
+          );
+        case "INTEGRATION_TASK":
+          return model.CreateTaskValidationFromIntegrationTask.redactForLog(
+            obj as model.CreateTaskValidationFromIntegrationTask
+          );
+      }
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreateTaskValidationDetails): object {
     const jsonObj = {
       ...obj,

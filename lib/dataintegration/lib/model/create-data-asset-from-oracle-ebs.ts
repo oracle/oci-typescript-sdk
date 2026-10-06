@@ -46,6 +46,25 @@ export interface CreateDataAssetFromOracleEbs extends model.CreateDataAssetDetai
 }
 
 export namespace CreateDataAssetFromOracleEbs {
+  export function redactForLog(obj: CreateDataAssetFromOracleEbs): object {
+    if (!obj || obj.modelType !== "ORACLE_EBS_DATA_ASSET") {
+      return model.CreateDataAssetDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "defaultConnection")) {
+      const value = obj.defaultConnection;
+      redactedObj["defaultConnection"] =
+        value == null ? value : model.CreateConnectionFromOracleEbs.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreateDataAssetFromOracleEbs, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj

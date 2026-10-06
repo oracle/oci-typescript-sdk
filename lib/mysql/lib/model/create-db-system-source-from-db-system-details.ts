@@ -39,6 +39,27 @@ export interface CreateDbSystemSourceFromDbSystemDetails extends model.CreateDbS
 }
 
 export namespace CreateDbSystemSourceFromDbSystemDetails {
+  export function redactForLog(obj: CreateDbSystemSourceFromDbSystemDetails): object {
+    if (!obj || obj.sourceType !== "DBSYSTEM") {
+      return model.CreateDbSystemSourceDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "channel")) {
+      const value = obj.channel;
+      redactedObj["channel"] =
+        value == null
+          ? value
+          : model.CreateDbSystemSourceFromDbSystemChannelDetails.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: CreateDbSystemSourceFromDbSystemDetails,
     isParentJsonObj?: boolean

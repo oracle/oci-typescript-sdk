@@ -61,6 +61,31 @@ export interface CreateOracleOnlineStandbyMigrationSettings
 }
 
 export namespace CreateOracleOnlineStandbyMigrationSettings {
+  export function redactForLog(obj: CreateOracleOnlineStandbyMigrationSettings): object {
+    if (!obj || obj.migrationMethod !== "ONLINE_STANDBY") {
+      return model.CreateOracleMigrationSettings.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "dataTransferMediumDetails")) {
+      const value = obj.dataTransferMediumDetails;
+      redactedObj["dataTransferMediumDetails"] =
+        value == null ? value : model.CreateOracleDataTransferMediumDetails.redactForLog(value);
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "hubDetails")) {
+      const value = obj.hubDetails;
+      redactedObj["hubDetails"] =
+        value == null ? value : model.CreateGoldenGateHubDetails.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: CreateOracleOnlineStandbyMigrationSettings,
     isParentJsonObj?: boolean

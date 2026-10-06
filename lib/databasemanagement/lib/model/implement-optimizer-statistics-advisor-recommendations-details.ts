@@ -29,6 +29,25 @@ export interface ImplementOptimizerStatisticsAdvisorRecommendationsDetails {
 }
 
 export namespace ImplementOptimizerStatisticsAdvisorRecommendationsDetails {
+  export function redactForLog(
+    obj: ImplementOptimizerStatisticsAdvisorRecommendationsDetails
+  ): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "jobDetails")) {
+      const value = obj.jobDetails;
+      redactedObj["jobDetails"] =
+        value == null
+          ? value
+          : model.ImplementOptimizerStatisticsAdvisorRecommendationsJob.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: ImplementOptimizerStatisticsAdvisorRecommendationsDetails
   ): object {

@@ -891,6 +891,21 @@ export namespace AutonomousDwDatabase {
     Partial = "PARTIAL"
   }
 
+  export function redactForLog(obj: AutonomousDwDatabase): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "encryptionKeyLocationDetails")) {
+      const value = obj.encryptionKeyLocationDetails;
+      redactedObj["encryptionKeyLocationDetails"] =
+        value == null ? value : model.EncryptionKeyLocationDetails.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: AutonomousDwDatabase): object {
     const jsonObj = {
       ...obj,

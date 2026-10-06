@@ -33,6 +33,29 @@ export interface CreateUserShardSpaceDetails {
 }
 
 export namespace CreateUserShardSpaceDetails {
+  export function redactForLog(obj: CreateUserShardSpaceDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "originalReplica")) {
+      const value = obj.originalReplica;
+      redactedObj["originalReplica"] =
+        value == null ? value : model.CreateUserShardSpaceReplicaDetails.redactForLog(value);
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "dataGuardReplicas")) {
+      const value = obj.dataGuardReplicas;
+      redactedObj["dataGuardReplicas"] =
+        value == null
+          ? value
+          : value.map(item => model.CreateUserShardSpaceReplicaDetails.redactForLog(item));
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreateUserShardSpaceDetails): object {
     const jsonObj = {
       ...obj,

@@ -34,6 +34,19 @@ export interface OauthMetadata {
 }
 
 export namespace OauthMetadata {
+  export function redactForLog(obj: OauthMetadata): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "clientAppSecret")) {
+      redactedObj["clientAppSecret"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: OauthMetadata): object {
     const jsonObj = { ...obj, ...{} };
 

@@ -95,6 +95,31 @@ export interface UpdateMongoDbConnectionDetails extends model.UpdateConnectionDe
 }
 
 export namespace UpdateMongoDbConnectionDetails {
+  export function redactForLog(obj: UpdateMongoDbConnectionDetails): object {
+    if (!obj || obj.connectionType !== "MONGODB") {
+      return model.UpdateConnectionDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "password")) {
+      redactedObj["password"] = "<redacted>";
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "tlsCertificateKeyFile")) {
+      redactedObj["tlsCertificateKeyFile"] = "<redacted>";
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "tlsCertificateKeyFilePassword")) {
+      redactedObj["tlsCertificateKeyFilePassword"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: UpdateMongoDbConnectionDetails,
     isParentJsonObj?: boolean

@@ -51,6 +51,31 @@ export interface OracleMigration extends model.Migration {
 }
 
 export namespace OracleMigration {
+  export function redactForLog(obj: OracleMigration): object {
+    if (!obj || obj.databaseCombination !== "ORACLE") {
+      return model.Migration.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "migrationSettings")) {
+      const value = obj.migrationSettings;
+      redactedObj["migrationSettings"] =
+        value == null ? value : model.OracleMigrationSettings.redactForLog(value);
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "dataTransferMediumDetails")) {
+      const value = obj.dataTransferMediumDetails;
+      redactedObj["dataTransferMediumDetails"] =
+        value == null ? value : model.OracleDataTransferMediumDetails.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: OracleMigration, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj ? obj : (model.Migration.getJsonObj(obj) as OracleMigration)),

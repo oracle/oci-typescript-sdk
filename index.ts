@@ -252,3 +252,4 @@ export import datacc = require("oci-datacc");
 export import ddfs = require("oci-ddfs");
 export import clusterhealth = require("oci-clusterhealth");
 export import distributeddatabase = require("oci-distributeddatabase");
+export import ociproductcatalog = require("oci-ociproductcatalog");

@@ -28,6 +28,25 @@ export interface CreateDatabaseFromBackup extends model.CreateDatabaseBase {
 }
 
 export namespace CreateDatabaseFromBackup {
+  export function redactForLog(obj: CreateDatabaseFromBackup): object {
+    if (!obj || obj.source !== "DB_BACKUP") {
+      return model.CreateDatabaseBase.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "database")) {
+      const value = obj.database;
+      redactedObj["database"] =
+        value == null ? value : model.CreateDatabaseFromBackupDetails.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreateDatabaseFromBackup, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj

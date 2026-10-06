@@ -76,6 +76,23 @@ export interface CreateElasticsearchConnectionDetails extends model.CreateConnec
 }
 
 export namespace CreateElasticsearchConnectionDetails {
+  export function redactForLog(obj: CreateElasticsearchConnectionDetails): object {
+    if (!obj || obj.connectionType !== "ELASTICSEARCH") {
+      return model.CreateConnectionDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "password")) {
+      redactedObj["password"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: CreateElasticsearchConnectionDetails,
     isParentJsonObj?: boolean

@@ -53,6 +53,50 @@ export interface CreateConnectionDetails {
 }
 
 export namespace CreateConnectionDetails {
+  export function redactForLog(obj: CreateConnectionDetails): object {
+    if (obj && Object.prototype.hasOwnProperty.call(obj, "modelType")) {
+      switch (obj.modelType) {
+        case "ORACLE_SIEBEL_CONNECTION":
+          return model.CreateConnectionFromOracleSiebel.redactForLog(
+            obj as model.CreateConnectionFromOracleSiebel
+          );
+        case "ORACLE_ATP_CONNECTION":
+          return model.CreateConnectionFromAtp.redactForLog(obj as model.CreateConnectionFromAtp);
+        case "MYSQL_HEATWAVE_CONNECTION":
+          return model.CreateConnectionFromMySqlHeatWave.redactForLog(
+            obj as model.CreateConnectionFromMySqlHeatWave
+          );
+        case "ORACLEDB_CONNECTION":
+          return model.CreateConnectionFromOracle.redactForLog(
+            obj as model.CreateConnectionFromOracle
+          );
+        case "ORACLE_PEOPLESOFT_CONNECTION":
+          return model.CreateConnectionFromOraclePeopleSoft.redactForLog(
+            obj as model.CreateConnectionFromOraclePeopleSoft
+          );
+        case "ORACLE_EBS_CONNECTION":
+          return model.CreateConnectionFromOracleEbs.redactForLog(
+            obj as model.CreateConnectionFromOracleEbs
+          );
+        case "MYSQL_CONNECTION":
+          return model.CreateConnectionFromMySQL.redactForLog(
+            obj as model.CreateConnectionFromMySQL
+          );
+        case "GENERIC_JDBC_CONNECTION":
+          return model.CreateConnectionFromJdbc.redactForLog(obj as model.CreateConnectionFromJdbc);
+        case "ORACLE_ADWC_CONNECTION":
+          return model.CreateConnectionFromAdwc.redactForLog(obj as model.CreateConnectionFromAdwc);
+      }
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreateConnectionDetails): object {
     const jsonObj = {
       ...obj,

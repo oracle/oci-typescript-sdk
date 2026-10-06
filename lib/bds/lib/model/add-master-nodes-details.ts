@@ -44,6 +44,18 @@ export interface AddMasterNodesDetails {
 }
 
 export namespace AddMasterNodesDetails {
+  export function redactForLog(obj: AddMasterNodesDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+    if (Object.prototype.hasOwnProperty.call(obj, "clusterAdminPassword")) {
+      redactedObj["clusterAdminPassword"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: AddMasterNodesDetails): object {
     const jsonObj = {
       ...obj,

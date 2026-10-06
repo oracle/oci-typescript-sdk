@@ -81,6 +81,19 @@ Example: {@code {\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}}
 }
 
 export namespace CreateAiDataPlatformDetails {
+  export function redactForLog(obj: CreateAiDataPlatformDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "vectorDbAdminCred")) {
+      redactedObj["vectorDbAdminCred"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreateAiDataPlatformDetails): object {
     const jsonObj = { ...obj, ...{} };
 

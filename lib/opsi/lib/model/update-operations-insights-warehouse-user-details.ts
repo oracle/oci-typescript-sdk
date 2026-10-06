@@ -52,6 +52,18 @@ export interface UpdateOperationsInsightsWarehouseUserDetails {
 }
 
 export namespace UpdateOperationsInsightsWarehouseUserDetails {
+  export function redactForLog(obj: UpdateOperationsInsightsWarehouseUserDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+    if (Object.prototype.hasOwnProperty.call(obj, "connectionPassword")) {
+      redactedObj["connectionPassword"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: UpdateOperationsInsightsWarehouseUserDetails): object {
     const jsonObj = { ...obj, ...{} };
 

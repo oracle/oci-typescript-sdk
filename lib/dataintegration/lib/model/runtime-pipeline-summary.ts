@@ -30,6 +30,26 @@ export interface RuntimePipelineSummary {
 }
 
 export namespace RuntimePipelineSummary {
+  export function redactForLog(obj: RuntimePipelineSummary): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "pipeline")) {
+      const value = obj.pipeline;
+      redactedObj["pipeline"] = value == null ? value : model.Pipeline.redactForLog(value);
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "runtimeOperators")) {
+      const value = obj.runtimeOperators;
+      redactedObj["runtimeOperators"] =
+        value == null ? value : value.map(item => model.RuntimeOperator.redactForLog(item));
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: RuntimePipelineSummary): object {
     const jsonObj = {
       ...obj,

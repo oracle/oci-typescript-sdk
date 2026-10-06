@@ -102,6 +102,22 @@ export namespace ExternalDatabaseConnector {
     UnknownValue = "UNKNOWN_VALUE"
   }
 
+  export function redactForLog(obj: ExternalDatabaseConnector): object {
+    if (obj && Object.prototype.hasOwnProperty.call(obj, "connectorType")) {
+      switch (obj.connectorType) {
+        case "MACS":
+          return model.ExternalMacsConnector.redactForLog(obj as model.ExternalMacsConnector);
+      }
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: ExternalDatabaseConnector): object {
     const jsonObj = { ...obj, ...{} };
 

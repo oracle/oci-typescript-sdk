@@ -53,6 +53,32 @@ export interface PublishedObjectSummary {
 }
 
 export namespace PublishedObjectSummary {
+  export function redactForLog(obj: PublishedObjectSummary): object {
+    if (obj && Object.prototype.hasOwnProperty.call(obj, "modelType")) {
+      switch (obj.modelType) {
+        case "PIPELINE_TASK":
+          return model.PublishedObjectFromPipelineTaskSummary.redactForLog(
+            obj as model.PublishedObjectFromPipelineTaskSummary
+          );
+        case "INTEGRATION_TASK":
+          return model.PublishedObjectSummaryFromIntegrationTask.redactForLog(
+            obj as model.PublishedObjectSummaryFromIntegrationTask
+          );
+        case "DATA_LOADER_TASK":
+          return model.PublishedObjectSummaryFromDataLoaderTask.redactForLog(
+            obj as model.PublishedObjectSummaryFromDataLoaderTask
+          );
+      }
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: PublishedObjectSummary): object {
     const jsonObj = {
       ...obj,

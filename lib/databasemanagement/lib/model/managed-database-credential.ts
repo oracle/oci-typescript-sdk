@@ -39,6 +39,24 @@ export namespace ManagedDatabaseCredential {
     Sysdba = "SYSDBA"
   }
 
+  export function redactForLog(obj: ManagedDatabaseCredential): object {
+    if (obj && Object.prototype.hasOwnProperty.call(obj, "credentialType")) {
+      switch (obj.credentialType) {
+        case "PASSWORD":
+          return model.ManagedDatabasePasswordCredential.redactForLog(
+            obj as model.ManagedDatabasePasswordCredential
+          );
+      }
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: ManagedDatabaseCredential): object {
     const jsonObj = { ...obj, ...{} };
 

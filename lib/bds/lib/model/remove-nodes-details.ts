@@ -39,6 +39,18 @@ export interface RemoveNodesDetails {
 }
 
 export namespace RemoveNodesDetails {
+  export function redactForLog(obj: RemoveNodesDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+    if (Object.prototype.hasOwnProperty.call(obj, "clusterAdminPassword")) {
+      redactedObj["clusterAdminPassword"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: RemoveNodesDetails): object {
     const jsonObj = { ...obj, ...{} };
 

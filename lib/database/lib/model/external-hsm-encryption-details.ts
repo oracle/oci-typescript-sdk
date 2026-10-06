@@ -28,6 +28,22 @@ export interface ExternalHsmEncryptionDetails extends model.EncryptionKeyLocatio
 }
 
 export namespace ExternalHsmEncryptionDetails {
+  export function redactForLog(obj: ExternalHsmEncryptionDetails): object {
+    if (!obj || obj.providerType !== "EXTERNAL") {
+      return model.EncryptionKeyLocationDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+    if (Object.prototype.hasOwnProperty.call(obj, "hsmPassword")) {
+      redactedObj["hsmPassword"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: ExternalHsmEncryptionDetails, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj

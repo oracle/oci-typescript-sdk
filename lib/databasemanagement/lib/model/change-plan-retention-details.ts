@@ -36,6 +36,27 @@ export interface ChangePlanRetentionDetails {
 }
 
 export namespace ChangePlanRetentionDetails {
+  export function redactForLog(obj: ChangePlanRetentionDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "credentials")) {
+      const value = obj.credentials;
+      redactedObj["credentials"] =
+        value == null ? value : model.ManagedDatabaseCredential.redactForLog(value);
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "databaseCredential")) {
+      const value = obj.databaseCredential;
+      redactedObj["databaseCredential"] =
+        value == null ? value : model.DatabaseCredentialDetails.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: ChangePlanRetentionDetails): object {
     const jsonObj = {
       ...obj,

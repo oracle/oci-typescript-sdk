@@ -50,6 +50,25 @@ export interface UpdateDataAssetFromOracle extends model.UpdateDataAssetDetails 
 }
 
 export namespace UpdateDataAssetFromOracle {
+  export function redactForLog(obj: UpdateDataAssetFromOracle): object {
+    if (!obj || obj.modelType !== "ORACLE_DATA_ASSET") {
+      return model.UpdateDataAssetDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "defaultConnection")) {
+      const value = obj.defaultConnection;
+      redactedObj["defaultConnection"] =
+        value == null ? value : model.UpdateConnectionFromOracle.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: UpdateDataAssetFromOracle, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj

@@ -147,6 +147,32 @@ export namespace Connection {
     UnknownValue = "UNKNOWN_VALUE"
   }
 
+  export function redactForLog(obj: Connection): object {
+    if (obj && Object.prototype.hasOwnProperty.call(obj, "connectionType")) {
+      switch (obj.connectionType) {
+        case "MYSQL":
+          return model.MysqlConnection.redactForLog(obj as model.MysqlConnection);
+        case "ORACLE":
+          return model.OracleConnection.redactForLog(obj as model.OracleConnection);
+      }
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "password")) {
+      redactedObj["password"] = "<redacted>";
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "replicationPassword")) {
+      redactedObj["replicationPassword"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: Connection): object {
     const jsonObj = {
       ...obj,

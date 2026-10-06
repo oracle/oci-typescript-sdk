@@ -28,6 +28,18 @@ export interface AccessMaterials {
 }
 
 export namespace AccessMaterials {
+  export function redactForLog(obj: AccessMaterials): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+    if (Object.prototype.hasOwnProperty.call(obj, "details")) {
+      redactedObj["details"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: AccessMaterials): object {
     const jsonObj = { ...obj, ...{} };
 

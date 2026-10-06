@@ -39,6 +39,27 @@ export interface CreatePluggableDatabaseCreationTypeDetails {
 }
 
 export namespace CreatePluggableDatabaseCreationTypeDetails {
+  export function redactForLog(obj: CreatePluggableDatabaseCreationTypeDetails): object {
+    if (obj && Object.prototype.hasOwnProperty.call(obj, "creationType")) {
+      switch (obj.creationType) {
+        case "RELOCATE_PDB":
+          return model.CreatePluggableDatabaseFromRelocateDetails.redactForLog(
+            obj as model.CreatePluggableDatabaseFromRelocateDetails
+          );
+        case "REMOTE_CLONE_PDB":
+          return model.CreatePluggableDatabaseFromRemoteCloneDetails.redactForLog(
+            obj as model.CreatePluggableDatabaseFromRemoteCloneDetails
+          );
+      }
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreatePluggableDatabaseCreationTypeDetails): object {
     const jsonObj = { ...obj, ...{} };
 

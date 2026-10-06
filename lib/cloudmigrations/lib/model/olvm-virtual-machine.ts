@@ -215,6 +215,21 @@ export namespace OlvmVirtualMachine {
     LeavePaused = "LEAVE_PAUSED"
   }
 
+  export function redactForLog(obj: OlvmVirtualMachine): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "storageDomainLease")) {
+      const value = obj.storageDomainLease;
+      redactedObj["storageDomainLease"] =
+        value == null ? value : model.OlvmStorageDomainProperties.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: OlvmVirtualMachine): object {
     const jsonObj = {
       ...obj,

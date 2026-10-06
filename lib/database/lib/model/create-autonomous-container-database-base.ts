@@ -227,6 +227,38 @@ export namespace CreateAutonomousContainerDatabaseBase {
     Drcp = "DRCP"
   }
 
+  export function redactForLog(obj: CreateAutonomousContainerDatabaseBase): object {
+    if (obj && Object.prototype.hasOwnProperty.call(obj, "source")) {
+      switch (obj.source) {
+        case "BACKUP_FROM_TIMESTAMP":
+          return model.CreateAutonomousContainerDatabaseFromBackupTimestampDetails.redactForLog(
+            obj as model.CreateAutonomousContainerDatabaseFromBackupTimestampDetails
+          );
+        case "NONE":
+          return model.CreateAutonomousContainerDatabaseDetails.redactForLog(
+            obj as model.CreateAutonomousContainerDatabaseDetails
+          );
+        case "BACKUP_FROM_ID":
+          return model.CreateAutonomousContainerDatabaseFromBackupDetails.redactForLog(
+            obj as model.CreateAutonomousContainerDatabaseFromBackupDetails
+          );
+      }
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "encryptionKeyLocationDetails")) {
+      const value = obj.encryptionKeyLocationDetails;
+      redactedObj["encryptionKeyLocationDetails"] =
+        value == null ? value : model.EncryptionKeyLocationDetails.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreateAutonomousContainerDatabaseBase): object {
     const jsonObj = {
       ...obj,

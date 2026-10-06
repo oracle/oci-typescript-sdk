@@ -48,6 +48,48 @@ export interface UpdateChannelDetails {
 }
 
 export namespace UpdateChannelDetails {
+  export function redactForLog(obj: UpdateChannelDetails): object {
+    if (obj && Object.prototype.hasOwnProperty.call(obj, "type")) {
+      switch (obj.type) {
+        case "OSVC":
+          return model.UpdateOsvcChannelDetails.redactForLog(obj as model.UpdateOsvcChannelDetails);
+        case "OSS":
+          return model.UpdateOSSChannelDetails.redactForLog(obj as model.UpdateOSSChannelDetails);
+        case "MSTEAMS":
+          return model.UpdateMSTeamsChannelDetails.redactForLog(
+            obj as model.UpdateMSTeamsChannelDetails
+          );
+        case "SLACK":
+          return model.UpdateSlackChannelDetails.redactForLog(
+            obj as model.UpdateSlackChannelDetails
+          );
+        case "SERVICECLOUD":
+          return model.UpdateServiceCloudChannelDetails.redactForLog(
+            obj as model.UpdateServiceCloudChannelDetails
+          );
+        case "TWILIO":
+          return model.UpdateTwilioChannelDetails.redactForLog(
+            obj as model.UpdateTwilioChannelDetails
+          );
+        case "FACEBOOK":
+          return model.UpdateFacebookChannelDetails.redactForLog(
+            obj as model.UpdateFacebookChannelDetails
+          );
+        case "CORTANA":
+          return model.UpdateCortanaChannelDetails.redactForLog(
+            obj as model.UpdateCortanaChannelDetails
+          );
+      }
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: UpdateChannelDetails): object {
     const jsonObj = { ...obj, ...{} };
 

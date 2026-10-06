@@ -47,6 +47,23 @@ export interface UpdateGoogleBigQueryConnectionDetails extends model.UpdateConne
 }
 
 export namespace UpdateGoogleBigQueryConnectionDetails {
+  export function redactForLog(obj: UpdateGoogleBigQueryConnectionDetails): object {
+    if (!obj || obj.connectionType !== "GOOGLE_BIGQUERY") {
+      return model.UpdateConnectionDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "serviceAccountKeyFile")) {
+      redactedObj["serviceAccountKeyFile"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: UpdateGoogleBigQueryConnectionDetails,
     isParentJsonObj?: boolean

@@ -220,6 +220,25 @@ Must be unique across all VNICs in the subnet and comply with RFC 952 and RFC 11
 }
 
 export namespace CreateDbSystemDetails {
+  export function redactForLog(obj: CreateDbSystemDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "adminPassword")) {
+      redactedObj["adminPassword"] = "<redacted>";
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "source")) {
+      const value = obj.source;
+      redactedObj["source"] =
+        value == null ? value : model.CreateDbSystemSourceDetails.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreateDbSystemDetails): object {
     const jsonObj = {
       ...obj,

@@ -34,6 +34,18 @@ export interface DisableCertificateDetails {
 }
 
 export namespace DisableCertificateDetails {
+  export function redactForLog(obj: DisableCertificateDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+    if (Object.prototype.hasOwnProperty.call(obj, "clusterAdminPassword")) {
+      redactedObj["clusterAdminPassword"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: DisableCertificateDetails): object {
     const jsonObj = {
       ...obj,

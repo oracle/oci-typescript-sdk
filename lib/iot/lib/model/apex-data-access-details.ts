@@ -29,6 +29,22 @@ export interface ApexDataAccessDetails extends model.ConfigureIotDomainDataAcces
 }
 
 export namespace ApexDataAccessDetails {
+  export function redactForLog(obj: ApexDataAccessDetails): object {
+    if (!obj || obj.type !== "APEX") {
+      return model.ConfigureIotDomainDataAccessDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+    if (Object.prototype.hasOwnProperty.call(obj, "dbWorkspaceAdminInitialPassword")) {
+      redactedObj["dbWorkspaceAdminInitialPassword"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: ApexDataAccessDetails, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj

@@ -79,6 +79,20 @@ export interface FlowNode {
 }
 
 export namespace FlowNode {
+  export function redactForLog(obj: FlowNode): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "operator")) {
+      const value = obj.operator;
+      redactedObj["operator"] = value == null ? value : model.Operator.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: FlowNode): object {
     const jsonObj = {
       ...obj,

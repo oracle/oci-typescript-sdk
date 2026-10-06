@@ -44,6 +44,23 @@ export interface UpdateApiKeyAiModelAuthDetails extends model.UpdateAiModelAuthD
 }
 
 export namespace UpdateApiKeyAiModelAuthDetails {
+  export function redactForLog(obj: UpdateApiKeyAiModelAuthDetails): object {
+    if (!obj || obj.authType !== "API_KEY") {
+      return model.UpdateAiModelAuthDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "apiKey")) {
+      redactedObj["apiKey"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: UpdateApiKeyAiModelAuthDetails,
     isParentJsonObj?: boolean

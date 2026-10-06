@@ -39,6 +39,25 @@ export interface DiscoveredExternalDbNode extends model.DiscoveredExternalDbSyst
 }
 
 export namespace DiscoveredExternalDbNode {
+  export function redactForLog(obj: DiscoveredExternalDbNode): object {
+    if (!obj || obj.componentType !== "DATABASE_NODE") {
+      return model.DiscoveredExternalDbSystemComponent.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "connector")) {
+      const value = obj.connector;
+      redactedObj["connector"] =
+        value == null ? value : model.ExternalDbSystemDiscoveryConnector.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: DiscoveredExternalDbNode, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj

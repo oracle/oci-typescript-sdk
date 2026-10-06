@@ -141,6 +141,67 @@ export namespace CreateDistributedAutonomousDatabaseDetails {
     Dw = "DW"
   }
 
+  export function redactForLog(obj: CreateDistributedAutonomousDatabaseDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "compositeRaftShardSpaces")) {
+      const value = obj.compositeRaftShardSpaces;
+      redactedObj["compositeRaftShardSpaces"] =
+        value == null
+          ? value
+          : value.map(item =>
+              model.CreateAutonomousCompositeRaftShardSpaceDetails.redactForLog(item)
+            );
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "compositeDataGuardShardSpaces")) {
+      const value = obj.compositeDataGuardShardSpaces;
+      redactedObj["compositeDataGuardShardSpaces"] =
+        value == null
+          ? value
+          : value.map(item =>
+              model.CreateAutonomousCompositeDataGuardShardSpaceDetails.redactForLog(item)
+            );
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "systemRaftClusters")) {
+      const value = obj.systemRaftClusters;
+      redactedObj["systemRaftClusters"] =
+        value == null
+          ? value
+          : value.map(item => model.CreateAutonomousSystemRaftClusterDetails.redactForLog(item));
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "systemDataGuardDatabases")) {
+      const value = obj.systemDataGuardDatabases;
+      redactedObj["systemDataGuardDatabases"] =
+        value == null
+          ? value
+          : model.CreateAutonomousSystemDataGuardDatabaseDetails.redactForLog(value);
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "userShardSpaces")) {
+      const value = obj.userShardSpaces;
+      redactedObj["userShardSpaces"] =
+        value == null
+          ? value
+          : value.map(item => model.CreateAutonomousUserShardSpaceDetails.redactForLog(item));
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "catalogDetails")) {
+      const value = obj.catalogDetails;
+      redactedObj["catalogDetails"] =
+        value == null
+          ? value
+          : value.map(item => model.CreateAutonomousCatalogDetails.redactForLog(item));
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreateDistributedAutonomousDatabaseDetails): object {
     const jsonObj = {
       ...obj,

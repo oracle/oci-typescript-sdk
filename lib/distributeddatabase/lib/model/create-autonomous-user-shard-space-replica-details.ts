@@ -29,6 +29,23 @@ export interface CreateAutonomousUserShardSpaceReplicaDetails {
 }
 
 export namespace CreateAutonomousUserShardSpaceReplicaDetails {
+  export function redactForLog(obj: CreateAutonomousUserShardSpaceReplicaDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "database")) {
+      const value = obj.database;
+      redactedObj["database"] =
+        value == null
+          ? value
+          : model.CreateDistributedAutonomousDatabaseShardDatabaseDetails.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreateAutonomousUserShardSpaceReplicaDetails): object {
     const jsonObj = {
       ...obj,

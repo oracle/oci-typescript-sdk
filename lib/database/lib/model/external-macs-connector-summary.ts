@@ -36,6 +36,25 @@ export interface ExternalMacsConnectorSummary extends model.ExternalDatabaseConn
 }
 
 export namespace ExternalMacsConnectorSummary {
+  export function redactForLog(obj: ExternalMacsConnectorSummary): object {
+    if (!obj || obj.connectorType !== "MACS") {
+      return model.ExternalDatabaseConnectorSummary.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "connectionCredentials")) {
+      const value = obj.connectionCredentials;
+      redactedObj["connectionCredentials"] =
+        value == null ? value : model.DatabaseConnectionCredentials.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: ExternalMacsConnectorSummary, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj

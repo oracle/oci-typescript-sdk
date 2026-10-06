@@ -46,6 +46,19 @@ export interface ReplaceNodeDetails {
 }
 
 export namespace ReplaceNodeDetails {
+  export function redactForLog(obj: ReplaceNodeDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "clusterAdminPassword")) {
+      redactedObj["clusterAdminPassword"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: ReplaceNodeDetails): object {
     const jsonObj = { ...obj, ...{} };
 
