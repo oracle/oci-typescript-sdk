@@ -61,6 +61,22 @@ export interface UpdateOciGenAiModelAuthDetails extends model.UpdateAiModelAuthD
 }
 
 export namespace UpdateOciGenAiModelAuthDetails {
+  export function redactForLog(obj: UpdateOciGenAiModelAuthDetails): object {
+    if (!obj || obj.authType !== "OCI_GEN_AI") {
+      return model.UpdateAiModelAuthDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+    if (Object.prototype.hasOwnProperty.call(obj, "apiKey")) {
+      redactedObj["apiKey"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: UpdateOciGenAiModelAuthDetails,
     isParentJsonObj?: boolean

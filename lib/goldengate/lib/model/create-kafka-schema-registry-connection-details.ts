@@ -136,6 +136,43 @@ export interface CreateKafkaSchemaRegistryConnectionDetails extends model.Create
 }
 
 export namespace CreateKafkaSchemaRegistryConnectionDetails {
+  export function redactForLog(obj: CreateKafkaSchemaRegistryConnectionDetails): object {
+    if (!obj || obj.connectionType !== "KAFKA_SCHEMA_REGISTRY") {
+      return model.CreateConnectionDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "password")) {
+      redactedObj["password"] = "<redacted>";
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "trustStore")) {
+      redactedObj["trustStore"] = "<redacted>";
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "trustStorePassword")) {
+      redactedObj["trustStorePassword"] = "<redacted>";
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "keyStore")) {
+      redactedObj["keyStore"] = "<redacted>";
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "keyStorePassword")) {
+      redactedObj["keyStorePassword"] = "<redacted>";
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "sslKeyPassword")) {
+      redactedObj["sslKeyPassword"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: CreateKafkaSchemaRegistryConnectionDetails,
     isParentJsonObj?: boolean

@@ -46,6 +46,25 @@ export interface DataAssetFromOracleEbsDetails extends model.DataAsset {
 }
 
 export namespace DataAssetFromOracleEbsDetails {
+  export function redactForLog(obj: DataAssetFromOracleEbsDetails): object {
+    if (!obj || obj.modelType !== "ORACLE_EBS_DATA_ASSET") {
+      return model.DataAsset.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "defaultConnection")) {
+      const value = obj.defaultConnection;
+      redactedObj["defaultConnection"] =
+        value == null ? value : model.ConnectionFromOracleEbsDetails.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: DataAssetFromOracleEbsDetails,
     isParentJsonObj?: boolean

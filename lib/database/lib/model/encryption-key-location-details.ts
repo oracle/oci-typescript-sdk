@@ -23,6 +23,23 @@ export interface EncryptionKeyLocationDetails {
 }
 
 export namespace EncryptionKeyLocationDetails {
+  export function redactForLog(obj: EncryptionKeyLocationDetails): object {
+    if (obj && Object.prototype.hasOwnProperty.call(obj, "providerType")) {
+      switch (obj.providerType) {
+        case "EXTERNAL":
+          return model.ExternalHsmEncryptionDetails.redactForLog(
+            obj as model.ExternalHsmEncryptionDetails
+          );
+      }
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: EncryptionKeyLocationDetails): object {
     const jsonObj = { ...obj, ...{} };
 

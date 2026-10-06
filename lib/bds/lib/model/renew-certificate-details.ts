@@ -46,6 +46,28 @@ export interface RenewCertificateDetails {
 }
 
 export namespace RenewCertificateDetails {
+  export function redactForLog(obj: RenewCertificateDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+    if (Object.prototype.hasOwnProperty.call(obj, "clusterAdminPassword")) {
+      redactedObj["clusterAdminPassword"] = "<redacted>";
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "hostCertDetails")) {
+      const value = obj.hostCertDetails;
+      redactedObj["hostCertDetails"] =
+        value == null ? value : value.map(item => model.HostCertDetails.redactForLog(item));
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "serverKeyPassword")) {
+      redactedObj["serverKeyPassword"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: RenewCertificateDetails): object {
     const jsonObj = {
       ...obj,

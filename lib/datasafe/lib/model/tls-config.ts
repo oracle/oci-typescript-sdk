@@ -60,6 +60,19 @@ export namespace TlsConfig {
     UnknownValue = "UNKNOWN_VALUE"
   }
 
+  export function redactForLog(obj: TlsConfig): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "storePassword")) {
+      redactedObj["storePassword"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: TlsConfig): object {
     const jsonObj = { ...obj, ...{} };
 

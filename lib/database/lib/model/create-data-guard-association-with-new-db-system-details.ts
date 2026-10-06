@@ -201,6 +201,25 @@ export namespace CreateDataGuardAssociationWithNewDbSystemDetails {
     BringYourOwnLicense = "BRING_YOUR_OWN_LICENSE"
   }
 
+  export function redactForLog(obj: CreateDataGuardAssociationWithNewDbSystemDetails): object {
+    if (!obj || obj.creationType !== "NewDbSystem") {
+      return model.CreateDataGuardAssociationDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "sourceEncryptionKeyLocationDetails")) {
+      const value = obj.sourceEncryptionKeyLocationDetails;
+      redactedObj["sourceEncryptionKeyLocationDetails"] =
+        value == null ? value : model.EncryptionKeyLocationDetails.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: CreateDataGuardAssociationWithNewDbSystemDetails,
     isParentJsonObj?: boolean

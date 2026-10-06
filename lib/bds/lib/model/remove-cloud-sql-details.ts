@@ -26,6 +26,18 @@ export interface RemoveCloudSqlDetails {
 }
 
 export namespace RemoveCloudSqlDetails {
+  export function redactForLog(obj: RemoveCloudSqlDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+    if (Object.prototype.hasOwnProperty.call(obj, "clusterAdminPassword")) {
+      redactedObj["clusterAdminPassword"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: RemoveCloudSqlDetails): object {
     const jsonObj = { ...obj, ...{} };
 

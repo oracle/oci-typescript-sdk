@@ -47,6 +47,23 @@ export interface UpdateGoogleCloudStorageConnectionDetails extends model.UpdateC
 }
 
 export namespace UpdateGoogleCloudStorageConnectionDetails {
+  export function redactForLog(obj: UpdateGoogleCloudStorageConnectionDetails): object {
+    if (!obj || obj.connectionType !== "GOOGLE_CLOUD_STORAGE") {
+      return model.UpdateConnectionDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "serviceAccountKeyFile")) {
+      redactedObj["serviceAccountKeyFile"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: UpdateGoogleCloudStorageConnectionDetails,
     isParentJsonObj?: boolean

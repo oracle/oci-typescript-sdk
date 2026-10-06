@@ -55,6 +55,21 @@ export interface CreateExternalExadataStorageConnectorDetails {
 }
 
 export namespace CreateExternalExadataStorageConnectorDetails {
+  export function redactForLog(obj: CreateExternalExadataStorageConnectorDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "credentialInfo")) {
+      const value = obj.credentialInfo;
+      redactedObj["credentialInfo"] =
+        value == null ? value : model.RestCredential.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreateExternalExadataStorageConnectorDetails): object {
     const jsonObj = {
       ...obj,

@@ -121,6 +121,27 @@ export interface CreatePostgresqlConnectionDetails extends model.CreateConnectio
 }
 
 export namespace CreatePostgresqlConnectionDetails {
+  export function redactForLog(obj: CreatePostgresqlConnectionDetails): object {
+    if (!obj || obj.connectionType !== "POSTGRESQL") {
+      return model.CreateConnectionDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "password")) {
+      redactedObj["password"] = "<redacted>";
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "sslKey")) {
+      redactedObj["sslKey"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: CreatePostgresqlConnectionDetails,
     isParentJsonObj?: boolean

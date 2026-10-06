@@ -135,6 +135,29 @@ export namespace MaskDataDetails {
     PostMaskingScript = "POST_MASKING_SCRIPT"
   }
 
+  export function redactForLog(obj: MaskDataDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "seed")) {
+      redactedObj["seed"] = "<redacted>";
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "userDefinedFunctionSeed")) {
+      redactedObj["userDefinedFunctionSeed"] = "<redacted>";
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "targetCredentials")) {
+      const value = obj.targetCredentials;
+      redactedObj["targetCredentials"] =
+        value == null ? value : model.Credentials.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: MaskDataDetails): object {
     const jsonObj = {
       ...obj,

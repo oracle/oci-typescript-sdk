@@ -46,6 +46,25 @@ export interface DataAssetSummaryFromOraclePeopleSoft extends model.DataAssetSum
 }
 
 export namespace DataAssetSummaryFromOraclePeopleSoft {
+  export function redactForLog(obj: DataAssetSummaryFromOraclePeopleSoft): object {
+    if (!obj || obj.modelType !== "ORACLE_PEOPLESOFT_DATA_ASSET") {
+      return model.DataAssetSummary.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "defaultConnection")) {
+      const value = obj.defaultConnection;
+      redactedObj["defaultConnection"] =
+        value == null ? value : model.ConnectionSummaryFromOraclePeopleSoft.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: DataAssetSummaryFromOraclePeopleSoft,
     isParentJsonObj?: boolean

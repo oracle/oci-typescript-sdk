@@ -48,6 +48,27 @@ export interface DropTablespaceDetails {
 }
 
 export namespace DropTablespaceDetails {
+  export function redactForLog(obj: DropTablespaceDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "credentialDetails")) {
+      const value = obj.credentialDetails;
+      redactedObj["credentialDetails"] =
+        value == null ? value : model.TablespaceAdminCredentialDetails.redactForLog(value);
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "databaseCredential")) {
+      const value = obj.databaseCredential;
+      redactedObj["databaseCredential"] =
+        value == null ? value : model.DatabaseCredentialDetails.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: DropTablespaceDetails): object {
     const jsonObj = {
       ...obj,

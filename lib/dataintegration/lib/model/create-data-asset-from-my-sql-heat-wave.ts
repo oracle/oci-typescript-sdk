@@ -36,6 +36,25 @@ export interface CreateDataAssetFromMySqlHeatWave extends model.CreateDataAssetD
 }
 
 export namespace CreateDataAssetFromMySqlHeatWave {
+  export function redactForLog(obj: CreateDataAssetFromMySqlHeatWave): object {
+    if (!obj || obj.modelType !== "MYSQL_HEATWAVE_DATA_ASSET") {
+      return model.CreateDataAssetDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "defaultConnection")) {
+      const value = obj.defaultConnection;
+      redactedObj["defaultConnection"] =
+        value == null ? value : model.CreateConnectionFromMySqlHeatWave.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: CreateDataAssetFromMySqlHeatWave,
     isParentJsonObj?: boolean

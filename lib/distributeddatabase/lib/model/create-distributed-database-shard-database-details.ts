@@ -38,6 +38,39 @@ export interface CreateDistributedDatabaseShardDatabaseDetails {
 }
 
 export namespace CreateDistributedDatabaseShardDatabaseDetails {
+  export function redactForLog(obj: CreateDistributedDatabaseShardDatabaseDetails): object {
+    if (obj && Object.prototype.hasOwnProperty.call(obj, "source")) {
+      switch (obj.source) {
+        case "XS_NEW_CLUSTER":
+          return model.CreateDistributedDatabaseShardWithExadbXsNewClusterDetails.redactForLog(
+            obj as model.CreateDistributedDatabaseShardWithExadbXsNewClusterDetails
+          );
+        case "XS_NEW_VAULT_AND_CLUSTER":
+          return model.CreateDistributedDatabaseShardWithExadbXsNewVaultAndClusterDetails.redactForLog(
+            obj as model.CreateDistributedDatabaseShardWithExadbXsNewVaultAndClusterDetails
+          );
+        case "XS_EXISTING_CLUSTER":
+          return model.CreateDistributedDatabaseShardDatabaseWithExadbXsDetails.redactForLog(
+            obj as model.CreateDistributedDatabaseShardDatabaseWithExadbXsDetails
+          );
+        case "EXISTING_DB_HOME":
+          return model.CreateDistributedDatabaseShardDatabaseWithDbHomeDetails.redactForLog(
+            obj as model.CreateDistributedDatabaseShardDatabaseWithDbHomeDetails
+          );
+        case "XD_EXISTING_CLUSTER":
+          return model.CreateDistributedDatabaseShardDatabaseWithExadbXdDetails.redactForLog(
+            obj as model.CreateDistributedDatabaseShardDatabaseWithExadbXdDetails
+          );
+      }
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreateDistributedDatabaseShardDatabaseDetails): object {
     const jsonObj = { ...obj, ...{} };
 

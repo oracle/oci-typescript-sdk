@@ -154,6 +154,21 @@ export interface Monitor {
 }
 
 export namespace Monitor {
+  export function redactForLog(obj: Monitor): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "configuration")) {
+      const value = obj.configuration;
+      redactedObj["configuration"] =
+        value == null ? value : model.MonitorConfiguration.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: Monitor): object {
     const jsonObj = {
       ...obj,

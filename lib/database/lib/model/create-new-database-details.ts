@@ -28,6 +28,25 @@ export interface CreateNewDatabaseDetails extends model.CreateDatabaseBase {
 }
 
 export namespace CreateNewDatabaseDetails {
+  export function redactForLog(obj: CreateNewDatabaseDetails): object {
+    if (!obj || obj.source !== "NONE") {
+      return model.CreateDatabaseBase.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "database")) {
+      const value = obj.database;
+      redactedObj["database"] =
+        value == null ? value : model.CreateDatabaseDetails.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreateNewDatabaseDetails, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj

@@ -32,6 +32,23 @@ export interface ConnectionFromOraclePeopleSoftDetails extends model.ConnectionD
 }
 
 export namespace ConnectionFromOraclePeopleSoftDetails {
+  export function redactForLog(obj: ConnectionFromOraclePeopleSoftDetails): object {
+    if (!obj || obj.modelType !== "ORACLE_PEOPLESOFT_CONNECTION") {
+      return model.ConnectionDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "password")) {
+      redactedObj["password"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: ConnectionFromOraclePeopleSoftDetails,
     isParentJsonObj?: boolean

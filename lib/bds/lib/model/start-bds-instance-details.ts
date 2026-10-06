@@ -31,6 +31,18 @@ export interface StartBdsInstanceDetails {
 }
 
 export namespace StartBdsInstanceDetails {
+  export function redactForLog(obj: StartBdsInstanceDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+    if (Object.prototype.hasOwnProperty.call(obj, "clusterAdminPassword")) {
+      redactedObj["clusterAdminPassword"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: StartBdsInstanceDetails): object {
     const jsonObj = {
       ...obj,

@@ -62,6 +62,20 @@ export interface PeerTargetDatabase {
 }
 
 export namespace PeerTargetDatabase {
+  export function redactForLog(obj: PeerTargetDatabase): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "tlsConfig")) {
+      const value = obj.tlsConfig;
+      redactedObj["tlsConfig"] = value == null ? value : model.TlsConfig.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: PeerTargetDatabase): object {
     const jsonObj = {
       ...obj,

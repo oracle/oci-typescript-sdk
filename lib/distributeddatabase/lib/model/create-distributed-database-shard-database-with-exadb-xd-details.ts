@@ -64,6 +64,25 @@ export interface CreateDistributedDatabaseShardDatabaseWithExadbXdDetails
 }
 
 export namespace CreateDistributedDatabaseShardDatabaseWithExadbXdDetails {
+  export function redactForLog(
+    obj: CreateDistributedDatabaseShardDatabaseWithExadbXdDetails
+  ): object {
+    if (!obj || obj.source !== "XD_EXISTING_CLUSTER") {
+      return model.CreateDistributedDatabaseShardDatabaseDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "adminPassword")) {
+      redactedObj["adminPassword"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: CreateDistributedDatabaseShardDatabaseWithExadbXdDetails,
     isParentJsonObj?: boolean

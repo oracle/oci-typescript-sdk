@@ -41,6 +41,23 @@ export interface CreateAndroidChannelResult extends model.CreateChannelResult {
 }
 
 export namespace CreateAndroidChannelResult {
+  export function redactForLog(obj: CreateAndroidChannelResult): object {
+    if (!obj || obj.type !== "ANDROID") {
+      return model.CreateChannelResult.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "secretKey")) {
+      redactedObj["secretKey"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreateAndroidChannelResult, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj

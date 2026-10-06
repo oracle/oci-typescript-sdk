@@ -36,6 +36,25 @@ export interface UpdateDataAssetFromJdbc extends model.UpdateDataAssetDetails {
 }
 
 export namespace UpdateDataAssetFromJdbc {
+  export function redactForLog(obj: UpdateDataAssetFromJdbc): object {
+    if (!obj || obj.modelType !== "GENERIC_JDBC_DATA_ASSET") {
+      return model.UpdateDataAssetDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "defaultConnection")) {
+      const value = obj.defaultConnection;
+      redactedObj["defaultConnection"] =
+        value == null ? value : model.UpdateConnectionFromJdbc.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: UpdateDataAssetFromJdbc, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj

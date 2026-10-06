@@ -80,6 +80,11 @@ export namespace AttachVolumeDetails {
             <model.AttachIScsiVolumeDetails>(<object>jsonObj),
             true
           );
+        case "nvme":
+          return model.AttachNvmeVolumeDetails.getJsonObj(
+            <model.AttachNvmeVolumeDetails>(<object>jsonObj),
+            true
+          );
         case "paravirtualized":
           return model.AttachParavirtualizedVolumeDetails.getJsonObj(
             <model.AttachParavirtualizedVolumeDetails>(<object>jsonObj),
@@ -109,6 +114,11 @@ export namespace AttachVolumeDetails {
         case "iscsi":
           return model.AttachIScsiVolumeDetails.getDeserializedJsonObj(
             <model.AttachIScsiVolumeDetails>(<object>jsonObj),
+            true
+          );
+        case "nvme":
+          return model.AttachNvmeVolumeDetails.getDeserializedJsonObj(
+            <model.AttachNvmeVolumeDetails>(<object>jsonObj),
             true
           );
         case "paravirtualized":

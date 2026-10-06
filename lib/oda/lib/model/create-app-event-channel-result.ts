@@ -43,6 +43,23 @@ export interface CreateAppEventChannelResult extends model.CreateChannelResult {
 }
 
 export namespace CreateAppEventChannelResult {
+  export function redactForLog(obj: CreateAppEventChannelResult): object {
+    if (!obj || obj.type !== "APPEVENT") {
+      return model.CreateChannelResult.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "secretKey")) {
+      redactedObj["secretKey"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreateAppEventChannelResult, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj

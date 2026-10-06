@@ -47,6 +47,21 @@ export interface CreateBlueGreenDeploymentDetails {
 }
 
 export namespace CreateBlueGreenDeploymentDetails {
+  export function redactForLog(obj: CreateBlueGreenDeploymentDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "channelDetails")) {
+      const value = obj.channelDetails;
+      redactedObj["channelDetails"] =
+        value == null ? value : model.CreateBlueGreenDeploymentChannelDetails.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreateBlueGreenDeploymentDetails): object {
     const jsonObj = {
       ...obj,

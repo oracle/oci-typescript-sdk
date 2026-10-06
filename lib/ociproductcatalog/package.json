@@ -1,0 +1,30 @@
+{
+  "name": "oci-ociproductcatalog",
+  "version": "2.142.2",
+  "description": "OCI NodeJS client for Oci Product Catalog Service",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/oracle/oci-typescript-sdk"
+  },
+  "main": "../../target/lib/ociproductcatalog/index.js",
+  "typings": "../../target/lib/ociproductcatalog/index.d.ts",
+  "scripts": {},
+  "author": {
+    "name": "Oracle Cloud Infrastructure",
+    "email": ""
+  },
+  "license": "(UPL-1.0 OR Apache-2.0)",
+  "dependencies": {
+    "oci-common": "../common",
+    "opossum": "5.0.1"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
+  "contributors": [
+    "Yash Chandra <yash.chandra@oracle.com>",
+    "Nivedita Parihar <nivedita.parihar@oracle.com>",
+    "Joshua Ramirez <joshua.r.ramirez@oracle.com>",
+    "Kalpana Ramasamy <kalpana.ramasamy@oracle.com>"
+  ]
+}

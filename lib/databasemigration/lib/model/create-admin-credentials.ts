@@ -32,6 +32,19 @@ export interface CreateAdminCredentials {
 }
 
 export namespace CreateAdminCredentials {
+  export function redactForLog(obj: CreateAdminCredentials): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "password")) {
+      redactedObj["password"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreateAdminCredentials): object {
     const jsonObj = { ...obj, ...{} };
 

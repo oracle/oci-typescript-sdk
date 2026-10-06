@@ -86,6 +86,23 @@ You can attach up to 32 volumes to single container instance.
 }
 
 export namespace CreateContainerInstanceDetails {
+  export function redactForLog(obj: CreateContainerInstanceDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "imagePullSecrets")) {
+      const value = obj.imagePullSecrets;
+      redactedObj["imagePullSecrets"] =
+        value == null
+          ? value
+          : value.map(item => model.CreateImagePullSecretDetails.redactForLog(item));
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreateContainerInstanceDetails): object {
     const jsonObj = {
       ...obj,

@@ -22,6 +22,23 @@ export interface OracleDataTransferMediumDetails {
 }
 
 export namespace OracleDataTransferMediumDetails {
+  export function redactForLog(obj: OracleDataTransferMediumDetails): object {
+    if (obj && Object.prototype.hasOwnProperty.call(obj, "type")) {
+      switch (obj.type) {
+        case "AWS_S3":
+          return model.OracleAwsS3DataTransferMediumDetails.redactForLog(
+            obj as model.OracleAwsS3DataTransferMediumDetails
+          );
+      }
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: OracleDataTransferMediumDetails): object {
     const jsonObj = { ...obj, ...{} };
 

@@ -68,6 +68,25 @@ export namespace WriteOperationConfig {
     UnknownValue = "UNKNOWN_VALUE"
   }
 
+  export function redactForLog(obj: WriteOperationConfig): object {
+    if (!obj || obj.modelType !== "WRITE_OPERATION_CONFIG") {
+      return model.AbstractDataOperationConfig.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "writeAttribute")) {
+      const value = obj.writeAttribute;
+      redactedObj["writeAttribute"] =
+        value == null ? value : model.AbstractWriteAttribute.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: WriteOperationConfig, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj

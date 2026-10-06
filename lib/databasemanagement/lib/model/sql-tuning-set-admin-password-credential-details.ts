@@ -31,6 +31,23 @@ export interface SqlTuningSetAdminPasswordCredentialDetails
 }
 
 export namespace SqlTuningSetAdminPasswordCredentialDetails {
+  export function redactForLog(obj: SqlTuningSetAdminPasswordCredentialDetails): object {
+    if (!obj || obj.sqlTuningSetAdminCredentialType !== "PASSWORD") {
+      return model.SqlTuningSetAdminCredentialDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "password")) {
+      redactedObj["password"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: SqlTuningSetAdminPasswordCredentialDetails,
     isParentJsonObj?: boolean

@@ -30,6 +30,19 @@ export interface RotateDistributedDatabaseDetails {
 }
 
 export namespace RotateDistributedDatabaseDetails {
+  export function redactForLog(obj: RotateDistributedDatabaseDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "adminPassword")) {
+      redactedObj["adminPassword"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: RotateDistributedDatabaseDetails): object {
     const jsonObj = { ...obj, ...{} };
 

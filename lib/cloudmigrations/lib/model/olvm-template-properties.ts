@@ -175,6 +175,26 @@ export namespace OlvmTemplateProperties {
     LeavePaused = "LEAVE_PAUSED"
   }
 
+  export function redactForLog(obj: OlvmTemplateProperties): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "storageDomainLease")) {
+      const value = obj.storageDomainLease;
+      redactedObj["storageDomainLease"] =
+        value == null ? value : model.OlvmStorageDomainProperties.redactForLog(value);
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "vm")) {
+      const value = obj.vm;
+      redactedObj["vm"] = value == null ? value : model.OlvmVirtualMachine.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: OlvmTemplateProperties): object {
     const jsonObj = {
       ...obj,

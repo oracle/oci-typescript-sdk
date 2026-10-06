@@ -119,6 +119,31 @@ Note: When provided, 'sslClientKeystash' field must not be provided.
 }
 
 export namespace CreateDb2ConnectionDetails {
+  export function redactForLog(obj: CreateDb2ConnectionDetails): object {
+    if (!obj || obj.connectionType !== "DB2") {
+      return model.CreateConnectionDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "password")) {
+      redactedObj["password"] = "<redacted>";
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "sslClientKeystoredb")) {
+      redactedObj["sslClientKeystoredb"] = "<redacted>";
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "sslClientKeystash")) {
+      redactedObj["sslClientKeystash"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreateDb2ConnectionDetails, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj

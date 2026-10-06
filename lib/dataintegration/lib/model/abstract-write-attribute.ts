@@ -22,6 +22,29 @@ export interface AbstractWriteAttribute {
 }
 
 export namespace AbstractWriteAttribute {
+  export function redactForLog(obj: AbstractWriteAttribute): object {
+    if (obj && Object.prototype.hasOwnProperty.call(obj, "modelType")) {
+      switch (obj.modelType) {
+        case "ORACLEADWCWRITEATTRIBUTE":
+          return model.OracleAdwcWriteAttribute.redactForLog(obj as model.OracleAdwcWriteAttribute);
+        case "ORACLE_ATP_WRITE_ATTRIBUTE":
+          return model.OracleAtpWriteAttributes.redactForLog(obj as model.OracleAtpWriteAttributes);
+        case "ORACLEATPWRITEATTRIBUTE":
+          return model.OracleAtpWriteAttribute.redactForLog(obj as model.OracleAtpWriteAttribute);
+        case "ORACLE_ADWC_WRITE_ATTRIBUTE":
+          return model.OracleAdwcWriteAttributes.redactForLog(
+            obj as model.OracleAdwcWriteAttributes
+          );
+      }
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: AbstractWriteAttribute): object {
     const jsonObj = { ...obj, ...{} };
 

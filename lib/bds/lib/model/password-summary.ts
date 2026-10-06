@@ -26,6 +26,18 @@ export interface PasswordSummary {
 }
 
 export namespace PasswordSummary {
+  export function redactForLog(obj: PasswordSummary): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+    if (Object.prototype.hasOwnProperty.call(obj, "adminPassword")) {
+      redactedObj["adminPassword"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: PasswordSummary): object {
     const jsonObj = { ...obj, ...{} };
 

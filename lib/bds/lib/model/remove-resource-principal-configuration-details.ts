@@ -30,6 +30,18 @@ export interface RemoveResourcePrincipalConfigurationDetails {
 }
 
 export namespace RemoveResourcePrincipalConfigurationDetails {
+  export function redactForLog(obj: RemoveResourcePrincipalConfigurationDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+    if (Object.prototype.hasOwnProperty.call(obj, "clusterAdminPassword")) {
+      redactedObj["clusterAdminPassword"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: RemoveResourcePrincipalConfigurationDetails): object {
     const jsonObj = { ...obj, ...{} };
 

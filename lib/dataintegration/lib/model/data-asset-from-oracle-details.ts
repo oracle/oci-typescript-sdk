@@ -50,6 +50,25 @@ export interface DataAssetFromOracleDetails extends model.DataAsset {
 }
 
 export namespace DataAssetFromOracleDetails {
+  export function redactForLog(obj: DataAssetFromOracleDetails): object {
+    if (!obj || obj.modelType !== "ORACLE_DATA_ASSET") {
+      return model.DataAsset.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "defaultConnection")) {
+      const value = obj.defaultConnection;
+      redactedObj["defaultConnection"] =
+        value == null ? value : model.ConnectionFromOracleDetails.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: DataAssetFromOracleDetails, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj ? obj : (model.DataAsset.getJsonObj(obj) as DataAssetFromOracleDetails)),

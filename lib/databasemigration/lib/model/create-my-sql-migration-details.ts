@@ -43,6 +43,25 @@ export interface CreateMySqlMigrationDetails extends model.CreateMigrationDetail
 }
 
 export namespace CreateMySqlMigrationDetails {
+  export function redactForLog(obj: CreateMySqlMigrationDetails): object {
+    if (!obj || obj.databaseCombination !== "MYSQL") {
+      return model.CreateMigrationDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "hubDetails")) {
+      const value = obj.hubDetails;
+      redactedObj["hubDetails"] =
+        value == null ? value : model.CreateGoldenGateHubDetails.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreateMySqlMigrationDetails, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj

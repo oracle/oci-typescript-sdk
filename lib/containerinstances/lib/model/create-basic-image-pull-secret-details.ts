@@ -32,6 +32,23 @@ export interface CreateBasicImagePullSecretDetails extends model.CreateImagePull
 }
 
 export namespace CreateBasicImagePullSecretDetails {
+  export function redactForLog(obj: CreateBasicImagePullSecretDetails): object {
+    if (!obj || obj.secretType !== "BASIC") {
+      return model.CreateImagePullSecretDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "password")) {
+      redactedObj["password"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: CreateBasicImagePullSecretDetails,
     isParentJsonObj?: boolean

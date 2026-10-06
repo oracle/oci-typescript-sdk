@@ -40,6 +40,23 @@ export interface ConnectionFromAdwc extends model.Connection {
 }
 
 export namespace ConnectionFromAdwc {
+  export function redactForLog(obj: ConnectionFromAdwc): object {
+    if (!obj || obj.modelType !== "ORACLE_ADWC_CONNECTION") {
+      return model.Connection.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "password")) {
+      redactedObj["password"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: ConnectionFromAdwc, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj ? obj : (model.Connection.getJsonObj(obj) as ConnectionFromAdwc)),

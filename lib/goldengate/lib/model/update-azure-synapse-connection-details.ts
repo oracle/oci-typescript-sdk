@@ -56,6 +56,23 @@ export interface UpdateAzureSynapseConnectionDetails extends model.UpdateConnect
 }
 
 export namespace UpdateAzureSynapseConnectionDetails {
+  export function redactForLog(obj: UpdateAzureSynapseConnectionDetails): object {
+    if (!obj || obj.connectionType !== "AZURE_SYNAPSE_ANALYTICS") {
+      return model.UpdateConnectionDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "password")) {
+      redactedObj["password"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: UpdateAzureSynapseConnectionDetails,
     isParentJsonObj?: boolean

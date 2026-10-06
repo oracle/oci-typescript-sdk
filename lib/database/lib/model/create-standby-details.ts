@@ -106,6 +106,29 @@ export namespace CreateStandbyDetails {
     Fastsync = "FASTSYNC"
   }
 
+  export function redactForLog(obj: CreateStandbyDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "databaseAdminPassword")) {
+      redactedObj["databaseAdminPassword"] = "<redacted>";
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "sourceTdeWalletPassword")) {
+      redactedObj["sourceTdeWalletPassword"] = "<redacted>";
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "sourceEncryptionKeyLocationDetails")) {
+      const value = obj.sourceEncryptionKeyLocationDetails;
+      redactedObj["sourceEncryptionKeyLocationDetails"] =
+        value == null ? value : model.EncryptionKeyLocationDetails.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreateStandbyDetails): object {
     const jsonObj = {
       ...obj,

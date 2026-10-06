@@ -27,6 +27,22 @@ export interface PlainTextPasswordDetails extends model.AdwAdminPasswordDetails 
 }
 
 export namespace PlainTextPasswordDetails {
+  export function redactForLog(obj: PlainTextPasswordDetails): object {
+    if (!obj || obj.passwordType !== "PLAIN_TEXT") {
+      return model.AdwAdminPasswordDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+    if (Object.prototype.hasOwnProperty.call(obj, "password")) {
+      redactedObj["password"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: PlainTextPasswordDetails, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj

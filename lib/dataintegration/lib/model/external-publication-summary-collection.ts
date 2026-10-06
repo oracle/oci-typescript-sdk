@@ -25,6 +25,23 @@ export interface ExternalPublicationSummaryCollection {
 }
 
 export namespace ExternalPublicationSummaryCollection {
+  export function redactForLog(obj: ExternalPublicationSummaryCollection): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "items")) {
+      const value = obj.items;
+      redactedObj["items"] =
+        value == null
+          ? value
+          : value.map(item => model.ExternalPublicationSummary.redactForLog(item));
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: ExternalPublicationSummaryCollection): object {
     const jsonObj = {
       ...obj,

@@ -40,6 +40,23 @@ export interface ConnectionFromAtp extends model.Connection {
 }
 
 export namespace ConnectionFromAtp {
+  export function redactForLog(obj: ConnectionFromAtp): object {
+    if (!obj || obj.modelType !== "ORACLE_ATP_CONNECTION") {
+      return model.Connection.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "password")) {
+      redactedObj["password"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: ConnectionFromAtp, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj ? obj : (model.Connection.getJsonObj(obj) as ConnectionFromAtp)),

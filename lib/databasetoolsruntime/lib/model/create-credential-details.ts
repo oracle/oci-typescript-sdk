@@ -27,6 +27,24 @@ export interface CreateCredentialDetails {
 }
 
 export namespace CreateCredentialDetails {
+  export function redactForLog(obj: CreateCredentialDetails): object {
+    if (obj && Object.prototype.hasOwnProperty.call(obj, "type")) {
+      switch (obj.type) {
+        case "BASIC":
+          return model.CreateCredentialBasicDetails.redactForLog(
+            obj as model.CreateCredentialBasicDetails
+          );
+      }
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreateCredentialDetails): object {
     const jsonObj = { ...obj, ...{} };
 

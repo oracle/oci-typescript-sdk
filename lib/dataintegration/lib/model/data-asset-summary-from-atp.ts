@@ -36,6 +36,25 @@ export interface DataAssetSummaryFromAtp extends model.DataAssetSummary {
 }
 
 export namespace DataAssetSummaryFromAtp {
+  export function redactForLog(obj: DataAssetSummaryFromAtp): object {
+    if (!obj || obj.modelType !== "ORACLE_ATP_DATA_ASSET") {
+      return model.DataAssetSummary.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "defaultConnection")) {
+      const value = obj.defaultConnection;
+      redactedObj["defaultConnection"] =
+        value == null ? value : model.ConnectionSummaryFromAtp.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: DataAssetSummaryFromAtp, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj

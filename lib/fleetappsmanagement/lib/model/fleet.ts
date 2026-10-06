@@ -144,6 +144,23 @@ export namespace Fleet {
     UnknownValue = "UNKNOWN_VALUE"
   }
 
+  export function redactForLog(obj: Fleet): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "credentials")) {
+      const value = obj.credentials;
+      redactedObj["credentials"] =
+        value == null
+          ? value
+          : value.map(item => model.AssociatedFleetCredentialDetails.redactForLog(item));
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: Fleet): object {
     const jsonObj = {
       ...obj,

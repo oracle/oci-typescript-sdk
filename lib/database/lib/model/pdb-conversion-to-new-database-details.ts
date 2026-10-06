@@ -51,6 +51,35 @@ export interface PdbConversionToNewDatabaseDetails extends model.ConvertToPdbTar
 }
 
 export namespace PdbConversionToNewDatabaseDetails {
+  export function redactForLog(obj: PdbConversionToNewDatabaseDetails): object {
+    if (!obj || obj.target !== "NEW_DATABASE") {
+      return model.ConvertToPdbTargetBase.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "cdbAdminPassword")) {
+      redactedObj["cdbAdminPassword"] = "<redacted>";
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "pdbAdminPassword")) {
+      redactedObj["pdbAdminPassword"] = "<redacted>";
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "cdbTdeWalletPassword")) {
+      redactedObj["cdbTdeWalletPassword"] = "<redacted>";
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "nonCdbTdeWalletPassword")) {
+      redactedObj["nonCdbTdeWalletPassword"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: PdbConversionToNewDatabaseDetails,
     isParentJsonObj?: boolean

@@ -26,6 +26,18 @@ export interface GenerateDistributedAutonomousDatabaseWalletDetails {
 }
 
 export namespace GenerateDistributedAutonomousDatabaseWalletDetails {
+  export function redactForLog(obj: GenerateDistributedAutonomousDatabaseWalletDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+    if (Object.prototype.hasOwnProperty.call(obj, "password")) {
+      redactedObj["password"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: GenerateDistributedAutonomousDatabaseWalletDetails): object {
     const jsonObj = { ...obj, ...{} };
 

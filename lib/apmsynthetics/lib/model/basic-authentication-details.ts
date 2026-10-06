@@ -26,6 +26,20 @@ export interface BasicAuthenticationDetails {
 }
 
 export namespace BasicAuthenticationDetails {
+  export function redactForLog(obj: BasicAuthenticationDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "password")) {
+      const value = obj.password;
+      redactedObj["password"] = value == null ? value : model.Password.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: BasicAuthenticationDetails): object {
     const jsonObj = {
       ...obj,

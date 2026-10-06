@@ -86,6 +86,19 @@ export interface UpdateAuthenticationProviderDetails {
 }
 
 export namespace UpdateAuthenticationProviderDetails {
+  export function redactForLog(obj: UpdateAuthenticationProviderDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "clientSecret")) {
+      redactedObj["clientSecret"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: UpdateAuthenticationProviderDetails): object {
     const jsonObj = { ...obj, ...{} };
 

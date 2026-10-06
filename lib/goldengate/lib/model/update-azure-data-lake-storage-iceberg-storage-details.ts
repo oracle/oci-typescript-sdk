@@ -55,6 +55,23 @@ export interface UpdateAzureDataLakeStorageIcebergStorageDetails
 }
 
 export namespace UpdateAzureDataLakeStorageIcebergStorageDetails {
+  export function redactForLog(obj: UpdateAzureDataLakeStorageIcebergStorageDetails): object {
+    if (!obj || obj.storageType !== "AZURE_DATA_LAKE_STORAGE") {
+      return model.UpdateIcebergStorageDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "accountKey")) {
+      redactedObj["accountKey"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: UpdateAzureDataLakeStorageIcebergStorageDetails,
     isParentJsonObj?: boolean

@@ -49,6 +49,25 @@ export namespace CreateCompositeShardSpaceRaftClusterDetails {
     ReadWrite = "READ_WRITE"
   }
 
+  export function redactForLog(obj: CreateCompositeShardSpaceRaftClusterDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "databases")) {
+      const value = obj.databases;
+      redactedObj["databases"] =
+        value == null
+          ? value
+          : value.map(item =>
+              model.CreateDistributedDatabaseShardDatabaseDetails.redactForLog(item)
+            );
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreateCompositeShardSpaceRaftClusterDetails): object {
     const jsonObj = {
       ...obj,

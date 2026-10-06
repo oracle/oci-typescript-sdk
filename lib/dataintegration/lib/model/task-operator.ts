@@ -112,6 +112,24 @@ export namespace TaskOperator {
     UnknownValue = "UNKNOWN_VALUE"
   }
 
+  export function redactForLog(obj: TaskOperator): object {
+    if (!obj || obj.modelType !== "TASK_OPERATOR") {
+      return model.Operator.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "task")) {
+      const value = obj.task;
+      redactedObj["task"] = value == null ? value : model.Task.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: TaskOperator, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj ? obj : (model.Operator.getJsonObj(obj) as TaskOperator)),

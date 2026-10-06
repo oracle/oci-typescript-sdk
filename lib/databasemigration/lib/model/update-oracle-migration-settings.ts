@@ -22,6 +22,31 @@ export interface UpdateOracleMigrationSettings {
 }
 
 export namespace UpdateOracleMigrationSettings {
+  export function redactForLog(obj: UpdateOracleMigrationSettings): object {
+    if (obj && Object.prototype.hasOwnProperty.call(obj, "migrationMethod")) {
+      switch (obj.migrationMethod) {
+        case "ONLINE_STANDBY":
+          return model.UpdateOracleOnlineStandbyMigrationSettings.redactForLog(
+            obj as model.UpdateOracleOnlineStandbyMigrationSettings
+          );
+        case "ONLINE_LOGICAL":
+          return model.UpdateOracleOnlineLogicalMigrationSettings.redactForLog(
+            obj as model.UpdateOracleOnlineLogicalMigrationSettings
+          );
+        case "OFFLINE_LOGICAL":
+          return model.UpdateOracleOfflineLogicalMigrationSettings.redactForLog(
+            obj as model.UpdateOracleOfflineLogicalMigrationSettings
+          );
+      }
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: UpdateOracleMigrationSettings): object {
     const jsonObj = { ...obj, ...{} };
 

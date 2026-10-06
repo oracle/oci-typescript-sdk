@@ -58,6 +58,21 @@ export namespace CreateVaultDetails {
     External = "EXTERNAL"
   }
 
+  export function redactForLog(obj: CreateVaultDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "externalKeyManagerMetadata")) {
+      const value = obj.externalKeyManagerMetadata;
+      redactedObj["externalKeyManagerMetadata"] =
+        value == null ? value : model.ExternalKeyManagerMetadata.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreateVaultDetails): object {
     const jsonObj = {
       ...obj,

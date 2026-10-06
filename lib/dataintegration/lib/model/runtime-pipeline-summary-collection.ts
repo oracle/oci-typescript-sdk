@@ -25,6 +25,21 @@ export interface RuntimePipelineSummaryCollection {
 }
 
 export namespace RuntimePipelineSummaryCollection {
+  export function redactForLog(obj: RuntimePipelineSummaryCollection): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "items")) {
+      const value = obj.items;
+      redactedObj["items"] =
+        value == null ? value : value.map(item => model.RuntimePipelineSummary.redactForLog(item));
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: RuntimePipelineSummaryCollection): object {
     const jsonObj = {
       ...obj,

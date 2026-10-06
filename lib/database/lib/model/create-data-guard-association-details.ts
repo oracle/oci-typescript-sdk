@@ -103,6 +103,38 @@ export namespace CreateDataGuardAssociationDetails {
     Fastsync = "FASTSYNC"
   }
 
+  export function redactForLog(obj: CreateDataGuardAssociationDetails): object {
+    if (obj && Object.prototype.hasOwnProperty.call(obj, "creationType")) {
+      switch (obj.creationType) {
+        case "NewDbSystem":
+          return model.CreateDataGuardAssociationWithNewDbSystemDetails.redactForLog(
+            obj as model.CreateDataGuardAssociationWithNewDbSystemDetails
+          );
+        case "ExistingVmCluster":
+          return model.CreateDataGuardAssociationToExistingVmClusterDetails.redactForLog(
+            obj as model.CreateDataGuardAssociationToExistingVmClusterDetails
+          );
+        case "ExistingDbSystem":
+          return model.CreateDataGuardAssociationToExistingDbSystemDetails.redactForLog(
+            obj as model.CreateDataGuardAssociationToExistingDbSystemDetails
+          );
+      }
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "sourceEncryptionKeyLocationDetails")) {
+      const value = obj.sourceEncryptionKeyLocationDetails;
+      redactedObj["sourceEncryptionKeyLocationDetails"] =
+        value == null ? value : model.EncryptionKeyLocationDetails.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreateDataGuardAssociationDetails): object {
     const jsonObj = {
       ...obj,

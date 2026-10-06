@@ -24,6 +24,23 @@ export interface ConvertToPdbTargetBase {
 }
 
 export namespace ConvertToPdbTargetBase {
+  export function redactForLog(obj: ConvertToPdbTargetBase): object {
+    if (obj && Object.prototype.hasOwnProperty.call(obj, "target")) {
+      switch (obj.target) {
+        case "NEW_DATABASE":
+          return model.PdbConversionToNewDatabaseDetails.redactForLog(
+            obj as model.PdbConversionToNewDatabaseDetails
+          );
+      }
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: ConvertToPdbTargetBase): object {
     const jsonObj = { ...obj, ...{} };
 

@@ -50,6 +50,25 @@ export interface DataAssetFromRestDetails extends model.DataAsset {
 }
 
 export namespace DataAssetFromRestDetails {
+  export function redactForLog(obj: DataAssetFromRestDetails): object {
+    if (!obj || obj.modelType !== "REST_DATA_ASSET") {
+      return model.DataAsset.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "defaultConnection")) {
+      const value = obj.defaultConnection;
+      redactedObj["defaultConnection"] =
+        value == null ? value : model.ConnectionDetails.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: DataAssetFromRestDetails, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj ? obj : (model.DataAsset.getJsonObj(obj) as DataAssetFromRestDetails)),

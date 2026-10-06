@@ -127,6 +127,39 @@ export interface UpdateRedisConnectionDetails extends model.UpdateConnectionDeta
 }
 
 export namespace UpdateRedisConnectionDetails {
+  export function redactForLog(obj: UpdateRedisConnectionDetails): object {
+    if (!obj || obj.connectionType !== "REDIS") {
+      return model.UpdateConnectionDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "password")) {
+      redactedObj["password"] = "<redacted>";
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "trustStore")) {
+      redactedObj["trustStore"] = "<redacted>";
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "trustStorePassword")) {
+      redactedObj["trustStorePassword"] = "<redacted>";
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "keyStore")) {
+      redactedObj["keyStore"] = "<redacted>";
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "keyStorePassword")) {
+      redactedObj["keyStorePassword"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: UpdateRedisConnectionDetails, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj

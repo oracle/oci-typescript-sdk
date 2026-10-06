@@ -124,6 +124,27 @@ For deprecated connections created with this field in the past, either the priva
 }
 
 export namespace UpdatePostgresqlConnectionDetails {
+  export function redactForLog(obj: UpdatePostgresqlConnectionDetails): object {
+    if (!obj || obj.connectionType !== "POSTGRESQL") {
+      return model.UpdateConnectionDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "password")) {
+      redactedObj["password"] = "<redacted>";
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "sslKey")) {
+      redactedObj["sslKey"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: UpdatePostgresqlConnectionDetails,
     isParentJsonObj?: boolean

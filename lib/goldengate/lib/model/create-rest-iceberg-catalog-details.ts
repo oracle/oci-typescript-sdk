@@ -43,6 +43,23 @@ export interface CreateRestIcebergCatalogDetails extends model.CreateIcebergCata
 }
 
 export namespace CreateRestIcebergCatalogDetails {
+  export function redactForLog(obj: CreateRestIcebergCatalogDetails): object {
+    if (!obj || obj.catalogType !== "REST") {
+      return model.CreateIcebergCatalogDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "properties")) {
+      redactedObj["properties"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: CreateRestIcebergCatalogDetails,
     isParentJsonObj?: boolean

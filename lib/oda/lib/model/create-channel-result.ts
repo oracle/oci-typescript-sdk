@@ -68,6 +68,42 @@ export interface CreateChannelResult {
 }
 
 export namespace CreateChannelResult {
+  export function redactForLog(obj: CreateChannelResult): object {
+    if (obj && Object.prototype.hasOwnProperty.call(obj, "type")) {
+      switch (obj.type) {
+        case "WEB":
+          return model.CreateWebChannelResult.redactForLog(obj as model.CreateWebChannelResult);
+        case "WEBHOOK":
+          return model.CreateWebhookChannelResult.redactForLog(
+            obj as model.CreateWebhookChannelResult
+          );
+        case "ANDROID":
+          return model.CreateAndroidChannelResult.redactForLog(
+            obj as model.CreateAndroidChannelResult
+          );
+        case "APPLICATION":
+          return model.CreateApplicationChannelResult.redactForLog(
+            obj as model.CreateApplicationChannelResult
+          );
+        case "IOS":
+          return model.CreateIosChannelResult.redactForLog(obj as model.CreateIosChannelResult);
+        case "APPEVENT":
+          return model.CreateAppEventChannelResult.redactForLog(
+            obj as model.CreateAppEventChannelResult
+          );
+        case "TEST":
+          return model.CreateTestChannelResult.redactForLog(obj as model.CreateTestChannelResult);
+      }
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreateChannelResult): object {
     const jsonObj = { ...obj, ...{} };
 

@@ -32,6 +32,23 @@ export interface UpdateConnectionFromMySQL extends model.UpdateConnectionDetails
 }
 
 export namespace UpdateConnectionFromMySQL {
+  export function redactForLog(obj: UpdateConnectionFromMySQL): object {
+    if (!obj || obj.modelType !== "MYSQL_CONNECTION") {
+      return model.UpdateConnectionDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "password")) {
+      redactedObj["password"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: UpdateConnectionFromMySQL, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj

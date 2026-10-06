@@ -23,8 +23,10 @@ import common = require("oci-common");
 
 /**
  * Oracle Identity Cloud Service (IDCS) configuration used
- * when inboundAuthConfigType is set to IDCS_AUTH_CONFIG.
- * This object must be specified when inboundAuthConfigType is IDCS_AUTH_CONFIG.
+ * when inboundAuthConfigType is set to IDCS_AUTH_CONFIG or IDCS_SESSION_AUTH_CONFIG.
+ * This object must be specified when inboundAuthConfigType is IDCS_AUTH_CONFIG or IDCS_SESSION_AUTH_CONFIG.
+ * When inboundAuthConfigType is IDCS_SESSION_AUTH_CONFIG, this configuration supports
+ * OAuth 2.1 Authorization Code flow with PKCE.
  *
  */
 export interface IdcsAuthConfig {
@@ -40,6 +42,14 @@ export interface IdcsAuthConfig {
    * Audience for IDCS.
    */
   "audience"?: string;
+  /**
+   * Optional OAuth client ID for the IDCS application. Applicable only when inboundAuthConfigType is IDCS_SESSION_AUTH_CONFIG.
+   */
+  "clientId"?: string;
+  /**
+   * Optional OCI Vault secret OCID containing the OAuth client secret. Applicable only when inboundAuthConfigType is IDCS_SESSION_AUTH_CONFIG.
+   */
+  "clientSecretVaultId"?: string;
 }
 
 export namespace IdcsAuthConfig {

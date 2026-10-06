@@ -100,6 +100,27 @@ Deprecated: Defaulting to the REDIRECT session mode will be removed after April 
 }
 
 export namespace CreateOracleConnectionDetails {
+  export function redactForLog(obj: CreateOracleConnectionDetails): object {
+    if (!obj || obj.connectionType !== "ORACLE") {
+      return model.CreateConnectionDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "password")) {
+      redactedObj["password"] = "<redacted>";
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "wallet")) {
+      redactedObj["wallet"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: CreateOracleConnectionDetails,
     isParentJsonObj?: boolean

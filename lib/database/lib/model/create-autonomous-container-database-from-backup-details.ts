@@ -55,6 +55,25 @@ export namespace CreateAutonomousContainerDatabaseFromBackupDetails {
     Fast = "FAST"
   }
 
+  export function redactForLog(obj: CreateAutonomousContainerDatabaseFromBackupDetails): object {
+    if (!obj || obj.source !== "BACKUP_FROM_ID") {
+      return model.CreateAutonomousContainerDatabaseBase.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "encryptionKeyLocationDetails")) {
+      const value = obj.encryptionKeyLocationDetails;
+      redactedObj["encryptionKeyLocationDetails"] =
+        value == null ? value : model.EncryptionKeyLocationDetails.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: CreateAutonomousContainerDatabaseFromBackupDetails,
     isParentJsonObj?: boolean

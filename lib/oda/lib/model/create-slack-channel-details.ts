@@ -47,6 +47,27 @@ export interface CreateSlackChannelDetails extends model.CreateChannelDetails {
 }
 
 export namespace CreateSlackChannelDetails {
+  export function redactForLog(obj: CreateSlackChannelDetails): object {
+    if (!obj || obj.type !== "SLACK") {
+      return model.CreateChannelDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "signingSecret")) {
+      redactedObj["signingSecret"] = "<redacted>";
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "clientSecret")) {
+      redactedObj["clientSecret"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreateSlackChannelDetails, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj

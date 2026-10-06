@@ -123,6 +123,25 @@ export namespace CreateDatabaseDetails {
     Dss = "DSS"
   }
 
+  export function redactForLog(obj: CreateDatabaseDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "tdeWalletPassword")) {
+      redactedObj["tdeWalletPassword"] = "<redacted>";
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "encryptionKeyLocationDetails")) {
+      const value = obj.encryptionKeyLocationDetails;
+      redactedObj["encryptionKeyLocationDetails"] =
+        value == null ? value : model.EncryptionKeyLocationDetails.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreateDatabaseDetails): object {
     const jsonObj = {
       ...obj,

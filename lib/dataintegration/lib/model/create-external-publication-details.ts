@@ -39,6 +39,21 @@ export interface CreateExternalPublicationDetails {
 }
 
 export namespace CreateExternalPublicationDetails {
+  export function redactForLog(obj: CreateExternalPublicationDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "configurationDetails")) {
+      const value = obj.configurationDetails;
+      redactedObj["configurationDetails"] =
+        value == null ? value : model.ConfigurationDetails.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreateExternalPublicationDetails): object {
     const jsonObj = {
       ...obj,

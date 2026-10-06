@@ -46,6 +46,25 @@ export interface UpdateDataAssetFromOracleSiebel extends model.UpdateDataAssetDe
 }
 
 export namespace UpdateDataAssetFromOracleSiebel {
+  export function redactForLog(obj: UpdateDataAssetFromOracleSiebel): object {
+    if (!obj || obj.modelType !== "ORACLE_SIEBEL_DATA_ASSET") {
+      return model.UpdateDataAssetDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "defaultConnection")) {
+      const value = obj.defaultConnection;
+      redactedObj["defaultConnection"] =
+        value == null ? value : model.UpdateConnectionFromOracleSiebel.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: UpdateDataAssetFromOracleSiebel,
     isParentJsonObj?: boolean

@@ -108,6 +108,31 @@ export interface UpdateAzureDataLakeStorageConnectionDetails extends model.Updat
 }
 
 export namespace UpdateAzureDataLakeStorageConnectionDetails {
+  export function redactForLog(obj: UpdateAzureDataLakeStorageConnectionDetails): object {
+    if (!obj || obj.connectionType !== "AZURE_DATA_LAKE_STORAGE") {
+      return model.UpdateConnectionDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "accountKey")) {
+      redactedObj["accountKey"] = "<redacted>";
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "sasToken")) {
+      redactedObj["sasToken"] = "<redacted>";
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "clientSecret")) {
+      redactedObj["clientSecret"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: UpdateAzureDataLakeStorageConnectionDetails,
     isParentJsonObj?: boolean

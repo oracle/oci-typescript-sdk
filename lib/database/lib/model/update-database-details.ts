@@ -105,6 +105,31 @@ export namespace UpdateDatabaseDetails {
     Fastsync = "FASTSYNC"
   }
 
+  export function redactForLog(obj: UpdateDatabaseDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "newAdminPassword")) {
+      redactedObj["newAdminPassword"] = "<redacted>";
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "oldTdeWalletPassword")) {
+      redactedObj["oldTdeWalletPassword"] = "<redacted>";
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "newTdeWalletPassword")) {
+      redactedObj["newTdeWalletPassword"] = "<redacted>";
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "databaseAdminPassword")) {
+      redactedObj["databaseAdminPassword"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: UpdateDatabaseDetails): object {
     const jsonObj = {
       ...obj,

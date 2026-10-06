@@ -22,6 +22,23 @@ export interface CreateAutonomousCatalogDatabaseDetails {
 }
 
 export namespace CreateAutonomousCatalogDatabaseDetails {
+  export function redactForLog(obj: CreateAutonomousCatalogDatabaseDetails): object {
+    if (obj && Object.prototype.hasOwnProperty.call(obj, "source")) {
+      switch (obj.source) {
+        case "ADBD_EXISTING_CLUSTER":
+          return model.CreateDistributedAutonomousDatabaseCatalogWithDedicatedInfraDetails.redactForLog(
+            obj as model.CreateDistributedAutonomousDatabaseCatalogWithDedicatedInfraDetails
+          );
+      }
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreateAutonomousCatalogDatabaseDetails): object {
     const jsonObj = { ...obj, ...{} };
 

@@ -66,6 +66,23 @@ Deprecated: This field is deprecated and replaced by \"secretAccessKeySecretId\"
 }
 
 export namespace CreateAmazonS3IcebergStorageDetails {
+  export function redactForLog(obj: CreateAmazonS3IcebergStorageDetails): object {
+    if (!obj || obj.storageType !== "AMAZON_S3") {
+      return model.CreateIcebergStorageDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "secretAccessKey")) {
+      redactedObj["secretAccessKey"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: CreateAmazonS3IcebergStorageDetails,
     isParentJsonObj?: boolean

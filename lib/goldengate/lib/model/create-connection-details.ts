@@ -148,6 +148,132 @@ Example: {@code {\"Oracle-ZPR\": {\"MaxEgressCount\": {\"value\": \"42\", \"mode
 }
 
 export namespace CreateConnectionDetails {
+  export function redactForLog(obj: CreateConnectionDetails): object {
+    if (obj && Object.prototype.hasOwnProperty.call(obj, "connectionType")) {
+      switch (obj.connectionType) {
+        case "POSTGRESQL":
+          return model.CreatePostgresqlConnectionDetails.redactForLog(
+            obj as model.CreatePostgresqlConnectionDetails
+          );
+        case "KAFKA_SCHEMA_REGISTRY":
+          return model.CreateKafkaSchemaRegistryConnectionDetails.redactForLog(
+            obj as model.CreateKafkaSchemaRegistryConnectionDetails
+          );
+        case "MICROSOFT_SQLSERVER":
+          return model.CreateMicrosoftSqlserverConnectionDetails.redactForLog(
+            obj as model.CreateMicrosoftSqlserverConnectionDetails
+          );
+        case "AMAZON_KINESIS":
+          return model.CreateAmazonKinesisConnectionDetails.redactForLog(
+            obj as model.CreateAmazonKinesisConnectionDetails
+          );
+        case "AZURE_DATA_LAKE_STORAGE":
+          return model.CreateAzureDataLakeStorageConnectionDetails.redactForLog(
+            obj as model.CreateAzureDataLakeStorageConnectionDetails
+          );
+        case "GOOGLE_PUBSUB":
+          return model.CreateGooglePubSubConnectionDetails.redactForLog(
+            obj as model.CreateGooglePubSubConnectionDetails
+          );
+        case "OCI_OBJECT_STORAGE":
+          return model.CreateOciObjectStorageConnectionDetails.redactForLog(
+            obj as model.CreateOciObjectStorageConnectionDetails
+          );
+        case "REDIS":
+          return model.CreateRedisConnectionDetails.redactForLog(
+            obj as model.CreateRedisConnectionDetails
+          );
+        case "MICROSOFT_FABRIC":
+          return model.CreateMicrosoftFabricConnectionDetails.redactForLog(
+            obj as model.CreateMicrosoftFabricConnectionDetails
+          );
+        case "GOOGLE_CLOUD_STORAGE":
+          return model.CreateGoogleCloudStorageConnectionDetails.redactForLog(
+            obj as model.CreateGoogleCloudStorageConnectionDetails
+          );
+        case "KAFKA":
+          return model.CreateKafkaConnectionDetails.redactForLog(
+            obj as model.CreateKafkaConnectionDetails
+          );
+        case "ORACLE_NOSQL":
+          return model.CreateOracleNosqlConnectionDetails.redactForLog(
+            obj as model.CreateOracleNosqlConnectionDetails
+          );
+        case "JAVA_MESSAGE_SERVICE":
+          return model.CreateJavaMessageServiceConnectionDetails.redactForLog(
+            obj as model.CreateJavaMessageServiceConnectionDetails
+          );
+        case "GOOGLE_BIGQUERY":
+          return model.CreateGoogleBigQueryConnectionDetails.redactForLog(
+            obj as model.CreateGoogleBigQueryConnectionDetails
+          );
+        case "SNOWFLAKE":
+          return model.CreateSnowflakeConnectionDetails.redactForLog(
+            obj as model.CreateSnowflakeConnectionDetails
+          );
+        case "MONGODB":
+          return model.CreateMongoDbConnectionDetails.redactForLog(
+            obj as model.CreateMongoDbConnectionDetails
+          );
+        case "ORACLE_AI_DATA_PLATFORM":
+          return model.CreateOracleAiDataPlatformConnectionDetails.redactForLog(
+            obj as model.CreateOracleAiDataPlatformConnectionDetails
+          );
+        case "AMAZON_S3":
+          return model.CreateAmazonS3ConnectionDetails.redactForLog(
+            obj as model.CreateAmazonS3ConnectionDetails
+          );
+        case "DATABRICKS":
+          return model.CreateDatabricksConnectionDetails.redactForLog(
+            obj as model.CreateDatabricksConnectionDetails
+          );
+        case "DB2":
+          return model.CreateDb2ConnectionDetails.redactForLog(
+            obj as model.CreateDb2ConnectionDetails
+          );
+        case "ELASTICSEARCH":
+          return model.CreateElasticsearchConnectionDetails.redactForLog(
+            obj as model.CreateElasticsearchConnectionDetails
+          );
+        case "AI_MODEL":
+          return model.CreateAiModelConnectionDetails.redactForLog(
+            obj as model.CreateAiModelConnectionDetails
+          );
+        case "AZURE_SYNAPSE_ANALYTICS":
+          return model.CreateAzureSynapseConnectionDetails.redactForLog(
+            obj as model.CreateAzureSynapseConnectionDetails
+          );
+        case "ICEBERG":
+          return model.CreateIcebergConnectionDetails.redactForLog(
+            obj as model.CreateIcebergConnectionDetails
+          );
+        case "MYSQL":
+          return model.CreateMysqlConnectionDetails.redactForLog(
+            obj as model.CreateMysqlConnectionDetails
+          );
+        case "ORACLE":
+          return model.CreateOracleConnectionDetails.redactForLog(
+            obj as model.CreateOracleConnectionDetails
+          );
+        case "GOLDENGATE":
+          return model.CreateGoldenGateConnectionDetails.redactForLog(
+            obj as model.CreateGoldenGateConnectionDetails
+          );
+        case "AMAZON_REDSHIFT":
+          return model.CreateAmazonRedshiftConnectionDetails.redactForLog(
+            obj as model.CreateAmazonRedshiftConnectionDetails
+          );
+      }
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreateConnectionDetails): object {
     const jsonObj = {
       ...obj,

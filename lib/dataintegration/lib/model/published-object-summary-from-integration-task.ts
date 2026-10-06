@@ -38,6 +38,24 @@ export interface PublishedObjectSummaryFromIntegrationTask extends model.Publish
 }
 
 export namespace PublishedObjectSummaryFromIntegrationTask {
+  export function redactForLog(obj: PublishedObjectSummaryFromIntegrationTask): object {
+    if (!obj || obj.modelType !== "INTEGRATION_TASK") {
+      return model.PublishedObjectSummary.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "dataFlow")) {
+      const value = obj.dataFlow;
+      redactedObj["dataFlow"] = value == null ? value : model.DataFlow.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: PublishedObjectSummaryFromIntegrationTask,
     isParentJsonObj?: boolean

@@ -246,6 +246,19 @@ export namespace UserPasswordResetter {
     UnknownValue = "UNKNOWN_VALUE"
   }
 
+  export function redactForLog(obj: UserPasswordResetter): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "oneTimePassword")) {
+      redactedObj["oneTimePassword"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: UserPasswordResetter): object {
     const jsonObj = {
       ...obj,

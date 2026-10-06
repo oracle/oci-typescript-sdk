@@ -46,6 +46,25 @@ export interface DataAssetSummaryFromOracleEbs extends model.DataAssetSummary {
 }
 
 export namespace DataAssetSummaryFromOracleEbs {
+  export function redactForLog(obj: DataAssetSummaryFromOracleEbs): object {
+    if (!obj || obj.modelType !== "ORACLE_EBS_DATA_ASSET") {
+      return model.DataAssetSummary.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "defaultConnection")) {
+      const value = obj.defaultConnection;
+      redactedObj["defaultConnection"] =
+        value == null ? value : model.ConnectionSummaryFromOracleEbs.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: DataAssetSummaryFromOracleEbs,
     isParentJsonObj?: boolean

@@ -52,6 +52,23 @@ export interface CreateWebChannelResult extends model.CreateChannelResult {
 }
 
 export namespace CreateWebChannelResult {
+  export function redactForLog(obj: CreateWebChannelResult): object {
+    if (!obj || obj.type !== "WEB") {
+      return model.CreateChannelResult.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "secretKey")) {
+      redactedObj["secretKey"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreateWebChannelResult, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj

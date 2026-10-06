@@ -38,6 +38,25 @@ export interface ExternalDatabaseConnectionInfo extends model.ExternalDbSystemCo
 }
 
 export namespace ExternalDatabaseConnectionInfo {
+  export function redactForLog(obj: ExternalDatabaseConnectionInfo): object {
+    if (!obj || obj.componentType !== "DATABASE") {
+      return model.ExternalDbSystemConnectionInfo.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "databaseCredential")) {
+      const value = obj.databaseCredential;
+      redactedObj["databaseCredential"] =
+        value == null ? value : model.DatabaseCredentialDetails.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: ExternalDatabaseConnectionInfo,
     isParentJsonObj?: boolean

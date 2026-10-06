@@ -26,6 +26,29 @@ export interface CreateSystemDataGuardDatabaseDetails {
 }
 
 export namespace CreateSystemDataGuardDatabaseDetails {
+  export function redactForLog(obj: CreateSystemDataGuardDatabaseDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "originalReplica")) {
+      const value = obj.originalReplica;
+      redactedObj["originalReplica"] =
+        value == null ? value : model.CreateSystemDataGuardReplicaDetails.redactForLog(value);
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "dataGuardReplicas")) {
+      const value = obj.dataGuardReplicas;
+      redactedObj["dataGuardReplicas"] =
+        value == null
+          ? value
+          : value.map(item => model.CreateSystemDataGuardReplicaDetails.redactForLog(item));
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreateSystemDataGuardDatabaseDetails): object {
     const jsonObj = {
       ...obj,

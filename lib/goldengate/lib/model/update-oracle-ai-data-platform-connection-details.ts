@@ -91,6 +91,27 @@ export interface UpdateOracleAiDataPlatformConnectionDetails extends model.Updat
 }
 
 export namespace UpdateOracleAiDataPlatformConnectionDetails {
+  export function redactForLog(obj: UpdateOracleAiDataPlatformConnectionDetails): object {
+    if (!obj || obj.connectionType !== "ORACLE_AI_DATA_PLATFORM") {
+      return model.UpdateConnectionDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "privateKeyFile")) {
+      redactedObj["privateKeyFile"] = "<redacted>";
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "privateKeyPassphrase")) {
+      redactedObj["privateKeyPassphrase"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: UpdateOracleAiDataPlatformConnectionDetails,
     isParentJsonObj?: boolean

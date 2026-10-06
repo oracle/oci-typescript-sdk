@@ -37,6 +37,25 @@ This cannot be updated in parallel with any of the following: licenseModel, dbEd
 }
 
 export namespace CreateDbHomeWithDbSystemIdDetails {
+  export function redactForLog(obj: CreateDbHomeWithDbSystemIdDetails): object {
+    if (!obj || obj.source !== "NONE") {
+      return model.CreateDbHomeBase.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "database")) {
+      const value = obj.database;
+      redactedObj["database"] =
+        value == null ? value : model.CreateDatabaseDetails.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: CreateDbHomeWithDbSystemIdDetails,
     isParentJsonObj?: boolean

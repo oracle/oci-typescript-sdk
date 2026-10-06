@@ -31,6 +31,19 @@ To use any of the API operations, you must be authorized in an IAM policy. If yo
 export interface HostedApplication {
   "inboundAuthConfig"?: model.InboundAuthConfig;
   /**
+   * Fully qualified domain name for invoking the hosted application over the dual-stack endpoint.
+   * This value is output-only and is present only after the service has generated an application DNS label.
+   *
+   */
+  "applicationEndpoint"?: string;
+  /**
+   * A list of hosted application path patterns that can be accessed without
+   * inbound authentication. Values can be exact paths such as {@code /health} or {@code /callback},
+   * or wildcard paths such as {@code /assets/*} or {@code /public/*}.
+   *
+   */
+  "publicAccessPathPatterns"?: Array<string>;
+  /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the hosted application.
    */
   "id": string;

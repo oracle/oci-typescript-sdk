@@ -79,6 +79,20 @@ export namespace TaskRunLineageDetails {
     UnknownValue = "UNKNOWN_VALUE"
   }
 
+  export function redactForLog(obj: TaskRunLineageDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "flow")) {
+      const value = obj.flow;
+      redactedObj["flow"] = value == null ? value : model.DataFlow.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: TaskRunLineageDetails): object {
     const jsonObj = {
       ...obj,

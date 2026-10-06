@@ -30,6 +30,21 @@ export interface CreateDbHomeForStandbyDbSystem {
 }
 
 export namespace CreateDbHomeForStandbyDbSystem {
+  export function redactForLog(obj: CreateDbHomeForStandbyDbSystem): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "database")) {
+      const value = obj.database;
+      redactedObj["database"] =
+        value == null ? value : model.CreateDatabaseForStandbyDbSystemDetails.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreateDbHomeForStandbyDbSystem): object {
     const jsonObj = {
       ...obj,

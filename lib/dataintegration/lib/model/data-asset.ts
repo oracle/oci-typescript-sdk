@@ -66,6 +66,48 @@ export interface DataAsset {
 }
 
 export namespace DataAsset {
+  export function redactForLog(obj: DataAsset): object {
+    if (obj && Object.prototype.hasOwnProperty.call(obj, "modelType")) {
+      switch (obj.modelType) {
+        case "ORACLE_DATA_ASSET":
+          return model.DataAssetFromOracleDetails.redactForLog(
+            obj as model.DataAssetFromOracleDetails
+          );
+        case "MYSQL_HEATWAVE_DATA_ASSET":
+          return model.DataAssetFromMySqlHeatWave.redactForLog(
+            obj as model.DataAssetFromMySqlHeatWave
+          );
+        case "ORACLE_PEOPLESOFT_DATA_ASSET":
+          return model.DataAssetFromOraclePeopleSoftDetails.redactForLog(
+            obj as model.DataAssetFromOraclePeopleSoftDetails
+          );
+        case "ORACLE_EBS_DATA_ASSET":
+          return model.DataAssetFromOracleEbsDetails.redactForLog(
+            obj as model.DataAssetFromOracleEbsDetails
+          );
+        case "REST_DATA_ASSET":
+          return model.DataAssetFromRestDetails.redactForLog(obj as model.DataAssetFromRestDetails);
+        case "ORACLE_ADWC_DATA_ASSET":
+          return model.DataAssetFromAdwcDetails.redactForLog(obj as model.DataAssetFromAdwcDetails);
+        case "ORACLE_SIEBEL_DATA_ASSET":
+          return model.DataAssetFromOracleSiebelDetails.redactForLog(
+            obj as model.DataAssetFromOracleSiebelDetails
+          );
+        case "FUSION_APP_DATA_ASSET":
+          return model.DataAssetFromFusionApp.redactForLog(obj as model.DataAssetFromFusionApp);
+        case "ORACLE_ATP_DATA_ASSET":
+          return model.DataAssetFromAtpDetails.redactForLog(obj as model.DataAssetFromAtpDetails);
+      }
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: DataAsset): object {
     const jsonObj = {
       ...obj,

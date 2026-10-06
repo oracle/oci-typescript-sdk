@@ -50,6 +50,19 @@ export namespace DatabaseCredentials {
     Sysdba = "SYSDBA"
   }
 
+  export function redactForLog(obj: DatabaseCredentials): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "password")) {
+      redactedObj["password"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: DatabaseCredentials): object {
     const jsonObj = { ...obj, ...{} };
 

@@ -127,6 +127,27 @@ For deprecated connections created with this field in the past, either the priva
 }
 
 export namespace UpdateMysqlConnectionDetails {
+  export function redactForLog(obj: UpdateMysqlConnectionDetails): object {
+    if (!obj || obj.connectionType !== "MYSQL") {
+      return model.UpdateConnectionDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "password")) {
+      redactedObj["password"] = "<redacted>";
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "sslKey")) {
+      redactedObj["sslKey"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: UpdateMysqlConnectionDetails, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj

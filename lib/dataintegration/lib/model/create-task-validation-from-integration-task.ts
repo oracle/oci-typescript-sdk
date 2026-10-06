@@ -24,6 +24,24 @@ export interface CreateTaskValidationFromIntegrationTask extends model.CreateTas
 }
 
 export namespace CreateTaskValidationFromIntegrationTask {
+  export function redactForLog(obj: CreateTaskValidationFromIntegrationTask): object {
+    if (!obj || obj.modelType !== "INTEGRATION_TASK") {
+      return model.CreateTaskValidationDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "dataFlow")) {
+      const value = obj.dataFlow;
+      redactedObj["dataFlow"] = value == null ? value : model.DataFlow.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: CreateTaskValidationFromIntegrationTask,
     isParentJsonObj?: boolean

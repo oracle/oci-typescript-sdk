@@ -26,6 +26,21 @@ export interface FleetCredentialCollection {
 }
 
 export namespace FleetCredentialCollection {
+  export function redactForLog(obj: FleetCredentialCollection): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "items")) {
+      const value = obj.items;
+      redactedObj["items"] =
+        value == null ? value : value.map(item => model.FleetCredentialSummary.redactForLog(item));
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: FleetCredentialCollection): object {
     const jsonObj = {
       ...obj,

@@ -49,6 +49,25 @@ Example: {@code {\"Department\": \"Finance\"}}
 }
 
 export namespace UpdateTargetDatabaseDetails {
+  export function redactForLog(obj: UpdateTargetDatabaseDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "credentials")) {
+      const value = obj.credentials;
+      redactedObj["credentials"] = value == null ? value : model.Credentials.redactForLog(value);
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "tlsConfig")) {
+      const value = obj.tlsConfig;
+      redactedObj["tlsConfig"] = value == null ? value : model.TlsConfig.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: UpdateTargetDatabaseDetails): object {
     const jsonObj = {
       ...obj,

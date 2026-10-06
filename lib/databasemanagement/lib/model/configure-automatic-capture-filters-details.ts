@@ -35,6 +35,27 @@ export interface ConfigureAutomaticCaptureFiltersDetails {
 }
 
 export namespace ConfigureAutomaticCaptureFiltersDetails {
+  export function redactForLog(obj: ConfigureAutomaticCaptureFiltersDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "credentials")) {
+      const value = obj.credentials;
+      redactedObj["credentials"] =
+        value == null ? value : model.ManagedDatabaseCredential.redactForLog(value);
+    }
+
+    if (Object.prototype.hasOwnProperty.call(obj, "databaseCredential")) {
+      const value = obj.databaseCredential;
+      redactedObj["databaseCredential"] =
+        value == null ? value : model.DatabaseCredentialDetails.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: ConfigureAutomaticCaptureFiltersDetails): object {
     const jsonObj = {
       ...obj,

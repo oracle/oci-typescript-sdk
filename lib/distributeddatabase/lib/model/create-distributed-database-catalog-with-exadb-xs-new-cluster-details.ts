@@ -68,6 +68,24 @@ export interface CreateDistributedDatabaseCatalogWithExadbXsNewClusterDetails
 }
 
 export namespace CreateDistributedDatabaseCatalogWithExadbXsNewClusterDetails {
+  export function redactForLog(
+    obj: CreateDistributedDatabaseCatalogWithExadbXsNewClusterDetails
+  ): object {
+    if (!obj || obj.source !== "XS_NEW_CLUSTER") {
+      return model.CreateDistributedDatabaseCatalogDatabaseDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+    if (Object.prototype.hasOwnProperty.call(obj, "adminPassword")) {
+      redactedObj["adminPassword"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: CreateDistributedDatabaseCatalogWithExadbXsNewClusterDetails,
     isParentJsonObj?: boolean

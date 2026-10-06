@@ -50,6 +50,25 @@ export interface CreateDataAssetFromRest extends model.CreateDataAssetDetails {
 }
 
 export namespace CreateDataAssetFromRest {
+  export function redactForLog(obj: CreateDataAssetFromRest): object {
+    if (!obj || obj.modelType !== "REST_DATA_ASSET") {
+      return model.CreateDataAssetDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "defaultConnection")) {
+      const value = obj.defaultConnection;
+      redactedObj["defaultConnection"] =
+        value == null ? value : model.CreateConnectionDetails.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreateDataAssetFromRest, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj

@@ -33,6 +33,24 @@ export interface UpdateTaskFromDataLoaderTask extends model.UpdateTaskDetails {
 }
 
 export namespace UpdateTaskFromDataLoaderTask {
+  export function redactForLog(obj: UpdateTaskFromDataLoaderTask): object {
+    if (!obj || obj.modelType !== "DATA_LOADER_TASK") {
+      return model.UpdateTaskDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "dataFlow")) {
+      const value = obj.dataFlow;
+      redactedObj["dataFlow"] = value == null ? value : model.DataFlow.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: UpdateTaskFromDataLoaderTask, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj

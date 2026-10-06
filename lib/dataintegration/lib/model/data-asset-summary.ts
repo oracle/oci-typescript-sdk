@@ -62,6 +62,50 @@ export interface DataAssetSummary {
 }
 
 export namespace DataAssetSummary {
+  export function redactForLog(obj: DataAssetSummary): object {
+    if (obj && Object.prototype.hasOwnProperty.call(obj, "modelType")) {
+      switch (obj.modelType) {
+        case "ORACLE_SIEBEL_DATA_ASSET":
+          return model.DataAssetSummaryFromOracleSiebel.redactForLog(
+            obj as model.DataAssetSummaryFromOracleSiebel
+          );
+        case "MYSQL_HEATWAVE_DATA_ASSET":
+          return model.DataAssetSummaryFromMySqlHeatWave.redactForLog(
+            obj as model.DataAssetSummaryFromMySqlHeatWave
+          );
+        case "ORACLE_PEOPLESOFT_DATA_ASSET":
+          return model.DataAssetSummaryFromOraclePeopleSoft.redactForLog(
+            obj as model.DataAssetSummaryFromOraclePeopleSoft
+          );
+        case "REST_DATA_ASSET":
+          return model.DataAssetSummaryFromRest.redactForLog(obj as model.DataAssetSummaryFromRest);
+        case "ORACLE_DATA_ASSET":
+          return model.DataAssetSummaryFromOracle.redactForLog(
+            obj as model.DataAssetSummaryFromOracle
+          );
+        case "ORACLE_ATP_DATA_ASSET":
+          return model.DataAssetSummaryFromAtp.redactForLog(obj as model.DataAssetSummaryFromAtp);
+        case "ORACLE_ADWC_DATA_ASSET":
+          return model.DataAssetSummaryFromAdwc.redactForLog(obj as model.DataAssetSummaryFromAdwc);
+        case "ORACLE_EBS_DATA_ASSET":
+          return model.DataAssetSummaryFromOracleEbs.redactForLog(
+            obj as model.DataAssetSummaryFromOracleEbs
+          );
+        case "FUSION_APP_DATA_ASSET":
+          return model.DataAssetSummaryFromFusionApp.redactForLog(
+            obj as model.DataAssetSummaryFromFusionApp
+          );
+      }
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: DataAssetSummary): object {
     const jsonObj = {
       ...obj,

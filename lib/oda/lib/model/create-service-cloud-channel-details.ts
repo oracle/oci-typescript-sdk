@@ -59,6 +59,23 @@ export interface CreateServiceCloudChannelDetails extends model.CreateChannelDet
 }
 
 export namespace CreateServiceCloudChannelDetails {
+  export function redactForLog(obj: CreateServiceCloudChannelDetails): object {
+    if (!obj || obj.type !== "SERVICECLOUD") {
+      return model.CreateChannelDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "password")) {
+      redactedObj["password"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: CreateServiceCloudChannelDetails,
     isParentJsonObj?: boolean

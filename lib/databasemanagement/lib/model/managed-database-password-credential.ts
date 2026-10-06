@@ -30,6 +30,23 @@ export interface ManagedDatabasePasswordCredential extends model.ManagedDatabase
 }
 
 export namespace ManagedDatabasePasswordCredential {
+  export function redactForLog(obj: ManagedDatabasePasswordCredential): object {
+    if (!obj || obj.credentialType !== "PASSWORD") {
+      return model.ManagedDatabaseCredential.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "password")) {
+      redactedObj["password"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: ManagedDatabasePasswordCredential,
     isParentJsonObj?: boolean

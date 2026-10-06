@@ -25,6 +25,23 @@ export interface UpdateExternalDbSystemConnectorDetails {
 }
 
 export namespace UpdateExternalDbSystemConnectorDetails {
+  export function redactForLog(obj: UpdateExternalDbSystemConnectorDetails): object {
+    if (obj && Object.prototype.hasOwnProperty.call(obj, "connectorType")) {
+      switch (obj.connectorType) {
+        case "MACS":
+          return model.UpdateExternalDbSystemMacsConnectorDetails.redactForLog(
+            obj as model.UpdateExternalDbSystemMacsConnectorDetails
+          );
+      }
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: UpdateExternalDbSystemConnectorDetails): object {
     const jsonObj = { ...obj, ...{} };
 

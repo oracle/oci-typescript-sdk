@@ -28,6 +28,25 @@ export interface CreateStandByDatabaseDetails extends model.CreateDatabaseBase {
 }
 
 export namespace CreateStandByDatabaseDetails {
+  export function redactForLog(obj: CreateStandByDatabaseDetails): object {
+    if (!obj || obj.source !== "DATAGUARD") {
+      return model.CreateDatabaseBase.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "database")) {
+      const value = obj.database;
+      redactedObj["database"] =
+        value == null ? value : model.CreateStandbyDetails.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreateStandByDatabaseDetails, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj

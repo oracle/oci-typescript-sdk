@@ -50,6 +50,25 @@ export interface DataAssetSummaryFromOracle extends model.DataAssetSummary {
 }
 
 export namespace DataAssetSummaryFromOracle {
+  export function redactForLog(obj: DataAssetSummaryFromOracle): object {
+    if (!obj || obj.modelType !== "ORACLE_DATA_ASSET") {
+      return model.DataAssetSummary.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "defaultConnection")) {
+      const value = obj.defaultConnection;
+      redactedObj["defaultConnection"] =
+        value == null ? value : model.ConnectionSummaryFromOracle.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: DataAssetSummaryFromOracle, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj

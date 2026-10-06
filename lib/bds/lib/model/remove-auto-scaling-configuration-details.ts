@@ -30,6 +30,18 @@ export interface RemoveAutoScalingConfigurationDetails {
 }
 
 export namespace RemoveAutoScalingConfigurationDetails {
+  export function redactForLog(obj: RemoveAutoScalingConfigurationDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+    if (Object.prototype.hasOwnProperty.call(obj, "clusterAdminPassword")) {
+      redactedObj["clusterAdminPassword"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: RemoveAutoScalingConfigurationDetails): object {
     const jsonObj = { ...obj, ...{} };
 

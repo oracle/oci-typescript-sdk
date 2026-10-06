@@ -30,6 +30,18 @@ export interface SwitchOverDataGuardDetails {
 }
 
 export namespace SwitchOverDataGuardDetails {
+  export function redactForLog(obj: SwitchOverDataGuardDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+    if (Object.prototype.hasOwnProperty.call(obj, "databaseAdminPassword")) {
+      redactedObj["databaseAdminPassword"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: SwitchOverDataGuardDetails): object {
     const jsonObj = { ...obj, ...{} };
 

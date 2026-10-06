@@ -25,6 +25,25 @@ export interface CreateAutonomousContainerDatabaseDetails
 }
 
 export namespace CreateAutonomousContainerDatabaseDetails {
+  export function redactForLog(obj: CreateAutonomousContainerDatabaseDetails): object {
+    if (!obj || obj.source !== "NONE") {
+      return model.CreateAutonomousContainerDatabaseBase.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "encryptionKeyLocationDetails")) {
+      const value = obj.encryptionKeyLocationDetails;
+      redactedObj["encryptionKeyLocationDetails"] =
+        value == null ? value : model.EncryptionKeyLocationDetails.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: CreateAutonomousContainerDatabaseDetails,
     isParentJsonObj?: boolean

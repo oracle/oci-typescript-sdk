@@ -31,6 +31,23 @@ export interface TablespaceAdminPasswordCredentialDetails
 }
 
 export namespace TablespaceAdminPasswordCredentialDetails {
+  export function redactForLog(obj: TablespaceAdminPasswordCredentialDetails): object {
+    if (!obj || obj.tablespaceAdminCredentialType !== "PASSWORD") {
+      return model.TablespaceAdminCredentialDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "password")) {
+      redactedObj["password"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: TablespaceAdminPasswordCredentialDetails,
     isParentJsonObj?: boolean

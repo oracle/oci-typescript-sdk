@@ -34,6 +34,23 @@ export interface CreateDistributedDatabaseCatalogReplicaDetails {
 }
 
 export namespace CreateDistributedDatabaseCatalogReplicaDetails {
+  export function redactForLog(obj: CreateDistributedDatabaseCatalogReplicaDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "database")) {
+      const value = obj.database;
+      redactedObj["database"] =
+        value == null
+          ? value
+          : model.CreateDistributedDatabaseCatalogDatabaseDetails.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreateDistributedDatabaseCatalogReplicaDetails): object {
     const jsonObj = {
       ...obj,

@@ -30,6 +30,18 @@ export interface ForceRefreshResourcePrincipalDetails {
 }
 
 export namespace ForceRefreshResourcePrincipalDetails {
+  export function redactForLog(obj: ForceRefreshResourcePrincipalDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+    if (Object.prototype.hasOwnProperty.call(obj, "clusterAdminPassword")) {
+      redactedObj["clusterAdminPassword"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: ForceRefreshResourcePrincipalDetails): object {
     const jsonObj = { ...obj, ...{} };
 

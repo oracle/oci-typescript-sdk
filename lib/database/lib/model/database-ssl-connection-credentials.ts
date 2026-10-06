@@ -65,6 +65,23 @@ export namespace DatabaseSslConnectionCredentials {
     UnknownValue = "UNKNOWN_VALUE"
   }
 
+  export function redactForLog(obj: DatabaseSslConnectionCredentials): object {
+    if (!obj || obj.credentialType !== "SSL_DETAILS") {
+      return model.DatabaseConnectionCredentials.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "password")) {
+      redactedObj["password"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: DatabaseSslConnectionCredentials,
     isParentJsonObj?: boolean

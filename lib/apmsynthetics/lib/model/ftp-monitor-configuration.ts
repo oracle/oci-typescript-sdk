@@ -55,6 +55,25 @@ export interface FtpMonitorConfiguration extends model.MonitorConfiguration {
 }
 
 export namespace FtpMonitorConfiguration {
+  export function redactForLog(obj: FtpMonitorConfiguration): object {
+    if (!obj || obj.configType !== "FTP_CONFIG") {
+      return model.MonitorConfiguration.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "ftpBasicAuthenticationDetails")) {
+      const value = obj.ftpBasicAuthenticationDetails;
+      redactedObj["ftpBasicAuthenticationDetails"] =
+        value == null ? value : model.BasicAuthenticationDetails.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: FtpMonitorConfiguration, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj

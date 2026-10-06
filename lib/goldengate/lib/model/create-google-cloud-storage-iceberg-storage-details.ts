@@ -55,6 +55,23 @@ export interface CreateGoogleCloudStorageIcebergStorageDetails
 }
 
 export namespace CreateGoogleCloudStorageIcebergStorageDetails {
+  export function redactForLog(obj: CreateGoogleCloudStorageIcebergStorageDetails): object {
+    if (!obj || obj.storageType !== "GOOGLE_CLOUD_STORAGE") {
+      return model.CreateIcebergStorageDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "serviceAccountKeyFile")) {
+      redactedObj["serviceAccountKeyFile"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(
     obj: CreateGoogleCloudStorageIcebergStorageDetails,
     isParentJsonObj?: boolean

@@ -52,6 +52,32 @@ export interface PublishedObject {
 }
 
 export namespace PublishedObject {
+  export function redactForLog(obj: PublishedObject): object {
+    if (obj && Object.prototype.hasOwnProperty.call(obj, "modelType")) {
+      switch (obj.modelType) {
+        case "DATA_LOADER_TASK":
+          return model.PublishedObjectFromDataLoaderTask.redactForLog(
+            obj as model.PublishedObjectFromDataLoaderTask
+          );
+        case "PIPELINE_TASK":
+          return model.PublishedObjectFromPipelineTask.redactForLog(
+            obj as model.PublishedObjectFromPipelineTask
+          );
+        case "INTEGRATION_TASK":
+          return model.PublishedObjectFromIntegrationTask.redactForLog(
+            obj as model.PublishedObjectFromIntegrationTask
+          );
+      }
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: PublishedObject): object {
     const jsonObj = {
       ...obj,

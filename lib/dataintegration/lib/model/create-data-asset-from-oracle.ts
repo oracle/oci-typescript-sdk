@@ -50,6 +50,25 @@ export interface CreateDataAssetFromOracle extends model.CreateDataAssetDetails 
 }
 
 export namespace CreateDataAssetFromOracle {
+  export function redactForLog(obj: CreateDataAssetFromOracle): object {
+    if (!obj || obj.modelType !== "ORACLE_DATA_ASSET") {
+      return model.CreateDataAssetDetails.redactForLog(obj);
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    if (Object.prototype.hasOwnProperty.call(obj, "defaultConnection")) {
+      const value = obj.defaultConnection;
+      redactedObj["defaultConnection"] =
+        value == null ? value : model.CreateConnectionFromOracle.redactForLog(value);
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: CreateDataAssetFromOracle, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj

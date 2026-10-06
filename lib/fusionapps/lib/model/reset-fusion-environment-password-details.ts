@@ -25,6 +25,18 @@ export interface ResetFusionEnvironmentPasswordDetails {
 }
 
 export namespace ResetFusionEnvironmentPasswordDetails {
+  export function redactForLog(obj: ResetFusionEnvironmentPasswordDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+    if (Object.prototype.hasOwnProperty.call(obj, "password")) {
+      redactedObj["password"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: ResetFusionEnvironmentPasswordDetails): object {
     const jsonObj = { ...obj, ...{} };
 

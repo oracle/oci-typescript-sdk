@@ -66,6 +66,40 @@ export interface Connection {
 }
 
 export namespace Connection {
+  export function redactForLog(obj: Connection): object {
+    if (obj && Object.prototype.hasOwnProperty.call(obj, "modelType")) {
+      switch (obj.modelType) {
+        case "MYSQL_HEATWAVE_CONNECTION":
+          return model.ConnectionFromMySqlHeatWave.redactForLog(
+            obj as model.ConnectionFromMySqlHeatWave
+          );
+        case "ORACLE_ADWC_CONNECTION":
+          return model.ConnectionFromAdwc.redactForLog(obj as model.ConnectionFromAdwc);
+        case "ORACLE_ATP_CONNECTION":
+          return model.ConnectionFromAtp.redactForLog(obj as model.ConnectionFromAtp);
+        case "ORACLEDB_CONNECTION":
+          return model.ConnectionFromOracle.redactForLog(obj as model.ConnectionFromOracle);
+        case "ORACLE_PEOPLESOFT_CONNECTION":
+          return model.ConnectionFromOraclePeopleSoft.redactForLog(
+            obj as model.ConnectionFromOraclePeopleSoft
+          );
+        case "ORACLE_EBS_CONNECTION":
+          return model.ConnectionFromOracleEbs.redactForLog(obj as model.ConnectionFromOracleEbs);
+        case "ORACLE_SIEBEL_CONNECTION":
+          return model.ConnectionFromOracleSiebel.redactForLog(
+            obj as model.ConnectionFromOracleSiebel
+          );
+      }
+    }
+
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: Connection): object {
     const jsonObj = {
       ...obj,

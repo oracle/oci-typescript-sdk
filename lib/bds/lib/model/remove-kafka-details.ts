@@ -30,6 +30,18 @@ export interface RemoveKafkaDetails {
 }
 
 export namespace RemoveKafkaDetails {
+  export function redactForLog(obj: RemoveKafkaDetails): object {
+    if (!obj) {
+      return {};
+    }
+    const redactedObj: { [key: string]: any } = { ...obj };
+    if (Object.prototype.hasOwnProperty.call(obj, "clusterAdminPassword")) {
+      redactedObj["clusterAdminPassword"] = "<redacted>";
+    }
+
+    return redactedObj;
+  }
+
   export function getJsonObj(obj: RemoveKafkaDetails): object {
     const jsonObj = { ...obj, ...{} };
 
