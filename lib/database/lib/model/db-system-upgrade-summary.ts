@@ -32,6 +32,10 @@ export interface DbSystemUpgradeSummary {
    * The version of the grid infrastructure for this upgrade. This is only applicable for ASM based DbSystems
    */
   "giVersion"?: string;
+  /**
+   * True when selecting or applying this DB, Grid Infrastructure, or operating system software version requires older-version acknowledgment.
+   */
+  "isOlderVersionAcknowledgmentRequired"?: boolean;
 }
 
 export namespace DbSystemUpgradeSummary {

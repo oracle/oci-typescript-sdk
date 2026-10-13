@@ -44,18 +44,6 @@ export interface CreateIdentityConfigurationDetails {
 }
 
 export namespace CreateIdentityConfigurationDetails {
-  export function redactForLog(obj: CreateIdentityConfigurationDetails): object {
-    if (!obj) {
-      return {};
-    }
-    const redactedObj: { [key: string]: any } = { ...obj };
-    if (Object.prototype.hasOwnProperty.call(obj, "clusterAdminPassword")) {
-      redactedObj["clusterAdminPassword"] = "<redacted>";
-    }
-
-    return redactedObj;
-  }
-
   export function getJsonObj(obj: CreateIdentityConfigurationDetails): object {
     const jsonObj = {
       ...obj,

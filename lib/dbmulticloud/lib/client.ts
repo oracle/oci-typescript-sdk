@@ -447,6 +447,87 @@ export class DbMulticloudAwsProviderClient {
   }
 
   /**
+   * Moves the AWS Key Pool resource into a different compartment. When provided, 'If-Match' is checked against 'ETag' values of the resource.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ChangeOracleDbAwsKeyPoolCompartmentRequest
+   * @return ChangeOracleDbAwsKeyPoolCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dbmulticloud/ChangeOracleDbAwsKeyPoolCompartment.ts.html |here} to see how to use ChangeOracleDbAwsKeyPoolCompartment API.
+   */
+  public async changeOracleDbAwsKeyPoolCompartment(
+    changeOracleDbAwsKeyPoolCompartmentRequest: requests.ChangeOracleDbAwsKeyPoolCompartmentRequest
+  ): Promise<responses.ChangeOracleDbAwsKeyPoolCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbMulticloudAwsProviderClient#changeOracleDbAwsKeyPoolCompartment."
+      );
+    const operationName = "changeOracleDbAwsKeyPoolCompartment";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{oracleDbAwsKeyPoolId}": changeOracleDbAwsKeyPoolCompartmentRequest.oracleDbAwsKeyPoolId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": changeOracleDbAwsKeyPoolCompartmentRequest.opcRetryToken,
+      "if-match": changeOracleDbAwsKeyPoolCompartmentRequest.ifMatch,
+      "opc-request-id": changeOracleDbAwsKeyPoolCompartmentRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeOracleDbAwsKeyPoolCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/oracleDbAwsKeyPool/{oracleDbAwsKeyPoolId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeOracleDbAwsKeyPoolCompartmentRequest.changeOracleDbAwsKeyPoolCompartmentDetails,
+        "ChangeOracleDbAwsKeyPoolCompartmentDetails",
+        model.ChangeOracleDbAwsKeyPoolCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeOracleDbAwsKeyPoolCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates Oracle DB AWS Identity Connector resource.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -642,6 +723,104 @@ export class DbMulticloudAwsProviderClient {
   }
 
   /**
+   * Create DB AWS Key Pool resource.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateOracleDbAwsKeyPoolRequest
+   * @return CreateOracleDbAwsKeyPoolResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dbmulticloud/CreateOracleDbAwsKeyPool.ts.html |here} to see how to use CreateOracleDbAwsKeyPool API.
+   */
+  public async createOracleDbAwsKeyPool(
+    createOracleDbAwsKeyPoolRequest: requests.CreateOracleDbAwsKeyPoolRequest
+  ): Promise<responses.CreateOracleDbAwsKeyPoolResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbMulticloudAwsProviderClient#createOracleDbAwsKeyPool."
+      );
+    const operationName = "createOracleDbAwsKeyPool";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createOracleDbAwsKeyPoolRequest.opcRetryToken,
+      "opc-request-id": createOracleDbAwsKeyPoolRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createOracleDbAwsKeyPoolRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/oracleDbAwsKeyPool",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createOracleDbAwsKeyPoolRequest.createOracleDbAwsKeyPoolDetails,
+        "CreateOracleDbAwsKeyPoolDetails",
+        model.CreateOracleDbAwsKeyPoolDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateOracleDbAwsKeyPoolResponse>{},
+        body: await response.json(),
+        bodyKey: "oracleDbAwsKeyPool",
+        bodyModel: model.OracleDbAwsKeyPool,
+        type: "model.OracleDbAwsKeyPool",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-location"),
+            key: "contentLocation",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes a Oracle DB AWS Identity Connector resource.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -772,6 +951,82 @@ export class DbMulticloudAwsProviderClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteOracleDbAwsKeyResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Delete AWS Key Pool resource.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteOracleDbAwsKeyPoolRequest
+   * @return DeleteOracleDbAwsKeyPoolResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dbmulticloud/DeleteOracleDbAwsKeyPool.ts.html |here} to see how to use DeleteOracleDbAwsKeyPool API.
+   */
+  public async deleteOracleDbAwsKeyPool(
+    deleteOracleDbAwsKeyPoolRequest: requests.DeleteOracleDbAwsKeyPoolRequest
+  ): Promise<responses.DeleteOracleDbAwsKeyPoolResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbMulticloudAwsProviderClient#deleteOracleDbAwsKeyPool."
+      );
+    const operationName = "deleteOracleDbAwsKeyPool";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{oracleDbAwsKeyPoolId}": deleteOracleDbAwsKeyPoolRequest.oracleDbAwsKeyPoolId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteOracleDbAwsKeyPoolRequest.ifMatch,
+      "opc-request-id": deleteOracleDbAwsKeyPoolRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteOracleDbAwsKeyPoolRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/oracleDbAwsKeyPool/{oracleDbAwsKeyPoolId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteOracleDbAwsKeyPoolResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -954,6 +1209,83 @@ export class DbMulticloudAwsProviderClient {
   }
 
   /**
+   * Retrieves detailed information about a Oracle AWS Key Pool resource by specifying its unique resource [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetOracleDbAwsKeyPoolRequest
+   * @return GetOracleDbAwsKeyPoolResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dbmulticloud/GetOracleDbAwsKeyPool.ts.html |here} to see how to use GetOracleDbAwsKeyPool API.
+   */
+  public async getOracleDbAwsKeyPool(
+    getOracleDbAwsKeyPoolRequest: requests.GetOracleDbAwsKeyPoolRequest
+  ): Promise<responses.GetOracleDbAwsKeyPoolResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbMulticloudAwsProviderClient#getOracleDbAwsKeyPool.");
+    const operationName = "getOracleDbAwsKeyPool";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{oracleDbAwsKeyPoolId}": getOracleDbAwsKeyPoolRequest.oracleDbAwsKeyPoolId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getOracleDbAwsKeyPoolRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getOracleDbAwsKeyPoolRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/oracleDbAwsKeyPool/{oracleDbAwsKeyPoolId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetOracleDbAwsKeyPoolResponse>{},
+        body: await response.json(),
+        bodyKey: "oracleDbAwsKeyPool",
+        bodyModel: model.OracleDbAwsKeyPool,
+        type: "model.OracleDbAwsKeyPool",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Lists all Oracle DB AWS Identity Connectors based on the specified filters.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -1040,6 +1372,90 @@ export class DbMulticloudAwsProviderClient {
   }
 
   /**
+   * Lists all DB AWS Key Pools based on the specified filters.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListOracleDbAwsKeyPoolsRequest
+   * @return ListOracleDbAwsKeyPoolsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dbmulticloud/ListOracleDbAwsKeyPools.ts.html |here} to see how to use ListOracleDbAwsKeyPools API.
+   */
+  public async listOracleDbAwsKeyPools(
+    listOracleDbAwsKeyPoolsRequest: requests.ListOracleDbAwsKeyPoolsRequest
+  ): Promise<responses.ListOracleDbAwsKeyPoolsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbMulticloudAwsProviderClient#listOracleDbAwsKeyPools.");
+    const operationName = "listOracleDbAwsKeyPools";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listOracleDbAwsKeyPoolsRequest.compartmentId,
+      "displayName": listOracleDbAwsKeyPoolsRequest.displayName,
+      "oracleDbAwsKeyPoolId": listOracleDbAwsKeyPoolsRequest.oracleDbAwsKeyPoolId,
+      "lifecycleState": listOracleDbAwsKeyPoolsRequest.lifecycleState,
+      "limit": listOracleDbAwsKeyPoolsRequest.limit,
+      "page": listOracleDbAwsKeyPoolsRequest.page,
+      "sortOrder": listOracleDbAwsKeyPoolsRequest.sortOrder,
+      "sortBy": listOracleDbAwsKeyPoolsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listOracleDbAwsKeyPoolsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listOracleDbAwsKeyPoolsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/oracleDbAwsKeyPool",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListOracleDbAwsKeyPoolsResponse>{},
+        body: await response.json(),
+        bodyKey: "oracleDbAwsKeyPoolCollection",
+        bodyModel: model.OracleDbAwsKeyPoolCollection,
+        type: "model.OracleDbAwsKeyPoolCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Lists all DB AWS Keys based on the specified filters.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -1063,6 +1479,7 @@ export class DbMulticloudAwsProviderClient {
       "oracleDbAwsKeyId": listOracleDbAwsKeysRequest.oracleDbAwsKeyId,
       "lifecycleState": listOracleDbAwsKeysRequest.lifecycleState,
       "oracleDbAwsConnectorId": listOracleDbAwsKeysRequest.oracleDbAwsConnectorId,
+      "oracleDbAwsKeyPoolId": listOracleDbAwsKeysRequest.oracleDbAwsKeyPoolId,
       "limit": listOracleDbAwsKeysRequest.limit,
       "page": listOracleDbAwsKeysRequest.page,
       "sortOrder": listOracleDbAwsKeysRequest.sortOrder,
@@ -1363,6 +1780,88 @@ export class DbMulticloudAwsProviderClient {
   }
 
   /**
+   * Replicate Oracle AWS Key Pool resource to target region.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ReplicateOracleDbAwsKeyPoolRequest
+   * @return ReplicateOracleDbAwsKeyPoolResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dbmulticloud/ReplicateOracleDbAwsKeyPool.ts.html |here} to see how to use ReplicateOracleDbAwsKeyPool API.
+   */
+  public async replicateOracleDbAwsKeyPool(
+    replicateOracleDbAwsKeyPoolRequest: requests.ReplicateOracleDbAwsKeyPoolRequest
+  ): Promise<responses.ReplicateOracleDbAwsKeyPoolResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbMulticloudAwsProviderClient#replicateOracleDbAwsKeyPool."
+      );
+    const operationName = "replicateOracleDbAwsKeyPool";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{oracleDbAwsKeyPoolId}": replicateOracleDbAwsKeyPoolRequest.oracleDbAwsKeyPoolId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": replicateOracleDbAwsKeyPoolRequest.opcRetryToken,
+      "if-match": replicateOracleDbAwsKeyPoolRequest.ifMatch,
+      "opc-request-id": replicateOracleDbAwsKeyPoolRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      replicateOracleDbAwsKeyPoolRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/oracleDbAwsKeyPool/{oracleDbAwsKeyPoolId}/actions/replicate",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        replicateOracleDbAwsKeyPoolRequest.replicateOracleDbAwsKeyPoolDetails,
+        "ReplicateOracleDbAwsKeyPoolDetails",
+        model.ReplicateOracleDbAwsKeyPoolDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ReplicateOracleDbAwsKeyPoolResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Modifies the existing Oracle DB AWS Identity Connector resource for a given [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -1464,7 +1963,9 @@ export class DbMulticloudAwsProviderClient {
       "{oracleDbAwsKeyId}": updateOracleDbAwsKeyRequest.oracleDbAwsKeyId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isForceDeleteFromKeyPool": updateOracleDbAwsKeyRequest.isForceDeleteFromKeyPool
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -1503,6 +2004,87 @@ export class DbMulticloudAwsProviderClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateOracleDbAwsKeyResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Modifies the existing Oracle AWS Key Pool Details for a given [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateOracleDbAwsKeyPoolRequest
+   * @return UpdateOracleDbAwsKeyPoolResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dbmulticloud/UpdateOracleDbAwsKeyPool.ts.html |here} to see how to use UpdateOracleDbAwsKeyPool API.
+   */
+  public async updateOracleDbAwsKeyPool(
+    updateOracleDbAwsKeyPoolRequest: requests.UpdateOracleDbAwsKeyPoolRequest
+  ): Promise<responses.UpdateOracleDbAwsKeyPoolResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbMulticloudAwsProviderClient#updateOracleDbAwsKeyPool."
+      );
+    const operationName = "updateOracleDbAwsKeyPool";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{oracleDbAwsKeyPoolId}": updateOracleDbAwsKeyPoolRequest.oracleDbAwsKeyPoolId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateOracleDbAwsKeyPoolRequest.ifMatch,
+      "opc-request-id": updateOracleDbAwsKeyPoolRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateOracleDbAwsKeyPoolRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/oracleDbAwsKeyPool/{oracleDbAwsKeyPoolId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateOracleDbAwsKeyPoolRequest.updateOracleDbAwsKeyPoolDetails,
+        "UpdateOracleDbAwsKeyPoolDetails",
+        model.UpdateOracleDbAwsKeyPoolDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateOracleDbAwsKeyPoolResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),

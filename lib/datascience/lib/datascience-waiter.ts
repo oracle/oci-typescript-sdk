@@ -212,6 +212,25 @@ export class DataScienceWaiter {
   }
 
   /**
+   * Waits forModelArtifactSignature till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetModelArtifactSignatureResponse | null (null in case of 404 response)
+   */
+  public async forModelArtifactSignature(
+    request: serviceRequests.GetModelArtifactSignatureRequest,
+    ...targetStates: models.ArtifactSignatureLifecycleState[]
+  ): Promise<serviceResponses.GetModelArtifactSignatureResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getModelArtifactSignature(request),
+      response => targetStates.includes(response.modelArtifactSignature.lifecycleState!),
+      targetStates.includes(models.ArtifactSignatureLifecycleState.Deleted)
+    );
+  }
+
+  /**
    * Waits forModelDeployment till it reaches any of the provided states
    *
    * @param request the request to send

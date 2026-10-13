@@ -50,27 +50,6 @@ export interface OracleAwsS3DataTransferMediumDetails
 }
 
 export namespace OracleAwsS3DataTransferMediumDetails {
-  export function redactForLog(obj: OracleAwsS3DataTransferMediumDetails): object {
-    if (!obj || obj.type !== "AWS_S3") {
-      return model.OracleDataTransferMediumDetails.redactForLog(obj);
-    }
-
-    if (!obj) {
-      return {};
-    }
-    const redactedObj: { [key: string]: any } = { ...obj };
-
-    if (Object.prototype.hasOwnProperty.call(obj, "accessKeyId")) {
-      redactedObj["accessKeyId"] = "<redacted>";
-    }
-
-    if (Object.prototype.hasOwnProperty.call(obj, "secretAccessKey")) {
-      redactedObj["secretAccessKey"] = "<redacted>";
-    }
-
-    return redactedObj;
-  }
-
   export function getJsonObj(
     obj: OracleAwsS3DataTransferMediumDetails,
     isParentJsonObj?: boolean

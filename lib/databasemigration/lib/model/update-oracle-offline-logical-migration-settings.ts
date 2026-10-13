@@ -35,25 +35,6 @@ export interface UpdateOracleOfflineLogicalMigrationSettings
 }
 
 export namespace UpdateOracleOfflineLogicalMigrationSettings {
-  export function redactForLog(obj: UpdateOracleOfflineLogicalMigrationSettings): object {
-    if (!obj || obj.migrationMethod !== "OFFLINE_LOGICAL") {
-      return model.UpdateOracleMigrationSettings.redactForLog(obj);
-    }
-
-    if (!obj) {
-      return {};
-    }
-    const redactedObj: { [key: string]: any } = { ...obj };
-
-    if (Object.prototype.hasOwnProperty.call(obj, "dataTransferMediumDetails")) {
-      const value = obj.dataTransferMediumDetails;
-      redactedObj["dataTransferMediumDetails"] =
-        value == null ? value : model.UpdateOracleDataTransferMediumDetails.redactForLog(value);
-    }
-
-    return redactedObj;
-  }
-
   export function getJsonObj(
     obj: UpdateOracleOfflineLogicalMigrationSettings,
     isParentJsonObj?: boolean

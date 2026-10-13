@@ -25,26 +25,38 @@ export interface BackupDestinationDetails {
   "type": BackupDestinationDetails.Type;
   /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the backup destination.
+   * Not applicable for Autonomous Container Databases on Cloud Autonomous VM Cluster.
+   *
    */
   "id"?: string;
   /**
    * For a RECOVERY_APPLIANCE backup destination, the Virtual Private Catalog (VPC) user that is used to access the Recovery Appliance.
+   * Not applicable for Autonomous Container Databases on Cloud Autonomous VM Cluster.
+   *
    */
   "vpcUser"?: string;
   /**
    * For a RECOVERY_APPLIANCE backup destination, the password for the VPC user that is used to access the Recovery Appliance.
+   * Not applicable for Autonomous Container Databases on Cloud Autonomous VM Cluster.
+   *
    */
   "vpcPassword"?: string;
   /**
    * Indicates whether Zero Data Loss functionality is enabled for a Recovery Appliance backup destination in an Autonomous Container Database. When enabled, the database automatically ships all redo logs in real-time to the Recovery Appliance for a Zero Data Loss recovery setup (sub-second RPO). Defaults to {@code TRUE} if no value is given.
+   * Not applicable for Autonomous Container Databases on Cloud Autonomous VM Cluster.
+   *
    */
   "isZeroDataLossEnabled"?: boolean;
   /**
    * Proxy URL to connect to object store.
+   * Not applicable for Autonomous Container Databases on Cloud Autonomous VM Cluster.
+   *
    */
   "internetProxy"?: string;
   /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the DBRS policy used for backup.
+   * Not applicable for Autonomous Container Databases on Cloud Autonomous VM Cluster and Autonomous VM Cluster.
+   *
    */
   "dbrsPolicyId"?: string;
   /**

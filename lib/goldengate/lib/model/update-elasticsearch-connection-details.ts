@@ -72,23 +72,6 @@ export interface UpdateElasticsearchConnectionDetails extends model.UpdateConnec
 }
 
 export namespace UpdateElasticsearchConnectionDetails {
-  export function redactForLog(obj: UpdateElasticsearchConnectionDetails): object {
-    if (!obj || obj.connectionType !== "ELASTICSEARCH") {
-      return model.UpdateConnectionDetails.redactForLog(obj);
-    }
-
-    if (!obj) {
-      return {};
-    }
-    const redactedObj: { [key: string]: any } = { ...obj };
-
-    if (Object.prototype.hasOwnProperty.call(obj, "password")) {
-      redactedObj["password"] = "<redacted>";
-    }
-
-    return redactedObj;
-  }
-
   export function getJsonObj(
     obj: UpdateElasticsearchConnectionDetails,
     isParentJsonObj?: boolean

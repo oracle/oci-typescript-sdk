@@ -89,27 +89,6 @@ export interface CreateOciObjectStorageConnectionDetails extends model.CreateCon
 }
 
 export namespace CreateOciObjectStorageConnectionDetails {
-  export function redactForLog(obj: CreateOciObjectStorageConnectionDetails): object {
-    if (!obj || obj.connectionType !== "OCI_OBJECT_STORAGE") {
-      return model.CreateConnectionDetails.redactForLog(obj);
-    }
-
-    if (!obj) {
-      return {};
-    }
-    const redactedObj: { [key: string]: any } = { ...obj };
-
-    if (Object.prototype.hasOwnProperty.call(obj, "privateKeyFile")) {
-      redactedObj["privateKeyFile"] = "<redacted>";
-    }
-
-    if (Object.prototype.hasOwnProperty.call(obj, "privateKeyPassphrase")) {
-      redactedObj["privateKeyPassphrase"] = "<redacted>";
-    }
-
-    return redactedObj;
-  }
-
   export function getJsonObj(
     obj: CreateOciObjectStorageConnectionDetails,
     isParentJsonObj?: boolean

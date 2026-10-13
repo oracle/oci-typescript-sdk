@@ -40,10 +40,6 @@ export interface UpdateOciListingRevisionDetails extends model.UpdateListingRevi
    */
   "termId"?: string;
   /**
-   * Custom link to the listing
-   */
-  "vanityUrl"?: string;
-  /**
    * OCIDs of service listings attached to lead gen listing
    */
   "recommendedServiceProviderListingIds"?: Array<string>;
@@ -59,6 +55,10 @@ export interface UpdateOciListingRevisionDetails extends model.UpdateListingRevi
    * Is this listing rover exportable
    */
   "isRoverExportable"?: boolean;
+  /**
+   * Custom link to the listing
+   */
+  "vanityUrl"?: string;
   /**
    * Url to demo of the listing
    */

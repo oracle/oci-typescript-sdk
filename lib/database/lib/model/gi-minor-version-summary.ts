@@ -30,6 +30,10 @@ export interface GiMinorVersionSummary {
    * Grid Infrastructure Image Id
    */
   "gridImageId"?: string;
+  /**
+   * True when selecting or applying this DB, Grid Infrastructure, or operating system software version requires older-version acknowledgment.
+   */
+  "isOlderVersionAcknowledgmentRequired"?: boolean;
 }
 
 export namespace GiMinorVersionSummary {

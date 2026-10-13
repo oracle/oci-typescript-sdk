@@ -115,31 +115,13 @@ Example: {@code {\"Department\": \"Finance\"}}
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the VM cluster.
    */
   "vmClusterId"?: string;
+  "dataSafeRegistrationDetails"?: model.DataSafeRegistrationRequestDetails;
 }
 
 export namespace CreateDatabaseDetails {
   export enum DbWorkload {
     Oltp = "OLTP",
     Dss = "DSS"
-  }
-
-  export function redactForLog(obj: CreateDatabaseDetails): object {
-    if (!obj) {
-      return {};
-    }
-    const redactedObj: { [key: string]: any } = { ...obj };
-
-    if (Object.prototype.hasOwnProperty.call(obj, "tdeWalletPassword")) {
-      redactedObj["tdeWalletPassword"] = "<redacted>";
-    }
-
-    if (Object.prototype.hasOwnProperty.call(obj, "encryptionKeyLocationDetails")) {
-      const value = obj.encryptionKeyLocationDetails;
-      redactedObj["encryptionKeyLocationDetails"] =
-        value == null ? value : model.EncryptionKeyLocationDetails.redactForLog(value);
-    }
-
-    return redactedObj;
   }
 
   export function getJsonObj(obj: CreateDatabaseDetails): object {
@@ -158,6 +140,10 @@ export namespace CreateDatabaseDetails {
           : undefined,
         "managedSoftwareUpdateDetails": obj.managedSoftwareUpdateDetails
           ? model.ManagedSoftwareUpdateInputDetails.getJsonObj(obj.managedSoftwareUpdateDetails)
+          : undefined,
+
+        "dataSafeRegistrationDetails": obj.dataSafeRegistrationDetails
+          ? model.DataSafeRegistrationRequestDetails.getJsonObj(obj.dataSafeRegistrationDetails)
           : undefined
       }
     };
@@ -183,6 +169,12 @@ export namespace CreateDatabaseDetails {
         "managedSoftwareUpdateDetails": obj.managedSoftwareUpdateDetails
           ? model.ManagedSoftwareUpdateInputDetails.getDeserializedJsonObj(
               obj.managedSoftwareUpdateDetails
+            )
+          : undefined,
+
+        "dataSafeRegistrationDetails": obj.dataSafeRegistrationDetails
+          ? model.DataSafeRegistrationRequestDetails.getDeserializedJsonObj(
+              obj.dataSafeRegistrationDetails
             )
           : undefined
       }

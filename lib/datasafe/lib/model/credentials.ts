@@ -29,19 +29,6 @@ export interface Credentials {
 }
 
 export namespace Credentials {
-  export function redactForLog(obj: Credentials): object {
-    if (!obj) {
-      return {};
-    }
-    const redactedObj: { [key: string]: any } = { ...obj };
-
-    if (Object.prototype.hasOwnProperty.call(obj, "password")) {
-      redactedObj["password"] = "<redacted>";
-    }
-
-    return redactedObj;
-  }
-
   export function getJsonObj(obj: Credentials): object {
     const jsonObj = { ...obj, ...{} };
 

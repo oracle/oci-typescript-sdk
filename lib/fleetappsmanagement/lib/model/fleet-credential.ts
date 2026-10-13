@@ -83,21 +83,6 @@ export namespace FleetCredential {
     UnknownValue = "UNKNOWN_VALUE"
   }
 
-  export function redactForLog(obj: FleetCredential): object {
-    if (!obj) {
-      return {};
-    }
-    const redactedObj: { [key: string]: any } = { ...obj };
-
-    if (Object.prototype.hasOwnProperty.call(obj, "entitySpecifics")) {
-      const value = obj.entitySpecifics;
-      redactedObj["entitySpecifics"] =
-        value == null ? value : model.CredentialEntitySpecificDetails.redactForLog(value);
-    }
-
-    return redactedObj;
-  }
-
   export function getJsonObj(obj: FleetCredential): object {
     const jsonObj = {
       ...obj,

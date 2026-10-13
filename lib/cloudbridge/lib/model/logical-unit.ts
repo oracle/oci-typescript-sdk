@@ -103,19 +103,6 @@ export namespace LogicalUnit {
     Used = "USED"
   }
 
-  export function redactForLog(obj: LogicalUnit): object {
-    if (!obj) {
-      return {};
-    }
-    const redactedObj: { [key: string]: any } = { ...obj };
-
-    if (Object.prototype.hasOwnProperty.call(obj, "password")) {
-      redactedObj["password"] = "<redacted>";
-    }
-
-    return redactedObj;
-  }
-
   export function getJsonObj(obj: LogicalUnit): object {
     const jsonObj = { ...obj, ...{} };
 

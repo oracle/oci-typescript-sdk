@@ -24,6 +24,10 @@ export interface SystemVersionMinorVersionSummary {
    * A valid system minor version.
    */
   "version": string;
+  /**
+   * True when selecting or applying this DB, Grid Infrastructure, or operating system software version requires older-version acknowledgment.
+   */
+  "isOlderVersionAcknowledgmentRequired"?: boolean;
 }
 
 export namespace SystemVersionMinorVersionSummary {

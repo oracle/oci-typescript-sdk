@@ -35,6 +35,10 @@ export interface CreateDatabaseForStandbyDbSystemDetails {
    */
   "databaseSoftwareImageId"?: string;
   /**
+   * If true, the caller acknowledges selecting or applying an older DB, Grid Infrastructure, or operating system software version that is outside the latest default version window.
+   */
+  "isOlderVersionAcknowledged"?: boolean;
+  /**
    * True if active Data Guard is enabled.
    */
   "isActiveDataGuardEnabled"?: boolean;
@@ -106,25 +110,6 @@ export namespace CreateDatabaseForStandbyDbSystemDetails {
     Sync = "SYNC",
     Async = "ASYNC",
     Fastsync = "FASTSYNC"
-  }
-
-  export function redactForLog(obj: CreateDatabaseForStandbyDbSystemDetails): object {
-    if (!obj) {
-      return {};
-    }
-    const redactedObj: { [key: string]: any } = { ...obj };
-
-    if (Object.prototype.hasOwnProperty.call(obj, "tdeWalletPassword")) {
-      redactedObj["tdeWalletPassword"] = "<redacted>";
-    }
-
-    if (Object.prototype.hasOwnProperty.call(obj, "sourceEncryptionKeyLocationDetails")) {
-      const value = obj.sourceEncryptionKeyLocationDetails;
-      redactedObj["sourceEncryptionKeyLocationDetails"] =
-        value == null ? value : model.EncryptionKeyLocationDetails.redactForLog(value);
-    }
-
-    return redactedObj;
   }
 
   export function getJsonObj(obj: CreateDatabaseForStandbyDbSystemDetails): object {

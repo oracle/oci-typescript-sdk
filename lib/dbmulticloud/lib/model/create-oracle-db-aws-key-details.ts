@@ -63,6 +63,10 @@ export interface CreateOracleDbAwsKeyDetails {
    */
   "oracleDbConnectorId": string;
   /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Oracle DB AWS Key Pool resource.
+   */
+  "oracleDbAwsKeyPoolId"?: string;
+  /**
    * Oracle DB AWS Key resource name.
    */
   "displayName": string;
