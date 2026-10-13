@@ -47,6 +47,7 @@ export namespace DatabaseTool {
     Ords = "ORDS",
     MongodbApi = "MONGODB_API",
     SpatialStudio = "SPATIAL_STUDIO",
+    Essbase = "ESSBASE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

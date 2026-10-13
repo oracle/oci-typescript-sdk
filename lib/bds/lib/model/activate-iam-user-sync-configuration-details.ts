@@ -34,18 +34,6 @@ export interface ActivateIamUserSyncConfigurationDetails {
 }
 
 export namespace ActivateIamUserSyncConfigurationDetails {
-  export function redactForLog(obj: ActivateIamUserSyncConfigurationDetails): object {
-    if (!obj) {
-      return {};
-    }
-    const redactedObj: { [key: string]: any } = { ...obj };
-    if (Object.prototype.hasOwnProperty.call(obj, "clusterAdminPassword")) {
-      redactedObj["clusterAdminPassword"] = "<redacted>";
-    }
-
-    return redactedObj;
-  }
-
   export function getJsonObj(obj: ActivateIamUserSyncConfigurationDetails): object {
     const jsonObj = { ...obj, ...{} };
 

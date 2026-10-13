@@ -34,24 +34,6 @@ export interface CreateExternalDbSystemConnectorDetails {
 }
 
 export namespace CreateExternalDbSystemConnectorDetails {
-  export function redactForLog(obj: CreateExternalDbSystemConnectorDetails): object {
-    if (obj && Object.prototype.hasOwnProperty.call(obj, "connectorType")) {
-      switch (obj.connectorType) {
-        case "MACS":
-          return model.CreateExternalDbSystemMacsConnectorDetails.redactForLog(
-            obj as model.CreateExternalDbSystemMacsConnectorDetails
-          );
-      }
-    }
-
-    if (!obj) {
-      return {};
-    }
-    const redactedObj: { [key: string]: any } = { ...obj };
-
-    return redactedObj;
-  }
-
   export function getJsonObj(obj: CreateExternalDbSystemConnectorDetails): object {
     const jsonObj = { ...obj, ...{} };
 

@@ -100,6 +100,10 @@ Example: {@code {\"Department\": \"Finance\"}}
    * True if this Database software image is supported for Upgrade.
    */
   "isUpgradeSupported"?: boolean;
+  /**
+   * True when selecting or applying this DB, Grid Infrastructure, or operating system software version requires older-version acknowledgment.
+   */
+  "isOlderVersionAcknowledgmentRequired"?: boolean;
 }
 
 export namespace DatabaseSoftwareImage {

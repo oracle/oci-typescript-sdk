@@ -116,21 +116,6 @@ export interface UpdateMonitorDetails {
 }
 
 export namespace UpdateMonitorDetails {
-  export function redactForLog(obj: UpdateMonitorDetails): object {
-    if (!obj) {
-      return {};
-    }
-    const redactedObj: { [key: string]: any } = { ...obj };
-
-    if (Object.prototype.hasOwnProperty.call(obj, "configuration")) {
-      const value = obj.configuration;
-      redactedObj["configuration"] =
-        value == null ? value : model.MonitorConfiguration.redactForLog(value);
-    }
-
-    return redactedObj;
-  }
-
   export function getJsonObj(obj: UpdateMonitorDetails): object {
     const jsonObj = {
       ...obj,

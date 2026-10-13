@@ -47,23 +47,6 @@ export interface UpdateTwilioChannelDetails extends model.UpdateChannelDetails {
 }
 
 export namespace UpdateTwilioChannelDetails {
-  export function redactForLog(obj: UpdateTwilioChannelDetails): object {
-    if (!obj || obj.type !== "TWILIO") {
-      return model.UpdateChannelDetails.redactForLog(obj);
-    }
-
-    if (!obj) {
-      return {};
-    }
-    const redactedObj: { [key: string]: any } = { ...obj };
-
-    if (Object.prototype.hasOwnProperty.call(obj, "authToken")) {
-      redactedObj["authToken"] = "<redacted>";
-    }
-
-    return redactedObj;
-  }
-
   export function getJsonObj(obj: UpdateTwilioChannelDetails, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj

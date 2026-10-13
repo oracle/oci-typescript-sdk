@@ -69,28 +69,6 @@ export interface CreateMigrationDetails {
 }
 
 export namespace CreateMigrationDetails {
-  export function redactForLog(obj: CreateMigrationDetails): object {
-    if (obj && Object.prototype.hasOwnProperty.call(obj, "databaseCombination")) {
-      switch (obj.databaseCombination) {
-        case "MYSQL":
-          return model.CreateMySqlMigrationDetails.redactForLog(
-            obj as model.CreateMySqlMigrationDetails
-          );
-        case "ORACLE":
-          return model.CreateOracleMigrationDetails.redactForLog(
-            obj as model.CreateOracleMigrationDetails
-          );
-      }
-    }
-
-    if (!obj) {
-      return {};
-    }
-    const redactedObj: { [key: string]: any } = { ...obj };
-
-    return redactedObj;
-  }
-
   export function getJsonObj(obj: CreateMigrationDetails): object {
     const jsonObj = { ...obj, ...{} };
 

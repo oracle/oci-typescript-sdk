@@ -34,19 +34,6 @@ export interface TestBdsObjectStorageConnectionDetails {
 }
 
 export namespace TestBdsObjectStorageConnectionDetails {
-  export function redactForLog(obj: TestBdsObjectStorageConnectionDetails): object {
-    if (!obj) {
-      return {};
-    }
-    const redactedObj: { [key: string]: any } = { ...obj };
-
-    if (Object.prototype.hasOwnProperty.call(obj, "passphrase")) {
-      redactedObj["passphrase"] = "<redacted>";
-    }
-
-    return redactedObj;
-  }
-
   export function getJsonObj(obj: TestBdsObjectStorageConnectionDetails): object {
     const jsonObj = { ...obj, ...{} };
 

@@ -38,24 +38,6 @@ export interface PublishedObjectFromPipelineTaskSummary extends model.PublishedO
 }
 
 export namespace PublishedObjectFromPipelineTaskSummary {
-  export function redactForLog(obj: PublishedObjectFromPipelineTaskSummary): object {
-    if (!obj || obj.modelType !== "PIPELINE_TASK") {
-      return model.PublishedObjectSummary.redactForLog(obj);
-    }
-
-    if (!obj) {
-      return {};
-    }
-    const redactedObj: { [key: string]: any } = { ...obj };
-
-    if (Object.prototype.hasOwnProperty.call(obj, "pipeline")) {
-      const value = obj.pipeline;
-      redactedObj["pipeline"] = value == null ? value : model.Pipeline.redactForLog(value);
-    }
-
-    return redactedObj;
-  }
-
   export function getJsonObj(
     obj: PublishedObjectFromPipelineTaskSummary,
     isParentJsonObj?: boolean

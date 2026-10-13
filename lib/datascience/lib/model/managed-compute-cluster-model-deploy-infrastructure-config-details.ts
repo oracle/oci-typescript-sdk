@@ -24,7 +24,7 @@ export interface ManagedComputeClusterModelDeployInfrastructureConfigDetails
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of a Compute Target.
    */
   "computeTargetId": string;
-  "modelDeploymentResourceConfiguration"?: model.ManagedComputeClusterModelDeploymentResourceConfiguration;
+  "modelDeploymentResourceConfiguration": model.ManagedComputeClusterModelDeploymentResourceConfiguration;
   "scalingPolicy"?:
     | model.ManagedComputeClusterWorkloadAutoScalingPolicy
     | model.ManagedComputeClusterWorkloadFixedSizeScalingPolicy;

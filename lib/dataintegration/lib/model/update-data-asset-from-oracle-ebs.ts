@@ -46,25 +46,6 @@ export interface UpdateDataAssetFromOracleEbs extends model.UpdateDataAssetDetai
 }
 
 export namespace UpdateDataAssetFromOracleEbs {
-  export function redactForLog(obj: UpdateDataAssetFromOracleEbs): object {
-    if (!obj || obj.modelType !== "ORACLE_EBS_DATA_ASSET") {
-      return model.UpdateDataAssetDetails.redactForLog(obj);
-    }
-
-    if (!obj) {
-      return {};
-    }
-    const redactedObj: { [key: string]: any } = { ...obj };
-
-    if (Object.prototype.hasOwnProperty.call(obj, "defaultConnection")) {
-      const value = obj.defaultConnection;
-      redactedObj["defaultConnection"] =
-        value == null ? value : model.UpdateConnectionFromOracleEbs.redactForLog(value);
-    }
-
-    return redactedObj;
-  }
-
   export function getJsonObj(obj: UpdateDataAssetFromOracleEbs, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj

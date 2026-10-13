@@ -85,23 +85,6 @@ export interface CreateMicrosoftSqlserverConnectionDetails extends model.CreateC
 }
 
 export namespace CreateMicrosoftSqlserverConnectionDetails {
-  export function redactForLog(obj: CreateMicrosoftSqlserverConnectionDetails): object {
-    if (!obj || obj.connectionType !== "MICROSOFT_SQLSERVER") {
-      return model.CreateConnectionDetails.redactForLog(obj);
-    }
-
-    if (!obj) {
-      return {};
-    }
-    const redactedObj: { [key: string]: any } = { ...obj };
-
-    if (Object.prototype.hasOwnProperty.call(obj, "password")) {
-      redactedObj["password"] = "<redacted>";
-    }
-
-    return redactedObj;
-  }
-
   export function getJsonObj(
     obj: CreateMicrosoftSqlserverConnectionDetails,
     isParentJsonObj?: boolean

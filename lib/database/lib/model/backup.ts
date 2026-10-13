@@ -182,21 +182,6 @@ export namespace Backup {
     UnknownValue = "UNKNOWN_VALUE"
   }
 
-  export function redactForLog(obj: Backup): object {
-    if (!obj) {
-      return {};
-    }
-    const redactedObj: { [key: string]: any } = { ...obj };
-
-    if (Object.prototype.hasOwnProperty.call(obj, "encryptionKeyLocationDetails")) {
-      const value = obj.encryptionKeyLocationDetails;
-      redactedObj["encryptionKeyLocationDetails"] =
-        value == null ? value : model.EncryptionKeyLocationDetails.redactForLog(value);
-    }
-
-    return redactedObj;
-  }
-
   export function getJsonObj(obj: Backup): object {
     const jsonObj = {
       ...obj,

@@ -1453,6 +1453,84 @@ export class DataScienceClient {
   }
 
   /**
+   * Moves a model artifact signature into a different compartment
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ChangeModelArtifactSignatureCompartmentRequest
+   * @return ChangeModelArtifactSignatureCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/ChangeModelArtifactSignatureCompartment.ts.html |here} to see how to use ChangeModelArtifactSignatureCompartment API.
+   */
+  public async changeModelArtifactSignatureCompartment(
+    changeModelArtifactSignatureCompartmentRequest: requests.ChangeModelArtifactSignatureCompartmentRequest
+  ): Promise<responses.ChangeModelArtifactSignatureCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DataScienceClient#changeModelArtifactSignatureCompartment."
+      );
+    const operationName = "changeModelArtifactSignatureCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/ModelArtifactSignature/ChangeModelArtifactSignatureCompartment";
+    const pathParams = {
+      "{modelId}": changeModelArtifactSignatureCompartmentRequest.modelId,
+      "{artifactSignatureId}": changeModelArtifactSignatureCompartmentRequest.artifactSignatureId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": changeModelArtifactSignatureCompartmentRequest.opcRequestId,
+      "if-match": changeModelArtifactSignatureCompartmentRequest.ifMatch,
+      "opc-retry-token": changeModelArtifactSignatureCompartmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeModelArtifactSignatureCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/models/{modelId}/artifactSignatures/{artifactSignatureId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeModelArtifactSignatureCompartmentRequest.changeModelArtifactSignatureCompartmentDetails,
+        "ChangeModelArtifactSignatureCompartmentDetails",
+        model.ChangeModelArtifactSignatureCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeModelArtifactSignatureCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Moves a model resource into a different compartment.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeModelCompartmentRequest
@@ -3039,6 +3117,94 @@ export class DataScienceClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Create model artifact signature for the specified model
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateModelArtifactSignatureRequest
+   * @return CreateModelArtifactSignatureResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/CreateModelArtifactSignature.ts.html |here} to see how to use CreateModelArtifactSignature API.
+   */
+  public async createModelArtifactSignature(
+    createModelArtifactSignatureRequest: requests.CreateModelArtifactSignatureRequest
+  ): Promise<responses.CreateModelArtifactSignatureResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#createModelArtifactSignature.");
+    const operationName = "createModelArtifactSignature";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/ModelArtifactSignature/CreateModelArtifactSignature";
+    const pathParams = {
+      "{modelId}": createModelArtifactSignatureRequest.modelId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createModelArtifactSignatureRequest.opcRequestId,
+      "opc-retry-token": createModelArtifactSignatureRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createModelArtifactSignatureRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/models/{modelId}/artifactSignatures",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createModelArtifactSignatureRequest.createModelArtifactSignatureDetails,
+        "CreateModelArtifactSignatureDetails",
+        model.CreateModelArtifactSignatureDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateModelArtifactSignatureResponse>{},
+        body: await response.json(),
+        bodyKey: "modelArtifactSignature",
+        bodyModel: model.ModelArtifactSignature,
+        type: "model.ModelArtifactSignature",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           }
         ]
@@ -5155,6 +5321,76 @@ export class DataScienceClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteModelResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the specified artifact signature for a model
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteModelArtifactSignatureRequest
+   * @return DeleteModelArtifactSignatureResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/DeleteModelArtifactSignature.ts.html |here} to see how to use DeleteModelArtifactSignature API.
+   */
+  public async deleteModelArtifactSignature(
+    deleteModelArtifactSignatureRequest: requests.DeleteModelArtifactSignatureRequest
+  ): Promise<responses.DeleteModelArtifactSignatureResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#deleteModelArtifactSignature.");
+    const operationName = "deleteModelArtifactSignature";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/ModelArtifactSignature/DeleteModelArtifactSignature";
+    const pathParams = {
+      "{modelId}": deleteModelArtifactSignatureRequest.modelId,
+      "{artifactSignatureId}": deleteModelArtifactSignatureRequest.artifactSignatureId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": deleteModelArtifactSignatureRequest.opcRequestId,
+      "if-match": deleteModelArtifactSignatureRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteModelArtifactSignatureRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/models/{modelId}/artifactSignatures/{artifactSignatureId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteModelArtifactSignatureResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -7343,6 +7579,85 @@ export class DataScienceClient {
             value: response.headers.get("last-modified"),
             key: "lastModified",
             dataType: "Date"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the specified artifact signature for a model
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetModelArtifactSignatureRequest
+   * @return GetModelArtifactSignatureResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/GetModelArtifactSignature.ts.html |here} to see how to use GetModelArtifactSignature API.
+   */
+  public async getModelArtifactSignature(
+    getModelArtifactSignatureRequest: requests.GetModelArtifactSignatureRequest
+  ): Promise<responses.GetModelArtifactSignatureResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#getModelArtifactSignature.");
+    const operationName = "getModelArtifactSignature";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/ModelArtifactSignature/GetModelArtifactSignature";
+    const pathParams = {
+      "{modelId}": getModelArtifactSignatureRequest.modelId,
+      "{artifactSignatureId}": getModelArtifactSignatureRequest.artifactSignatureId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getModelArtifactSignatureRequest.opcRequestId,
+      "opc-retry-token": getModelArtifactSignatureRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getModelArtifactSignatureRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/models/{modelId}/artifactSignatures/{artifactSignatureId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetModelArtifactSignatureResponse>{},
+        body: await response.json(),
+        bodyKey: "modelArtifactSignature",
+        bodyModel: model.ModelArtifactSignature,
+        type: "model.ModelArtifactSignature",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
           }
         ]
       });
@@ -10775,6 +11090,149 @@ export class DataScienceClient {
     } catch (err) {
       throw err;
     }
+  }
+
+  /**
+   * List model artifact signatures of a model in the specified compartment
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListModelArtifactSignaturesRequest
+   * @return ListModelArtifactSignaturesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/ListModelArtifactSignatures.ts.html |here} to see how to use ListModelArtifactSignatures API.
+   */
+  public async listModelArtifactSignatures(
+    listModelArtifactSignaturesRequest: requests.ListModelArtifactSignaturesRequest
+  ): Promise<responses.ListModelArtifactSignaturesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#listModelArtifactSignatures.");
+    const operationName = "listModelArtifactSignatures";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/ModelArtifactSignatureSummary/ListModelArtifactSignatures";
+    const pathParams = {
+      "{modelId}": listModelArtifactSignaturesRequest.modelId
+    };
+
+    const queryParams = {
+      "displayName": listModelArtifactSignaturesRequest.displayName,
+      "compartmentId": listModelArtifactSignaturesRequest.compartmentId,
+      "digest": listModelArtifactSignaturesRequest.digest,
+      "lifecycleState": listModelArtifactSignaturesRequest.lifecycleState,
+      "limit": listModelArtifactSignaturesRequest.limit,
+      "page": listModelArtifactSignaturesRequest.page,
+      "sortOrder": listModelArtifactSignaturesRequest.sortOrder,
+      "sortBy": listModelArtifactSignaturesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listModelArtifactSignaturesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listModelArtifactSignaturesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/models/{modelId}/artifactSignatures",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListModelArtifactSignaturesResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.ModelArtifactSignatureSummary,
+        type: "Array<model.ModelArtifactSignatureSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listModelArtifactSignaturesRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.ModelArtifactSignatureSummary objects
+   * contained in responses from the listModelArtifactSignatures operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllModelArtifactSignatures(
+    request: requests.ListModelArtifactSignaturesRequest
+  ): AsyncIterableIterator<model.ModelArtifactSignatureSummary> {
+    return paginateRecords(request, req => this.listModelArtifactSignatures(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listModelArtifactSignaturesResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listModelArtifactSignatures operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllModelArtifactSignaturesResponses(
+    request: requests.ListModelArtifactSignaturesRequest
+  ): AsyncIterableIterator<responses.ListModelArtifactSignaturesResponse> {
+    return paginateResponses(request, req => this.listModelArtifactSignatures(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ModelArtifactSignatureSummary objects
+   * contained in responses from the listModelArtifactSignatures operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listModelArtifactSignaturesRecordIterator(
+    request: requests.ListModelArtifactSignaturesRequest
+  ): AsyncIterableIterator<model.ModelArtifactSignatureSummary> {
+    return paginateRecords(request, req => this.listModelArtifactSignatures(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listModelArtifactSignatures operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listModelArtifactSignaturesResponseIterator(
+    request: requests.ListModelArtifactSignaturesRequest
+  ): AsyncIterableIterator<responses.ListModelArtifactSignaturesResponse> {
+    return paginateResponses(request, req => this.listModelArtifactSignatures(req));
   }
 
   /**
@@ -14471,6 +14929,95 @@ export class DataScienceClient {
   }
 
   /**
+   * Update model artifact signature for the specified model
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateModelArtifactSignatureRequest
+   * @return UpdateModelArtifactSignatureResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/UpdateModelArtifactSignature.ts.html |here} to see how to use UpdateModelArtifactSignature API.
+   */
+  public async updateModelArtifactSignature(
+    updateModelArtifactSignatureRequest: requests.UpdateModelArtifactSignatureRequest
+  ): Promise<responses.UpdateModelArtifactSignatureResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#updateModelArtifactSignature.");
+    const operationName = "updateModelArtifactSignature";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/ModelArtifactSignature/UpdateModelArtifactSignature";
+    const pathParams = {
+      "{modelId}": updateModelArtifactSignatureRequest.modelId,
+      "{artifactSignatureId}": updateModelArtifactSignatureRequest.artifactSignatureId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateModelArtifactSignatureRequest.opcRequestId,
+      "if-match": updateModelArtifactSignatureRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateModelArtifactSignatureRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/models/{modelId}/artifactSignatures/{artifactSignatureId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateModelArtifactSignatureRequest.updateModelArtifactSignatureDetails,
+        "UpdateModelArtifactSignatureDetails",
+        model.UpdateModelArtifactSignatureDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateModelArtifactSignatureResponse>{},
+        body: await response.json(),
+        bodyKey: "modelArtifactSignature",
+        bodyModel: model.ModelArtifactSignature,
+        type: "model.ModelArtifactSignature",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Updates model custom metadata artifact for specified model metadata key.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateModelCustomMetadatumArtifactRequest
@@ -15434,6 +15981,91 @@ export class DataScienceClient {
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateScheduleResponse>{},
         responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Verifies the specified artifact signature for a model
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param VerifyModelArtifactSignatureRequest
+   * @return VerifyModelArtifactSignatureResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/VerifyModelArtifactSignature.ts.html |here} to see how to use VerifyModelArtifactSignature API.
+   */
+  public async verifyModelArtifactSignature(
+    verifyModelArtifactSignatureRequest: requests.VerifyModelArtifactSignatureRequest
+  ): Promise<responses.VerifyModelArtifactSignatureResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#verifyModelArtifactSignature.");
+    const operationName = "verifyModelArtifactSignature";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/ModelArtifactSignature/VerifyModelArtifactSignature";
+    const pathParams = {
+      "{modelId}": verifyModelArtifactSignatureRequest.modelId,
+      "{artifactSignatureId}": verifyModelArtifactSignatureRequest.artifactSignatureId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": verifyModelArtifactSignatureRequest.opcRequestId,
+      "if-match": verifyModelArtifactSignatureRequest.ifMatch,
+      "opc-retry-token": verifyModelArtifactSignatureRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      verifyModelArtifactSignatureRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/models/{modelId}/artifactSignatures/{artifactSignatureId}/actions/verify",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.VerifyModelArtifactSignatureResponse>{},
+        body: await response.json(),
+        bodyKey: "modelArtifactSignature",
+        bodyModel: model.ModelArtifactSignature,
+        type: "model.ModelArtifactSignature",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",

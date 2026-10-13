@@ -398,7 +398,7 @@ example: {@code [\"ECDHE-RSA-AES256-GCM-SHA384\",\"ECDHE-ECDSA-AES256-GCM-SHA384
 * * oci-tls-11-12-13-wider-ssl-cipher-suite-v1
 * <p>
 example: {@code example_cipher_suite}
-*
+* 
     */
   "name": string;
 }

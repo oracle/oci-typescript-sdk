@@ -233,6 +233,10 @@ Example: {@code {\"Department\": \"Finance\"}}
    * The number of compute servers for the DB system. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "computeCount"?: number;
+  /**
+   * If true, the caller acknowledges selecting or applying an older DB, Grid Infrastructure, or operating system software version that is outside the latest default version window.
+   */
+  "isOlderVersionAcknowledged"?: boolean;
 
   "source": string;
 }
@@ -246,34 +250,6 @@ export namespace LaunchDbSystemBase {
   export enum ComputeModel {
     Ecpu = "ECPU",
     Ocpu = "OCPU"
-  }
-
-  export function redactForLog(obj: LaunchDbSystemBase): object {
-    if (obj && Object.prototype.hasOwnProperty.call(obj, "source")) {
-      switch (obj.source) {
-        case "NONE":
-          return model.LaunchDbSystemDetails.redactForLog(obj as model.LaunchDbSystemDetails);
-        case "DATAGUARD":
-          return model.LaunchStandbyDbSystemDetails.redactForLog(
-            obj as model.LaunchStandbyDbSystemDetails
-          );
-        case "DATABASE":
-          return model.LaunchDbSystemFromDatabaseDetails.redactForLog(
-            obj as model.LaunchDbSystemFromDatabaseDetails
-          );
-        case "DB_BACKUP":
-          return model.LaunchDbSystemFromBackupDetails.redactForLog(
-            obj as model.LaunchDbSystemFromBackupDetails
-          );
-      }
-    }
-
-    if (!obj) {
-      return {};
-    }
-    const redactedObj: { [key: string]: any } = { ...obj };
-
-    return redactedObj;
   }
 
   export function getJsonObj(obj: LaunchDbSystemBase): object {

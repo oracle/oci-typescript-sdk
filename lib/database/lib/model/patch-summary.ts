@@ -58,6 +58,10 @@ export interface PatchSummary {
    * The version of this patch package.
    */
   "version": string;
+  /**
+   * True when selecting or applying this DB, Grid Infrastructure, or operating system software version requires older-version acknowledgment.
+   */
+  "isOlderVersionAcknowledgmentRequired"?: boolean;
 }
 
 export namespace PatchSummary {

@@ -109,6 +109,10 @@ export enum OperationType {
   MoveReplicateResource = "MOVE_REPLICATE_RESOURCE",
   RefreshReplicateResource = "REFRESH_REPLICATE_RESOURCE",
   Replicate = "REPLICATE",
+  CreateAwsKeyPool = "CREATE_AWS_KEY_POOL",
+  DeleteAwsKeyPool = "DELETE_AWS_KEY_POOL",
+  UpdateAwsKeyPool = "UPDATE_AWS_KEY_POOL",
+  MoveAwsKeyPool = "MOVE_AWS_KEY_POOL",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

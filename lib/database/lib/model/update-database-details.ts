@@ -90,6 +90,7 @@ For more information, see
    */
   "isActiveDataGuardEnabled"?: boolean;
   "autoFailoverConfiguration"?: model.AutoFailoverConfiguration;
+  "dataSafeRegistrationDetails"?: model.DataSafeRegistrationRequestDetails;
 }
 
 export namespace UpdateDatabaseDetails {
@@ -103,31 +104,6 @@ export namespace UpdateDatabaseDetails {
     Sync = "SYNC",
     Async = "ASYNC",
     Fastsync = "FASTSYNC"
-  }
-
-  export function redactForLog(obj: UpdateDatabaseDetails): object {
-    if (!obj) {
-      return {};
-    }
-    const redactedObj: { [key: string]: any } = { ...obj };
-
-    if (Object.prototype.hasOwnProperty.call(obj, "newAdminPassword")) {
-      redactedObj["newAdminPassword"] = "<redacted>";
-    }
-
-    if (Object.prototype.hasOwnProperty.call(obj, "oldTdeWalletPassword")) {
-      redactedObj["oldTdeWalletPassword"] = "<redacted>";
-    }
-
-    if (Object.prototype.hasOwnProperty.call(obj, "newTdeWalletPassword")) {
-      redactedObj["newTdeWalletPassword"] = "<redacted>";
-    }
-
-    if (Object.prototype.hasOwnProperty.call(obj, "databaseAdminPassword")) {
-      redactedObj["databaseAdminPassword"] = "<redacted>";
-    }
-
-    return redactedObj;
   }
 
   export function getJsonObj(obj: UpdateDatabaseDetails): object {
@@ -151,6 +127,9 @@ export namespace UpdateDatabaseDetails {
 
         "autoFailoverConfiguration": obj.autoFailoverConfiguration
           ? model.AutoFailoverConfiguration.getJsonObj(obj.autoFailoverConfiguration)
+          : undefined,
+        "dataSafeRegistrationDetails": obj.dataSafeRegistrationDetails
+          ? model.DataSafeRegistrationRequestDetails.getJsonObj(obj.dataSafeRegistrationDetails)
           : undefined
       }
     };
@@ -180,6 +159,11 @@ export namespace UpdateDatabaseDetails {
 
         "autoFailoverConfiguration": obj.autoFailoverConfiguration
           ? model.AutoFailoverConfiguration.getDeserializedJsonObj(obj.autoFailoverConfiguration)
+          : undefined,
+        "dataSafeRegistrationDetails": obj.dataSafeRegistrationDetails
+          ? model.DataSafeRegistrationRequestDetails.getDeserializedJsonObj(
+              obj.dataSafeRegistrationDetails
+            )
           : undefined
       }
     };

@@ -23,6 +23,10 @@ export interface SingleModelConfigurationDetails {
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of a model.
    */
   "modelId": string;
+  /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of a model artifact signature.
+   */
+  "modelArtifactSignatureId"?: string;
 }
 
 export namespace SingleModelConfigurationDetails {

@@ -72,6 +72,8 @@ export enum WorkRequestOperationType {
   ModelGroupUpdate = "MODEL_GROUP_UPDATE",
   ModelGroupDelete = "MODEL_GROUP_DELETE",
   ModelGroupVersionHistoryDelete = "MODEL_GROUP_VERSION_HISTORY_DELETE",
+  CreateModelArtifactSignature = "CREATE_MODEL_ARTIFACT_SIGNATURE",
+  VerifyModelArtifactSignature = "VERIFY_MODEL_ARTIFACT_SIGNATURE",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

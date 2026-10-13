@@ -58,6 +58,8 @@ import * as ChangeOracleDbAwsIdentityConnectorCompartmentDetails from "./change-
 export import ChangeOracleDbAwsIdentityConnectorCompartmentDetails = ChangeOracleDbAwsIdentityConnectorCompartmentDetails.ChangeOracleDbAwsIdentityConnectorCompartmentDetails;
 import * as ChangeOracleDbAwsKeyCompartmentDetails from "./change-oracle-db-aws-key-compartment-details";
 export import ChangeOracleDbAwsKeyCompartmentDetails = ChangeOracleDbAwsKeyCompartmentDetails.ChangeOracleDbAwsKeyCompartmentDetails;
+import * as ChangeOracleDbAwsKeyPoolCompartmentDetails from "./change-oracle-db-aws-key-pool-compartment-details";
+export import ChangeOracleDbAwsKeyPoolCompartmentDetails = ChangeOracleDbAwsKeyPoolCompartmentDetails.ChangeOracleDbAwsKeyPoolCompartmentDetails;
 import * as ChangeOracleDbAzureBlobContainerCompartmentDetails from "./change-oracle-db-azure-blob-container-compartment-details";
 export import ChangeOracleDbAzureBlobContainerCompartmentDetails = ChangeOracleDbAzureBlobContainerCompartmentDetails.ChangeOracleDbAzureBlobContainerCompartmentDetails;
 import * as ChangeOracleDbAzureBlobMountCompartmentDetails from "./change-oracle-db-azure-blob-mount-compartment-details";
@@ -78,6 +80,8 @@ import * as CreateOracleDbAwsIdentityConnectorDetails from "./create-oracle-db-a
 export import CreateOracleDbAwsIdentityConnectorDetails = CreateOracleDbAwsIdentityConnectorDetails.CreateOracleDbAwsIdentityConnectorDetails;
 import * as CreateOracleDbAwsKeyDetails from "./create-oracle-db-aws-key-details";
 export import CreateOracleDbAwsKeyDetails = CreateOracleDbAwsKeyDetails.CreateOracleDbAwsKeyDetails;
+import * as CreateOracleDbAwsKeyPoolDetails from "./create-oracle-db-aws-key-pool-details";
+export import CreateOracleDbAwsKeyPoolDetails = CreateOracleDbAwsKeyPoolDetails.CreateOracleDbAwsKeyPoolDetails;
 import * as CreateOracleDbAzureBlobContainerDetails from "./create-oracle-db-azure-blob-container-details";
 export import CreateOracleDbAzureBlobContainerDetails = CreateOracleDbAzureBlobContainerDetails.CreateOracleDbAzureBlobContainerDetails;
 import * as CreateOracleDbAzureBlobMountDetails from "./create-oracle-db-azure-blob-mount-details";
@@ -112,6 +116,12 @@ import * as OracleDbAwsIdentityConnectorSummaryCollection from "./oracle-db-aws-
 export import OracleDbAwsIdentityConnectorSummaryCollection = OracleDbAwsIdentityConnectorSummaryCollection.OracleDbAwsIdentityConnectorSummaryCollection;
 import * as OracleDbAwsKey from "./oracle-db-aws-key";
 export import OracleDbAwsKey = OracleDbAwsKey.OracleDbAwsKey;
+import * as OracleDbAwsKeyPool from "./oracle-db-aws-key-pool";
+export import OracleDbAwsKeyPool = OracleDbAwsKeyPool.OracleDbAwsKeyPool;
+import * as OracleDbAwsKeyPoolCollection from "./oracle-db-aws-key-pool-collection";
+export import OracleDbAwsKeyPoolCollection = OracleDbAwsKeyPoolCollection.OracleDbAwsKeyPoolCollection;
+import * as OracleDbAwsKeyPoolSummary from "./oracle-db-aws-key-pool-summary";
+export import OracleDbAwsKeyPoolSummary = OracleDbAwsKeyPoolSummary.OracleDbAwsKeyPoolSummary;
 import * as OracleDbAwsKeySummary from "./oracle-db-aws-key-summary";
 export import OracleDbAwsKeySummary = OracleDbAwsKeySummary.OracleDbAwsKeySummary;
 import * as OracleDbAwsKeySummaryCollection from "./oracle-db-aws-key-summary-collection";
@@ -180,6 +190,8 @@ import * as RefreshOracleDbGcpKeyRingDetails from "./refresh-oracle-db-gcp-key-r
 export import RefreshOracleDbGcpKeyRingDetails = RefreshOracleDbGcpKeyRingDetails.RefreshOracleDbGcpKeyRingDetails;
 import * as ReplicateOracleDbAwsKeyDetails from "./replicate-oracle-db-aws-key-details";
 export import ReplicateOracleDbAwsKeyDetails = ReplicateOracleDbAwsKeyDetails.ReplicateOracleDbAwsKeyDetails;
+import * as ReplicateOracleDbAwsKeyPoolDetails from "./replicate-oracle-db-aws-key-pool-details";
+export import ReplicateOracleDbAwsKeyPoolDetails = ReplicateOracleDbAwsKeyPoolDetails.ReplicateOracleDbAwsKeyPoolDetails;
 import * as ReplicateOracleDbAzureVaultDetails from "./replicate-oracle-db-azure-vault-details";
 export import ReplicateOracleDbAzureVaultDetails = ReplicateOracleDbAzureVaultDetails.ReplicateOracleDbAzureVaultDetails;
 import * as ReplicateOracleDbGcpKeyRingDetails from "./replicate-oracle-db-gcp-key-ring-details";
@@ -204,6 +216,8 @@ import * as UpdateOracleDbAwsIdentityConnectorDetails from "./update-oracle-db-a
 export import UpdateOracleDbAwsIdentityConnectorDetails = UpdateOracleDbAwsIdentityConnectorDetails.UpdateOracleDbAwsIdentityConnectorDetails;
 import * as UpdateOracleDbAwsKeyDetails from "./update-oracle-db-aws-key-details";
 export import UpdateOracleDbAwsKeyDetails = UpdateOracleDbAwsKeyDetails.UpdateOracleDbAwsKeyDetails;
+import * as UpdateOracleDbAwsKeyPoolDetails from "./update-oracle-db-aws-key-pool-details";
+export import UpdateOracleDbAwsKeyPoolDetails = UpdateOracleDbAwsKeyPoolDetails.UpdateOracleDbAwsKeyPoolDetails;
 import * as UpdateOracleDbAzureBlobContainerDetails from "./update-oracle-db-azure-blob-container-details";
 export import UpdateOracleDbAzureBlobContainerDetails = UpdateOracleDbAzureBlobContainerDetails.UpdateOracleDbAzureBlobContainerDetails;
 import * as UpdateOracleDbAzureBlobMountDetails from "./update-oracle-db-azure-blob-mount-details";

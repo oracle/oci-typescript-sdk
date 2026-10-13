@@ -46,19 +46,6 @@ export interface CreateDbSystemSourceFromDbSystemChannelDetails {
 }
 
 export namespace CreateDbSystemSourceFromDbSystemChannelDetails {
-  export function redactForLog(obj: CreateDbSystemSourceFromDbSystemChannelDetails): object {
-    if (!obj) {
-      return {};
-    }
-    const redactedObj: { [key: string]: any } = { ...obj };
-
-    if (Object.prototype.hasOwnProperty.call(obj, "sourcePassword")) {
-      redactedObj["sourcePassword"] = "<redacted>";
-    }
-
-    return redactedObj;
-  }
-
   export function getJsonObj(obj: CreateDbSystemSourceFromDbSystemChannelDetails): object {
     const jsonObj = {
       ...obj,

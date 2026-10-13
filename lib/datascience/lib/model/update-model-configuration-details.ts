@@ -23,6 +23,10 @@ export interface UpdateModelConfigurationDetails {
    * The OCID of the model you want to update.
    */
   "modelId": string;
+  /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of a model artifact signature.
+   */
+  "modelArtifactSignatureId"?: string;
   "instanceConfiguration"?: model.InstanceConfiguration;
   "scalingPolicy"?: model.AutoScalingPolicy | model.FixedSizeScalingPolicy;
   /**

@@ -39,6 +39,10 @@ For Ex: The current latest version is 23.7.0.0.0,
 * 
     */
   "versionPreference": VersionSchemeFromVersionSeriesDetails.VersionPreference;
+  /**
+   * If true, the caller acknowledges selecting or applying an older DB, Grid Infrastructure, or operating system software version that is outside the latest default version window.
+   */
+  "isOlderVersionAcknowledged"?: boolean;
 
   "source": string;
 }

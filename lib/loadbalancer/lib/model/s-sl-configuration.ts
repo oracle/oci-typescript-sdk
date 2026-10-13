@@ -98,21 +98,21 @@ example: {@code example_cipher_suite}
 * Certificate bundle names cannot contain spaces. Avoid entering confidential information.
 * <p>
 Example: {@code example_certificate_bundle}
-*
+* 
     */
   "certificateName"?: string;
   /**
     * Ids for OCI certificates service certificates. Currently only a single Id may be passed.
 * <p>
 Example: {@code [ocid1.certificate.oc1.us-ashburn-1.amaaaaaaav3bgsaa5o2q7rh5nfmkkukfkogasqhk6af2opufhjlqg7m6jqzq]}
-*
+* 
     */
   "certificateIds"?: Array<string>;
   /**
     * Ids for OCI certificates service CA or CA bundles for the load balancer to trust.
 * <p>
 Example: {@code [ocid1.cabundle.oc1.us-ashburn-1.amaaaaaaav3bgsaagl4zzyqdop5i2vuwoqewdvauuw34llqa74otq2jdsfyq]}
-*
+* 
     */
   "trustedCertificateAuthorityIds"?: Array<string>;
   /**
@@ -122,7 +122,7 @@ Example: {@code [ocid1.cabundle.oc1.us-ashburn-1.amaaaaaaav3bgsaagl4zzyqdop5i2vu
 * Enabling session resumption improves performance but provides a lower level of security. Disabling session resumption improves security but reduces performance.
 * <p>
 Example: {@code true}
-*
+* 
     */
   "hasSessionResumption"?: boolean;
   /**

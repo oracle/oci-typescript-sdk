@@ -144,20 +144,6 @@ export namespace OlvmStorageDomainProperties {
     Volume = "VOLUME"
   }
 
-  export function redactForLog(obj: OlvmStorageDomainProperties): object {
-    if (!obj) {
-      return {};
-    }
-    const redactedObj: { [key: string]: any } = { ...obj };
-
-    if (Object.prototype.hasOwnProperty.call(obj, "storage")) {
-      const value = obj.storage;
-      redactedObj["storage"] = value == null ? value : model.Storage.redactForLog(value);
-    }
-
-    return redactedObj;
-  }
-
   export function getJsonObj(obj: OlvmStorageDomainProperties): object {
     const jsonObj = {
       ...obj,

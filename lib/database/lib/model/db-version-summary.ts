@@ -35,6 +35,10 @@ export interface DbVersionSummary {
    */
   "supportsPdb"?: boolean;
   /**
+   * True when selecting or applying this DB, Grid Infrastructure, or operating system software version requires older-version acknowledgment.
+   */
+  "isOlderVersionAcknowledgmentRequired"?: boolean;
+  /**
    * True if this version of the Oracle Database software is the preview version.
    */
   "isPreviewDbVersion"?: boolean;

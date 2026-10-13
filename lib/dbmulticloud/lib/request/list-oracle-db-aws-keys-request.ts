@@ -40,6 +40,10 @@ export interface ListOracleDbAwsKeysRequest extends common.BaseRequest {
    */
   "oracleDbAwsConnectorId"?: string;
   /**
+   * A filter to return only resources that match the given OCID](/Content/General/Concepts/identifiers.htm) of the Oracle DB AWS Key Pool resource.
+   */
+  "oracleDbAwsKeyPoolId"?: string;
+  /**
    * The maximum number of items to return.
    */
   "limit"?: number;

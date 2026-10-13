@@ -27,6 +27,10 @@ export interface CreateDataGuardAssociationDetails {
    */
   "databaseSoftwareImageId"?: string;
   /**
+   * If true, the caller acknowledges selecting or applying an older DB, Grid Infrastructure, or operating system software version that is outside the latest default version window.
+   */
+  "isOlderVersionAcknowledged"?: boolean;
+  /**
     * A strong password for the {@code SYS}, {@code SYSTEM}, and {@code PDB Admin} users to apply during standby creation.
 * <p>
 The password must contain no fewer than nine characters and include:
@@ -101,38 +105,6 @@ export namespace CreateDataGuardAssociationDetails {
     Sync = "SYNC",
     Async = "ASYNC",
     Fastsync = "FASTSYNC"
-  }
-
-  export function redactForLog(obj: CreateDataGuardAssociationDetails): object {
-    if (obj && Object.prototype.hasOwnProperty.call(obj, "creationType")) {
-      switch (obj.creationType) {
-        case "NewDbSystem":
-          return model.CreateDataGuardAssociationWithNewDbSystemDetails.redactForLog(
-            obj as model.CreateDataGuardAssociationWithNewDbSystemDetails
-          );
-        case "ExistingVmCluster":
-          return model.CreateDataGuardAssociationToExistingVmClusterDetails.redactForLog(
-            obj as model.CreateDataGuardAssociationToExistingVmClusterDetails
-          );
-        case "ExistingDbSystem":
-          return model.CreateDataGuardAssociationToExistingDbSystemDetails.redactForLog(
-            obj as model.CreateDataGuardAssociationToExistingDbSystemDetails
-          );
-      }
-    }
-
-    if (!obj) {
-      return {};
-    }
-    const redactedObj: { [key: string]: any } = { ...obj };
-
-    if (Object.prototype.hasOwnProperty.call(obj, "sourceEncryptionKeyLocationDetails")) {
-      const value = obj.sourceEncryptionKeyLocationDetails;
-      redactedObj["sourceEncryptionKeyLocationDetails"] =
-        value == null ? value : model.EncryptionKeyLocationDetails.redactForLog(value);
-    }
-
-    return redactedObj;
   }
 
   export function getJsonObj(obj: CreateDataGuardAssociationDetails): object {

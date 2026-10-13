@@ -61,6 +61,10 @@ export interface ExadbVmClusterUpdateSummary {
    * The version of the maintenance update package.
    */
   "version": string;
+  /**
+   * True when selecting or applying this DB, Grid Infrastructure, or operating system software version requires older-version acknowledgment.
+   */
+  "isOlderVersionAcknowledgmentRequired"?: boolean;
 }
 
 export namespace ExadbVmClusterUpdateSummary {

@@ -51,21 +51,6 @@ export interface UpdateChannelDetails {
 }
 
 export namespace UpdateChannelDetails {
-  export function redactForLog(obj: UpdateChannelDetails): object {
-    if (!obj) {
-      return {};
-    }
-    const redactedObj: { [key: string]: any } = { ...obj };
-
-    if (Object.prototype.hasOwnProperty.call(obj, "source")) {
-      const value = obj.source;
-      redactedObj["source"] =
-        value == null ? value : model.UpdateChannelSourceDetails.redactForLog(value);
-    }
-
-    return redactedObj;
-  }
-
   export function getJsonObj(obj: UpdateChannelDetails): object {
     const jsonObj = {
       ...obj,

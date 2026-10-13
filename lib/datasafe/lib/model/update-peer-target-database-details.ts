@@ -34,20 +34,6 @@ export interface UpdatePeerTargetDatabaseDetails {
 }
 
 export namespace UpdatePeerTargetDatabaseDetails {
-  export function redactForLog(obj: UpdatePeerTargetDatabaseDetails): object {
-    if (!obj) {
-      return {};
-    }
-    const redactedObj: { [key: string]: any } = { ...obj };
-
-    if (Object.prototype.hasOwnProperty.call(obj, "tlsConfig")) {
-      const value = obj.tlsConfig;
-      redactedObj["tlsConfig"] = value == null ? value : model.TlsConfig.redactForLog(value);
-    }
-
-    return redactedObj;
-  }
-
   export function getJsonObj(obj: UpdatePeerTargetDatabaseDetails): object {
     const jsonObj = {
       ...obj,
