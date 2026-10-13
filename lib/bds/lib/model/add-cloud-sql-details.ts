@@ -36,19 +36,6 @@ export interface AddCloudSqlDetails {
 }
 
 export namespace AddCloudSqlDetails {
-  export function redactForLog(obj: AddCloudSqlDetails): object {
-    if (!obj) {
-      return {};
-    }
-    const redactedObj: { [key: string]: any } = { ...obj };
-
-    if (Object.prototype.hasOwnProperty.call(obj, "clusterAdminPassword")) {
-      redactedObj["clusterAdminPassword"] = "<redacted>";
-    }
-
-    return redactedObj;
-  }
-
   export function getJsonObj(obj: AddCloudSqlDetails): object {
     const jsonObj = {
       ...obj,

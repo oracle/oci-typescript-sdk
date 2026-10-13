@@ -52,10 +52,6 @@ export interface OciListingRevision extends model.ListingRevision {
    */
   "allowedTenancies"?: Array<string>;
   /**
-   * Custom link to the listing
-   */
-  "vanityUrl"?: string;
-  /**
    * OCIDs of service listings attached to lead gen listing
    */
   "recommendedServiceProviderListingIds"?: Array<string>;
@@ -67,6 +63,10 @@ export interface OciListingRevision extends model.ListingRevision {
    * Is this listing rover exportable
    */
   "isRoverExportable"?: boolean;
+  /**
+   * Custom link to the listing
+   */
+  "vanityUrl"?: string;
   /**
    * Url to demo of the listing
    */

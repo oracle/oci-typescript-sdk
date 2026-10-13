@@ -91,6 +91,7 @@ Example: {@code {\"Department\": \"Finance\"}}
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   "autoFailoverConfiguration"?: model.AutoFailoverConfiguration;
+  "dataSafeRegistrationDetails"?: model.DataSafeRegistrationRequestDetails;
 }
 
 export namespace CreateStandbyDetails {
@@ -104,29 +105,6 @@ export namespace CreateStandbyDetails {
     Sync = "SYNC",
     Async = "ASYNC",
     Fastsync = "FASTSYNC"
-  }
-
-  export function redactForLog(obj: CreateStandbyDetails): object {
-    if (!obj) {
-      return {};
-    }
-    const redactedObj: { [key: string]: any } = { ...obj };
-
-    if (Object.prototype.hasOwnProperty.call(obj, "databaseAdminPassword")) {
-      redactedObj["databaseAdminPassword"] = "<redacted>";
-    }
-
-    if (Object.prototype.hasOwnProperty.call(obj, "sourceTdeWalletPassword")) {
-      redactedObj["sourceTdeWalletPassword"] = "<redacted>";
-    }
-
-    if (Object.prototype.hasOwnProperty.call(obj, "sourceEncryptionKeyLocationDetails")) {
-      const value = obj.sourceEncryptionKeyLocationDetails;
-      redactedObj["sourceEncryptionKeyLocationDetails"] =
-        value == null ? value : model.EncryptionKeyLocationDetails.redactForLog(value);
-    }
-
-    return redactedObj;
   }
 
   export function getJsonObj(obj: CreateStandbyDetails): object {
@@ -143,6 +121,9 @@ export namespace CreateStandbyDetails {
 
         "autoFailoverConfiguration": obj.autoFailoverConfiguration
           ? model.AutoFailoverConfiguration.getJsonObj(obj.autoFailoverConfiguration)
+          : undefined,
+        "dataSafeRegistrationDetails": obj.dataSafeRegistrationDetails
+          ? model.DataSafeRegistrationRequestDetails.getJsonObj(obj.dataSafeRegistrationDetails)
           : undefined
       }
     };
@@ -165,6 +146,11 @@ export namespace CreateStandbyDetails {
 
         "autoFailoverConfiguration": obj.autoFailoverConfiguration
           ? model.AutoFailoverConfiguration.getDeserializedJsonObj(obj.autoFailoverConfiguration)
+          : undefined,
+        "dataSafeRegistrationDetails": obj.dataSafeRegistrationDetails
+          ? model.DataSafeRegistrationRequestDetails.getDeserializedJsonObj(
+              obj.dataSafeRegistrationDetails
+            )
           : undefined
       }
     };

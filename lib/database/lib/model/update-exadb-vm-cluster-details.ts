@@ -99,6 +99,10 @@ The grid image ID can be obtained using the API /20160918/giVersions/{majorVersi
    * The update action.
    */
   "updateAction"?: UpdateExadbVmClusterDetails.UpdateAction;
+  /**
+   * If true, the caller acknowledges selecting or applying an older DB, Grid Infrastructure, or operating system software version that is outside the latest default version window.
+   */
+  "isOlderVersionAcknowledged"?: boolean;
 }
 
 export namespace UpdateExadbVmClusterDetails {

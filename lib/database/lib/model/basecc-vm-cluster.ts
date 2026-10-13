@@ -68,7 +68,11 @@ export interface BaseccVmCluster {
    */
   "dbServers"?: Array<string>;
   /**
-   * Total CPU cores for the BaseDB C@C VM cluster. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The number of ECPUs to enable per VM for the BaseDB C@C VM cluster.
+   * Minimum: 8 ECPUs per VM for Enterprise Edition Extreme Performance VM clusters, and 4 ECPUs per VM for other editions.
+   * Maximum: 32 ECPUs per VM for Standard Edition, and 240 ECPUs per VM for other editions.
+   * For a two-VM Enterprise Edition Extreme Performance VM Cluster, the maximum is 480 total ECPUs (240 ECPUs per VM).
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "cpusEnabled": number;
   /**
@@ -131,7 +135,9 @@ export interface BaseccVmCluster {
    */
   "recoStorageSizeInGBs"?: number;
   /**
-   * The total memory to be allocated, in GBs, for the Base Database Service on Cloud@Customer (BaseDB-C@C) VM cluster. The minimum is 11GB for every 4 ECPU.
+   * The total memory to be allocated, in GBs, for the Base Database Service on Cloud@Customer (BaseDB-C@C) VM cluster.
+   * Minimum for Extreme Performance Edition 1-node or 2-node systems is 16 GB per VM.
+   * Minimum for all other editions is 11 GB.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "memorySizeInGBs"?: number;

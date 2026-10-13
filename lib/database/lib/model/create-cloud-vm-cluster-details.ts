@@ -208,6 +208,10 @@ Example: {@code {\"Department\": \"Finance\"}}
    */
   "systemVersion"?: string;
   /**
+   * If true, the caller acknowledges selecting or applying an older DB, Grid Infrastructure, or operating system software version that is outside the latest default version window.
+   */
+  "isOlderVersionAcknowledged"?: boolean;
+  /**
    * Details of the file system configuration of the VM cluster.
    */
   "fileSystemConfigurationDetails"?: Array<model.FileSystemConfigurationDetail>;

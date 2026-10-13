@@ -15,7 +15,8 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The configuration to update on an existing OpenSearch cluster pipeline. You can only edit capacity limits and pipeline configurations. You can't edit its network settings.
+ * The configuration to update on an existing OpenSearch cluster pipeline.
+ * You can only edit capacity limits and pipeline configurations. You can't edit its network settings.
  *
  */
 export interface UpdateOpensearchClusterPipelineDetails {

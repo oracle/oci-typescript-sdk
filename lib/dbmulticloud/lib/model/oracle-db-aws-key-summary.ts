@@ -71,6 +71,18 @@ export interface OracleDbAwsKeySummary {
    */
   "oracleDbConnectorId"?: string;
   /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Oracle DB AWS Key Pool resource.
+   */
+  "oracleDbAwsKeyPoolId"?: string;
+  /**
+   * Indicates whether the Oracle AWS Key resource is currently in use.
+   */
+  "isOracleAwsKeyUsed"?: boolean;
+  /**
+   * The number of active references to the Oracle AWS Key resource. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "refCount"?: number;
+  /**
    * Amazon resource name of AWS Key.
    */
   "awsKeyArn"?: string;

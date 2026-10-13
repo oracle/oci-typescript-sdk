@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
-* The URLs for accessing Oracle Application Express (APEX) and SQL Developer Web with a browser from a Compute instance within your VCN or that has a direct connection to your VCN. Note that these URLs are provided by the console only for databases on [dedicated Exadata infrastructure](https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html).
+* The URLs for accessing various Autonomous AI Database built-in tools (like Oracle Application Express (APEX), SQL Developer Web etc) with a browser from a Compute instance within your VCN or that has a direct connection to your VCN. Note that these URLs are also available through the [Autonomous AI Databases](https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html) console.
 * <p>
 Example: {@code {\"sqlDevWebUrl\": \"https://<hostname>/ords...\", \"apexUrl\", \"https://<hostname>/ords...\"}}
 * 
@@ -31,11 +31,11 @@ export interface AutonomousDatabaseConnectionUrls {
    */
   "apexUrl"?: string;
   /**
-   * Oracle Machine Learning user management URL.
+   * Oracle Machine Learning user management URL. Applicable to Autonomous AI Database Serverless only.
    */
   "machineLearningUserManagementUrl"?: string;
   /**
-   * The URL of the Graph Studio for the Autonomous AI Database.
+   * The URL of the Graph Studio for the Autonomous AI Database. Applicable to Autonomous AI Database Serverless only.
    */
   "graphStudioUrl"?: string;
   /**
@@ -43,7 +43,7 @@ export interface AutonomousDatabaseConnectionUrls {
    */
   "mongoDbUrl"?: string;
   /**
-   * The URL of the Oracle Machine Learning (OML) Notebook for the Autonomous AI Database.
+   * The URL of the Oracle Machine Learning (OML) Notebook for the Autonomous AI Database. Applicable to Autonomous AI Database Serverless only.
    */
   "machineLearningNotebookUrl"?: string;
   /**
@@ -51,11 +51,15 @@ export interface AutonomousDatabaseConnectionUrls {
    */
   "ordsUrl"?: string;
   /**
-   * The URL of the Database Transforms for the Autonomous AI Database.
+   * The URL of the Database Transforms for the Autonomous AI Database. Applicable to Autonomous AI Database Serverless only.
    */
   "databaseTransformsUrl"?: string;
   /**
-   * The URL of the Spatial Studio for the Autonomous AI Database.
+   * Essbase URL for the Autonomous AI Database. Applicable to Autonomous AI Database Serverless only.
+   */
+  "essbaseUrl"?: string;
+  /**
+   * The URL of the Spatial Studio for the Autonomous AI Database. Applicable to Autonomous AI Database Serverless only.
    */
   "spatialStudioUrl"?: string;
 }

@@ -32,18 +32,6 @@ export interface UpdateIdentityConfigurationDetails {
 }
 
 export namespace UpdateIdentityConfigurationDetails {
-  export function redactForLog(obj: UpdateIdentityConfigurationDetails): object {
-    if (!obj) {
-      return {};
-    }
-    const redactedObj: { [key: string]: any } = { ...obj };
-    if (Object.prototype.hasOwnProperty.call(obj, "clusterAdminPassword")) {
-      redactedObj["clusterAdminPassword"] = "<redacted>";
-    }
-
-    return redactedObj;
-  }
-
   export function getJsonObj(obj: UpdateIdentityConfigurationDetails): object {
     const jsonObj = {
       ...obj,

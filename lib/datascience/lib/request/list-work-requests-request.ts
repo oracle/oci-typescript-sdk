@@ -128,7 +128,9 @@ export namespace ListWorkRequestsRequest {
     ModelGroupCreate = "MODEL_GROUP_CREATE",
     ModelGroupUpdate = "MODEL_GROUP_UPDATE",
     ModelGroupDelete = "MODEL_GROUP_DELETE",
-    ModelGroupVersionHistoryDelete = "MODEL_GROUP_VERSION_HISTORY_DELETE"
+    ModelGroupVersionHistoryDelete = "MODEL_GROUP_VERSION_HISTORY_DELETE",
+    CreateModelArtifactSignature = "CREATE_MODEL_ARTIFACT_SIGNATURE",
+    VerifyModelArtifactSignature = "VERIFY_MODEL_ARTIFACT_SIGNATURE"
   }
 
   export enum Status {

@@ -194,6 +194,7 @@ export interface CreateOpensearchClusterDetails {
    * The password hash of the master user that are used to manage security config
    */
   "securityMasterUserPasswordHash"?: string;
+  "securityMasterUserAuthDetails"?: model.SecurityUserAuthenticationDetails;
   "securitySamlConfig"?: model.SecuritySamlConfig;
   "backupPolicy"?: model.BackupPolicy;
   /**
@@ -212,6 +213,7 @@ export interface CreateOpensearchClusterDetails {
   "maintenanceDetails"?: model.CreateMaintenanceDetails;
   "loadBalancerConfig"?: model.LoadBalancerConfig;
   "certificateConfig"?: model.CertificateConfig;
+  "remoteReindexTrustConfig"?: model.RemoteReindexTrustConfig;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
    * Example: {@code {\"bar-key\": \"value\"}}
@@ -245,6 +247,9 @@ export namespace CreateOpensearchClusterDetails {
     const jsonObj = {
       ...obj,
       ...{
+        "securityMasterUserAuthDetails": obj.securityMasterUserAuthDetails
+          ? model.SecurityUserAuthenticationDetails.getJsonObj(obj.securityMasterUserAuthDetails)
+          : undefined,
         "securitySamlConfig": obj.securitySamlConfig
           ? model.SecuritySamlConfig.getJsonObj(obj.securitySamlConfig)
           : undefined,
@@ -263,6 +268,9 @@ export namespace CreateOpensearchClusterDetails {
           : undefined,
         "certificateConfig": obj.certificateConfig
           ? model.CertificateConfig.getJsonObj(obj.certificateConfig)
+          : undefined,
+        "remoteReindexTrustConfig": obj.remoteReindexTrustConfig
+          ? model.RemoteReindexTrustConfig.getJsonObj(obj.remoteReindexTrustConfig)
           : undefined
       }
     };
@@ -273,6 +281,11 @@ export namespace CreateOpensearchClusterDetails {
     const jsonObj = {
       ...obj,
       ...{
+        "securityMasterUserAuthDetails": obj.securityMasterUserAuthDetails
+          ? model.SecurityUserAuthenticationDetails.getDeserializedJsonObj(
+              obj.securityMasterUserAuthDetails
+            )
+          : undefined,
         "securitySamlConfig": obj.securitySamlConfig
           ? model.SecuritySamlConfig.getDeserializedJsonObj(obj.securitySamlConfig)
           : undefined,
@@ -291,6 +304,9 @@ export namespace CreateOpensearchClusterDetails {
           : undefined,
         "certificateConfig": obj.certificateConfig
           ? model.CertificateConfig.getDeserializedJsonObj(obj.certificateConfig)
+          : undefined,
+        "remoteReindexTrustConfig": obj.remoteReindexTrustConfig
+          ? model.RemoteReindexTrustConfig.getDeserializedJsonObj(obj.remoteReindexTrustConfig)
           : undefined
       }
     };

@@ -21,6 +21,10 @@ import common = require("oci-common");
  */
 export interface DatabaseUpgradeSourceBase {
   /**
+   * If true, the caller acknowledges selecting or applying an older DB, Grid Infrastructure, or operating system software version that is outside the latest default version window.
+   */
+  "isOlderVersionAcknowledged"?: boolean;
+  /**
    * Additional upgrade options supported by DBUA(Database Upgrade Assistant).
    * Example: \"-upgradeTimezone false -keepEvents\"
    *

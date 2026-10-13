@@ -31,16 +31,38 @@ export interface SystemVersionSummary {
    * Compatible Exadata system versions for a given shape and GI version.
    */
   "systemVersions"?: Array<string>;
+  /**
+   * Compatible Exadata system versions with their individual older-version acknowledgment requirements.
+   */
+  "systemVersionDetails"?: Array<model.SystemVersionMinorVersionSummary>;
 }
 
 export namespace SystemVersionSummary {
   export function getJsonObj(obj: SystemVersionSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "systemVersionDetails": obj.systemVersionDetails
+          ? obj.systemVersionDetails.map(item => {
+              return model.SystemVersionMinorVersionSummary.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: SystemVersionSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "systemVersionDetails": obj.systemVersionDetails
+          ? obj.systemVersionDetails.map(item => {
+              return model.SystemVersionMinorVersionSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The single model model deployment flex configuration details.
+ * The configuration details for a single-model deployment with flexible, decoupled infrastructure and model configuration.
  */
 export interface SingleModelDeploymentFlexConfigurationDetails
   extends model.ModelDeploymentConfigurationDetails {

@@ -44,25 +44,6 @@ export interface OracleOnlineStandbyMigrationSettings extends model.OracleMigrat
 }
 
 export namespace OracleOnlineStandbyMigrationSettings {
-  export function redactForLog(obj: OracleOnlineStandbyMigrationSettings): object {
-    if (!obj || obj.migrationMethod !== "ONLINE_STANDBY") {
-      return model.OracleMigrationSettings.redactForLog(obj);
-    }
-
-    if (!obj) {
-      return {};
-    }
-    const redactedObj: { [key: string]: any } = { ...obj };
-
-    if (Object.prototype.hasOwnProperty.call(obj, "dataTransferMediumDetails")) {
-      const value = obj.dataTransferMediumDetails;
-      redactedObj["dataTransferMediumDetails"] =
-        value == null ? value : model.OracleDataTransferMediumDetails.redactForLog(value);
-    }
-
-    return redactedObj;
-  }
-
   export function getJsonObj(
     obj: OracleOnlineStandbyMigrationSettings,
     isParentJsonObj?: boolean

@@ -23,6 +23,10 @@ export interface AwsEncryptionKeyDetails extends model.EncryptionKeyLocationDeta
    * Provide the key OCID of a registered AWS key.
    */
   "awsEncryptionKeyId": string;
+  /**
+   * Provide the key pool OCID of a registered AWS key.
+   */
+  "awsEncryptionKeyPoolId"?: string;
 
   "providerType": string;
 }

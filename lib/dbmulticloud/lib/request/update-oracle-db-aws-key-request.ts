@@ -39,4 +39,9 @@ export interface UpdateOracleDbAwsKeyRequest extends common.BaseRequest {
    * The client request ID for tracing.
    */
   "opcRequestId"?: string;
+  /**
+   * If true, removes the key from its key pool even when it is currently in use; otherwise the request is rejected.
+   *
+   */
+  "isForceDeleteFromKeyPool"?: boolean;
 }

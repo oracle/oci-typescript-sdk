@@ -105,6 +105,10 @@ Example: {@code {\"Department\": \"Finance\"}}
    * The patch version of the pluggable database.
    */
   "patchVersion"?: string;
+  /**
+   * The Data Safe status of the pluggable database.
+   */
+  "dataSafeState"?: PluggableDatabaseSummary.DataSafeState;
 }
 
 export namespace PluggableDatabaseSummary {
@@ -134,6 +138,17 @@ export namespace PluggableDatabaseSummary {
     ReadWrite = "READ_WRITE",
     Mounted = "MOUNTED",
     Migrate = "MIGRATE",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum DataSafeState {
+    Enabled = "ENABLED",
+    Disabled = "DISABLED",
+    Failed = "FAILED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

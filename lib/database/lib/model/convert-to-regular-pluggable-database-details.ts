@@ -35,23 +35,6 @@ export interface ConvertToRegularPluggableDatabaseDetails {
 }
 
 export namespace ConvertToRegularPluggableDatabaseDetails {
-  export function redactForLog(obj: ConvertToRegularPluggableDatabaseDetails): object {
-    if (!obj) {
-      return {};
-    }
-    const redactedObj: { [key: string]: any } = { ...obj };
-
-    if (Object.prototype.hasOwnProperty.call(obj, "containerDatabaseAdminPassword")) {
-      redactedObj["containerDatabaseAdminPassword"] = "<redacted>";
-    }
-
-    if (Object.prototype.hasOwnProperty.call(obj, "tdeWalletPassword")) {
-      redactedObj["tdeWalletPassword"] = "<redacted>";
-    }
-
-    return redactedObj;
-  }
-
   export function getJsonObj(obj: ConvertToRegularPluggableDatabaseDetails): object {
     const jsonObj = { ...obj, ...{} };
 

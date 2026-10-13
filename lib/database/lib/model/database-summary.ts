@@ -178,6 +178,11 @@ Example: {@code {\"Department\": \"Finance\"}}
    * The patch version of the database.
    */
   "patchVersion"?: string;
+  /**
+   * The Data Safe status of the database.
+   */
+  "dataSafeState"?: DatabaseSummary.DataSafeState;
+  "dataSafeRegistrationDetails"?: model.DataSafeRegistrationDetails;
 }
 
 export namespace DatabaseSummary {
@@ -209,19 +214,15 @@ export namespace DatabaseSummary {
     UnknownValue = "UNKNOWN_VALUE"
   }
 
-  export function redactForLog(obj: DatabaseSummary): object {
-    if (!obj) {
-      return {};
-    }
-    const redactedObj: { [key: string]: any } = { ...obj };
-
-    if (Object.prototype.hasOwnProperty.call(obj, "encryptionKeyLocationDetails")) {
-      const value = obj.encryptionKeyLocationDetails;
-      redactedObj["encryptionKeyLocationDetails"] =
-        value == null ? value : model.EncryptionKeyLocationDetails.redactForLog(value);
-    }
-
-    return redactedObj;
+  export enum DataSafeState {
+    Enabled = "ENABLED",
+    Disabled = "DISABLED",
+    Failed = "FAILED",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
   }
 
   export function getJsonObj(obj: DatabaseSummary): object {
@@ -251,6 +252,10 @@ export namespace DatabaseSummary {
           : undefined,
         "managedSoftwareUpdateDetails": obj.managedSoftwareUpdateDetails
           ? model.ManagedSoftwareUpdateDetails.getJsonObj(obj.managedSoftwareUpdateDetails)
+          : undefined,
+
+        "dataSafeRegistrationDetails": obj.dataSafeRegistrationDetails
+          ? model.DataSafeRegistrationDetails.getJsonObj(obj.dataSafeRegistrationDetails)
           : undefined
       }
     };
@@ -287,6 +292,12 @@ export namespace DatabaseSummary {
         "managedSoftwareUpdateDetails": obj.managedSoftwareUpdateDetails
           ? model.ManagedSoftwareUpdateDetails.getDeserializedJsonObj(
               obj.managedSoftwareUpdateDetails
+            )
+          : undefined,
+
+        "dataSafeRegistrationDetails": obj.dataSafeRegistrationDetails
+          ? model.DataSafeRegistrationDetails.getDeserializedJsonObj(
+              obj.dataSafeRegistrationDetails
             )
           : undefined
       }
