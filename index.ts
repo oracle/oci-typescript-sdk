@@ -254,3 +254,5 @@ export import clusterhealth = require("oci-clusterhealth");
 export import distributeddatabase = require("oci-distributeddatabase");
 export import ociproductcatalog = require("oci-ociproductcatalog");
 export import ccdoffers = require("oci-ccdoffers");
+export import generativeaisandbox = require("oci-generativeaisandbox");
+export import pss = require("oci-pss");

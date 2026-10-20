@@ -23,16 +23,18 @@ import common = require("oci-common");
  */
 export interface UpdateOkeClusterResourceModifierMappingDetails {
   /**
-   * The OKE namespace where the configmap resides.
-   * Example: {@code bar}
-   *
-   */
+    * The OKE namespace where the configmap resides.
+* <p>
+Example: {@code bar}
+* 
+    */
   "namespace": string;
   /**
-   * The name of the config map containing resource modification details.
-   * Example: {@code resource-modifier}
-   *
-   */
+    * The name of the config map containing resource modification details.
+* <p>
+Example: {@code resource-modifier}
+* 
+    */
   "configMap": string;
 }
 

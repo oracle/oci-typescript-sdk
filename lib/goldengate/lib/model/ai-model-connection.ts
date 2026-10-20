@@ -30,6 +30,14 @@ export interface AiModelConnection extends model.Connection {
    */
   "providerType"?: AiModelConnection.ProviderType;
   /**
+   * Optional identifier of the AI Provider Connection backing this AI Model Connection.
+   * When provided, it must reference an existing Active connection of type {@code AI_PROVIDER}.
+   * When {@code providerId} is set, {@code providerType} and {@code authDetails} must not be provided on the AI Model Connection, because provider metadata is resolved from the referenced AI Provider Connection.
+   * When {@code providerId} is not set, the AI Model Connection must provide inline provider metadata using {@code providerType} and {@code authDetails}.
+   *
+   */
+  "providerId"?: string;
+  /**
    * AI model identifier.
    *
    */

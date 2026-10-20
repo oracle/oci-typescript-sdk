@@ -21,7 +21,7 @@ import common = require("oci-common");
  */
 export interface InvoicingBusinessPartner {
   /**
-   * Commercial name also called customer name.
+   * Commercial name, also referred to as customer name.
    *
    */
   "name"?: string;
@@ -31,17 +31,17 @@ export interface InvoicingBusinessPartner {
    */
   "namePhonetic"?: string;
   /**
-   * TCA customer account number.
+   * TCA (Trading Community Architecture) customer account number.
    *
    */
   "tcaCustomerAccountNumber"?: string;
   /**
-   * The business partner is part of the public sector or not.
+   * Specifies whether or not the business partner is part of the public sector.
    *
    */
   "isPublicSector"?: boolean;
   /**
-   * The business partner is chain customer or not.
+   * Specifies whether or not the business partner is a chain customer.
    *
    */
   "isChainCustomer"?: boolean;

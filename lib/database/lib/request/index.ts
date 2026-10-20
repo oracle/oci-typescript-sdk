@@ -162,6 +162,8 @@ import * as CreateDataGuardAssociationRequest from "./create-data-guard-associat
 export import CreateDataGuardAssociationRequest = CreateDataGuardAssociationRequest.CreateDataGuardAssociationRequest;
 import * as CreateDatabaseRequest from "./create-database-request";
 export import CreateDatabaseRequest = CreateDatabaseRequest.CreateDatabaseRequest;
+import * as CreateDatabaseSnapshotRequest from "./create-database-snapshot-request";
+export import CreateDatabaseSnapshotRequest = CreateDatabaseSnapshotRequest.CreateDatabaseSnapshotRequest;
 import * as CreateDatabaseSoftwareImageRequest from "./create-database-software-image-request";
 export import CreateDatabaseSoftwareImageRequest = CreateDatabaseSoftwareImageRequest.CreateDatabaseSoftwareImageRequest;
 import * as CreateDbHomeRequest from "./create-db-home-request";
@@ -242,6 +244,8 @@ import * as DeleteConsoleHistoryRequest from "./delete-console-history-request";
 export import DeleteConsoleHistoryRequest = DeleteConsoleHistoryRequest.DeleteConsoleHistoryRequest;
 import * as DeleteDatabaseRequest from "./delete-database-request";
 export import DeleteDatabaseRequest = DeleteDatabaseRequest.DeleteDatabaseRequest;
+import * as DeleteDatabaseSnapshotRequest from "./delete-database-snapshot-request";
+export import DeleteDatabaseSnapshotRequest = DeleteDatabaseSnapshotRequest.DeleteDatabaseSnapshotRequest;
 import * as DeleteDatabaseSoftwareImageRequest from "./delete-database-software-image-request";
 export import DeleteDatabaseSoftwareImageRequest = DeleteDatabaseSoftwareImageRequest.DeleteDatabaseSoftwareImageRequest;
 import * as DeleteDbHomeRequest from "./delete-db-home-request";
@@ -436,6 +440,8 @@ import * as GetDataGuardAssociationRequest from "./get-data-guard-association-re
 export import GetDataGuardAssociationRequest = GetDataGuardAssociationRequest.GetDataGuardAssociationRequest;
 import * as GetDatabaseRequest from "./get-database-request";
 export import GetDatabaseRequest = GetDatabaseRequest.GetDatabaseRequest;
+import * as GetDatabaseSnapshotRequest from "./get-database-snapshot-request";
+export import GetDatabaseSnapshotRequest = GetDatabaseSnapshotRequest.GetDatabaseSnapshotRequest;
 import * as GetDatabaseSoftwareImageRequest from "./get-database-software-image-request";
 export import GetDatabaseSoftwareImageRequest = GetDatabaseSoftwareImageRequest.GetDatabaseSoftwareImageRequest;
 import * as GetDatabaseUpgradeHistoryEntryRequest from "./get-database-upgrade-history-entry-request";
@@ -614,6 +620,8 @@ import * as ListContainerDatabasePatchesRequest from "./list-container-database-
 export import ListContainerDatabasePatchesRequest = ListContainerDatabasePatchesRequest.ListContainerDatabasePatchesRequest;
 import * as ListDataGuardAssociationsRequest from "./list-data-guard-associations-request";
 export import ListDataGuardAssociationsRequest = ListDataGuardAssociationsRequest.ListDataGuardAssociationsRequest;
+import * as ListDatabaseSnapshotsRequest from "./list-database-snapshots-request";
+export import ListDatabaseSnapshotsRequest = ListDatabaseSnapshotsRequest.ListDatabaseSnapshotsRequest;
 import * as ListDatabaseSoftwareImagesRequest from "./list-database-software-images-request";
 export import ListDatabaseSoftwareImagesRequest = ListDatabaseSoftwareImagesRequest.ListDatabaseSoftwareImagesRequest;
 import * as ListDatabaseUpgradeHistoryEntriesRequest from "./list-database-upgrade-history-entries-request";
@@ -910,6 +918,8 @@ import * as UpdateDataGuardAssociationRequest from "./update-data-guard-associat
 export import UpdateDataGuardAssociationRequest = UpdateDataGuardAssociationRequest.UpdateDataGuardAssociationRequest;
 import * as UpdateDatabaseRequest from "./update-database-request";
 export import UpdateDatabaseRequest = UpdateDatabaseRequest.UpdateDatabaseRequest;
+import * as UpdateDatabaseSnapshotRequest from "./update-database-snapshot-request";
+export import UpdateDatabaseSnapshotRequest = UpdateDatabaseSnapshotRequest.UpdateDatabaseSnapshotRequest;
 import * as UpdateDatabaseSoftwareImageRequest from "./update-database-software-image-request";
 export import UpdateDatabaseSoftwareImageRequest = UpdateDatabaseSoftwareImageRequest.UpdateDatabaseSoftwareImageRequest;
 import * as UpdateDbHomeRequest from "./update-db-home-request";

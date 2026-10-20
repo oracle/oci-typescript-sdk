@@ -16,17 +16,17 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Subscribed Service Contract details
+ * Subscribed service contract details.
  *
  */
 export interface AggregatedComputedUsageSummary {
   /**
-   * Subscription Id is an identifier associated to the service used for filter the Computed Usage in SPM
+   * Subscription ID is an identifier associated with the service used for filtering the computed usage in SPM (Subscription Plan Management).
    *
    */
   "subscriptionId": string;
   /**
-   * Subscribed service line parent id
+   * Subscribed service line parent ID.
    *
    */
   "parentSubscribedServiceId"?: string;
@@ -47,17 +47,17 @@ export interface AggregatedComputedUsageSummary {
    */
   "planNumber"?: string;
   /**
-   * Currency code
+   * Currency code.
    *
    */
   "currencyCode"?: string;
   /**
-   * Inernal SPM Ratecard Id at line level
+   * Inernal SPM rate card ID at line level.
    *
    */
   "rateCardId"?: string;
   /**
-   * Subscribed services pricing model
+   * Subscribed services pricing model.
    *
    */
   "pricingModel"?: AggregatedComputedUsageSummary.PricingModel;

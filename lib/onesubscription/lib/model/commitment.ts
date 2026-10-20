@@ -16,48 +16,48 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Subscribed Service commitment summary
+ * Subscribed service commitment summary.
  *
  */
 export interface Commitment {
   /**
-   * SPM internal Commitment ID
+   * SPM (Subscription Plan Management) internal commitment ID.
    *
    */
   "id": string;
   /**
-   * SPM internal Subscribed Service ID
+   * SPM internal subscribed service ID.
    *
    */
   "subscribedServiceId"?: string;
   /**
-   * Commitment start date
+   * Commitment start date.
    *
    */
   "timeStart"?: Date;
   /**
-   * Commitment end date
+   * Commitment end date.
    *
    */
   "timeEnd"?: Date;
   /**
-   * Commitment quantity
+   * Commitment quantity.
    *
    */
   "quantity"?: string;
   /**
-   * Commitment used amount
+   * Commitment used amount.
    *
    */
   "usedAmount"?: string;
   /**
-   * Commitment available amount
+   * Commitment available amount.
    *
    */
   "availableAmount"?: string;
   /**
-   * Funded Allocation line value
-   * example: 12000.00
+   * Funded allocation line value.
+   * Example: 12000.00
    *
    */
   "fundedAllocationValue"?: string;

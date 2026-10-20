@@ -23,6 +23,7 @@ import common = require("oci-common");
  */
 export interface UpdateDrProtectionGroupMemberComputeInstanceMovableDetails
   extends model.UpdateDrProtectionGroupMemberDetails {
+  "drDrillProperties"?: model.UpdateDrProtectionGroupMemberComputeInstanceDrillPropertiesDetails;
   /**
     * A flag indicating if the compute instance should be moved to the same fault domain in the destination region. 
 * The compute instance launch will fail if this flag is set to true and capacity is not available in the 
@@ -82,6 +83,12 @@ export namespace UpdateDrProtectionGroupMemberComputeInstanceMovableDetails {
             obj
           ) as UpdateDrProtectionGroupMemberComputeInstanceMovableDetails)),
       ...{
+        "drDrillProperties": obj.drDrillProperties
+          ? model.UpdateDrProtectionGroupMemberComputeInstanceDrillPropertiesDetails.getJsonObj(
+              obj.drDrillProperties
+            )
+          : undefined,
+
         "vnicMappings": obj.vnicMappings
           ? obj.vnicMappings.map(item => {
               return model.ComputeInstanceMovableVnicMappingDetails.getJsonObj(item);
@@ -110,6 +117,12 @@ export namespace UpdateDrProtectionGroupMemberComputeInstanceMovableDetails {
             obj
           ) as UpdateDrProtectionGroupMemberComputeInstanceMovableDetails)),
       ...{
+        "drDrillProperties": obj.drDrillProperties
+          ? model.UpdateDrProtectionGroupMemberComputeInstanceDrillPropertiesDetails.getDeserializedJsonObj(
+              obj.drDrillProperties
+            )
+          : undefined,
+
         "vnicMappings": obj.vnicMappings
           ? obj.vnicMappings.map(item => {
               return model.ComputeInstanceMovableVnicMappingDetails.getDeserializedJsonObj(item);

@@ -273,6 +273,11 @@ export namespace Connection {
             <model.MicrosoftSqlserverConnection>(<object>jsonObj),
             true
           );
+        case "AI_PROVIDER":
+          return model.AiProviderConnection.getJsonObj(
+            <model.AiProviderConnection>(<object>jsonObj),
+            true
+          );
         case "ICEBERG":
           return model.IcebergConnection.getJsonObj(
             <model.IcebergConnection>(<object>jsonObj),
@@ -303,9 +308,16 @@ export namespace Connection {
             <model.JavaMessageServiceConnection>(<object>jsonObj),
             true
           );
+        case "SPARK":
+          return model.SparkConnection.getJsonObj(<model.SparkConnection>(<object>jsonObj), true);
         case "SNOWFLAKE":
           return model.SnowflakeConnection.getJsonObj(
             <model.SnowflakeConnection>(<object>jsonObj),
+            true
+          );
+        case "DATABRICKS_ENGINE":
+          return model.DatabricksEngineConnection.getJsonObj(
+            <model.DatabricksEngineConnection>(<object>jsonObj),
             true
           );
         case "GOLDENGATE":
@@ -330,6 +342,11 @@ export namespace Connection {
         case "GOOGLE_CLOUD_STORAGE":
           return model.GoogleCloudStorageConnection.getJsonObj(
             <model.GoogleCloudStorageConnection>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_AI_DATA_PLATFORM_ENGINE":
+          return model.OracleAiDataPlatformEngineConnection.getJsonObj(
+            <model.OracleAiDataPlatformEngineConnection>(<object>jsonObj),
             true
           );
         case "ORACLE_AI_DATA_PLATFORM":
@@ -440,6 +457,11 @@ export namespace Connection {
             <model.MicrosoftSqlserverConnection>(<object>jsonObj),
             true
           );
+        case "AI_PROVIDER":
+          return model.AiProviderConnection.getDeserializedJsonObj(
+            <model.AiProviderConnection>(<object>jsonObj),
+            true
+          );
         case "ICEBERG":
           return model.IcebergConnection.getDeserializedJsonObj(
             <model.IcebergConnection>(<object>jsonObj),
@@ -470,9 +492,19 @@ export namespace Connection {
             <model.JavaMessageServiceConnection>(<object>jsonObj),
             true
           );
+        case "SPARK":
+          return model.SparkConnection.getDeserializedJsonObj(
+            <model.SparkConnection>(<object>jsonObj),
+            true
+          );
         case "SNOWFLAKE":
           return model.SnowflakeConnection.getDeserializedJsonObj(
             <model.SnowflakeConnection>(<object>jsonObj),
+            true
+          );
+        case "DATABRICKS_ENGINE":
+          return model.DatabricksEngineConnection.getDeserializedJsonObj(
+            <model.DatabricksEngineConnection>(<object>jsonObj),
             true
           );
         case "GOLDENGATE":
@@ -503,6 +535,11 @@ export namespace Connection {
         case "GOOGLE_CLOUD_STORAGE":
           return model.GoogleCloudStorageConnection.getDeserializedJsonObj(
             <model.GoogleCloudStorageConnection>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_AI_DATA_PLATFORM_ENGINE":
+          return model.OracleAiDataPlatformEngineConnection.getDeserializedJsonObj(
+            <model.OracleAiDataPlatformEngineConnection>(<object>jsonObj),
             true
           );
         case "ORACLE_AI_DATA_PLATFORM":

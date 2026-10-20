@@ -93,6 +93,8 @@ import * as CreateDrPlanExecutionDetails from "./create-dr-plan-execution-detail
 export import CreateDrPlanExecutionDetails = CreateDrPlanExecutionDetails.CreateDrPlanExecutionDetails;
 import * as CreateDrProtectionGroupDetails from "./create-dr-protection-group-details";
 export import CreateDrProtectionGroupDetails = CreateDrProtectionGroupDetails.CreateDrProtectionGroupDetails;
+import * as CreateDrProtectionGroupMemberComputeInstanceDrillPropertiesDetails from "./create-dr-protection-group-member-compute-instance-drill-properties-details";
+export import CreateDrProtectionGroupMemberComputeInstanceDrillPropertiesDetails = CreateDrProtectionGroupMemberComputeInstanceDrillPropertiesDetails.CreateDrProtectionGroupMemberComputeInstanceDrillPropertiesDetails;
 import * as CreateDrProtectionGroupMemberDetails from "./create-dr-protection-group-member-details";
 export import CreateDrProtectionGroupMemberDetails = CreateDrProtectionGroupMemberDetails.CreateDrProtectionGroupMemberDetails;
 import * as CreateFileSystemMountDetails from "./create-file-system-mount-details";
@@ -203,6 +205,8 @@ import * as DrProtectionGroupLifecycleSubState from "./dr-protection-group-lifec
 export import DrProtectionGroupLifecycleSubState = DrProtectionGroupLifecycleSubState.DrProtectionGroupLifecycleSubState;
 import * as DrProtectionGroupMember from "./dr-protection-group-member";
 export import DrProtectionGroupMember = DrProtectionGroupMember.DrProtectionGroupMember;
+import * as DrProtectionGroupMemberComputeInstanceDrillProperties from "./dr-protection-group-member-compute-instance-drill-properties";
+export import DrProtectionGroupMemberComputeInstanceDrillProperties = DrProtectionGroupMemberComputeInstanceDrillProperties.DrProtectionGroupMemberComputeInstanceDrillProperties;
 import * as DrProtectionGroupMemberType from "./dr-protection-group-member-type";
 export import DrProtectionGroupMemberType = DrProtectionGroupMemberType.DrProtectionGroupMemberType;
 import * as DrProtectionGroupRole from "./dr-protection-group-role";
@@ -297,6 +301,8 @@ import * as UpdateDrPlanUserDefinedStepDetails from "./update-dr-plan-user-defin
 export import UpdateDrPlanUserDefinedStepDetails = UpdateDrPlanUserDefinedStepDetails.UpdateDrPlanUserDefinedStepDetails;
 import * as UpdateDrProtectionGroupDetails from "./update-dr-protection-group-details";
 export import UpdateDrProtectionGroupDetails = UpdateDrProtectionGroupDetails.UpdateDrProtectionGroupDetails;
+import * as UpdateDrProtectionGroupMemberComputeInstanceDrillPropertiesDetails from "./update-dr-protection-group-member-compute-instance-drill-properties-details";
+export import UpdateDrProtectionGroupMemberComputeInstanceDrillPropertiesDetails = UpdateDrProtectionGroupMemberComputeInstanceDrillPropertiesDetails.UpdateDrProtectionGroupMemberComputeInstanceDrillPropertiesDetails;
 import * as UpdateDrProtectionGroupMemberDetails from "./update-dr-protection-group-member-details";
 export import UpdateDrProtectionGroupMemberDetails = UpdateDrProtectionGroupMemberDetails.UpdateDrProtectionGroupMemberDetails;
 import * as UpdateDrProtectionGroupRoleDetails from "./update-dr-protection-group-role-details";
@@ -394,6 +400,8 @@ import * as CreateDrProtectionGroupMemberObjectStorageBucketDetails from "./crea
 export import CreateDrProtectionGroupMemberObjectStorageBucketDetails = CreateDrProtectionGroupMemberObjectStorageBucketDetails.CreateDrProtectionGroupMemberObjectStorageBucketDetails;
 import * as CreateDrProtectionGroupMemberOkeClusterDetails from "./create-dr-protection-group-member-oke-cluster-details";
 export import CreateDrProtectionGroupMemberOkeClusterDetails = CreateDrProtectionGroupMemberOkeClusterDetails.CreateDrProtectionGroupMemberOkeClusterDetails;
+import * as CreateDrProtectionGroupMemberPostgresqlDbSystemDetails from "./create-dr-protection-group-member-postgresql-db-system-details";
+export import CreateDrProtectionGroupMemberPostgresqlDbSystemDetails = CreateDrProtectionGroupMemberPostgresqlDbSystemDetails.CreateDrProtectionGroupMemberPostgresqlDbSystemDetails;
 import * as CreateDrProtectionGroupMemberVolumeGroupDetails from "./create-dr-protection-group-member-volume-group-details";
 export import CreateDrProtectionGroupMemberVolumeGroupDetails = CreateDrProtectionGroupMemberVolumeGroupDetails.CreateDrProtectionGroupMemberVolumeGroupDetails;
 import * as DisassociateDrProtectionGroupDefaultDetails from "./disassociate-dr-protection-group-default-details";
@@ -424,6 +432,8 @@ import * as DrProtectionGroupMemberObjectStorageBucket from "./dr-protection-gro
 export import DrProtectionGroupMemberObjectStorageBucket = DrProtectionGroupMemberObjectStorageBucket.DrProtectionGroupMemberObjectStorageBucket;
 import * as DrProtectionGroupMemberOkeCluster from "./dr-protection-group-member-oke-cluster";
 export import DrProtectionGroupMemberOkeCluster = DrProtectionGroupMemberOkeCluster.DrProtectionGroupMemberOkeCluster;
+import * as DrProtectionGroupMemberPostgresqlDbSystem from "./dr-protection-group-member-postgresql-db-system";
+export import DrProtectionGroupMemberPostgresqlDbSystem = DrProtectionGroupMemberPostgresqlDbSystem.DrProtectionGroupMemberPostgresqlDbSystem;
 import * as DrProtectionGroupMemberVolumeGroup from "./dr-protection-group-member-volume-group";
 export import DrProtectionGroupMemberVolumeGroup = DrProtectionGroupMemberVolumeGroup.DrProtectionGroupMemberVolumeGroup;
 import * as FailoverExecutionOptionDetails from "./failover-execution-option-details";
@@ -514,6 +524,8 @@ import * as UpdateDrProtectionGroupMemberObjectStorageBucketDetails from "./upda
 export import UpdateDrProtectionGroupMemberObjectStorageBucketDetails = UpdateDrProtectionGroupMemberObjectStorageBucketDetails.UpdateDrProtectionGroupMemberObjectStorageBucketDetails;
 import * as UpdateDrProtectionGroupMemberOkeClusterDetails from "./update-dr-protection-group-member-oke-cluster-details";
 export import UpdateDrProtectionGroupMemberOkeClusterDetails = UpdateDrProtectionGroupMemberOkeClusterDetails.UpdateDrProtectionGroupMemberOkeClusterDetails;
+import * as UpdateDrProtectionGroupMemberPostgresqlDbSystemDetails from "./update-dr-protection-group-member-postgresql-db-system-details";
+export import UpdateDrProtectionGroupMemberPostgresqlDbSystemDetails = UpdateDrProtectionGroupMemberPostgresqlDbSystemDetails.UpdateDrProtectionGroupMemberPostgresqlDbSystemDetails;
 import * as UpdateDrProtectionGroupMemberVolumeGroupDetails from "./update-dr-protection-group-member-volume-group-details";
 export import UpdateDrProtectionGroupMemberVolumeGroupDetails = UpdateDrProtectionGroupMemberVolumeGroupDetails.UpdateDrProtectionGroupMemberVolumeGroupDetails;
 import * as UpdateInvokeFunctionPrecheckStepDetails from "./update-invoke-function-precheck-step-details";

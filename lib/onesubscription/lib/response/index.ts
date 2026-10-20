@@ -36,5 +36,9 @@ import * as GetSubscribedServiceResponse from "./get-subscribed-service-response
 export import GetSubscribedServiceResponse = GetSubscribedServiceResponse.GetSubscribedServiceResponse;
 import * as ListSubscribedServicesResponse from "./list-subscribed-services-response";
 export import ListSubscribedServicesResponse = ListSubscribedServicesResponse.ListSubscribedServicesResponse;
+import * as GetSubscriptionDetailsResponse from "./get-subscription-details-response";
+export import GetSubscriptionDetailsResponse = GetSubscriptionDetailsResponse.GetSubscriptionDetailsResponse;
 import * as ListSubscriptionsResponse from "./list-subscriptions-response";
 export import ListSubscriptionsResponse = ListSubscriptionsResponse.ListSubscriptionsResponse;
+import * as ListUsageLedgersResponse from "./list-usage-ledgers-response";
+export import ListUsageLedgersResponse = ListUsageLedgersResponse.ListUsageLedgersResponse;

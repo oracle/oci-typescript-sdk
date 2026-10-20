@@ -23,16 +23,16 @@ export interface ListInvoicesRequest extends common.BaseRequest {
    */
   "compartmentId": string;
   /**
-   * AR Unique identifier for an invoice .
+   * Accounts receivable unique identifier for an invoice.
    */
   "arCustomerTransactionId": string;
   /**
-   * Initial date to filter Invoice data in SPM.
+   * Initial date to filter invoice data in SPM (Subscription Plan Management).
    *
    */
   "timeFrom"?: Date;
   /**
-   * Final date to filter Invoice data in SPM.
+   * Final date to filter invoice data in SPM (Subscription Plan Management).
    *
    */
   "timeTo"?: Date;
@@ -60,8 +60,8 @@ Example: '500'
   "page"?: string;
   /**
    * Partial response refers to an optimization technique offered
-   * by the RESTful web APIs to return only the information
-   * (fields) required by the client. This parameter is used to control what fields to
+   * by the RESTful web APIs, to return only the information
+   * (fields) required by the client. This parameter controls which fields to
    * return.
    *
    */

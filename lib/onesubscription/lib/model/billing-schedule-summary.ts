@@ -16,67 +16,67 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Billing schedule details related to Subscription Id
+ * Billing schedule details related to subscription ID.
  *
  */
 export interface BillingScheduleSummary {
   /**
-   * SPM internal Subscribed Service ID
+   * SPM (Subscription Plan Management) internal subscribed service ID.
    *
    */
   "subscribedServiceId"?: string;
   /**
-   * Billing schedule start date
+   * Billing schedule start date.
    *
    */
   "timeStart"?: Date;
   /**
-   * Billing schedule end date
+   * Billing schedule end date.
    *
    */
   "timeEnd"?: Date;
   /**
-   * Billing schedule invoicing date
+   * Billing schedule invoicing date.
    *
    */
   "timeInvoicing"?: Date;
   /**
-   * Billing schedule invoice status
+   * Billing schedule invoice status.
    *
    */
   "invoiceStatus"?: BillingScheduleSummary.InvoiceStatus;
   /**
-   * Billing schedule quantity
+   * Billing schedule quantity.
    *
    */
   "quantity"?: string;
   /**
-   * Billing schedule net unit price
+   * Billing schedule net unit price.
    *
    */
   "netUnitPrice"?: string;
   /**
-   * Billing schedule line net amount
+   * Billing schedule line net amount.
    *
    */
   "amount"?: string;
   /**
-   * Billing frequency
+   * Billing frequency.
    *
    */
   "billingFrequency"?: string;
   /**
-   * Indicates the associated AR Invoice Number
+   * Indicates the associated accounts receivable invoice number.
    *
    */
   "arInvoiceNumber"?: string;
   /**
-   * Indicates the associated AR Customer transaction id a unique identifier existing on AR.
+   * Indicates the associated accounts receivable customer transaction ID, which is a unique identifier existing on the accounts receivable.
    *
    */
   "arCustomerTransactionId"?: string;
   /**
-   * Order number associated with the Subscribed Service
+   * Order number associated with the subscribed service.
    *
    */
   "orderNumber"?: string;

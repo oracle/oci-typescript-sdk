@@ -3539,4 +3539,82 @@ export class PostgresqlClient {
       throw err;
     }
   }
+
+  /**
+   * Upgrade db version of the database system.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpgradeDbSystemRequest
+   * @return UpgradeDbSystemResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/psql/UpgradeDbSystem.ts.html |here} to see how to use UpgradeDbSystem API.
+   */
+  public async upgradeDbSystem(
+    upgradeDbSystemRequest: requests.UpgradeDbSystemRequest
+  ): Promise<responses.UpgradeDbSystemResponse> {
+    if (this.logger) this.logger.debug("Calling operation PostgresqlClient#upgradeDbSystem.");
+    const operationName = "upgradeDbSystem";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{dbSystemId}": upgradeDbSystemRequest.dbSystemId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": upgradeDbSystemRequest.ifMatch,
+      "opc-request-id": upgradeDbSystemRequest.opcRequestId,
+      "opc-retry-token": upgradeDbSystemRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      upgradeDbSystemRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dbSystems/{dbSystemId}/actions/upgrade",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        upgradeDbSystemRequest.upgradeDbSystemDetails,
+        "UpgradeDbSystemDetails",
+        model.UpgradeDbSystemDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpgradeDbSystemResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
 }

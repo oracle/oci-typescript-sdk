@@ -104,6 +104,7 @@ export namespace DeploymentTypeSummary {
     AmazonS3 = "AMAZON_S3",
     Hdfs = "HDFS",
     OracleAiDataPlatform = "ORACLE_AI_DATA_PLATFORM",
+    OracleAiDataPlatformEngine = "ORACLE_AI_DATA_PLATFORM_ENGINE",
     OracleNosql = "ORACLE_NOSQL",
     Mongodb = "MONGODB",
     AmazonKinesis = "AMAZON_KINESIS",
@@ -115,9 +116,12 @@ export namespace DeploymentTypeSummary {
     GoogleCloudStorage = "GOOGLE_CLOUD_STORAGE",
     GoogleBigquery = "GOOGLE_BIGQUERY",
     Databricks = "DATABRICKS",
+    DatabricksEngine = "DATABRICKS_ENGINE",
     GooglePubsub = "GOOGLE_PUBSUB",
     MicrosoftFabric = "MICROSOFT_FABRIC",
+    Spark = "SPARK",
     Iceberg = "ICEBERG",
+    AiProvider = "AI_PROVIDER",
     AiModel = "AI_MODEL",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this

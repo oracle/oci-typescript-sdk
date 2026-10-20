@@ -16,37 +16,37 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Subscribed service commitment details
+ * Subscribed service commitment details.
  *
  */
 export interface CommitmentService {
   /**
-   * Commitment start date
+   * Commitment start date.
    *
    */
   "timeStart"?: Date;
   /**
-   * Commitment end date
+   * Commitment end date.
    *
    */
   "timeEnd"?: Date;
   /**
-   * Commitment quantity
+   * Commitment quantity.
    *
    */
   "quantity"?: string;
   /**
-   * Commitment available amount
+   * Commitment available amount.
    *
    */
   "availableAmount"?: string;
   /**
-   * Commitment line net amount
+   * Commitment line net amount.
    *
    */
   "lineNetAmount"?: string;
   /**
-   * Funded Allocation line value
+   * Funded allocation line value.
    *
    */
   "fundedAllocationValue"?: string;

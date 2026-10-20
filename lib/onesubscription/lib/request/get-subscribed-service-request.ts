@@ -19,19 +19,19 @@ import common = require("oci-common");
  */
 export interface GetSubscribedServiceRequest extends common.BaseRequest {
   /**
-   * The Subscribed Service Id
+   * The subscribed service ID.
    */
   "subscribedServiceId": string;
   /**
    * Partial response refers to an optimization technique offered
-   * by the RESTful web APIs to return only the information
+   * by the RESTful web APIs, to return only the information
    * (fields) required by the client. In this mechanism, the client
    * sends the required field names as the query parameters for
    * an API to the server, and the server trims down the default
    * response content by removing the fields that are not required
-   * by the client. The parameter used to control what fields to
-   * return should be a query string parameter called \"fields\" of
-   * type array, and usecollectionFormat
+   * by the client. The parameter used to control which fields to
+   * return should be a query string parameter called \"fields\", of
+   * an array type, and use collectionFormat.
    *
    */
   "fields"?: Array<string>;

@@ -17,6 +17,13 @@ import common = require("oci-common");
 
 /**
  * The storage type used in the Iceberg connection.
+ * Supported storage types by catalog type:
+ * * GLUE: AMAZON_S3.
+ * * HADOOP: AMAZON_S3, GOOGLE_CLOUD_STORAGE, AZURE_DATA_LAKE_STORAGE,
+ *   or OCI_OBJECT_STORAGE_S3_API.
+ * * NESSIE: AMAZON_S3, GOOGLE_CLOUD_STORAGE, or AZURE_DATA_LAKE_STORAGE.
+ * * POLARIS: AMAZON_S3, GOOGLE_CLOUD_STORAGE, or AZURE_DATA_LAKE_STORAGE.
+ * * REST: AMAZON_S3, GOOGLE_CLOUD_STORAGE, AZURE_DATA_LAKE_STORAGE, or NONE.
  *
  **/
 export enum IcebergStorageType {

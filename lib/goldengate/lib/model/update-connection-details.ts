@@ -153,6 +153,11 @@ export namespace UpdateConnectionDetails {
             <model.UpdateAmazonRedshiftConnectionDetails>(<object>jsonObj),
             true
           );
+        case "SPARK":
+          return model.UpdateSparkConnectionDetails.getJsonObj(
+            <model.UpdateSparkConnectionDetails>(<object>jsonObj),
+            true
+          );
         case "OCI_OBJECT_STORAGE":
           return model.UpdateOciObjectStorageConnectionDetails.getJsonObj(
             <model.UpdateOciObjectStorageConnectionDetails>(<object>jsonObj),
@@ -218,6 +223,16 @@ export namespace UpdateConnectionDetails {
             <model.UpdateKafkaConnectionDetails>(<object>jsonObj),
             true
           );
+        case "AI_PROVIDER":
+          return model.UpdateAiProviderConnectionDetails.getJsonObj(
+            <model.UpdateAiProviderConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "DATABRICKS_ENGINE":
+          return model.UpdateDatabricksEngineConnectionDetails.getJsonObj(
+            <model.UpdateDatabricksEngineConnectionDetails>(<object>jsonObj),
+            true
+          );
         case "AZURE_DATA_LAKE_STORAGE":
           return model.UpdateAzureDataLakeStorageConnectionDetails.getJsonObj(
             <model.UpdateAzureDataLakeStorageConnectionDetails>(<object>jsonObj),
@@ -278,6 +293,11 @@ export namespace UpdateConnectionDetails {
             <model.UpdateGenericConnectionDetails>(<object>jsonObj),
             true
           );
+        case "ORACLE_AI_DATA_PLATFORM_ENGINE":
+          return model.UpdateOracleAiDataPlatformEngineConnectionDetails.getJsonObj(
+            <model.UpdateOracleAiDataPlatformEngineConnectionDetails>(<object>jsonObj),
+            true
+          );
         case "AZURE_SYNAPSE_ANALYTICS":
           return model.UpdateAzureSynapseConnectionDetails.getJsonObj(
             <model.UpdateAzureSynapseConnectionDetails>(<object>jsonObj),
@@ -312,6 +332,11 @@ export namespace UpdateConnectionDetails {
         case "AMAZON_REDSHIFT":
           return model.UpdateAmazonRedshiftConnectionDetails.getDeserializedJsonObj(
             <model.UpdateAmazonRedshiftConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "SPARK":
+          return model.UpdateSparkConnectionDetails.getDeserializedJsonObj(
+            <model.UpdateSparkConnectionDetails>(<object>jsonObj),
             true
           );
         case "OCI_OBJECT_STORAGE":
@@ -379,6 +404,16 @@ export namespace UpdateConnectionDetails {
             <model.UpdateKafkaConnectionDetails>(<object>jsonObj),
             true
           );
+        case "AI_PROVIDER":
+          return model.UpdateAiProviderConnectionDetails.getDeserializedJsonObj(
+            <model.UpdateAiProviderConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "DATABRICKS_ENGINE":
+          return model.UpdateDatabricksEngineConnectionDetails.getDeserializedJsonObj(
+            <model.UpdateDatabricksEngineConnectionDetails>(<object>jsonObj),
+            true
+          );
         case "AZURE_DATA_LAKE_STORAGE":
           return model.UpdateAzureDataLakeStorageConnectionDetails.getDeserializedJsonObj(
             <model.UpdateAzureDataLakeStorageConnectionDetails>(<object>jsonObj),
@@ -437,6 +472,11 @@ export namespace UpdateConnectionDetails {
         case "GENERIC":
           return model.UpdateGenericConnectionDetails.getDeserializedJsonObj(
             <model.UpdateGenericConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_AI_DATA_PLATFORM_ENGINE":
+          return model.UpdateOracleAiDataPlatformEngineConnectionDetails.getDeserializedJsonObj(
+            <model.UpdateOracleAiDataPlatformEngineConnectionDetails>(<object>jsonObj),
             true
           );
         case "AZURE_SYNAPSE_ANALYTICS":

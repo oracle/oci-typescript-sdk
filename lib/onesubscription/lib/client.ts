@@ -214,8 +214,8 @@ export class BillingScheduleClient {
   }
 
   /**
-   * This list API returns all billing schedules for given subscription id and
-   * for a particular Subscribed Service if provided
+   * This list API returns all billing schedules for a given subscription ID, and
+   * for a particular subscribed service if provided.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListBillingSchedulesRequest
@@ -534,7 +534,7 @@ export class CommitmentClient {
   }
 
   /**
-   * This API returns the commitment details corresponding to the id provided
+   * Returns the commitment details corresponding to the provided ID.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetCommitmentRequest
@@ -605,7 +605,7 @@ export class CommitmentClient {
   }
 
   /**
-   * This list API returns all commitments for a particular Subscribed Service
+   * Returns all commitments for a particular subscribed service.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListCommitmentsRequest
@@ -922,7 +922,7 @@ export class ComputedUsageClient {
   }
 
   /**
-   * This is an API which returns Computed Usage corresponding to the id passed
+   * Returns computed usage corresponding to the passed ID.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetComputedUsageRequest
@@ -996,7 +996,7 @@ export class ComputedUsageClient {
   }
 
   /**
-   * This is a collection API which returns a list of aggregated computed usage details (there can be multiple Parent Products under a given SubID each of which is represented under Subscription Service Line # in SPM).
+   * Collection API that returns a list of aggregated computed usage details (there can be multiple parent products under a given SubID, each of which is represented under the subscription service line # in SPM).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListAggregatedComputedUsagesRequest
@@ -1132,7 +1132,7 @@ export class ComputedUsageClient {
   }
 
   /**
-   * This is a collection API which returns a list of Computed Usages for given filters.
+   * Collection API that returns a list of computed usages for the given filters.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListComputedUsagesRequest
@@ -1453,7 +1453,7 @@ export class InvoiceSummaryClient {
   }
 
   /**
-   * This is a collection API which returns a list of Invoiced Computed Usages for given Invoiceline id.
+   * Collection API that returns a list of invoiced computed usages for the given invoice line ID.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListInvoicelineComputedUsagesRequest
@@ -1588,7 +1588,7 @@ export class InvoiceSummaryClient {
   }
 
   /**
-   * This is a collection API which returns a list of Invoices for given filters.
+   * Collection API that returns a list of invoices according to the given filters.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListInvoicesRequest
@@ -1909,7 +1909,7 @@ export class OrganizationSubscriptionClient {
   }
 
   /**
-   * API that returns data for the list of subscription ids returned from Organizations API
+   * Returns data for the list of subscription IDs returned from the Organizations API.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListOrganizationSubscriptionsRequest
@@ -2228,8 +2228,8 @@ export class RatecardClient {
   }
 
   /**
-   * List API that returns all ratecards for given Subscription Id and Account ID (if provided) and
-   * for a particular date range
+   * Returns all rate cards for a given subscription ID and account ID (if provided), and
+   * for a particular date range.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListRateCardsRequest
@@ -2549,7 +2549,7 @@ export class SubscribedServiceClient {
   }
 
   /**
-   * This API returns the subscribed service details corresponding to the id provided
+   * Returns the subscribed service details corresponding to the provided ID.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetSubscribedServiceRequest
@@ -2623,7 +2623,7 @@ export class SubscribedServiceClient {
   }
 
   /**
-   * This list API returns all subscribed services for given Subscription ID
+   * Returns all subscribed services for a given Subscription ID.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListSubscribedServicesRequest
@@ -2943,10 +2943,83 @@ export class SubscriptionClient {
   }
 
   /**
-   * This list API returns all subscriptions for a given plan number or subscription id or buyer email
-   * and provides additional parameters to include ratecard and commitment details.
-   * This API expects exactly one of the above mentioned parameters as input. If more than one parameters are provided the API will throw
-   * a 400 - invalid parameters exception and if no parameters are provided it will throw a 400 - missing parameter exception
+   * Returns the commitment summary for a subscription.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetSubscriptionDetailsRequest
+   * @return GetSubscriptionDetailsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/onesubscription/GetSubscriptionDetails.ts.html |here} to see how to use GetSubscriptionDetails API.
+   */
+  public async getSubscriptionDetails(
+    getSubscriptionDetailsRequest: requests.GetSubscriptionDetailsRequest
+  ): Promise<responses.GetSubscriptionDetailsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation SubscriptionClient#getSubscriptionDetails.");
+    const operationName = "getSubscriptionDetails";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "subscriptionId": getSubscriptionDetailsRequest.subscriptionId,
+      "compartmentId": getSubscriptionDetailsRequest.compartmentId
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getSubscriptionDetailsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getSubscriptionDetailsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/subscriptionDetails",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetSubscriptionDetailsResponse>{},
+        body: await response.json(),
+        bodyKey: "subscriptionDetails",
+        bodyModel: model.SubscriptionDetails,
+        type: "model.SubscriptionDetails",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns all subscriptions for a given plan number, subscription ID, or buyer email,
+   * and provides additional parameters, to include rate card and commitment details.
+   * Exactly one of the these parameters is expected as input. If more than one parameter is provided,
+   * a 400 - invalid parameters exception is thrown, and if no parameters are provided, a 400 - missing parameter exception is thrown.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListSubscriptionsRequest
@@ -3079,5 +3152,144 @@ export class SubscriptionClient {
     request: requests.ListSubscriptionsRequest
   ): AsyncIterableIterator<responses.ListSubscriptionsResponse> {
     return paginateResponses(request, req => this.listSubscriptions(req));
+  }
+
+  /**
+   * Returns revenue invoice consumption details for authorization orders that draw down from the
+   * requested subscription. It includes authorization-order subscription IDs but excludes the requested
+   * subscription ID itself.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListUsageLedgersRequest
+   * @return ListUsageLedgersResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/onesubscription/ListUsageLedgers.ts.html |here} to see how to use ListUsageLedgers API.
+   */
+  public async listUsageLedgers(
+    listUsageLedgersRequest: requests.ListUsageLedgersRequest
+  ): Promise<responses.ListUsageLedgersResponse> {
+    if (this.logger) this.logger.debug("Calling operation SubscriptionClient#listUsageLedgers.");
+    const operationName = "listUsageLedgers";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{subscriptionId}": listUsageLedgersRequest.subscriptionId
+    };
+
+    const queryParams = {
+      "compartmentId": listUsageLedgersRequest.compartmentId,
+      "limit": listUsageLedgersRequest.limit,
+      "page": listUsageLedgersRequest.page,
+      "sortOrder": listUsageLedgersRequest.sortOrder,
+      "sortBy": listUsageLedgersRequest.sortBy,
+      "timeConsumptionGreaterThanOrEqualTo":
+        listUsageLedgersRequest.timeConsumptionGreaterThanOrEqualTo,
+      "timeConsumptionLessThan": listUsageLedgersRequest.timeConsumptionLessThan
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listUsageLedgersRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listUsageLedgersRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/subscriptionDetails/{subscriptionId}/usageLedger",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListUsageLedgersResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.UsageLedgerSummary,
+        type: "Array<model.UsageLedgerSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listUsageLedgersRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.UsageLedgerSummary objects
+   * contained in responses from the listUsageLedgers operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllUsageLedgers(
+    request: requests.ListUsageLedgersRequest
+  ): AsyncIterableIterator<model.UsageLedgerSummary> {
+    return paginateRecords(request, req => this.listUsageLedgers(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listUsageLedgersResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listUsageLedgers operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllUsageLedgersResponses(
+    request: requests.ListUsageLedgersRequest
+  ): AsyncIterableIterator<responses.ListUsageLedgersResponse> {
+    return paginateResponses(request, req => this.listUsageLedgers(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.UsageLedgerSummary objects
+   * contained in responses from the listUsageLedgers operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listUsageLedgersRecordIterator(
+    request: requests.ListUsageLedgersRequest
+  ): AsyncIterableIterator<model.UsageLedgerSummary> {
+    return paginateRecords(request, req => this.listUsageLedgers(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listUsageLedgers operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listUsageLedgersResponseIterator(
+    request: requests.ListUsageLedgersRequest
+  ): AsyncIterableIterator<responses.ListUsageLedgersResponse> {
+    return paginateResponses(request, req => this.listUsageLedgers(req));
   }
 }

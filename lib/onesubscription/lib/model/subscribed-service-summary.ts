@@ -16,155 +16,155 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Subscribed service contract details
+ * Subscribed service contract details.
  *
  */
 export interface SubscribedServiceSummary {
   /**
-   * SPM internal Subscribed Service ID
+   * SPM (Subscription Plan Management) internal subscribed service ID.
    *
    */
   "id": string;
   /**
-   * Subscribed Service line type
+   * Subscribed service line type.
    *
    */
   "type"?: string;
   /**
-   * Subscribed service line number
+   * Subscribed service line number.
    *
    */
   "serialNumber"?: string;
   /**
-   * Subscription ID associated to the subscribed service
+   * Subscription ID associated with the subscribed service.
    *
    */
   "subscriptionId"?: string;
   "product"?: model.RateCardProduct;
   /**
-   * Subscribed service start date
+   * Subscribed service start date.
    *
    */
   "timeStart"?: Date;
   /**
-   * Subscribed service end date
+   * Subscribed service end date.
    *
    */
   "timeEnd"?: Date;
   /**
-   * Subscribed service quantity
+   * Subscribed service quantity.
    *
    */
   "quantity"?: string;
   /**
-   * Subscribed service status
+   * Subscribed service status.
    *
    */
   "status"?: string;
   /**
-   * Subscribed service operation type
+   * Subscribed service operation type.
    *
    */
   "operationType"?: string;
   /**
-   * Subscribed service net unit price
+   * Subscribed service net unit price.
    *
    */
   "netUnitPrice"?: string;
   /**
-   * Indicates the period for which the commitment amount can be utilised exceeding which the amount lapses. Also used in calculation of total contract line value
+   * Indicates the period for which the commitment amount can be utilized, exceeding which, the amount lapses. Also used in calculation of total contract line value.
    *
    */
   "pricePeriod"?: string;
   /**
-   * Subscribed service line net amount
+   * Subscribed service line net amount.
    *
    */
   "lineNetAmount"?: string;
   /**
-   * Indicates if the commitment lines can have different quantities
+   * Indicates if the commitment lines can have different quantities.
    *
    */
   "isVariableCommitment"?: boolean;
   /**
-   * Indicates if a service can recieve usages and consequently have available amounts computed
+   * Indicates if a service can recieve usages and consequently have available amounts computed.
    *
    */
   "isAllowance"?: boolean;
   /**
-   * Subscribed service used amount
+   * Subscribed service used amount.
    *
    */
   "usedAmount"?: string;
   /**
-   * Subscribed sercice available or remaining amount
+   * Subscribed sercice available or remaining amount.
    *
    */
   "availableAmount"?: string;
   /**
-   * Funded Allocation line value
-   * example: 12000.00
+   * Funded allocation line value.
+   * Example: 12000.00
    *
    */
   "fundedAllocationValue"?: string;
   /**
-   * Indicator on whether or not there has been usage for the subscribed service
+   * Indicates whether or not there has been usage for the subscribed service.
    *
    */
   "isHavingUsage"?: boolean;
   /**
-   * If true compares rate between ratecard and the active pricelist and minimum rate would be fetched
+   * If true compares the rate between the rate card and the active price list, and the minimum rate would be fetched.
    *
    */
   "isCapToPriceList"?: boolean;
   /**
-   * Subscribed service credit percentage
+   * Subscribed service credit percentage.
    *
    */
   "creditPercentage"?: string;
   /**
-   * This field contains the name of the partner to which the subscription belongs - depending on which the invoicing may differ
+   * Contains the name of the partner to which the subscription belongs, however depending on which subscription, the invoicing can differ.
    *
    */
   "partnerTransactionType"?: string;
   /**
-   * Used in context of service credit lines
+   * Used in context of service credit lines.
    *
    */
   "isCreditEnabled"?: boolean;
   /**
-   * Overage Policy of Subscribed Service
+   * Overage policy of subscribed service.
    *
    */
   "overagePolicy"?: string;
   /**
-   * Overage Bill To of Subscribed Service
+   * Overage bill to of subscribed service.
    *
    */
   "overageBillTo"?: string;
   /**
-   * Pay As You Go policy of Subscribed Service (Can be null - indicating no payg policy)
+   * Pay As You Go policy of subscribed service. Can be null, indicating no PAYG policy.
    *
    */
   "paygPolicy"?: string;
   /**
-   * Not null if this service has an associated promotion line in SPM. Contains the line identifier from Order Management of
+   * Not null if this service has an associated promotion line in SPM (Subscription Plan Management). Contains the line identifier from order management of
    * the associated promo line.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "promoOrderLineId"?: number;
   /**
-   * Promotion Pricing Type of Subscribed Service (Can be null - indicating no promotion pricing)
+   * Promotion pricing type of subscribed service. Can be null, indicating no promotional pricing.
    *
    */
   "promotionPricingType"?: string;
   /**
-   * Subscribed service Rate Card Discount Percentage
+   * Subscribed service rate card ciscount percentage.
    *
    */
   "rateCardDiscountPercentage"?: string;
   /**
-   * Subscribed service Overage Discount Percentage
+   * Subscribed service overage discount percentage.
    *
    */
   "overageDiscountPercentage"?: string;
@@ -172,238 +172,238 @@ export interface SubscribedServiceSummary {
   "billToContact"?: model.SubscribedServiceUser;
   "billToAddress"?: model.SubscribedServiceAddress;
   /**
-   * Payment Number of Subscribed Service
+   * Payment number of subscribed service.
    *
    */
   "paymentNumber"?: string;
   /**
-   * Subscribed service payment expiry date
+   * Subscribed service payment expiration date.
    *
    */
   "timePaymentExpiry"?: Date;
   "paymentTerm"?: model.SubscribedServicePaymentTerm;
   /**
-   * Payment Method of Subscribed Service
+   * Payment method of subscribed service.
    *
    */
   "paymentMethod"?: string;
   /**
-   * Subscribed service Transaction Extension Id
+   * Subscribed service transaction extension ID.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "transactionExtensionId"?: number;
   /**
-   * Sales Channel of Subscribed Service
+   * Sales channel of subscribed service.
    *
    */
   "salesChannel"?: string;
   /**
-   * Subscribed service eligible to renew field
+   * Subscribed service eligible to renew field.
    *
    */
   "eligibleToRenew"?: string;
   /**
-   * SPM renewed Subscription ID
+   * SPM (Subscription Plan Management) renewed subscription ID.
    *
    */
   "renewedSubscribedServiceId"?: string;
   /**
-   * Term value in Months
+   * Term value in months.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "termValue"?: number;
   /**
-   * Term value UOM
+   * Term value UOM (Unit of Measure).
    *
    */
   "termValueUom"?: string;
   /**
-   * Subscribed service Opportunity Id
+   * Subscribed service opportunity ID.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "renewalOptyId"?: number;
   /**
-   * Renewal Opportunity Number of Subscribed Service
+   * Renewal opportunity number of subscribed service.
    *
    */
   "renewalOptyNumber"?: string;
   /**
-   * Renewal Opportunity Type of Subscribed Service
+   * Renewal opportunity type of subscribed service.
    *
    */
   "renewalOptyType"?: string;
   /**
-   * Booking Opportunity Number of Subscribed Service
+   * Booking opportunity number of subscribed service.
    *
    */
   "bookingOptyNumber"?: string;
   /**
-   * Subscribed service Revenue Line Id
+   * Subscribed service revenue line ID.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "revenueLineId"?: number;
   /**
-   * Revenue Line NUmber of Subscribed Service
+   * Revenue line number of subscribed service.
    *
    */
   "revenueLineNumber"?: string;
   /**
-   * Subscribed service Major Set
+   * Subscribed service major set.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "majorSet"?: number;
   /**
-   * Subscribed service Major Set Start date
+   * Subscribed service major set start date.
    *
    */
   "timeMajorsetStart"?: Date;
   /**
-   * Subscribed service Major Set End date
+   * Subscribed service major set end date.
    *
    */
   "timeMajorsetEnd"?: Date;
   /**
-   * Subscribed service System ARR
+   * Subscribed service system ARR (Annualized Recurring Revenue).
    *
    */
   "systemArrInLc"?: string;
   /**
-   * Subscribed service System ARR in Standard Currency
+   * Subscribed service system ARR in standard currency.
    *
    */
   "systemArrInSc"?: string;
   /**
-   * Subscribed service System ATR-ARR
+   * Subscribed service system ATR-ARR (Annualized Recurring Revenue - Available to Renew).
    *
    */
   "systemAtrArrInLc"?: string;
   /**
-   * Subscribed service System ATR-ARR in Standard Currency
+   * Subscribed service system ATR-ARR in standard currency.
    *
    */
   "systemAtrArrInSc"?: string;
   /**
-   * Subscribed service Revised ARR
+   * Subscribed service revised ARR.
    *
    */
   "revisedArrInLc"?: string;
   /**
-   * Subscribed service Revised ARR in Standard Currency
+   * Subscribed service revised ARR in standard currency.
    *
    */
   "revisedArrInSc"?: string;
   /**
-   * Subscribed service total value
+   * Subscribed service total value.
    *
    */
   "totalValue"?: string;
   /**
-   * Subscribed service Promotion Amount
+   * Subscribed service promotion amount.
    *
    */
   "originalPromoAmount"?: string;
   /**
-   * Sales Order Header associated to the subscribed service
+   * Sales order header associated with the subscribed service.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "orderHeaderId"?: number;
   /**
-   * Sales Order Number associated to the subscribed service
+   * Sales order number associated with the subscribed service.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "orderNumber"?: number;
   /**
-   * Order Type of Subscribed Service
+   * Order type of subscribed service.
    *
    */
   "orderType"?: string;
   /**
-   * Sales Order Line Id associated to the subscribed service
+   * Sales order line ID associated with the subscribed service.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "orderLineId"?: number;
   /**
-   * Sales Order Line Number associated to the subscribed service
+   * Sales order line number associated with the subscribed service.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "orderLineNumber"?: number;
   /**
-   * Subscribed service commitment schedule Id
+   * Subscribed service commitment schedule ID.
    *
    */
   "commitmentScheduleId"?: string;
   /**
-   * Subscribed service sales account party id
+   * Subscribed service sales account party ID.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "salesAccountPartyId"?: number;
   /**
-   * Subscribed service data center
+   * Subscribed service data center.
    *
    */
   "dataCenter"?: string;
   /**
-   * Subscribed service data center region
+   * Subscribed service data center region.
    *
    */
   "dataCenterRegion"?: string;
   /**
-   * Subscribed service admin email id
+   * Subscribed service admin email ID.
    *
    */
   "adminEmail"?: string;
   /**
-   * Subscribed service buyer email id
+   * Subscribed service buyer email ID.
    *
    */
   "buyerEmail"?: string;
   /**
-   * Subscribed service source
+   * Subscribed service source.
    *
    */
   "subscriptionSource"?: string;
   /**
-   * Subscribed service provisioning source
+   * Subscribed service provisioning source.
    *
    */
   "provisioningSource"?: string;
   /**
-   * Subscribed service fulfillment set
+   * Subscribed service fulfillment set.
    *
    */
   "fulfillmentSet"?: string;
   /**
-   * Subscribed service intent to pay flag
+   * Subscribed service intent to pay parameter.
    *
    */
   "isIntentToPay"?: boolean;
   /**
-   * Subscribed service payg flag
+   * Subscribed service PAYG parameter.
    *
    */
   "isPayg"?: boolean;
   /**
-   * Subscribed service pricing model
+   * Subscribed service pricing model.
    *
    */
   "pricingModel"?: string;
   /**
-   * Subscribed service program type
+   * Subscribed service program type.
    *
    */
   "programType"?: string;
   /**
-   * Subscribed service start date type
+   * Subscribed service start date type.
    *
    */
   "startDateType"?: string;
   /**
-   * Subscribed service provisioning date
+   * Subscribed service provisioning date.
    *
    */
   "timeProvisioned"?: Date;
   /**
-   * Subscribed service promotion type
+   * Subscribed service promotion type.
    *
    */
   "promoType"?: string;
@@ -419,87 +419,87 @@ export interface SubscribedServiceSummary {
   "resellerContact"?: model.SubscribedServiceUser;
   "resellerAddress"?: model.SubscribedServiceAddress;
   /**
-   * Subscribed service CSI number
+   * Subscribed service CSI number.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "csi"?: number;
   /**
-   * Identifier for a customer's transactions for purchase of ay oracle services
+   * Identifier for a customer's transactions for purchase of any Oracle services.
    *
    */
   "customerTransactionReference"?: string;
   /**
-   * Subscribed service partner credit amount
+   * Subscribed service partner credit amount.
    *
    */
   "partnerCreditAmount"?: string;
   /**
-   * Indicates if the Subscribed service has a single ratecard
+   * Indicates if the subscribed service has a single rate card.
    *
    */
   "isSingleRateCard"?: boolean;
   /**
-   * Subscribed service agreement ID
+   * Subscribed service agreement ID.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "agreementId"?: number;
   /**
-   * Subscribed service agrrement name
+   * Subscribed service agreement name.
    *
    */
   "agreementName"?: string;
   /**
-   * Subscribed service agrrement type
+   * Subscribed service agreement type.
    *
    */
   "agreementType"?: string;
   /**
-   * Subscribed service invoice frequency
+   * Subscribed service invoice frequency.
    *
    */
   "billingFrequency"?: string;
   /**
-   * Subscribed service welcome email sent date
+   * Subscribed service welcome email sent date.
    *
    */
   "timeWelcomeEmailSent"?: Date;
   /**
-   * Subscribed service service configuration email sent date
+   * Subscribed service configuration email sent date.
    *
    */
   "timeServiceConfigurationEmailSent"?: Date;
   /**
-   * Subscribed service customer config date
+   * Subscribed service customer configuration date.
    *
    */
   "timeCustomerConfig"?: Date;
   /**
-   * Subscribed service agrrement end date
+   * Subscribed service agreement end date.
    *
    */
   "timeAgreementEnd"?: Date;
   /**
-   * Subscribed service creation date
+   * Subscribed service creation date.
    *
    */
   "timeCreated"?: Date;
   /**
-   * User that created the subscribed service
+   * User that created the subscribed service.
    *
    */
   "createdBy"?: string;
   /**
-   * Subscribed service last update date
+   * Subscribed service last update date.
    *
    */
   "timeUpdated"?: Date;
   /**
-   * User that updated the subscribed service
+   * User that updated the subscribed service.
    *
    */
   "updatedBy"?: string;
   /**
-   * SPM Ratecard Type
+   * SPM (Subscription Plan Management) rate card type.
    *
    */
   "ratecardType"?: string;

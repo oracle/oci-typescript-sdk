@@ -16,88 +16,88 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Computed Usage Summary object
+ * Computed usage summary object.
  *
  */
 export interface ComputedUsage {
   /**
-   * Computed Usage created time, expressed in RFC 3339 timestamp format.
+   * Computed usage created time, expressed in RFC 3339 timestamp format.
    *
    */
   "timeCreated"?: Date;
   /**
-   * Computed Usage updated time, expressed in RFC 3339 timestamp format.
+   * Computed usage updated time, expressed in RFC 3339 timestamp format.
    *
    */
   "timeUpdated"?: Date;
   /**
-   * Subscribed service line parent id
+   * Subscribed service line parent ID.
    *
    */
   "parentSubscribedServiceId"?: string;
   "parentProduct"?: model.ComputedUsageProduct;
   /**
-   * Subscription plan number
+   * Subscription plan number.
    *
    */
   "planNumber"?: string;
   /**
-   * Currency code
+   * Currency code.
    *
    */
   "currencyCode"?: string;
   /**
-   * References the tier in the ratecard for that usage (OCI will be using the same reference to cross-reference for correctness on the usage csv report), comes from Entity OBSCNTR_IPT_PRODUCTTIER.
+   * References the tier in the rate card for the associated usage (OCI uses the same reference to cross-reference for correctness in CSV Usage Reports), obtained from the OBSCNTR_IPT_PRODUCTTIER entity.
    *
    */
   "rateCardTierdId"?: string;
   /**
-   * Ratecard Id at subscribed service level
+   * Ratecard ID at subscribed service level.
    *
    */
   "rateCardId"?: string;
   /**
-   * SPM Internal compute records source .
+   * SPM (Subscription Plan Management) internal compute records source.
    *
    */
   "computeSource"?: string;
   /**
-   * Data Center Attribute as sent by MQS to SPM.
+   * Data center attribute as sent by the meterering system to SPM.
    *
    */
   "dataCenter"?: string;
   /**
-   * MQS Identfier send to SPM , SPM does not transform this attribute and is received as is.
+   * The meterering system identfier sent to SPM. SPM does not transform this attribute and is received as-is.
    *
    */
   "mqsMessageId"?: string;
   /**
-   * SPM Internal computed usage Id , 32 character string
+   * SPM internal computed usage ID, which is a 32-character string.
    *
    */
   "id": string;
   /**
-   * Total Quantity that was used for computation
+   * Total quantity that was used for computation.
    *
    */
   "quantity"?: string;
   /**
-   * SPM Internal usage Line number identifier in SPM coming from Metered Services entity.
+   * SPM internal usage line number identifier in SPM, originating from the metered services entity.
    *
    */
   "usageNumber"?: string;
   /**
-   * SPM Internal Original usage Line number identifier in SPM coming from Metered Services entity.
+   * SPM internal original usage line number identifier in SPM, originating from the metered services entity.
    *
    */
   "originalUsageNumber"?: string;
   /**
-   * Subscribed service commitmentId.
+   * Subscribed service commitment ID.
    *
    */
   "commitmentServiceId"?: string;
   /**
-   * Invoicing status for the aggregated compute usage
+   * Invoicing status for the aggregated compute usage.
    *
    */
   "isInvoiced"?: boolean;
@@ -107,33 +107,33 @@ export interface ComputedUsage {
    */
   "type"?: ComputedUsage.Type;
   /**
-   * Usae computation date, expressed in RFC 3339 timestamp format.
+   * Usage computation date, expressed in RFC 3339 timestamp format.
    *
    */
   "timeOfArrival"?: Date;
   /**
-   * Metered Service date, expressed in RFC 3339 timestamp format.
+   * Metered service date, expressed in RFC 3339 timestamp format.
    *
    */
   "timeMeteredOn"?: Date;
   /**
-   * Net Unit Price for the product in consideration, price actual.
+   * Net unit price for the product in consideration, price actual.
    *
    */
   "netUnitPrice"?: string;
   /**
-   * Computed Line Amount rounded.
+   * Computed rounded line amount.
    *
    */
   "costRounded"?: string;
   /**
-   * Computed Line Amount not rounded
+   * Computed unrounded line Amount.
    *
    */
   "cost"?: string;
   "product"?: model.ComputedUsageProduct;
   /**
-   * Unit of Messure
+   * Unit of measure.
    *
    */
   "unitOfMeasure"?: string;

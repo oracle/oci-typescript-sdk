@@ -22,7 +22,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The data to update a dedicated AI cluster.
+ * The data to update a dedicated AI cluster. Properties not defined by this schema are rejected.
  */
 export interface UpdateDedicatedAiClusterDetails {
   /**

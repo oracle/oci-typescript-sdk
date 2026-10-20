@@ -16,49 +16,49 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Rate Card Summary
+ * Rate card summary.
  *
  */
 export interface RateCardSummary {
   /**
-   * SPM internal Subscribed Service ID
+   * SPM (Subscription Plan Management) internal subscribed service ID.
    *
    */
   "subscribedServiceId"?: string;
   "product": model.RateCardProduct;
   /**
-   * Rate card start date
+   * Rate card start date.
    *
    */
   "timeStart"?: Date;
   /**
-   * Rate card end date
+   * Rate card end date.
    *
    */
   "timeEnd"?: Date;
   /**
-   * Rate card net unit price
+   * Rate card net unit price.
    *
    */
   "netUnitPrice": string;
   /**
-   * Rate card discretionary discount percentage
+   * Rate card discretionary discount percentage.
    *
    */
   "discretionaryDiscountPercentage"?: string;
   /**
-   * Rate card overage price
+   * Rate card overage price.
    *
    */
   "overagePrice": string;
   /**
-   * Rate card price tier flag
+   * Rate card price tier parameter.
    *
    */
   "isTier"?: boolean;
   "currency"?: model.SubscriptionCurrency;
   /**
-   * List of tiered rate card prices
+   * List of tiered rate card prices.
    *
    */
   "rateCardTiers"?: Array<model.RateCardTier>;

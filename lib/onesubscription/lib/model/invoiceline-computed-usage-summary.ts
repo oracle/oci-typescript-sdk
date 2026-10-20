@@ -16,39 +16,39 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Computed Usage Summary object
+ * Computed usage summary object.
  *
  */
 export interface InvoicelineComputedUsageSummary {
   "parentProduct": model.InvoicingProduct;
   "product"?: model.InvoicingProduct;
   /**
-   * Total Quantity that was used for computation
+   * Total quantity that was used for computation.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "quantity": number;
   /**
-   * Net Unit Price for the product in consideration, price actual.
+   * Net unit price for the product in consideration, price actual.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "netUnitPrice": number;
   /**
-   * Metered Service date.
+   * Metered service date.
    *
    */
   "timeMeteredOn": Date;
   /**
-   * Usage compute type in SPM.
+   * Usage compute type in SPM (Subscription Plan Management).
    *
    */
   "type": InvoicelineComputedUsageSummary.Type;
   /**
-   * Sum of Usage/Service Billing Line net Amount
+   * Sum of usage/service billing line net amount.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "cost"?: number;
   /**
-   * Computed Line Amount rounded.
+   * Computed rounded line amount.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "costRounded": number;
