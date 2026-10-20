@@ -159,6 +159,11 @@ If the shape does not have any local disks, this field is {@code null}.
    */
   "isFlexible"?: boolean;
   /**
+   * The resource management modes supported by this shape.
+   *
+   */
+  "supportedResourceManagement"?: Array<Shape.SupportedResourceManagement>;
+  /**
    * The list of compatible shapes that this shape can be changed to. For more information,
    * see [Changing the Shape of an Instance](https://docs.oracle.com/iaas/Content/Compute/Tasks/resizinginstances.htm).
    *
@@ -192,6 +197,16 @@ export namespace Shape {
     AlwaysFree = "ALWAYS_FREE",
     LimitedFree = "LIMITED_FREE",
     Paid = "PAID",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum SupportedResourceManagement {
+    Dynamic = "DYNAMIC",
+    Static = "STATIC",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

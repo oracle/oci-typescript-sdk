@@ -16,17 +16,17 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Invoice details
+ * Invoice details.
  *
  */
 export interface InvoiceSummary {
   /**
-   * SPM Document Number is an functional identifier for invoice in SPM
+   * SPM (Subscription Plan Management) document number is a functional identifier for invoicing in SPM.
    *
    */
   "spmInvoiceNumber": string;
   /**
-   * AR Invoice Numbers comma separated under one invoice
+   * Accounts receivable invoice numbers, comma-separated under one invoice.
    *
    */
   "arInvoices"?: string;
@@ -34,25 +34,25 @@ export interface InvoiceSummary {
   "billToContact": model.InvoicingUser;
   "billToAddress": model.InvoicingAddress;
   /**
-   * Payment Method
+   * Payment method.
    *
    */
   "paymentMethod": string;
   "paymentTerm": model.InvoicingPaymentTerm;
   /**
-   * Receipt Method of Payment Mode
+   * Receipt method of payment mode.
    *
    */
   "receiptMethod"?: string;
   "currency": model.InvoicingCurrency;
   "organization": model.InvoicingOrganization;
   /**
-   * Document Type in SPM like SPM Invoice,SPM Credit Memo etc.,
+   * Document type in SPM, such as SPM Invoice, SPM Credit Memo, and so on.
    *
    */
   "type": string;
   /**
-   * Document Status in SPM which depicts current state of invoice
+   * Document status in SPM, which depicts the current invoice state.
    *
    */
   "status": string;
@@ -62,32 +62,32 @@ export interface InvoiceSummary {
    */
   "subscriptionNumber": string;
   /**
-   * Invoice Date
+   * Invoice date.
    *
    */
   "timeInvoiceDate": Date;
   /**
-   * SPM Invocie creation date
+   * SPM invocie creation date.
    *
    */
   "timeCreated"?: Date;
   /**
-   * User that executed SPM Invoice process
+   * User that executed the SPM invoice process.
    *
    */
   "createdBy"?: string;
   /**
-   * SPM Invoice updated date
+   * SPM invoice updated date.
    *
    */
   "timeUpdated"?: Date;
   /**
-   * User that updated SPM Invoice
+   * User that updated the SPM invoice.
    *
    */
   "updatedBy"?: string;
   /**
-   * Invoice Lines under particular invoice.
+   * Invoice lines under a particular invoice.
    *
    */
   "invoiceLines"?: Array<model.InvoiceLineSummary>;

@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Connection and certificate details for a remote cluster.
+ * Connection and CA bundle trust details for a remote cluster.
  */
 export interface RemoteReindexSourceDetails {
   /**
@@ -27,9 +27,9 @@ export interface RemoteReindexSourceDetails {
    */
   "endpointResolutionIp"?: string;
   /**
-   * OCID of the certificate or CA chain used to verify the remote cluster's HTTPS certificate.
+   * OCID of the OCI Certificates service CA bundle containing the trusted CA certificates used to verify the remote cluster's HTTPS certificate.
    */
-  "certificateId": string;
+  "caBundleId": string;
 }
 
 export namespace RemoteReindexSourceDetails {

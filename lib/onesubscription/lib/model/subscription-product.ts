@@ -16,27 +16,27 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Product description
+ * Product description.
  *
  */
 export interface SubscriptionProduct {
   /**
-   * Product part numner
+   * Product part number.
    *
    */
   "partNumber": string;
   /**
-   * Product name
+   * Product name.
    *
    */
   "name": string;
   /**
-   * Unit of measure
+   * Unit of measure.
    *
    */
   "unitOfMeasure": string;
   /**
-   * Product provisioning group
+   * Product provisioning group.
    *
    */
   "provisioningGroup"?: string;

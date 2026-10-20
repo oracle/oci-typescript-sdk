@@ -16,132 +16,137 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Subscribed Service summary
+ * Subscribed service summary.
  *
  */
 export interface SubscriptionSubscribedService {
   /**
-   * SPM internal Subscribed Service ID
+   * SPM (Subscription Plan Management) internal subscribed service ID.
    *
    */
   "id": string;
   "product"?: model.SubscriptionProduct;
   /**
-   * Subscribed service quantity
+   * Subscribed service quantity.
    *
    */
   "quantity"?: string;
   /**
-   * Subscribed service status
+   * Subscribed service status.
    *
    */
   "status"?: string;
   /**
-   * Subscribed service operation type
+   * Subscribed service operation type.
    *
    */
   "operationType"?: string;
   /**
-   * Subscribed service net unit price
+   * Subscribed service net unit price.
    *
    */
   "netUnitPrice"?: string;
   /**
-   * Subscribed service used amount
+   * Subscribed service used amount.
    *
    */
   "usedAmount"?: string;
   /**
-   * Subscribed sercice available or remaining amount
+   * Subscribed sercice available or remaining amount.
    *
    */
   "availableAmount"?: string;
   /**
-   * Funded Allocation line value
-   * example: 12000.00
+   * Funded allocation line value.
+   * Example: 12000.00
    *
    */
   "fundedAllocationValue"?: string;
   /**
-   * This field contains the name of the partner to which the subscription belongs - depending on which the invoicing may differ
+   * The name of the partner to which the subscription belongs, however depending on which subscription, the invoicing can differ.
    *
    */
   "partnerTransactionType"?: string;
   /**
-   * Term value in Months
+   * Term value in months.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "termValue"?: number;
   /**
-   * Term value UOM
+   * Term value UOM (Unit of Measure).
    *
    */
   "termValueUom"?: string;
   /**
-   * Booking Opportunity Number of Subscribed Service
+   * Booking opportunity number of subscribed service.
    *
    */
   "bookingOptyNumber"?: string;
   /**
-   * Subscribed service total value
+   * Subscribed service total value.
    *
    */
   "totalValue"?: string;
   /**
-   * Subscribed service Promotion Amount
+   * Subscribed service promotion amount.
    *
    */
   "originalPromoAmount"?: string;
   /**
-   * Sales Order Number associated to the subscribed service
+   * Sales order number associated with the subscribed service.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "orderNumber"?: number;
   /**
-   * Subscribed service data center region
+   * Subscribed service data center region.
    *
    */
   "dataCenterRegion"?: string;
   /**
-   * Subscribed service pricing model
+   * Subscribed service pricing model.
    *
    */
   "pricingModel"?: string;
   /**
-   * Subscribed service program type
+   * Subscribed service program type.
    *
    */
   "programType"?: string;
   /**
-   * Subscribed service promotion type
+   * Subscribed service promotion type.
    *
    */
   "promoType"?: string;
   /**
-   * Subscribed service CSI number
+   * Subscribed service CSI (Customer Service Identifier) number.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "csi"?: number;
   /**
-   * Subscribed service intent to pay flag
+   * Subscribed service intent to pay parameter.
    *
    */
   "isIntentToPay"?: boolean;
   /**
-   * Subscribed service start date
+   * Subscribed service start date.
    *
    */
   "timeStart"?: Date;
   /**
-   * Subscribed service end date
+   * Subscribed service end date.
    *
    */
   "timeEnd"?: Date;
   /**
-   * List of Commitment services of a line
+   * List of commitment services of a line.
    *
    */
   "commitmentServices"?: Array<model.CommitmentService>;
+  /**
+   * List of Associated Subscriptions
+   *
+   */
+  "associatedSubscriptions"?: Array<model.AssociatedSubscriptions>;
 }
 
 export namespace SubscriptionSubscribedService {
@@ -154,6 +159,11 @@ export namespace SubscriptionSubscribedService {
         "commitmentServices": obj.commitmentServices
           ? obj.commitmentServices.map(item => {
               return model.CommitmentService.getJsonObj(item);
+            })
+          : undefined,
+        "associatedSubscriptions": obj.associatedSubscriptions
+          ? obj.associatedSubscriptions.map(item => {
+              return model.AssociatedSubscriptions.getJsonObj(item);
             })
           : undefined
       }
@@ -172,6 +182,11 @@ export namespace SubscriptionSubscribedService {
         "commitmentServices": obj.commitmentServices
           ? obj.commitmentServices.map(item => {
               return model.CommitmentService.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "associatedSubscriptions": obj.associatedSubscriptions
+          ? obj.associatedSubscriptions.map(item => {
+              return model.AssociatedSubscriptions.getDeserializedJsonObj(item);
             })
           : undefined
       }

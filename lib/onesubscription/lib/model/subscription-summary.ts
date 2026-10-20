@@ -16,43 +16,43 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Subscription summary
+ * Subscription summary.
  *
  */
 export interface SubscriptionSummary {
   /**
-   * Status of the plan
+   * Plan status.
    *
    */
   "status"?: string;
   /**
-   * Represents the date when the first service of the subscription was activated
+   * The date when the first service of the subscription was activated.
    *
    */
   "timeStart"?: Date;
   /**
-   * Represents the date when the last service of the subscription ends
+   * The date when the last service of the subscription ends.
    *
    */
   "timeEnd"?: Date;
   "currency"?: model.SubscriptionCurrency;
   /**
-   * Customer friendly service name provided by PRG
+   * Customer-friendly service name provided by the PRG (Product Release Group).
    *
    */
   "serviceName"?: string;
   /**
-   * Hold reason of the plan
+   * Hold reason of the plan.
    *
    */
   "holdReason"?: string;
   /**
-   * Represents the date of the hold release
+   * The date of the hold release.
    *
    */
   "timeHoldReleaseEta"?: Date;
   /**
-   * List of Subscribed Services of the plan
+   * List of plan's subscribed services.
    *
    */
   "subscribedServices"?: Array<model.SubscriptionSubscribedService>;

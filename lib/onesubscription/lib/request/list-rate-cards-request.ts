@@ -19,7 +19,8 @@ import common = require("oci-common");
  */
 export interface ListRateCardsRequest extends common.BaseRequest {
   /**
-   * Line level Subscription Id
+   * Line-level subscription ID.
+   *
    */
   "subscriptionId": string;
   /**
@@ -27,15 +28,18 @@ export interface ListRateCardsRequest extends common.BaseRequest {
    */
   "compartmentId": string;
   /**
-   * This param is used to get the rate card(s) whose effective start date starts on or after a particular date
+   * Gets the rate cards whose effective start date starts on or after a particular date.
+   *
    */
   "timeFrom"?: Date;
   /**
-   * This param is used to get the rate card(s) whose effective end date ends on or before a particular date
+   * Gets the rate cards whose effective end date ends on or before a particular date.
+   *
    */
   "timeTo"?: Date;
   /**
-   * This param is used to get the rate card(s) filterd by the partNumber
+   * Gets the rate cards filterd by the part number.
+   *
    */
   "partNumber"?: string;
   /**

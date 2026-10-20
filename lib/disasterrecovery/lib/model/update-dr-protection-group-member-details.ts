@@ -84,6 +84,11 @@ export namespace UpdateDrProtectionGroupMemberDetails {
             <model.UpdateDrProtectionGroupMemberDatabaseDetails>(<object>jsonObj),
             true
           );
+        case "POSTGRESQL_DB_SYSTEM":
+          return model.UpdateDrProtectionGroupMemberPostgresqlDbSystemDetails.getJsonObj(
+            <model.UpdateDrProtectionGroupMemberPostgresqlDbSystemDetails>(<object>jsonObj),
+            true
+          );
         case "OKE_CLUSTER":
           return model.UpdateDrProtectionGroupMemberOkeClusterDetails.getJsonObj(
             <model.UpdateDrProtectionGroupMemberOkeClusterDetails>(<object>jsonObj),
@@ -165,6 +170,11 @@ export namespace UpdateDrProtectionGroupMemberDetails {
         case "DATABASE":
           return model.UpdateDrProtectionGroupMemberDatabaseDetails.getDeserializedJsonObj(
             <model.UpdateDrProtectionGroupMemberDatabaseDetails>(<object>jsonObj),
+            true
+          );
+        case "POSTGRESQL_DB_SYSTEM":
+          return model.UpdateDrProtectionGroupMemberPostgresqlDbSystemDetails.getDeserializedJsonObj(
+            <model.UpdateDrProtectionGroupMemberPostgresqlDbSystemDetails>(<object>jsonObj),
             true
           );
         case "OKE_CLUSTER":

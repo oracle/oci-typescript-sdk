@@ -16,47 +16,47 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Payment Term details
+ * Payment term details.
  *
  */
 export interface InvoicingPaymentTerm {
   /**
-   * Payment Term name
+   * Payment term name.
    *
    */
   "name": string;
   /**
-   * Payment Term value
+   * Payment term value.
    *
    */
   "value"?: string;
   /**
-   * Payment term Description
+   * Payment term description.
    *
    */
   "description"?: string;
   /**
-   * Payment term active flag
+   * Payment term active parameter.
    *
    */
   "isActive"?: boolean;
   /**
-   * Payment term last update date
+   * Payment term last update date.
    *
    */
   "timeCreated"?: Date;
   /**
-   * User that created the Payment term
+   * User that created the payment term.
    *
    */
   "createdBy"?: string;
   /**
-   * Payment term last update date
+   * Payment term last update date.
    *
    */
   "timeUpdated"?: Date;
   /**
-   * User that updated the Payment term
+   * User that updated the payment term.
    *
    */
   "updatedBy"?: string;

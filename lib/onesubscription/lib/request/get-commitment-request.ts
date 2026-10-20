@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface GetCommitmentRequest extends common.BaseRequest {
   /**
-   * The Commitment Id
+   * The commitment ID.
    */
   "commitmentId": string;
   /**

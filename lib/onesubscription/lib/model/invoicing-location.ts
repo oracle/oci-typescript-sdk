@@ -51,7 +51,7 @@ export interface InvoicingLocation {
    */
   "region"?: string;
   /**
-   * TCA Location identifier.
+   * TCA (Trading Community Architecture) location identifier.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "tcaLocationId"?: number;

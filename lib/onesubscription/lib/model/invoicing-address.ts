@@ -42,17 +42,17 @@ export interface InvoicingAddress {
    */
   "isShipTo"?: boolean;
   /**
-   * Bill to site use Id.
+   * Bill to site use ID.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "billSiteUseId"?: number;
   /**
-   * Service to site use Id.
+   * Service to site use ID.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "service2SiteUseId"?: number;
   /**
-   * TCA customer account site Id.
+   * TCA (Trading Community Architecture) customer account site ID.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "tcaCustAcctSiteId"?: number;

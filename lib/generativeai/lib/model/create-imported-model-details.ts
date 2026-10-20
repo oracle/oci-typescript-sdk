@@ -82,7 +82,10 @@ export namespace CreateImportedModelDetails {
     AudioToAudio = "AUDIO_TO_AUDIO",
     AudioToText = "AUDIO_TO_TEXT",
     TextToAudio = "TEXT_TO_AUDIO",
-    TextToVideo = "TEXT_TO_VIDEO"
+    TextToVideo = "TEXT_TO_VIDEO",
+    AudioTextToText = "AUDIO_TEXT_TO_TEXT",
+    AudioTranslation = "AUDIO_TRANSLATION",
+    VideoTextToText = "VIDEO_TEXT_TO_TEXT"
   }
 
   export function getJsonObj(obj: CreateImportedModelDetails): object {

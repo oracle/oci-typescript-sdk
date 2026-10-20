@@ -23,16 +23,16 @@ export interface ListSubscribedServicesRequest extends common.BaseRequest {
    */
   "compartmentId": string;
   /**
-   * Line level Subscription Id
+   * Line level subscription ID.
    */
   "subscriptionId": string;
   /**
-   * Order Line identifier at subscribed service level . This identifier is originated in Order Management module. Default is null.
+   * Order line identifier at subscribed service level. This identifier originates from the order management module. Default is null.
    *
    */
   "orderLineId"?: number;
   /**
-   * This param is used to filter subscribed services based on its status
+   * This parameter filters subscribed services based on its status.
    *
    */
   "status"?: string;

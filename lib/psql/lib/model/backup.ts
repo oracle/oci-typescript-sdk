@@ -80,7 +80,7 @@ Example: {@code 2016-08-25T21:10:29.600Z}
   /**
    * The size of the backup, in gigabytes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
-  "backupSize": number;
+  "backupSize"?: number;
   /**
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the backup's source database system.
    */

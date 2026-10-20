@@ -277,6 +277,11 @@ export namespace ConnectionSummary {
             <model.GooglePubSubConnectionSummary>(<object>jsonObj),
             true
           );
+        case "ORACLE_AI_DATA_PLATFORM_ENGINE":
+          return model.OracleAiDataPlatformEngineConnectionSummary.getJsonObj(
+            <model.OracleAiDataPlatformEngineConnectionSummary>(<object>jsonObj),
+            true
+          );
         case "GOOGLE_CLOUD_STORAGE":
           return model.GoogleCloudStorageConnectionSummary.getJsonObj(
             <model.GoogleCloudStorageConnectionSummary>(<object>jsonObj),
@@ -307,9 +312,19 @@ export namespace ConnectionSummary {
             <model.RedisConnectionSummary>(<object>jsonObj),
             true
           );
+        case "SPARK":
+          return model.SparkConnectionSummary.getJsonObj(
+            <model.SparkConnectionSummary>(<object>jsonObj),
+            true
+          );
         case "AZURE_DATA_LAKE_STORAGE":
           return model.AzureDataLakeStorageConnectionSummary.getJsonObj(
             <model.AzureDataLakeStorageConnectionSummary>(<object>jsonObj),
+            true
+          );
+        case "AI_PROVIDER":
+          return model.AiProviderConnectionSummary.getJsonObj(
+            <model.AiProviderConnectionSummary>(<object>jsonObj),
             true
           );
         case "GOOGLE_BIGQUERY":
@@ -360,6 +375,11 @@ export namespace ConnectionSummary {
         case "HDFS":
           return model.HdfsConnectionSummary.getJsonObj(
             <model.HdfsConnectionSummary>(<object>jsonObj),
+            true
+          );
+        case "DATABRICKS_ENGINE":
+          return model.DatabricksEngineConnectionSummary.getJsonObj(
+            <model.DatabricksEngineConnectionSummary>(<object>jsonObj),
             true
           );
         default:
@@ -453,6 +473,11 @@ export namespace ConnectionSummary {
             <model.GooglePubSubConnectionSummary>(<object>jsonObj),
             true
           );
+        case "ORACLE_AI_DATA_PLATFORM_ENGINE":
+          return model.OracleAiDataPlatformEngineConnectionSummary.getDeserializedJsonObj(
+            <model.OracleAiDataPlatformEngineConnectionSummary>(<object>jsonObj),
+            true
+          );
         case "GOOGLE_CLOUD_STORAGE":
           return model.GoogleCloudStorageConnectionSummary.getDeserializedJsonObj(
             <model.GoogleCloudStorageConnectionSummary>(<object>jsonObj),
@@ -483,9 +508,19 @@ export namespace ConnectionSummary {
             <model.RedisConnectionSummary>(<object>jsonObj),
             true
           );
+        case "SPARK":
+          return model.SparkConnectionSummary.getDeserializedJsonObj(
+            <model.SparkConnectionSummary>(<object>jsonObj),
+            true
+          );
         case "AZURE_DATA_LAKE_STORAGE":
           return model.AzureDataLakeStorageConnectionSummary.getDeserializedJsonObj(
             <model.AzureDataLakeStorageConnectionSummary>(<object>jsonObj),
+            true
+          );
+        case "AI_PROVIDER":
+          return model.AiProviderConnectionSummary.getDeserializedJsonObj(
+            <model.AiProviderConnectionSummary>(<object>jsonObj),
             true
           );
         case "GOOGLE_BIGQUERY":
@@ -536,6 +571,11 @@ export namespace ConnectionSummary {
         case "HDFS":
           return model.HdfsConnectionSummary.getDeserializedJsonObj(
             <model.HdfsConnectionSummary>(<object>jsonObj),
+            true
+          );
+        case "DATABRICKS_ENGINE":
+          return model.DatabricksEngineConnectionSummary.getDeserializedJsonObj(
+            <model.DatabricksEngineConnectionSummary>(<object>jsonObj),
             true
           );
         default:

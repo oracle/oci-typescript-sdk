@@ -111,6 +111,11 @@ export namespace CreateDrProtectionGroupMemberDetails {
             <model.CreateDrProtectionGroupMemberOkeClusterDetails>(<object>jsonObj),
             true
           );
+        case "POSTGRESQL_DB_SYSTEM":
+          return model.CreateDrProtectionGroupMemberPostgresqlDbSystemDetails.getJsonObj(
+            <model.CreateDrProtectionGroupMemberPostgresqlDbSystemDetails>(<object>jsonObj),
+            true
+          );
         default:
           if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.memberType}`);
       }
@@ -192,6 +197,11 @@ export namespace CreateDrProtectionGroupMemberDetails {
         case "OKE_CLUSTER":
           return model.CreateDrProtectionGroupMemberOkeClusterDetails.getDeserializedJsonObj(
             <model.CreateDrProtectionGroupMemberOkeClusterDetails>(<object>jsonObj),
+            true
+          );
+        case "POSTGRESQL_DB_SYSTEM":
+          return model.CreateDrProtectionGroupMemberPostgresqlDbSystemDetails.getDeserializedJsonObj(
+            <model.CreateDrProtectionGroupMemberPostgresqlDbSystemDetails>(<object>jsonObj),
             true
           );
         default:

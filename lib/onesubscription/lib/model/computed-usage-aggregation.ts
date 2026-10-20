@@ -16,38 +16,38 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Computed Usage Aggregation object
+ * Computed usage aggregation object.
  *
  */
 export interface ComputedUsageAggregation {
   /**
-   * Total Quantity that was used for computation
+   * Total quantity that was used for computation.
    *
    */
   "quantity"?: string;
   "product"?: model.ComputedUsageProduct;
   /**
-   * Data Center Attribute as sent by MQS to SPM.
+   * Data center attribute as sent by the meterering system to SPM (Subscription Plan Management).
    *
    */
   "dataCenter"?: string;
   /**
-   * Metered Service date , expressed in RFC 3339 timestamp format.
+   * Metered service date, expressed in RFC 3339 timestamp format.
    *
    */
   "timeMeteredOn"?: Date;
   /**
-   * Net Unit Price for the product in consideration.
+   * Net unit price for the product in consideration.
    *
    */
   "netUnitPrice"?: string;
   /**
-   * Sum of Computed Line Amount unrounded
+   * Sum of unrounded computed line amount.
    *
    */
   "costUnrounded"?: string;
   /**
-   * Sum of Computed Line Amount rounded
+   * Sum of rounded computed line amount.
    *
    */
   "cost"?: string;

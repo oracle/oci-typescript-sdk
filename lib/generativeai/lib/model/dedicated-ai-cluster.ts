@@ -73,6 +73,10 @@ export interface DedicatedAiCluster {
    * The shape of dedicated unit in this AI cluster.
    */
   "unitShape": DedicatedAiCluster.UnitShape;
+  /**
+   * The OCID of the capacity reservation.
+   */
+  "capacityReservationId"?: string;
   "capacity"?: model.DedicatedAiClusterHostingCapacity;
   "previousState"?: model.DedicatedAiCluster;
   /**
@@ -213,6 +217,7 @@ export namespace DedicatedAiCluster {
     H200X2 = "H200_X2",
     H200X4 = "H200_X4",
     H200X8 = "H200_X8",
+    OaiH100X4 = "OAI_H100_X4",
     OaiA10X2 = "OAI_A10_X2",
     OaiH100X1 = "OAI_H100_X1",
     OaiH100X2 = "OAI_H100_X2",

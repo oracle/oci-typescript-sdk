@@ -28,13 +28,16 @@ export interface CreateConnectionRequest extends common.BaseRequest {
     | model.CreateMicrosoftSqlserverConnectionDetails
     | model.CreateAmazonKinesisConnectionDetails
     | model.CreateAzureDataLakeStorageConnectionDetails
+    | model.CreateOracleAiDataPlatformEngineConnectionDetails
     | model.CreateGooglePubSubConnectionDetails
     | model.CreateHdfsConnectionDetails
     | model.CreateOciObjectStorageConnectionDetails
+    | model.CreateAiProviderConnectionDetails
     | model.CreateRedisConnectionDetails
     | model.CreateMicrosoftFabricConnectionDetails
     | model.CreateGoogleCloudStorageConnectionDetails
     | model.CreateKafkaConnectionDetails
+    | model.CreateSparkConnectionDetails
     | model.CreateOracleNosqlConnectionDetails
     | model.CreateJavaMessageServiceConnectionDetails
     | model.CreateGoogleBigQueryConnectionDetails
@@ -47,6 +50,7 @@ export interface CreateConnectionRequest extends common.BaseRequest {
     | model.CreateElasticsearchConnectionDetails
     | model.CreateAiModelConnectionDetails
     | model.CreateAzureSynapseConnectionDetails
+    | model.CreateDatabricksEngineConnectionDetails
     | model.CreateIcebergConnectionDetails
     | model.CreateMysqlConnectionDetails
     | model.CreateGenericConnectionDetails

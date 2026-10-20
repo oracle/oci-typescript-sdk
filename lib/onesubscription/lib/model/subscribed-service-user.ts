@@ -26,7 +26,7 @@ export interface SubscribedServiceUser {
    */
   "name"?: string;
   /**
-   * Username.
+   * User name.
    *
    */
   "username"?: string;
@@ -46,7 +46,7 @@ export interface SubscribedServiceUser {
    */
   "email"?: string;
   /**
-   * TCA contact ID.
+   * TCA (Trading Community Architecture) contact ID.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "tcaContactId"?: number;

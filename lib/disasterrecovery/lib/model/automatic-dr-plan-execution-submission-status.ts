@@ -20,8 +20,8 @@ import common = require("oci-common");
 
 /**
  * The status of most recent attempt to submit Automatic DR plan execution.
- * - AUTOMATIC_DR_EXECUTION_STARTED_SUCCESSFULLY - Event processed and Automatic DR execution was started successfully.
- * - AUTOMATIC_DR_EXECUTION_BLOCKED_VALIDATION_FAILED - Event processed but Automatic DR execution submission failed due to validation error.
+ * - AUTOMATIC_DR_EXECUTION_STARTED_SUCCESSFULLY - The Automatic DR execution was initiated successfully after processing the event.
+ * - AUTOMATIC_DR_EXECUTION_BLOCKED_VALIDATION_FAILED - The Automatic DR execution was not submitted due to a validation error that prevented successful processing of the event.
  *
  **/
 export enum AutomaticDrPlanExecutionSubmissionStatus {

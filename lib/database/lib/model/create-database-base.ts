@@ -62,9 +62,19 @@ export namespace CreateDatabaseBase {
             <model.CreateStandByDatabaseDetails>(<object>jsonObj),
             true
           );
+        case "DB_CLONE":
+          return model.CreateCloneDatabaseFromDatabase.getJsonObj(
+            <model.CreateCloneDatabaseFromDatabase>(<object>jsonObj),
+            true
+          );
         case "DATABASE":
           return model.CreateDatabaseFromDatabase.getJsonObj(
             <model.CreateDatabaseFromDatabase>(<object>jsonObj),
+            true
+          );
+        case "DB_SNAPSHOT":
+          return model.CreateDatabaseFromSnapshot.getJsonObj(
+            <model.CreateDatabaseFromSnapshot>(<object>jsonObj),
             true
           );
         case "DB_BACKUP":
@@ -93,9 +103,19 @@ export namespace CreateDatabaseBase {
             <model.CreateStandByDatabaseDetails>(<object>jsonObj),
             true
           );
+        case "DB_CLONE":
+          return model.CreateCloneDatabaseFromDatabase.getDeserializedJsonObj(
+            <model.CreateCloneDatabaseFromDatabase>(<object>jsonObj),
+            true
+          );
         case "DATABASE":
           return model.CreateDatabaseFromDatabase.getDeserializedJsonObj(
             <model.CreateDatabaseFromDatabase>(<object>jsonObj),
+            true
+          );
+        case "DB_SNAPSHOT":
+          return model.CreateDatabaseFromSnapshot.getDeserializedJsonObj(
+            <model.CreateDatabaseFromSnapshot>(<object>jsonObj),
             true
           );
         case "DB_BACKUP":

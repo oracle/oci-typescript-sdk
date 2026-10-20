@@ -23,7 +23,7 @@ export interface ListInvoicelineComputedUsagesRequest extends common.BaseRequest
    */
   "compartmentId": string;
   /**
-   * Invoice Line Identifier - Primary Key SPM
+   * Invoice line identifier - Primary Key SPM (Subscription Plan Management).
    *
    */
   "invoiceLineId": string;
@@ -33,7 +33,7 @@ export interface ListInvoicelineComputedUsagesRequest extends common.BaseRequest
    */
   "sortOrder"?: ListInvoicelineComputedUsagesRequest.SortOrder;
   /**
-   * The field to sort by Invoiced Computed Usages. You can provide one sort order ({@code sortOrder}).
+   * The field to sort by invoiced computed usages. You can provide one sort order ({@code sortOrder}).
    *
    */
   "sortBy"?: ListInvoicelineComputedUsagesRequest.SortBy;
@@ -51,8 +51,8 @@ Example: '500'
   "page"?: string;
   /**
    * Partial response refers to an optimization technique offered
-   * by the RESTful web APIs to return only the information
-   * (fields) required by the client. This parameter is used to control what fields to
+   * by the RESTful web APIs, to return only the information
+   * (fields) required by the client. This parameter controls which fields to
    * return.
    *
    */

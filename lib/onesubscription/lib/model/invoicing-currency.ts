@@ -16,22 +16,22 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Currency details
+ * Currency details.
  *
  */
 export interface InvoicingCurrency {
   /**
-   * Currency name
+   * Currency name.
    *
    */
   "name"?: string;
   /**
-   * Currency Code
+   * Currency code.
    *
    */
   "isoCode": string;
   /**
-   * Standard Precision of the Currency
+   * Standard precision of the currency.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "stdPrecision"?: number;

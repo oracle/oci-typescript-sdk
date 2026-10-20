@@ -16,17 +16,17 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Organization details
+ * Organization details.
  *
  */
 export interface InvoicingOrganization {
   /**
-   * Organization name
+   * Organization name.
    *
    */
   "name": string;
   /**
-   * Organization ID
+   * Organization ID.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "number": number;
