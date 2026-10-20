@@ -16,37 +16,37 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Product description
+ * Product description.
  *
  */
 export interface RateCardProduct {
   /**
-   * Product part numner
+   * Product part number.
    *
    */
   "partNumber": string;
   /**
-   * Product name
+   * Product name.
    *
    */
   "name": string;
   /**
-   * Unit of measure
+   * Unit of measure.
    *
    */
   "unitOfMeasure": string;
   /**
-   * Metered service billing category
+   * Metered service billing category.
    *
    */
   "billingCategory"?: string;
   /**
-   * Product category
+   * Product category.
    *
    */
   "productCategory"?: string;
   /**
-   * Rate card part type of Product
+   * Rate card part type of product.
    *
    */
   "ucmRateCardPartType"?: string;

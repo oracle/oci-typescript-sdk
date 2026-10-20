@@ -23,27 +23,27 @@ export interface ListComputedUsagesRequest extends common.BaseRequest {
    */
   "compartmentId": string;
   /**
-   * Subscription Id is an identifier associated to the service used for filter the Computed Usage in SPM.
+   * Subscription ID is an identifier associated with the service, used for filtering the computed usage in SPM.
    *
    */
   "subscriptionId": string;
   /**
-   * Initial date to filter Computed Usage data in SPM. In the case of non aggregated data the time period between of fromDate and toDate , expressed in RFC 3339 timestamp format.
+   * Initial date to filter computed usage data in SPM. For non-aggregated data, the time period between fromDate and toDate, expressed in RFC 3339 timestamp format.
    *
    */
   "timeFrom": Date;
   /**
-   * Final date to filter Computed Usage data in SPM, expressed in RFC 3339 timestamp format.
+   * Final date to filter computed usage data in SPM, expressed in RFC 3339 timestamp format.
    *
    */
   "timeTo": Date;
   /**
-   * Product part number for subscribed service line, called parent product.
+   * Product part number for the subscribed service line, called the parent product.
    *
    */
   "parentProduct"?: string;
   /**
-   * Product part number for Computed Usage .
+   * Product part number for the computed usage.
    *
    */
   "computedProduct"?: string;

@@ -6735,6 +6735,91 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   }
 
   /**
+   * Creates a Database Snapshot
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateDatabaseSnapshotRequest
+   * @return CreateDatabaseSnapshotResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateDatabaseSnapshot.ts.html |here} to see how to use CreateDatabaseSnapshot API.
+   */
+  public async createDatabaseSnapshot(
+    createDatabaseSnapshotRequest: requests.CreateDatabaseSnapshotRequest
+  ): Promise<responses.CreateDatabaseSnapshotResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#createDatabaseSnapshot.");
+    const operationName = "createDatabaseSnapshot";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createDatabaseSnapshotRequest.opcRetryToken,
+      "opc-request-id": createDatabaseSnapshotRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createDatabaseSnapshotRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseSnapshots",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createDatabaseSnapshotRequest.createDatabaseSnapshotDetails,
+        "CreateDatabaseSnapshotDetails",
+        model.CreateDatabaseSnapshotDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateDatabaseSnapshotResponse>{},
+        body: await response.json(),
+        bodyKey: "databaseSnapshot",
+        bodyModel: model.DatabaseSnapshot,
+        type: "model.DatabaseSnapshot",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * create database software image in the specified compartment.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -10003,6 +10088,80 @@ The data in this database is local to the Exadata system and will be lost when t
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteDatabaseResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the specified Exadata Database Snapshot.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteDatabaseSnapshotRequest
+   * @return DeleteDatabaseSnapshotResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteDatabaseSnapshot.ts.html |here} to see how to use DeleteDatabaseSnapshot API.
+   */
+  public async deleteDatabaseSnapshot(
+    deleteDatabaseSnapshotRequest: requests.DeleteDatabaseSnapshotRequest
+  ): Promise<responses.DeleteDatabaseSnapshotResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#deleteDatabaseSnapshot.");
+    const operationName = "deleteDatabaseSnapshot";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/DatabaseSnapshot/DeleteDatabaseSnapshot";
+    const pathParams = {
+      "{databaseSnapshotId}": deleteDatabaseSnapshotRequest.databaseSnapshotId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteDatabaseSnapshotRequest.ifMatch,
+      "opc-request-id": deleteDatabaseSnapshotRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteDatabaseSnapshotRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseSnapshots/{databaseSnapshotId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteDatabaseSnapshotResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -17811,6 +17970,83 @@ A failover might result in data loss depending on the protection mode in effect 
         bodyKey: "database",
         bodyModel: model.Database,
         type: "model.Database",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets information about the specified Exadata Database Snapshot.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetDatabaseSnapshotRequest
+   * @return GetDatabaseSnapshotResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetDatabaseSnapshot.ts.html |here} to see how to use GetDatabaseSnapshot API.
+   */
+  public async getDatabaseSnapshot(
+    getDatabaseSnapshotRequest: requests.GetDatabaseSnapshotRequest
+  ): Promise<responses.GetDatabaseSnapshotResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#getDatabaseSnapshot.");
+    const operationName = "getDatabaseSnapshot";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/DatabaseSnapshot/GetDatabaseSnapshot";
+    const pathParams = {
+      "{databaseSnapshotId}": getDatabaseSnapshotRequest.databaseSnapshotId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getDatabaseSnapshotRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDatabaseSnapshotRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseSnapshots/{databaseSnapshotId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetDatabaseSnapshotResponse>{},
+        body: await response.json(),
+        bodyKey: "databaseSnapshot",
+        bodyModel: model.DatabaseSnapshot,
+        type: "model.DatabaseSnapshot",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -26466,6 +26702,91 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
     request: requests.ListDataGuardAssociationsRequest
   ): AsyncIterableIterator<responses.ListDataGuardAssociationsResponse> {
     return paginateResponses(request, req => this.listDataGuardAssociations(req));
+  }
+
+  /**
+   * Gets a list of the Exadata Database Snapshots in the specified compartment.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListDatabaseSnapshotsRequest
+   * @return ListDatabaseSnapshotsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListDatabaseSnapshots.ts.html |here} to see how to use ListDatabaseSnapshots API.
+   */
+  public async listDatabaseSnapshots(
+    listDatabaseSnapshotsRequest: requests.ListDatabaseSnapshotsRequest
+  ): Promise<responses.ListDatabaseSnapshotsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#listDatabaseSnapshots.");
+    const operationName = "listDatabaseSnapshots";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/DatabaseSnapshot/ListDatabaseSnapshots";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listDatabaseSnapshotsRequest.compartmentId,
+      "limit": listDatabaseSnapshotsRequest.limit,
+      "page": listDatabaseSnapshotsRequest.page,
+      "sortBy": listDatabaseSnapshotsRequest.sortBy,
+      "name": listDatabaseSnapshotsRequest.name,
+      "sortOrder": listDatabaseSnapshotsRequest.sortOrder,
+      "lifecycleState": listDatabaseSnapshotsRequest.lifecycleState,
+      "databaseId": listDatabaseSnapshotsRequest.databaseId,
+      "clusterId": listDatabaseSnapshotsRequest.clusterId
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listDatabaseSnapshotsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDatabaseSnapshotsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseSnapshots",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListDatabaseSnapshotsResponse>{},
+        body: await response.json(),
+        bodyKey: "databaseSnapshotCollection",
+        bodyModel: model.DatabaseSnapshotCollection,
+        type: "model.DatabaseSnapshotCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
   }
 
   /**
@@ -41414,6 +41735,90 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
             key: "opcWorkRequestId",
             dataType: "string"
           },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates a Database Snapshot
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateDatabaseSnapshotRequest
+   * @return UpdateDatabaseSnapshotResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateDatabaseSnapshot.ts.html |here} to see how to use UpdateDatabaseSnapshot API.
+   */
+  public async updateDatabaseSnapshot(
+    updateDatabaseSnapshotRequest: requests.UpdateDatabaseSnapshotRequest
+  ): Promise<responses.UpdateDatabaseSnapshotResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#updateDatabaseSnapshot.");
+    const operationName = "updateDatabaseSnapshot";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/DatabaseSnapshot/UpdateDatabaseSnapshot";
+    const pathParams = {
+      "{databaseSnapshotId}": updateDatabaseSnapshotRequest.databaseSnapshotId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateDatabaseSnapshotRequest.ifMatch,
+      "opc-retry-token": updateDatabaseSnapshotRequest.opcRetryToken,
+      "opc-request-id": updateDatabaseSnapshotRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateDatabaseSnapshotRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseSnapshots/{databaseSnapshotId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateDatabaseSnapshotRequest.updateDatabaseSnapshotDetails,
+        "UpdateDatabaseSnapshotDetails",
+        model.UpdateDatabaseSnapshotDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateDatabaseSnapshotResponse>{},
+        body: await response.json(),
+        bodyKey: "databaseSnapshot",
+        bodyModel: model.DatabaseSnapshot,
+        type: "model.DatabaseSnapshot",
+        responseHeaders: [
           {
             value: response.headers.get("etag"),
             key: "etag",

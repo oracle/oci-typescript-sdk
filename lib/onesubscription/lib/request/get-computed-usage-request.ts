@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface GetComputedUsageRequest extends common.BaseRequest {
   /**
-   * The Computed Usage Id
+   * The computed usage ID.
    */
   "computedUsageId": string;
   /**
@@ -28,8 +28,8 @@ export interface GetComputedUsageRequest extends common.BaseRequest {
   "compartmentId": string;
   /**
    * Partial response refers to an optimization technique offered
-   * by the RESTful web APIs to return only the information
-   * (fields) required by the client. This parameter is used to control what fields to
+   * by the RESTful web APIs, to return only the information
+   * (fields) required by the client. This parameter controls which fields to
    * return.
    *
    */

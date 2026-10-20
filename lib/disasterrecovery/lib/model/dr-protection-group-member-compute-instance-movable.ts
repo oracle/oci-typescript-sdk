@@ -45,6 +45,7 @@ Example: {@code ocid1.capacityreservation.oc1..uniqueID}
    *
    */
   "vnicMappings"?: Array<model.ComputeInstanceMovableVnicMapping>;
+  "drDrillProperties"?: model.DrProtectionGroupMemberComputeInstanceDrillProperties;
   /**
     * The OCID of a compartment in the destination region in which the compute instance
 * should be launched.
@@ -87,6 +88,11 @@ export namespace DrProtectionGroupMemberComputeInstanceMovable {
               return model.ComputeInstanceMovableVnicMapping.getJsonObj(item);
             })
           : undefined,
+        "drDrillProperties": obj.drDrillProperties
+          ? model.DrProtectionGroupMemberComputeInstanceDrillProperties.getJsonObj(
+              obj.drDrillProperties
+            )
+          : undefined,
 
         "fileSystemOperations": obj.fileSystemOperations
           ? obj.fileSystemOperations.map(item => {
@@ -114,6 +120,11 @@ export namespace DrProtectionGroupMemberComputeInstanceMovable {
           ? obj.vnicMappings.map(item => {
               return model.ComputeInstanceMovableVnicMapping.getDeserializedJsonObj(item);
             })
+          : undefined,
+        "drDrillProperties": obj.drDrillProperties
+          ? model.DrProtectionGroupMemberComputeInstanceDrillProperties.getDeserializedJsonObj(
+              obj.drDrillProperties
+            )
           : undefined,
 
         "fileSystemOperations": obj.fileSystemOperations

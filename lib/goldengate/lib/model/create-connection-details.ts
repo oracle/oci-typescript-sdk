@@ -187,6 +187,11 @@ export namespace CreateConnectionDetails {
             <model.CreateAzureDataLakeStorageConnectionDetails>(<object>jsonObj),
             true
           );
+        case "ORACLE_AI_DATA_PLATFORM_ENGINE":
+          return model.CreateOracleAiDataPlatformEngineConnectionDetails.getJsonObj(
+            <model.CreateOracleAiDataPlatformEngineConnectionDetails>(<object>jsonObj),
+            true
+          );
         case "GOOGLE_PUBSUB":
           return model.CreateGooglePubSubConnectionDetails.getJsonObj(
             <model.CreateGooglePubSubConnectionDetails>(<object>jsonObj),
@@ -200,6 +205,11 @@ export namespace CreateConnectionDetails {
         case "OCI_OBJECT_STORAGE":
           return model.CreateOciObjectStorageConnectionDetails.getJsonObj(
             <model.CreateOciObjectStorageConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "AI_PROVIDER":
+          return model.CreateAiProviderConnectionDetails.getJsonObj(
+            <model.CreateAiProviderConnectionDetails>(<object>jsonObj),
             true
           );
         case "REDIS":
@@ -220,6 +230,11 @@ export namespace CreateConnectionDetails {
         case "KAFKA":
           return model.CreateKafkaConnectionDetails.getJsonObj(
             <model.CreateKafkaConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "SPARK":
+          return model.CreateSparkConnectionDetails.getJsonObj(
+            <model.CreateSparkConnectionDetails>(<object>jsonObj),
             true
           );
         case "ORACLE_NOSQL":
@@ -280,6 +295,11 @@ export namespace CreateConnectionDetails {
         case "AZURE_SYNAPSE_ANALYTICS":
           return model.CreateAzureSynapseConnectionDetails.getJsonObj(
             <model.CreateAzureSynapseConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "DATABRICKS_ENGINE":
+          return model.CreateDatabricksEngineConnectionDetails.getJsonObj(
+            <model.CreateDatabricksEngineConnectionDetails>(<object>jsonObj),
             true
           );
         case "ICEBERG":
@@ -357,6 +377,11 @@ export namespace CreateConnectionDetails {
             <model.CreateAzureDataLakeStorageConnectionDetails>(<object>jsonObj),
             true
           );
+        case "ORACLE_AI_DATA_PLATFORM_ENGINE":
+          return model.CreateOracleAiDataPlatformEngineConnectionDetails.getDeserializedJsonObj(
+            <model.CreateOracleAiDataPlatformEngineConnectionDetails>(<object>jsonObj),
+            true
+          );
         case "GOOGLE_PUBSUB":
           return model.CreateGooglePubSubConnectionDetails.getDeserializedJsonObj(
             <model.CreateGooglePubSubConnectionDetails>(<object>jsonObj),
@@ -370,6 +395,11 @@ export namespace CreateConnectionDetails {
         case "OCI_OBJECT_STORAGE":
           return model.CreateOciObjectStorageConnectionDetails.getDeserializedJsonObj(
             <model.CreateOciObjectStorageConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "AI_PROVIDER":
+          return model.CreateAiProviderConnectionDetails.getDeserializedJsonObj(
+            <model.CreateAiProviderConnectionDetails>(<object>jsonObj),
             true
           );
         case "REDIS":
@@ -390,6 +420,11 @@ export namespace CreateConnectionDetails {
         case "KAFKA":
           return model.CreateKafkaConnectionDetails.getDeserializedJsonObj(
             <model.CreateKafkaConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "SPARK":
+          return model.CreateSparkConnectionDetails.getDeserializedJsonObj(
+            <model.CreateSparkConnectionDetails>(<object>jsonObj),
             true
           );
         case "ORACLE_NOSQL":
@@ -450,6 +485,11 @@ export namespace CreateConnectionDetails {
         case "AZURE_SYNAPSE_ANALYTICS":
           return model.CreateAzureSynapseConnectionDetails.getDeserializedJsonObj(
             <model.CreateAzureSynapseConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "DATABRICKS_ENGINE":
+          return model.CreateDatabricksEngineConnectionDetails.getDeserializedJsonObj(
+            <model.CreateDatabricksEngineConnectionDetails>(<object>jsonObj),
             true
           );
         case "ICEBERG":

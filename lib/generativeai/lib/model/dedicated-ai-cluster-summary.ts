@@ -84,6 +84,10 @@ Allowed values are:
    * The shape of dedicated unit in this AI cluster.
    */
   "unitShape": string;
+  /**
+   * The OCID of the capacity reservation.
+   */
+  "capacityReservationId"?: string;
   "capacity"?: model.DedicatedAiClusterHostingCapacity;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.

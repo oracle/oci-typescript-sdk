@@ -40,6 +40,7 @@ export interface CreateGenerativeAiProjectDetails {
   "conversationConfig"?: model.ConversationConfig;
   "longTermMemoryConfig"?: model.LongTermMemoryConfig;
   "shortTermMemoryOptimizationConfig"?: model.ShortTermMemoryOptimizationConfig;
+  "sandboxConfig"?: model.SandboxConfig;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
 * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
@@ -73,6 +74,9 @@ export namespace CreateGenerativeAiProjectDetails {
           ? model.ShortTermMemoryOptimizationConfig.getJsonObj(
               obj.shortTermMemoryOptimizationConfig
             )
+          : undefined,
+        "sandboxConfig": obj.sandboxConfig
+          ? model.SandboxConfig.getJsonObj(obj.sandboxConfig)
           : undefined
       }
     };
@@ -93,6 +97,9 @@ export namespace CreateGenerativeAiProjectDetails {
           ? model.ShortTermMemoryOptimizationConfig.getDeserializedJsonObj(
               obj.shortTermMemoryOptimizationConfig
             )
+          : undefined,
+        "sandboxConfig": obj.sandboxConfig
+          ? model.SandboxConfig.getDeserializedJsonObj(obj.sandboxConfig)
           : undefined
       }
     };

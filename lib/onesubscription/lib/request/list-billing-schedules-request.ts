@@ -23,12 +23,12 @@ export interface ListBillingSchedulesRequest extends common.BaseRequest {
    */
   "compartmentId": string;
   /**
-   * This param is used to get only the billing schedules for a particular Subscription Id
+   * This parameter gets the billing schedules for a particular subscription ID.
    *
    */
   "subscriptionId": string;
   /**
-   * This param is used to get only the billing schedules for a particular Subscribed Service
+   * This parameter gets the billing schedules for a particular subscribed service.
    *
    */
   "subscribedServiceId"?: string;

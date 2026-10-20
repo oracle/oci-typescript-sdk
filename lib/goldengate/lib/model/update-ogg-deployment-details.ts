@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Deployment Details for updating an OggDeployment
+ * Deployment Details for updating an OggDeployment.
  *
  */
 export interface UpdateOggDeploymentDetails {

@@ -97,3 +97,5 @@ import * as UpdateDbSystemResponse from "./update-db-system-response";
 export import UpdateDbSystemResponse = UpdateDbSystemResponse.UpdateDbSystemResponse;
 import * as UpdateDbSystemDbInstanceResponse from "./update-db-system-db-instance-response";
 export import UpdateDbSystemDbInstanceResponse = UpdateDbSystemDbInstanceResponse.UpdateDbSystemDbInstanceResponse;
+import * as UpgradeDbSystemResponse from "./upgrade-db-system-response";
+export import UpgradeDbSystemResponse = UpgradeDbSystemResponse.UpgradeDbSystemResponse;

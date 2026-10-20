@@ -259,6 +259,25 @@ export class GenerativeAiWaiter {
   }
 
   /**
+   * Waits forSandboxWarmPool till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetSandboxWarmPoolResponse | null (null in case of 404 response)
+   */
+  public async forSandboxWarmPool(
+    request: serviceRequests.GetSandboxWarmPoolRequest,
+    ...targetStates: models.SandboxWarmPool.LifecycleState[]
+  ): Promise<serviceResponses.GetSandboxWarmPoolResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getSandboxWarmPool(request),
+      response => targetStates.includes(response.sandboxWarmPool.lifecycleState!),
+      targetStates.includes(models.SandboxWarmPool.LifecycleState.Deleted)
+    );
+  }
+
+  /**
    * Waits forSemanticStore till it reaches any of the provided states
    *
    * @param request the request to send

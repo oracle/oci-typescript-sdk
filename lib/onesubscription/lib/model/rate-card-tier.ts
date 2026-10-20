@@ -16,22 +16,22 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Rate Card Tier details
+ * Rate card tier details.
  *
  */
 export interface RateCardTier {
   /**
-   * Rate card tier quantity range
+   * Rate card tier quantity range.
    *
    */
   "upToQuantity"?: string;
   /**
-   * Rate card tier net unit price
+   * Rate card tier net unit price.
    *
    */
   "netUnitPrice"?: string;
   /**
-   * Rate card tier overage price
+   * Rate card tier overage price.
    *
    */
   "overagePrice"?: string;

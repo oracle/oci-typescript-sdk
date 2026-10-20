@@ -23,19 +23,19 @@ export interface ListSubscriptionsRequest extends common.BaseRequest {
    */
   "compartmentId": string;
   /**
-   * The Plan Number
+   * The plan number.
    */
   "planNumber"?: string;
   /**
-   * Line level Subscription Id
+   * Line level subscription ID.
    */
   "subscriptionId"?: string;
   /**
-   * Buyer Email Id
+   * Buyer email ID.
    */
   "buyerEmail"?: string;
   /**
-   * Boolean value to decide whether commitment services will be shown
+   * Boolean value to determine whether commitment services are shown.
    */
   "isCommitInfoRequired"?: boolean;
   /**

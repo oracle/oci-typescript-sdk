@@ -37,7 +37,8 @@ Example: {@code ocid1.subnet.oc1..uniqueID}
     */
   "destinationSubnetId": string;
   /**
-    * The private IP address to be assigned as the VNIC's primary IP address in the destination subnet.
+    * Deprecated. Use the 'destinationReservedPrimaryPrivateIpId' attribute instead of this.
+* The private IP address to be assigned as the VNIC's primary IP address in the destination subnet.
 * This must be a valid IP address in the destination subnet and the IP address must be available.
 * <p>
 Example: {@code 10.0.3.3}
@@ -45,7 +46,8 @@ Example: {@code 10.0.3.3}
     */
   "destinationPrimaryPrivateIpAddress"?: string;
   /**
-    * The hostname label to be assigned in the destination subnet for the primary private IP of the source VNIC.
+    * Deprecated. Use the 'destinationReservedPrimaryPrivateIpId' attribute instead of this.
+* The hostname label to be assigned in the destination subnet for the primary private IP of the source VNIC.
 * This label is the hostname portion of the private IP's fully qualified domain name (FQDN) 
 * (for example, 'myhost1' in the FQDN 'myhost1.subnet123.vcn1.oraclevcn.com').
 * <p>
@@ -53,6 +55,19 @@ Example: {@code myhost1}
 * 
     */
   "destinationPrimaryPrivateIpHostnameLabel"?: string;
+  /**
+    * The OCID of the reserved private IP (IPv4) to be assigned to the compute instance in the destination region.
+* Do not specify this attribute together with {@code destinationPrimaryPrivateIpAddress},
+* {@code destinationPrimaryPrivateIpHostnameLabel}, or the
+* {@code FsdrDestinationReservedPrimaryPrivateIpId} freeform tag on the source VNIC.
+* <p>
+For legacy compatibility, omit this attribute and use either the legacy explicit private-IP
+* fields or the freeform tag, but not both configuration mechanisms for the same source VNIC.
+* <p>
+Example: {@code ocid1.privateip.oc1..uniqueID}
+* 
+    */
+  "destinationReservedPrimaryPrivateIpId"?: string;
   /**
     * The OCID of the reserved public IP address to be assigned to the compute instance in the destination region.
 * <p>

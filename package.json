@@ -1,6 +1,6 @@
 {
   "name": "oci-sdk",
-  "version": "2.143.0",
+  "version": "2.144.0",
   "author": {
     "name": "Oracle Cloud Infrastructure",
     "email": ""
@@ -199,7 +199,9 @@
     "oci-clusterhealth": "file:lib/clusterhealth",
     "oci-distributeddatabase": "file:lib/distributeddatabase",
     "oci-ociproductcatalog": "file:lib/ociproductcatalog",
-    "oci-ccdoffers": "file:lib/ccdoffers"
+    "oci-ccdoffers": "file:lib/ccdoffers",
+    "oci-generativeaisandbox": "file:lib/generativeaisandbox",
+    "oci-pss": "file:lib/pss"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"

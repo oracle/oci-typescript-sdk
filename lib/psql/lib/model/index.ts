@@ -195,6 +195,8 @@ import * as UpdateReplicationConfigDetails from "./update-replication-config-det
 export import UpdateReplicationConfigDetails = UpdateReplicationConfigDetails.UpdateReplicationConfigDetails;
 import * as UpdateStorageDetailsParams from "./update-storage-details-params";
 export import UpdateStorageDetailsParams = UpdateStorageDetailsParams.UpdateStorageDetailsParams;
+import * as UpgradeDbSystemDetails from "./upgrade-db-system-details";
+export import UpgradeDbSystemDetails = UpgradeDbSystemDetails.UpgradeDbSystemDetails;
 import * as WorkRequest from "./work-request";
 export import WorkRequest = WorkRequest.WorkRequest;
 import * as WorkRequestError from "./work-request-error";

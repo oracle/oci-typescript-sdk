@@ -53,8 +53,10 @@ Example: FREQ=WEEKLY;BYDAY=MO,TU,WE,TH;BYHOUR=10;INTERVAL=1
     */
   "backupSchedule"?: string;
   /**
-   * Controls the behaviour of image replication across regions.
-   * This property applies to the OKE cluster member in primary region.
+   * Controls the behavior of image replication across regions.
+   * Image replication is enabled by default for DR Protection Groups.
+   * This setting applies to the OKE cluster member in the primary region, and to the standby region
+   * only if the image replication secret is stored in a vault instead of using the default secret.
    *
    */
   "replicateImages"?: model.OkeClusterImageReplication;

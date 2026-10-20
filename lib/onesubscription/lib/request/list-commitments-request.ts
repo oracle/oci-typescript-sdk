@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ListCommitmentsRequest extends common.BaseRequest {
   /**
-   * This param is used to get the commitments for a particular subscribed service
+   * Obtains the commitments for a particular subscribed service.
    *
    */
   "subscribedServiceId": string;

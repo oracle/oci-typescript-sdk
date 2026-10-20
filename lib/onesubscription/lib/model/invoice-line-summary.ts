@@ -16,33 +16,33 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Invoice Line
+ * Invoice line.
  *
  */
 export interface InvoiceLineSummary {
   /**
-   * SPM Invoice Line internal identifier
+   * SPM (Subscription Plan Management) invoice line internal identifier.
    *
    */
   "id": string;
   "product": model.InvoicingProduct;
   /**
-   * AR Invoice Number for Invoice Line
+   * Accounts receivable invoice number for invoice line.
    *
    */
   "arInvoiceNumber"?: string;
   /**
-   * Data Center Attribute.
+   * Data center attribute.
    *
    */
   "dataCenter": string;
   /**
-   * Usage start time
+   * Usage start time.
    *
    */
   "timeStart": Date;
   /**
-   * Usage end time
+   * Usage end time.
    *
    */
   "timeEnd": Date;

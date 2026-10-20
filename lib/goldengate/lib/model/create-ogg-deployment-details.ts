@@ -16,14 +16,17 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Deployment Data for creating an OggDeployment
+ * Deployment Data for creating an OggDeployment.
  *
  */
 export interface CreateOggDeploymentDetails {
   /**
    * The name given to the GoldenGate service deployment.
    * The name must contain only alphanumeric characters and must start with a letter.
+   * If not provided, the service derives this value from the deployment display name.
    * For standby deployment the deployment name is inherited from primary.
+   * Deprecated: This field is deprecated and will be removed after the date provided in the announcement:
+   * https://docs.oracle.com/en-us/iaas/Content/servicechanges.htm#servicechanges_topic-GoldenGate
    *
    */
   "deploymentName"?: string;

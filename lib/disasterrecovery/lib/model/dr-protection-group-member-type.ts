@@ -32,6 +32,7 @@ import common = require("oci-common");
  * - NETWORK_LOAD_BALANCER - A network load balancer.
  * - FILE_SYSTEM - A file system.
  * - MYSQL_DB_SYSTEM - A HeatWave MySQL DB system.
+ * - POSTGRESQL_DB_SYSTEM - OCI Database with PostgreSQL.
  * - INTEGRATION_INSTANCE - An integration instance (OIC).
  *
  **/
@@ -49,6 +50,7 @@ export enum DrProtectionGroupMemberType {
   OkeCluster = "OKE_CLUSTER",
   ObjectStorageBucket = "OBJECT_STORAGE_BUCKET",
   MysqlDbSystem = "MYSQL_DB_SYSTEM",
+  PostgresqlDbSystem = "POSTGRESQL_DB_SYSTEM",
   IntegrationInstance = "INTEGRATION_INSTANCE",
 
   /**

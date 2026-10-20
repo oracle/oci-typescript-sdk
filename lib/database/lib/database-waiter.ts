@@ -2192,6 +2192,32 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forCreateDatabaseSnapshot
+   *
+   * @param request the request to send
+   * @return response returns CreateDatabaseSnapshotResponse, GetWorkRequestResponse tuple
+   */
+  public async forCreateDatabaseSnapshot(
+    request: serviceRequests.CreateDatabaseSnapshotRequest
+  ): Promise<{
+    response: serviceResponses.CreateDatabaseSnapshotResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const createDatabaseSnapshotResponse = await this.client.createDatabaseSnapshot(request);
+    if (createDatabaseSnapshotResponse.opcWorkRequestId === undefined)
+      return { response: createDatabaseSnapshotResponse, workRequestResponse: undefined as any };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      createDatabaseSnapshotResponse.opcWorkRequestId
+    );
+    return {
+      response: createDatabaseSnapshotResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
    * Waits forCreateDatabaseSoftwareImage
    *
    * @param request the request to send
@@ -3168,6 +3194,32 @@ export class DatabaseWaiter {
       deleteDatabaseResponse.opcWorkRequestId
     );
     return { response: deleteDatabaseResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forDeleteDatabaseSnapshot
+   *
+   * @param request the request to send
+   * @return response returns DeleteDatabaseSnapshotResponse, GetWorkRequestResponse tuple
+   */
+  public async forDeleteDatabaseSnapshot(
+    request: serviceRequests.DeleteDatabaseSnapshotRequest
+  ): Promise<{
+    response: serviceResponses.DeleteDatabaseSnapshotResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const deleteDatabaseSnapshotResponse = await this.client.deleteDatabaseSnapshot(request);
+    if (deleteDatabaseSnapshotResponse.opcWorkRequestId === undefined)
+      return { response: deleteDatabaseSnapshotResponse, workRequestResponse: undefined as any };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      deleteDatabaseSnapshotResponse.opcWorkRequestId
+    );
+    return {
+      response: deleteDatabaseSnapshotResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
   }
 
   /**
@@ -5145,6 +5197,25 @@ export class DatabaseWaiter {
       () => this.client.getDatabase(request),
       response => targetStates.includes(response.database.lifecycleState!),
       targetStates.includes(models.Database.LifecycleState.Terminated)
+    );
+  }
+
+  /**
+   * Waits forDatabaseSnapshot till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetDatabaseSnapshotResponse | null (null in case of 404 response)
+   */
+  public async forDatabaseSnapshot(
+    request: serviceRequests.GetDatabaseSnapshotRequest,
+    ...targetStates: models.DatabaseSnapshot.LifecycleState[]
+  ): Promise<serviceResponses.GetDatabaseSnapshotResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getDatabaseSnapshot(request),
+      response => targetStates.includes(response.databaseSnapshot.lifecycleState!),
+      targetStates.includes(models.DatabaseSnapshot.LifecycleState.Terminated)
     );
   }
 

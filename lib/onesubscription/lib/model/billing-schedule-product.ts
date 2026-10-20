@@ -16,16 +16,17 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Product description
+ * Product description.
+ *
  */
 export interface BillingScheduleProduct {
   /**
-   * Indicates the associated AR Invoice Number
+   * Indicates the associated accounts receivable invoice number.
    *
    */
   "partNumber": string;
   /**
-   * Product name
+   * Product name.
    *
    */
   "name": string;

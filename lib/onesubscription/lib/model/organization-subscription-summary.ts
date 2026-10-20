@@ -16,43 +16,43 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Subscription summary
+ * Subscription summary.
  *
  */
 export interface OrganizationSubscriptionSummary {
   /**
-   * SPM internal Subscription ID
+   * SPM (Subscription Plan Management) internal subscription ID.
    *
    */
   "id": string;
   /**
-   * Customer friendly service name provided by PRG
+   * Customer-friendly service name provided by the PRG (Product Release Group).
    *
    */
   "serviceName"?: string;
   /**
-   * Subscription Type i.e. IAAS,SAAS,PAAS
+   * Subscription type, whether IaaS, SaaS, PaaS.
    *
    */
   "type"?: string;
   /**
-   * Status of the plan
+   * Plan status.
    *
    */
   "status"?: string;
   /**
-   * Represents the date when the first service of the subscription was activated
+   * The date when the first service of the subscription was activated.
    *
    */
   "timeStart"?: Date;
   /**
-   * Represents the date when the last service of the subscription ends
+   * The date when the last service of the subscription ends.
    *
    */
   "timeEnd"?: Date;
   "currency"?: model.OrgnizationSubsCurrency;
   /**
-   * Total aggregate TCLV of all lines for the subscription including expired, active, and signed
+   * Total aggregate TCLV of all lines for the subscription, including expired, active, and signed.
    *
    */
   "totalValue"?: string;

@@ -162,6 +162,8 @@ import * as CreateDataGuardAssociationResponse from "./create-data-guard-associa
 export import CreateDataGuardAssociationResponse = CreateDataGuardAssociationResponse.CreateDataGuardAssociationResponse;
 import * as CreateDatabaseResponse from "./create-database-response";
 export import CreateDatabaseResponse = CreateDatabaseResponse.CreateDatabaseResponse;
+import * as CreateDatabaseSnapshotResponse from "./create-database-snapshot-response";
+export import CreateDatabaseSnapshotResponse = CreateDatabaseSnapshotResponse.CreateDatabaseSnapshotResponse;
 import * as CreateDatabaseSoftwareImageResponse from "./create-database-software-image-response";
 export import CreateDatabaseSoftwareImageResponse = CreateDatabaseSoftwareImageResponse.CreateDatabaseSoftwareImageResponse;
 import * as CreateDbHomeResponse from "./create-db-home-response";
@@ -242,6 +244,8 @@ import * as DeleteConsoleHistoryResponse from "./delete-console-history-response
 export import DeleteConsoleHistoryResponse = DeleteConsoleHistoryResponse.DeleteConsoleHistoryResponse;
 import * as DeleteDatabaseResponse from "./delete-database-response";
 export import DeleteDatabaseResponse = DeleteDatabaseResponse.DeleteDatabaseResponse;
+import * as DeleteDatabaseSnapshotResponse from "./delete-database-snapshot-response";
+export import DeleteDatabaseSnapshotResponse = DeleteDatabaseSnapshotResponse.DeleteDatabaseSnapshotResponse;
 import * as DeleteDatabaseSoftwareImageResponse from "./delete-database-software-image-response";
 export import DeleteDatabaseSoftwareImageResponse = DeleteDatabaseSoftwareImageResponse.DeleteDatabaseSoftwareImageResponse;
 import * as DeleteDbHomeResponse from "./delete-db-home-response";
@@ -436,6 +440,8 @@ import * as GetDataGuardAssociationResponse from "./get-data-guard-association-r
 export import GetDataGuardAssociationResponse = GetDataGuardAssociationResponse.GetDataGuardAssociationResponse;
 import * as GetDatabaseResponse from "./get-database-response";
 export import GetDatabaseResponse = GetDatabaseResponse.GetDatabaseResponse;
+import * as GetDatabaseSnapshotResponse from "./get-database-snapshot-response";
+export import GetDatabaseSnapshotResponse = GetDatabaseSnapshotResponse.GetDatabaseSnapshotResponse;
 import * as GetDatabaseSoftwareImageResponse from "./get-database-software-image-response";
 export import GetDatabaseSoftwareImageResponse = GetDatabaseSoftwareImageResponse.GetDatabaseSoftwareImageResponse;
 import * as GetDatabaseUpgradeHistoryEntryResponse from "./get-database-upgrade-history-entry-response";
@@ -614,6 +620,8 @@ import * as ListContainerDatabasePatchesResponse from "./list-container-database
 export import ListContainerDatabasePatchesResponse = ListContainerDatabasePatchesResponse.ListContainerDatabasePatchesResponse;
 import * as ListDataGuardAssociationsResponse from "./list-data-guard-associations-response";
 export import ListDataGuardAssociationsResponse = ListDataGuardAssociationsResponse.ListDataGuardAssociationsResponse;
+import * as ListDatabaseSnapshotsResponse from "./list-database-snapshots-response";
+export import ListDatabaseSnapshotsResponse = ListDatabaseSnapshotsResponse.ListDatabaseSnapshotsResponse;
 import * as ListDatabaseSoftwareImagesResponse from "./list-database-software-images-response";
 export import ListDatabaseSoftwareImagesResponse = ListDatabaseSoftwareImagesResponse.ListDatabaseSoftwareImagesResponse;
 import * as ListDatabaseUpgradeHistoryEntriesResponse from "./list-database-upgrade-history-entries-response";
@@ -910,6 +918,8 @@ import * as UpdateDataGuardAssociationResponse from "./update-data-guard-associa
 export import UpdateDataGuardAssociationResponse = UpdateDataGuardAssociationResponse.UpdateDataGuardAssociationResponse;
 import * as UpdateDatabaseResponse from "./update-database-response";
 export import UpdateDatabaseResponse = UpdateDatabaseResponse.UpdateDatabaseResponse;
+import * as UpdateDatabaseSnapshotResponse from "./update-database-snapshot-response";
+export import UpdateDatabaseSnapshotResponse = UpdateDatabaseSnapshotResponse.UpdateDatabaseSnapshotResponse;
 import * as UpdateDatabaseSoftwareImageResponse from "./update-database-software-image-response";
 export import UpdateDatabaseSoftwareImageResponse = UpdateDatabaseSoftwareImageResponse.UpdateDatabaseSoftwareImageResponse;
 import * as UpdateDbHomeResponse from "./update-db-home-response";

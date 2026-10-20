@@ -97,3 +97,5 @@ import * as UpdateDbSystemRequest from "./update-db-system-request";
 export import UpdateDbSystemRequest = UpdateDbSystemRequest.UpdateDbSystemRequest;
 import * as UpdateDbSystemDbInstanceRequest from "./update-db-system-db-instance-request";
 export import UpdateDbSystemDbInstanceRequest = UpdateDbSystemDbInstanceRequest.UpdateDbSystemDbInstanceRequest;
+import * as UpgradeDbSystemRequest from "./upgrade-db-system-request";
+export import UpgradeDbSystemRequest = UpgradeDbSystemRequest.UpgradeDbSystemRequest;

@@ -2687,6 +2687,111 @@ The header contains an opc-work-request-id, which is the id for the WorkRequest 
   }
 
   /**
+   * Creates a named MANAGED or CUSTOM pool. MANAGED uses the service-provided python-3.11 runtime and requires containerImage to be omitted. CUSTOM requires a digest-pinned containerImage. Project-wide shape capacity limits include named pools of both types and reserved default pools. Type, image, shape and name are immutable. The CP atomically persists CREATING and a Work Request, then its workflow prepares an immutable pool-owned template and applies the pool configuration. Each MANAGED pool has a distinct template based on the service runtime configuration, isolated from other pools of the same shape. ACTIVE means configuration was applied and verified; it does not require ready members, a successful image boot or available cluster capacity. Zero capacity pauses idle prewarming. An ACTIVE named pool can still create Sandboxes through cold fallback when its applied template is available. Retry identity and configuration are persisted atomically. Within the 24-hour retry-token validity period, the same token and input identify the original pool id, including after name reuse. A retry never creates or selects a replacement pool. A retry after the original pool is deleted returns 409; changed input with the same token conflicts. Reserved default names cannot be reused for either type.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateSandboxWarmPoolRequest
+   * @return CreateSandboxWarmPoolResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/CreateSandboxWarmPool.ts.html |here} to see how to use CreateSandboxWarmPool API.
+   */
+  public async createSandboxWarmPool(
+    createSandboxWarmPoolRequest: requests.CreateSandboxWarmPoolRequest
+  ): Promise<responses.CreateSandboxWarmPoolResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GenerativeAiClient#createSandboxWarmPool.");
+    const operationName = "createSandboxWarmPool";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{projectId}": createSandboxWarmPoolRequest.projectId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createSandboxWarmPoolRequest.opcRequestId,
+      "opc-retry-token": createSandboxWarmPoolRequest.opcRetryToken
+    };
+
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["projectId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createSandboxWarmPoolRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/generativeAiProjects/{projectId}/sandboxWarmPools",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createSandboxWarmPoolRequest.createSandboxWarmPoolDetails,
+        "CreateSandboxWarmPoolDetails",
+        model.CreateSandboxWarmPoolDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateSandboxWarmPoolResponse>{},
+        body: await response.json(),
+        bodyKey: "sandboxWarmPool",
+        bodyModel: model.SandboxWarmPool,
+        type: "model.SandboxWarmPool",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates a SemanticStore.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -4104,6 +4209,93 @@ You can only delete clusters without attached resources. Before you delete a hos
   }
 
   /**
+   * Deletes a named MANAGED or CUSTOM pool through a CP Work Request. Reserved MANAGED default entries cannot be deleted and return 409. CP persists DELETING and closes admission as the new configuration propagates, drains idle members and deletes the pool resource. The management response does not promise immediate global admission closure or completed cleanup. Already-adopted customer Sandboxes survive and retain required template dependencies. Get and List continue to show DELETING until pool cleanup completes. The CP then records DELETED and releases the name. Name reuse always allocates a new id and materialized names. Retained templates may outlive the pool while customer Sandboxes still depend on them. A repeated delete during DELETING returns the existing Work Request. A missing name returns 404. After name reuse, the path identifies the new pool; use the original if-match ETag to prevent deleting it. Conflicting operations return 409 and stale if-match returns 412.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteSandboxWarmPoolRequest
+   * @return DeleteSandboxWarmPoolResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/DeleteSandboxWarmPool.ts.html |here} to see how to use DeleteSandboxWarmPool API.
+   */
+  public async deleteSandboxWarmPool(
+    deleteSandboxWarmPoolRequest: requests.DeleteSandboxWarmPoolRequest
+  ): Promise<responses.DeleteSandboxWarmPoolResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GenerativeAiClient#deleteSandboxWarmPool.");
+    const operationName = "deleteSandboxWarmPool";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{projectId}": deleteSandboxWarmPoolRequest.projectId,
+      "{name}": deleteSandboxWarmPoolRequest.name
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": deleteSandboxWarmPoolRequest.opcRequestId,
+      "if-match": deleteSandboxWarmPoolRequest.ifMatch
+    };
+
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["projectId", "name"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteSandboxWarmPoolRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/generativeAiProjects/{projectId}/sandboxWarmPools/{name}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteSandboxWarmPoolResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes a semanticStore.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteSemanticStoreRequest
@@ -5339,6 +5531,95 @@ You can only delete clusters without attached resources. Before you delete a hos
   }
 
   /**
+   * Gets authoritative CP configuration and management lifecycle for the current pool incarnation, including DELETING until pool cleanup completes. Returns 404 after deletion completes unless the name has been reused for a new id. A best-effort runtime observation may report ready idle capacity. A runtime read failure returns UNAVAILABLE without failing the configuration read. ACTIVE does not imply runtime capacity is ready. The configuration ETag excludes runtime changes; it must not be used to suppress runtime observations with a conditional not-modified response.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetSandboxWarmPoolRequest
+   * @return GetSandboxWarmPoolResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/GetSandboxWarmPool.ts.html |here} to see how to use GetSandboxWarmPool API.
+   */
+  public async getSandboxWarmPool(
+    getSandboxWarmPoolRequest: requests.GetSandboxWarmPoolRequest
+  ): Promise<responses.GetSandboxWarmPoolResponse> {
+    if (this.logger) this.logger.debug("Calling operation GenerativeAiClient#getSandboxWarmPool.");
+    const operationName = "getSandboxWarmPool";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{projectId}": getSandboxWarmPoolRequest.projectId,
+      "{name}": getSandboxWarmPoolRequest.name
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getSandboxWarmPoolRequest.opcRequestId
+    };
+
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["projectId", "name"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getSandboxWarmPoolRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/generativeAiProjects/{projectId}/sandboxWarmPools/{name}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetSandboxWarmPoolResponse>{},
+        body: await response.json(),
+        bodyKey: "sandboxWarmPool",
+        bodyModel: model.SandboxWarmPool,
+        type: "model.SandboxWarmPool",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets information about a semanticStore.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetSemanticStoreRequest
@@ -5907,7 +6188,8 @@ You can only delete clusters without attached resources. Before you delete a hos
       "limit": listDedicatedAiClustersRequest.limit,
       "page": listDedicatedAiClustersRequest.page,
       "sortOrder": listDedicatedAiClustersRequest.sortOrder,
-      "sortBy": listDedicatedAiClustersRequest.sortBy
+      "sortBy": listDedicatedAiClustersRequest.sortBy,
+      "capacityReservationId": listDedicatedAiClustersRequest.capacityReservationId
     };
 
     let headerParams = {
@@ -5958,6 +6240,101 @@ You can only delete clusters without attached resources. Before you delete a hos
         bodyKey: "dedicatedAiClusterCollection",
         bodyModel: model.DedicatedAiClusterCollection,
         type: "model.DedicatedAiClusterCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists the allocatable GPUs for launching dedicated AI clusters tied to a specific capacity reservation id.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListDedicatedAiClustersAllocatableGpusRequest
+   * @return ListDedicatedAiClustersAllocatableGpusResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/ListDedicatedAiClustersAllocatableGpus.ts.html |here} to see how to use ListDedicatedAiClustersAllocatableGpus API.
+   */
+  public async listDedicatedAiClustersAllocatableGpus(
+    listDedicatedAiClustersAllocatableGpusRequest: requests.ListDedicatedAiClustersAllocatableGpusRequest
+  ): Promise<responses.ListDedicatedAiClustersAllocatableGpusResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation GenerativeAiClient#listDedicatedAiClustersAllocatableGpus."
+      );
+    const operationName = "listDedicatedAiClustersAllocatableGpus";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listDedicatedAiClustersAllocatableGpusRequest.compartmentId,
+      "capacityReservationId": listDedicatedAiClustersAllocatableGpusRequest.capacityReservationId,
+      "computeShape": listDedicatedAiClustersAllocatableGpusRequest.computeShape,
+      "limit": listDedicatedAiClustersAllocatableGpusRequest.limit,
+      "page": listDedicatedAiClustersAllocatableGpusRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listDedicatedAiClustersAllocatableGpusRequest.opcRequestId
+    };
+
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["compartmentId", "capacityReservationId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDedicatedAiClustersAllocatableGpusRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dedicatedAiClusters/allocatableGpus",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListDedicatedAiClustersAllocatableGpusResponse>{},
+        body: await response.json(),
+        bodyKey: "allocatableGpuCollection",
+        bodyModel: model.AllocatableGpuCollection,
+        type: "model.AllocatableGpuCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -7026,6 +7403,103 @@ You can only delete clusters without attached resources. Before you delete a hos
         bodyKey: "routingProfileCollection",
         bodyModel: model.RoutingProfileCollection,
         type: "model.RoutingProfileCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists named MANAGED and CUSTOM pools for Sandbox-enabled Projects, including zero targets and in-progress management operations. Reserved defaults can be resized but cannot be created or deleted by customers. DELETED resources are excluded. Responses include CP management lifecycle but do not perform runtime reads or return ready capacity.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListSandboxWarmPoolsRequest
+   * @return ListSandboxWarmPoolsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/ListSandboxWarmPools.ts.html |here} to see how to use ListSandboxWarmPools API.
+   */
+  public async listSandboxWarmPools(
+    listSandboxWarmPoolsRequest: requests.ListSandboxWarmPoolsRequest
+  ): Promise<responses.ListSandboxWarmPoolsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GenerativeAiClient#listSandboxWarmPools.");
+    const operationName = "listSandboxWarmPools";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{projectId}": listSandboxWarmPoolsRequest.projectId
+    };
+
+    const queryParams = {
+      "limit": listSandboxWarmPoolsRequest.limit,
+      "page": listSandboxWarmPoolsRequest.page,
+      "name": listSandboxWarmPoolsRequest.name,
+      "type": listSandboxWarmPoolsRequest.type,
+      "shape": listSandboxWarmPoolsRequest.shape,
+      "sortBy": listSandboxWarmPoolsRequest.sortBy,
+      "sortOrder": listSandboxWarmPoolsRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listSandboxWarmPoolsRequest.opcRequestId
+    };
+
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["projectId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSandboxWarmPoolsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/generativeAiProjects/{projectId}/sandboxWarmPools",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListSandboxWarmPoolsResponse>{},
+        body: await response.json(),
+        bodyKey: "sandboxWarmPoolCollection",
+        bodyModel: model.SandboxWarmPoolCollection,
+        type: "model.SandboxWarmPoolCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -9059,6 +9533,107 @@ You can only delete clusters without attached resources. Before you delete a hos
           {
             value: response.headers.get("etag"),
             key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Only desiredCapacity may change. If desiredCapacity is omitted, the current desired capacity is preserved. An empty update object is allowed; an explicit null value for desiredCapacity is not allowed. Named MANAGED and CUSTOM pools and reserved MANAGED defaults can be resized. Default-pool updates use the existing Project configuration workflow; no separate desired configuration is created for those entries. CP persists UPDATING and a Work Request, applies the desired replica count, then returns the pool to ACTIVE after verifying the configuration. The workflow does not wait for ready members. Zero pauses idle prewarming. Once the pool is ACTIVE, named-pool Sandbox creation can still cold-start from its available applied template when no eligible warm member is available, regardless of the capacity target. Already-admitted Sandboxes continue. Unnamed Sandbox creation retains its existing behavior. Concurrent management operations return 409. If provided, if-match must match the current configuration ETag; otherwise this operation returns 412.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateSandboxWarmPoolRequest
+   * @return UpdateSandboxWarmPoolResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/generativeai/UpdateSandboxWarmPool.ts.html |here} to see how to use UpdateSandboxWarmPool API.
+   */
+  public async updateSandboxWarmPool(
+    updateSandboxWarmPoolRequest: requests.UpdateSandboxWarmPoolRequest
+  ): Promise<responses.UpdateSandboxWarmPoolResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GenerativeAiClient#updateSandboxWarmPool.");
+    const operationName = "updateSandboxWarmPool";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{projectId}": updateSandboxWarmPoolRequest.projectId,
+      "{name}": updateSandboxWarmPoolRequest.name
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateSandboxWarmPoolRequest.opcRequestId,
+      "if-match": updateSandboxWarmPoolRequest.ifMatch
+    };
+
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["projectId", "name"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateSandboxWarmPoolRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/generativeAiProjects/{projectId}/sandboxWarmPools/{name}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateSandboxWarmPoolRequest.updateSandboxWarmPoolDetails,
+        "UpdateSandboxWarmPoolDetails",
+        model.UpdateSandboxWarmPoolDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateSandboxWarmPoolResponse>{},
+        body: await response.json(),
+        bodyKey: "sandboxWarmPool",
+        bodyModel: model.SandboxWarmPool,
+        type: "model.SandboxWarmPool",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           }
         ]
