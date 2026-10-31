@@ -6,6 +6,9 @@
 import { expect } from "chai";
 import path from "path";
 import { DefaultRequestSigner, SignerRequest } from "../lib/signer";
+import { getSignerAndReqBody, isBodyEmpty } from "../lib/helper";
+import { isEmpty } from "../lib/utils";
+import { Readable } from "stream";
 import { ConfigFileAuthenticationDetailsProvider } from "../lib/auth/config-file-auth";
 import { HttpRequest } from "../lib/http-request";
 
@@ -140,8 +143,62 @@ describe("Signer and header helpers", () => {
         await signer.signHttpRequest(request);
         expect.fail("Expected signing to reject an invalid request URI");
       } catch (error) {
-        expect(error.message).to.equal("Cannot parse host from url");
+        expect((error as any).message).to.equal("Cannot parse host from url");
       }
     }
   });
+
+  describe("getSignerAndReqBody and isEmpty Buffer handling", () => {
+    it("should correctly check emptiness without enumerating Buffer keys", () => {
+      expect(isEmpty(Buffer.alloc(0))).to.be.true;
+      expect(isEmpty(Buffer.from("data"))).to.be.false;
+      expect(isEmpty(new Uint8Array(0))).to.be.true;
+      expect(isEmpty(new Uint8Array([1, 2, 3]))).to.be.false;
+      expect(isEmpty({})).to.be.true;
+      expect(isEmpty({ key: "val" })).to.be.false;
+      expect(isEmpty(null)).to.be.true;
+      expect(isEmpty(undefined)).to.be.true;
+    });
+
+    it("should handle empty Buffer in getSignerAndReqBody", () => {
+      const res = getSignerAndReqBody(Buffer.alloc(0));
+      expect(res.signerBody).to.be.undefined;
+      expect(res.requestBody).to.be.undefined;
+    });
+
+    it("should handle Buffer body with forceExcludeBody true without OOM", () => {
+      // 5 MB buffer should process in under 100ms and not exhaust heap
+      const buf = Buffer.alloc(5 * 1024 * 1024, 0x41);
+      const start = Date.now();
+      const res = getSignerAndReqBody(buf, true);
+      const elapsed = Date.now() - start;
+
+      expect(res.signerBody).to.be.undefined;
+      expect(res.requestBody).to.equal(buf);
+      expect(elapsed).to.be.lessThan(500);
+    });
+
+    it("should handle Buffer body with forceExcludeBody false", () => {
+      const buf = Buffer.from("binary payload");
+      const res = getSignerAndReqBody(buf, false);
+      expect(res.signerBody).to.equal(buf);
+      expect(res.requestBody).to.equal(buf);
+    });
+
+    it("should handle string and stream bodies correctly", () => {
+      const emptyStr = getSignerAndReqBody("");
+      expect(emptyStr.signerBody).to.be.undefined;
+      expect(emptyStr.requestBody).to.be.undefined;
+
+      const strRes = getSignerAndReqBody("string content");
+      expect(strRes.signerBody).to.equal("string content");
+      expect(strRes.requestBody).to.equal("string content");
+
+      const stream = new Readable({ read() {} });
+      const streamRes = getSignerAndReqBody(stream);
+      expect(streamRes.signerBody).to.exist;
+      expect(streamRes.requestBody).to.exist;
+    });
+  });
+
 });
