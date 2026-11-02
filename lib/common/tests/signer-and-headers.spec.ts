@@ -40,6 +40,18 @@ describe("Signer and header helpers", () => {
     });
   }
 
+  function useDeterministicUuid(modulePath: string) {
+    crypto.randomFillSync = (buffer: Uint8Array) => {
+      for (let i = 0; i < buffer.length; i++) {
+        buffer[i] = i;
+      }
+      return buffer;
+    };
+    Date.now = () => 1577836800000;
+    clearModule(modulePath);
+    clearUuidModules();
+  }
+
   function createSigner() {
     const provider = new ConfigFileAuthenticationDetailsProvider(TEST_CONFIG_PATH);
     provider.getPrivateKey = () => TEST_PRIVATE_KEY;
@@ -48,21 +60,23 @@ describe("Signer and header helpers", () => {
   }
 
   it("should generate the expected opc-request-id from uuid v1", function() {
-    crypto.randomFillSync = (buffer: Uint8Array) => {
-      for (let i = 0; i < buffer.length; i++) {
-        buffer[i] = i;
-      }
-      return buffer;
-    };
-    Date.now = () => 1577836800000;
-    clearModule("../lib/headers");
-    clearUuidModules();
+    useDeterministicUuid("../lib/headers");
 
     const { addOpcRequestId } = require("../lib/headers");
     const headers = new Headers();
     addOpcRequestId(headers);
 
     expect(headers.get("opc-request-id")).to.equal("A747C0002C29-11EA-8809-0B0B0C0D0E0F");
+  });
+
+  it("should generate the expected opc-retry-token from uuid v1", function() {
+    useDeterministicUuid("../lib/retry-token-header");
+
+    const { addRetryToken } = require("../lib/retry-token-header");
+    const headers = new Headers();
+    addRetryToken(headers);
+
+    expect(headers.get("opc-retry-token")).to.equal("a747c000-2c29-11ea-8809-0b0b0c0d0e0f");
   });
 
   it("should generate the expected x-content-sha256 for a JSON request body", async function() {

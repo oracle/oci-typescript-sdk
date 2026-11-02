@@ -6,7 +6,7 @@
  * which needs to be incorporated when we add retry strategy.
  */
 
-const uuid: { v1(): string } = require("uuid");
+import { v1 as uuidv1 } from "uuid";
 
 export const OPC_RETRY_TOKEN_HEADER: string = "opc-retry-token";
 
@@ -25,5 +25,5 @@ function hasRetryToken(headers: Headers) {
 }
 
 function generateRetryToken() {
-  return uuid.v1();
+  return uuidv1();
 }

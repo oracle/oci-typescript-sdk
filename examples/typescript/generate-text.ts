@@ -72,7 +72,7 @@ import * as readline from "readline";
 
     if (major >= 18) {
       // If node version is above 18
-      const readablestream = (await client.generateText(req_body)) as ReadableStream<Uint8Array>;
+      const readablestream = (await client.generateText(req_body)) as ReadableStream<BufferSource>;
       const reader = readablestream.pipeThrough(new TextDecoderStream()).getReader();
       let streamData = "";
       while (true) {

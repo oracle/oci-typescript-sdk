@@ -71,10 +71,10 @@ export default class InstancePrincipalsAuthenticationDetailsProviderBuilder exte
   }
 
   set federationEndpoint(federationEndpoint: string) {
-    super._federationEndpoint = federationEndpoint;
+    this._federationEndpoint = federationEndpoint;
   }
 
   set leafCertificateSupplier(leafCertificateSupplier: X509CertificateSupplier) {
-    super._leafCertificateSupplier = leafCertificateSupplier;
+    this._leafCertificateSupplier = leafCertificateSupplier;
   }
 }

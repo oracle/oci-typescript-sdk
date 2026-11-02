@@ -17,11 +17,7 @@ interface hasStart {
 
 type Request = hasPage | hasStart;
 
-async function* genericPaginate<
-  ListRequest extends hasLimit,
-  ListResponse,
-  TResult extends { items?: []; listObjects?: { objects?: [] } }
->(
+async function* genericPaginate<ListRequest, ListResponse, TResult>(
   request: ListRequest,
   listCall: (request: ListRequest) => Promise<ListResponse>,
   getNextPageToken: (response: ListResponse) => string | undefined,
@@ -30,13 +26,14 @@ async function* genericPaginate<
   limitedRecord?: number
 ): AsyncIterableIterator<TResult> {
   let iteration = 0;
-  const pageSize = request.limit || 0;
+  const requestWithLimit = request as ListRequest & hasLimit;
+  const pageSize = requestWithLimit.limit || 0;
   if (limitedRecord && pageSize) {
     // We don't want to request a page size bigger than limitedRecord
-    request.limit = Math.min(limitedRecord, pageSize);
+    requestWithLimit.limit = Math.min(limitedRecord, pageSize);
   } else if (limitedRecord) {
     // If we do not have a page size, but we do have a limitedRecord, we will set page size = limitedRecord
-    request.limit = limitedRecord;
+    requestWithLimit.limit = limitedRecord;
   }
 
   while (true) {
@@ -45,19 +42,23 @@ async function* genericPaginate<
 
     //  If our request pageSize is bigger than the remaining records we need
     //  Set pageSize to the recordsRemaining to not retrieve more than necessary.
-    if (request.limit && limitedRecord) {
+    if (requestWithLimit.limit && limitedRecord) {
       let recordsRemaining = limitedRecord - iteration;
-      if (request.limit > recordsRemaining) {
-        request.limit = recordsRemaining;
+      if (requestWithLimit.limit > recordsRemaining) {
+        requestWithLimit.limit = recordsRemaining;
       }
     }
 
     const response = await listCall(request);
     for (const result of getResults(response)) {
-      if (result.items && result.items.length > 0) {
-        iteration += result.items.length;
-      } else if (result.listObjects && result.listObjects.objects) {
-        iteration += result.listObjects.objects.length;
+      const resultWithItems = result as TResult & {
+        items?: unknown[];
+        listObjects?: { objects?: unknown[] };
+      };
+      if (resultWithItems.items && resultWithItems.items.length > 0) {
+        iteration += resultWithItems.items.length;
+      } else if (resultWithItems.listObjects && resultWithItems.listObjects.objects) {
+        iteration += resultWithItems.listObjects.objects.length;
       } else {
         iteration++;
       }
