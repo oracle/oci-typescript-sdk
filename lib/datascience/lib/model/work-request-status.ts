@@ -23,6 +23,7 @@ export enum WorkRequestStatus {
   InProgress = "IN_PROGRESS",
   Failed = "FAILED",
   Succeeded = "SUCCEEDED",
+  PartiallySucceeded = "PARTIALLY_SUCCEEDED",
   Canceling = "CANCELING",
   Canceled = "CANCELED",
 

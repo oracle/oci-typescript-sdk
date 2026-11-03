@@ -86,6 +86,33 @@ Example: {@code ocid1.containerrepo.oc1..exampleuniqueID}
    */
   "namespace": string;
   /**
+   * The type of container repository. This determines the repository behavior and required settings.
+   */
+  "repositoryType"?: ContainerRepository.RepositoryType;
+  /**
+   * Whether the repository is top-level. A top-level repository reserves its name in namespace as a prefix and allows images to be hosted under child paths of that prefix.
+   */
+  "isTopLevel"?: boolean;
+  /**
+   * The upstream registry URL for a pull-through cache repository.
+   */
+  "upstreamUrl"?: string;
+  /**
+   * The upstream registry username for a pull-through cache repository.
+   */
+  "upstreamUsername"?: string;
+  /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the OCI Vault secret that contains the upstream registry password as base64 encoded string for a pull-through cache repository.
+   *
+   */
+  "upstreamSecretId"?: string;
+  /**
+   * List of peer regions that define the multi-region group. Peer regions must be specified using canonical region names (for example, us-phoenix-1).
+   * The peer set must match a supported multi-region endpoint group and MUST include the local OCIR region where the repository is created.
+   *
+   */
+  "multiRegionPeers"?: Array<string>;
+  /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no
 * predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
@@ -114,6 +141,17 @@ export namespace ContainerRepository {
     Available = "AVAILABLE",
     Deleting = "DELETING",
     Deleted = "DELETED",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum RepositoryType {
+    Standard = "STANDARD",
+    PullThrough = "PULL_THROUGH",
+    MultiRegion = "MULTI_REGION",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

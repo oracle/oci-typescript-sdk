@@ -1794,6 +1794,8 @@ export class ArtifactsClient {
       "compartmentId": listContainerRepositoriesRequest.compartmentId,
       "repositoryId": listContainerRepositoriesRequest.repositoryId,
       "displayName": listContainerRepositoriesRequest.displayName,
+      "repositoryType": listContainerRepositoriesRequest.repositoryType,
+      "isTopLevel": listContainerRepositoriesRequest.isTopLevel,
       "isPublic": listContainerRepositoriesRequest.isPublic,
       "lifecycleState": listContainerRepositoriesRequest.lifecycleState,
       "limit": listContainerRepositoriesRequest.limit,

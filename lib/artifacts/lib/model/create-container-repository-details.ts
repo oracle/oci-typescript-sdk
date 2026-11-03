@@ -35,7 +35,45 @@ export interface CreateContainerRepositoryDetails {
    */
   "displayName": string;
   /**
-   * Whether the repository is immutable. Images cannot be overwritten in an immutable repository.
+   * The type of container repository. This determines the repository behavior and required settings.
+   */
+  "repositoryType"?: string;
+  /**
+   * Whether the repository is top-level. A top-level repository reserves its name in namespace as a prefix and allows images to be hosted under child paths of that prefix.
+   */
+  "isTopLevel"?: boolean;
+  /**
+    * The upstream registry URL for a pull-through cache repository. Required when repositoryType is PULL_THROUGH.
+* The value must include the registry endpoint and repository path, and must not include a tag or digest.
+* <p>
+If isTopLevel is false, the value must be an exact upstream image full path.
+* Example: {@code iad.ocir.io/<upstreamNamespace>/library/ubuntu}
+* <p>
+If isTopLevel is true, the value must be an upstream repository path prefix, allowing OCIR to pull multiple repositories under that prefix.
+* Example: {@code iad.ocir.io/<upstreamNamespace>/library} or {@code iad.ocir.io/<upstreamNamespace>}
+* 
+    */
+  "upstreamUrl"?: string;
+  /**
+   * The upstream registry username for a pull-through cache repository. Required when repositoryType is PULL_THROUGH.
+   */
+  "upstreamUsername"?: string;
+  /**
+    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the OCI Vault secret that contains the upstream registry password as base64 encoded string for a pull-through cache repository. Required when repositoryType is PULL_THROUGH.
+* <p>
+Example: {@code ocid1.vaultsecret.oc1..exampleuniqueID}
+* 
+    */
+  "upstreamSecretId"?: string;
+  /**
+   * List of peer regions that define the multi-region group. Peer regions must be specified using canonical region names (for example, {@code us-phoenix-1}).
+   * The peer set must match a supported multi-region endpoint group and MUST include the local OCIR region where the repository is created.
+   * Required when repositoryType is MULTI_REGION.
+   *
+   */
+  "multiRegionPeers"?: Array<string>;
+  /**
+   * Whether the repository is immutable. Images cannot be overwritten in an immutable repository. Currently, setting this flag is not supported yet and is set to false by default.
    */
   "isImmutable"?: boolean;
   /**
