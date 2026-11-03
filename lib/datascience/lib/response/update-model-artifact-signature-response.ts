@@ -27,12 +27,6 @@ export interface UpdateModelArtifactSignatureResponse {
    */
   "opcRequestId": string;
   /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/API/Concepts/identifiers.htm) of the work request. Use [GetWorkRequest](https://docs.oracle.com/iaas/api/#/en/workrequests/20160918/WorkRequest/GetWorkRequest)
-   * with this ID to track the status of the request.
-   *
-   */
-  "opcWorkRequestId": string;
-  /**
    * The returned model.ModelArtifactSignature instance.
    */
   "modelArtifactSignature": model.ModelArtifactSignature;

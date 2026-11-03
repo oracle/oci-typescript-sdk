@@ -41,6 +41,14 @@ Example: {@code ocid1.containerrepo.oc1..exampleuniqueID}
     */
   "id": string;
   /**
+   * The type of container repository. This determines the repository behavior and required settings.
+   */
+  "repositoryType"?: string;
+  /**
+   * Whether the repository is top-level. A top-level repository reserves its name in namespace as a prefix and allows images to be hosted under child paths of that prefix.
+   */
+  "isTopLevel"?: boolean;
+  /**
    * Total number of images. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "imageCount": number;

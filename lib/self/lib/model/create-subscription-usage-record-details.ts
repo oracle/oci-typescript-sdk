@@ -29,6 +29,10 @@ export interface CreateSubscriptionUsageRecordDetails {
    */
   "marketplaceOfferId": string;
   /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the listing that generated this usage.
+   */
+  "listingId": string;
+  /**
    * The billing type this usage record applies to.
    */
   "billingType"?: CreateSubscriptionUsageRecordDetails.BillingType;

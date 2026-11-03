@@ -25,7 +25,7 @@ export interface SubmitSubscriptionUsageBatchRequest extends common.BaseRequest 
   "compartmentId": string;
   /**
    * UTF-8 CSV file with no more than 30,000 usage records and a maximum size of 50 MB.
-   * Required columns are {@code MarketplaceOfferId}, {@code Id}, {@code Amount}, {@code CurrencyCode},
+   * Required columns are {@code MarketplaceOfferId}, {@code ListingId}, {@code Id}, {@code Amount}, {@code CurrencyCode},
    * {@code UsageStartTime}, {@code UsageEndTime}, and {@code UsageDimensionName}.
    * Optional columns are {@code ConsumedQuantity}, {@code CustomerTenancyId},
    * {@code BillingIdentifier}, {@code ProductSku}, {@code UnitOfMeasure}, {@code UnitPrice},

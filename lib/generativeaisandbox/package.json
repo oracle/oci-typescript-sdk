@@ -1,6 +1,6 @@
 {
   "name": "oci-generativeaisandbox",
-  "version": "2.144.0",
+  "version": "2.145.0",
   "description": "OCI NodeJS client for Generative Ai Sandbox Service",
   "repository": {
     "type": "git",
