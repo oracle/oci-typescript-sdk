@@ -33,6 +33,15 @@ export interface UpdateContainerRepositoryDetails {
    * Whether the repository is public. A public repository allows unauthenticated access.
    */
   "isPublic"?: boolean;
+  /**
+   * The upstream registry username for a pull-through cache repository.
+   */
+  "upstreamUsername"?: string;
+  /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the OCI Vault secret that contains the upstream registry password as base64 encoded string for a pull-through cache repository
+   *
+   */
+  "upstreamSecretId"?: string;
   "readme"?: model.ContainerRepositoryReadme;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no

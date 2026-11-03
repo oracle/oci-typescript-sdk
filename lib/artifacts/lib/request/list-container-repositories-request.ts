@@ -42,6 +42,16 @@ export interface ListContainerRepositoriesRequest extends common.BaseRequest {
    */
   "displayName"?: string;
   /**
+   * A filter to return only resources that match the given repository type exactly.
+   *
+   */
+  "repositoryType"?: string;
+  /**
+   * A filter to return resources that match the isTopLevel value.
+   *
+   */
+  "isTopLevel"?: boolean;
+  /**
    * A filter to return resources that match the isPublic value.
    *
    */

@@ -15002,11 +15002,6 @@ export class DataScienceClient {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
             dataType: "string"
-          },
-          {
-            value: response.headers.get("opc-work-request-id"),
-            key: "opcWorkRequestId",
-            dataType: "string"
           }
         ]
       });
