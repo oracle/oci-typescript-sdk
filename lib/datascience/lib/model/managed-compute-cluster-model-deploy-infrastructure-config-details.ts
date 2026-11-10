@@ -28,6 +28,9 @@ export interface ManagedComputeClusterModelDeployInfrastructureConfigDetails
   "scalingPolicy"?:
     | model.ManagedComputeClusterWorkloadAutoScalingPolicy
     | model.ManagedComputeClusterWorkloadFixedSizeScalingPolicy;
+  "networkConfiguration"?:
+    | model.ManagedComputeClusterModelDeploymentCustomNetworkConfiguration
+    | model.ManagedComputeClusterModelDeploymentDefaultNetworkConfiguration;
 
   "infrastructureType": string;
 }
@@ -51,6 +54,11 @@ export namespace ManagedComputeClusterModelDeployInfrastructureConfigDetails {
           : undefined,
         "scalingPolicy": obj.scalingPolicy
           ? model.ManagedComputeClusterWorkloadScalingPolicy.getJsonObj(obj.scalingPolicy)
+          : undefined,
+        "networkConfiguration": obj.networkConfiguration
+          ? model.ManagedComputeClusterModelDeploymentNetworkConfiguration.getJsonObj(
+              obj.networkConfiguration
+            )
           : undefined
       }
     };
@@ -77,6 +85,11 @@ export namespace ManagedComputeClusterModelDeployInfrastructureConfigDetails {
         "scalingPolicy": obj.scalingPolicy
           ? model.ManagedComputeClusterWorkloadScalingPolicy.getDeserializedJsonObj(
               obj.scalingPolicy
+            )
+          : undefined,
+        "networkConfiguration": obj.networkConfiguration
+          ? model.ManagedComputeClusterModelDeploymentNetworkConfiguration.getDeserializedJsonObj(
+              obj.networkConfiguration
             )
           : undefined
       }

@@ -22,18 +22,40 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * SPLAT authorization alias for Compute instance operations that use the downstream instances resource kind.
+ * One concrete candidate inside an override statement.
+ *
  */
-export interface Instances {}
+export interface InstancePoolLaunchOverrideOption {
+  /**
+   * A user-friendly name for the override option.
+   *
+   */
+  "name": string;
+  "override": model.InstancePoolLaunchOverrideDetails;
+}
 
-export namespace Instances {
-  export function getJsonObj(obj: Instances): object {
-    const jsonObj = { ...obj, ...{} };
+export namespace InstancePoolLaunchOverrideOption {
+  export function getJsonObj(obj: InstancePoolLaunchOverrideOption): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "override": obj.override
+          ? model.InstancePoolLaunchOverrideDetails.getJsonObj(obj.override)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
-  export function getDeserializedJsonObj(obj: Instances): object {
-    const jsonObj = { ...obj, ...{} };
+  export function getDeserializedJsonObj(obj: InstancePoolLaunchOverrideOption): object {
+    const jsonObj = {
+      ...obj,
+      ...{
+        "override": obj.override
+          ? model.InstancePoolLaunchOverrideDetails.getDeserializedJsonObj(obj.override)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

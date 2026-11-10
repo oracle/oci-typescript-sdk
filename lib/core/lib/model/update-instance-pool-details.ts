@@ -23,6 +23,10 @@ import common = require("oci-common");
 
 /**
  * The data to update an instance pool.
+ * If {@code overridePolicy} is omitted, the stored launch override policy remains unchanged.
+ * A non-null {@code overridePolicy} replaces the stored policy as a whole, and {@code null}
+ * clears it for future launches.
+ *
  */
 export interface UpdateInstancePoolDetails {
   /**
@@ -73,6 +77,7 @@ To determine whether capacity is available for a specific shape before you resiz
 *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "size"?: number;
+  "overridePolicy"?: model.InstancePoolLaunchOverridePolicy;
   /**
    * A user-friendly formatter for the instance pool's instances. Instance displaynames follow the format.
    * The formatter does not retroactively change instance's displaynames, only instance displaynames in the future follow the format
@@ -99,6 +104,10 @@ export namespace UpdateInstancePoolDetails {
             })
           : undefined,
 
+        "overridePolicy": obj.overridePolicy
+          ? model.InstancePoolLaunchOverridePolicy.getJsonObj(obj.overridePolicy)
+          : undefined,
+
         "lifecycleManagement": obj.lifecycleManagement
           ? model.InstancePoolLifecycleManagementDetails.getJsonObj(obj.lifecycleManagement)
           : undefined
@@ -117,6 +126,10 @@ export namespace UpdateInstancePoolDetails {
                 item
               );
             })
+          : undefined,
+
+        "overridePolicy": obj.overridePolicy
+          ? model.InstancePoolLaunchOverridePolicy.getDeserializedJsonObj(obj.overridePolicy)
           : undefined,
 
         "lifecycleManagement": obj.lifecycleManagement

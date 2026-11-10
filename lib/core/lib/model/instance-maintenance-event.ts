@@ -221,6 +221,7 @@ export namespace InstanceMaintenanceEvent {
 
   export enum LifecycleState {
     Scheduled = "SCHEDULED",
+    Queued = "QUEUED",
     Started = "STARTED",
     Processing = "PROCESSING",
     Succeeded = "SUCCEEDED",

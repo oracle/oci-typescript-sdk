@@ -25,6 +25,8 @@ import common = require("oci-common");
  * The data to create an instance pool.
  * For a GMC-enabled resource pool, the referenced instance configuration must be a GMC configuration and
  * the placement configuration must identify the availability domain and compute cluster for the pool.
+ * Optionally include {@code overridePolicy} to define availability domain-scoped
+ * launch overrides for future launches. Existing pool members are not modified.
  *
  */
 export interface CreateInstancePoolDetails {
@@ -83,6 +85,7 @@ To use the instance pool with a regional subnet, provide a placement configurati
    *
    */
   "loadBalancers"?: Array<model.AttachLoadBalancerDetails>;
+  "overridePolicy"?: model.InstancePoolLaunchOverridePolicy;
   /**
    * A user-friendly formatter for the instance pool's instances. Instance displaynames follow the format.
    * The formatter does not retroactively change instance's displaynames, only instance displaynames in the future follow the format
@@ -114,6 +117,9 @@ export namespace CreateInstancePoolDetails {
               return model.AttachLoadBalancerDetails.getJsonObj(item);
             })
           : undefined,
+        "overridePolicy": obj.overridePolicy
+          ? model.InstancePoolLaunchOverridePolicy.getJsonObj(obj.overridePolicy)
+          : undefined,
 
         "lifecycleManagement": obj.lifecycleManagement
           ? model.InstancePoolLifecycleManagementDetails.getJsonObj(obj.lifecycleManagement)
@@ -139,6 +145,9 @@ export namespace CreateInstancePoolDetails {
           ? obj.loadBalancers.map(item => {
               return model.AttachLoadBalancerDetails.getDeserializedJsonObj(item);
             })
+          : undefined,
+        "overridePolicy": obj.overridePolicy
+          ? model.InstancePoolLaunchOverridePolicy.getDeserializedJsonObj(obj.overridePolicy)
           : undefined,
 
         "lifecycleManagement": obj.lifecycleManagement

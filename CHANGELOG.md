@@ -4,6 +4,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
+## 2.146.0 - 2026-11-10
+### Added 
+- Support for Service Managed OKE (SM-OKE) enhancements in the Data Science service 
+- Support for job run and pipeline run retention periods and per-run retention overrides in the Data Science service 
+- Support for instance pool launch overrides for shapes, shape configurations, and capacity reservations with ordered fallback in the Compute service 
+- Support for explicit risk acknowledgement when using older allowed Database, Grid Infrastructure, and Guest VM OS versions in the Exadata Fleet Update service  
+
+### Breaking Changes 
+- The `Instances` interface and namespace have been removed from the Compute service
+
 ## 2.145.0 - 2026-11-03
 ### Added 
 - Support for pull-through caching of container images in the Container Registry service 

@@ -22,6 +22,13 @@ import common = require("oci-common");
  */
 export interface FsuGoalVersionDetails {
   /**
+   * Indicates whether the customer acknowledged the risk of selecting an older eligible software version
+   * for this Exadata Fleet Update Cycle. This value is used for downstream
+   * Database service APIs that requires older-version acknowledgement.
+   *
+   */
+  "isOlderVersionAcknowledged"?: boolean;
+  /**
    * Goal home policy to use when Staging the Goal Version during patching.
    * CREATE_NEW: Create a new DBHome (for Database Collections) for the specified image or version.
    * USE_EXISTING: All database targets in the same VMCluster or CloudVmCluster will be moved to a shared database home.

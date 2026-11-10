@@ -55,6 +55,10 @@ export interface JobRun {
    * A user-friendly display name for the resource.
    */
   "displayName"?: string;
+  /**
+   * Retention period in days for job run. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "jobRunRetentionPeriodInDaysOverride"?: number;
   "jobConfigurationOverrideDetails":
     | model.EmptyJobConfigurationDetails
     | model.DefaultJobConfigurationDetails;
