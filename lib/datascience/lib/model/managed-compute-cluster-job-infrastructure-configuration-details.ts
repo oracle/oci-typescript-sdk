@@ -25,6 +25,9 @@ export interface ManagedComputeClusterJobInfrastructureConfigurationDetails
    */
   "computeTargetId": string;
   "resourceConfiguration": model.ManagedComputeClusterJobResourceConfiguration;
+  "networkConfiguration"?:
+    | model.ManagedComputeClusterJobDefaultNetworkConfiguration
+    | model.ManagedComputeClusterJobCustomNetworkConfiguration;
 
   "jobInfrastructureType": string;
 }
@@ -45,6 +48,9 @@ export namespace ManagedComputeClusterJobInfrastructureConfigurationDetails {
           ? model.ManagedComputeClusterJobResourceConfiguration.getJsonObj(
               obj.resourceConfiguration
             )
+          : undefined,
+        "networkConfiguration": obj.networkConfiguration
+          ? model.ManagedComputeClusterJobNetworkConfiguration.getJsonObj(obj.networkConfiguration)
           : undefined
       }
     };
@@ -66,6 +72,11 @@ export namespace ManagedComputeClusterJobInfrastructureConfigurationDetails {
         "resourceConfiguration": obj.resourceConfiguration
           ? model.ManagedComputeClusterJobResourceConfiguration.getDeserializedJsonObj(
               obj.resourceConfiguration
+            )
+          : undefined,
+        "networkConfiguration": obj.networkConfiguration
+          ? model.ManagedComputeClusterJobNetworkConfiguration.getDeserializedJsonObj(
+              obj.networkConfiguration
             )
           : undefined
       }
