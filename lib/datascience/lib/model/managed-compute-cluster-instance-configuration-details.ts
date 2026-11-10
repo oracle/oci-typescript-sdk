@@ -32,6 +32,9 @@ export interface ManagedComputeClusterInstanceConfigurationDetails {
    */
   "bootVolumeSizeInGBs"?: number;
   "instanceShapeDetails"?: model.ManagedComputeClusterInstanceShapeDetails;
+  "networkConfigurationDetails"?:
+    | model.ManagedComputeClusterDefaultNetworkConfigurationDetails
+    | model.ManagedComputeClusterCustomNetworkConfigurationDetails;
 }
 
 export namespace ManagedComputeClusterInstanceConfigurationDetails {
@@ -41,6 +44,11 @@ export namespace ManagedComputeClusterInstanceConfigurationDetails {
       ...{
         "instanceShapeDetails": obj.instanceShapeDetails
           ? model.ManagedComputeClusterInstanceShapeDetails.getJsonObj(obj.instanceShapeDetails)
+          : undefined,
+        "networkConfigurationDetails": obj.networkConfigurationDetails
+          ? model.ManagedComputeClusterNetworkConfigurationDetails.getJsonObj(
+              obj.networkConfigurationDetails
+            )
           : undefined
       }
     };
@@ -56,6 +64,11 @@ export namespace ManagedComputeClusterInstanceConfigurationDetails {
         "instanceShapeDetails": obj.instanceShapeDetails
           ? model.ManagedComputeClusterInstanceShapeDetails.getDeserializedJsonObj(
               obj.instanceShapeDetails
+            )
+          : undefined,
+        "networkConfigurationDetails": obj.networkConfigurationDetails
+          ? model.ManagedComputeClusterNetworkConfigurationDetails.getDeserializedJsonObj(
+              obj.networkConfigurationDetails
             )
           : undefined
       }

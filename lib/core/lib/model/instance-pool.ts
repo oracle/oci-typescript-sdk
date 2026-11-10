@@ -94,6 +94,7 @@ Example: {@code {\"Department\": \"Finance\"}}
    *
    */
   "loadBalancers"?: Array<model.InstancePoolLoadBalancerAttachment>;
+  "overridePolicy"?: model.InstancePoolLaunchOverridePolicy;
   /**
    * A user-friendly formatter for the instance pool's instances. Instance displaynames follow the format.
    * The formatter does not retroactively change instance's displaynames, only instance displaynames in the future follow the format
@@ -155,6 +156,9 @@ export namespace InstancePool {
               return model.InstancePoolLoadBalancerAttachment.getJsonObj(item);
             })
           : undefined,
+        "overridePolicy": obj.overridePolicy
+          ? model.InstancePoolLaunchOverridePolicy.getJsonObj(obj.overridePolicy)
+          : undefined,
 
         "lifecycleManagement": obj.lifecycleManagement
           ? model.InstancePoolLifecycleManagementDetails.getJsonObj(obj.lifecycleManagement)
@@ -178,6 +182,9 @@ export namespace InstancePool {
           ? obj.loadBalancers.map(item => {
               return model.InstancePoolLoadBalancerAttachment.getDeserializedJsonObj(item);
             })
+          : undefined,
+        "overridePolicy": obj.overridePolicy
+          ? model.InstancePoolLaunchOverridePolicy.getDeserializedJsonObj(obj.overridePolicy)
           : undefined,
 
         "lifecycleManagement": obj.lifecycleManagement

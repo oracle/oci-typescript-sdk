@@ -59,6 +59,10 @@ export interface PipelineRun {
    * A user-friendly display name for the resource.
    */
   "displayName": string;
+  /**
+   * Retention period in days for pipeline run. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "pipelineRunRetentionPeriodInDaysOverride"?: number;
   "configurationDetails"?: model.PipelineDefaultConfigurationDetails;
   "configurationOverrideDetails"?: model.PipelineDefaultConfigurationDetails;
   "logConfigurationOverrideDetails"?: model.PipelineLogConfigurationDetails;

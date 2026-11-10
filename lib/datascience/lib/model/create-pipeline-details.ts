@@ -35,6 +35,10 @@ export interface CreatePipelineDetails {
    * A short description of the pipeline.
    */
   "description"?: string;
+  /**
+   * Retention period in days for pipeline runs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "pipelineRunRetentionPeriodInDays"?: number;
   "configurationDetails"?: model.PipelineDefaultConfigurationDetails;
   "logConfigurationDetails"?: model.PipelineLogConfigurationDetails;
   "infrastructureConfigurationDetails"?: model.PipelineInfrastructureConfigurationDetails;

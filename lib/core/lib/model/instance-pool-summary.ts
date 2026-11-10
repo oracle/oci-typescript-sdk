@@ -56,6 +56,7 @@ export interface InstancePoolSummary {
    * The availability domains for the instance pool.
    */
   "availabilityDomains": Array<string>;
+  "overridePolicy"?: model.InstancePoolLaunchOverridePolicy;
   /**
    * The number of instances that should be in the instance pool. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
@@ -106,12 +107,26 @@ export namespace InstancePoolSummary {
   }
 
   export function getJsonObj(obj: InstancePoolSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "overridePolicy": obj.overridePolicy
+          ? model.InstancePoolLaunchOverridePolicy.getJsonObj(obj.overridePolicy)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: InstancePoolSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "overridePolicy": obj.overridePolicy
+          ? model.InstancePoolLaunchOverridePolicy.getDeserializedJsonObj(obj.overridePolicy)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

@@ -36,6 +36,10 @@ export interface CreateJobRunDetails {
    * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the job to create a run for.
    */
   "jobId": string;
+  /**
+   * Retention period in days for job run. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "jobRunRetentionPeriodInDaysOverride"?: number;
   "jobConfigurationOverrideDetails"?:
     | model.EmptyJobConfigurationDetails
     | model.DefaultJobConfigurationDetails;

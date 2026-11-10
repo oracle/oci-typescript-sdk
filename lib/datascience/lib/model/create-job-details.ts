@@ -36,6 +36,10 @@ export interface CreateJobDetails {
    * A short description of the job.
    */
   "description"?: string;
+  /**
+   * Retention period in days for job runs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "jobRunRetentionPeriodInDays"?: number;
   "jobConfigurationDetails"?:
     | model.EmptyJobConfigurationDetails
     | model.DefaultJobConfigurationDetails;
