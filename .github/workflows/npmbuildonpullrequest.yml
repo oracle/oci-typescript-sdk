@@ -47,3 +47,8 @@ jobs:
           echo "Running build..."
           npm run build
           echo "Build completed."
+
+      - name: Check TypeScript 5 consumer declarations
+        run: |
+          npm exec --yes --package=typescript@5.0.4 -- tsc -p tsconfig.consumer.json
+          npm exec --yes --package=typescript@5.9.3 -- tsc -p tsconfig.consumer.json

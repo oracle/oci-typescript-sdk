@@ -35,7 +35,7 @@ export function composeResponse<T>(params: ResponseParams<T>): T {
   if (content) {
     const bodyContent = ObjectSerializer.deserialize(content, params.type, params.bodyModel);
     const key = params.bodyKey;
-    Object.assign(response, { [key as string]: bodyContent });
+    Object.assign(response as object, { [key as string]: bodyContent });
   }
   computeHeaders(params.responseHeaders, response);
   return response;
@@ -45,7 +45,7 @@ function computeHeaders<T>(responseHeaders: HeaderInfo[], response: T) {
   if (responseHeaders) {
     responseHeaders.forEach(header => {
       if (header.value) {
-        Object.assign(response, {
+        Object.assign(response as object, {
           [header.key]: convertStringToType(header.value, header.dataType)
         });
       }

@@ -88,9 +88,7 @@ export class NodeFSBlob implements UploadableBlob {
    * returns ArrayBuffer object
    */
   public async arrayBuffer(): Promise<ArrayBuffer> {
-    return new Promise(resolve => {
-      resolve(readFileSync(this.filePath));
-    });
+    return Uint8Array.from(readFileSync(this.filePath)).buffer;
   }
 
   /*

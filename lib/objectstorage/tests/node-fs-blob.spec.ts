@@ -25,6 +25,15 @@ describe("Test Node FS Blob ", () => {
     expect(await streamToString(data)).equals("This is sample file for upload manager unit tests.");
   });
 
+  it("should return an ArrayBuffer containing exactly the file bytes", async function() {
+    const expected = Buffer.from("This is sample file for upload manager unit tests.");
+    const data = await blob.arrayBuffer();
+
+    expect(data).to.be.instanceOf(ArrayBuffer);
+    expect(data.byteLength).to.equal(expected.length);
+    expect(Array.from(new Uint8Array(data))).to.deep.equal(Array.from(expected));
+  });
+
   function streamToString(stream: Readable) {
     const chunks: Buffer[] = [];
     return new Promise((resolve, reject) => {

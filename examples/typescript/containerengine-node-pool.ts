@@ -272,7 +272,7 @@ async function createCluster(
     containerEngineClient,
     workRequestId
   );
-  if (isWorkRequestInSuccessState(workRequestResponse)) {
+  if (await isWorkRequestInSuccessState(workRequestResponse)) {
     clusterId = await getClusterId(workRequestResponse);
     console.log("cluster ID is: " + clusterId);
     const request: oke.requests.GetClusterRequest = { clusterId: clusterId };
@@ -360,7 +360,7 @@ async function createNodePool(
 
   const workRequestResponse = await waitForWorkRequestFinished(client, workRequestId);
 
-  if (isWorkRequestInSuccessState(workRequestResponse)) {
+  if (await isWorkRequestInSuccessState(workRequestResponse)) {
     nodePoolId = await getWorkRequestResourceId(workRequestResponse, "nodepool");
     console.log("Node pool ID is: " + nodePoolId);
     const request: oke.requests.GetNodePoolRequest = { nodePoolId: nodePoolId };
@@ -402,7 +402,7 @@ async function updateNodePool(
 
   const workRequestResponse = await waitForWorkRequestFinished(client, workRequestId);
 
-  if (isWorkRequestInSuccessState(workRequestResponse)) {
+  if (await isWorkRequestInSuccessState(workRequestResponse)) {
     const request: oke.requests.GetNodePoolRequest = { nodePoolId: nodePoolId };
     const response = await client.getNodePool(request);
     const nodePool: oke.models.NodePool = response.nodePool;
@@ -427,7 +427,7 @@ async function deleteCluster(client: oke.ContainerEngineClient, clusterId: any) 
   const workRequestId: string = response.opcWorkRequestId;
   const workRequestResponse = await waitForWorkRequestFinished(client, workRequestId);
 
-  if (isWorkRequestInSuccessState(workRequestResponse)) {
+  if (await isWorkRequestInSuccessState(workRequestResponse)) {
     const getClusterRequest: oke.requests.GetClusterRequest = { clusterId: clusterId };
     const response = await client.getCluster(getClusterRequest);
     console.log("Cluster lifecycle state is " + response.cluster.lifecycleState!);
