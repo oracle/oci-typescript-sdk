@@ -167,6 +167,10 @@ import * as RemoveDatastoreFromDatastoreClusterDetails from "./remove-datastore-
 export import RemoveDatastoreFromDatastoreClusterDetails = RemoveDatastoreFromDatastoreClusterDetails.RemoveDatastoreFromDatastoreClusterDetails;
 import * as ReplaceHostDetails from "./replace-host-details";
 export import ReplaceHostDetails = ReplaceHostDetails.ReplaceHostDetails;
+import * as ResourceOperation from "./resource-operation";
+export import ResourceOperation = ResourceOperation.ResourceOperation;
+import * as ResourceOperationStatus from "./resource-operation-status";
+export import ResourceOperationStatus = ResourceOperationStatus.ResourceOperationStatus;
 import * as Sddc from "./sddc";
 export import Sddc = Sddc.Sddc;
 import * as SddcByolAllocationDetails from "./sddc-byol-allocation-details";

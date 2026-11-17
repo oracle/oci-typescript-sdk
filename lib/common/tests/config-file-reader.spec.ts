@@ -2,9 +2,13 @@
  * Copyright (c) 2020, 2021 Oracle and/or its affiliates.  All rights reserved.
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
-import { renameSync } from "fs";
+import { mkdtempSync, renameSync, rmSync, writeFileSync } from "fs";
+import { tmpdir } from "os";
+import { join } from "path";
 import { expect } from "chai";
 import { ConfigFileReader, ConfigFile } from "../lib/config-file-reader";
+import { ConfigFileAuthenticationDetailsProvider } from "../lib/auth/config-file-auth";
+import { SessionAuthDetailProvider } from "../lib/auth/session-auth-details-provider";
 import common = require("oci-common");
 import { Region } from "../lib/region";
 
@@ -162,5 +166,50 @@ describe("Config File reader Test", () => {
     } catch (e) {
       console.log(`Failed to run this unit test due to: ${e}`);
     }
+  });
+
+  describe("Authentication with an inherited session token", () => {
+    let directory: string;
+    let configPath: string;
+
+    before(() => {
+      directory = mkdtempSync(join(tmpdir(), "oci-config-auth-"));
+      configPath = join(directory, "config");
+      const tokenPath = join(directory, "token");
+      writeFileSync(tokenPath, "test-session-token");
+      writeFileSync(
+        configPath,
+        `[DEFAULT]
+tenancy=test-tenancy
+fingerprint=test-fingerprint
+key_file=${join(__dirname, "resources", "fake-rsa.pem")}
+region=us-phoenix-1
+security_token_file=${tokenPath}
+[API_KEY]
+user=test-user
+[SESSION]
+`
+      );
+    });
+
+    after(() => {
+      rmSync(directory, { recursive: true, force: true });
+    });
+
+    it("should retain the API-key user when DEFAULT has a session token", async () => {
+      const provider = new ConfigFileAuthenticationDetailsProvider(configPath, "API_KEY");
+
+      expect(provider.getUser()).equals("test-user");
+      expect(await provider.getKeyId()).equals("test-tenancy/test-user/test-fingerprint");
+      expect(provider.sessionToken).equals("test-session-token");
+    });
+
+    it("should keep session signing with or without a user", async () => {
+      for (const profile of ["API_KEY", "SESSION"]) {
+        const provider = new SessionAuthDetailProvider(configPath, profile);
+
+        expect(await provider.getKeyId()).equals("ST$test-session-token");
+      }
+    });
   });
 });

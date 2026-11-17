@@ -63,6 +63,11 @@ Example: {@code 2016-08-25T21:10:29.600Z}
    */
   "ipAddresses"?: Array<model.IpAddress>;
   /**
+   * An array of reservedIP addresses.
+   *
+   */
+  "reservedIpAddresses"?: Array<model.ReservedIP>;
+  /**
     * A template that determines the total pre-provisioned bandwidth (ingress plus egress).
 * To get a list of available shapes, use the {@link #listShapes(ListShapesRequest) listShapes}
 * operation.
@@ -235,6 +240,11 @@ export namespace LoadBalancer {
               return model.IpAddress.getJsonObj(item);
             })
           : undefined,
+        "reservedIpAddresses": obj.reservedIpAddresses
+          ? obj.reservedIpAddresses.map(item => {
+              return model.ReservedIP.getJsonObj(item);
+            })
+          : undefined,
 
         "shapeDetails": obj.shapeDetails
           ? model.ShapeDetails.getJsonObj(obj.shapeDetails)
@@ -277,6 +287,11 @@ export namespace LoadBalancer {
         "ipAddresses": obj.ipAddresses
           ? obj.ipAddresses.map(item => {
               return model.IpAddress.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "reservedIpAddresses": obj.reservedIpAddresses
+          ? obj.reservedIpAddresses.map(item => {
+              return model.ReservedIP.getDeserializedJsonObj(item);
             })
           : undefined,
 

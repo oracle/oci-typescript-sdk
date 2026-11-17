@@ -57,6 +57,11 @@ export namespace Action {
           return model.PatchAction.getJsonObj(<model.PatchAction>(<object>jsonObj), true);
         case "QUARTERLY_UPGRADE":
           return model.UpgradeAction.getJsonObj(<model.UpgradeAction>(<object>jsonObj), true);
+        case "APPLICATION_MIGRATION":
+          return model.ApplicationMigrationAction.getJsonObj(
+            <model.ApplicationMigrationAction>(<object>jsonObj),
+            true
+          );
         case "VERTEX":
           return model.VertexAction.getJsonObj(<model.VertexAction>(<object>jsonObj), true);
         default:
@@ -78,6 +83,11 @@ export namespace Action {
         case "QUARTERLY_UPGRADE":
           return model.UpgradeAction.getDeserializedJsonObj(
             <model.UpgradeAction>(<object>jsonObj),
+            true
+          );
+        case "APPLICATION_MIGRATION":
+          return model.ApplicationMigrationAction.getDeserializedJsonObj(
+            <model.ApplicationMigrationAction>(<object>jsonObj),
             true
           );
         case "VERTEX":

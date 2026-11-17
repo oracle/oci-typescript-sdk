@@ -51,7 +51,7 @@ Example: {@code 301}
     */
   "responseCode"?: number;
   "conditions": Array<model.RuleCondition>;
-  "redirectUri"?: model.RedirectUri;
+  "redirectUri": model.RedirectUri;
 
   "action": string;
 }

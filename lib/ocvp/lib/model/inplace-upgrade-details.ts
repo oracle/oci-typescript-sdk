@@ -22,6 +22,11 @@ import common = require("oci-common");
  */
 export interface InplaceUpgradeDetails {
   /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Capacity Reservation.
+   *
+   */
+  "capacityReservationId"?: string;
+  /**
    * Initial Fault Domain Host distribution mode for the ESXi host.
    *
    */
