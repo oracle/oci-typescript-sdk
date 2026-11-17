@@ -21,21 +21,13 @@ import common = require("oci-common");
  *
  */
 export interface HostDistributionReportDetails {
-  "faultDomainHostDistributionState": HostDistributionReportDetails.FaultDomainHostDistributionState;
+  /**
+   * Current Fault Domain distribution state.
+   */
+  "faultDomainHostDistributionState": model.FaultDomainHostDistributionState;
 }
 
 export namespace HostDistributionReportDetails {
-  export enum FaultDomainHostDistributionState {
-    EvenlyDistributed = "EVENLY_DISTRIBUTED",
-    UnevenlyDistributed = "UNEVENLY_DISTRIBUTED",
-    Unsupported = "UNSUPPORTED",
-    /**
-     * This value is used if a service returns a value for this enum that is not recognized by this
-     * version of the SDK.
-     */
-    UnknownValue = "UNKNOWN_VALUE"
-  }
-
   export function getJsonObj(obj: HostDistributionReportDetails): object {
     const jsonObj = { ...obj, ...{} };
 

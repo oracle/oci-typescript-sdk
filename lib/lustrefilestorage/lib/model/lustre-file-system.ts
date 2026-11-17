@@ -168,6 +168,7 @@ Example: {@code 2016-08-25T21:10:29.600Z}
   "maintenanceWindow": model.MaintenanceWindow;
   "maintenanceWindowMetadata"?: model.MaintenanceWindowMetadataDetails;
   "rootSquashConfiguration": model.RootSquashConfiguration;
+  "tieringConfiguration": model.TieringConfiguration;
 }
 
 export namespace LustreFileSystem {
@@ -210,6 +211,9 @@ export namespace LustreFileSystem {
           : undefined,
         "rootSquashConfiguration": obj.rootSquashConfiguration
           ? model.RootSquashConfiguration.getJsonObj(obj.rootSquashConfiguration)
+          : undefined,
+        "tieringConfiguration": obj.tieringConfiguration
+          ? model.TieringConfiguration.getJsonObj(obj.tieringConfiguration)
           : undefined
       }
     };
@@ -230,6 +234,9 @@ export namespace LustreFileSystem {
           : undefined,
         "rootSquashConfiguration": obj.rootSquashConfiguration
           ? model.RootSquashConfiguration.getDeserializedJsonObj(obj.rootSquashConfiguration)
+          : undefined,
+        "tieringConfiguration": obj.tieringConfiguration
+          ? model.TieringConfiguration.getDeserializedJsonObj(obj.tieringConfiguration)
           : undefined
       }
     };

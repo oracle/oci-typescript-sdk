@@ -130,7 +130,9 @@ export class ConfigFileAuthenticationDetailsProvider
       ? this.getPvtKey(ConfigFileReader.expandUserHome(sessionTokenPath))
       : undefined;
 
-    const user = sessionToken ? "" : checkNotNull(file.get("user"), "missing user in config");
+    const user = sessionToken
+      ? file.get("user") || ""
+      : checkNotNull(file.get("user"), "missing user in config");
 
     return new SimpleAuthenticationDetailsProvider(
       tenantId,

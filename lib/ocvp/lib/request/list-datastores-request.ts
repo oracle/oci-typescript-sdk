@@ -19,9 +19,9 @@ import common = require("oci-common");
  */
 export interface ListDatastoresRequest extends common.BaseRequest {
   /**
-   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment.
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment as optional parameter.
    */
-  "compartmentId": string;
+  "compartmentId"?: string;
   /**
    * A filter to return only resources that match the given display name exactly.
    */

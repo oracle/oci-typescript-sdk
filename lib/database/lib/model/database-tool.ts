@@ -35,6 +35,10 @@ export interface DatabaseTool {
    * The max idle time, in minutes, after which the VM used by database tools will be terminated. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maxIdleTimeInMinutes"?: number;
+  /**
+   * Specifies the estimated number of concurrent user sessions (range 1\u201364 for Graph, 1\u2013256 for OML, default 1). applies only to OML and Graph tools\u2014not applicable to DLA, Data Transforms, or Spatial. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "estimatedConcurrentSessions"?: number;
 }
 
 export namespace DatabaseTool {
@@ -48,6 +52,8 @@ export namespace DatabaseTool {
     MongodbApi = "MONGODB_API",
     SpatialStudio = "SPATIAL_STUDIO",
     Essbase = "ESSBASE",
+    A2A = "A2A",
+    Mcp = "MCP",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

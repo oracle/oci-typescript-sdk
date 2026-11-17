@@ -59,6 +59,14 @@ export interface AutonomousDatabaseConnectionUrls {
    */
   "essbaseUrl"?: string;
   /**
+   * The URL of the Agent-to-Agent (A2A) server for the Autonomous AI Database. Applicable to Autonomous AI Database Serverless only.
+   */
+  "a2aUrl"?: string;
+  /**
+   * The URL of the Model Context Protocol (MCP) server for the Autonomous AI Database. Applicable to Autonomous AI Database Serverless only.
+   */
+  "mcpUrl"?: string;
+  /**
    * The URL of the Spatial Studio for the Autonomous AI Database. Applicable to Autonomous AI Database Serverless only.
    */
   "spatialStudioUrl"?: string;

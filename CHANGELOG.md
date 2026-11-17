@@ -4,6 +4,24 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
+## 2.147.0 - 2026-11-17
+### Added 
+- Support for customer-reserved capacity during rolling upgrades in the VMware Solution service 
+- Support for minor updates using VMware Lifecycle Manager in the VMware Solution service 
+- Support for retrieving rolling upgrade status in the VMware Solution service 
+- Support for estimated concurrent sessions for Graph and Oracle Machine Learning built-in tools in Autonomous Database Serverless in the Database service 
+- Support for Agent-to-Agent (A2A) and Model Context Protocol (MCP) servers as built-in tools for Autonomous Database Serverless in the Database service 
+- Support for configuring SSL inspection when creating Exadata Cloud@Customer infrastructure in the Database service 
+- Support for scheduled activity enhancements for Oracle Configure, Price, Quote (CPQ) migration in the Fusion Applications service 
+- Support for dynamic weighted load balancing in the Load Balancer service 
+- Support for policy-based object tiering for Lustre file systems in the Lustre File Storage service  
+
+### Breaking Changes 
+- The nested enum `HostDistributionReportDetails.FaultDomainHostDistributionState` has been removed from the Oracle Cloud VMware Solution service 
+- The type of property `faultDomainHostDistributionState` has changed to `FaultDomainHostDistributionState` in the model `HostDistributionReportDetails` in the Oracle Cloud VMware Solution service 
+- The field `redirectUri` is now required in the model `RedirectRule` in the Load Balancer service 
+- A required field `tieringConfiguration` has been added to the models `LustreFileSystem` and `LustreFileSystemSummary` in the Lustre File service
+
 ## 2.146.0 - 2026-11-10
 ### Added 
 - Support for Service Managed OKE (SM-OKE) enhancements in the Data Science service 

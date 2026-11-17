@@ -79,6 +79,53 @@ Example: {@code ^((?!false).|\\s)*$}
     */
   "responseBodyRegex": string;
   /**
+    * You can enable dynamic backend weights for HTTP health checks.
+* <p>
+When enabled, the load balancer reads the {@code X-Dynamic-Backend-Weight}
+* header from each backend's HTTP health check response.
+* The load balancer uses that value as the backend's effective weight
+* when distributing traffic.
+* <p>
+A valid header value is an integer from {@code 0} through {@code 100}.
+* <p>
+If the backend response does not include this header, or includes an invalid
+* value, the load balancer uses {@code defaultWeight}.
+* <p>
+Update semantics:
+* * omitted: preserve existing value.
+* * false: disable dynamic backend weight.
+* * true: enable dynamic backend weight.
+* <p>
+For TCP health checks, this field is accepted and stored, but it has no runtime effect.
+* 
+    */
+  "isDynamicBackendWeightEnabled"?: boolean;
+  /**
+    * You can configure this fallback backend weight when dynamic backend weights
+* are enabled and the backend's HTTP health check response does not include a valid
+* {@code X-Dynamic-Backend-Weight} header value.
+* <p>
+This value must be an integer from {@code 1} through {@code 100}.
+* <p>
+Update semantics:
+* * provided: replace the existing value.
+* * omitted or null: preserve the existing configured value.
+* <p>
+If dynamic backend weights are enabled and no existing {@code defaultWeight} is
+* present, the service uses {@code 1}.
+* <p>
+Setting or updating {@code defaultWeight} does not enable dynamic backend weights.
+* To enable dynamic backend weights, set {@code isDynamicBackendWeightEnabled} to
+* {@code true}. If your request includes {@code defaultWeight}, you must also set
+* {@code isDynamicBackendWeightEnabled} to {@code true}; otherwise, the request is rejected.
+* <p>
+For TCP health checks, this field is accepted and stored, but it has no runtime effect.
+* <p>
+Example: {@code 1}
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+    */
+  "defaultWeight"?: number;
+  /**
     * Specifies if health checks should always be done using plain text instead of depending on
 * whether or not the associated backend set is using SSL.
 * <p>

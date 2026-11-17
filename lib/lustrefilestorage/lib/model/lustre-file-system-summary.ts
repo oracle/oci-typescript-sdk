@@ -163,6 +163,7 @@ Example: {@code 2.15}
     */
   "majorVersion": string;
   "rootSquashConfiguration": model.RootSquashConfiguration;
+  "tieringConfiguration": model.TieringConfigurationSummary;
 }
 
 export namespace LustreFileSystemSummary {
@@ -184,6 +185,9 @@ export namespace LustreFileSystemSummary {
       ...{
         "rootSquashConfiguration": obj.rootSquashConfiguration
           ? model.RootSquashConfiguration.getJsonObj(obj.rootSquashConfiguration)
+          : undefined,
+        "tieringConfiguration": obj.tieringConfiguration
+          ? model.TieringConfigurationSummary.getJsonObj(obj.tieringConfiguration)
           : undefined
       }
     };
@@ -196,6 +200,9 @@ export namespace LustreFileSystemSummary {
       ...{
         "rootSquashConfiguration": obj.rootSquashConfiguration
           ? model.RootSquashConfiguration.getDeserializedJsonObj(obj.rootSquashConfiguration)
+          : undefined,
+        "tieringConfiguration": obj.tieringConfiguration
+          ? model.TieringConfigurationSummary.getDeserializedJsonObj(obj.tieringConfiguration)
           : undefined
       }
     };

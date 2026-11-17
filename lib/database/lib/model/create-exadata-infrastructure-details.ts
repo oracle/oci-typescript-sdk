@@ -131,6 +131,7 @@ Example: {@code {\"Department\": \"Finance\"}}
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  "sslInspectionConfiguration"?: model.SslInspectionConfiguration;
 }
 
 export namespace CreateExadataInfrastructureDetails {
@@ -152,6 +153,10 @@ export namespace CreateExadataInfrastructureDetails {
 
         "networkBondingModeDetails": obj.networkBondingModeDetails
           ? model.NetworkBondingModeDetails.getJsonObj(obj.networkBondingModeDetails)
+          : undefined,
+
+        "sslInspectionConfiguration": obj.sslInspectionConfiguration
+          ? model.SslInspectionConfiguration.getJsonObj(obj.sslInspectionConfiguration)
           : undefined
       }
     };
@@ -178,6 +183,10 @@ export namespace CreateExadataInfrastructureDetails {
 
         "networkBondingModeDetails": obj.networkBondingModeDetails
           ? model.NetworkBondingModeDetails.getDeserializedJsonObj(obj.networkBondingModeDetails)
+          : undefined,
+
+        "sslInspectionConfiguration": obj.sslInspectionConfiguration
+          ? model.SslInspectionConfiguration.getDeserializedJsonObj(obj.sslInspectionConfiguration)
           : undefined
       }
     };
