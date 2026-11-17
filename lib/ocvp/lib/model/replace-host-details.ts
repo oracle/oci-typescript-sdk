@@ -30,6 +30,11 @@ export interface ReplaceHostDetails {
    */
   "esxiSoftwareVersion"?: string;
   /**
+   * The [OCID](https://docs.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Capacity Reservation.
+   *
+   */
+  "capacityReservationId"?: string;
+  /**
    * Initial Fault Domain Host distribution mode for the ESXi host.
    *
    */

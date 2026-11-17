@@ -249,6 +249,7 @@ Example: {@code {\"Department\": \"Finance\"}}
    * The compute model of the Autonomous AI Database. This is required if using the {@code computeCount} parameter. If using {@code cpuCoreCount} then it is an error to specify {@code computeModel} to a non-null value. ECPU compute model is the recommended model and OCPU compute model is legacy.
    */
   "computeModel"?: ExadataInfrastructureSummary.ComputeModel;
+  "sslInspectionConfiguration"?: model.SslInspectionConfiguration;
 }
 
 export namespace ExadataInfrastructureSummary {
@@ -335,6 +336,10 @@ export namespace ExadataInfrastructureSummary {
 
         "exascaleConfig": obj.exascaleConfig
           ? model.ExascaleConfigDetails.getJsonObj(obj.exascaleConfig)
+          : undefined,
+
+        "sslInspectionConfiguration": obj.sslInspectionConfiguration
+          ? model.SslInspectionConfiguration.getJsonObj(obj.sslInspectionConfiguration)
           : undefined
       }
     };
@@ -372,6 +377,10 @@ export namespace ExadataInfrastructureSummary {
 
         "exascaleConfig": obj.exascaleConfig
           ? model.ExascaleConfigDetails.getDeserializedJsonObj(obj.exascaleConfig)
+          : undefined,
+
+        "sslInspectionConfiguration": obj.sslInspectionConfiguration
+          ? model.SslInspectionConfiguration.getDeserializedJsonObj(obj.sslInspectionConfiguration)
           : undefined
       }
     };

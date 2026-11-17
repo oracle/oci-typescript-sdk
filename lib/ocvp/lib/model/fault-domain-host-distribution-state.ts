@@ -22,7 +22,13 @@ import common = require("oci-common");
 export enum FaultDomainHostDistributionState {
   EvenlyDistributed = "EVENLY_DISTRIBUTED",
   UnevenlyDistributed = "UNEVENLY_DISTRIBUTED",
-  Unsupported = "UNSUPPORTED"
+  Unsupported = "UNSUPPORTED",
+
+  /**
+   * This value is used if a service returns a value for this enum that is not recognized by this
+   * version of the SDK.
+   */
+  UnknownValue = "UNKNOWN_VALUE"
 }
 
 export namespace FaultDomainHostDistributionState {

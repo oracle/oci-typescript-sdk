@@ -210,6 +210,8 @@ export import WorkRequestSummaryCollection = WorkRequestSummaryCollection.WorkRe
 
 import * as AllowRule from "./allow-rule";
 export import AllowRule = AllowRule.AllowRule;
+import * as ApplicationMigrationAction from "./application-migration-action";
+export import ApplicationMigrationAction = ApplicationMigrationAction.ApplicationMigrationAction;
 import * as PatchAction from "./patch-action";
 export import PatchAction = PatchAction.PatchAction;
 import * as SourceIpAddressCondition from "./source-ip-address-condition";

@@ -417,7 +417,7 @@ Use the {@link WorkRequest} operations to track the
     if (this.logger) this.logger.debug("Calling operation ByolClient#deleteByol.");
     const operationName = "deleteByol";
     const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/vmware/20230701/BYOL/DeleteByol";
+      "https://docs.oracle.com/iaas/api/#/en/vmware/20230701/Byol/DeleteByol";
     const pathParams = {
       "{byolId}": deleteByolRequest.byolId
     };
@@ -2094,6 +2094,86 @@ Use the {@link WorkRequest} operations to track the
   }
 
   /**
+   * Retrieves status of the operation performed on the Cluster. For each type of operation, only status of the latest operation is returned.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param RetrieveClusterOperationStatusRequest
+   * @return RetrieveClusterOperationStatusResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/RetrieveClusterOperationStatus.ts.html |here} to see how to use RetrieveClusterOperationStatus API.
+   */
+  public async retrieveClusterOperationStatus(
+    retrieveClusterOperationStatusRequest: requests.RetrieveClusterOperationStatusRequest
+  ): Promise<responses.RetrieveClusterOperationStatusResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ClusterClient#retrieveClusterOperationStatus.");
+    const operationName = "retrieveClusterOperationStatus";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vmware/20230701/Cluster/RetrieveClusterOperationStatus";
+    const pathParams = {
+      "{clusterId}": retrieveClusterOperationStatusRequest.clusterId,
+      "{operationName}": retrieveClusterOperationStatusRequest.operationName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": retrieveClusterOperationStatusRequest.ifMatch,
+      "opc-request-id": retrieveClusterOperationStatusRequest.opcRequestId,
+      "opc-retry-token": retrieveClusterOperationStatusRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      retrieveClusterOperationStatusRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/clusters/{clusterId}/actions/retrieveOperationStatus/{operationName}",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RetrieveClusterOperationStatusResponse>{},
+        body: await response.json(),
+        bodyKey: "resourceOperation",
+        bodyModel: model.ResourceOperation,
+        type: "model.ResourceOperation",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Updates the specified Cluster.
    * <p>
    **Important:** Updating a Cluster affects only certain attributes in the `Cluster`
@@ -2785,7 +2865,8 @@ Use the {@link WorkRequest} operations to track the
 
   /**
    * List the Datastores in the specified compartment. The list can be filtered
-   * by compartment, datastore id, display name and lifecycle state.
+   * by compartment, datastore id, display name and lifecycle state. Either
+   * compartmentId or datastoreId must be provided.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListDatastoresRequest
@@ -3891,7 +3972,8 @@ Use the {@link WorkRequest} operations to track the
 
   /**
    * List the Datastore Clusters in the specified compartment. The list can be filtered
-   * by compartment, Datastore Cluster, Display name and Lifecycle state
+   * by compartment, Datastore Cluster, Display name and Lifecycle state. Either
+   * compartmentId or datastoreClusterId must be provided.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListDatastoreClustersRequest
@@ -4835,6 +4917,86 @@ Remember that in terms of implementation, an ESXi host is a Compute instance tha
           {
             value: response.headers.get("opc-work-request-id"),
             key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Retrieves status of the operation performed on the ESXi host. For each type of operation, only status of the latest operation is returned.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param RetrieveEsxiHostOperationStatusRequest
+   * @return RetrieveEsxiHostOperationStatusResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/RetrieveEsxiHostOperationStatus.ts.html |here} to see how to use RetrieveEsxiHostOperationStatus API.
+   */
+  public async retrieveEsxiHostOperationStatus(
+    retrieveEsxiHostOperationStatusRequest: requests.RetrieveEsxiHostOperationStatusRequest
+  ): Promise<responses.RetrieveEsxiHostOperationStatusResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation EsxiHostClient#retrieveEsxiHostOperationStatus.");
+    const operationName = "retrieveEsxiHostOperationStatus";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vmware/20230701/Esxihost/RetrieveEsxiHostOperationStatus";
+    const pathParams = {
+      "{esxiHostId}": retrieveEsxiHostOperationStatusRequest.esxiHostId,
+      "{operationName}": retrieveEsxiHostOperationStatusRequest.operationName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": retrieveEsxiHostOperationStatusRequest.ifMatch,
+      "opc-request-id": retrieveEsxiHostOperationStatusRequest.opcRequestId,
+      "opc-retry-token": retrieveEsxiHostOperationStatusRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      retrieveEsxiHostOperationStatusRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/esxiHosts/{esxiHostId}/actions/retrieveOperationStatus/{operationName}",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RetrieveEsxiHostOperationStatusResponse>{},
+        body: await response.json(),
+        bodyKey: "resourceOperation",
+        bodyModel: model.ResourceOperation,
+        type: "model.ResourceOperation",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
             dataType: "string"
           },
           {
@@ -6836,6 +6998,85 @@ Use the {@link WorkRequest} operations to track the
         bodyKey: "sddcPassword",
         bodyModel: model.SddcPassword,
         type: "model.SddcPassword",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Retrieves status of the operation performed on the SDDC. For each type of operation, only status of the latest operation is returned.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param RetrieveSddcOperationStatusRequest
+   * @return RetrieveSddcOperationStatusResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/RetrieveSddcOperationStatus.ts.html |here} to see how to use RetrieveSddcOperationStatus API.
+   */
+  public async retrieveSddcOperationStatus(
+    retrieveSddcOperationStatusRequest: requests.RetrieveSddcOperationStatusRequest
+  ): Promise<responses.RetrieveSddcOperationStatusResponse> {
+    if (this.logger) this.logger.debug("Calling operation SddcClient#retrieveSddcOperationStatus.");
+    const operationName = "retrieveSddcOperationStatus";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vmware/20230701/Sddc/RetrieveSddcOperationStatus";
+    const pathParams = {
+      "{sddcId}": retrieveSddcOperationStatusRequest.sddcId,
+      "{operationName}": retrieveSddcOperationStatusRequest.operationName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": retrieveSddcOperationStatusRequest.ifMatch,
+      "opc-request-id": retrieveSddcOperationStatusRequest.opcRequestId,
+      "opc-retry-token": retrieveSddcOperationStatusRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      retrieveSddcOperationStatusRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sddcs/{sddcId}/actions/retrieveOperationStatus/{operationName}",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RetrieveSddcOperationStatusResponse>{},
+        body: await response.json(),
+        bodyKey: "resourceOperation",
+        bodyModel: model.ResourceOperation,
+        type: "model.ResourceOperation",
         responseHeaders: [
           {
             value: response.headers.get("etag"),

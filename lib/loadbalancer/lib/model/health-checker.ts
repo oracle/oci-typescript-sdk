@@ -83,6 +83,36 @@ Example: {@code ^((?!false).|\\s)*$}
     */
   "responseBodyRegex": string;
   /**
+    * Indicates whether dynamic backend weights are enabled for HTTP health checks.
+* <p>
+When enabled, the load balancer reads the {@code X-Dynamic-Backend-Weight}
+* header from each backend's HTTP health check response.
+* The load balancer uses that value as the backend's effective weight
+* when distributing traffic.
+* <p>
+A valid header value is an integer from {@code 0} through {@code 100}.
+* <p>
+If the backend response does not include this header, or includes an invalid
+* value, the load balancer uses {@code defaultWeight}.
+* <p>
+For TCP health checks, this field is accepted and stored, but it has no runtime effect.
+* 
+    */
+  "isDynamicBackendWeightEnabled"?: boolean;
+  /**
+    * The fallback backend weight used when dynamic backend weights are enabled
+* and the backend's HTTP health check response does not include a valid
+* {@code X-Dynamic-Backend-Weight} header value.
+* <p>
+This value is an integer from {@code 1} through {@code 100}.
+* <p>
+For TCP health checks, this field is accepted and stored, but it has no runtime effect.
+* <p>
+Example: {@code 1}
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+    */
+  "defaultWeight"?: number;
+  /**
     * Specifies if health checks should always be done using plain text instead of depending on
 * whether or not the associated backend set is using SSL.
 * <p>

@@ -914,6 +914,8 @@ import * as SetKeyVersionDetails from "./set-key-version-details";
 export import SetKeyVersionDetails = SetKeyVersionDetails.SetKeyVersionDetails;
 import * as SourceDatabaseDetails from "./source-database-details";
 export import SourceDatabaseDetails = SourceDatabaseDetails.SourceDatabaseDetails;
+import * as SslInspectionConfiguration from "./ssl-inspection-configuration";
+export import SslInspectionConfiguration = SslInspectionConfiguration.SslInspectionConfiguration;
 import * as StackMonitoringConfig from "./stack-monitoring-config";
 export import StackMonitoringConfig = StackMonitoringConfig.StackMonitoringConfig;
 import * as StopAutonomousDatabaseDetails from "./stop-autonomous-database-details";
