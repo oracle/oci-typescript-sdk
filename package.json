@@ -18,7 +18,6 @@
   "scripts": {
     "prebuild": "npm run cleanup",
     "build": "tsc -p tsconfig.json",
-    "check:ts5-consumer": "tsc -p tsconfig.consumer.json",
     "integ-test": "mocha -r ts-node/register 'integ-test/**/*.ts' --timeout 60000 --color true",
     "prettier:check": "prettier --config .prettierrc --c \"**/*.ts\"",
     "prettier:format": "prettier --config .prettierrc --write",
