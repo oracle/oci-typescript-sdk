@@ -18,6 +18,7 @@ import common = require("oci-common");
  * Service managed Fleet configuration of the batch context.
  */
 export interface CreateServiceManagedFleetDetails extends model.CreateFleetDetails {
+  "reservation"?: model.CreateComputeCapacityReservationDetails;
   /**
    * Name of the service managed fleet.
    */
@@ -41,6 +42,10 @@ export namespace CreateServiceManagedFleetDetails {
         ? obj
         : (model.CreateFleetDetails.getJsonObj(obj) as CreateServiceManagedFleetDetails)),
       ...{
+        "reservation": obj.reservation
+          ? model.CreateReservationDetails.getJsonObj(obj.reservation)
+          : undefined,
+
         "shape": obj.shape ? model.FleetShape.getJsonObj(obj.shape) : undefined
       }
     };
@@ -59,6 +64,10 @@ export namespace CreateServiceManagedFleetDetails {
             obj
           ) as CreateServiceManagedFleetDetails)),
       ...{
+        "reservation": obj.reservation
+          ? model.CreateReservationDetails.getDeserializedJsonObj(obj.reservation)
+          : undefined,
+
         "shape": obj.shape ? model.FleetShape.getDeserializedJsonObj(obj.shape) : undefined
       }
     };

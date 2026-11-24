@@ -28,7 +28,7 @@ export interface CreateKeyStoreDetails {
    * The user-friendly name for the key store. The name does not need to be unique.
    */
   "displayName": string;
-  "typeDetails": model.KeyStoreTypeFromOracleKeyVaultDetails;
+  "typeDetails": model.KeyStoreTypeFromOracleKeyVaultDetails | model.KeyStoreTypeFromThalesDetails;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
 * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).

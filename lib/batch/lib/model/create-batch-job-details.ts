@@ -44,8 +44,6 @@ export interface CreateBatchJobDetails {
   "environmentVariables"?: Array<model.EnvironmentVariable>;
   /**
    * A list of tasks to be executed within this job.
-   * Maximum number of tasks a job can have in total, across all nested levels, is 1000.
-   *
    */
   "tasks": Array<model.CreateBatchTaskDetails>;
   /**

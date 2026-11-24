@@ -93,6 +93,8 @@ import * as CreateGpuFleetShapeDetails from "./create-gpu-fleet-shape-details";
 export import CreateGpuFleetShapeDetails = CreateGpuFleetShapeDetails.CreateGpuFleetShapeDetails;
 import * as CreateNetworkDetails from "./create-network-details";
 export import CreateNetworkDetails = CreateNetworkDetails.CreateNetworkDetails;
+import * as CreateReservationDetails from "./create-reservation-details";
+export import CreateReservationDetails = CreateReservationDetails.CreateReservationDetails;
 import * as EnvironmentVariable from "./environment-variable";
 export import EnvironmentVariable = EnvironmentVariable.EnvironmentVariable;
 import * as Fleet from "./fleet";
@@ -121,6 +123,8 @@ import * as PauseBatchJobDetails from "./pause-batch-job-details";
 export import PauseBatchJobDetails = PauseBatchJobDetails.PauseBatchJobDetails;
 import * as PrivateIp from "./private-ip";
 export import PrivateIp = PrivateIp.PrivateIp;
+import * as Reservation from "./reservation";
+export import Reservation = Reservation.Reservation;
 import * as SecurityContext from "./security-context";
 export import SecurityContext = SecurityContext.SecurityContext;
 import * as ShapeMemoryOptions from "./shape-memory-options";
@@ -188,6 +192,8 @@ export import WorkRequestSummaryCollection = WorkRequestSummaryCollection.WorkRe
 
 import * as BestFitFleetAssignmentPolicy from "./best-fit-fleet-assignment-policy";
 export import BestFitFleetAssignmentPolicy = BestFitFleetAssignmentPolicy.BestFitFleetAssignmentPolicy;
+import * as ComputeCapacityReservation from "./compute-capacity-reservation";
+export import ComputeCapacityReservation = ComputeCapacityReservation.ComputeCapacityReservation;
 import * as ComputeTask from "./compute-task";
 export import ComputeTask = ComputeTask.ComputeTask;
 import * as ComputeTaskExecutionDetails from "./compute-task-execution-details";
@@ -200,6 +206,8 @@ import * as CpuFleetShapeExecutionDetails from "./cpu-fleet-shape-execution-deta
 export import CpuFleetShapeExecutionDetails = CpuFleetShapeExecutionDetails.CpuFleetShapeExecutionDetails;
 import * as CpuShapeTaskProfileExtendedInformation from "./cpu-shape-task-profile-extended-information";
 export import CpuShapeTaskProfileExtendedInformation = CpuShapeTaskProfileExtendedInformation.CpuShapeTaskProfileExtendedInformation;
+import * as CreateComputeCapacityReservationDetails from "./create-compute-capacity-reservation-details";
+export import CreateComputeCapacityReservationDetails = CreateComputeCapacityReservationDetails.CreateComputeCapacityReservationDetails;
 import * as CreateComputeTaskDetails from "./create-compute-task-details";
 export import CreateComputeTaskDetails = CreateComputeTaskDetails.CreateComputeTaskDetails;
 import * as CreateCpuArchitectureTaskProfileExtendedInformationDetails from "./create-cpu-architecture-task-profile-extended-information-details";

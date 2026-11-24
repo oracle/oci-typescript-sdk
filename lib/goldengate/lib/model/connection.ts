@@ -293,6 +293,11 @@ export namespace Connection {
             <model.AzureSynapseConnection>(<object>jsonObj),
             true
           );
+        case "ORACLE_AI_DATA_CATALOG_STORAGE":
+          return model.OracleAiDataCatalogStorageConnection.getJsonObj(
+            <model.OracleAiDataCatalogStorageConnection>(<object>jsonObj),
+            true
+          );
         case "MICROSOFT_FABRIC":
           return model.MicrosoftFabricConnection.getJsonObj(
             <model.MicrosoftFabricConnection>(<object>jsonObj),
@@ -475,6 +480,11 @@ export namespace Connection {
         case "AZURE_SYNAPSE_ANALYTICS":
           return model.AzureSynapseConnection.getDeserializedJsonObj(
             <model.AzureSynapseConnection>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_AI_DATA_CATALOG_STORAGE":
+          return model.OracleAiDataCatalogStorageConnection.getDeserializedJsonObj(
+            <model.OracleAiDataCatalogStorageConnection>(<object>jsonObj),
             true
           );
         case "MICROSOFT_FABRIC":

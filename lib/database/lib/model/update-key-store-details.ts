@@ -19,7 +19,7 @@ import common = require("oci-common");
  * Details for updating the key store.
  */
 export interface UpdateKeyStoreDetails {
-  "typeDetails"?: model.KeyStoreTypeFromOracleKeyVaultDetails;
+  "typeDetails"?: model.KeyStoreTypeFromOracleKeyVaultDetails | model.KeyStoreTypeFromThalesDetails;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
 * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).

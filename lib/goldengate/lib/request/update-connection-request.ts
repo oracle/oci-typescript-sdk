@@ -43,6 +43,7 @@ export interface UpdateConnectionRequest extends common.BaseRequest {
     | model.UpdatePostgresqlConnectionDetails
     | model.UpdateMicrosoftSqlserverConnectionDetails
     | model.UpdateSnowflakeConnectionDetails
+    | model.UpdateOracleAiDataCatalogStorageConnectionDetails
     | model.UpdateHdfsConnectionDetails
     | model.UpdateDatabricksConnectionDetails
     | model.UpdateKafkaConnectionDetails

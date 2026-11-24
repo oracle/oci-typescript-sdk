@@ -54,6 +54,11 @@ export namespace IcebergCatalogSummary {
             <model.HadoopIcebergCatalogSummary>(<object>jsonObj),
             true
           );
+        case "OADC":
+          return model.OracleAiDataCatalogIcebergCatalogSummary.getJsonObj(
+            <model.OracleAiDataCatalogIcebergCatalogSummary>(<object>jsonObj),
+            true
+          );
         default:
           if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.catalogType}`);
       }
@@ -88,6 +93,11 @@ export namespace IcebergCatalogSummary {
         case "HADOOP":
           return model.HadoopIcebergCatalogSummary.getDeserializedJsonObj(
             <model.HadoopIcebergCatalogSummary>(<object>jsonObj),
+            true
+          );
+        case "OADC":
+          return model.OracleAiDataCatalogIcebergCatalogSummary.getDeserializedJsonObj(
+            <model.OracleAiDataCatalogIcebergCatalogSummary>(<object>jsonObj),
             true
           );
         default:

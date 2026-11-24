@@ -895,7 +895,7 @@ export class GoldenGateClient {
   }
 
   /**
-   * Associate a GoldanGate connection with a different subscription.
+   * Associate a GoldenGate connection with a different subscription.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeConnectionSubscriptionRequest

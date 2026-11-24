@@ -8,6 +8,10 @@ documentation for the [Networking](https://docs.oracle.com/iaas/Content/Network/
 The required permissions are documented in the
 [Details for the Core Services](https://docs.oracle.com/iaas/Content/Identity/Reference/corepolicyreference.htm) article.
 
+The Core Services API provides both IPv4-only and dual-stack (IPv4 and IPv6) endpoints. By default, OCI-published SDKs and the CLI use IPv4-only endpoints.
+Use a dual-stack endpoint to connect over IPv6 while retaining IPv4 compatibility.
+Dual-stack endpoints use the following format: https://{service}.{region}.ds.oci.{secondLevelDomain}.
+
  * OpenAPI spec version: 20160918
  * 
  *
@@ -59,6 +63,32 @@ export class ComputeManagementWaiter {
     );
     return {
       response: attachInstancePoolInstanceResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forCancelInstancePoolRefresh
+   *
+   * @param request the request to send
+   * @return response returns CancelInstancePoolRefreshResponse, GetWorkRequestResponse tuple
+   */
+  public async forCancelInstancePoolRefresh(
+    request: serviceRequests.CancelInstancePoolRefreshRequest
+  ): Promise<{
+    response: serviceResponses.CancelInstancePoolRefreshResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const cancelInstancePoolRefreshResponse = await this.client.cancelInstancePoolRefresh(request);
+    if (cancelInstancePoolRefreshResponse.opcWorkRequestId === undefined)
+      return { response: cancelInstancePoolRefreshResponse, workRequestResponse: undefined as any };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      cancelInstancePoolRefreshResponse.opcWorkRequestId
+    );
+    return {
+      response: cancelInstancePoolRefreshResponse,
       workRequestResponse: getWorkRequestResponse
     };
   }
@@ -192,6 +222,24 @@ export class ComputeManagementWaiter {
   }
 
   /**
+   * Waits forInstancePoolRefresh till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetInstancePoolRefreshResponse
+   */
+  public async forInstancePoolRefresh(
+    request: serviceRequests.GetInstancePoolRefreshRequest,
+    ...targetStates: models.InstancePoolRefresh.LifecycleState[]
+  ): Promise<serviceResponses.GetInstancePoolRefreshResponse> {
+    return genericWaiter(
+      this.config,
+      () => this.client.getInstancePoolRefresh(request),
+      response => targetStates.includes(response.instancePoolRefresh.lifecycleState!)
+    );
+  }
+
+  /**
    * Waits forLaunchInstanceConfiguration
    *
    * @param request the request to send
@@ -220,6 +268,29 @@ export class ComputeManagementWaiter {
       response: launchInstanceConfigurationResponse,
       workRequestResponse: getWorkRequestResponse
     };
+  }
+
+  /**
+   * Waits forRefreshInstancePool
+   *
+   * @param request the request to send
+   * @return response returns RefreshInstancePoolResponse, GetWorkRequestResponse tuple
+   */
+  public async forRefreshInstancePool(
+    request: serviceRequests.RefreshInstancePoolRequest
+  ): Promise<{
+    response: serviceResponses.RefreshInstancePoolResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const refreshInstancePoolResponse = await this.client.refreshInstancePool(request);
+    if (refreshInstancePoolResponse.opcWorkRequestId === undefined)
+      return { response: refreshInstancePoolResponse, workRequestResponse: undefined as any };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      refreshInstancePoolResponse.opcWorkRequestId
+    );
+    return { response: refreshInstancePoolResponse, workRequestResponse: getWorkRequestResponse };
   }
 
   /**

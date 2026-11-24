@@ -48,6 +48,10 @@ export interface ListCloudAutonomousVmClustersRequest extends common.BaseRequest
    */
   "lifecycleState"?: string;
   /**
+   * A filter to return only resources that match the given kms exactly.
+   */
+  "kmsType"?: ListCloudAutonomousVmClustersRequest.KmsType;
+  /**
    * A filter to return only resources that match the given availability domain exactly.
    */
   "availabilityDomain"?: string;
@@ -71,5 +75,11 @@ export namespace ListCloudAutonomousVmClustersRequest {
   export enum SortOrder {
     Asc = "ASC",
     Desc = "DESC"
+  }
+
+  export enum KmsType {
+    OracleKeyVault = "ORACLE_KEY_VAULT",
+    Thales = "THALES",
+    OciVault = "OCI_VAULT"
   }
 }

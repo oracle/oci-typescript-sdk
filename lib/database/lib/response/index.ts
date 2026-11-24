@@ -46,10 +46,14 @@ import * as ChangeAutonomousExadataInfrastructureCompartmentResponse from "./cha
 export import ChangeAutonomousExadataInfrastructureCompartmentResponse = ChangeAutonomousExadataInfrastructureCompartmentResponse.ChangeAutonomousExadataInfrastructureCompartmentResponse;
 import * as ChangeAutonomousVmClusterCompartmentResponse from "./change-autonomous-vm-cluster-compartment-response";
 export import ChangeAutonomousVmClusterCompartmentResponse = ChangeAutonomousVmClusterCompartmentResponse.ChangeAutonomousVmClusterCompartmentResponse;
+import * as ChangeAvmKeyManagementSystemResponse from "./change-avm-key-management-system-response";
+export import ChangeAvmKeyManagementSystemResponse = ChangeAvmKeyManagementSystemResponse.ChangeAvmKeyManagementSystemResponse;
 import * as ChangeBackupDestinationCompartmentResponse from "./change-backup-destination-compartment-response";
 export import ChangeBackupDestinationCompartmentResponse = ChangeBackupDestinationCompartmentResponse.ChangeBackupDestinationCompartmentResponse;
 import * as ChangeBaseccVmClusterCompartmentResponse from "./change-basecc-vm-cluster-compartment-response";
 export import ChangeBaseccVmClusterCompartmentResponse = ChangeBaseccVmClusterCompartmentResponse.ChangeBaseccVmClusterCompartmentResponse;
+import * as ChangeCavmKeyManagementSystemResponse from "./change-cavm-key-management-system-response";
+export import ChangeCavmKeyManagementSystemResponse = ChangeCavmKeyManagementSystemResponse.ChangeCavmKeyManagementSystemResponse;
 import * as ChangeCloudAutonomousVmClusterCompartmentResponse from "./change-cloud-autonomous-vm-cluster-compartment-response";
 export import ChangeCloudAutonomousVmClusterCompartmentResponse = ChangeCloudAutonomousVmClusterCompartmentResponse.ChangeCloudAutonomousVmClusterCompartmentResponse;
 import * as ChangeCloudAutonomousVmClusterSubscriptionResponse from "./change-cloud-autonomous-vm-cluster-subscription-response";

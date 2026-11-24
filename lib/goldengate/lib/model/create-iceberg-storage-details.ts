@@ -29,6 +29,11 @@ export namespace CreateIcebergStorageDetails {
 
     if (obj && "storageType" in obj && obj.storageType) {
       switch (obj.storageType) {
+        case "ZFS":
+          return model.CreateZfsIcebergStorageDetails.getJsonObj(
+            <model.CreateZfsIcebergStorageDetails>(<object>jsonObj),
+            true
+          );
         case "AZURE_DATA_LAKE_STORAGE":
           return model.CreateAzureDataLakeStorageIcebergStorageDetails.getJsonObj(
             <model.CreateAzureDataLakeStorageIcebergStorageDetails>(<object>jsonObj),
@@ -39,9 +44,19 @@ export namespace CreateIcebergStorageDetails {
             <model.CreateNoIcebergStorageDetails>(<object>jsonObj),
             true
           );
+        case "AZURE_STORAGE":
+          return model.CreateAzureStorageIcebergStorageDetails.getJsonObj(
+            <model.CreateAzureStorageIcebergStorageDetails>(<object>jsonObj),
+            true
+          );
         case "GOOGLE_CLOUD_STORAGE":
           return model.CreateGoogleCloudStorageIcebergStorageDetails.getJsonObj(
             <model.CreateGoogleCloudStorageIcebergStorageDetails>(<object>jsonObj),
+            true
+          );
+        case "OCI_OBJECT_STORAGE_ACCESS_KEY":
+          return model.CreateOciObjectStorageAccessKeyIcebergStorageDetails.getJsonObj(
+            <model.CreateOciObjectStorageAccessKeyIcebergStorageDetails>(<object>jsonObj),
             true
           );
         case "AMAZON_S3":
@@ -65,6 +80,11 @@ export namespace CreateIcebergStorageDetails {
 
     if (obj && "storageType" in obj && obj.storageType) {
       switch (obj.storageType) {
+        case "ZFS":
+          return model.CreateZfsIcebergStorageDetails.getDeserializedJsonObj(
+            <model.CreateZfsIcebergStorageDetails>(<object>jsonObj),
+            true
+          );
         case "AZURE_DATA_LAKE_STORAGE":
           return model.CreateAzureDataLakeStorageIcebergStorageDetails.getDeserializedJsonObj(
             <model.CreateAzureDataLakeStorageIcebergStorageDetails>(<object>jsonObj),
@@ -75,9 +95,19 @@ export namespace CreateIcebergStorageDetails {
             <model.CreateNoIcebergStorageDetails>(<object>jsonObj),
             true
           );
+        case "AZURE_STORAGE":
+          return model.CreateAzureStorageIcebergStorageDetails.getDeserializedJsonObj(
+            <model.CreateAzureStorageIcebergStorageDetails>(<object>jsonObj),
+            true
+          );
         case "GOOGLE_CLOUD_STORAGE":
           return model.CreateGoogleCloudStorageIcebergStorageDetails.getDeserializedJsonObj(
             <model.CreateGoogleCloudStorageIcebergStorageDetails>(<object>jsonObj),
+            true
+          );
+        case "OCI_OBJECT_STORAGE_ACCESS_KEY":
+          return model.CreateOciObjectStorageAccessKeyIcebergStorageDetails.getDeserializedJsonObj(
+            <model.CreateOciObjectStorageAccessKeyIcebergStorageDetails>(<object>jsonObj),
             true
           );
         case "AMAZON_S3":

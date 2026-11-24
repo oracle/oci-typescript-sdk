@@ -8,6 +8,10 @@ documentation for the [Networking](https://docs.oracle.com/iaas/Content/Network/
 The required permissions are documented in the
 [Details for the Core Services](https://docs.oracle.com/iaas/Content/Identity/Reference/corepolicyreference.htm) article.
 
+The Core Services API provides both IPv4-only and dual-stack (IPv4 and IPv6) endpoints. By default, OCI-published SDKs and the CLI use IPv4-only endpoints.
+Use a dual-stack endpoint to connect over IPv6 while retaining IPv4 compatibility.
+Dual-stack endpoints use the following format: https://{service}.{region}.ds.oci.{secondLevelDomain}.
+
  * OpenAPI spec version: 20160918
  * 
  *
@@ -400,6 +404,8 @@ import * as AttachInstancePoolInstanceRequest from "./attach-instance-pool-insta
 export import AttachInstancePoolInstanceRequest = AttachInstancePoolInstanceRequest.AttachInstancePoolInstanceRequest;
 import * as AttachLoadBalancerRequest from "./attach-load-balancer-request";
 export import AttachLoadBalancerRequest = AttachLoadBalancerRequest.AttachLoadBalancerRequest;
+import * as CancelInstancePoolRefreshRequest from "./cancel-instance-pool-refresh-request";
+export import CancelInstancePoolRefreshRequest = CancelInstancePoolRefreshRequest.CancelInstancePoolRefreshRequest;
 import * as ChangeClusterNetworkCompartmentRequest from "./change-cluster-network-compartment-request";
 export import ChangeClusterNetworkCompartmentRequest = ChangeClusterNetworkCompartmentRequest.ChangeClusterNetworkCompartmentRequest;
 import * as ChangeInstanceConfigurationCompartmentRequest from "./change-instance-configuration-compartment-request";
@@ -428,6 +434,8 @@ import * as GetInstancePoolInstanceRequest from "./get-instance-pool-instance-re
 export import GetInstancePoolInstanceRequest = GetInstancePoolInstanceRequest.GetInstancePoolInstanceRequest;
 import * as GetInstancePoolLoadBalancerAttachmentRequest from "./get-instance-pool-load-balancer-attachment-request";
 export import GetInstancePoolLoadBalancerAttachmentRequest = GetInstancePoolLoadBalancerAttachmentRequest.GetInstancePoolLoadBalancerAttachmentRequest;
+import * as GetInstancePoolRefreshRequest from "./get-instance-pool-refresh-request";
+export import GetInstancePoolRefreshRequest = GetInstancePoolRefreshRequest.GetInstancePoolRefreshRequest;
 import * as LaunchInstanceConfigurationRequest from "./launch-instance-configuration-request";
 export import LaunchInstanceConfigurationRequest = LaunchInstanceConfigurationRequest.LaunchInstanceConfigurationRequest;
 import * as ListClusterNetworkInstancesRequest from "./list-cluster-network-instances-request";
@@ -438,8 +446,12 @@ import * as ListInstanceConfigurationsRequest from "./list-instance-configuratio
 export import ListInstanceConfigurationsRequest = ListInstanceConfigurationsRequest.ListInstanceConfigurationsRequest;
 import * as ListInstancePoolInstancesRequest from "./list-instance-pool-instances-request";
 export import ListInstancePoolInstancesRequest = ListInstancePoolInstancesRequest.ListInstancePoolInstancesRequest;
+import * as ListInstancePoolRefreshesRequest from "./list-instance-pool-refreshes-request";
+export import ListInstancePoolRefreshesRequest = ListInstancePoolRefreshesRequest.ListInstancePoolRefreshesRequest;
 import * as ListInstancePoolsRequest from "./list-instance-pools-request";
 export import ListInstancePoolsRequest = ListInstancePoolsRequest.ListInstancePoolsRequest;
+import * as RefreshInstancePoolRequest from "./refresh-instance-pool-request";
+export import RefreshInstancePoolRequest = RefreshInstancePoolRequest.RefreshInstancePoolRequest;
 import * as ResetInstancePoolRequest from "./reset-instance-pool-request";
 export import ResetInstancePoolRequest = ResetInstancePoolRequest.ResetInstancePoolRequest;
 import * as SoftresetInstancePoolRequest from "./softreset-instance-pool-request";

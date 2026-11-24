@@ -8,6 +8,10 @@ documentation for the [Networking](https://docs.oracle.com/iaas/Content/Network/
 The required permissions are documented in the
 [Details for the Core Services](https://docs.oracle.com/iaas/Content/Identity/Reference/corepolicyreference.htm) article.
 
+The Core Services API provides both IPv4-only and dual-stack (IPv4 and IPv6) endpoints. By default, OCI-published SDKs and the CLI use IPv4-only endpoints.
+Use a dual-stack endpoint to connect over IPv6 while retaining IPv4 compatibility.
+Dual-stack endpoints use the following format: https://{service}.{region}.ds.oci.{secondLevelDomain}.
+
  * OpenAPI spec version: 20160918
  * 
  *
@@ -170,6 +174,8 @@ import * as ByoipRangeVcnIpv6AllocationSummary from "./byoip-range-vcn-ipv6-allo
 export import ByoipRangeVcnIpv6AllocationSummary = ByoipRangeVcnIpv6AllocationSummary.ByoipRangeVcnIpv6AllocationSummary;
 import * as Byoipv6CidrDetails from "./byoipv6-cidr-details";
 export import Byoipv6CidrDetails = Byoipv6CidrDetails.Byoipv6CidrDetails;
+import * as CancelInstancePoolRefreshDetails from "./cancel-instance-pool-refresh-details";
+export import CancelInstancePoolRefreshDetails = CancelInstancePoolRefreshDetails.CancelInstancePoolRefreshDetails;
 import * as CapacityBin from "./capacity-bin";
 export import CapacityBin = CapacityBin.CapacityBin;
 import * as CapacityBinPreview from "./capacity-bin-preview";
@@ -682,6 +688,8 @@ import * as InstanceAgentFeatures from "./instance-agent-features";
 export import InstanceAgentFeatures = InstanceAgentFeatures.InstanceAgentFeatures;
 import * as InstanceAgentPluginConfigDetails from "./instance-agent-plugin-config-details";
 export import InstanceAgentPluginConfigDetails = InstanceAgentPluginConfigDetails.InstanceAgentPluginConfigDetails;
+import * as InstanceAuthz from "./instance-authz";
+export import InstanceAuthz = InstanceAuthz.InstanceAuthz;
 import * as InstanceAvailabilityConfig from "./instance-availability-config";
 export import InstanceAvailabilityConfig = InstanceAvailabilityConfig.InstanceAvailabilityConfig;
 import * as InstanceConfiguration from "./instance-configuration";
@@ -752,6 +760,8 @@ import * as InstancePoolInstance from "./instance-pool-instance";
 export import InstancePoolInstance = InstancePoolInstance.InstancePoolInstance;
 import * as InstancePoolInstanceLoadBalancerBackend from "./instance-pool-instance-load-balancer-backend";
 export import InstancePoolInstanceLoadBalancerBackend = InstancePoolInstanceLoadBalancerBackend.InstancePoolInstanceLoadBalancerBackend;
+import * as InstancePoolLaunchBeforeTerminatingDetails from "./instance-pool-launch-before-terminating-details";
+export import InstancePoolLaunchBeforeTerminatingDetails = InstancePoolLaunchBeforeTerminatingDetails.InstancePoolLaunchBeforeTerminatingDetails;
 import * as InstancePoolLaunchOverrideDetails from "./instance-pool-launch-override-details";
 export import InstancePoolLaunchOverrideDetails = InstancePoolLaunchOverrideDetails.InstancePoolLaunchOverrideDetails;
 import * as InstancePoolLaunchOverrideOption from "./instance-pool-launch-override-option";
@@ -770,6 +780,8 @@ import * as InstancePoolLifecycleManagementDetails from "./instance-pool-lifecyc
 export import InstancePoolLifecycleManagementDetails = InstancePoolLifecycleManagementDetails.InstancePoolLifecycleManagementDetails;
 import * as InstancePoolLoadBalancerAttachment from "./instance-pool-load-balancer-attachment";
 export import InstancePoolLoadBalancerAttachment = InstancePoolLoadBalancerAttachment.InstancePoolLoadBalancerAttachment;
+import * as InstancePoolMaintenancePolicyDetails from "./instance-pool-maintenance-policy-details";
+export import InstancePoolMaintenancePolicyDetails = InstancePoolMaintenancePolicyDetails.InstancePoolMaintenancePolicyDetails;
 import * as InstancePoolPlacementConfiguration from "./instance-pool-placement-configuration";
 export import InstancePoolPlacementConfiguration = InstancePoolPlacementConfiguration.InstancePoolPlacementConfiguration;
 import * as InstancePoolPlacementIpv6AddressIpv6SubnetCidrDetails from "./instance-pool-placement-ipv6-address-ipv6-subnet-cidr-details";
@@ -784,6 +796,12 @@ import * as InstancePoolPreTerminationActionDetails from "./instance-pool-pre-te
 export import InstancePoolPreTerminationActionDetails = InstancePoolPreTerminationActionDetails.InstancePoolPreTerminationActionDetails;
 import * as InstancePoolPreTerminationActionHandleTimeoutDetails from "./instance-pool-pre-termination-action-handle-timeout-details";
 export import InstancePoolPreTerminationActionHandleTimeoutDetails = InstancePoolPreTerminationActionHandleTimeoutDetails.InstancePoolPreTerminationActionHandleTimeoutDetails;
+import * as InstancePoolRefresh from "./instance-pool-refresh";
+export import InstancePoolRefresh = InstancePoolRefresh.InstancePoolRefresh;
+import * as InstancePoolRefreshCollection from "./instance-pool-refresh-collection";
+export import InstancePoolRefreshCollection = InstancePoolRefreshCollection.InstancePoolRefreshCollection;
+import * as InstancePoolRefreshSummary from "./instance-pool-refresh-summary";
+export import InstancePoolRefreshSummary = InstancePoolRefreshSummary.InstancePoolRefreshSummary;
 import * as InstancePoolSummary from "./instance-pool-summary";
 export import InstancePoolSummary = InstancePoolSummary.InstancePoolSummary;
 import * as InstancePowerActionDetails from "./instance-power-action-details";
@@ -938,6 +956,8 @@ import * as QuickRecycleSettings from "./quick-recycle-settings";
 export import QuickRecycleSettings = QuickRecycleSettings.QuickRecycleSettings;
 import * as RecycleDetails from "./recycle-details";
 export import RecycleDetails = RecycleDetails.RecycleDetails;
+import * as RefreshInstancePoolDetails from "./refresh-instance-pool-details";
+export import RefreshInstancePoolDetails = RefreshInstancePoolDetails.RefreshInstancePoolDetails;
 import * as RemotePeeringConnection from "./remote-peering-connection";
 export import RemotePeeringConnection = RemotePeeringConnection.RemotePeeringConnection;
 import * as RemoveDrgNatRulesDetails from "./remove-drg-nat-rules-details";

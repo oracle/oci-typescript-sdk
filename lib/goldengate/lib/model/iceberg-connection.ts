@@ -29,12 +29,16 @@ export interface IcebergConnection extends model.Connection {
     | model.GlueIcebergCatalog
     | model.PolarisIcebergCatalog
     | model.RestIcebergCatalog
+    | model.OracleAiDataCatalogIcebergCatalog
     | model.NessieIcebergCatalog
     | model.HadoopIcebergCatalog;
   "storage":
     | model.OciObjectStorageS3ApiIcebergStorage
+    | model.AzureStorageIcebergStorage
     | model.AmazonS3IcebergStorage
+    | model.ZfsIcebergStorage
     | model.AzureDataLakeStorageIcebergStorage
+    | model.OciObjectStorageAccessKeyIcebergStorage
     | model.NoIcebergStorage
     | model.GoogleCloudStorageIcebergStorage;
 
