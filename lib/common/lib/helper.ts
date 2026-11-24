@@ -212,6 +212,25 @@ export async function readStringFromReadable(readable: Readable): Promise<string
 //   });
 // }
 
+export function isBodyEmpty(body: any): boolean {
+  if (!body) {
+    return true;
+  }
+  if (typeof body === "string") {
+    return body.length === 0;
+  }
+  if (Buffer.isBuffer(body)) {
+    return body.length === 0;
+  }
+  if (typeof ArrayBuffer !== "undefined" && ArrayBuffer.isView(body)) {
+    return body.byteLength === 0;
+  }
+  if (body instanceof Readable) {
+    return false;
+  }
+  return isEmpty(body);
+}
+
 // returns duplicated body for separate consumption by signer and Fetch Request
 export function getSignerAndReqBody(
   body?: any,
@@ -220,7 +239,7 @@ export function getSignerAndReqBody(
   const singerAndReqBody = { signerBody: undefined, requestBody: undefined };
 
   // If body does not exist or empty body
-  if (!body || isEmpty(body)) {
+  if (isBodyEmpty(body)) {
     return singerAndReqBody;
   }
 
@@ -239,6 +258,10 @@ export function getSignerAndReqBody(
     const signerbody = body.pipe(new PassThrough());
     const reqBody = body.pipe(new PassThrough());
     return { signerBody: signerbody, requestBody: reqBody };
+  }
+  // If body is a Buffer or Uint8Array, it can be passed to signer and request body directly
+  else if (Buffer.isBuffer(body) || (typeof Uint8Array !== "undefined" && body instanceof Uint8Array)) {
+    return { signerBody: body, requestBody: body };
   }
   // //if body instance of blob, can be duplicated.
   // else if (body instanceof Blob) {

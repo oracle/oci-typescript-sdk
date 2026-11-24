@@ -17,6 +17,15 @@ export function isBrowser() {
 
 // utility method checks if object is empty or not
 export function isEmpty(obj: any): boolean {
+  if (obj === null || obj === undefined) {
+    return true;
+  }
+  if (Buffer.isBuffer(obj)) {
+    return obj.length === 0;
+  }
+  if (typeof ArrayBuffer !== "undefined" && ArrayBuffer.isView(obj)) {
+    return obj.byteLength === 0;
+  }
   return Object.keys(obj).length === 0;
 }
 
