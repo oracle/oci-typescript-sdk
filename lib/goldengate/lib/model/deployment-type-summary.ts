@@ -24,8 +24,8 @@ Deprecated properties: {@code sourceTechnologies} and {@code targetTechnologies}
 */
 export interface DeploymentTypeSummary {
   /**
-   * The deployment category defines the broad separation of the deployment type into four categories.
-   * Currently the separation is 'DATA_REPLICATION', 'STREAM_ANALYTICS', 'DATA_TRANSFORMS' and 'DATA_VERIFICATION'.
+   * The deployment category defines the broad separation of the deployment type into five categories.
+   * Currently the separation is 'DATA_REPLICATION', 'STREAM_ANALYTICS', 'DATA_TRANSFORMS', 'DATA_VERIFICATION' and 'DATA_CATALOG'.
    *
    */
   "category": model.DeploymentCategory;
@@ -81,6 +81,11 @@ export interface DeploymentTypeSummary {
    */
   "supportedCapabilities"?: Array<DeploymentTypeSummary.SupportedCapabilities>;
   /**
+   * The list of credential stores supported by the deployment type.
+   *
+   */
+  "supportedCredentialStores"?: Array<model.CredentialStore>;
+  /**
    * The list of Oracle license models supported by the deployment type.
    *
    */
@@ -105,6 +110,7 @@ export namespace DeploymentTypeSummary {
     Hdfs = "HDFS",
     OracleAiDataPlatform = "ORACLE_AI_DATA_PLATFORM",
     OracleAiDataPlatformEngine = "ORACLE_AI_DATA_PLATFORM_ENGINE",
+    OracleAiDataCatalogStorage = "ORACLE_AI_DATA_CATALOG_STORAGE",
     OracleNosql = "ORACLE_NOSQL",
     Mongodb = "MONGODB",
     AmazonKinesis = "AMAZON_KINESIS",
@@ -132,6 +138,7 @@ export namespace DeploymentTypeSummary {
 
   export enum SupportedCapabilities {
     GroupToRole = "GROUP_TO_ROLE",
+    GroupToRoleRequired = "GROUP_TO_ROLE_REQUIRED",
     BackupRestore = "BACKUP_RESTORE",
     CopyBackup = "COPY_BACKUP",
     ManualBackup = "MANUAL_BACKUP",
@@ -157,6 +164,11 @@ export namespace DeploymentTypeSummary {
     const jsonObj = {
       ...obj,
       ...{
+        "supportedCredentialStores": obj.supportedCredentialStores
+          ? obj.supportedCredentialStores.map(item => {
+              return model.CredentialStore.getJsonObj(item);
+            })
+          : undefined,
         "supportedLicenseTypes": obj.supportedLicenseTypes
           ? obj.supportedLicenseTypes.map(item => {
               return model.LicenseModel.getJsonObj(item);
@@ -171,6 +183,11 @@ export namespace DeploymentTypeSummary {
     const jsonObj = {
       ...obj,
       ...{
+        "supportedCredentialStores": obj.supportedCredentialStores
+          ? obj.supportedCredentialStores.map(item => {
+              return model.CredentialStore.getDeserializedJsonObj(item);
+            })
+          : undefined,
         "supportedLicenseTypes": obj.supportedLicenseTypes
           ? obj.supportedLicenseTypes.map(item => {
               return model.LicenseModel.getDeserializedJsonObj(item);

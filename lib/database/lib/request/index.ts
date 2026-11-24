@@ -46,10 +46,14 @@ import * as ChangeAutonomousExadataInfrastructureCompartmentRequest from "./chan
 export import ChangeAutonomousExadataInfrastructureCompartmentRequest = ChangeAutonomousExadataInfrastructureCompartmentRequest.ChangeAutonomousExadataInfrastructureCompartmentRequest;
 import * as ChangeAutonomousVmClusterCompartmentRequest from "./change-autonomous-vm-cluster-compartment-request";
 export import ChangeAutonomousVmClusterCompartmentRequest = ChangeAutonomousVmClusterCompartmentRequest.ChangeAutonomousVmClusterCompartmentRequest;
+import * as ChangeAvmKeyManagementSystemRequest from "./change-avm-key-management-system-request";
+export import ChangeAvmKeyManagementSystemRequest = ChangeAvmKeyManagementSystemRequest.ChangeAvmKeyManagementSystemRequest;
 import * as ChangeBackupDestinationCompartmentRequest from "./change-backup-destination-compartment-request";
 export import ChangeBackupDestinationCompartmentRequest = ChangeBackupDestinationCompartmentRequest.ChangeBackupDestinationCompartmentRequest;
 import * as ChangeBaseccVmClusterCompartmentRequest from "./change-basecc-vm-cluster-compartment-request";
 export import ChangeBaseccVmClusterCompartmentRequest = ChangeBaseccVmClusterCompartmentRequest.ChangeBaseccVmClusterCompartmentRequest;
+import * as ChangeCavmKeyManagementSystemRequest from "./change-cavm-key-management-system-request";
+export import ChangeCavmKeyManagementSystemRequest = ChangeCavmKeyManagementSystemRequest.ChangeCavmKeyManagementSystemRequest;
 import * as ChangeCloudAutonomousVmClusterCompartmentRequest from "./change-cloud-autonomous-vm-cluster-compartment-request";
 export import ChangeCloudAutonomousVmClusterCompartmentRequest = ChangeCloudAutonomousVmClusterCompartmentRequest.ChangeCloudAutonomousVmClusterCompartmentRequest;
 import * as ChangeCloudAutonomousVmClusterSubscriptionRequest from "./change-cloud-autonomous-vm-cluster-subscription-request";

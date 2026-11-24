@@ -26,15 +26,19 @@ export interface CreateIcebergConnectionDetails extends model.CreateConnectionDe
    */
   "technologyType": string;
   "catalog":
+    | model.CreateOracleAiDataCatalogIcebergCatalogDetails
     | model.CreatePolarisIcebergCatalogDetails
     | model.CreateGlueIcebergCatalogDetails
     | model.CreateRestIcebergCatalogDetails
     | model.CreateHadoopIcebergCatalogDetails
     | model.CreateNessieIcebergCatalogDetails;
   "storage":
+    | model.CreateZfsIcebergStorageDetails
     | model.CreateAzureDataLakeStorageIcebergStorageDetails
     | model.CreateNoIcebergStorageDetails
+    | model.CreateAzureStorageIcebergStorageDetails
     | model.CreateGoogleCloudStorageIcebergStorageDetails
+    | model.CreateOciObjectStorageAccessKeyIcebergStorageDetails
     | model.CreateAmazonS3IcebergStorageDetails
     | model.CreateOciObjectStorageS3ApiIcebergStorageDetails;
 

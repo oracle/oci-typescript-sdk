@@ -48,6 +48,10 @@ export interface ListAutonomousVmClustersRequest extends common.BaseRequest {
    */
   "lifecycleState"?: string;
   /**
+   * A filter to return only resources that match the given kms exactly.
+   */
+  "kmsType"?: ListAutonomousVmClustersRequest.KmsType;
+  /**
    * A filter to return only resources that match the entire display name given. The match is not case sensitive.
    */
   "displayName"?: string;
@@ -67,5 +71,10 @@ export namespace ListAutonomousVmClustersRequest {
   export enum SortOrder {
     Asc = "ASC",
     Desc = "DESC"
+  }
+
+  export enum KmsType {
+    OracleKeyVault = "ORACLE_KEY_VAULT",
+    Thales = "THALES"
   }
 }

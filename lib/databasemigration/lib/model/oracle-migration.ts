@@ -15,21 +15,16 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Oracle Migration resource.
- * Deprecated: The parent-level Oracle migration configuration properties on this model are deprecated.
- * Use {@code migrationSettings} instead.
- *
+ * Oracle Migration resource
  */
 export interface OracleMigration extends model.Migration {
-  "migrationSettings"?:
-    | model.OracleOnlineStandbyMigrationSettings
-    | model.OracleOfflineLogicalMigrationSettings
-    | model.OracleOnlineLogicalMigrationSettings;
   "dataTransferMediumDetails"?:
+    | model.OracleGcsDataTransferMediumDetails
     | model.OracleDbLinkDataTransferMediumDetails
     | model.OracleObjectStorageDataTransferMediumDetails
     | model.OracleAwsS3DataTransferMediumDetails
-    | model.OracleNfsDataTransferMediumDetails;
+    | model.OracleNfsDataTransferMediumDetails
+    | model.OracleAzureBlobDataTransferMediumDetails;
   "initialLoadSettings"?: model.OracleInitialLoadSettings;
   "advisorSettings"?: model.OracleAdvisorSettings;
   "hubDetails"?: model.GoldenGateHubDetails;
@@ -55,9 +50,6 @@ export namespace OracleMigration {
     const jsonObj = {
       ...(isParentJsonObj ? obj : (model.Migration.getJsonObj(obj) as OracleMigration)),
       ...{
-        "migrationSettings": obj.migrationSettings
-          ? model.OracleMigrationSettings.getJsonObj(obj.migrationSettings)
-          : undefined,
         "dataTransferMediumDetails": obj.dataTransferMediumDetails
           ? model.OracleDataTransferMediumDetails.getJsonObj(obj.dataTransferMediumDetails)
           : undefined,
@@ -89,9 +81,6 @@ export namespace OracleMigration {
     const jsonObj = {
       ...(isParentJsonObj ? obj : (model.Migration.getDeserializedJsonObj(obj) as OracleMigration)),
       ...{
-        "migrationSettings": obj.migrationSettings
-          ? model.OracleMigrationSettings.getDeserializedJsonObj(obj.migrationSettings)
-          : undefined,
         "dataTransferMediumDetails": obj.dataTransferMediumDetails
           ? model.OracleDataTransferMediumDetails.getDeserializedJsonObj(
               obj.dataTransferMediumDetails

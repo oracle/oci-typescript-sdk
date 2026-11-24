@@ -39,9 +39,19 @@ export namespace IcebergStorageSummary {
             <model.OciObjectStorageS3ApiIcebergStorageSummary>(<object>jsonObj),
             true
           );
+        case "ZFS":
+          return model.ZfsIcebergStorageSummary.getJsonObj(
+            <model.ZfsIcebergStorageSummary>(<object>jsonObj),
+            true
+          );
         case "AZURE_DATA_LAKE_STORAGE":
           return model.AzureDataLakeStorageIcebergStorageSummary.getJsonObj(
             <model.AzureDataLakeStorageIcebergStorageSummary>(<object>jsonObj),
+            true
+          );
+        case "OCI_OBJECT_STORAGE_ACCESS_KEY":
+          return model.OciObjectStorageAccessKeyIcebergStorageSummary.getJsonObj(
+            <model.OciObjectStorageAccessKeyIcebergStorageSummary>(<object>jsonObj),
             true
           );
         case "NONE":
@@ -52,6 +62,11 @@ export namespace IcebergStorageSummary {
         case "AMAZON_S3":
           return model.AmazonS3IcebergStorageSummary.getJsonObj(
             <model.AmazonS3IcebergStorageSummary>(<object>jsonObj),
+            true
+          );
+        case "AZURE_STORAGE":
+          return model.AzureStorageIcebergStorageSummary.getJsonObj(
+            <model.AzureStorageIcebergStorageSummary>(<object>jsonObj),
             true
           );
         default:
@@ -75,9 +90,19 @@ export namespace IcebergStorageSummary {
             <model.OciObjectStorageS3ApiIcebergStorageSummary>(<object>jsonObj),
             true
           );
+        case "ZFS":
+          return model.ZfsIcebergStorageSummary.getDeserializedJsonObj(
+            <model.ZfsIcebergStorageSummary>(<object>jsonObj),
+            true
+          );
         case "AZURE_DATA_LAKE_STORAGE":
           return model.AzureDataLakeStorageIcebergStorageSummary.getDeserializedJsonObj(
             <model.AzureDataLakeStorageIcebergStorageSummary>(<object>jsonObj),
+            true
+          );
+        case "OCI_OBJECT_STORAGE_ACCESS_KEY":
+          return model.OciObjectStorageAccessKeyIcebergStorageSummary.getDeserializedJsonObj(
+            <model.OciObjectStorageAccessKeyIcebergStorageSummary>(<object>jsonObj),
             true
           );
         case "NONE":
@@ -88,6 +113,11 @@ export namespace IcebergStorageSummary {
         case "AMAZON_S3":
           return model.AmazonS3IcebergStorageSummary.getDeserializedJsonObj(
             <model.AmazonS3IcebergStorageSummary>(<object>jsonObj),
+            true
+          );
+        case "AZURE_STORAGE":
+          return model.AzureStorageIcebergStorageSummary.getDeserializedJsonObj(
+            <model.AzureStorageIcebergStorageSummary>(<object>jsonObj),
             true
           );
         default:

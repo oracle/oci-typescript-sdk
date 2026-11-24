@@ -30,13 +30,17 @@ export interface IcebergConnectionSummary extends model.ConnectionSummary {
     | model.NessieIcebergCatalogSummary
     | model.PolarisIcebergCatalogSummary
     | model.RestIcebergCatalogSummary
-    | model.HadoopIcebergCatalogSummary;
+    | model.HadoopIcebergCatalogSummary
+    | model.OracleAiDataCatalogIcebergCatalogSummary;
   "storage":
     | model.GoogleCloudStorageIcebergStorageSummary
     | model.OciObjectStorageS3ApiIcebergStorageSummary
+    | model.ZfsIcebergStorageSummary
     | model.AzureDataLakeStorageIcebergStorageSummary
+    | model.OciObjectStorageAccessKeyIcebergStorageSummary
     | model.NoIcebergStorageSummary
-    | model.AmazonS3IcebergStorageSummary;
+    | model.AmazonS3IcebergStorageSummary
+    | model.AzureStorageIcebergStorageSummary;
 
   "connectionType": string;
 }

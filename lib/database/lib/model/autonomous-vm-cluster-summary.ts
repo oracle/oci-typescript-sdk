@@ -250,6 +250,11 @@ Example: {@code {\"Department\": \"Finance\"}}
    * The lowest value to which maximum number of ACDs can be scaled down. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maxAcdsLowestScaledValue"?: number;
+  "keyManagementSystemDetails"?:
+    | model.OracleManagedKeyManagementSystemDetails
+    | model.ThalesKeyManagementSystemDetails
+    | model.OciVaultKeyManagementSystemDetails
+    | model.OracleKeyVaultKeyManagementSystemDetails;
 }
 
 export namespace AutonomousVmClusterSummary {
@@ -304,6 +309,10 @@ export namespace AutonomousVmClusterSummary {
       ...{
         "maintenanceWindow": obj.maintenanceWindow
           ? model.MaintenanceWindow.getJsonObj(obj.maintenanceWindow)
+          : undefined,
+
+        "keyManagementSystemDetails": obj.keyManagementSystemDetails
+          ? model.KeyManagementSystemDetails.getJsonObj(obj.keyManagementSystemDetails)
           : undefined
       }
     };
@@ -316,6 +325,10 @@ export namespace AutonomousVmClusterSummary {
       ...{
         "maintenanceWindow": obj.maintenanceWindow
           ? model.MaintenanceWindow.getDeserializedJsonObj(obj.maintenanceWindow)
+          : undefined,
+
+        "keyManagementSystemDetails": obj.keyManagementSystemDetails
+          ? model.KeyManagementSystemDetails.getDeserializedJsonObj(obj.keyManagementSystemDetails)
           : undefined
       }
     };

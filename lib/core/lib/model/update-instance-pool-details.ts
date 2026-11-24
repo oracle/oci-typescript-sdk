@@ -8,6 +8,10 @@ documentation for the [Networking](https://docs.oracle.com/iaas/Content/Network/
 The required permissions are documented in the
 [Details for the Core Services](https://docs.oracle.com/iaas/Content/Identity/Reference/corepolicyreference.htm) article.
 
+The Core Services API provides both IPv4-only and dual-stack (IPv4 and IPv6) endpoints. By default, OCI-published SDKs and the CLI use IPv4-only endpoints.
+Use a dual-stack endpoint to connect over IPv6 while retaining IPv4 compatibility.
+Dual-stack endpoints use the following format: https://{service}.{region}.ds.oci.{secondLevelDomain}.
+
  * OpenAPI spec version: 20160918
  * 
  *
@@ -23,6 +27,9 @@ import common = require("oci-common");
 
 /**
  * The data to update an instance pool.
+ * If {@code instanceMaintenancePolicy} is omitted, the stored maintenance policy remains unchanged.
+ * A non-null {@code instanceMaintenancePolicy} replaces the stored policy as a whole, and {@code null}
+ * clears it.
  * If {@code overridePolicy} is omitted, the stored launch override policy remains unchanged.
  * A non-null {@code overridePolicy} replaces the stored policy as a whole, and {@code null}
  * clears it for future launches.
@@ -91,6 +98,7 @@ To determine whether capacity is available for a specific shape before you resiz
    */
   "instanceHostnameFormatter"?: string;
   "lifecycleManagement"?: model.InstancePoolLifecycleManagementDetails;
+  "instanceMaintenancePolicy"?: model.InstancePoolMaintenancePolicyDetails;
 }
 
 export namespace UpdateInstancePoolDetails {
@@ -110,6 +118,9 @@ export namespace UpdateInstancePoolDetails {
 
         "lifecycleManagement": obj.lifecycleManagement
           ? model.InstancePoolLifecycleManagementDetails.getJsonObj(obj.lifecycleManagement)
+          : undefined,
+        "instanceMaintenancePolicy": obj.instanceMaintenancePolicy
+          ? model.InstancePoolMaintenancePolicyDetails.getJsonObj(obj.instanceMaintenancePolicy)
           : undefined
       }
     };
@@ -135,6 +146,11 @@ export namespace UpdateInstancePoolDetails {
         "lifecycleManagement": obj.lifecycleManagement
           ? model.InstancePoolLifecycleManagementDetails.getDeserializedJsonObj(
               obj.lifecycleManagement
+            )
+          : undefined,
+        "instanceMaintenancePolicy": obj.instanceMaintenancePolicy
+          ? model.InstancePoolMaintenancePolicyDetails.getDeserializedJsonObj(
+              obj.instanceMaintenancePolicy
             )
           : undefined
       }

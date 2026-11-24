@@ -21,6 +21,7 @@ import common = require("oci-common");
  **/
 export enum SupportedCapabilities {
   GroupToRole = "GROUP_TO_ROLE",
+  GroupToRoleRequired = "GROUP_TO_ROLE_REQUIRED",
   BackupRestore = "BACKUP_RESTORE",
   CopyBackup = "COPY_BACKUP",
   ManualBackup = "MANUAL_BACKUP",

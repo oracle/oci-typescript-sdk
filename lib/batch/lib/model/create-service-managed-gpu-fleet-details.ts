@@ -18,6 +18,7 @@ import common = require("oci-common");
  * Service managed GPU Fleet configuration of the batch context.
  */
 export interface CreateServiceManagedGpuFleetDetails extends model.CreateFleetDetails {
+  "reservation"?: model.CreateComputeCapacityReservationDetails;
   /**
    * Name of the service managed GPU fleet.
    */
@@ -41,6 +42,10 @@ export namespace CreateServiceManagedGpuFleetDetails {
         ? obj
         : (model.CreateFleetDetails.getJsonObj(obj) as CreateServiceManagedGpuFleetDetails)),
       ...{
+        "reservation": obj.reservation
+          ? model.CreateReservationDetails.getJsonObj(obj.reservation)
+          : undefined,
+
         "shape": obj.shape ? model.CreateGpuFleetShapeDetails.getJsonObj(obj.shape) : undefined
       }
     };
@@ -59,6 +64,10 @@ export namespace CreateServiceManagedGpuFleetDetails {
             obj
           ) as CreateServiceManagedGpuFleetDetails)),
       ...{
+        "reservation": obj.reservation
+          ? model.CreateReservationDetails.getDeserializedJsonObj(obj.reservation)
+          : undefined,
+
         "shape": obj.shape
           ? model.CreateGpuFleetShapeDetails.getDeserializedJsonObj(obj.shape)
           : undefined

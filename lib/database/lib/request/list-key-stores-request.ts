@@ -35,4 +35,15 @@ export interface ListKeyStoresRequest extends common.BaseRequest {
    *
    */
   "opcRequestId"?: string;
+  /**
+   * A filter to return only resources that match the key store type given. The match is not case sensitive.
+   */
+  "keyStoreType"?: ListKeyStoresRequest.KeyStoreType;
+}
+
+export namespace ListKeyStoresRequest {
+  export enum KeyStoreType {
+    OracleKeyVault = "ORACLE_KEY_VAULT",
+    Thales = "THALES"
+  }
 }

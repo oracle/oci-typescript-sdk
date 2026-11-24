@@ -8,6 +8,10 @@ documentation for the [Networking](https://docs.oracle.com/iaas/Content/Network/
 The required permissions are documented in the
 [Details for the Core Services](https://docs.oracle.com/iaas/Content/Identity/Reference/corepolicyreference.htm) article.
 
+The Core Services API provides both IPv4-only and dual-stack (IPv4 and IPv6) endpoints. By default, OCI-published SDKs and the CLI use IPv4-only endpoints.
+Use a dual-stack endpoint to connect over IPv6 while retaining IPv4 compatibility.
+Dual-stack endpoints use the following format: https://{service}.{region}.ds.oci.{secondLevelDomain}.
+
  * OpenAPI spec version: 20160918
  * 
  *
@@ -20634,6 +20638,103 @@ export class ComputeManagementClient {
   }
 
   /**
+   * Cancels the specified instance pool refresh.
+   * Cancellation stops new batch planning and new launch submissions. Submitted launch and terminate
+   * operations continue until they settle.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CancelInstancePoolRefreshRequest
+   * @return CancelInstancePoolRefreshResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CancelInstancePoolRefresh.ts.html |here} to see how to use CancelInstancePoolRefresh API.
+   */
+  public async cancelInstancePoolRefresh(
+    cancelInstancePoolRefreshRequest: requests.CancelInstancePoolRefreshRequest
+  ): Promise<responses.CancelInstancePoolRefreshResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeManagementClient#cancelInstancePoolRefresh.");
+    const operationName = "cancelInstancePoolRefresh";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/InstancePoolRefresh/CancelInstancePoolRefresh";
+    const pathParams = {
+      "{instancePoolId}": cancelInstancePoolRefreshRequest.instancePoolId,
+      "{refreshId}": cancelInstancePoolRefreshRequest.refreshId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": cancelInstancePoolRefreshRequest.opcRequestId,
+      "opc-retry-token": cancelInstancePoolRefreshRequest.opcRetryToken,
+      "if-match": cancelInstancePoolRefreshRequest.ifMatch
+    };
+
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["instancePoolId", "refreshId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      cancelInstancePoolRefreshRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/instancePools/{instancePoolId}/refreshes/{refreshId}/actions/cancel",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        cancelInstancePoolRefreshRequest.cancelInstancePoolRefreshDetails,
+        "CancelInstancePoolRefreshDetails",
+        model.CancelInstancePoolRefreshDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CancelInstancePoolRefreshResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
      * Moves a [cluster network with instance pools](https://docs.oracle.com/iaas/Content/Compute/Tasks/managingclusternetworks.htm)
 * into a different compartment within the same tenancy. For
 * information about moving resources between compartments, see
@@ -21972,6 +22073,97 @@ To determine whether capacity is available for a specific shape before you creat
   }
 
   /**
+   * Gets the specified instance pool refresh.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetInstancePoolRefreshRequest
+   * @return GetInstancePoolRefreshResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetInstancePoolRefresh.ts.html |here} to see how to use GetInstancePoolRefresh API.
+   */
+  public async getInstancePoolRefresh(
+    getInstancePoolRefreshRequest: requests.GetInstancePoolRefreshRequest
+  ): Promise<responses.GetInstancePoolRefreshResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeManagementClient#getInstancePoolRefresh.");
+    const operationName = "getInstancePoolRefresh";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/InstancePoolRefresh/GetInstancePoolRefresh";
+    const pathParams = {
+      "{instancePoolId}": getInstancePoolRefreshRequest.instancePoolId,
+      "{refreshId}": getInstancePoolRefreshRequest.refreshId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getInstancePoolRefreshRequest.opcRequestId
+    };
+
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["instancePoolId", "refreshId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getInstancePoolRefreshRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/instancePools/{instancePoolId}/refreshes/{refreshId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetInstancePoolRefreshResponse>{},
+        body: await response.json(),
+        bodyKey: "instancePoolRefresh",
+        bodyModel: model.InstancePoolRefresh,
+        type: "model.InstancePoolRefresh",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
      * Creates an instance from an instance configuration.
 * <p>
 If the instance configuration does not include all of the parameters that are
@@ -22676,6 +22868,103 @@ To determine whether capacity is available for a specific shape before you creat
   }
 
   /**
+   * Lists the instance pool refreshes for the specified instance pool.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListInstancePoolRefreshesRequest
+   * @return ListInstancePoolRefreshesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListInstancePoolRefreshes.ts.html |here} to see how to use ListInstancePoolRefreshes API.
+   */
+  public async listInstancePoolRefreshes(
+    listInstancePoolRefreshesRequest: requests.ListInstancePoolRefreshesRequest
+  ): Promise<responses.ListInstancePoolRefreshesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeManagementClient#listInstancePoolRefreshes.");
+    const operationName = "listInstancePoolRefreshes";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/InstancePoolRefreshCollection/ListInstancePoolRefreshes";
+    const pathParams = {
+      "{instancePoolId}": listInstancePoolRefreshesRequest.instancePoolId
+    };
+
+    const queryParams = {
+      "compartmentId": listInstancePoolRefreshesRequest.compartmentId,
+      "limit": listInstancePoolRefreshesRequest.limit,
+      "page": listInstancePoolRefreshesRequest.page,
+      "sortBy": listInstancePoolRefreshesRequest.sortBy,
+      "sortOrder": listInstancePoolRefreshesRequest.sortOrder,
+      "lifecycleState": listInstancePoolRefreshesRequest.lifecycleState
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listInstancePoolRefreshesRequest.opcRequestId
+    };
+
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["instancePoolId", "compartmentId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listInstancePoolRefreshesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/instancePools/{instancePoolId}/refreshes",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListInstancePoolRefreshesResponse>{},
+        body: await response.json(),
+        bodyKey: "instancePoolRefreshCollection",
+        bodyModel: model.InstancePoolRefreshCollection,
+        type: "model.InstancePoolRefreshCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Lists the instance pools in the specified compartment.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListInstancePoolsRequest
@@ -22820,6 +23109,109 @@ To determine whether capacity is available for a specific shape before you creat
     request: requests.ListInstancePoolsRequest
   ): AsyncIterableIterator<responses.ListInstancePoolsResponse> {
     return paginateResponses(request, req => this.listInstancePools(req));
+  }
+
+  /**
+   * Starts an instance refresh for the specified instance pool.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param RefreshInstancePoolRequest
+   * @return RefreshInstancePoolResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/RefreshInstancePool.ts.html |here} to see how to use RefreshInstancePool API.
+   */
+  public async refreshInstancePool(
+    refreshInstancePoolRequest: requests.RefreshInstancePoolRequest
+  ): Promise<responses.RefreshInstancePoolResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeManagementClient#refreshInstancePool.");
+    const operationName = "refreshInstancePool";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/InstancePoolRefresh/RefreshInstancePool";
+    const pathParams = {
+      "{instancePoolId}": refreshInstancePoolRequest.instancePoolId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": refreshInstancePoolRequest.opcRequestId,
+      "opc-retry-token": refreshInstancePoolRequest.opcRetryToken,
+      "if-match": refreshInstancePoolRequest.ifMatch
+    };
+
+    let endpoint = common.EndpointBuilder.updateEndpointTemplateForOptions(
+      this.endpoint,
+      this._enableDualstackEndpoint,
+      this._serviceUsesDualStackByDefault
+    );
+
+    const requiredParams = new Set<string>(["instancePoolId"]);
+    endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      refreshInstancePoolRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/instancePools/{instancePoolId}/actions/refresh",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        refreshInstancePoolRequest.refreshInstancePoolDetails,
+        "RefreshInstancePoolDetails",
+        model.RefreshInstancePoolDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RefreshInstancePoolResponse>{},
+        body: await response.json(),
+        bodyKey: "instancePoolRefresh",
+        bodyModel: model.InstancePoolRefresh,
+        type: "model.InstancePoolRefresh",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
   }
 
   /**

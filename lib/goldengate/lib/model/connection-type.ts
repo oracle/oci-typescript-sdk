@@ -36,6 +36,7 @@ export enum ConnectionType {
   Hdfs = "HDFS",
   OracleAiDataPlatform = "ORACLE_AI_DATA_PLATFORM",
   OracleAiDataPlatformEngine = "ORACLE_AI_DATA_PLATFORM_ENGINE",
+  OracleAiDataCatalogStorage = "ORACLE_AI_DATA_CATALOG_STORAGE",
   OracleNosql = "ORACLE_NOSQL",
   Mongodb = "MONGODB",
   AmazonKinesis = "AMAZON_KINESIS",

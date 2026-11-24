@@ -34,14 +34,29 @@ export namespace IcebergStorage {
             <model.OciObjectStorageS3ApiIcebergStorage>(<object>jsonObj),
             true
           );
+        case "AZURE_STORAGE":
+          return model.AzureStorageIcebergStorage.getJsonObj(
+            <model.AzureStorageIcebergStorage>(<object>jsonObj),
+            true
+          );
         case "AMAZON_S3":
           return model.AmazonS3IcebergStorage.getJsonObj(
             <model.AmazonS3IcebergStorage>(<object>jsonObj),
             true
           );
+        case "ZFS":
+          return model.ZfsIcebergStorage.getJsonObj(
+            <model.ZfsIcebergStorage>(<object>jsonObj),
+            true
+          );
         case "AZURE_DATA_LAKE_STORAGE":
           return model.AzureDataLakeStorageIcebergStorage.getJsonObj(
             <model.AzureDataLakeStorageIcebergStorage>(<object>jsonObj),
+            true
+          );
+        case "OCI_OBJECT_STORAGE_ACCESS_KEY":
+          return model.OciObjectStorageAccessKeyIcebergStorage.getJsonObj(
+            <model.OciObjectStorageAccessKeyIcebergStorage>(<object>jsonObj),
             true
           );
         case "NONE":
@@ -67,14 +82,29 @@ export namespace IcebergStorage {
             <model.OciObjectStorageS3ApiIcebergStorage>(<object>jsonObj),
             true
           );
+        case "AZURE_STORAGE":
+          return model.AzureStorageIcebergStorage.getDeserializedJsonObj(
+            <model.AzureStorageIcebergStorage>(<object>jsonObj),
+            true
+          );
         case "AMAZON_S3":
           return model.AmazonS3IcebergStorage.getDeserializedJsonObj(
             <model.AmazonS3IcebergStorage>(<object>jsonObj),
             true
           );
+        case "ZFS":
+          return model.ZfsIcebergStorage.getDeserializedJsonObj(
+            <model.ZfsIcebergStorage>(<object>jsonObj),
+            true
+          );
         case "AZURE_DATA_LAKE_STORAGE":
           return model.AzureDataLakeStorageIcebergStorage.getDeserializedJsonObj(
             <model.AzureDataLakeStorageIcebergStorage>(<object>jsonObj),
+            true
+          );
+        case "OCI_OBJECT_STORAGE_ACCESS_KEY":
+          return model.OciObjectStorageAccessKeyIcebergStorage.getDeserializedJsonObj(
+            <model.OciObjectStorageAccessKeyIcebergStorage>(<object>jsonObj),
             true
           );
         case "NONE":

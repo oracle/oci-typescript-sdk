@@ -25,13 +25,17 @@ export interface UpdateIcebergConnectionDetails extends model.UpdateConnectionDe
     | model.UpdatePolarisIcebergCatalogDetails
     | model.UpdateNessieIcebergCatalogDetails
     | model.UpdateHadoopIcebergCatalogDetails
+    | model.UpdateOracleAiDataCatalogIcebergCatalogDetails
     | model.UpdateGlueIcebergCatalogDetails;
   "storage"?:
     | model.UpdateAmazonS3IcebergStorageDetails
     | model.UpdateOciObjectStorageS3ApiIcebergStorageDetails
     | model.UpdateNoIcebergStorageDetails
     | model.UpdateGoogleCloudStorageIcebergStorageDetails
-    | model.UpdateAzureDataLakeStorageIcebergStorageDetails;
+    | model.UpdateOciObjectStorageAccessKeyIcebergStorageDetails
+    | model.UpdateAzureDataLakeStorageIcebergStorageDetails
+    | model.UpdateAzureStorageIcebergStorageDetails
+    | model.UpdateZfsIcebergStorageDetails;
 
   "connectionType": string;
 }

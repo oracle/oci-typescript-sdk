@@ -538,6 +538,37 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forChangeAvmKeyManagementSystem
+   *
+   * @param request the request to send
+   * @return response returns ChangeAvmKeyManagementSystemResponse, GetWorkRequestResponse tuple
+   */
+  public async forChangeAvmKeyManagementSystem(
+    request: serviceRequests.ChangeAvmKeyManagementSystemRequest
+  ): Promise<{
+    response: serviceResponses.ChangeAvmKeyManagementSystemResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const changeAvmKeyManagementSystemResponse = await this.client.changeAvmKeyManagementSystem(
+      request
+    );
+    if (changeAvmKeyManagementSystemResponse.opcWorkRequestId === undefined)
+      return {
+        response: changeAvmKeyManagementSystemResponse,
+        workRequestResponse: undefined as any
+      };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      changeAvmKeyManagementSystemResponse.opcWorkRequestId
+    );
+    return {
+      response: changeAvmKeyManagementSystemResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
    * Waits forChangeBackupDestinationCompartment
    *
    * @param request the request to send
@@ -595,6 +626,37 @@ export class DatabaseWaiter {
     );
     return {
       response: changeBaseccVmClusterCompartmentResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forChangeCavmKeyManagementSystem
+   *
+   * @param request the request to send
+   * @return response returns ChangeCavmKeyManagementSystemResponse, GetWorkRequestResponse tuple
+   */
+  public async forChangeCavmKeyManagementSystem(
+    request: serviceRequests.ChangeCavmKeyManagementSystemRequest
+  ): Promise<{
+    response: serviceResponses.ChangeCavmKeyManagementSystemResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const changeCavmKeyManagementSystemResponse = await this.client.changeCavmKeyManagementSystem(
+      request
+    );
+    if (changeCavmKeyManagementSystemResponse.opcWorkRequestId === undefined)
+      return {
+        response: changeCavmKeyManagementSystemResponse,
+        workRequestResponse: undefined as any
+      };
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      changeCavmKeyManagementSystemResponse.opcWorkRequestId
+    );
+    return {
+      response: changeCavmKeyManagementSystemResponse,
       workRequestResponse: getWorkRequestResponse
     };
   }
