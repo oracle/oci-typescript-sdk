@@ -28,6 +28,7 @@ export interface CreateConnectionRequest extends common.BaseRequest {
     | model.CreateMicrosoftSqlserverConnectionDetails
     | model.CreateAmazonKinesisConnectionDetails
     | model.CreateAzureDataLakeStorageConnectionDetails
+    | model.CreateOracleAiDataCatalogStorageConnectionDetails
     | model.CreateOracleAiDataPlatformEngineConnectionDetails
     | model.CreateGooglePubSubConnectionDetails
     | model.CreateHdfsConnectionDetails

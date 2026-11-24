@@ -208,6 +208,11 @@ export namespace UpdateConnectionDetails {
             <model.UpdateSnowflakeConnectionDetails>(<object>jsonObj),
             true
           );
+        case "ORACLE_AI_DATA_CATALOG_STORAGE":
+          return model.UpdateOracleAiDataCatalogStorageConnectionDetails.getJsonObj(
+            <model.UpdateOracleAiDataCatalogStorageConnectionDetails>(<object>jsonObj),
+            true
+          );
         case "HDFS":
           return model.UpdateHdfsConnectionDetails.getJsonObj(
             <model.UpdateHdfsConnectionDetails>(<object>jsonObj),
@@ -387,6 +392,11 @@ export namespace UpdateConnectionDetails {
         case "SNOWFLAKE":
           return model.UpdateSnowflakeConnectionDetails.getDeserializedJsonObj(
             <model.UpdateSnowflakeConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_AI_DATA_CATALOG_STORAGE":
+          return model.UpdateOracleAiDataCatalogStorageConnectionDetails.getDeserializedJsonObj(
+            <model.UpdateOracleAiDataCatalogStorageConnectionDetails>(<object>jsonObj),
             true
           );
         case "HDFS":

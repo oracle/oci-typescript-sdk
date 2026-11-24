@@ -49,9 +49,24 @@ export namespace UpdateIcebergStorageDetails {
             <model.UpdateGoogleCloudStorageIcebergStorageDetails>(<object>jsonObj),
             true
           );
+        case "OCI_OBJECT_STORAGE_ACCESS_KEY":
+          return model.UpdateOciObjectStorageAccessKeyIcebergStorageDetails.getJsonObj(
+            <model.UpdateOciObjectStorageAccessKeyIcebergStorageDetails>(<object>jsonObj),
+            true
+          );
         case "AZURE_DATA_LAKE_STORAGE":
           return model.UpdateAzureDataLakeStorageIcebergStorageDetails.getJsonObj(
             <model.UpdateAzureDataLakeStorageIcebergStorageDetails>(<object>jsonObj),
+            true
+          );
+        case "AZURE_STORAGE":
+          return model.UpdateAzureStorageIcebergStorageDetails.getJsonObj(
+            <model.UpdateAzureStorageIcebergStorageDetails>(<object>jsonObj),
+            true
+          );
+        case "ZFS":
+          return model.UpdateZfsIcebergStorageDetails.getJsonObj(
+            <model.UpdateZfsIcebergStorageDetails>(<object>jsonObj),
             true
           );
         default:
@@ -85,9 +100,24 @@ export namespace UpdateIcebergStorageDetails {
             <model.UpdateGoogleCloudStorageIcebergStorageDetails>(<object>jsonObj),
             true
           );
+        case "OCI_OBJECT_STORAGE_ACCESS_KEY":
+          return model.UpdateOciObjectStorageAccessKeyIcebergStorageDetails.getDeserializedJsonObj(
+            <model.UpdateOciObjectStorageAccessKeyIcebergStorageDetails>(<object>jsonObj),
+            true
+          );
         case "AZURE_DATA_LAKE_STORAGE":
           return model.UpdateAzureDataLakeStorageIcebergStorageDetails.getDeserializedJsonObj(
             <model.UpdateAzureDataLakeStorageIcebergStorageDetails>(<object>jsonObj),
+            true
+          );
+        case "AZURE_STORAGE":
+          return model.UpdateAzureStorageIcebergStorageDetails.getDeserializedJsonObj(
+            <model.UpdateAzureStorageIcebergStorageDetails>(<object>jsonObj),
+            true
+          );
+        case "ZFS":
+          return model.UpdateZfsIcebergStorageDetails.getDeserializedJsonObj(
+            <model.UpdateZfsIcebergStorageDetails>(<object>jsonObj),
             true
           );
         default:

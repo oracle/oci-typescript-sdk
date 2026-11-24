@@ -44,6 +44,11 @@ export namespace IcebergCatalog {
             <model.RestIcebergCatalog>(<object>jsonObj),
             true
           );
+        case "OADC":
+          return model.OracleAiDataCatalogIcebergCatalog.getJsonObj(
+            <model.OracleAiDataCatalogIcebergCatalog>(<object>jsonObj),
+            true
+          );
         case "NESSIE":
           return model.NessieIcebergCatalog.getJsonObj(
             <model.NessieIcebergCatalog>(<object>jsonObj),
@@ -78,6 +83,11 @@ export namespace IcebergCatalog {
         case "REST":
           return model.RestIcebergCatalog.getDeserializedJsonObj(
             <model.RestIcebergCatalog>(<object>jsonObj),
+            true
+          );
+        case "OADC":
+          return model.OracleAiDataCatalogIcebergCatalog.getDeserializedJsonObj(
+            <model.OracleAiDataCatalogIcebergCatalog>(<object>jsonObj),
             true
           );
         case "NESSIE":

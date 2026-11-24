@@ -33,6 +33,11 @@ export namespace KeyStoreTypeDetails {
             <model.KeyStoreTypeFromOracleKeyVaultDetails>(<object>jsonObj),
             true
           );
+        case "THALES":
+          return model.KeyStoreTypeFromThalesDetails.getJsonObj(
+            <model.KeyStoreTypeFromThalesDetails>(<object>jsonObj),
+            true
+          );
         default:
           if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.type}`);
       }
@@ -47,6 +52,11 @@ export namespace KeyStoreTypeDetails {
         case "ORACLE_KEY_VAULT":
           return model.KeyStoreTypeFromOracleKeyVaultDetails.getDeserializedJsonObj(
             <model.KeyStoreTypeFromOracleKeyVaultDetails>(<object>jsonObj),
+            true
+          );
+        case "THALES":
+          return model.KeyStoreTypeFromThalesDetails.getDeserializedJsonObj(
+            <model.KeyStoreTypeFromThalesDetails>(<object>jsonObj),
             true
           );
         default:

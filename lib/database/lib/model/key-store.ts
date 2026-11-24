@@ -44,7 +44,7 @@ export interface KeyStore {
    * Additional information about the current lifecycle state.
    */
   "lifecycleDetails"?: string;
-  "typeDetails": model.KeyStoreTypeFromOracleKeyVaultDetails;
+  "typeDetails": model.KeyStoreTypeFromOracleKeyVaultDetails | model.KeyStoreTypeFromThalesDetails;
   /**
    * List of databases associated with the key store.
    */
@@ -57,6 +57,16 @@ export interface KeyStore {
    * Indicates the number of long term backups of Autonomous AI Databases associated with this backup destination. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "associatedLongTermBackupCount"?: number;
+  /**
+   * List of Autonomous VM Clusters associated with the key store.
+   */
+  "associatedAutonomousVmClusters"?: Array<model.KeyStoreAssociatedAutonomousVmClusterDetails>;
+  /**
+   * List of Cloud Autonomous VM Clusters associated with the key store.
+   */
+  "associatedCloudAutonomousVmClusters"?: Array<
+    model.KeyStoreAssociatedCloudAutonomousVmClusterDetails
+  >;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
 * For more information, see [Resource Tags](https://docs.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
@@ -107,6 +117,17 @@ export namespace KeyStore {
           ? obj.associatedLongTermBackups.map(item => {
               return model.AssociatedLongTermBackup.getJsonObj(item);
             })
+          : undefined,
+
+        "associatedAutonomousVmClusters": obj.associatedAutonomousVmClusters
+          ? obj.associatedAutonomousVmClusters.map(item => {
+              return model.KeyStoreAssociatedAutonomousVmClusterDetails.getJsonObj(item);
+            })
+          : undefined,
+        "associatedCloudAutonomousVmClusters": obj.associatedCloudAutonomousVmClusters
+          ? obj.associatedCloudAutonomousVmClusters.map(item => {
+              return model.KeyStoreAssociatedCloudAutonomousVmClusterDetails.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -128,6 +149,21 @@ export namespace KeyStore {
         "associatedLongTermBackups": obj.associatedLongTermBackups
           ? obj.associatedLongTermBackups.map(item => {
               return model.AssociatedLongTermBackup.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "associatedAutonomousVmClusters": obj.associatedAutonomousVmClusters
+          ? obj.associatedAutonomousVmClusters.map(item => {
+              return model.KeyStoreAssociatedAutonomousVmClusterDetails.getDeserializedJsonObj(
+                item
+              );
+            })
+          : undefined,
+        "associatedCloudAutonomousVmClusters": obj.associatedCloudAutonomousVmClusters
+          ? obj.associatedCloudAutonomousVmClusters.map(item => {
+              return model.KeyStoreAssociatedCloudAutonomousVmClusterDetails.getDeserializedJsonObj(
+                item
+              );
             })
           : undefined
       }

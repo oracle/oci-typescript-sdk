@@ -187,6 +187,11 @@ export namespace CreateConnectionDetails {
             <model.CreateAzureDataLakeStorageConnectionDetails>(<object>jsonObj),
             true
           );
+        case "ORACLE_AI_DATA_CATALOG_STORAGE":
+          return model.CreateOracleAiDataCatalogStorageConnectionDetails.getJsonObj(
+            <model.CreateOracleAiDataCatalogStorageConnectionDetails>(<object>jsonObj),
+            true
+          );
         case "ORACLE_AI_DATA_PLATFORM_ENGINE":
           return model.CreateOracleAiDataPlatformEngineConnectionDetails.getJsonObj(
             <model.CreateOracleAiDataPlatformEngineConnectionDetails>(<object>jsonObj),
@@ -375,6 +380,11 @@ export namespace CreateConnectionDetails {
         case "AZURE_DATA_LAKE_STORAGE":
           return model.CreateAzureDataLakeStorageConnectionDetails.getDeserializedJsonObj(
             <model.CreateAzureDataLakeStorageConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_AI_DATA_CATALOG_STORAGE":
+          return model.CreateOracleAiDataCatalogStorageConnectionDetails.getDeserializedJsonObj(
+            <model.CreateOracleAiDataCatalogStorageConnectionDetails>(<object>jsonObj),
             true
           );
         case "ORACLE_AI_DATA_PLATFORM_ENGINE":

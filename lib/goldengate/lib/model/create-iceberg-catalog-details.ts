@@ -29,6 +29,11 @@ export namespace CreateIcebergCatalogDetails {
 
     if (obj && "catalogType" in obj && obj.catalogType) {
       switch (obj.catalogType) {
+        case "OADC":
+          return model.CreateOracleAiDataCatalogIcebergCatalogDetails.getJsonObj(
+            <model.CreateOracleAiDataCatalogIcebergCatalogDetails>(<object>jsonObj),
+            true
+          );
         case "POLARIS":
           return model.CreatePolarisIcebergCatalogDetails.getJsonObj(
             <model.CreatePolarisIcebergCatalogDetails>(<object>jsonObj),
@@ -65,6 +70,11 @@ export namespace CreateIcebergCatalogDetails {
 
     if (obj && "catalogType" in obj && obj.catalogType) {
       switch (obj.catalogType) {
+        case "OADC":
+          return model.CreateOracleAiDataCatalogIcebergCatalogDetails.getDeserializedJsonObj(
+            <model.CreateOracleAiDataCatalogIcebergCatalogDetails>(<object>jsonObj),
+            true
+          );
         case "POLARIS":
           return model.CreatePolarisIcebergCatalogDetails.getDeserializedJsonObj(
             <model.CreatePolarisIcebergCatalogDetails>(<object>jsonObj),

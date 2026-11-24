@@ -49,6 +49,11 @@ export namespace UpdateIcebergCatalogDetails {
             <model.UpdateHadoopIcebergCatalogDetails>(<object>jsonObj),
             true
           );
+        case "OADC":
+          return model.UpdateOracleAiDataCatalogIcebergCatalogDetails.getJsonObj(
+            <model.UpdateOracleAiDataCatalogIcebergCatalogDetails>(<object>jsonObj),
+            true
+          );
         case "GLUE":
           return model.UpdateGlueIcebergCatalogDetails.getJsonObj(
             <model.UpdateGlueIcebergCatalogDetails>(<object>jsonObj),
@@ -83,6 +88,11 @@ export namespace UpdateIcebergCatalogDetails {
         case "HADOOP":
           return model.UpdateHadoopIcebergCatalogDetails.getDeserializedJsonObj(
             <model.UpdateHadoopIcebergCatalogDetails>(<object>jsonObj),
+            true
+          );
+        case "OADC":
+          return model.UpdateOracleAiDataCatalogIcebergCatalogDetails.getDeserializedJsonObj(
+            <model.UpdateOracleAiDataCatalogIcebergCatalogDetails>(<object>jsonObj),
             true
           );
         case "GLUE":

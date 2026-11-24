@@ -26,6 +26,7 @@ export enum OperationType {
   DeleteDistributedDb = "DELETE_DISTRIBUTED_DB",
   ChangeDistributedDbCompartment = "CHANGE_DISTRIBUTED_DB_COMPARTMENT",
   ConfigureDistributedDbGsms = "CONFIGURE_DISTRIBUTED_DB_GSMS",
+  ScaleDistributedDbGsms = "SCALE_DISTRIBUTED_DB_GSMS",
   ConfigureDistributedDbSharding = "CONFIGURE_DISTRIBUTED_DB_SHARDING",
   RotateDistributedDbPasswords = "ROTATE_DISTRIBUTED_DB_PASSWORDS",
   StartDistributedDb = "START_DISTRIBUTED_DB",

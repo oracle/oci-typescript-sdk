@@ -27,6 +27,11 @@ export namespace OracleDataTransferMediumDetails {
 
     if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
+        case "GCS":
+          return model.OracleGcsDataTransferMediumDetails.getJsonObj(
+            <model.OracleGcsDataTransferMediumDetails>(<object>jsonObj),
+            true
+          );
         case "DBLINK":
           return model.OracleDbLinkDataTransferMediumDetails.getJsonObj(
             <model.OracleDbLinkDataTransferMediumDetails>(<object>jsonObj),
@@ -47,6 +52,11 @@ export namespace OracleDataTransferMediumDetails {
             <model.OracleNfsDataTransferMediumDetails>(<object>jsonObj),
             true
           );
+        case "AZURE_BLOB":
+          return model.OracleAzureBlobDataTransferMediumDetails.getJsonObj(
+            <model.OracleAzureBlobDataTransferMediumDetails>(<object>jsonObj),
+            true
+          );
         default:
           if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.type}`);
       }
@@ -58,6 +68,11 @@ export namespace OracleDataTransferMediumDetails {
 
     if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
+        case "GCS":
+          return model.OracleGcsDataTransferMediumDetails.getDeserializedJsonObj(
+            <model.OracleGcsDataTransferMediumDetails>(<object>jsonObj),
+            true
+          );
         case "DBLINK":
           return model.OracleDbLinkDataTransferMediumDetails.getDeserializedJsonObj(
             <model.OracleDbLinkDataTransferMediumDetails>(<object>jsonObj),
@@ -76,6 +91,11 @@ export namespace OracleDataTransferMediumDetails {
         case "NFS":
           return model.OracleNfsDataTransferMediumDetails.getDeserializedJsonObj(
             <model.OracleNfsDataTransferMediumDetails>(<object>jsonObj),
+            true
+          );
+        case "AZURE_BLOB":
+          return model.OracleAzureBlobDataTransferMediumDetails.getDeserializedJsonObj(
+            <model.OracleAzureBlobDataTransferMediumDetails>(<object>jsonObj),
             true
           );
         default:

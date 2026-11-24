@@ -8,6 +8,10 @@ documentation for the [Networking](https://docs.oracle.com/iaas/Content/Network/
 The required permissions are documented in the
 [Details for the Core Services](https://docs.oracle.com/iaas/Content/Identity/Reference/corepolicyreference.htm) article.
 
+The Core Services API provides both IPv4-only and dual-stack (IPv4 and IPv6) endpoints. By default, OCI-published SDKs and the CLI use IPv4-only endpoints.
+Use a dual-stack endpoint to connect over IPv6 while retaining IPv4 compatibility.
+Dual-stack endpoints use the following format: https://{service}.{region}.ds.oci.{secondLevelDomain}.
+
  * OpenAPI spec version: 20160918
  * 
  *
@@ -99,6 +103,7 @@ To use the instance pool with a regional subnet, provide a placement configurati
    */
   "instanceHostnameFormatter"?: string;
   "lifecycleManagement"?: model.InstancePoolLifecycleManagementDetails;
+  "instanceMaintenancePolicy"?: model.InstancePoolMaintenancePolicyDetails;
 }
 
 export namespace CreateInstancePoolDetails {
@@ -123,6 +128,9 @@ export namespace CreateInstancePoolDetails {
 
         "lifecycleManagement": obj.lifecycleManagement
           ? model.InstancePoolLifecycleManagementDetails.getJsonObj(obj.lifecycleManagement)
+          : undefined,
+        "instanceMaintenancePolicy": obj.instanceMaintenancePolicy
+          ? model.InstancePoolMaintenancePolicyDetails.getJsonObj(obj.instanceMaintenancePolicy)
           : undefined
       }
     };
@@ -153,6 +161,11 @@ export namespace CreateInstancePoolDetails {
         "lifecycleManagement": obj.lifecycleManagement
           ? model.InstancePoolLifecycleManagementDetails.getDeserializedJsonObj(
               obj.lifecycleManagement
+            )
+          : undefined,
+        "instanceMaintenancePolicy": obj.instanceMaintenancePolicy
+          ? model.InstancePoolMaintenancePolicyDetails.getDeserializedJsonObj(
+              obj.instanceMaintenancePolicy
             )
           : undefined
       }

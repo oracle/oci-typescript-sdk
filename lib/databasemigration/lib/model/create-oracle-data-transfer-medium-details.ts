@@ -32,9 +32,19 @@ export namespace CreateOracleDataTransferMediumDetails {
             <model.CreateOracleDbLinkDataTransferMediumDetails>(<object>jsonObj),
             true
           );
+        case "GCS":
+          return model.CreateOracleGcsDataTransferMediumDetails.getJsonObj(
+            <model.CreateOracleGcsDataTransferMediumDetails>(<object>jsonObj),
+            true
+          );
         case "NFS":
           return model.CreateOracleNfsDataTransferMediumDetails.getJsonObj(
             <model.CreateOracleNfsDataTransferMediumDetails>(<object>jsonObj),
+            true
+          );
+        case "AZURE_BLOB":
+          return model.CreateOracleAzureBlobDataTransferMediumDetails.getJsonObj(
+            <model.CreateOracleAzureBlobDataTransferMediumDetails>(<object>jsonObj),
             true
           );
         case "OBJECT_STORAGE":
@@ -63,9 +73,19 @@ export namespace CreateOracleDataTransferMediumDetails {
             <model.CreateOracleDbLinkDataTransferMediumDetails>(<object>jsonObj),
             true
           );
+        case "GCS":
+          return model.CreateOracleGcsDataTransferMediumDetails.getDeserializedJsonObj(
+            <model.CreateOracleGcsDataTransferMediumDetails>(<object>jsonObj),
+            true
+          );
         case "NFS":
           return model.CreateOracleNfsDataTransferMediumDetails.getDeserializedJsonObj(
             <model.CreateOracleNfsDataTransferMediumDetails>(<object>jsonObj),
+            true
+          );
+        case "AZURE_BLOB":
+          return model.CreateOracleAzureBlobDataTransferMediumDetails.getDeserializedJsonObj(
+            <model.CreateOracleAzureBlobDataTransferMediumDetails>(<object>jsonObj),
             true
           );
         case "OBJECT_STORAGE":

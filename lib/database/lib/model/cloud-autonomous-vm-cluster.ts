@@ -311,6 +311,11 @@ Example: {@code {\"Department\": \"Finance\"}}
    * Percentage of ECPU memory allocated for SGA(System Global Area). Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "sgaPercentage"?: number;
+  "keyManagementSystemDetails"?:
+    | model.OracleManagedKeyManagementSystemDetails
+    | model.ThalesKeyManagementSystemDetails
+    | model.OciVaultKeyManagementSystemDetails
+    | model.OracleKeyVaultKeyManagementSystemDetails;
 }
 
 export namespace CloudAutonomousVmCluster {
@@ -383,6 +388,10 @@ export namespace CloudAutonomousVmCluster {
           ? obj.multiCloudIdentityConnectorConfigs.map(item => {
               return model.IdentityConnectorDetails.getJsonObj(item);
             })
+          : undefined,
+
+        "keyManagementSystemDetails": obj.keyManagementSystemDetails
+          ? model.KeyManagementSystemDetails.getJsonObj(obj.keyManagementSystemDetails)
           : undefined
       }
     };
@@ -401,6 +410,10 @@ export namespace CloudAutonomousVmCluster {
           ? obj.multiCloudIdentityConnectorConfigs.map(item => {
               return model.IdentityConnectorDetails.getDeserializedJsonObj(item);
             })
+          : undefined,
+
+        "keyManagementSystemDetails": obj.keyManagementSystemDetails
+          ? model.KeyManagementSystemDetails.getDeserializedJsonObj(obj.keyManagementSystemDetails)
           : undefined
       }
     };

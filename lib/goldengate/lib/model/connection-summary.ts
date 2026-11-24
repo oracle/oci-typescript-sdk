@@ -317,6 +317,11 @@ export namespace ConnectionSummary {
             <model.SparkConnectionSummary>(<object>jsonObj),
             true
           );
+        case "ORACLE_AI_DATA_CATALOG_STORAGE":
+          return model.OracleAiDataCatalogStorageConnectionSummary.getJsonObj(
+            <model.OracleAiDataCatalogStorageConnectionSummary>(<object>jsonObj),
+            true
+          );
         case "AZURE_DATA_LAKE_STORAGE":
           return model.AzureDataLakeStorageConnectionSummary.getJsonObj(
             <model.AzureDataLakeStorageConnectionSummary>(<object>jsonObj),
@@ -511,6 +516,11 @@ export namespace ConnectionSummary {
         case "SPARK":
           return model.SparkConnectionSummary.getDeserializedJsonObj(
             <model.SparkConnectionSummary>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_AI_DATA_CATALOG_STORAGE":
+          return model.OracleAiDataCatalogStorageConnectionSummary.getDeserializedJsonObj(
+            <model.OracleAiDataCatalogStorageConnectionSummary>(<object>jsonObj),
             true
           );
         case "AZURE_DATA_LAKE_STORAGE":

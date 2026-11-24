@@ -27,6 +27,11 @@ export namespace UpdateOracleDataTransferMediumDetails {
 
     if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
+        case "GCS":
+          return model.UpdateOracleGcsDataTransferMediumDetails.getJsonObj(
+            <model.UpdateOracleGcsDataTransferMediumDetails>(<object>jsonObj),
+            true
+          );
         case "AWS_S3":
           return model.UpdateOracleAwsS3DataTransferMediumDetails.getJsonObj(
             <model.UpdateOracleAwsS3DataTransferMediumDetails>(<object>jsonObj),
@@ -40,6 +45,11 @@ export namespace UpdateOracleDataTransferMediumDetails {
         case "OBJECT_STORAGE":
           return model.UpdateOracleObjectStorageDataTransferMediumDetails.getJsonObj(
             <model.UpdateOracleObjectStorageDataTransferMediumDetails>(<object>jsonObj),
+            true
+          );
+        case "AZURE_BLOB":
+          return model.UpdateOracleAzureBlobDataTransferMediumDetails.getJsonObj(
+            <model.UpdateOracleAzureBlobDataTransferMediumDetails>(<object>jsonObj),
             true
           );
         case "DBLINK":
@@ -58,6 +68,11 @@ export namespace UpdateOracleDataTransferMediumDetails {
 
     if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
+        case "GCS":
+          return model.UpdateOracleGcsDataTransferMediumDetails.getDeserializedJsonObj(
+            <model.UpdateOracleGcsDataTransferMediumDetails>(<object>jsonObj),
+            true
+          );
         case "AWS_S3":
           return model.UpdateOracleAwsS3DataTransferMediumDetails.getDeserializedJsonObj(
             <model.UpdateOracleAwsS3DataTransferMediumDetails>(<object>jsonObj),
@@ -71,6 +86,11 @@ export namespace UpdateOracleDataTransferMediumDetails {
         case "OBJECT_STORAGE":
           return model.UpdateOracleObjectStorageDataTransferMediumDetails.getDeserializedJsonObj(
             <model.UpdateOracleObjectStorageDataTransferMediumDetails>(<object>jsonObj),
+            true
+          );
+        case "AZURE_BLOB":
+          return model.UpdateOracleAzureBlobDataTransferMediumDetails.getDeserializedJsonObj(
+            <model.UpdateOracleAzureBlobDataTransferMediumDetails>(<object>jsonObj),
             true
           );
         case "DBLINK":

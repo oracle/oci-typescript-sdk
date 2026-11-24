@@ -1728,6 +1728,87 @@ export class DatabaseClient {
   }
 
   /**
+   * Update the Autonomous VM Cluster's key management system details where TDE keys of this cluster's ACDs will be stored.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ChangeAvmKeyManagementSystemRequest
+   * @return ChangeAvmKeyManagementSystemResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeAvmKeyManagementSystem.ts.html |here} to see how to use ChangeAvmKeyManagementSystem API.
+   */
+  public async changeAvmKeyManagementSystem(
+    changeAvmKeyManagementSystemRequest: requests.ChangeAvmKeyManagementSystemRequest
+  ): Promise<responses.ChangeAvmKeyManagementSystemResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#changeAvmKeyManagementSystem.");
+    const operationName = "changeAvmKeyManagementSystem";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousVmCluster/ChangeAvmKeyManagementSystem";
+    const pathParams = {
+      "{autonomousVmClusterId}": changeAvmKeyManagementSystemRequest.autonomousVmClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": changeAvmKeyManagementSystemRequest.opcRequestId,
+      "opc-retry-token": changeAvmKeyManagementSystemRequest.opcRetryToken,
+      "if-match": changeAvmKeyManagementSystemRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeAvmKeyManagementSystemRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/autonomousVmClusters/{autonomousVmClusterId}/actions/changeKeyManagementSystem",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeAvmKeyManagementSystemRequest.changeAvmKeyManagementSystemDetails,
+        "KeyManagementSystemDetails",
+        model.KeyManagementSystemDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeAvmKeyManagementSystemResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Move the backup destination and its dependent resources to the specified compartment.
    * For more information, see
    * [Moving Database Resources to a Different Compartment](https://docs.oracle.com/iaas/Content/Database/Concepts/databaseoverview.htm#moveRes).
@@ -1876,6 +1957,89 @@ export class DatabaseClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeBaseccVmClusterCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Update the Cloud Autonomous VM Cluster's key management system details where TDE keys of this cluster's ACDs will be stored.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ChangeCavmKeyManagementSystemRequest
+   * @return ChangeCavmKeyManagementSystemResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeCavmKeyManagementSystem.ts.html |here} to see how to use ChangeCavmKeyManagementSystem API.
+   */
+  public async changeCavmKeyManagementSystem(
+    changeCavmKeyManagementSystemRequest: requests.ChangeCavmKeyManagementSystemRequest
+  ): Promise<responses.ChangeCavmKeyManagementSystemResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#changeCavmKeyManagementSystem.");
+    const operationName = "changeCavmKeyManagementSystem";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/CloudAutonomousVmCluster/ChangeCavmKeyManagementSystem";
+    const pathParams = {
+      "{cloudAutonomousVmClusterId}":
+        changeCavmKeyManagementSystemRequest.cloudAutonomousVmClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": changeCavmKeyManagementSystemRequest.opcRequestId,
+      "opc-retry-token": changeCavmKeyManagementSystemRequest.opcRetryToken,
+      "if-match": changeCavmKeyManagementSystemRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeCavmKeyManagementSystemRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/cloudAutonomousVmClusters/{cloudAutonomousVmClusterId}/actions/changeKeyManagementSystem",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeCavmKeyManagementSystemRequest.changeCavmKeyManagementSystemDetails,
+        "KeyManagementSystemDetails",
+        model.KeyManagementSystemDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeCavmKeyManagementSystemResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -24578,6 +24742,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       "sortBy": listAutonomousVmClustersRequest.sortBy,
       "sortOrder": listAutonomousVmClustersRequest.sortOrder,
       "lifecycleState": listAutonomousVmClustersRequest.lifecycleState,
+      "kmsType": listAutonomousVmClustersRequest.kmsType,
       "displayName": listAutonomousVmClustersRequest.displayName
     };
 
@@ -25624,6 +25789,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       "sortBy": listCloudAutonomousVmClustersRequest.sortBy,
       "sortOrder": listCloudAutonomousVmClustersRequest.sortOrder,
       "lifecycleState": listCloudAutonomousVmClustersRequest.lifecycleState,
+      "kmsType": listCloudAutonomousVmClustersRequest.kmsType,
       "availabilityDomain": listCloudAutonomousVmClustersRequest.availabilityDomain,
       "displayName": listCloudAutonomousVmClustersRequest.displayName
     };
@@ -31384,7 +31550,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
     const queryParams = {
       "compartmentId": listKeyStoresRequest.compartmentId,
       "limit": listKeyStoresRequest.limit,
-      "page": listKeyStoresRequest.page
+      "page": listKeyStoresRequest.page,
+      "keyStoreType": listKeyStoresRequest.keyStoreType
     };
 
     let headerParams = {
